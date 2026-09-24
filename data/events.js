@@ -5919,6 +5919,71 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceTrust": "unverified"
   },
   {
+    "sport": "F1",
+    "key": "f1",
+    "name": "R10 Belgian GP Qualifying",
+    "date": "2026-07-19",
+    "time": "23:00",
+    "broadcaster": "Kayo Sports",
+    "expected": 7,
+    "venue": null,
+    "liveWindow": 3,
+    "id": "evt_20",
+    "eventId": "evt_20",
+    "displayTitleCompact": "R10 Belgian GP Qualifying",
+    "selectedSentence": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
+    "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
+    "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
+    "broadcastOptions": [
+      "Kayo Sports"
+    ],
+    "round": "all",
+    "narrativeType": "post-match",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "completed",
+    "score": "1 Kimi Antonelli; 2 Charles Leclerc +1.952s; 3 Max Verstappen",
+    "outcomeText": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
+    "recapText": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring.",
+    "resultLabels": [
+      "Qualifying",
+      "Antonelli pole",
+      "Norris starts P13"
+    ],
+    "storyline": {
+      "stakes": 3,
+      "intensity": 4,
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Kimi Antonelli took pole at Spa ahead of Max Verstappen, while Lando Norris qualified third but drops to P13 for the race.",
+      "synopsisSpoilerOn": "Antonelli led Verstappen in qualifying at Spa. Norris set the third-fastest time but his 10-place power-unit penalty sends him to P13, reshaping the front of the grid for Sunday's race."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "startTimeUtc": "2026-07-19T13:00:00Z",
+    "endTimeUtc": "2026-07-19T16:00:00Z",
+    "sourceType": "reputable",
+    "sourceTrust": "unverified",
+    "verifiedFactSource": {
+      "sourceType": "official",
+      "sourceName": "FIA Belgian Grand Prix race report",
+      "sourceUrl": "https://www.fia.com/news/f1-antonelli-fights-back-beat-leclerc-and-verstappen-russell-retires",
+      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
+      "protectedFields": [
+        "outcomeText",
+        "recapText",
+        "score",
+        "time"
+      ]
+    }
+  },
+  {
     "sport": "Football",
     "key": "fifa",
     "broadcaster": "SBS On Demand",
@@ -6098,71 +6163,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "sourceType": "reputable",
     "sourceTrust": "unverified"
-  },
-  {
-    "sport": "F1",
-    "key": "f1",
-    "name": "R10 Belgian GP Qualifying",
-    "date": "2026-07-19",
-    "time": "23:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_20",
-    "eventId": "evt_20",
-    "displayTitleCompact": "R10 Belgian GP Qualifying",
-    "selectedSentence": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
-    "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
-    "broadcastOptions": [
-      "Kayo Sports"
-    ],
-    "round": "all",
-    "narrativeType": "post-match",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "completed",
-    "score": "1 Kimi Antonelli; 2 Charles Leclerc +1.952s; 3 Max Verstappen",
-    "outcomeText": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
-    "recapText": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring.",
-    "resultLabels": [
-      "Qualifying",
-      "Antonelli pole",
-      "Norris starts P13"
-    ],
-    "storyline": {
-      "stakes": 3,
-      "intensity": 4,
-      "arcStage": "recap",
-      "expectedSpectacle": 7,
-      "intensitySource": "computed",
-      "hookSpoilerOff": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
-      "synopsisSpoilerOff": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Kimi Antonelli took pole at Spa ahead of Max Verstappen, while Lando Norris qualified third but drops to P13 for the race.",
-      "synopsisSpoilerOn": "Antonelli led Verstappen in qualifying at Spa. Norris set the third-fastest time but his 10-place power-unit penalty sends him to P13, reshaping the front of the grid for Sunday's race."
-    },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
-    "startTimeUtc": "2026-07-19T13:00:00Z",
-    "endTimeUtc": "2026-07-19T16:00:00Z",
-    "sourceType": "reputable",
-    "sourceTrust": "unverified",
-    "verifiedFactSource": {
-      "sourceType": "official",
-      "sourceName": "FIA Belgian Grand Prix race report",
-      "sourceUrl": "https://www.fia.com/news/f1-antonelli-fights-back-beat-leclerc-and-verstappen-russell-retires",
-      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
-      "protectedFields": [
-        "outcomeText",
-        "recapText",
-        "score",
-        "time"
-      ]
-    }
   },
   {
     "sport": "F1",
@@ -6548,7 +6548,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6705,7 +6705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6804,7 +6804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6903,7 +6903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7214,7 +7214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7311,7 +7311,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7412,7 +7412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7511,7 +7511,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7610,7 +7610,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7709,7 +7709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7862,7 +7862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8071,7 +8071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8170,7 +8170,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8269,7 +8269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8368,7 +8368,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9380,7 +9380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9469,7 +9469,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9672,7 +9672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9771,7 +9771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9870,7 +9870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10126,7 +10126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10225,7 +10225,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10324,7 +10324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10498,7 +10498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10663,7 +10663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10762,7 +10762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10861,7 +10861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11294,7 +11294,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11393,7 +11393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11492,7 +11492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11591,7 +11591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11984,7 +11984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12085,7 +12085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12184,7 +12184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12283,7 +12283,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12382,7 +12382,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12481,7 +12481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12580,7 +12580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12679,7 +12679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12778,7 +12778,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12877,7 +12877,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12976,7 +12976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13075,7 +13075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13262,7 +13262,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13361,7 +13361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13462,7 +13462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13561,7 +13561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13660,7 +13660,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13735,8 +13735,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "Test cricket returned to Darwin after 22 years with Bangladesh seeking a first breakthrough on Australian soil.",
-    "fullSpiel": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
+    "selectedSentence": "Australia v Bangladesh — 1st Test is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Australia v Bangladesh — 1st Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Cricket Australia Darwin Test report",
     "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -13761,15 +13761,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "Test cricket returned to Darwin after 22 years with Bangladesh seeking a first breakthrough on Australian soil.",
+      "hookSpoilerOff": "Australia v Bangladesh — 1st Test is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin.",
-      "synopsisSpoilerOff": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
-      "synopsisSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin. Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "synopsisSpoilerOff": "Australia v Bangladesh — 1st Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil.",
       "intensitySource": "computed",
       "lastReviewedAt": "2026-09-22T08:27:01.899Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -13831,21 +13831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Bangladesh defeated Australia by nine wickets in the first Test in Darwin.\",\"Bangladesh beat Australia by 9 wickets\",\"Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil.\"]"
     },
     "endTimeUtc": "2026-08-13T08:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Cricket — bangladesh persistent series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:consequence",
-        "narrative:path"
-      ],
-      "sourceName": "Cricket Australia Darwin Test report",
-      "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992401",
@@ -13893,7 +13879,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13992,7 +13978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14091,7 +14077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14190,7 +14176,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14289,7 +14275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14388,7 +14374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14567,7 +14553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14666,7 +14652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14765,7 +14751,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14864,7 +14850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14963,7 +14949,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15060,7 +15046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15159,7 +15145,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15258,7 +15244,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15357,7 +15343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15454,7 +15440,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15553,7 +15539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15652,7 +15638,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15751,7 +15737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15860,7 +15846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15949,7 +15935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16048,7 +16034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16220,8 +16206,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "Mackay's first Test became Australia's immediate answer to Darwin, with the two-match series itself on the line.",
-    "fullSpiel": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
+    "selectedSentence": "Australia v Bangladesh — 2nd Test is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Australia v Bangladesh — 2nd Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Cricket Australia 2026/27 international schedule",
     "sourceUrl": "https://www.cricket.com.au/news/4473637/",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -16248,14 +16234,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 7,
       "intensitySource": "computed",
       "archetype": "international test",
-      "hookSpoilerOff": "Mackay's first Test became Australia's immediate answer to Darwin, with the two-match series itself on the line.",
+      "hookSpoilerOff": "Australia v Bangladesh — 2nd Test is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.",
-      "synopsisSpoilerOff": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
-      "synopsisSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay. Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "synopsisSpoilerOff": "Australia v Bangladesh — 2nd Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory.",
       "lastReviewedAt": "2026-09-22T08:27:01.899Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -16316,21 +16302,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.\",\"Australia beat Bangladesh by an innings and 51 runs\",\"Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory.\"]"
     },
     "endTimeUtc": "2026-08-22T08:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Cricket — bangladesh persistent series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "Cricket Australia 2026/27 international schedule",
-      "sourceUrl": "https://www.cricket.com.au/news/4473637/",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142403",
@@ -16378,7 +16350,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16477,7 +16449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16576,7 +16548,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16675,7 +16647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16774,7 +16746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16873,7 +16845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16972,7 +16944,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17651,8 +17623,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for; the final answer stays behind the spoiler control.",
-    "fullSpiel": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
+    "selectedSentence": "Essendon v Port Adelaide is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Essendon v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -17666,7 +17638,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17737,10 +17709,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for; the final answer stays behind the spoiler control.",
+      "hookSpoilerOff": "Essendon v Port Adelaide is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Port Adelaide defeated Essendon 105-95.",
-      "synopsisSpoilerOff": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
-      "synopsisSpoilerOn": "Port Adelaide defeated Essendon 105-95. Essendon v Port Adelaide finished 95-105 in Round 24, with Port Adelaide winning by 10 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Essendon v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Essendon v Port Adelaide finished 95-105 in Round 24, with Port Adelaide winning by 10 points.",
       "lastReviewedAt": "2026-09-22T08:27:01.899Z",
       "intensity": 2,
       "expectedSpectacle": 4,
@@ -17751,20 +17723,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-23T05:20:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the last round into finals",
-      "contextSignals": [
-        "event-specific",
-        "narrative:consequence",
-        "narrative:path"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992507",
@@ -17797,8 +17756,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Titans and Sharks arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Titans v Sharks is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Titans v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -17812,7 +17771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17880,10 +17839,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Titans v Sharks is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sharks defeated Titans 30-22.",
-      "synopsisSpoilerOff": "Titans and Sharks arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Sharks defeated Titans 30-22. The current table now has Titans 16th on 18 points and Sharks 5th on 34, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Titans v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Titans v Sharks finished 22-30 in Round 25, with Sharks winning by 8 points.",
       "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "intensity": 2,
       "expectedSpectacle": 4,
@@ -17894,19 +17853,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-23T07:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Titans — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142408",
@@ -17939,8 +17886,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
-    "fullSpiel": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
+    "selectedSentence": "Sydney Swans v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Swans v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -17954,7 +17901,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -18025,10 +17972,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+      "hookSpoilerOff": "Sydney Swans v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Swans defeated North Melbourne 123-70.",
-      "synopsisSpoilerOff": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
-      "synopsisSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney Swans v North Melbourne finished 123-70 in Round 24, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Sydney Swans v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sydney Swans v North Melbourne finished 123-70 in Round 24, with Sydney Swans winning by 53 points.",
       "lastReviewedAt": "2026-09-22T08:27:01.899Z",
       "intensity": 2,
       "expectedSpectacle": 4,
@@ -18039,20 +17986,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-23T08:20:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the last round into finals",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992508",
@@ -18085,8 +18019,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Roosters and Wests Tigers arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Roosters v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Roosters v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -18100,7 +18034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -18168,10 +18102,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Roosters v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Wests Tigers defeated Roosters 25-24.",
-      "synopsisSpoilerOff": "Roosters and Wests Tigers arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Wests Tigers defeated Roosters 25-24. The current table now has Roosters 4th on 38 points and Wests Tigers 14th on 22, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Roosters v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Roosters v Wests Tigers finished 24-25 in Round 25, with Wests Tigers winning by 1 points.",
       "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "intensity": 2,
       "expectedSpectacle": 4,
@@ -18182,19 +18116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-23T09:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Roosters — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142409",
@@ -18227,8 +18149,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Hawthorn's final trip west decided whether a top-four double chance survived the last day; the result stays hidden here.",
-    "fullSpiel": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
+    "selectedSentence": "West Coast Eagles v Hawthorn is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "West Coast Eagles v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -18242,7 +18164,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -18312,10 +18234,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Hawthorn's final trip west decided whether a top-four double chance survived the last day; the result stays hidden here.",
+      "hookSpoilerOff": "West Coast Eagles v Hawthorn is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45.",
-      "synopsisSpoilerOff": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
-      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles v Hawthorn finished 45-107 in Round 24, with Hawthorn winning by 62 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "West Coast Eagles v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "West Coast Eagles v Hawthorn finished 45-107 in Round 24, with Hawthorn winning by 62 points.",
       "lastReviewedAt": "2026-09-22T08:27:01.899Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -18327,20 +18249,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-23T12:20:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the last round into finals",
-      "contextSignals": [
-        "event-specific",
-        "narrative:consequence",
-        "narrative:path"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128929",
@@ -18405,8 +18314,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton's goals-by-committee attack met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Brighton & Hove Albion v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brighton & Hove Albion v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -18433,10 +18342,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brighton's goals-by-committee attack met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Brighton & Hove Albion v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1. The result now updates Brighton & Hove Albion's a side that spread last season's goals across 19 players thread and Aston Villa's a new midfield and defensive spine thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-08-30T09:42:19.639Z"
     },
@@ -18476,20 +18385,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion defeated Aston Villa 4-0.\",\"Brighton & Hove Albion 4-0 Aston Villa\",\"Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -18555,8 +18450,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City's first post-Guardiola campaign met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Manchester City v Bournemouth is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Manchester City v Bournemouth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -18583,10 +18478,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Manchester City v Bournemouth is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Manchester City v Bournemouth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1.",
-      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City completed a 1-goal win in Premier League Matchweek 1. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Manchester City completed a 1-goal win in Premier League Matchweek 1.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-08-30T09:42:19.639Z"
     },
@@ -18626,20 +18521,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Bournemouth 2-1.\",\"Manchester City 2-1 Bournemouth\",\"Manchester City completed a 1-goal win in Premier League Matchweek 1.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -18655,8 +18536,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_25",
     "eventId": "evt_25",
     "displayTitleCompact": "R12 Dutch GP Race",
-    "selectedSentence": "The final scheduled Dutch Grand Prix is complete, with its result protected until you choose to reveal it.",
-    "fullSpiel": "Zandvoort's final scheduled Formula 1 weekend has a result-aware chapter ready behind spoiler protection. The persistent story joins the late-summer championship momentum to the circuit's farewell without exposing the outcome in the default view.",
+    "selectedSentence": "R12 Dutch GP Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R12 Dutch GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIA — 2026 Dutch Grand Prix report",
     "sourceUrl": "https://www.fia.com/news/f1-norris-wins-dramatic-dutch-grand-prix-ahead-antonelli-and-russell-verstappen-crashes",
     "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -18675,15 +18556,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "The final scheduled Dutch Grand Prix is complete, with its result protected until you choose to reveal it.",
+      "hookSpoilerOff": "R12 Dutch GP Race is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
-      "synopsisSpoilerOff": "Zandvoort's final scheduled Formula 1 weekend has a result-aware chapter ready behind spoiler protection. The persistent story joins the late-summer championship momentum to the circuit's farewell without exposing the outcome in the default view.",
-      "synopsisSpoilerOn": "Lando Norris followed his Hungary victory by catching and passing Kimi Antonelli after the restart at Zandvoort. The win closed Formula 1's final scheduled Dutch Grand Prix weekend and carried a two-race streak into the next chapter at Monza.",
+      "synopsisSpoilerOff": "R12 Dutch GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Norris completed 72 laps in 2:04:44.859 and won by 11.536 seconds from Antonelli, with Russell third and Oscar Piastri sixth.",
       "intensitySource": "computed",
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -18732,20 +18613,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.\",\"1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s\",\"Norris completed 72 laps in 2:04:44.859 and won by 11.536 seconds from Antonelli, with Russell third and Oscar Piastri sixth.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "The last scheduled Zandvoort race",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup",
-        "narrative:history"
-      ],
-      "sourceName": "FIA — 2026 Dutch Grand Prix report",
-      "sourceUrl": "https://www.fia.com/news/f1-norris-wins-dramatic-dutch-grand-prix-ahead-antonelli-and-russell-verstappen-crashes",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -18811,8 +18678,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle's new era after a summer exodus met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Newcastle United v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Newcastle United v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -18839,10 +18706,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Newcastle's new era after a summer exodus met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Newcastle United v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Newcastle United v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Newcastle United drew Liverpool 2-2.",
-      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool shared the points after a 2-2 draw. The result now updates Newcastle United's rebuilding leadership, midfield and coaching at once thread and Liverpool's Andoni Iraola's faster counterattacking identity thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Newcastle United and Liverpool shared the points after a 2-2 draw.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-08-30T09:42:19.639Z"
     },
@@ -18882,20 +18749,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United drew Liverpool 2-2.\",\"Newcastle United 2-2 Liverpool\",\"Newcastle United and Liverpool shared the points after a 2-2 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Newcastle United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -18961,8 +18814,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham's first post-Marco Silva season met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Fulham v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fulham v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -18989,10 +18842,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Fulham's first post-Marco Silva season met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Fulham v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Fulham v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Chelsea defeated Fulham 3-2.",
-      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. Chelsea completed a 1-goal win in Premier League Matchweek 1. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Chelsea's a new three-at-the-back project without European midweeks thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Chelsea completed a 1-goal win in Premier League Matchweek 1.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-08-31T15:59:48.326Z"
     },
@@ -19032,20 +18885,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Chelsea defeated Fulham 3-2.\",\"Fulham 2-3 Chelsea\",\"Chelsea completed a 1-goal win in Premier League Matchweek 1.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Fulham — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -19158,8 +18997,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Broncos and Storm met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Broncos and Storm arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Broncos v Storm is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Broncos v Storm is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -19173,7 +19012,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -19240,10 +19079,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Broncos and Storm met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "hookSpoilerOff": "Broncos v Storm is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Storm defeated Broncos 46-20.",
-      "synopsisSpoilerOff": "Broncos and Storm arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Storm defeated Broncos 46-20. The current table now has Broncos 15th on 20 points and Storm 11th on 26, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Broncos v Storm is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Broncos v Storm finished 20-46 in Round 26, with Storm winning by 26 points.",
       "lastReviewedAt": "2026-09-01T05:03:42.185Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -19255,19 +19094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-27T12:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Broncos — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992602",
@@ -19300,8 +19127,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sea Eagles and Dragons met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Sea Eagles and Dragons arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Sea Eagles v Dragons is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sea Eagles v Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -19315,7 +19142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -19382,10 +19209,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Sea Eagles and Dragons met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "hookSpoilerOff": "Sea Eagles v Dragons is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sea Eagles defeated Dragons 44-10.",
-      "synopsisSpoilerOff": "Sea Eagles and Dragons arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Sea Eagles defeated Dragons 44-10. The current table now has Sea Eagles 9th on 28 points and Dragons 17th on 14, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Sea Eagles v Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sea Eagles v Dragons finished 44-10 in Round 26, with Sea Eagles winning by 34 points.",
       "lastReviewedAt": "2026-09-01T05:03:42.185Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -19397,19 +19224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-28T11:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sea Eagles — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142502",
@@ -19446,13 +19261,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Collingwood"
       }
     ],
-    "selectedSentence": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
-    "fullSpiel": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
+    "selectedSentence": "Western Bulldogs v Collingwood is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Western Bulldogs v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19461,7 +19276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -19535,10 +19350,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
+      "hookSpoilerOff": "Western Bulldogs v Collingwood is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93.",
-      "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
-      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Western Bulldogs v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 4,
@@ -19656,21 +19471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "event-nrl-129992603",
@@ -19703,8 +19504,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Panthers and Bulldogs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Panthers and Bulldogs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Panthers v Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Panthers v Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -19718,7 +19519,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -19785,10 +19586,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Panthers and Bulldogs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Panthers v Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Panthers defeated Bulldogs 24-10.",
-      "synopsisSpoilerOff": "Panthers and Bulldogs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Panthers defeated Bulldogs 24-10. The current table now has Panthers 2nd on 40 points and Bulldogs 10th on 28, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Panthers v Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Panthers v Bulldogs finished 24-10 in Round 26, with Panthers winning by 14 points.",
       "lastReviewedAt": "2026-09-01T05:03:42.185Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -19800,19 +19601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-28T13:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Panthers — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128937",
@@ -19877,8 +19666,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Crystal Palace's Pierre Sage transition met Manchester City's first post-Guardiola campaign; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Crystal Palace v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Crystal Palace v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -19905,10 +19694,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Crystal Palace's Pierre Sage transition met Manchester City's first post-Guardiola campaign; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Crystal Palace v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Crystal Palace v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1.",
-      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Manchester City completed a 3-goal win in Premier League Matchweek 2. The result now updates Crystal Palace's a new build-from-the-back version of their established shape thread and Manchester City's Enzo Maresca's continuity-versus-change problem thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Manchester City completed a 3-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-04T15:32:40.440Z"
     },
@@ -19948,20 +19737,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Crystal Palace 4-1.\",\"Crystal Palace 1-4 Manchester City\",\"Manchester City completed a 3-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Crystal Palace — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -20012,7 +19787,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -20116,7 +19891,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -20203,8 +19978,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Titans and Rabbitohs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Titans and Rabbitohs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Titans v Rabbitohs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Titans v Rabbitohs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -20218,7 +19993,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -20288,10 +20063,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Titans and Rabbitohs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Titans v Rabbitohs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Rabbitohs defeated Titans 42-22.",
-      "synopsisSpoilerOff": "Titans and Rabbitohs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Rabbitohs defeated Titans 42-22. The current table now has Titans 16th on 18 points and Rabbitohs 6th on 34, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Titans v Rabbitohs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Titans v Rabbitohs finished 22-42 in Round 26, with Rabbitohs winning by 20 points.",
       "lastReviewedAt": "2026-09-04T19:39:38.532Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -20303,20 +20078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-29T08:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Titans — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640303",
@@ -20366,7 +20128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -20453,8 +20215,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Roosters and Dolphins met in Round 26 with a direct finals-position contest; the outcome stays hidden here.",
-    "fullSpiel": "Roosters and Dolphins arrived at Round 26 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Roosters v Dolphins is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Roosters v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -20468,7 +20230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -20538,10 +20300,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Roosters and Dolphins met in Round 26 with a direct finals-position contest; the outcome stays hidden here.",
+      "hookSpoilerOff": "Roosters v Dolphins is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Dolphins defeated Roosters 26-12.",
-      "synopsisSpoilerOff": "Roosters and Dolphins arrived at Round 26 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Dolphins defeated Roosters 26-12. The current table now has Roosters 4th on 38 points and Dolphins 3rd on 40, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Roosters v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Roosters v Dolphins finished 12-26 in Round 26, with Dolphins winning by 14 points.",
       "lastReviewedAt": "2026-09-04T19:39:38.532Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -20553,20 +20315,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-29T10:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Roosters — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992606",
@@ -20599,8 +20348,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Cowboys and Wests Tigers met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Cowboys and Wests Tigers arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Cowboys v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cowboys v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -20614,7 +20363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -20684,10 +20433,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Cowboys and Wests Tigers met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Cowboys v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Cowboys defeated Wests Tigers 24-10.",
-      "synopsisSpoilerOff": "Cowboys and Wests Tigers arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Cowboys defeated Wests Tigers 24-10. The current table now has Cowboys 8th on 32 points and Wests Tigers 15th on 22, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Cowboys v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Cowboys v Wests Tigers finished 24-10 in Round 26, with Cowboys winning by 14 points.",
       "lastReviewedAt": "2026-09-04T19:39:38.532Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -20699,20 +20448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-29T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Cowboys — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142501",
@@ -20749,13 +20485,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Carlton"
       }
     ],
-    "selectedSentence": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
-    "fullSpiel": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
+    "selectedSentence": "Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -20764,7 +20500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -20838,10 +20574,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
+      "hookSpoilerOff": "Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Carlton defeated Melbourne 74-55.",
-      "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
-      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 4,
@@ -20959,21 +20695,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "epl-2026-27-128939",
@@ -21038,8 +20760,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Liverpool's high-press rebuild met Nottingham Forest's Glasner reset; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Liverpool v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Liverpool v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -21066,10 +20788,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Liverpool's high-press rebuild met Nottingham Forest's Glasner reset; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Liverpool v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Liverpool v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2.",
-      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest shared the points after a 2-2 draw. The result now updates Liverpool's Andoni Iraola's faster counterattacking identity thread and Nottingham Forest's a new three-at-the-back structure against a poor home run thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Liverpool and Nottingham Forest shared the points after a 2-2 draw.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-04T19:39:38.624Z"
     },
@@ -21109,20 +20831,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool drew Nottingham Forest 2-2.\",\"Liverpool 2-2 Nottingham Forest\",\"Liverpool and Nottingham Forest shared the points after a 2-2 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Liverpool — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -21188,8 +20896,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Bournemouth's first European-season balancing act met Everton's search for more attack; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Bournemouth v Everton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bournemouth v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -21216,10 +20924,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Bournemouth's first European-season balancing act met Everton's search for more attack; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Bournemouth v Everton is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Bournemouth v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Bournemouth drew Everton 1-1.",
-      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. Bournemouth and Everton shared the points after a 1-1 draw. The result now updates AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread and Everton's adding goals to one of the league's strongest away defences thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Bournemouth and Everton shared the points after a 1-1 draw.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-04T19:39:38.624Z"
     },
@@ -21259,20 +20967,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Bournemouth drew Everton 1-1.\",\"Bournemouth 1-1 Everton\",\"Bournemouth and Everton shared the points after a 1-1 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -21338,8 +21032,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Coventry's return after 25 years met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Coventry City v Hull City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Coventry City v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -21366,10 +21060,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Coventry's return after 25 years met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Coventry City v Hull City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Coventry City v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hull City defeated Coventry City 1-0.",
-      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. Hull City completed a 1-goal win in Premier League Matchweek 2. The result now updates Coventry City's the set-piece strength behind a 97-goal promotion thread and Hull City's a playoff-built counterattack thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Hull City completed a 1-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-04T19:39:38.624Z"
     },
@@ -21409,20 +21103,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Hull City defeated Coventry City 1-0.\",\"Coventry City 0-1 Hull City\",\"Hull City completed a 1-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Coventry City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -21488,8 +21168,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham's first full De Zerbi season met Newcastle's new era after a summer exodus; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Tottenham Hotspur v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tottenham Hotspur v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -21516,10 +21196,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Tottenham's first full De Zerbi season met Newcastle's new era after a summer exodus; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Tottenham Hotspur v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Tottenham Hotspur v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0.",
-      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Newcastle United completed a 2-goal win in Premier League Matchweek 2. The result now updates Tottenham Hotspur's a new ball-playing defence under an attacking coach thread and Newcastle United's rebuilding leadership, midfield and coaching at once thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Newcastle United completed a 2-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-04T19:39:38.624Z"
     },
@@ -21559,20 +21239,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United defeated Tottenham Hotspur 2-0.\",\"Tottenham Hotspur 0-2 Newcastle United\",\"Newcastle United completed a 2-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -21594,8 +21260,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "The first Jujuy Test is complete, with the two-match Argentina chapter moving to Mendoza and the outcome protected here.",
-    "fullSpiel": "Australia arrived in Jujuy on an unbeaten three-match run but with a completely changed starting forward pack. The recent Argentina rivalry had split evenly across the previous two Tests, giving this opening leg form and selection tension without exposing its outcome.",
+    "selectedSentence": "Argentina v Australia is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Argentina v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Rugby Australia — Wallabies win in Jujuy",
     "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
     "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -21619,10 +21285,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 3,
       "arcStage": "recap",
       "expectedSpectacle": 7,
-      "hookSpoilerOff": "The first Jujuy Test is complete, with the two-match Argentina chapter moving to Mendoza and the outcome protected here.",
+      "hookSpoilerOff": "Argentina v Australia is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defeated Argentina 27-21.",
-      "synopsisSpoilerOff": "Australia arrived in Jujuy on an unbeaten three-match run but with a completely changed starting forward pack. The recent Argentina rivalry had split evenly across the previous two Tests, giving this opening leg form and selection tension without exposing its outcome.",
-      "synopsisSpoilerOn": "Australia beat Argentina 27-21 after building an early lead and resisting the home side's second-half pressure. The result extends the Wallabies' winning start under Les Kiss and turns the second Test in Mendoza into Argentina's immediate response chapter.",
+      "synopsisSpoilerOff": "Argentina v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Australia held out Argentina 27-21 in Jujuy, extending the Wallabies' winning start under Les Kiss before the second Test in Mendoza.",
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "intensitySource": "computed",
       "researchDepth": 3
@@ -21684,22 +21350,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Australia 27-21 Argentina"
     ],
     "endTimeUtc": "2026-08-29T22:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "A seven-day Argentina series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:consequence"
-      ],
-      "sourceName": "Rugby Australia — Wallabies win in Jujuy",
-      "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640304",
@@ -21749,7 +21400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21853,7 +21504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21940,8 +21591,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "The premiership decider waits beyond a finals draw that now has confirmed qualifying and elimination paths.",
-    "fullSpiel": "Penrith hosts the Roosters and the Warriors host the Dolphins in qualifying finals. Cronulla meets North Queensland, while South Sydney faces Newcastle, on the elimination side. Qualifying winners move directly to preliminary finals; the other paths require another September match before the 4 October decider.",
+    "selectedSentence": "Warriors v Knights is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Warriors v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -21955,7 +21606,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -22155,10 +21806,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "The premiership decider waits beyond a finals draw that now has confirmed qualifying and elimination paths.",
+      "hookSpoilerOff": "Warriors v Knights is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Warriors defeated Knights 46-32.",
-      "synopsisSpoilerOff": "Penrith hosts the Roosters and the Warriors host the Dolphins in qualifying finals. Cronulla meets North Queensland, while South Sydney faces Newcastle, on the elimination side. Qualifying winners move directly to preliminary finals; the other paths require another September match before the 4 October decider.",
-      "synopsisSpoilerOn": "Warriors defeated Knights 46-32. The current table now has Warriors 1st on 42 points and Knights 7th on 34, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Warriors v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Warriors v Knights finished 46-32 in Round 26, with Warriors winning by 14 points.",
       "lastReviewedAt": "2026-09-08T14:18:59.684Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -22187,21 +21838,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-30T07:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Warriors — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence",
-        "narrative:path"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640306",
@@ -22251,7 +21888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -22355,7 +21992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -22442,8 +22079,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Eels and Sharks met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Eels and Sharks arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Eels v Sharks is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Eels v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
@@ -22457,7 +22094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -22512,10 +22149,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Eels and Sharks met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Eels v Sharks is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Eels defeated Sharks 38-18.",
-      "synopsisSpoilerOff": "Eels and Sharks arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Eels defeated Sharks 38-18. The current table now has Eels 13th on 24 points and Sharks 5th on 34, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Eels v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Eels v Sharks finished 38-18 in Round 26, with Eels winning by 20 points.",
       "lastReviewedAt": "2026-09-06T02:17:51.069Z",
       "arcStage": "recap",
       "intensity": 2,
@@ -22544,20 +22181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "isFinalRegularSeasonRound": false,
     "stakesFloor": 1,
     "endTimeUtc": "2026-08-30T09:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Eels — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640308",
@@ -22607,7 +22231,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -22711,7 +22335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -22830,8 +22454,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Chelsea's Xabi Alonso reset met Brighton's goals-by-committee attack; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Chelsea v Brighton & Hove Albion is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Chelsea v Brighton & Hove Albion is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -22858,10 +22482,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Chelsea's Xabi Alonso reset met Brighton's goals-by-committee attack; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Chelsea v Brighton & Hove Albion is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Chelsea v Brighton & Hove Albion is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Chelsea defeated Brighton & Hove Albion 4-3.",
-      "synopsisSpoilerOn": "Chelsea defeated Brighton & Hove Albion 4-3. Chelsea completed a 1-goal win in Premier League Matchweek 2. The result now updates Chelsea's a new three-at-the-back project without European midweeks thread and Brighton & Hove Albion's a side that spread last season's goals across 19 players thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Chelsea completed a 1-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-06T11:51:12.946Z"
     },
@@ -22900,19 +22524,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Chelsea defeated Brighton & Hove Albion 4-3.\",\"Chelsea 4-3 Brighton & Hove Albion\",\"Chelsea completed a 1-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Chelsea — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -22978,8 +22589,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds' carry-over momentum met Brentford's fast-break identity; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Leeds United v Brentford is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Leeds United v Brentford is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -23006,10 +22617,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Leeds' carry-over momentum met Brentford's fast-break identity; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Leeds United v Brentford is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Leeds United v Brentford is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Leeds United drew Brentford 1-1.",
-      "synopsisSpoilerOn": "Leeds United drew Brentford 1-1. Leeds United and Brentford shared the points after a 1-1 draw. The result now updates Leeds United's the physical 3-4-2-1 that lost only three of its final 14 last season thread and Brentford's the league's leading fast-break and throw-in threat thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Leeds United and Brentford shared the points after a 1-1 draw.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-06T11:51:12.946Z"
     },
@@ -23048,19 +22659,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Leeds United drew Brentford 1-1.\",\"Leeds United 1-1 Brentford\",\"Leeds United and Brentford shared the points after a 1-1 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Leeds United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -23126,8 +22724,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Sunderland's Europe-and-league balancing act met Fulham's first post-Marco Silva season; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Sunderland v Fulham is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sunderland v Fulham is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -23154,10 +22752,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Sunderland's Europe-and-league balancing act met Fulham's first post-Marco Silva season; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Sunderland v Fulham is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Sunderland v Fulham is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sunderland defeated Fulham 1-0.",
-      "synopsisSpoilerOn": "Sunderland defeated Fulham 1-0. Sunderland completed a 1-goal win in Premier League Matchweek 2. The result now updates Sunderland's the defensive base behind last season's seventh place thread and Fulham's Alvaro Arbeloa's wide overloads thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Sunderland completed a 1-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-06T11:51:12.946Z"
     },
@@ -23197,20 +22795,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Sunderland defeated Fulham 1-0.\",\"Sunderland 1-0 Fulham\",\"Sunderland completed a 1-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sunderland — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -23276,8 +22860,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester United's Carrick rebuild met Ipswich's immediate top-flight return; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Manchester United v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Manchester United v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -23304,10 +22888,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Manchester United's Carrick rebuild met Ipswich's immediate top-flight return; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Manchester United v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Manchester United v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester United defeated Ipswich Town 5-2.",
-      "synopsisSpoilerOn": "Manchester United defeated Ipswich Town 5-2. Manchester United completed a 3-goal win in Premier League Matchweek 2. The result now updates Manchester United's a redesigned midfield carrying Champions League load thread and Ipswich Town's Gary O'Neil's more pragmatic second attempt thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Manchester United completed a 3-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-06T14:45:24.334Z"
     },
@@ -23347,20 +22931,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester United defeated Ipswich Town 5-2.\",\"Manchester United 5-2 Ipswich Town\",\"Manchester United completed a 3-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -23426,8 +22996,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Aston Villa's post-Europa rebuild met Arsenal's first title defence in 22 years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Aston Villa v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Aston Villa v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -23454,10 +23024,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Aston Villa's post-Europa rebuild met Arsenal's first title defence in 22 years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Aston Villa v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Aston Villa v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Arsenal defeated Aston Villa 1-0.",
-      "synopsisSpoilerOn": "Arsenal defeated Aston Villa 1-0. Arsenal completed a 1-goal win in Premier League Matchweek 2. The result now updates Aston Villa's a new midfield and defensive spine thread and Arsenal's settled champion structure thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Arsenal completed a 1-goal win in Premier League Matchweek 2.",
       "researchDepth": 3,
       "lastReviewedAt": "2026-09-06T18:17:46.449Z"
     },
@@ -23497,20 +23067,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Arsenal defeated Aston Villa 1-0.\",\"Aston Villa 0-1 Arsenal\",\"Arsenal completed a 1-goal win in Premier League Matchweek 2.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Aston Villa — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -23617,9 +23173,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Daniel Merida v Andrey Rublev is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
-      "synopsisSpoilerOff": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Daniel Merida v Andrey Rublev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
       "arcStage": "recap",
       "intensity": 5,
@@ -23674,9 +23230,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Merida tests his rapid rise against Rublev’s established New York record.",
-    "fullSpiel": "Daniel Merida arrived in New York ranked 39th after beginning the year outside the top 160. Andrey Rublev brought four US Open quarterfinal appearances to this second-round meeting: a useful measure of whether the Spaniard’s first ATP title in July signalled a lasting step forward.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Daniel Merida v Andrey Rublev is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Daniel Merida v Andrey Rublev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
     "outcomeText": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
@@ -23692,21 +23248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Daniel Merida v Andrey Rublev",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Daniel Merida v Andrey Rublev — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-02/who_is_daniel_merida_rublevs_conqueror_at_the_2026_us_open.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1230",
@@ -23812,9 +23354,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Dino Prizmic v Tommy Paul is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
-      "synopsisSpoilerOff": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Dino Prizmic v Tommy Paul is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
       "arcStage": "recap",
       "intensity": 5,
@@ -23869,9 +23411,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Paul’s home campaign meets Prizmic’s challenge in the Grandstand.",
-    "fullSpiel": "Tommy Paul brought the twentieth seed and local support into this second-round match against Dino Prizmic. Their Grandstand meeting put a place in the last 32 on the line, with the American trying to build a route towards the second week of his home major.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Dino Prizmic v Tommy Paul is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Dino Prizmic v Tommy Paul is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
     "outcomeText": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
@@ -23886,21 +23428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Dino Prizmic v Tommy Paul",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Dino Prizmic v Tommy Paul — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/stats/1230.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "fixture-us-open-2026-official-ms-1231",
@@ -24006,9 +23534,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "James Duckworth v Yibing Wu is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
-      "synopsisSpoilerOff": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "James Duckworth v Yibing Wu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
       "arcStage": "recap",
       "intensity": 5,
@@ -24063,9 +23591,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Duckworth and Wu meet at the point where return pressure can change the match.",
-    "fullSpiel": "James Duckworth’s second-round assignment was Yibing Wu, with a place in the last 32 at stake. Court 6 offered a close view of the serve-and-return contest between the Australian and Chinese players; the official match record makes those exchanges the useful starting point for the replay.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "James Duckworth v Yibing Wu is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "James Duckworth v Yibing Wu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
     "outcomeText": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
@@ -24080,21 +23608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "James Duckworth v Yibing Wu",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "James Duckworth v Yibing Wu — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/stats/1231.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "event-nrl-129992701",
@@ -24129,13 +23643,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Bulldogs and Broncos met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Bulldogs and Broncos arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Bulldogs v Broncos is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bulldogs v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -24144,7 +23658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24221,10 +23735,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "arcStage": "recap",
-      "hookSpoilerOff": "Bulldogs and Broncos met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "hookSpoilerOff": "Bulldogs v Broncos is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Broncos defeated Bulldogs 34-20.",
-      "synopsisSpoilerOff": "Bulldogs and Broncos arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Broncos defeated Bulldogs 34-20. The current table now has Bulldogs 12th on 28 points and Broncos 14th on 22, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Bulldogs v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Bulldogs v Broncos finished 20-34 in Round 27, with Broncos winning by 14 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "intensity": 4,
       "expectedSpectacle": 8,
@@ -24232,20 +23746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 2
     },
     "endTimeUtc": "2026-09-03T12:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Bulldogs — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142601",
@@ -24282,13 +23783,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Hawthorn"
       }
     ],
-    "selectedSentence": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
-    "fullSpiel": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
+    "selectedSentence": "Fremantle v Hawthorn is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fremantle v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -24297,7 +23798,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -24377,10 +23878,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
+      "hookSpoilerOff": "Fremantle v Hawthorn is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40.",
-      "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
-      "synopsisSpoilerOn": "Hawthorn defeated Fremantle 72-40. Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Fremantle v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -24494,21 +23995,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "fixture-us-open-2026-official-ms-1202",
@@ -24614,9 +24101,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Alexei Popyrin v Alejandro Tabilo is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
-      "synopsisSpoilerOff": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Alexei Popyrin v Alejandro Tabilo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
       "arcStage": "recap",
       "intensity": 5,
@@ -24671,9 +24158,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Popyrin faces seeded Tabilo with another Australian place in the last 32 at stake.",
-    "fullSpiel": "Alexei Popyrin’s path through Grigor Dimitrov led to a second-round meeting against Alejandro Tabilo. The Chilean held the twenty-fifth seed, making this a test of whether Popyrin could carry that first-round progress further through the draw.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Alexei Popyrin v Alejandro Tabilo is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alexei Popyrin v Alejandro Tabilo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
     "outcomeText": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
@@ -24688,21 +24175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Alexei Popyrin v Alejandro Tabilo",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Alexei Popyrin v Alejandro Tabilo — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/schedule/schedule12.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "fixture-us-open-2026-official-ms-1211",
@@ -24808,9 +24281,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Jakub Mensik v Jurij Rodionov is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
-      "synopsisSpoilerOff": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Jakub Mensik v Jurij Rodionov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
       "arcStage": "recap",
       "intensity": 5,
@@ -24865,9 +24338,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Mensik and Rodionov arrive from straight-set opening wins.",
-    "fullSpiel": "Jakub Mensik’s seventeenth seed met Jurij Rodionov’s opening-round momentum in this second-round match. Mensik had come through Shintaro Mochizuki in three sets, while Rodionov had done the same against Giovanni Mpetshi Perricard. The contest put two efficient starts against one another for a place in round three.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Jakub Mensik v Jurij Rodionov is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jakub Mensik v Jurij Rodionov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
     "outcomeText": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
@@ -24882,21 +24355,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Jakub Mensik v Jurij Rodionov",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Jakub Mensik v Jurij Rodionov — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/schedule/schedule9.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "fixture-us-open-2026-official-wd-4104",
@@ -25018,9 +24477,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
-      "synopsisSpoilerOff": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
       "arcStage": "recap",
       "intensity": 5,
@@ -25087,9 +24546,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Hunter and Krawczyk begin their seeded doubles campaign against an American pair.",
-    "fullSpiel": "Storm Hunter and Desirae Krawczyk entered as the thirteenth seeds against DJ Bennett and Ava Esposito. The Australian-American pairing had an immediate opportunity to establish itself in a draw led by Siniakova and Townsend; Bennett and Esposito stood between them and round two.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
@@ -25104,21 +24563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-03/dabrowski-stefani_routliffe-sutjiadi_among_womens_doubles_winners_on_day_5_of_2026_us_open.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "event-nrl-129992702",
@@ -25153,13 +24598,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Titans and Dolphins met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Titans and Dolphins arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Titans v Dolphins is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Titans v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -25168,7 +24613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25223,10 +24668,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Titans and Dolphins met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Titans v Dolphins is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Dolphins defeated Titans 24-20.",
-      "synopsisSpoilerOff": "Titans and Dolphins arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Dolphins defeated Titans 24-20. The current table now has Titans 16th on 18 points and Dolphins 3rd on 40, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Titans v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Titans v Dolphins finished 20-24 in Round 27, with Dolphins winning by 4 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -25256,20 +24701,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Titans v Dolphins — 20-24",
     "endTimeUtc": "2026-09-04T11:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Titans — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142603",
@@ -25306,13 +24738,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Carlton"
       }
     ],
-    "selectedSentence": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
-    "fullSpiel": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+    "selectedSentence": "Geelong Cats v Carlton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Geelong Cats v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -25321,7 +24753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25365,10 +24797,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceTrust": "verified",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
+      "hookSpoilerOff": "Geelong Cats v Carlton is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Geelong Cats defeated Carlton 107-74.",
-      "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
-      "synopsisSpoilerOn": "Geelong Cats defeated Carlton 107-74. Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Geelong Cats v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -25518,21 +24950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "event-nrl-129992703",
@@ -25567,13 +24985,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Rabbitohs and Roosters met in Round 27 with a direct finals-position contest; the outcome stays hidden here.",
-    "fullSpiel": "Rabbitohs and Roosters arrived at Round 27 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Rabbitohs v Roosters is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Rabbitohs v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -25582,7 +25000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25637,10 +25055,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Rabbitohs and Roosters met in Round 27 with a direct finals-position contest; the outcome stays hidden here.",
+      "hookSpoilerOff": "Rabbitohs v Roosters is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Rabbitohs defeated Roosters 50-20.",
-      "synopsisSpoilerOff": "Rabbitohs and Roosters arrived at Round 27 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Rabbitohs defeated Roosters 50-20. The current table now has Rabbitohs 6th on 34 points and Roosters 4th on 38, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Rabbitohs v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Rabbitohs v Roosters finished 50-20 in Round 27, with Rabbitohs winning by 30 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -25670,20 +25088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Rabbitohs v Roosters — 50-20",
     "endTimeUtc": "2026-09-04T13:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Rabbitohs — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-md-3126",
@@ -25805,9 +25210,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
-      "synopsisSpoilerOff": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
       "arcStage": "recap",
       "intensity": 5,
@@ -25874,9 +25279,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Duckworth and Peers stand on opposite sides of an Australian doubles interest.",
-    "fullSpiel": "James Duckworth paired with Miomir Kecmanovic against Marcelo Melo and John Peers in the opening round. With an Australian on each side, this Court 15 meeting offered two different partnerships chasing the same place in round two.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
     "outcomeText": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
@@ -25892,21 +25297,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/schedule/schedule13.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1315",
@@ -26012,9 +25403,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Alexander Bublik v Tommy Paul is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
-      "synopsisSpoilerOff": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Alexander Bublik v Tommy Paul is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
       "arcStage": "recap",
       "intensity": 5,
@@ -26069,9 +25460,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Paul and Bublik revisit the third-round rivalry that went the distance a year ago.",
-    "fullSpiel": "Alexander Bublik ended Tommy Paul’s 2025 US Open in five sets at this same stage. Their rematch carried that history into Louis Armstrong Stadium, where Paul was again playing for the chance to take his home campaign into the second week.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Alexander Bublik v Tommy Paul is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alexander Bublik v Tommy Paul is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
     "outcomeText": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
@@ -26086,21 +25477,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Alexander Bublik v Tommy Paul",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Alexander Bublik v Tommy Paul — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-04/tommy_paul_tops_alexander_bublik_at_2026_us_open_to_avenge_2025_loss.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "epl-2026-27-128949",
@@ -26165,8 +25542,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Ipswich's immediate top-flight return met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Ipswich Town v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ipswich Town v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -26193,10 +25570,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Ipswich's immediate top-flight return met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Ipswich Town v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ipswich Town v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Liverpool defeated Ipswich Town 2-0.",
-      "synopsisSpoilerOn": "Liverpool defeated Ipswich Town 2-0. Liverpool completed a 2-goal win in Premier League Matchweek 3. The result now updates Ipswich Town's Gary O'Neil's more pragmatic second attempt thread and Liverpool's Andoni Iraola's faster counterattacking identity thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Liverpool completed a 2-goal win in Premier League Matchweek 3.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -26236,20 +25613,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool defeated Ipswich Town 2-0.\",\"Ipswich Town 0-2 Liverpool\",\"Liverpool completed a 2-goal win in Premier League Matchweek 3.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Ipswich Town — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -26285,8 +25648,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Western Bulldogs and Sydney Swans met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Western Bulldogs and Sydney Swans arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Western Bulldogs v Sydney Swans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Western Bulldogs v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -26300,7 +25663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -26348,10 +25711,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Western Bulldogs and Sydney Swans met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Western Bulldogs and Sydney Swans arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Western Bulldogs v Sydney Swans is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Western Bulldogs v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Western Bulldogs defeated Sydney Swans 60-33.",
-      "synopsisSpoilerOn": "Western Bulldogs defeated Sydney Swans 60-33. The current table now has Western Bulldogs 6th on 12 points and Sydney Swans 5th on 12, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Western Bulldogs v Sydney Swans finished 60-33 in Round 4, with Western Bulldogs winning by 27 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -26388,20 +25751,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Western Bulldogs defeated Sydney Swans 60-33.\",\"Western Bulldogs v Sydney Swans — 60-33\",\"Western Bulldogs v Sydney Swans finished 60-33 in Round 4, with Western Bulldogs winning by 27 points.\"]"
     },
     "endTimeUtc": "2026-09-05T05:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Western Bulldogs — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640402",
@@ -26436,8 +25786,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "St Kilda and North Melbourne met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "St Kilda and North Melbourne arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "St Kilda v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "St Kilda v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -26451,7 +25801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -26499,10 +25849,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "St Kilda and North Melbourne met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "St Kilda and North Melbourne arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "St Kilda v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "St Kilda v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "North Melbourne defeated St Kilda 99-7.",
-      "synopsisSpoilerOn": "North Melbourne defeated St Kilda 99-7. The current table now has St Kilda 18th on 0 points and North Melbourne 1st on 16, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "St Kilda v North Melbourne finished 7-99 in Round 4, with North Melbourne winning by 92 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -26539,20 +25889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"North Melbourne defeated St Kilda 99-7.\",\"St Kilda v North Melbourne — 7-99\",\"St Kilda v North Melbourne finished 7-99 in Round 4, with North Melbourne winning by 92 points.\"]"
     },
     "endTimeUtc": "2026-09-05T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "St Kilda — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640403",
@@ -26587,8 +25924,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Port Adelaide and Gold Coast SUNS met in Round 4 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Port Adelaide and Gold Coast SUNS arrived at Round 4 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Port Adelaide v Gold Coast SUNS is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Port Adelaide v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -26602,7 +25939,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -26650,10 +25987,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Port Adelaide and Gold Coast SUNS met in Round 4 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Port Adelaide and Gold Coast SUNS arrived at Round 4 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Port Adelaide v Gold Coast SUNS is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Port Adelaide v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gold Coast SUNS defeated Port Adelaide 17-14.",
-      "synopsisSpoilerOn": "Gold Coast SUNS defeated Port Adelaide 17-14. The current table now has Port Adelaide 12th on 8 points and Gold Coast SUNS 11th on 8, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Port Adelaide v Gold Coast SUNS finished 14-17 in Round 4, with Gold Coast SUNS winning by 3 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -26690,20 +26027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Gold Coast SUNS defeated Port Adelaide 17-14.\",\"Port Adelaide v Gold Coast SUNS — 14-17\",\"Port Adelaide v Gold Coast SUNS finished 14-17 in Round 4, with Gold Coast SUNS winning by 3 points.\"]"
     },
     "endTimeUtc": "2026-09-05T07:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Port Adelaide — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992704",
@@ -26738,13 +26062,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Warriors and Sea Eagles met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Warriors and Sea Eagles arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Warriors v Sea Eagles is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Warriors v Sea Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -26753,7 +26077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26808,10 +26132,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Warriors and Sea Eagles met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Warriors v Sea Eagles is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Warriors defeated Sea Eagles 31-30.",
-      "synopsisSpoilerOff": "Warriors and Sea Eagles arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Warriors defeated Sea Eagles 31-30. The current table now has Warriors 2nd on 42 points and Sea Eagles 9th on 28, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Warriors v Sea Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Warriors v Sea Eagles finished 31-30 in Round 27, with Warriors winning by 1 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -26841,20 +26165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Warriors v Sea Eagles — 31-30",
     "endTimeUtc": "2026-09-05T08:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Warriors — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142602",
@@ -26891,13 +26202,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Brisbane Lions"
       }
     ],
-    "selectedSentence": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-    "fullSpiel": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+    "selectedSentence": "Sydney Swans v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Swans v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -26906,7 +26217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26965,10 +26276,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
+      "hookSpoilerOff": "Sydney Swans v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88.",
-      "synopsisSpoilerOff": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
-      "synopsisSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88. Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Sydney Swans v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -27103,21 +26414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "event-nrl-129992705",
@@ -27152,13 +26449,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Cowboys and Raiders met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Cowboys and Raiders arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Cowboys v Raiders is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cowboys v Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -27167,7 +26464,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -27222,10 +26519,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Cowboys and Raiders met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Cowboys v Raiders is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Raiders defeated Cowboys 50-30.",
-      "synopsisSpoilerOff": "Cowboys and Raiders arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Raiders defeated Cowboys 50-30. The current table now has Cowboys 8th on 32 points and Raiders 11th on 28, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Cowboys v Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Cowboys v Raiders finished 30-50 in Round 27, with Raiders winning by 20 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -27255,20 +26552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Cowboys v Raiders — 30-50",
     "endTimeUtc": "2026-09-05T10:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Cowboys — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640404",
@@ -27303,8 +26587,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Brisbane Lions and GWS GIANTS met in Round 4 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Brisbane Lions and GWS GIANTS arrived at Round 4 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Brisbane Lions v GWS GIANTS is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Lions v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -27318,7 +26602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -27366,10 +26650,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brisbane Lions and GWS GIANTS met in Round 4 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Brisbane Lions and GWS GIANTS arrived at Round 4 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Brisbane Lions v GWS GIANTS is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brisbane Lions v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brisbane Lions defeated GWS GIANTS 55-24.",
-      "synopsisSpoilerOn": "Brisbane Lions defeated GWS GIANTS 55-24. The current table now has Brisbane Lions 9th on 8 points and GWS GIANTS 14th on 4, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Brisbane Lions v GWS GIANTS finished 55-24 in Round 4, with Brisbane Lions winning by 31 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -27406,20 +26690,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Brisbane Lions defeated GWS GIANTS 55-24.\",\"Brisbane Lions v GWS GIANTS — 55-24\",\"Brisbane Lions v GWS GIANTS finished 55-24 in Round 4, with Brisbane Lions winning by 31 points.\"]"
     },
     "endTimeUtc": "2026-09-05T11:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brisbane Lions — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992706",
@@ -27454,13 +26725,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sharks and Storm met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Sharks and Storm arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Sharks v Storm is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sharks v Storm is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -27469,7 +26740,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -27524,10 +26795,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Sharks and Storm met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOff": "Sharks v Storm is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Storm defeated Sharks 24-20.",
-      "synopsisSpoilerOff": "Sharks and Storm arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Storm defeated Sharks 24-20. The current table now has Sharks 5th on 34 points and Storm 10th on 28, keeping the result connected to the wider NRL path.",
+      "synopsisSpoilerOff": "Sharks v Storm is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sharks v Storm finished 20-24 in Round 27, with Storm winning by 4 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -27557,20 +26828,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Sharks v Storm — 20-24",
     "endTimeUtc": "2026-09-05T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sharks — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142604",
@@ -27607,13 +26865,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Western Bulldogs"
       }
     ],
-    "selectedSentence": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
-    "fullSpiel": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+    "selectedSentence": "Adelaide Crows v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adelaide Crows v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -27622,7 +26880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -27681,10 +26939,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
+      "hookSpoilerOff": "Adelaide Crows v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68.",
-      "synopsisSpoilerOff": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
-      "synopsisSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68. Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "synopsisSpoilerOff": "Adelaide Crows v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -27819,21 +27077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    }
+    "displayDateLabel": null
   },
   {
     "id": "epl-2026-27-128951",
@@ -27898,8 +27142,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle's new era after a summer exodus met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Newcastle United v Bournemouth is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Newcastle United v Bournemouth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -27926,10 +27170,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Newcastle's new era after a summer exodus met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Newcastle United v Bournemouth is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Newcastle United v Bournemouth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Newcastle United drew Bournemouth 2-2.",
-      "synopsisSpoilerOn": "Newcastle United drew Bournemouth 2-2. Newcastle United and Bournemouth shared the points after a 2-2 draw. The result now updates Newcastle United's rebuilding leadership, midfield and coaching at once thread and AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Newcastle United and Bournemouth shared the points after a 2-2 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -27969,20 +27213,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United drew Bournemouth 2-2.\",\"Newcastle United 2-2 Bournemouth\",\"Newcastle United and Bournemouth shared the points after a 2-2 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Newcastle United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28048,8 +27278,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brentford's fast-break identity met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Brentford v Sunderland is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brentford v Sunderland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -28076,10 +27306,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brentford's fast-break identity met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Brentford v Sunderland is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brentford v Sunderland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brentford drew Sunderland 1-1.",
-      "synopsisSpoilerOn": "Brentford drew Sunderland 1-1. Brentford and Sunderland shared the points after a 1-1 draw. The result now updates Brentford's the league's leading fast-break and throw-in threat thread and Sunderland's the defensive base behind last season's seventh place thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Brentford and Sunderland shared the points after a 1-1 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -28119,20 +27349,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brentford drew Sunderland 1-1.\",\"Brentford 1-1 Sunderland\",\"Brentford and Sunderland shared the points after a 1-1 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brentford — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28198,8 +27414,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton's goals-by-committee attack met Leeds' carry-over momentum; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Brighton & Hove Albion v Leeds United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brighton & Hove Albion v Leeds United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -28226,10 +27442,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brighton's goals-by-committee attack met Leeds' carry-over momentum; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Brighton & Hove Albion v Leeds United is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion v Leeds United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brighton & Hove Albion drew Leeds United 1-1.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion drew Leeds United 1-1. Brighton & Hove Albion and Leeds United shared the points after a 1-1 draw. The result now updates Brighton & Hove Albion's a side that spread last season's goals across 19 players thread and Leeds United's the physical 3-4-2-1 that lost only three of its final 14 last season thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion and Leeds United shared the points after a 1-1 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -28268,19 +27484,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion drew Leeds United 1-1.\",\"Brighton & Hove Albion 1-1 Leeds United\",\"Brighton & Hove Albion and Leeds United shared the points after a 1-1 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28346,8 +27549,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham's first post-Marco Silva season met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Fulham v Crystal Palace is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fulham v Crystal Palace is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -28374,10 +27577,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Fulham's first post-Marco Silva season met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Fulham v Crystal Palace is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Fulham v Crystal Palace is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Crystal Palace defeated Fulham 3-2.",
-      "synopsisSpoilerOn": "Crystal Palace defeated Fulham 3-2. Crystal Palace completed a 1-goal win in Premier League Matchweek 3. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Crystal Palace's a new build-from-the-back version of their established shape thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Crystal Palace completed a 1-goal win in Premier League Matchweek 3.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -28417,20 +27620,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Crystal Palace defeated Fulham 3-2.\",\"Fulham 2-3 Crystal Palace\",\"Crystal Palace completed a 1-goal win in Premier League Matchweek 3.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Fulham — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28496,8 +27685,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City's first post-Guardiola campaign met Coventry's return after 25 years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Manchester City v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Manchester City v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -28524,10 +27713,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign met Coventry's return after 25 years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Manchester City v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Manchester City v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester City defeated Coventry City 1-0.",
-      "synopsisSpoilerOn": "Manchester City defeated Coventry City 1-0. Manchester City completed a 1-goal win in Premier League Matchweek 3. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and Coventry City's the set-piece strength behind a 97-goal promotion thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Manchester City completed a 1-goal win in Premier League Matchweek 3.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -28567,20 +27756,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Coventry City 1-0.\",\"Manchester City 1-0 Coventry City\",\"Manchester City completed a 1-goal win in Premier League Matchweek 3.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28646,8 +27821,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest's Glasner reset met Tottenham's first full De Zerbi season; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Nottingham Forest v Tottenham Hotspur is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Nottingham Forest v Tottenham Hotspur is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -28674,10 +27849,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Nottingham Forest's Glasner reset met Tottenham's first full De Zerbi season; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Nottingham Forest v Tottenham Hotspur is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Nottingham Forest v Tottenham Hotspur is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Nottingham Forest drew Tottenham Hotspur 0-0.",
-      "synopsisSpoilerOn": "Nottingham Forest drew Tottenham Hotspur 0-0. Nottingham Forest and Tottenham Hotspur shared the points after a 0-0 draw. The result now updates Nottingham Forest's a new three-at-the-back structure against a poor home run thread and Tottenham Hotspur's a new ball-playing defence under an attacking coach thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Nottingham Forest and Tottenham Hotspur shared the points after a 0-0 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -28717,20 +27892,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Nottingham Forest drew Tottenham Hotspur 0-0.\",\"Nottingham Forest 0-0 Tottenham Hotspur\",\"Nottingham Forest and Tottenham Hotspur shared the points after a 0-0 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Nottingham Forest — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -28746,8 +27907,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_26",
     "eventId": "evt_26",
     "displayTitleCompact": "R13 Italian GP Qualifying",
-    "selectedSentence": "Kimi Antonelli leads by 66 points into R13 Italian GP Qualifying; this session sets the grid and determines who controls the race start.",
-    "fullSpiel": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R13 Italian GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+    "selectedSentence": "R13 Italian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R13 Italian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Formula 1 current driver standings",
     "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
     "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
@@ -28800,9 +27961,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "R13 Italian GP Qualifying is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "R13 Italian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Pierre Gasly took pole for R13 Italian GP Qualifying.",
-      "synopsisSpoilerOff": "R13 Italian GP Qualifying is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "R13 Italian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Pierre Gasly took pole for R13 Italian GP Qualifying. 1. Pierre Gasly (Alpine); 2. George Russell (Mercedes); 3. Oscar Piastri (McLaren).",
       "lastReviewedAt": "2026-09-08T14:50:03.031Z",
       "arcStage": "recap",
@@ -29288,21 +28449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Lance Stroll",
         "countryCode": "CA"
       }
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 Formula 1 title pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "fixture-us-open-2026-official-wd-4202",
@@ -29424,9 +28571,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
-      "synopsisSpoilerOff": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
       "arcStage": "recap",
       "intensity": 5,
@@ -29493,9 +28640,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Hunter and Krawczyk face a pair fresh from the Cincinnati final.",
-    "fullSpiel": "Magali Kempen and Alexandra Panova brought a Cincinnati doubles final into their second-round match with Storm Hunter and Desirae Krawczyk. The thirteenth seeds were trying to keep their own campaign moving towards a possible meeting with the top seeds.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
@@ -29510,21 +28657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-05/doubles_katerina_siniakova-taylor_townsend_roll_at_the_2026_us_open.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "epl-2026-27-128948",
@@ -29589,8 +28722,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Hull's top-flight return after nine years met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Hull City v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hull City v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -29617,10 +28750,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Hull's top-flight return after nine years met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Hull City v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Hull City v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hull City drew Aston Villa 0-0.",
-      "synopsisSpoilerOn": "Hull City drew Aston Villa 0-0. Hull City and Aston Villa shared the points after a 0-0 draw. The result now updates Hull City's a playoff-built counterattack thread and Aston Villa's a new midfield and defensive spine thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Hull City and Aston Villa shared the points after a 0-0 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -29660,20 +28793,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Hull City drew Aston Villa 0-0.\",\"Hull City 0-0 Aston Villa\",\"Hull City and Aston Villa shared the points after a 0-0 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hull City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -29695,8 +28814,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "The second Test is the response leg of a seven-day Argentina series; its real stakes wait on what happens in Jujuy.",
-    "fullSpiel": "Mendoza is explicitly linked to the first Test rather than treated as a duplicate fixture. It may become a sweep, split or recovery chapter after Jujuy, and it also moves Australia into the home stretch against South Africa and New Zealand.",
+    "selectedSentence": "Argentina v Australia is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Argentina v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
     "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
     "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -29720,9 +28839,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 3,
       "arcStage": "recap",
       "expectedSpectacle": 7,
-      "hookSpoilerOff": "Argentina v Australia is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Argentina v Australia is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Argentina and Australia drew 28–28 in Mendoza.",
-      "synopsisSpoilerOff": "Argentina v Australia is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Argentina v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "A 28–28 draw in Mendoza gave Australia its first away series win in Argentina, following its first-Test victory.",
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "intensitySource": "computed",
@@ -29785,21 +28904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-06T00:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "A seven-day Argentina series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:consequence",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
-      "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1306",
@@ -29905,9 +29010,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Jakub Mensik v Learner Tien is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
-      "synopsisSpoilerOff": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Jakub Mensik v Learner Tien is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
       "arcStage": "recap",
       "intensity": 5,
@@ -29962,9 +29067,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Mensik and Tien bring a young rivalry into the pressure of a home major.",
-    "fullSpiel": "Learner Tien faced Jakub Mensik in the third round with his best US Open run taking shape. Mensik arrived as the new mixed doubles champion alongside Karolina Muchova, giving the Czech a very different kind of New York momentum.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Jakub Mensik v Learner Tien is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jakub Mensik v Learner Tien is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
     "outcomeText": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
@@ -29979,21 +29084,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Jakub Mensik v Learner Tien",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Jakub Mensik v Learner Tien — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-06/learner_tien_wins_five-set_fight_vs_mensik_in_2026_us_open_third_round.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "event-aflw-cd_m20262640405",
@@ -30028,8 +29119,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Richmond and Fremantle met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Richmond and Fremantle arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Richmond v Fremantle is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Richmond v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -30043,7 +29134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -30091,10 +29182,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Richmond and Fremantle met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Richmond and Fremantle arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Richmond v Fremantle is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Richmond v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fremantle defeated Richmond 60-35.",
-      "synopsisSpoilerOn": "Fremantle defeated Richmond 60-35. The current table now has Richmond 13th on 8 points and Fremantle 7th on 8, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Richmond v Fremantle finished 35-60 in Round 4, with Fremantle winning by 25 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -30131,20 +29222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Fremantle defeated Richmond 60-35.\",\"Richmond v Fremantle — 35-60\",\"Richmond v Fremantle finished 35-60 in Round 4, with Fremantle winning by 25 points.\"]"
     },
     "endTimeUtc": "2026-09-06T05:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Richmond — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640406",
@@ -30179,8 +29257,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Hawthorn and Adelaide Crows met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Hawthorn and Adelaide Crows arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Hawthorn v Adelaide Crows is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hawthorn v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -30194,7 +29272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -30242,10 +29320,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Hawthorn and Adelaide Crows met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Hawthorn and Adelaide Crows arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Hawthorn v Adelaide Crows is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Hawthorn v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Adelaide Crows defeated Hawthorn 67-39.",
-      "synopsisSpoilerOn": "Adelaide Crows defeated Hawthorn 67-39. The current table now has Hawthorn 8th on 8 points and Adelaide Crows 10th on 8, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Hawthorn v Adelaide Crows finished 39-67 in Round 4, with Adelaide Crows winning by 28 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -30282,20 +29360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Adelaide Crows defeated Hawthorn 67-39.\",\"Hawthorn v Adelaide Crows — 39-67\",\"Hawthorn v Adelaide Crows finished 39-67 in Round 4, with Adelaide Crows winning by 28 points.\"]"
     },
     "endTimeUtc": "2026-09-06T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hawthorn — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992707",
@@ -30330,13 +29395,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Dragons and Eels met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Dragons and Eels arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Dragons v Eels is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Dragons v Eels is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -30345,7 +29410,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -30372,8 +29437,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "standard",
       "hook": "Dragons and Eels met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
       "synopsis": "Dragons and Eels arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Dragons defeated Eels 24-22.",
-      "synopsisSpoilerOn": "Dragons defeated Eels 24-22. The current table now has Dragons 17th on 16 points and Eels 13th on 24, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOn": "Dragons defeated Eels in Round 27.",
+      "synopsisSpoilerOn": "Dragons defeated Eels in Round 27. Dragons v Eels finished 24-22 in Round 27, with Dragons winning by 2 points.",
       "threadIds": [
         "thread:rolling:team-nrl-330",
         "thread:rolling:team-nrl-328"
@@ -30400,10 +29465,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Dragons and Eels met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-      "hookSpoilerOn": "Dragons defeated Eels 24-22.",
-      "synopsisSpoilerOff": "Dragons and Eels arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Dragons defeated Eels 24-22. The current table now has Dragons 17th on 16 points and Eels 13th on 24, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOff": "Dragons v Eels in Round 27: the result is available to reveal.",
+      "hookSpoilerOn": "Dragons defeated Eels in Round 27.",
+      "synopsisSpoilerOff": "Dragons v Eels is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Dragons v Eels finished 24-22 in Round 27, with Dragons winning by 2 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -30456,20 +29521,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Dragons v Eels — 24-22",
     "endTimeUtc": "2026-09-06T07:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Dragons — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640407",
@@ -30504,8 +29556,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Geelong Cats and Essendon met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Geelong Cats and Essendon arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Geelong Cats v Essendon is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Geelong Cats v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -30519,7 +29571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -30567,10 +29619,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Geelong Cats and Essendon met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Geelong Cats and Essendon arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Geelong Cats v Essendon is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Geelong Cats v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong Cats defeated Essendon 83-51.",
-      "synopsisSpoilerOn": "Geelong Cats defeated Essendon 83-51. The current table now has Geelong Cats 4th on 12 points and Essendon 16th on 0, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Geelong Cats v Essendon finished 83-51 in Round 4, with Geelong Cats winning by 32 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -30607,20 +29659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Geelong Cats defeated Essendon 83-51.\",\"Geelong Cats v Essendon — 83-51\",\"Geelong Cats v Essendon finished 83-51 in Round 4, with Geelong Cats winning by 32 points.\"]"
     },
     "endTimeUtc": "2026-09-06T07:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geelong Cats — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640408",
@@ -30655,8 +29694,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Carlton and Collingwood met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Carlton and Collingwood arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Carlton v Collingwood is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Carlton v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -30670,7 +29709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -30718,10 +29757,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Carlton and Collingwood met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Carlton and Collingwood arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "Carlton v Collingwood is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Carlton v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated Collingwood 68-29.",
-      "synopsisSpoilerOn": "Carlton defeated Collingwood 68-29. The current table now has Carlton 3rd on 16 points and Collingwood 17th on 0, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Carlton v Collingwood finished 68-29 in Round 4, with Carlton winning by 39 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -30758,20 +29797,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Carlton defeated Collingwood 68-29.\",\"Carlton v Collingwood — 68-29\",\"Carlton v Collingwood finished 68-29 in Round 4, with Carlton winning by 39 points.\"]"
     },
     "endTimeUtc": "2026-09-06T08:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Carlton — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992708",
@@ -30806,13 +29832,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Panthers and Wests Tigers met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-    "fullSpiel": "Panthers and Wests Tigers arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Panthers v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Panthers v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL Match Centre / Champion Data current NRL table",
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -30821,7 +29847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -30848,8 +29874,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "standard",
       "hook": "Panthers and Wests Tigers met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
       "synopsis": "Panthers and Wests Tigers arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Panthers defeated Wests Tigers 38-10.",
-      "synopsisSpoilerOn": "Panthers defeated Wests Tigers 38-10. The current table now has Panthers 1st on 42 points and Wests Tigers 15th on 22, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOn": "Panthers defeated Wests Tigers in Round 27.",
+      "synopsisSpoilerOn": "Panthers defeated Wests Tigers in Round 27. Panthers v Wests Tigers finished 38-10 in Round 27, with Panthers winning by 28 points.",
       "threadIds": [
         "thread:rolling:team-nrl-329",
         "thread:rolling:team-nrl-334"
@@ -30876,10 +29902,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 4,
-      "hookSpoilerOff": "Panthers and Wests Tigers met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
-      "hookSpoilerOn": "Panthers defeated Wests Tigers 38-10.",
-      "synopsisSpoilerOff": "Panthers and Wests Tigers arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Panthers defeated Wests Tigers 38-10. The current table now has Panthers 1st on 42 points and Wests Tigers 15th on 22, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOff": "Panthers v Wests Tigers in Round 27: the result is available to reveal.",
+      "hookSpoilerOn": "Panthers defeated Wests Tigers in Round 27.",
+      "synopsisSpoilerOff": "Panthers v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Panthers v Wests Tigers finished 38-10 in Round 27, with Panthers winning by 28 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "arcStage": "recap",
       "intensity": 4,
@@ -30932,20 +29958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Panthers v Wests Tigers — 38-10",
     "endTimeUtc": "2026-09-06T09:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Panthers — current NRL path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "NRL Match Centre / Champion Data current NRL table",
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640409",
@@ -30980,8 +29993,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "West Coast Eagles and Melbourne met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "West Coast Eagles and Melbourne arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "West Coast Eagles v Melbourne is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "West Coast Eagles v Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -30995,7 +30008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -31043,10 +30056,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 4,
       "intensitySource": "computed",
-      "hookSpoilerOff": "West Coast Eagles and Melbourne met in Round 4 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "West Coast Eagles and Melbourne arrived at Round 4 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOff": "West Coast Eagles v Melbourne is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "West Coast Eagles v Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne defeated West Coast Eagles 81-44.",
-      "synopsisSpoilerOn": "Melbourne defeated West Coast Eagles 81-44. The current table now has West Coast Eagles 15th on 0 points and Melbourne 2nd on 16, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "West Coast Eagles v Melbourne finished 44-81 in Round 4, with Melbourne winning by 37 points.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
     },
@@ -31083,20 +30096,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Melbourne defeated West Coast Eagles 81-44.\",\"West Coast Eagles v Melbourne — 44-81\",\"West Coast Eagles v Melbourne finished 44-81 in Round 4, with Melbourne winning by 37 points.\"]"
     },
     "endTimeUtc": "2026-09-06T10:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "West Coast Eagles — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_sailgp_2026_valencia_day_2",
@@ -31189,13 +30189,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete; the official outcome is still pending.",
+      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete.",
       "synopsisSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -31233,21 +30233,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"\",\"\",\"\"]"
     },
     "endTimeUtc": "2026-09-06T14:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_china_czechia",
@@ -31359,7 +30345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-china-czechia",
@@ -31397,21 +30383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"China defeated Czechia 74-70 after overtime.\",\"China 74-70 Czechia\",\"China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.\"]"
     },
     "endTimeUtc": "2026-09-06T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128946",
@@ -31476,8 +30448,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Everton's search for more attack met Manchester United's Carrick rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Everton v Manchester United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Everton v Manchester United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -31504,10 +30476,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Everton's search for more attack met Manchester United's Carrick rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Everton v Manchester United is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Everton v Manchester United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Everton drew Manchester United 2-2.",
-      "synopsisSpoilerOn": "Everton drew Manchester United 2-2. Everton and Manchester United shared the points after a 2-2 draw. The result now updates Everton's adding goals to one of the league's strongest away defences thread and Manchester United's a redesigned midfield carrying Champions League load thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Everton and Manchester United shared the points after a 2-2 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -31547,20 +30519,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Everton drew Manchester United 2-2.\",\"Everton 2-2 Manchester United\",\"Everton and Manchester United shared the points after a 2-2 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Everton — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -31576,8 +30534,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_27",
     "eventId": "evt_27",
     "displayTitleCompact": "R13 Italian GP Race",
-    "selectedSentence": "Monza earns a five-star replay: two starts and split Mercedes strategies turn a home race into a contest worth watching in full.",
-    "fullSpiel": "The Italian Grand Prix keeps changing its terms: an early red flag resets the field, Mercedes lets its drivers contest the lead, and a virtual safety car forces a choice between track position and fresher tyres. There is a separate fight between the McLarens, with little room to spare. It earns our five-star replay recommendation for the way those decisions unfold, rather than simply for the final classification.",
+    "selectedSentence": "R13 Italian GP Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R13 Italian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Italian Grand Prix race — official research 1",
     "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-race-day-in-italy-2026.43DzkIlg5jfZZOc1IBjSv3",
     "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
@@ -31596,15 +30554,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Monza earns a five-star replay: two starts and split Mercedes strategies turn a home race into a contest worth watching in full.",
+      "hookSpoilerOff": "R13 Italian GP Race is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Kimi Antonelli won R13 Italian GP Race.",
-      "synopsisSpoilerOff": "The Italian Grand Prix keeps changing its terms: an early red flag resets the field, Mercedes lets its drivers contest the lead, and a virtual safety car forces a choice between track position and fresher tyres. There is a separate fight between the McLarens, with little room to spare. It earns our five-star replay recommendation for the way those decisions unfold, rather than simply for the final classification.",
-      "synopsisSpoilerOn": "Kimi Antonelli turned nineteenth on the grid into victory, using fresh tyres after a virtual-safety-car stop to catch George Russell. Mercedes finished first and second, with Max Verstappen third. The comeback made Antonelli the first Italian to win at Monza since 1966; the split strategy and the battles behind make the full race worth revisiting.",
+      "synopsisSpoilerOff": "R13 Italian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Kimi Antonelli won R13 Italian GP Race. 1. Kimi Antonelli (Mercedes); 2. George Russell (Mercedes); 3. Max Verstappen (Red Bull Racing).",
       "intensitySource": "computed",
       "lastReviewedAt": "2026-09-08T12:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
@@ -32109,22 +31067,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "endTimeUtc": "2026-09-06T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Italian Grand Prix race",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup",
-        "narrative:consequence"
-      ],
-      "sourceName": "Italian Grand Prix race — official research 1",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-race-day-in-italy-2026.43DzkIlg5jfZZOc1IBjSv3",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128943",
@@ -32189,8 +31132,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Arsenal's first title defence in 22 years met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+    "selectedSentence": "Arsenal v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Arsenal v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -32217,10 +31160,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Arsenal's first title defence in 22 years met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Arsenal v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Arsenal v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Arsenal defeated Chelsea 2-1.",
-      "synopsisSpoilerOn": "Arsenal defeated Chelsea 2-1. Arsenal completed a 1-goal win in Premier League Matchweek 3. The result now updates Arsenal's settled champion structure thread and Chelsea's a new three-at-the-back project without European midweeks thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Arsenal completed a 1-goal win in Premier League Matchweek 3.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     },
@@ -32260,20 +31203,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Arsenal defeated Chelsea 2-1.\",\"Arsenal 2-1 Chelsea\",\"Arsenal completed a 1-goal win in Premier League Matchweek 3.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Arsenal — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -32380,9 +31309,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Tommy Paul v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
-      "synopsisSpoilerOff": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Tommy Paul v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
       "arcStage": "recap",
       "intensity": 5,
@@ -32437,9 +31366,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Paul tests the returning defending champion for a place in the quarterfinals.",
-    "fullSpiel": "Carlos Alcaraz arrived with the stronger head-to-head record and a lighter workload through three rounds. Paul had taken the longer route, including a five-set encounter with Bublik. Their fourth-round meeting asked whether that match toughness could disrupt the defending champion’s increasingly assured return from a wrist injury.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Tommy Paul v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tommy Paul v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
     "outcomeText": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
@@ -32454,21 +31383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Tommy Paul v Carlos Alcaraz",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Tommy Paul v Carlos Alcaraz — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-06/2026_us_open_carlos_alcaraz_vs_tommy_paul_-_round_4_key_match_preview.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "evt_fiba_women_2026_group_puerto_rico_belgium",
@@ -32580,7 +31495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-belgium",
@@ -32618,21 +31533,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Belgium won 76–64.\",\"Puerto Rico 64–76 Belgium\",\"Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-06T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_italy_usa",
@@ -32744,7 +31645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-usa",
@@ -32782,21 +31683,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"USA won 55–52.\",\"Italy 52–55 USA\",\"Italy 52–55 USA in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-06T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -32908,7 +31795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-belgium-australia",
@@ -32946,21 +31833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Belgium won 80–68.\",\"Belgium 80–68 Australian Opals\",\"Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -33110,21 +31983,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Puerto Rico won 75–71.\",\"Puerto Rico 75–71 Türkiye\",\"Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -33274,21 +32133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Hungary won 82–73.\",\"Hungary 82–73 Korea\",\"Hungary 82–73 Korea in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -33400,7 +32245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-nigeria-france",
@@ -33438,21 +32283,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"France won 111–56.\",\"Nigeria 56–111 France\",\"Nigeria 56–111 France in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-wd-4301",
@@ -33574,9 +32405,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
-      "synopsisSpoilerOff": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
       "arcStage": "recap",
       "intensity": 5,
@@ -33643,9 +32474,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Hunter and Krawczyk stand in the path of Siniakova and Townsend’s missing major.",
-    "fullSpiel": "Katerina Siniakova and Taylor Townsend entered this third-round meeting with three different Grand Slam titles together and the US Open still to add. Storm Hunter and Desirae Krawczyk, seeded thirteenth, were the immediate obstacle to the top seeds’ quarterfinal place.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "selectedSentence": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
     "score": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
@@ -33660,21 +32491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false,
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:schedule"
-      ],
-      "sourceName": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-07/siniakova-townsend_harrison-skupski_advance_in_doubles_at_the_2026_us_open.html",
-      "sourceCheckedAt": "2026-09-08T14:15:34.766Z",
-      "needsPreviewRefresh": false
-    }
+    "catchupEligible": false
   },
   {
     "id": "evt_fiba_women_2026_group_germany_mali",
@@ -33786,7 +32603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-germany-mali",
@@ -33824,21 +32641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Germany won 83–58.\",\"Germany 83–58 Mali\",\"Germany 83–58 Mali in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_japan_spain",
@@ -33950,7 +32753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-japan-spain",
@@ -33988,21 +32791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Spain won 79–59.\",\"Japan 59–79 Spain\",\"Japan 59–79 Spain in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_italy_china",
@@ -34114,7 +32903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-china",
@@ -34152,21 +32941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"China won 71–51.\",\"Italy 51–71 China\",\"Italy 51–71 China in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -34278,7 +33053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-usa-czechia",
@@ -34316,21 +33091,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"USA won 105–64.\",\"USA 105–64 Czechia\",\"USA 105–64 Czechia in the World Cup group stage in Berlin.\"]"
     },
     "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1503",
@@ -34398,7 +33159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/frances_tiafoe_makes_epic_comeback_to_defeat_alex_michelsen_at_the_2026_us_open_qfs.html",
     "eventId": "fixture-us-open-2026-official-ms-1503",
     "canonicalEventId": "fixture:us-open-2026:official:ms:1503",
     "key": "tennis",
@@ -34435,10 +33196,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-      "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
+      "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+      "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -34446,7 +33207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "Frances Tiafoe v Alex Michelsen — official research 1",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -34465,10 +33226,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Tiafoe and Michelsen meet with an American semifinal place guaranteed and the home-title drought still alive as a target.",
-    "fullSpiel": "Frances Tiafoe and Alex Michelsen can draw on the same home crowd, but this quarterfinal gives only one of them a place in the last four. They are part of a six-player American singles contingent in the quarterfinals, the country's largest here since 2002. Their match converts that collective promise into a guaranteed semifinal berth; the successful player carries it into the closing days.",
-    "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1503",
@@ -34516,9 +33277,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-    "outcomeText": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-    "recapText": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
+    "score": "Tiafoe 5-7, 3-6, 7-5, 6-3, 7-6(6) Michelsen",
+    "outcomeText": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+    "recapText": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -34527,22 +33288,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "scoreDisplay": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
     "result": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-    "resultStatus": "official",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Frances Tiafoe v Alex Michelsen",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Frances Tiafoe v Alex Michelsen — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "resultStatus": "official"
   },
   {
     "id": "fixture-us-open-2026-official-ws-2501",
@@ -34610,7 +33356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/aryna_sabalenka_vs_linda_noskova_at_the_2026_us_open.html",
     "eventId": "fixture-us-open-2026-official-ws-2501",
     "canonicalEventId": "fixture:us-open-2026:official:ws:2501",
     "key": "tennis",
@@ -34647,10 +33393,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-      "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
+      "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+      "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -34658,7 +33404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "Aryna Sabalenka v Linda Noskova — official research 1",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -34677,10 +33423,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Sabalenka's title defence and No. 1 hopes meet Wimbledon champion Noskova in the last eight.",
-    "fullSpiel": "Aryna Sabalenka needs the title to keep a chance of retaining No. 1, making this quarterfinal a test of both her New York defence and her standing in the game. Linda Noskova arrives with the authority of a Wimbledon champion. With Rybakina, Pegula and Gauff also in the ranking contest, this is a direct collision between two major winners with consequences beyond the next round.",
-    "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2501",
@@ -34728,9 +33474,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-    "outcomeText": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-    "recapText": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
+    "score": "Sabalenka 7-6(1), 3-6, 7-6(7) Noskova",
+    "outcomeText": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+    "recapText": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -34740,22 +33486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scoreDisplay": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
     "result": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
     "endTimeBasis": "scheduled-live-window",
-    "resultStatus": "official",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Aryna Sabalenka v Linda Noskova",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:matchup",
-        "narrative:consequence",
-        "narrative:schedule"
-      ],
-      "sourceName": "Aryna Sabalenka v Linda Noskova — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "resultStatus": "official"
   },
   {
     "id": "evt_fiba_women_2026_qualification_day_1",
@@ -34788,11 +33519,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "The first qualification games put World Cup survival on a single result.",
-    "fullSpiel": "The first qualification games put World Cup survival on a single result. Second- and third-placed teams meet for the remaining quarterfinal places.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -34814,14 +33545,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia and China advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Australia 82-80 Italy · China 75-72 Puerto Rico",
     "outcomeText": "Australia and China advanced to the quarterfinals.",
     "recapText": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
@@ -34867,21 +33598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games."
     },
     "endTimeUtc": "2026-09-08T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1504",
@@ -34949,7 +33666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html",
     "eventId": "fixture-us-open-2026-official-ms-1504",
     "canonicalEventId": "fixture:us-open-2026:official:ms:1504",
     "key": "tennis",
@@ -34986,10 +33703,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-      "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
+      "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+      "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -34997,7 +33714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "Ben Shelton v Carlos Alcaraz — official research 1",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -35016,10 +33733,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Shelton brings home support and a sharpened game to the defending champion's quarterfinal test.",
-    "fullSpiel": "Ben Shelton went straight from beating Stefanos Tsitsipas to the practice court: reaching this quarterfinal was a step, not the destination. Carlos Alcaraz brings the defending champion's authority into an Ashe night session where Shelton can make the occasion feel very different. The American's challenge is to sustain that pressure against a player no American has beaten at a major.",
-    "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1504",
@@ -35067,9 +33784,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-    "outcomeText": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-    "recapText": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
+    "score": "Shelton 6-7(5), 6-1, 6-3, 1-6, 7-6(7) Alcaraz",
+    "outcomeText": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+    "recapText": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -35078,22 +33795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "scoreDisplay": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
     "result": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-    "resultStatus": "official",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Ben Shelton v Carlos Alcaraz",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:history",
-        "narrative:schedule"
-      ],
-      "sourceName": "Ben Shelton v Carlos Alcaraz — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "resultStatus": "official"
   },
   {
     "id": "fixture-us-open-2026-official-ws-2502",
@@ -35161,7 +33863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/pegula_rallies_past_navarro_sets_sabalenka_showdown_in_2026_us_open_sfs.html",
     "eventId": "fixture-us-open-2026-official-ws-2502",
     "canonicalEventId": "fixture:us-open-2026:official:ws:2502",
     "key": "tennis",
@@ -35198,10 +33900,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-      "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
+      "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Jessica Pegula defeated Emma Navarro in three sets.",
+      "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -35209,7 +33911,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "Jessica Pegula v Emma Navarro — official research 1",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -35228,10 +33930,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Pegula and Navarro put a guaranteed American semifinal place on the line, with a ranking prize still within Pegula's reach.",
-    "fullSpiel": "Jessica Pegula has a previous US Open final appearance; Emma Navarro is trying to turn her return to the last eight into another deep run at home. Their meeting guarantees an American semifinalist, but only one can keep building on a tournament that has brought six home players into the singles quarterfinals. Pegula also remains among the players who can leave New York as world No. 1.",
-    "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2502",
@@ -35281,9 +33983,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-    "outcomeText": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-    "recapText": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
+    "score": "Pegula 3-6, 6-4, 6-3 Navarro",
+    "outcomeText": "Jessica Pegula defeated Emma Navarro in three sets.",
+    "recapText": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -35293,23 +33995,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scoreDisplay": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
     "result": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
     "endTimeBasis": "scheduled-live-window",
-    "resultStatus": "official",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Jessica Pegula v Emma Navarro",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:consequence",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Jessica Pegula v Emma Navarro — official research 1",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "resultStatus": "official"
   },
   {
     "id": "event-wrc-2026-round-12",
@@ -35349,14 +34035,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round 12",
     "narrativeType": "championship-round",
     "status": "completed",
-    "selectedSentence": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-    "fullSpiel": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-    "sourceName": "WRC official 2026 calendar",
-    "sourceUrl": "https://www.wrc.com/en/calendar",
-    "sourceCheckedAt": "2026-09-22T02:47:39.095Z",
+    "selectedSentence": "WRC Rally Chile Bio Bío is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "WRC Rally Chile Bio Bío is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "WRC",
+    "sourceUrl": "https://www.wrc.com/en/news/solberg-wins-rally-chile-as-toyota-clinches-manufacturers-crown",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -35365,11 +34051,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "stakes": 4,
       "intensity": 4,
       "arcStage": "recap",
-      "hookSpoilerOff": "WRC Rally Chile Bio Bío is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "WRC Rally Chile Bio Bío is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
       "expectedSpectacle": 7,
       "intensitySource": "computed",
-      "synopsisSpoilerOff": "WRC Rally Chile Bio Bío is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "WRC Rally Chile Bio Bío is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.",
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:57:33.822Z"
@@ -35425,21 +34111,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.\",\"Oliver Solberg / Elliott Edmondson — 2:57:08.2\",\"Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.\"]",
       "hookSpoilerOn": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
       "synopsisSpoilerOn": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 WRC title pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:form",
-        "narrative:path",
-        "narrative:format"
-      ],
-      "sourceName": "WRC official 2026 calendar",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-09-22T02:47:39.095Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -35473,11 +34144,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "The last qualification games complete the Women's World Cup quarterfinal field.",
-    "fullSpiel": "The last qualification games complete the Women's World Cup quarterfinal field. There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -35499,14 +34170,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Germany and Hungary advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Germany 94-56 Korea · Hungary 84-63 Japan",
     "outcomeText": "Germany and Hungary advanced to the quarterfinals.",
     "recapText": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
@@ -35552,21 +34223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games."
     },
     "endTimeUtc": "2026-09-09T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_quarterfinals",
@@ -35599,11 +34256,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Quarterfinals",
     "stage": "quarterfinal",
     "narrativeType": "all",
-    "selectedSentence": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-    "fullSpiel": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day. Group winners re-enter against qualification survivors, with every title route now direct.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -35625,15 +34282,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain, Germany, France and USA reached the semifinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
     "outcomeText": "Spain, Germany, France and USA reached the semifinals.",
     "recapText": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
@@ -35679,21 +34336,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin."
     },
     "endTimeUtc": "2026-09-10T19:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -35729,11 +34372,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-    "fullSpiel": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure. The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -35785,14 +34428,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs 42-12.",
-      "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 42,
     "awayScore": 12,
     "score": "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
@@ -35839,21 +34482,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win."
     },
     "endTimeUtc": "2026-09-10T12:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -35889,11 +34518,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-    "fullSpiel": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -35945,14 +34574,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers 22-10.",
-      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 10,
     "awayScore": 22,
     "score": "Wests Tigers 10-22 Canberra Raiders",
@@ -35999,21 +34628,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers."
     },
     "endTimeUtc": "2026-09-11T10:40:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -36055,14 +34670,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",\"Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.\"]",
-      "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
-      "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
+      "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+      "synopsisSpoilerOn": "Knights defeated Rabbitohs in Elimination Final. Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Rabbitohs v Knights is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
-      "synopsisSpoilerOff": "Rabbitohs v Knights is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Rabbitohs v Knights in Elimination Final: the result is available to reveal.",
+      "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+      "synopsisSpoilerOff": "Rabbitohs v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.",
       "arcStage": "recap",
       "intensity": 5,
@@ -36106,9 +34721,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "foxtel",
       "kayo"
     ],
-    "sourceName": "Rabbitohs v Knights — official research 1",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-    "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-2",
@@ -36125,9 +34740,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Sixth meets seventh to open the finals, with one season ending on Friday.",
-    "fullSpiel": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "selectedSentence": "Rabbitohs v Knights is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Rabbitohs v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-2",
       "major-match-nrl-finals-2026-elimination-final-2"
@@ -36179,21 +34794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "displayName": "Rabbitohs v Knights",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Rabbitohs v Knights",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:schedule",
-        "narrative:path"
-      ],
-      "sourceName": "Rabbitohs v Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "displayName": "Rabbitohs v Knights"
   },
   {
     "id": "event-afl-cd_m20260142701",
@@ -36230,13 +34831,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Winner of EF1"
       }
     ],
-    "selectedSentence": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
-    "fullSpiel": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+    "selectedSentence": "Fremantle v Geelong Cats is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fremantle v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -36245,7 +34846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36272,10 +34873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceTrust": "verified",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
-      "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-      "synopsisSpoilerOff": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
-      "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOff": "Fremantle v Geelong Cats in Semi Finals: the result is available to reveal.",
+      "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+      "synopsisSpoilerOff": "Fremantle v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -36289,8 +34890,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
       "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
-      "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-      "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+      "synopsisSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.",
       "threadIds": [
         "thread:depth:afl:finals"
       ],
@@ -36465,20 +35066,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t60",
       "scorelineText": "Fremantle v Geelong Cats — 120-106",
       "spoilerLevel": "sensitive"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -36649,11 +35236,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-    "fullSpiel": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks. The midday match carries the direct consequences of a compressed eleven-round campaign.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -36705,14 +35292,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
-      "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys 33-28.",
-      "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 33,
     "awayScore": 28,
     "score": "Parramatta Eels 33-28 North Queensland Cowboys",
@@ -36759,21 +35346,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win."
     },
     "endTimeUtc": "2026-09-12T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640501",
@@ -36808,8 +35381,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Hawthorn enter 8th and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Hawthorn are 8th with 8 points, while Western Bulldogs are 6th with 12. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Hawthorn v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hawthorn v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -36823,7 +35396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -36883,9 +35456,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Hawthorn v Western Bulldogs is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Hawthorn v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Hawthorn defeated Western Bulldogs 41-30.",
-      "synopsisSpoilerOff": "Hawthorn v Western Bulldogs is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Hawthorn v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Hawthorn v Western Bulldogs finished 41-30 in Round 5, with Hawthorn winning by 11 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -36911,20 +35484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Hawthorn v Western Bulldogs — 41-30",
     "endTimeUtc": "2026-09-12T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hawthorn — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640502",
@@ -36959,8 +35519,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Gold Coast SUNS enter 11th and Collingwood 17th; a late-season test of where both clubs finish.",
-    "fullSpiel": "Gold Coast SUNS are 11th with 8 points, while Collingwood are 17th with 0. That makes this more than a date in Round 5: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Gold Coast SUNS v Collingwood is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Gold Coast SUNS v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -36974,7 +35534,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37034,9 +35594,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Gold Coast SUNS v Collingwood is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Gold Coast SUNS v Collingwood is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Gold Coast SUNS defeated Collingwood 62-32.",
-      "synopsisSpoilerOff": "Gold Coast SUNS v Collingwood is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Gold Coast SUNS v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Gold Coast SUNS v Collingwood finished 62-32 in Round 5, with Gold Coast SUNS winning by 30 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -37062,20 +35622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Gold Coast SUNS v Collingwood — 62-32",
     "endTimeUtc": "2026-09-12T07:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Gold Coast SUNS — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640503",
@@ -37110,8 +35657,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Adelaide Crows enter 10th and Geelong Cats 4th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Adelaide Crows are 10th with 8 points, while Geelong Cats are 4th with 12. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Adelaide Crows v Geelong Cats is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adelaide Crows v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -37125,7 +35672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37185,9 +35732,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Adelaide Crows v Geelong Cats is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Adelaide Crows v Geelong Cats is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Geelong Cats defeated Adelaide Crows 57-46.",
-      "synopsisSpoilerOff": "Adelaide Crows v Geelong Cats is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Adelaide Crows v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Adelaide Crows v Geelong Cats finished 46-57 in Round 5, with Geelong Cats winning by 11 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -37213,20 +35760,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Adelaide Crows v Geelong Cats — 46-57",
     "endTimeUtc": "2026-09-12T08:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Adelaide Crows — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-qualifying-final-2",
@@ -37269,14 +35803,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",\"The Dolphins came from behind to win 26-16 and advance to a preliminary final.\"]",
-      "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
-      "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final."
+      "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+      "synopsisSpoilerOn": "Dolphins defeated Warriors in Qualifying Final. The Dolphins came from behind to win 26-16 and advance to a preliminary final."
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Warriors v Dolphins is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
-      "synopsisSpoilerOff": "Warriors v Dolphins is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Warriors v Dolphins in Qualifying Final: the result is available to reveal.",
+      "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+      "synopsisSpoilerOff": "Warriors v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final.",
       "arcStage": "recap",
       "intensity": 5,
@@ -37320,9 +35854,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "foxtel",
       "kayo"
     ],
-    "sourceName": "Warriors v Dolphins — official research 1",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-    "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-2",
@@ -37339,9 +35873,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
-    "fullSpiel": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "selectedSentence": "Warriors v Dolphins is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Warriors v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-2",
       "major-match-nrl-finals-2026-qualifying-final-2"
@@ -37393,22 +35927,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "displayName": "Warriors v Dolphins",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Warriors v Dolphins",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceName": "Warriors v Dolphins — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "displayName": "Warriors v Dolphins"
   },
   {
     "id": "event-aflw-cd_m20262640504",
@@ -37443,8 +35962,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "West Coast Eagles enter 15th and Brisbane Lions 9th; a late-season test of where both clubs finish.",
-    "fullSpiel": "West Coast Eagles are 15th with 0 points, while Brisbane Lions are 9th with 8. That makes this more than a date in Round 5: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "West Coast Eagles v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "West Coast Eagles v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -37458,7 +35977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37518,9 +36037,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "West Coast Eagles v Brisbane Lions is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "West Coast Eagles v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "West Coast Eagles defeated Brisbane Lions 46-41.",
-      "synopsisSpoilerOff": "West Coast Eagles v Brisbane Lions is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "West Coast Eagles v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "West Coast Eagles v Brisbane Lions finished 46-41 in Round 5, with West Coast Eagles winning by 5 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -37546,20 +36065,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "West Coast Eagles v Brisbane Lions — 46-41",
     "endTimeUtc": "2026-09-12T09:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "West Coast Eagles — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_sharks_dragons",
@@ -37595,11 +36101,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-    "fullSpiel": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake. The final-round move adds a big-stage test just before elimination football begins.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -37651,14 +36157,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons 16-8.",
-      "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 16,
     "awayScore": 8,
     "score": "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
@@ -37705,21 +36211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win."
     },
     "endTimeUtc": "2026-09-12T10:10:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "NRL",
@@ -37846,13 +36338,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Winner of EF2"
       }
     ],
-    "selectedSentence": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
-    "fullSpiel": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+    "selectedSentence": "Brisbane Lions v Adelaide Crows is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Lions v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -37861,7 +36353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37888,10 +36380,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceTrust": "verified",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
-      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-      "synopsisSpoilerOff": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
-      "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOff": "Brisbane Lions v Adelaide Crows in Semi Finals: the result is available to reveal.",
+      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+      "synopsisSpoilerOff": "Brisbane Lions v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 8,
@@ -37905,8 +36397,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
       "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
-      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-      "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+      "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.",
       "threadIds": [
         "thread:depth:afl:finals"
       ],
@@ -38082,21 +36574,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t20",
       "scorelineText": "Brisbane Lions v Adelaide Crows — 144-91",
       "spoilerLevel": "sensitive"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:venue",
-        "narrative:consequence",
-        "narrative:form"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -38139,14 +36616,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Sharks defeated Cowboys 26-16.\",\"Sharks 26-16 Cowboys\",\"Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.\"]",
-      "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
-      "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
+      "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+      "synopsisSpoilerOn": "Sharks defeated Cowboys in Elimination Final. Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Sharks v Cowboys is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
-      "synopsisSpoilerOff": "Sharks v Cowboys is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sharks v Cowboys in Elimination Final: the result is available to reveal.",
+      "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+      "synopsisSpoilerOff": "Sharks v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.",
       "arcStage": "recap",
       "intensity": 5,
@@ -38209,9 +36686,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
-    "fullSpiel": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "selectedSentence": "Sharks v Cowboys is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sharks v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-1",
       "major-match-nrl-finals-2026-elimination-final-1"
@@ -38267,21 +36744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "displayName": "Sharks v Cowboys",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sharks v Cowboys",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceName": "Sharks v Cowboys — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "displayName": "Sharks v Cowboys"
   },
   {
     "id": "evt_f1_2026_spain_practice_3",
@@ -38413,8 +36876,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Aston Villa host Nottingham Forest with Aston Villa's post-Europa rebuild and Nottingham Forest's Glasner reset both under examination.",
-    "fullSpiel": "Aston Villa arrives with 0W-1D-2L, while Nottingham Forest brings 0W-2D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+    "selectedSentence": "Aston Villa v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Aston Villa v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -38441,8 +36904,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Aston Villa v Nottingham Forest is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Aston Villa v Nottingham Forest is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Aston Villa v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Aston Villa v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Nottingham Forest defeated Aston Villa 2-1.",
       "synopsisSpoilerOn": "Nottingham Forest completed a 1-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -38484,20 +36947,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Nottingham Forest defeated Aston Villa 2-1.\",\"Aston Villa 1-2 Nottingham Forest\",\"Nottingham Forest completed a 1-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Nottingham Forest defeated Aston Villa 2-1.",
       "synopsisSpoilerOn": "Nottingham Forest completed a 1-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Aston Villa — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -38563,8 +37012,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Bournemouth's first European-season balancing act meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
-    "fullSpiel": "AFC Bournemouth arrives with 0W-2D-1L, while Brentford brings 1W-2D-0L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+    "selectedSentence": "Bournemouth v Brentford is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bournemouth v Brentford is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -38591,8 +37040,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Bournemouth v Brentford is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Bournemouth v Brentford is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Bournemouth v Brentford is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Bournemouth v Brentford is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Bournemouth drew Brentford 2-2.",
       "synopsisSpoilerOn": "Bournemouth and Brentford shared the points after a 2-2 draw.",
       "researchDepth": 2,
@@ -38634,20 +37083,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Bournemouth drew Brentford 2-2.\",\"Bournemouth 2-2 Brentford\",\"Bournemouth and Brentford shared the points after a 2-2 draw.\"]",
       "hookSpoilerOn": "Bournemouth drew Brentford 2-2.",
       "synopsisSpoilerOn": "Bournemouth and Brentford shared the points after a 2-2 draw."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -38713,8 +37148,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Hull's top-flight return after nine years comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
-    "fullSpiel": "Chelsea arrives with 2W-0D-1L, while Hull City brings 2W-1D-0L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
+    "selectedSentence": "Chelsea v Hull City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Chelsea v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -38741,8 +37176,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Chelsea v Hull City is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Chelsea v Hull City is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Chelsea v Hull City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Chelsea v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Chelsea drew Hull City 2-2.",
       "synopsisSpoilerOn": "Chelsea and Hull City shared the points after a 2-2 draw.",
       "researchDepth": 2,
@@ -38784,20 +37219,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Chelsea drew Hull City 2-2.\",\"Chelsea 2-2 Hull City\",\"Chelsea and Hull City shared the points after a 2-2 draw.\"]",
       "hookSpoilerOn": "Chelsea drew Hull City 2-2.",
       "synopsisSpoilerOn": "Chelsea and Hull City shared the points after a 2-2 draw."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Chelsea — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -38863,8 +37284,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Crystal Palace host Ipswich Town with Crystal Palace's Pierre Sage transition and Ipswich's immediate top-flight return both under examination.",
-    "fullSpiel": "Crystal Palace arrives with 1W-0D-2L, while Ipswich Town brings 1W-0D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+    "selectedSentence": "Crystal Palace v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Crystal Palace v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -38891,8 +37312,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Crystal Palace v Ipswich Town is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Crystal Palace v Ipswich Town is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Crystal Palace v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Crystal Palace v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Ipswich Town defeated Crystal Palace 3-2.",
       "synopsisSpoilerOn": "Ipswich Town completed a 1-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -38934,20 +37355,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Ipswich Town defeated Crystal Palace 3-2.\",\"Crystal Palace 2-3 Ipswich Town\",\"Ipswich Town completed a 1-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Ipswich Town defeated Crystal Palace 3-2.",
       "synopsisSpoilerOn": "Ipswich Town completed a 1-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Crystal Palace — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -39013,8 +37420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham's first post-Marco Silva season comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-    "fullSpiel": "Liverpool arrives with 1W-2D-0L, while Fulham brings 3 defeats from 3. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+    "selectedSentence": "Liverpool v Fulham is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Liverpool v Fulham is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -39041,8 +37448,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Liverpool v Fulham is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Liverpool v Fulham is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Liverpool v Fulham is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Liverpool v Fulham is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Liverpool drew Fulham 0-0.",
       "synopsisSpoilerOn": "Liverpool and Fulham shared the points after a 0-0 draw.",
       "researchDepth": 2,
@@ -39084,20 +37491,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Liverpool drew Fulham 0-0.\",\"Liverpool 0-0 Fulham\",\"Liverpool and Fulham shared the points after a 0-0 draw.\"]",
       "hookSpoilerOn": "Liverpool drew Fulham 0-0.",
       "synopsisSpoilerOn": "Liverpool and Fulham shared the points after a 0-0 draw."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Liverpool — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -39131,11 +37524,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualifying",
     "stage": "Qualifying",
     "narrativeType": "all",
-    "selectedSentence": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
-    "fullSpiel": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-    "sourceName": "Formula 1 current driver standings",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
+    "selectedSentence": "Spanish GP · Qualifying is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spanish GP · Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -39153,9 +37546,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": true,
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Spanish GP · Qualifying is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Spanish GP · Qualifying is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Lando Norris took pole for the Spanish Grand Prix.",
-      "synopsisSpoilerOff": "Spanish GP · Qualifying is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Spanish GP · Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
       "lastReviewedAt": "2026-09-08T13:52:45.257Z",
       "arcStage": "recap",
@@ -39164,7 +37557,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-28",
@@ -39212,21 +37605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
     "endTimeUtc": "2026-09-12T17:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 Formula 1 title pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_semifinals",
@@ -39259,11 +37638,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Semifinals",
     "stage": "semifinal",
     "narrativeType": "all",
-    "selectedSentence": "The last four teams play for a place in the Women's World Cup final.",
-    "fullSpiel": "The last four teams play for a place in the Women's World Cup final. Two semifinals in one Berlin session decide who can still leave as world champion.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -39285,15 +37664,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA and France reached the World Cup final.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "USA 76-66 Spain · France 86-64 Germany",
     "outcomeText": "USA and France reached the World Cup final.",
     "recapText": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
@@ -39339,21 +37718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals."
     },
     "endTimeUtc": "2026-09-12T22:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128962",
@@ -39418,8 +37783,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Everton's search for more attack comes to Tottenham Hotspur, directly testing Tottenham's first full De Zerbi season.",
-    "fullSpiel": "Tottenham Hotspur arrives with 0W-1D-2L, while Everton brings 1W-2D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+    "selectedSentence": "Tottenham Hotspur v Everton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tottenham Hotspur v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -39446,8 +37811,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Tottenham Hotspur v Everton is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Tottenham Hotspur v Everton is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Tottenham Hotspur v Everton is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Tottenham Hotspur v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Tottenham Hotspur drew Everton 0-0.",
       "synopsisSpoilerOn": "Tottenham Hotspur and Everton shared the points after a 0-0 draw.",
       "researchDepth": 2,
@@ -39489,20 +37854,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Tottenham Hotspur drew Everton 0-0.\",\"Tottenham Hotspur 0-0 Everton\",\"Tottenham Hotspur and Everton shared the points after a 0-0 draw.\"]",
       "hookSpoilerOn": "Tottenham Hotspur drew Everton 0-0.",
       "synopsisSpoilerOn": "Tottenham Hotspur and Everton shared the points after a 0-0 draw."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -39568,8 +37919,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Sunderland's Europe-and-league balancing act against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
-    "fullSpiel": "Sunderland arrives with 1W-1D-1L, while Arsenal brings 3 wins from 3. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
+    "selectedSentence": "Sunderland v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sunderland v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -39596,8 +37947,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Sunderland v Arsenal is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Sunderland v Arsenal is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sunderland v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Sunderland v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Arsenal defeated Sunderland 2-0.",
       "synopsisSpoilerOn": "Arsenal completed a 2-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -39639,20 +37990,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Arsenal defeated Sunderland 2-0.\",\"Sunderland 0-2 Arsenal\",\"Arsenal completed a 2-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Arsenal defeated Sunderland 2-0.",
       "synopsisSpoilerOn": "Arsenal completed a 2-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sunderland — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -39689,11 +38026,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-    "fullSpiel": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections. The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -39746,14 +38083,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors 52-18.",
-      "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 52,
     "awayScore": 18,
     "score": "Brisbane Broncos 52-18 New Zealand Warriors",
@@ -39800,21 +38137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win."
     },
     "endTimeUtc": "2026-09-13T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640505",
@@ -39849,8 +38172,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Melbourne enter 2nd and Port Adelaide 12th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Melbourne are 2nd with 16 points, while Port Adelaide are 12th with 8. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Melbourne v Port Adelaide is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Melbourne v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -39864,7 +38187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39924,9 +38247,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Melbourne v Port Adelaide is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Melbourne v Port Adelaide is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Melbourne defeated Port Adelaide 74-23.",
-      "synopsisSpoilerOff": "Melbourne v Port Adelaide is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Melbourne v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Melbourne v Port Adelaide finished 74-23 in Round 5, with Melbourne winning by 51 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -39952,20 +38275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Melbourne v Port Adelaide — 74-23",
     "endTimeUtc": "2026-09-13T05:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Melbourne — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640506",
@@ -40000,8 +38310,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Richmond enter 13th and St Kilda 18th; a late-season test of where both clubs finish.",
-    "fullSpiel": "Richmond are 13th with 8 points, while St Kilda are 18th with 0. That makes this more than a date in Round 5: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Richmond v St Kilda is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Richmond v St Kilda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -40015,7 +38325,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -40075,9 +38385,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Richmond v St Kilda is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Richmond v St Kilda is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Richmond defeated St Kilda 58-43.",
-      "synopsisSpoilerOff": "Richmond v St Kilda is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Richmond v St Kilda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Richmond v St Kilda finished 58-43 in Round 5, with Richmond winning by 15 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -40103,20 +38413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Richmond v St Kilda — 58-43",
     "endTimeUtc": "2026-09-13T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Richmond — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_knights_titans",
@@ -40152,11 +38449,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-    "fullSpiel": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line. The last scheduled match can redraw the elimination pairings only days before finals begin.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -40208,14 +38505,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights 32-20.",
-      "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 20,
     "awayScore": 32,
     "score": "Newcastle Knights 20-32 Gold Coast Titans",
@@ -40262,21 +38559,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory."
     },
     "endTimeUtc": "2026-09-13T06:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640507",
@@ -40311,8 +38594,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sydney Swans enter 5th and GWS GIANTS 14th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Sydney Swans are 5th with 12 points, while GWS GIANTS are 14th with 4. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Sydney Swans v GWS GIANTS is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Swans v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -40326,7 +38609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -40386,9 +38669,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Sydney Swans v GWS GIANTS is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sydney Swans v GWS GIANTS is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Swans defeated GWS GIANTS 87-56.",
-      "synopsisSpoilerOff": "Sydney Swans v GWS GIANTS is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Sydney Swans v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Sydney Swans v GWS GIANTS finished 87-56 in Round 5, with Sydney Swans winning by 31 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -40414,20 +38697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Sydney Swans v GWS GIANTS — 87-56",
     "endTimeUtc": "2026-09-13T07:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sydney Swans — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640508",
@@ -40462,8 +38732,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "North Melbourne enter 1st and Carlton 3rd; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "North Melbourne are 1st with 16 points, while Carlton are 3rd with 16. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "North Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "North Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -40477,7 +38747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -40537,9 +38807,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "North Melbourne v Carlton is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "North Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "North Melbourne defeated Carlton 33-23.",
-      "synopsisSpoilerOff": "North Melbourne v Carlton is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "North Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "North Melbourne v Carlton finished 33-23 in Round 5, with North Melbourne winning by 10 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -40565,20 +38835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "North Melbourne v Carlton — 33-23",
     "endTimeUtc": "2026-09-13T08:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "North Melbourne — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-qualifying-final-1",
@@ -40620,14 +38877,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Panthers defeated Roosters 19-12.\",\"Panthers 19-12 Roosters\",\"Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.\"]",
-      "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
-      "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
+      "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+      "synopsisSpoilerOn": "Panthers defeated Roosters in Qualifying Final. Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Panthers v Roosters is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
-      "synopsisSpoilerOff": "Panthers v Roosters is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Panthers v Roosters in Qualifying Final: the result is available to reveal.",
+      "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+      "synopsisSpoilerOff": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.",
       "arcStage": "recap",
       "intensity": 5,
@@ -40690,9 +38947,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
-    "fullSpiel": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "selectedSentence": "Panthers v Roosters is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-1",
       "major-match-nrl-finals-2026-qualifying-final-1"
@@ -40748,21 +39005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "displayName": "Panthers v Roosters",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Panthers v Roosters",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceName": "Panthers v Roosters — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "displayName": "Panthers v Roosters"
   },
   {
     "id": "event-aflw-cd_m20262640509",
@@ -40797,8 +39040,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Fremantle enter 7th and Essendon 16th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Fremantle are 7th with 8 points, while Essendon are 16th with 0. That makes this more than a date in Round 5: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "selectedSentence": "Fremantle v Essendon is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fremantle v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -40812,7 +39055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -40872,9 +39115,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Fremantle v Essendon is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Fremantle v Essendon is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Fremantle defeated Essendon 37-22.",
-      "synopsisSpoilerOff": "Fremantle v Essendon is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Fremantle v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Fremantle v Essendon finished 37-22 in Round 5, with Fremantle winning by 15 points.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1,
@@ -40900,20 +39143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Fremantle v Essendon — 37-22",
     "endTimeUtc": "2026-09-13T10:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Fremantle — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_san_marino",
@@ -40946,8 +39176,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "San Marino GP",
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-    "fullSpiel": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
+    "selectedSentence": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP",
     "sourceUrl": "https://stats.motogp.com/en/gp-results",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -41006,14 +39236,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
-      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
     "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
     "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
@@ -41064,21 +39294,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://stats.motogp.com/en/gp-results",
       "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
       "https://www.motogp.com/en/calendar/2026"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "epl-2026-27-128956",
@@ -41143,8 +39359,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Coventry's return after 25 years against Brighton's goals-by-committee attack: one result will move two very different season stories.",
-    "fullSpiel": "Coventry City arrives with 3 defeats from 3, while Brighton & Hove Albion brings 1W-1D-1L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+    "selectedSentence": "Coventry City v Brighton & Hove Albion is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Coventry City v Brighton & Hove Albion is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -41171,8 +39387,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Coventry City v Brighton & Hove Albion is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Coventry City v Brighton & Hove Albion is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Coventry City v Brighton & Hove Albion is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Coventry City v Brighton & Hove Albion is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brighton & Hove Albion defeated Coventry City 5-0.",
       "synopsisSpoilerOn": "Brighton & Hove Albion completed a 5-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -41214,20 +39430,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion defeated Coventry City 5-0.\",\"Coventry City 0-5 Brighton & Hove Albion\",\"Brighton & Hove Albion completed a 5-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Brighton & Hove Albion defeated Coventry City 5-0.",
       "synopsisSpoilerOn": "Brighton & Hove Albion completed a 5-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Coventry City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -41261,11 +39463,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Race",
     "stage": "Race",
     "narrativeType": "all",
-    "selectedSentence": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
-    "fullSpiel": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-    "sourceName": "Formula 1 current driver standings",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
+    "selectedSentence": "Spanish GP · Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spanish GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1",
+    "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -41283,9 +39485,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": true,
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Spanish GP · Race is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Spanish GP · Race is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Kimi Antonelli won the Spanish Grand Prix.",
-      "synopsisSpoilerOff": "Spanish GP · Race is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Spanish GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
       "lastReviewedAt": "2026-09-08T13:52:45.257Z",
       "arcStage": "recap",
@@ -41294,7 +39496,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 9,
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-29",
@@ -41342,21 +39544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
     "endTimeUtc": "2026-09-13T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 Formula 1 title pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-22T05:09:27.086Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_bronze",
@@ -41389,11 +39577,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Third-place game",
     "stage": "medal",
     "narrativeType": "all",
-    "selectedSentence": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-    "fullSpiel": "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -41415,14 +39603,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain defeated Germany 81-58 to win bronze.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 81,
     "awayScore": 58,
     "score": "Spain 81-58 Germany",
@@ -41469,21 +39657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany."
     },
     "endTimeUtc": "2026-09-13T17:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128960",
@@ -41548,8 +39722,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester United host Manchester City with Manchester United's Carrick rebuild and Manchester City's first post-Guardiola campaign both under examination.",
-    "fullSpiel": "Manchester United arrives with 1W-1D-1L, while Manchester City brings 3 wins from 3. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+    "selectedSentence": "Manchester United v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Manchester United v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -41576,8 +39750,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Manchester United v Manchester City is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Manchester United v Manchester City is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Manchester United v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Manchester United v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester City defeated Manchester United 1-0.",
       "synopsisSpoilerOn": "Manchester City completed a 1-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -41619,20 +39793,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Manchester City defeated Manchester United 1-0.\",\"Manchester United 0-1 Manchester City\",\"Manchester City completed a 1-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Manchester City defeated Manchester United 1-0.",
       "synopsisSpoilerOn": "Manchester City completed a 1-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -41666,11 +39826,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Final",
     "stage": "final",
     "narrativeType": "all",
-    "selectedSentence": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-    "fullSpiel": "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "selectedSentence": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA",
+    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -41692,15 +39852,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA defeated France 97-79 to win the World Cup.",
-      "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "championship decider",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 97,
     "awayScore": 79,
     "score": "USA 97-79 France",
@@ -41747,21 +39907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory."
     },
     "endTimeUtc": "2026-09-13T21:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 FIBA Women's Basketball World Cup — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128958",
@@ -41826,8 +39972,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds' carry-over momentum meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
-    "fullSpiel": "Leeds United arrives with 1W-2D-0L, while Newcastle United brings 1W-2D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+    "selectedSentence": "Leeds United v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Leeds United v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
     "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
@@ -41854,8 +40000,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Leeds United v Newcastle United is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOff": "Leeds United v Newcastle United is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Leeds United v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Leeds United v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Leeds United defeated Newcastle United 4-1.",
       "synopsisSpoilerOn": "Leeds United completed a 3-goal win in Premier League Matchweek 4.",
       "researchDepth": 2,
@@ -41897,20 +40043,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Leeds United defeated Newcastle United 4-1.\",\"Leeds United 4-1 Newcastle United\",\"Leeds United completed a 3-goal win in Premier League Matchweek 4.\"]",
       "hookSpoilerOn": "Leeds United defeated Newcastle United 4-1.",
       "synopsisSpoilerOn": "Leeds United completed a 3-goal win in Premier League Matchweek 4."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Leeds United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -41946,8 +40078,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Hawthorn and North Melbourne met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Hawthorn and North Melbourne arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Hawthorn v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hawthorn v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -41961,7 +40093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42021,10 +40153,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Hawthorn and North Melbourne met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Hawthorn v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Hawthorn defeated North Melbourne 32-25.",
-      "synopsisSpoilerOff": "Hawthorn and North Melbourne arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Hawthorn defeated North Melbourne 32-25. The current table now has Hawthorn 7th on 16 points and North Melbourne 2nd on 20, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Hawthorn v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Hawthorn v North Melbourne finished 32-25 in Round 6, with Hawthorn winning by 7 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -42049,20 +40181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Hawthorn v North Melbourne — 32-25",
     "endTimeUtc": "2026-09-18T10:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hawthorn — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142802",
@@ -42170,9 +40289,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sydney Swans v Fremantle is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Fremantle defeated Sydney Swans 83-71.",
-      "synopsisSpoilerOff": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Sydney Swans v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Sydney Swans v Fremantle finished 71-83 in Preliminary Finals, with Fremantle winning by 12 points.",
       "arcStage": "recap",
       "intensity": 5,
@@ -42205,9 +40324,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "consensusTags": [],
-    "selectedSentence": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
-    "fullSpiel": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "selectedSentence": "Sydney Swans v Fremantle is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Swans v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
       "event-afl-cd_m20260142802"
@@ -42285,7 +40404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142802",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -42316,21 +40435,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t60",
       "scorelineText": "Sydney Swans v Fremantle — 71-83",
       "spoilerLevel": "sensitive"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sydney Swans v Fremantle",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Sydney Swans v Fremantle — official research 1",
-      "sourceUrl": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -42396,11 +40500,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brentford's fast-break identity met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Brentford v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brentford v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -42424,10 +40528,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brentford's fast-break identity met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Brentford v Chelsea is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brentford v Chelsea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brentford defeated Chelsea 3-0.",
-      "synopsisSpoilerOn": "Brentford defeated Chelsea 3-0. Brentford completed a 3-goal win in Premier League Matchweek 5. The result now updates Brentford's the league's leading fast-break and throw-in threat thread and Chelsea's a new three-at-the-back project without European midweeks thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Brentford completed a 3-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -42466,19 +40570,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brentford defeated Chelsea 3-0.\",\"Brentford 3-0 Chelsea\",\"Brentford completed a 3-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brentford — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -42514,8 +40605,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Collingwood and Geelong Cats met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Collingwood and Geelong Cats arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Collingwood v Geelong Cats is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Collingwood v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -42529,7 +40620,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42589,10 +40680,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Collingwood and Geelong Cats met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Collingwood v Geelong Cats is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Geelong Cats defeated Collingwood 90-49.",
-      "synopsisSpoilerOff": "Collingwood and Geelong Cats arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Geelong Cats defeated Collingwood 90-49. The current table now has Collingwood 17th on 0 points and Geelong Cats 3rd on 20, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Collingwood v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Collingwood v Geelong Cats finished 49-90 in Round 6, with Geelong Cats winning by 41 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -42617,20 +40708,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Collingwood v Geelong Cats — 49-90",
     "endTimeUtc": "2026-09-19T05:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Collingwood — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640603",
@@ -42665,8 +40743,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Melbourne and Carlton met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Melbourne and Carlton arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -42680,7 +40758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42740,10 +40818,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Melbourne and Carlton met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Melbourne v Carlton is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Melbourne defeated Carlton 58-24.",
-      "synopsisSpoilerOff": "Melbourne and Carlton arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Melbourne defeated Carlton 58-24. The current table now has Melbourne 1st on 24 points and Carlton 6th on 16, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Melbourne v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Melbourne v Carlton finished 58-24 in Round 6, with Melbourne winning by 34 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -42768,20 +40846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Melbourne v Carlton — 58-24",
     "endTimeUtc": "2026-09-19T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Melbourne — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640604",
@@ -42816,8 +40881,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Port Adelaide and Sydney Swans met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Port Adelaide and Sydney Swans arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Port Adelaide v Sydney Swans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Port Adelaide v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -42831,7 +40896,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42891,10 +40956,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Port Adelaide and Sydney Swans met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Port Adelaide v Sydney Swans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Swans defeated Port Adelaide 41-27.",
-      "synopsisSpoilerOff": "Port Adelaide and Sydney Swans arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Sydney Swans defeated Port Adelaide 41-27. The current table now has Port Adelaide 14th on 8 points and Sydney Swans 4th on 20, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Port Adelaide v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Port Adelaide v Sydney Swans finished 27-41 in Round 6, with Sydney Swans winning by 14 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -42919,20 +40984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Port Adelaide v Sydney Swans — 27-41",
     "endTimeUtc": "2026-09-19T07:35:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Port Adelaide — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640605",
@@ -42967,8 +41019,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Fremantle and Western Bulldogs met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Fremantle and Western Bulldogs arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Fremantle v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fremantle v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -42982,7 +41034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -43042,10 +41094,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Fremantle and Western Bulldogs met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Fremantle v Western Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Western Bulldogs defeated Fremantle 40-30.",
-      "synopsisSpoilerOff": "Fremantle and Western Bulldogs arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Western Bulldogs defeated Fremantle 40-30. The current table now has Fremantle 10th on 12 points and Western Bulldogs 8th on 16, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Fremantle v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Fremantle v Western Bulldogs finished 30-40 in Round 6, with Western Bulldogs winning by 10 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -43070,20 +41122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Fremantle v Western Bulldogs — 30-40",
     "endTimeUtc": "2026-09-19T08:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Fremantle — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142801",
@@ -43191,9 +41230,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Hawthorn v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Brisbane Lions defeated Hawthorn 131-122.",
-      "synopsisSpoilerOff": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Hawthorn v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Hawthorn v Brisbane Lions finished 122-131 in Preliminary Finals, with Brisbane Lions winning by 9 points.",
       "arcStage": "recap",
       "intensity": 5,
@@ -43226,9 +41265,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "consensusTags": [],
-    "selectedSentence": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
-    "fullSpiel": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "selectedSentence": "Hawthorn v Brisbane Lions is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hawthorn v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",
       "event-afl-cd_m20260142801"
@@ -43306,7 +41345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142801",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -43337,21 +41376,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t20",
       "scorelineText": "Hawthorn v Brisbane Lions — 122-131",
       "spoilerLevel": "sensitive"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hawthorn v Brisbane Lions",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Hawthorn v Brisbane Lions — official research 1",
-      "sourceUrl": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -43593,21 +41617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Melbourne United 95, Adelaide 36ers 97\",\"95-97\",\"Official NBL result.\"]"
     },
     "endTimeUtc": "2026-09-19T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -43650,14 +41660,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.\",\"46-10\",\"The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries.\"]",
-      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.",
-      "synopsisSpoilerOn": "The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
+      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final.",
+      "synopsisSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final. The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.",
-      "synopsisSpoilerOff": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sydney Roosters v Cronulla-Sutherland Sharks in Semi Final: the result is available to reveal.",
+      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final.",
+      "synopsisSpoilerOff": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries.",
       "arcStage": "recap",
       "intensity": 5,
@@ -43709,9 +41719,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Cronulla bring continuity; the Roosters face another sudden-death meeting with Walker still sidelined.",
-    "fullSpiel": "Sam Walker remains unavailable with an ankle injury. Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "selectedSentence": "Sydney Roosters v Cronulla-Sutherland Sharks is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:semi-final-1",
       "major-match-nrl-finals-2026-semi-final-1"
@@ -43778,22 +41788,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Semi Final",
       "46-10",
       "Official result"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sydney Roosters v Cronulla-Sutherland Sharks",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Sydney Roosters v Cronulla-Sutherland Sharks — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "epl-2026-27-128972",
@@ -43858,11 +41853,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham's first full De Zerbi season met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Tottenham Hotspur v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tottenham Hotspur v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -43886,10 +41881,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Tottenham's first full De Zerbi season met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Tottenham Hotspur v Aston Villa is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Tottenham Hotspur v Aston Villa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Aston Villa defeated Tottenham Hotspur 3-2.",
-      "synopsisSpoilerOn": "Aston Villa defeated Tottenham Hotspur 3-2. Aston Villa completed a 1-goal win in Premier League Matchweek 5. The result now updates Tottenham Hotspur's a new ball-playing defence under an attacking coach thread and Aston Villa's a new midfield and defensive spine thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Aston Villa completed a 1-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -43929,20 +41924,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Aston Villa defeated Tottenham Hotspur 3-2.\",\"Tottenham Hotspur 2-3 Aston Villa\",\"Aston Villa completed a 1-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -44091,21 +42072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Perth Wildcats 79, South East Melbourne Phoenix 100\",\"79-100\",\"Official NBL result.\"]"
     },
     "endTimeUtc": "2026-09-19T14:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_sailgp_2026_geneva_day_1",
@@ -44138,8 +42105,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Event 11",
     "stage": "fleet racing",
     "narrativeType": "all",
-    "selectedSentence": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
-    "fullSpiel": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+    "selectedSentence": "Geneva Sail Grand Prix — race day 1 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Geneva Sail Grand Prix — race day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "SailGP official team report",
     "sourceUrl": "https://mediahub.sailgp.com/teams/rockwool-denmark/",
     "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
@@ -44194,14 +42161,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Geneva Sail Grand Prix — race day 1 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Geneva Sail Grand Prix — race day 1 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "ROCKWOOL Racing led the Geneva standings after race day one.",
-      "synopsisSpoilerOff": "Geneva Sail Grand Prix — race day 1 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Geneva Sail Grand Prix — race day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "A race victory put ROCKWOOL Racing at the head of the standings after the opening day. The event title remained to be decided on Sunday.",
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Day 1 leader: ROCKWOOL Racing",
     "scoreDisplay": "Day 1 leader: ROCKWOOL Racing",
     "outcomeText": "ROCKWOOL Racing led the Geneva standings after race day one.",
@@ -44254,22 +42221,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceRefs": [
       "https://mediahub.sailgp.com/teams/rockwool-denmark/",
       "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geneva Sail Grand Prix - race day 1",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Geneva Sail Grand Prix - race day 1 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "epl-2026-27-128965",
@@ -44334,11 +42286,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton's goals-by-committee attack met Arsenal's first title defence in 22 years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Brighton & Hove Albion v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brighton & Hove Albion v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -44362,10 +42314,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Brighton's goals-by-committee attack met Arsenal's first title defence in 22 years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Brighton & Hove Albion v Arsenal is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion v Arsenal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brighton & Hove Albion defeated Arsenal 3-0.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Arsenal 3-0. Brighton & Hove Albion completed a 3-goal win in Premier League Matchweek 5. The result now updates Brighton & Hove Albion's a side that spread last season's goals across 19 players thread and Arsenal's settled champion structure thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion completed a 3-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -44405,20 +42357,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion defeated Arsenal 3-0.\",\"Brighton & Hove Albion 3-0 Arsenal\",\"Brighton & Hove Albion completed a 3-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -44484,11 +42422,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Everton's search for more attack met Ipswich's immediate top-flight return; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Everton v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Everton v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -44512,10 +42450,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Everton's search for more attack met Ipswich's immediate top-flight return; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Everton v Ipswich Town is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Everton v Ipswich Town is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Everton defeated Ipswich Town 1-0.",
-      "synopsisSpoilerOn": "Everton defeated Ipswich Town 1-0. Everton completed a 1-goal win in Premier League Matchweek 5. The result now updates Everton's adding goals to one of the league's strongest away defences thread and Ipswich Town's Gary O'Neil's more pragmatic second attempt thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Everton completed a 1-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -44555,20 +42493,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Everton defeated Ipswich Town 1-0.\",\"Everton 1-0 Ipswich Town\",\"Everton completed a 1-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Everton — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -44634,11 +42558,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle's new era after a summer exodus met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Newcastle United v Hull City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Newcastle United v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -44662,10 +42586,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Newcastle's new era after a summer exodus met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Newcastle United v Hull City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Newcastle United v Hull City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Newcastle United defeated Hull City 2-1.",
-      "synopsisSpoilerOn": "Newcastle United defeated Hull City 2-1. Newcastle United completed a 1-goal win in Premier League Matchweek 5. The result now updates Newcastle United's rebuilding leadership, midfield and coaching at once thread and Hull City's a playoff-built counterattack thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Newcastle United completed a 1-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -44705,20 +42629,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United defeated Hull City 2-1.\",\"Newcastle United 2-1 Hull City\",\"Newcastle United completed a 1-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Newcastle United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -44752,8 +42662,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Austrian GP",
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
-    "fullSpiel": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+    "selectedSentence": "MotoGP Austrian Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Austrian Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official race classification",
     "sourceUrl": "https://stats.motogp.com/en/gp-results",
     "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
@@ -44812,14 +42722,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Austrian Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "MotoGP Austrian Grand Prix is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Pedro Acosta won the Austrian MotoGP race.",
-      "synopsisSpoilerOff": "MotoGP Austrian Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "MotoGP Austrian Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Acosta completed the race in 42 minutes 16.996 seconds, ahead of Jorge Martin and Marco Bezzecchi.",
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "1. Pedro Acosta; 2. Jorge Martin +1.017; 3. Marco Bezzecchi +1.209",
     "scoreDisplay": "1. Pedro Acosta; 2. Jorge Martin +1.017; 3. Marco Bezzecchi +1.209",
     "outcomeText": "Pedro Acosta won the Austrian MotoGP race.",
@@ -44872,22 +42782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceRefs": [
       "https://stats.motogp.com/en/gp-results",
       "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "MotoGP Austrian Grand Prix",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "MotoGP Austrian Grand Prix — official research 1",
-      "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "epl-2026-27-128971",
@@ -44952,11 +42847,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest's Glasner reset met Coventry's return after 25 years; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Nottingham Forest v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Nottingham Forest v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -44980,10 +42875,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Nottingham Forest's Glasner reset met Coventry's return after 25 years; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Nottingham Forest v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Nottingham Forest v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Coventry City defeated Nottingham Forest 1-0.",
-      "synopsisSpoilerOn": "Coventry City defeated Nottingham Forest 1-0. Coventry City completed a 1-goal win in Premier League Matchweek 5. The result now updates Nottingham Forest's a new three-at-the-back structure against a poor home run thread and Coventry City's the set-piece strength behind a 97-goal promotion thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Coventry City completed a 1-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -45023,20 +42918,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Coventry City defeated Nottingham Forest 1-0.\",\"Nottingham Forest 0-1 Coventry City\",\"Coventry City completed a 1-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Nottingham Forest — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -45072,8 +42953,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Richmond and GWS produced a sharply contrasting afternoon of finishing in their Round 6 AFLW meeting.",
-    "fullSpiel": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+    "selectedSentence": "GWS GIANTS v Richmond is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "GWS GIANTS v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW",
     "sourceUrl": "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -45087,7 +42968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45149,9 +43030,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Richmond and GWS produced a sharply contrasting afternoon of finishing in their Round 6 AFLW meeting.",
+      "hookSpoilerOff": "GWS GIANTS v Richmond is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Richmond defeated GWS GIANTS by seven points, 68–61.",
-      "synopsisSpoilerOff": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "synopsisSpoilerOff": "GWS GIANTS v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Richmond’s 55–18 half-time lead came under threat when GWS kicked six third-quarter goals, including two from Georgia Garnett. The Tigers held on despite their wayward finishing: 9.14 to the Giants’ 10.1.",
       "lastReviewedAt": "2026-09-22T01:40:00.000Z",
       "stakes": 1,
@@ -45185,20 +43066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
       "https://www.afl.com.au/aflw/ladder"
     ],
-    "resultPublishedAt": "2026-09-22T01:40:00.000Z",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "GWS GIANTS — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW match report",
-      "sourceUrl": "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
-      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    "resultPublishedAt": "2026-09-22T01:40:00.000Z"
   },
   {
     "id": "event-aflw-cd_m20262640607",
@@ -45233,8 +43101,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Essendon and Gold Coast SUNS met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "Essendon and Gold Coast SUNS arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Essendon v Gold Coast SUNS is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Essendon v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -45248,7 +43116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45308,10 +43176,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Essendon and Gold Coast SUNS met in Round 6 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "hookSpoilerOff": "Essendon v Gold Coast SUNS is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Gold Coast SUNS defeated Essendon 51-10.",
-      "synopsisSpoilerOff": "Essendon and Gold Coast SUNS arrived at Round 6 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Gold Coast SUNS defeated Essendon 51-10. The current table now has Essendon 16th on 0 points and Gold Coast SUNS 5th on 16, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Essendon v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Essendon v Gold Coast SUNS finished 10-51 in Round 6, with Gold Coast SUNS winning by 41 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -45336,20 +43204,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Essendon v Gold Coast SUNS — 10-51",
     "endTimeUtc": "2026-09-20T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Essendon — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nbl_2026_27_3700706c_58ad_11f1_ae9e_a93048d70593",
@@ -45498,21 +43353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"New Zealand Breakers 95, Illawarra Hawks 81\",\"95-81\",\"Official NBL result.\"]"
     },
     "endTimeUtc": "2026-09-20T08:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640608",
@@ -45547,8 +43388,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "St Kilda and West Coast Eagles met in Round 6 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "St Kilda and West Coast Eagles arrived at Round 6 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "St Kilda v West Coast Eagles is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "St Kilda v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -45562,7 +43403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45622,10 +43463,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "St Kilda and West Coast Eagles met in Round 6 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "hookSpoilerOff": "St Kilda v West Coast Eagles is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "West Coast Eagles defeated St Kilda 36-25.",
-      "synopsisSpoilerOff": "St Kilda and West Coast Eagles arrived at Round 6 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "West Coast Eagles defeated St Kilda 36-25. The current table now has St Kilda 18th on 0 points and West Coast Eagles 13th on 8, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "St Kilda v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "St Kilda v West Coast Eagles finished 25-36 in Round 6, with West Coast Eagles winning by 11 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -45650,20 +43491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "St Kilda v West Coast Eagles — 25-36",
     "endTimeUtc": "2026-09-20T08:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "St Kilda — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-semi-final-2",
@@ -45680,8 +43508,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
       "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
-      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
-      "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final.",
+      "synopsisSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final. Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
       "threadIds": [
         "thread:fixture-research:major-match-nrl-finals-2026-semi-final-2"
       ],
@@ -45714,9 +43542,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
-      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
-      "synopsisSpoilerOff": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "hookSpoilerOff": "New Zealand Warriors v Newcastle Knights in Semi Final: the result is available to reveal.",
+      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final.",
+      "synopsisSpoilerOff": "New Zealand Warriors v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
       "arcStage": "recap",
       "intensity": 5,
@@ -45768,8 +43596,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "consensusTags": [],
-    "selectedSentence": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
-    "fullSpiel": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+    "selectedSentence": "New Zealand Warriors v Newcastle Knights is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "New Zealand Warriors v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:semi-final-2",
@@ -45837,23 +43665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Semi Final",
       "10-12",
       "Official result"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "New Zealand Warriors v Newcastle Knights",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule",
-        "narrative:consequence"
-      ],
-      "sourceName": "New Zealand Warriors v Newcastle Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
-      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "evt_nbl_2026_27_36e225dc_58ad_11f1_b0d4_e94b8c35b649",
@@ -46001,21 +43813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Sydney Kings 111, Cairns Taipans 90\",\"111-90\",\"Official NBL result.\"]"
     },
     "endTimeUtc": "2026-09-20T10:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640609",
@@ -46050,8 +43848,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Brisbane Lions and Adelaide Crows met in Round 6 with a late-season test of where both clubs finish; the outcome stays hidden here.",
-    "fullSpiel": "Brisbane Lions and Adelaide Crows arrived at Round 6 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "selectedSentence": "Brisbane Lions v Adelaide Crows is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Lions v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "AFLW current AFLW table",
     "sourceUrl": "https://www.afl.com.au/aflw/ladder",
     "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
@@ -46065,7 +43863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46125,10 +43923,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
-      "hookSpoilerOff": "Brisbane Lions and Adelaide Crows met in Round 6 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "hookSpoilerOff": "Brisbane Lions v Adelaide Crows is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Adelaide Crows defeated Brisbane Lions 39-30.",
-      "synopsisSpoilerOff": "Brisbane Lions and Adelaide Crows arrived at Round 6 inside a live AFLW story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Adelaide Crows defeated Brisbane Lions 39-30. The current table now has Brisbane Lions 12th on 8 points and Adelaide Crows 11th on 12, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOff": "Brisbane Lions v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Brisbane Lions v Adelaide Crows finished 30-39 in Round 6, with Adelaide Crows winning by 9 points.",
       "lastReviewedAt": "2026-09-21T20:07:16.398Z",
       "stakes": 1,
       "intensity": 2,
@@ -46153,20 +43951,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "canonicalResultScoreline": "Brisbane Lions v Adelaide Crows — 30-39",
     "endTimeUtc": "2026-09-20T10:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Brisbane Lions — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-20T09:32:11.000Z",
-      "needsPreviewRefresh": false
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128963",
@@ -46231,11 +44016,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Bournemouth's first European-season balancing act met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Bournemouth v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bournemouth v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -46259,10 +44044,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Bournemouth's first European-season balancing act met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Bournemouth v Liverpool is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Bournemouth v Liverpool is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Liverpool defeated Bournemouth 1-0.",
-      "synopsisSpoilerOn": "Liverpool defeated Bournemouth 1-0. Liverpool completed a 1-goal win in Premier League Matchweek 5. The result now updates AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread and Liverpool's Andoni Iraola's faster counterattacking identity thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Liverpool completed a 1-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -46302,20 +44087,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool defeated Bournemouth 1-0.\",\"Bournemouth 0-1 Liverpool\",\"Liverpool completed a 1-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -46381,11 +44152,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds' carry-over momentum met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Leeds United v Crystal Palace is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Leeds United v Crystal Palace is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -46409,10 +44180,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Leeds' carry-over momentum met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Leeds United v Crystal Palace is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Leeds United v Crystal Palace is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Leeds United drew Crystal Palace 0-0.",
-      "synopsisSpoilerOn": "Leeds United drew Crystal Palace 0-0. Leeds United and Crystal Palace shared the points after a 0-0 draw. The result now updates Leeds United's the physical 3-4-2-1 that lost only three of its final 14 last season thread and Crystal Palace's a new build-from-the-back version of their established shape thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Leeds United and Crystal Palace shared the points after a 0-0 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -46451,19 +44222,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Leeds United drew Crystal Palace 0-0.\",\"Leeds United 0-0 Crystal Palace\",\"Leeds United and Crystal Palace shared the points after a 0-0 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Leeds United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -46529,11 +44287,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City's first post-Guardiola campaign met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Manchester City v Sunderland is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Manchester City v Sunderland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -46557,10 +44315,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Manchester City v Sunderland is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Manchester City v Sunderland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Manchester City defeated Sunderland 5-3.",
-      "synopsisSpoilerOn": "Manchester City defeated Sunderland 5-3. Manchester City completed a 2-goal win in Premier League Matchweek 5. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and Sunderland's the defensive base behind last season's seventh place thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Manchester City completed a 2-goal win in Premier League Matchweek 5.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -46600,20 +44358,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Sunderland 5-3.\",\"Manchester City 5-3 Sunderland\",\"Manchester City completed a 2-goal win in Premier League Matchweek 5.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -46647,8 +44391,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Event 11",
     "stage": "fleet racing",
     "narrativeType": "all",
-    "selectedSentence": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
-    "fullSpiel": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+    "selectedSentence": "Geneva Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Geneva Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "SailGP official team race report",
     "sourceUrl": "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
     "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
@@ -46703,14 +44447,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Geneva Sail Grand Prix — race day 2 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Geneva Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Los Gallos won the Geneva Sail Grand Prix ahead of Australia.",
-      "synopsisSpoilerOff": "Geneva Sail Grand Prix — race day 2 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Geneva Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Spain passed the BONDS Flying Roos in the shortened final to take the event victory. ROCKWOOL Racing finished third.",
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
     "scoreDisplay": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
     "outcomeText": "Los Gallos won the Geneva Sail Grand Prix ahead of Australia.",
@@ -46763,22 +44507,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceRefs": [
       "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
       "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
-    ],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geneva Sail Grand Prix - race day 2",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Geneva Sail Grand Prix - race day 2 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    }
+    ]
   },
   {
     "id": "epl-2026-27-128967",
@@ -46843,11 +44572,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham's first post-Marco Silva season met Manchester United's Carrick rebuild; both season questions were tested, with the details under spoiler control.",
-    "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
-    "sourceName": "Premier League current 2026/27 table",
-    "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "selectedSentence": "Fulham v Manchester United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fulham v Manchester United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Premier League official fixture schedule",
+    "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "sourceCheckedAt": "2026-09-24T08:06:29.489Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-22T08:27:01.899Z",
@@ -46871,10 +44600,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "intensitySource": "computed",
-      "hookSpoilerOff": "Fulham's first post-Marco Silva season met Manchester United's Carrick rebuild; both season questions were tested, with the details under spoiler control.",
-      "synopsisSpoilerOff": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOff": "Fulham v Manchester United is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Fulham v Manchester United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fulham drew Manchester United 1-1.",
-      "synopsisSpoilerOn": "Fulham drew Manchester United 1-1. Fulham and Manchester United shared the points after a 1-1 draw. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Manchester United's a redesigned midfield carrying Champions League load thread rather than ending the story at full-time.",
+      "synopsisSpoilerOn": "Fulham and Manchester United shared the points after a 1-1 draw.",
       "researchDepth": 2,
       "lastReviewedAt": "2026-09-22T08:27:01.899Z"
     },
@@ -46914,20 +44643,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Fulham drew Manchester United 1-1.\",\"Fulham 1-1 Manchester United\",\"Fulham and Manchester United shared the points after a 1-1 draw.\"]"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Fulham — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
     }
   },
   {
@@ -47076,367 +44791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultSignature": "[\"completed\",\"Tasmania JackJumpers 96, South East Melbourne Phoenix 91\",\"96-91\",\"Official NBL result.\"]"
     },
     "endTimeUtc": "2026-09-21T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "major-match-nrl-finals-2026-preliminary-final-1",
-    "name": "Panthers v Knights",
-    "roundLabel": "Preliminary Final",
-    "stage": "Preliminary Final",
-    "startTimeUtc": "2026-09-27T06:00:00.000Z",
-    "venue": "Accor Stadium",
-    "stakesScore": 5,
-    "summary": "Teams, venue and time are pending the Semi Finals.",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-1",
-      "researchTier": "marquee",
-      "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-      "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-      "threadIds": [
-        "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-1"
-      ],
-      "factIds": [
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "path",
-        "schedule"
-      ],
-      "researchedAt": "2026-09-22T08:27:01.899Z",
-      "refreshAfter": "2026-09-27T06:00:00.000Z",
-      "generationMode": "researched",
-      "phase": "preview"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-      "hookSpoilerOn": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-      "synopsisSpoilerOff": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-      "synopsisSpoilerOn": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 5,
-      "lastReviewedAt": "2026-09-22T08:27:01.899Z"
-    },
-    "codeId": "sport:nrl",
-    "surfaceClassification": "code",
-    "key": "nrl",
-    "cardKind": "fixture",
-    "competitionId": "competition:nrl-premiership-2026",
-    "eventId": "major-match-nrl-finals-2026-preliminary-final-1",
-    "canonicalEventId": "major-match:nrl-finals-2026:preliminary-final-1",
-    "status": "upcoming",
-    "timePrecision": "exact",
-    "schedulingWindow": {
-      "startsOn": "2026-09-21",
-      "endsOn": "2026-09-21"
-    },
-    "date": "2026-09-27",
-    "displayTitleCompact": "Panthers v Knights",
-    "time": "16:00",
-    "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
-    "participantIds": [
-      "team:nrl:329",
-      "team:nrl:325"
-    ],
-    "participantSlots": [],
-    "participants": [
-      {
-        "id": "team:nrl:329",
-        "name": "Panthers",
-        "role": "home"
-      },
-      {
-        "id": "team:nrl:325",
-        "name": "Knights",
-        "role": "away"
-      }
-    ],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [
-      "nine",
-      "foxtel",
-      "kayo"
-    ],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Panthers v Knights",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Panthers v Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    },
-    "selectedSentence": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-    "fullSpiel": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
-    "sourceEventIds": [
-      "major-match:nrl-finals-2026:preliminary-final-1",
-      "major-match-nrl-finals-2026-preliminary-final-1"
-    ],
-    "sourceTrust": "verified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-    "schedulePrecision": "exact",
-    "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "displayName": "Panthers v Knights",
-    "sourceName": "Panthers v Knights — official research 1",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-    "sourceType": "official",
-    "sport": "NRL",
-    "venueCountryCode": "AU",
-    "homeParticipantId": "team:nrl:329",
-    "awayParticipantId": "team:nrl:325",
-    "venueName": "Accor Stadium",
-    "venueCity": "Sydney",
-    "localTimezone": "Australia/Sydney",
-    "scheduleStatus": "confirmed",
-    "sourceRefs": [
-      "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "https://www.nrl.com/tickets/"
-    ],
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
-        "revealed": "Panthers defeated Knights in Preliminary Final."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
-        "revealed": "Knights defeated Panthers in Preliminary Final."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
-        "revealed": "Panthers and Knights finished level in Preliminary Final."
-      }
-    }
-  },
-  {
-    "id": "major-match-nrl-finals-2026-preliminary-final-2",
-    "name": "Dolphins v Roosters",
-    "roundLabel": "Preliminary Final",
-    "stage": "Preliminary Final",
-    "startTimeUtc": "2026-09-25T09:50:00.000Z",
-    "venue": "Suncorp Stadium",
-    "stakesScore": 5,
-    "summary": "Teams, venue and time are pending the Semi Finals.",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-2",
-      "researchTier": "marquee",
-      "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
-      "synopsis": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
-      "threadIds": [
-        "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2"
-      ],
-      "factIds": [
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2",
-        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
-        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "path",
-        "schedule"
-      ],
-      "researchedAt": "2026-09-22T08:27:01.899Z",
-      "refreshAfter": "2026-09-25T09:50:00.000Z",
-      "generationMode": "researched",
-      "phase": "preview"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
-      "hookSpoilerOn": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
-      "synopsisSpoilerOff": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
-      "synopsisSpoilerOn": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 5,
-      "lastReviewedAt": "2026-09-22T08:27:01.899Z"
-    },
-    "codeId": "sport:nrl",
-    "surfaceClassification": "code",
-    "key": "nrl",
-    "cardKind": "fixture",
-    "competitionId": "competition:nrl-premiership-2026",
-    "eventId": "major-match-nrl-finals-2026-preliminary-final-2",
-    "canonicalEventId": "major-match:nrl-finals-2026:preliminary-final-2",
-    "status": "upcoming",
-    "timePrecision": "exact",
-    "schedulingWindow": {
-      "startsOn": "2026-09-21",
-      "endsOn": "2026-09-21"
-    },
-    "date": "2026-09-25",
-    "displayTitleCompact": "Dolphins v Roosters",
-    "time": "19:50",
-    "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
-    "participantIds": [
-      "team:nrl:9538",
-      "team:nrl:331"
-    ],
-    "participantSlots": [],
-    "participants": [
-      {
-        "id": "team:nrl:9538",
-        "name": "Dolphins",
-        "role": "home"
-      },
-      {
-        "id": "team:nrl:331",
-        "name": "Roosters",
-        "role": "away"
-      }
-    ],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [
-      "nine",
-      "foxtel",
-      "kayo"
-    ],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Dolphins v Roosters",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Dolphins v Roosters — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-      "needsPreviewRefresh": false
-    },
-    "selectedSentence": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
-    "fullSpiel": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
-    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
-    "sourceEventIds": [
-      "major-match:nrl-finals-2026:preliminary-final-2",
-      "major-match-nrl-finals-2026-preliminary-final-2"
-    ],
-    "sourceTrust": "verified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
-    "schedulePrecision": "exact",
-    "weekAnchorDate": null,
-    "displayDateLabel": null,
-    "displayName": "Dolphins v Roosters",
-    "sourceName": "Dolphins v Roosters — official research 1",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-    "sourceType": "official",
-    "sport": "NRL",
-    "venueCountryCode": "AU",
-    "homeParticipantId": "team:nrl:9538",
-    "awayParticipantId": "team:nrl:331",
-    "venueName": "Suncorp Stadium",
-    "venueCity": "Brisbane",
-    "localTimezone": "Australia/Brisbane",
-    "scheduleStatus": "confirmed",
-    "sourceRefs": [
-      "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "https://www.nrl.com/tickets/"
-    ],
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
-        "revealed": "Dolphins defeated Roosters in Preliminary Final."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
-        "revealed": "Roosters defeated Dolphins in Preliminary Final."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
-        ],
-        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
-        "revealed": "Dolphins and Roosters finished level in Preliminary Final."
-      }
-    }
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-22",
@@ -47577,14 +44932,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 1,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Brisbane Bullets v New Zealand Breakers is set for Round 1 on 2026-09-22, one game in the official 165-match NBL27 regular season.",
-    "fullSpiel": "Brisbane Bullets v New Zealand Breakers is published in the official NBL27 schedule for Round 1 on 2026-09-22 at 19:30 Sydney time at Pat Rafter Arena *subject to change. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+    "selectedSentence": "Brisbane Bullets v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Bullets v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "sourceCheckedAt": "2026-09-24T08:06:51.344Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:nbl",
     "competitionId": "competition:nbl",
@@ -47631,29 +44986,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "intensity": 3,
-      "intensitySource": "manual",
-      "arcStage": "preview",
+      "intensitySource": "computed",
+      "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Brisbane Bullets v New Zealand Breakers is set for Round 1 on 2026-09-22, one game in the official 165-match NBL27 regular season.",
-      "hookSpoilerOn": "Brisbane Bullets v New Zealand Breakers is set for Round 1 on 2026-09-22, one game in the official 165-match NBL27 regular season.",
-      "synopsisSpoilerOff": "Brisbane Bullets v New Zealand Breakers is published in the official NBL27 schedule for Round 1 on 2026-09-22 at 19:30 Sydney time at Pat Rafter Arena *subject to change. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-      "synopsisSpoilerOn": "Brisbane Bullets v New Zealand Breakers is published in the official NBL27 schedule for Round 1 on 2026-09-22 at 19:30 Sydney time at Pat Rafter Arena *subject to change. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+      "hookSpoilerOff": "Brisbane Bullets v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Brisbane Bullets 88, New Zealand Breakers 85",
+      "synopsisSpoilerOff": "Brisbane Bullets v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-09-22T05:10:29.064Z",
       "researchDepth": 2
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-09-22T05:10:29.064Z",
     "editorialNarrative": {
@@ -47683,7 +45024,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "score": "88-85",
+    "outcomeText": "Brisbane Bullets 88, New Zealand Breakers 85",
+    "recapText": "Official NBL result.",
+    "endTimeUtc": "2026-09-22T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -47718,14 +45064,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 2,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cairns Taipans v Tasmania JackJumpers is set for Round 2 on 2026-09-23, one game in the official 165-match NBL27 regular season.",
-    "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is published in the official NBL27 schedule for Round 2 on 2026-09-23 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+    "selectedSentence": "Cairns Taipans v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
+    "sourceCheckedAt": "2026-09-24T08:06:51.344Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:nbl",
     "competitionId": "competition:nbl",
@@ -47771,29 +45117,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "intensity": 3,
-      "intensitySource": "manual",
-      "arcStage": "preview",
+      "intensitySource": "computed",
+      "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Cairns Taipans v Tasmania JackJumpers is set for Round 2 on 2026-09-23, one game in the official 165-match NBL27 regular season.",
-      "hookSpoilerOn": "Cairns Taipans v Tasmania JackJumpers is set for Round 2 on 2026-09-23, one game in the official 165-match NBL27 regular season.",
-      "synopsisSpoilerOff": "Cairns Taipans v Tasmania JackJumpers is published in the official NBL27 schedule for Round 2 on 2026-09-23 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-      "synopsisSpoilerOn": "Cairns Taipans v Tasmania JackJumpers is published in the official NBL27 schedule for Round 2 on 2026-09-23 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+      "hookSpoilerOff": "Cairns Taipans v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Cairns Taipans 93, Tasmania JackJumpers 87",
+      "synopsisSpoilerOff": "Cairns Taipans v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-09-22T05:10:29.064Z",
       "researchDepth": 2
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-22T05:09:40.238Z",
-      "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-09-22T05:10:29.064Z",
     "editorialNarrative": {
@@ -47823,7 +45155,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "score": "93-87",
+    "outcomeText": "Cairns Taipans 93, Tasmania JackJumpers 87",
+    "recapText": "Official NBL result.",
+    "endTimeUtc": "2026-09-23T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -47983,7 +45320,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48498,7 +45835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48623,7 +45960,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48748,7 +46085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48983,7 +46320,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49201,6 +46538,312 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
+    "id": "major-match-nrl-finals-2026-preliminary-final-2",
+    "name": "Dolphins v Roosters",
+    "roundLabel": "Preliminary Final",
+    "stage": "Preliminary Final",
+    "startTimeUtc": "2026-09-25T09:50:00.000Z",
+    "venue": "Suncorp Stadium",
+    "stakesScore": 5,
+    "summary": "Teams, venue and time are pending the Semi Finals.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-2",
+      "researchTier": "marquee",
+      "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+      "synopsis": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+      "threadIds": [
+        "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2"
+      ],
+      "factIds": [
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "path",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-22T08:27:01.899Z",
+      "refreshAfter": "2026-09-25T09:50:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+      "hookSpoilerOn": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+      "synopsisSpoilerOff": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+      "synopsisSpoilerOn": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "researchDepth": 5,
+      "lastReviewedAt": "2026-09-22T08:27:01.899Z"
+    },
+    "codeId": "sport:nrl",
+    "surfaceClassification": "code",
+    "key": "nrl",
+    "cardKind": "fixture",
+    "competitionId": "competition:nrl-premiership-2026",
+    "eventId": "major-match-nrl-finals-2026-preliminary-final-2",
+    "canonicalEventId": "major-match:nrl-finals-2026:preliminary-final-2",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-09-21",
+      "endsOn": "2026-09-21"
+    },
+    "date": "2026-09-25",
+    "displayTitleCompact": "Dolphins v Roosters",
+    "time": "19:50",
+    "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+    "participantIds": [
+      "team:nrl:9538",
+      "team:nrl:331"
+    ],
+    "participantSlots": [],
+    "participants": [
+      {
+        "id": "team:nrl:9538",
+        "name": "Dolphins",
+        "role": "home"
+      },
+      {
+        "id": "team:nrl:331",
+        "name": "Roosters",
+        "role": "away"
+      }
+    ],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [
+      "nine",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Dolphins v Roosters",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceName": "Dolphins v Roosters — official research 1",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+      "needsPreviewRefresh": false
+    },
+    "selectedSentence": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+    "fullSpiel": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "sourceEventIds": [
+      "major-match:nrl-finals-2026:preliminary-final-2",
+      "major-match-nrl-finals-2026-preliminary-final-2"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "schedulePrecision": "exact",
+    "weekAnchorDate": null,
+    "displayDateLabel": null,
+    "displayName": "Dolphins v Roosters",
+    "sourceName": "Dolphins v Roosters — official research 1",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+    "sourceType": "official",
+    "sport": "NRL",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:nrl:9538",
+    "awayParticipantId": "team:nrl:331",
+    "venueName": "Suncorp Stadium",
+    "venueCity": "Brisbane",
+    "localTimezone": "Australia/Brisbane",
+    "scheduleStatus": "confirmed",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "https://www.nrl.com/tickets/"
+    ],
+    "resultEditorialBranches": {
+      "home": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
+        "revealed": "Dolphins defeated Roosters in Preliminary Final."
+      },
+      "away": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
+        "revealed": "Roosters defeated Dolphins in Preliminary Final."
+      },
+      "draw": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Dolphins v Roosters in Preliminary Final: the result is available to reveal.",
+        "revealed": "Dolphins and Roosters finished level in Preliminary Final."
+      }
+    }
+  },
+  {
+    "id": "football-australia-brazil-2026-09-25",
+    "eventId": "football-australia-brazil-2026-09-25",
+    "canonicalEventId": "football-australia-brazil-2026-09-25",
+    "status": "upcoming",
+    "cardKind": "fixture",
+    "liveWindow": 2.5,
+    "expected": 8,
+    "stakesScore": 5,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+      "hookSpoilerOn": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+      "synopsisSpoilerOff": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+      "synopsisSpoilerOn": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+      "expectedSpectacle": 8,
+      "intensitySource": "computed"
+    },
+    "name": "Socceroos v Brazil",
+    "displayTitleCompact": "Socceroos v Brazil",
+    "sport": "Football",
+    "key": "football",
+    "sportDomainId": "sport:football",
+    "competitionId": "competition:football:international-friendlies",
+    "competitionName": "Men's International Friendlies",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "date": "2026-09-25",
+    "time": "20:00",
+    "startTimeUtc": "2026-09-25T10:00:00.000Z",
+    "localTimezone": "Australia/Brisbane",
+    "venue": "Queensland Country Bank Stadium",
+    "venueName": "Queensland Country Bank Stadium",
+    "venueCity": "Townsville",
+    "venueCountryCode": "AU",
+    "round": "all",
+    "roundLabel": "International friendly",
+    "stage": "International friendly",
+    "eventType": "match",
+    "participants": [
+      {
+        "id": "team:football:socceroos",
+        "name": "Socceroos",
+        "displayName": "Socceroos",
+        "countryCode": "AU",
+        "role": "home"
+      },
+      {
+        "id": "team:football:brazil",
+        "name": "Brazil",
+        "displayName": "Brazil",
+        "countryCode": "BR",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:football:socceroos",
+      "team:football:brazil"
+    ],
+    "homeParticipantId": "team:football:socceroos",
+    "awayParticipantId": "team:football:brazil",
+    "participantsConfirmed": true,
+    "participantCountryCodes": [
+      "AU",
+      "BR"
+    ],
+    "representativeCountryCodes": [
+      "AUS",
+      "BRA"
+    ],
+    "representativeSportKey": "football",
+    "marqueeClassification": {
+      "isMarquee": true,
+      "sourceUrls": [
+        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+      ],
+      "reason": "Senior Australia international against Brazil"
+    },
+    "broadcaster": "10 / 10 Streaming / Paramount+",
+    "broadcastOptions": [
+      "10",
+      "10 Streaming",
+      "Paramount+"
+    ],
+    "broadcasterIds": [
+      "ten",
+      "paramount"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "ten",
+        "territory": "AU",
+        "accessType": "free",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "webUrl": "https://10.com.au/",
+        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "verifiedAt": "2026-09-23T23:00:53.638Z"
+      },
+      {
+        "providerId": "paramount",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "webUrl": "https://www.paramountplus.com/au/",
+        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "verifiedAt": "2026-09-23T23:00:53.638Z"
+      }
+    ],
+    "sourceName": "Football Australia / Socceroos",
+    "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
+    "selectedSentence": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+    "fullSpiel": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "catchupEligible": true,
+    "sourceRefs": [
+      "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+    ],
+    "scheduleStatus": "confirmed",
+    "timePrecision": "exact",
+    "narrativeType": "all",
+    "briefingEligible": true
+  },
+  {
     "id": "evt_30",
     "eventId": "evt_30",
     "canonicalEventId": "event:f1:2026:azerbaijan:qualifying",
@@ -49348,7 +46991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-21T12:34:24.741Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -49357,7 +47000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-09-22T02:47:23.900Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49429,7 +47072,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
       "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
       "synopsisSpoilerOn": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-      "lastReviewedAt": "2026-09-21T12:20:05.571Z"
+      "lastReviewedAt": "2026-09-21T12:20:05.571Z",
+      "intensitySource": "computed"
     },
     "competitionPhase": "grand-final",
     "isFinalRegularSeasonRound": false,
@@ -49933,7 +47577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50045,7 +47689,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50170,7 +47814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50388,6 +48032,179 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
+    "id": "major-match-nrl-finals-2026-preliminary-final-1",
+    "name": "Panthers v Knights",
+    "roundLabel": "Preliminary Final",
+    "stage": "Preliminary Final",
+    "startTimeUtc": "2026-09-27T06:00:00.000Z",
+    "venue": "Accor Stadium",
+    "stakesScore": 5,
+    "summary": "Teams, venue and time are pending the Semi Finals.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-1",
+      "researchTier": "marquee",
+      "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+      "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+      "threadIds": [
+        "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-1"
+      ],
+      "factIds": [
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2",
+        "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
+        "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "path",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-22T08:27:01.899Z",
+      "refreshAfter": "2026-09-27T06:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+      "hookSpoilerOn": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+      "synopsisSpoilerOff": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+      "synopsisSpoilerOn": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "researchDepth": 5,
+      "lastReviewedAt": "2026-09-22T08:27:01.899Z"
+    },
+    "codeId": "sport:nrl",
+    "surfaceClassification": "code",
+    "key": "nrl",
+    "cardKind": "fixture",
+    "competitionId": "competition:nrl-premiership-2026",
+    "eventId": "major-match-nrl-finals-2026-preliminary-final-1",
+    "canonicalEventId": "major-match:nrl-finals-2026:preliminary-final-1",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-09-21",
+      "endsOn": "2026-09-21"
+    },
+    "date": "2026-09-27",
+    "displayTitleCompact": "Panthers v Knights",
+    "time": "16:00",
+    "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+    "participantIds": [
+      "team:nrl:329",
+      "team:nrl:325"
+    ],
+    "participantSlots": [],
+    "participants": [
+      {
+        "id": "team:nrl:329",
+        "name": "Panthers",
+        "role": "home"
+      },
+      {
+        "id": "team:nrl:325",
+        "name": "Knights",
+        "role": "away"
+      }
+    ],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [
+      "nine",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Panthers v Knights",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceName": "Panthers v Knights — official research 1",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+      "needsPreviewRefresh": false
+    },
+    "selectedSentence": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+    "fullSpiel": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+    "lastReviewedAt": "2026-09-22T08:27:01.899Z",
+    "sourceEventIds": [
+      "major-match:nrl-finals-2026:preliminary-final-1",
+      "major-match-nrl-finals-2026-preliminary-final-1"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceCheckedAt": "2026-09-22T08:27:01.899Z",
+    "schedulePrecision": "exact",
+    "weekAnchorDate": null,
+    "displayDateLabel": null,
+    "displayName": "Panthers v Knights",
+    "sourceName": "Panthers v Knights — official research 1",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+    "sourceType": "official",
+    "sport": "NRL",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:nrl:329",
+    "awayParticipantId": "team:nrl:325",
+    "venueName": "Accor Stadium",
+    "venueCity": "Sydney",
+    "localTimezone": "Australia/Sydney",
+    "scheduleStatus": "confirmed",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "https://www.nrl.com/tickets/"
+    ],
+    "resultEditorialBranches": {
+      "home": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
+        "revealed": "Panthers defeated Knights in Preliminary Final."
+      },
+      "away": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
+        "revealed": "Knights defeated Panthers in Preliminary Final."
+      },
+      "draw": {
+        "sourceIds": [
+          "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+        ],
+        "spoilerSafe": "Panthers v Knights in Preliminary Final: the result is available to reveal.",
+        "revealed": "Panthers and Knights finished level in Preliminary Final."
+      }
+    }
+  },
+  {
     "id": "event-aflw-cd_m20262640709",
     "eventId": "event-aflw-cd_m20262640709",
     "sport": "AFLW",
@@ -50435,7 +48252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50765,6 +48582,126 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     }
+  },
+  {
+    "id": "football-australia-brazil-2026-09-29",
+    "eventId": "football-australia-brazil-2026-09-29",
+    "canonicalEventId": "football-australia-brazil-2026-09-29",
+    "status": "upcoming",
+    "cardKind": "fixture",
+    "liveWindow": 2.5,
+    "expected": 8,
+    "stakesScore": 5,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+      "hookSpoilerOn": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+      "synopsisSpoilerOff": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+      "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+      "expectedSpectacle": 8,
+      "intensitySource": "computed"
+    },
+    "name": "Socceroos v Brazil",
+    "displayTitleCompact": "Socceroos v Brazil",
+    "sport": "Football",
+    "key": "football",
+    "sportDomainId": "sport:football",
+    "competitionId": "competition:football:international-friendlies",
+    "competitionName": "Men's International Friendlies",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "date": "2026-09-29",
+    "time": "20:00",
+    "startTimeUtc": "2026-09-29T10:00:00.000Z",
+    "localTimezone": "Australia/Brisbane",
+    "venue": "Suncorp Stadium",
+    "venueName": "Suncorp Stadium",
+    "venueCity": "Brisbane",
+    "venueCountryCode": "AU",
+    "round": "all",
+    "roundLabel": "International friendly",
+    "stage": "International friendly",
+    "eventType": "match",
+    "participants": [
+      {
+        "id": "team:football:socceroos",
+        "name": "Socceroos",
+        "displayName": "Socceroos",
+        "countryCode": "AU",
+        "role": "home"
+      },
+      {
+        "id": "team:football:brazil",
+        "name": "Brazil",
+        "displayName": "Brazil",
+        "countryCode": "BR",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:football:socceroos",
+      "team:football:brazil"
+    ],
+    "homeParticipantId": "team:football:socceroos",
+    "awayParticipantId": "team:football:brazil",
+    "participantsConfirmed": true,
+    "participantCountryCodes": [
+      "AU",
+      "BR"
+    ],
+    "representativeCountryCodes": [
+      "AUS",
+      "BRA"
+    ],
+    "representativeSportKey": "football",
+    "marqueeClassification": {
+      "isMarquee": true,
+      "sourceUrls": [
+        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+      ],
+      "reason": "Senior Australia international against Brazil"
+    },
+    "broadcaster": "Paramount+",
+    "broadcastOptions": [
+      "Paramount+"
+    ],
+    "broadcasterIds": [
+      "paramount"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "paramount",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "webUrl": "https://www.paramountplus.com/au/",
+        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "verifiedAt": "2026-09-23T23:00:53.638Z"
+      }
+    ],
+    "sourceName": "Football Australia / Socceroos",
+    "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
+    "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+    "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "catchupEligible": true,
+    "sourceRefs": [
+      "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+    ],
+    "scheduleStatus": "confirmed",
+    "timePrecision": "exact",
+    "narrativeType": "all",
+    "briefingEligible": true
   },
   {
     "id": "evt_nbl_2026_27_36f8c608_58ad_11f1_aa0e_2bbb920071b5",
@@ -51205,7 +49142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51747,7 +49684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52165,7 +50102,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52387,7 +50324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52512,7 +50449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52887,7 +50824,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -53410,7 +51347,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -53675,7 +51612,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -53941,7 +51878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -54165,10 +52102,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 1,
       "intensitySource": "manual",
       "archetype": "title_decider",
-      "lastReviewedAt": "2026-09-08T14:18:59.684Z",
+      "lastReviewedAt": "2026-08-13T00:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T14:18:59.684Z",
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Eight finalists locked, but their routes remain open",
@@ -54732,7 +52669,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55217,7 +53154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55411,7 +53348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55549,7 +53486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55661,7 +53598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -56036,7 +53973,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -57319,6 +55256,160 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
+    "id": "supercars-bathurst-1000-2026",
+    "eventId": "supercars-bathurst-1000-2026",
+    "canonicalEventId": "supercars-bathurst-1000-2026",
+    "status": "upcoming",
+    "cardKind": "fixture",
+    "liveWindow": 7,
+    "expected": 10,
+    "stakesScore": 5,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "expectedSpectacle": 10,
+      "intensitySource": "computed"
+    },
+    "name": "Bathurst 1000",
+    "displayTitleCompact": "Bathurst 1000",
+    "sport": "V8 Supercars",
+    "key": "supercars",
+    "sportDomainId": "sport:motorsport",
+    "preferenceDomainId": "sport:supercars",
+    "discoverySportId": "sport:supercars",
+    "competitionId": "competition:supercars",
+    "competitionName": "Repco Supercars Championship",
+    "date": "2026-10-11",
+    "time": "11:30",
+    "startTimeUtc": "2026-10-11T00:30:00.000Z",
+    "localTimezone": "Australia/Sydney",
+    "venue": "Mount Panorama",
+    "venueName": "Mount Panorama",
+    "venueCity": "Bathurst",
+    "venueCountryCode": "AU",
+    "eventType": "race",
+    "sessionType": "race",
+    "round": "all",
+    "roundLabel": "Bathurst 1000",
+    "stage": "Race",
+    "participantIds": [],
+    "participants": [],
+    "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+    "broadcasterIds": [
+      "seven",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcastOptions": [
+      "Seven",
+      "7mate",
+      "7plus",
+      "Foxtel",
+      "Kayo"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "seven",
+        "territory": "AU",
+        "accessType": "free",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      },
+      {
+        "providerId": "foxtel",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      },
+      {
+        "providerId": "kayo",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      }
+    ],
+    "sourceName": "Supercars",
+    "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+    "sourceRefs": [
+      "https://www.supercars.com/events/2026-bathurst-1000"
+    ],
+    "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "marqueeClassification": {
+      "isMarquee": true,
+      "sourceUrls": [
+        "https://www.supercars.com/events/2026-bathurst-1000"
+      ],
+      "reason": "Bathurst 1000 and Enduro Cup finale"
+    },
+    "selectedSentence": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+    "fullSpiel": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:supercars-bathurst-1000-2026",
+      "researchTier": "marquee",
+      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "threadIds": [
+        "thread:bathurst2026:enduro"
+      ],
+      "factIds": [
+        "fact:bathurst2026:0",
+        "fact:bathurst2026:1",
+        "fact:bathurst2026:2",
+        "fact:bathurst2026:3"
+      ],
+      "sourceIds": [
+        "source:bathurst2026:0",
+        "source:bathurst2026:1",
+        "source:bathurst2026:2"
+      ],
+      "dimensions": [
+        "format",
+        "consequence",
+        "venue"
+      ],
+      "researchedAt": "2026-09-24T01:50:44.155Z",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Enduro Cup finale at Mount Panorama",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:format"
+      ],
+      "sourceName": "Supercars",
+      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+      "needsPreviewRefresh": false
+    },
+    "replayEligible": true,
+    "highlightEligible": true,
+    "catchupEligible": true,
+    "scheduleStatus": "confirmed",
+    "timePrecision": "exact",
+    "narrativeType": "all",
+    "briefingEligible": true,
+    "lastReviewedAt": "2026-09-24T08:06:58.396Z"
+  },
+  {
     "id": "event-aflw-cd_m20262640907",
     "eventId": "event-aflw-cd_m20262640907",
     "sport": "AFLW",
@@ -57366,7 +55457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -57491,7 +55582,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -57756,7 +55847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59065,7 +57156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59330,7 +57421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59455,7 +57546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59691,7 +57782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59956,7 +58047,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60894,7 +58985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61032,7 +59123,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61285,7 +59376,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61550,7 +59641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -62743,7 +60834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63190,7 +61281,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63264,7 +61355,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63338,7 +61429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63552,7 +61643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -64400,7 +62491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -64474,7 +62565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -64689,7 +62780,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -64934,7 +63025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -66101,7 +64192,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -66469,7 +64560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -66543,7 +64634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -66617,7 +64708,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -66691,7 +64782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68096,7 +66187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68170,7 +66261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68384,7 +66475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68598,7 +66689,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-09-22T05:08:48.880Z",
+    "canonicalSourceCheckedAt": "2026-09-24T08:06:29.568Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -111454,405 +109545,5 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-09-22T05:10:27.771Z"
-  },
-  {
-    "id": "football-australia-brazil-2026-09-25",
-    "eventId": "football-australia-brazil-2026-09-25",
-    "canonicalEventId": "football-australia-brazil-2026-09-25",
-    "status": "scheduled",
-    "cardKind": "fixture",
-    "liveWindow": 2.5,
-    "expected": 8,
-    "stakesScore": 5,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
-      "hookSpoilerOn": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
-      "synopsisSpoilerOff": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
-      "synopsisSpoilerOn": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings."
-    },
-    "name": "Socceroos v Brazil",
-    "displayTitleCompact": "Socceroos v Brazil",
-    "sport": "Football",
-    "key": "football",
-    "sportDomainId": "sport:football",
-    "competitionId": "competition:football:international-friendlies",
-    "competitionName": "Men's International Friendlies",
-    "competitionScope": "international",
-    "isInternational": true,
-    "isSenior": true,
-    "gender": "men",
-    "date": "2026-09-25",
-    "time": "20:00",
-    "startTimeUtc": "2026-09-25T10:00:00.000Z",
-    "localTimezone": "Australia/Brisbane",
-    "venue": "Queensland Country Bank Stadium",
-    "venueName": "Queensland Country Bank Stadium",
-    "venueCity": "Townsville",
-    "venueCountryCode": "AU",
-    "round": "all",
-    "roundLabel": "International friendly",
-    "stage": "International friendly",
-    "eventType": "match",
-    "participants": [
-      {
-        "id": "team:football:socceroos",
-        "name": "Socceroos",
-        "displayName": "Socceroos",
-        "countryCode": "AU",
-        "role": "home"
-      },
-      {
-        "id": "team:football:brazil",
-        "name": "Brazil",
-        "displayName": "Brazil",
-        "countryCode": "BR",
-        "role": "away"
-      }
-    ],
-    "participantIds": [
-      "team:football:socceroos",
-      "team:football:brazil"
-    ],
-    "homeParticipantId": "team:football:socceroos",
-    "awayParticipantId": "team:football:brazil",
-    "participantsConfirmed": true,
-    "participantCountryCodes": [
-      "AU",
-      "BR"
-    ],
-    "representativeCountryCodes": [
-      "AUS",
-      "BRA"
-    ],
-    "representativeSportKey": "football",
-    "marqueeClassification": {
-      "isMarquee": true,
-      "sourceUrls": [
-        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
-      ],
-      "reason": "Senior Australia international against Brazil"
-    },
-    "broadcaster": "10 / 10 Streaming / Paramount+",
-    "broadcastOptions": [
-      "10",
-      "10 Streaming",
-      "Paramount+"
-    ],
-    "broadcasterIds": [
-      "ten",
-      "paramount"
-    ],
-    "viewingOptions": [
-      {
-        "providerId": "ten",
-        "territory": "AU",
-        "accessType": "free",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "webUrl": "https://10.com.au/",
-        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-        "verifiedAt": "2026-09-23T23:00:53.638Z"
-      },
-      {
-        "providerId": "paramount",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "webUrl": "https://www.paramountplus.com/au/",
-        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-        "verifiedAt": "2026-09-23T23:00:53.638Z"
-      }
-    ],
-    "sourceName": "Football Australia / Socceroos",
-    "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
-    "lastReviewedAt": "2026-09-23T23:00:53.638Z",
-    "selectedSentence": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
-    "fullSpiel": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "catchupEligible": true,
-    "sourceRefs": [
-      "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
-    ],
-    "scheduleStatus": "confirmed",
-    "timePrecision": "exact",
-    "narrativeType": "all",
-    "briefingEligible": true
-  },
-  {
-    "id": "football-australia-brazil-2026-09-29",
-    "eventId": "football-australia-brazil-2026-09-29",
-    "canonicalEventId": "football-australia-brazil-2026-09-29",
-    "status": "scheduled",
-    "cardKind": "fixture",
-    "liveWindow": 2.5,
-    "expected": 8,
-    "stakesScore": 5,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
-      "hookSpoilerOn": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
-      "synopsisSpoilerOff": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
-      "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone."
-    },
-    "name": "Socceroos v Brazil",
-    "displayTitleCompact": "Socceroos v Brazil",
-    "sport": "Football",
-    "key": "football",
-    "sportDomainId": "sport:football",
-    "competitionId": "competition:football:international-friendlies",
-    "competitionName": "Men's International Friendlies",
-    "competitionScope": "international",
-    "isInternational": true,
-    "isSenior": true,
-    "gender": "men",
-    "date": "2026-09-29",
-    "time": "20:00",
-    "startTimeUtc": "2026-09-29T10:00:00.000Z",
-    "localTimezone": "Australia/Brisbane",
-    "venue": "Suncorp Stadium",
-    "venueName": "Suncorp Stadium",
-    "venueCity": "Brisbane",
-    "venueCountryCode": "AU",
-    "round": "all",
-    "roundLabel": "International friendly",
-    "stage": "International friendly",
-    "eventType": "match",
-    "participants": [
-      {
-        "id": "team:football:socceroos",
-        "name": "Socceroos",
-        "displayName": "Socceroos",
-        "countryCode": "AU",
-        "role": "home"
-      },
-      {
-        "id": "team:football:brazil",
-        "name": "Brazil",
-        "displayName": "Brazil",
-        "countryCode": "BR",
-        "role": "away"
-      }
-    ],
-    "participantIds": [
-      "team:football:socceroos",
-      "team:football:brazil"
-    ],
-    "homeParticipantId": "team:football:socceroos",
-    "awayParticipantId": "team:football:brazil",
-    "participantsConfirmed": true,
-    "participantCountryCodes": [
-      "AU",
-      "BR"
-    ],
-    "representativeCountryCodes": [
-      "AUS",
-      "BRA"
-    ],
-    "representativeSportKey": "football",
-    "marqueeClassification": {
-      "isMarquee": true,
-      "sourceUrls": [
-        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
-      ],
-      "reason": "Senior Australia international against Brazil"
-    },
-    "broadcaster": "Paramount+",
-    "broadcastOptions": [
-      "Paramount+"
-    ],
-    "broadcasterIds": [
-      "paramount"
-    ],
-    "viewingOptions": [
-      {
-        "providerId": "paramount",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "webUrl": "https://www.paramountplus.com/au/",
-        "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-        "verifiedAt": "2026-09-23T23:00:53.638Z"
-      }
-    ],
-    "sourceName": "Football Australia / Socceroos",
-    "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
-    "lastReviewedAt": "2026-09-23T23:00:53.638Z",
-    "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
-    "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "catchupEligible": true,
-    "sourceRefs": [
-      "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
-    ],
-    "scheduleStatus": "confirmed",
-    "timePrecision": "exact",
-    "narrativeType": "all",
-    "briefingEligible": true
-  },
-  {
-    "id": "supercars-bathurst-1000-2026",
-    "eventId": "supercars-bathurst-1000-2026",
-    "canonicalEventId": "supercars-bathurst-1000-2026",
-    "status": "scheduled",
-    "cardKind": "fixture",
-    "liveWindow": 7,
-    "expected": 10,
-    "stakesScore": 5,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "arcStage": "preview",
-      "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-      "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds."
-    },
-    "name": "Bathurst 1000",
-    "displayTitleCompact": "Bathurst 1000",
-    "sport": "V8 Supercars",
-    "key": "supercars",
-    "sportDomainId": "sport:motorsport",
-    "preferenceDomainId": "sport:supercars",
-    "discoverySportId": "sport:supercars",
-    "competitionId": "competition:supercars",
-    "competitionName": "Repco Supercars Championship",
-    "date": "2026-10-11",
-    "time": "11:30",
-    "startTimeUtc": "2026-10-11T00:30:00.000Z",
-    "localTimezone": "Australia/Sydney",
-    "venue": "Mount Panorama",
-    "venueName": "Mount Panorama",
-    "venueCity": "Bathurst",
-    "venueCountryCode": "AU",
-    "eventType": "race",
-    "sessionType": "race",
-    "round": "all",
-    "roundLabel": "Bathurst 1000",
-    "stage": "Race",
-    "participantIds": [],
-    "participants": [],
-    "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
-    "broadcasterIds": [
-      "seven",
-      "foxtel",
-      "kayo"
-    ],
-    "broadcastOptions": [
-      "Seven",
-      "7mate",
-      "7plus",
-      "Foxtel",
-      "Kayo"
-    ],
-    "viewingOptions": [
-      {
-        "providerId": "seven",
-        "territory": "AU",
-        "accessType": "free",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "sourceUrl": "https://www.supercars.com/tv-schedule",
-        "verifiedAt": "2026-09-24T01:50:44.155Z"
-      },
-      {
-        "providerId": "foxtel",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "sourceUrl": "https://www.supercars.com/tv-schedule",
-        "verifiedAt": "2026-09-24T01:50:44.155Z"
-      },
-      {
-        "providerId": "kayo",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "fixture",
-        "sourceUrl": "https://www.supercars.com/tv-schedule",
-        "verifiedAt": "2026-09-24T01:50:44.155Z"
-      }
-    ],
-    "sourceName": "Supercars",
-    "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
-    "sourceRefs": [
-      "https://www.supercars.com/events/2026-bathurst-1000"
-    ],
-    "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "marqueeClassification": {
-      "isMarquee": true,
-      "sourceUrls": [
-        "https://www.supercars.com/events/2026-bathurst-1000"
-      ],
-      "reason": "Bathurst 1000 and Enduro Cup finale"
-    },
-    "selectedSentence": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-    "fullSpiel": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:supercars-bathurst-1000-2026",
-      "researchTier": "marquee",
-      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-      "threadIds": [
-        "thread:bathurst2026:enduro"
-      ],
-      "factIds": [
-        "fact:bathurst2026:0",
-        "fact:bathurst2026:1",
-        "fact:bathurst2026:2",
-        "fact:bathurst2026:3"
-      ],
-      "sourceIds": [
-        "source:bathurst2026:0",
-        "source:bathurst2026:1",
-        "source:bathurst2026:2"
-      ],
-      "dimensions": [
-        "format",
-        "consequence",
-        "venue"
-      ],
-      "researchedAt": "2026-09-24T01:50:44.155Z",
-      "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Enduro Cup finale at Mount Panorama",
-      "contextSignals": [
-        "event-specific",
-        "narrative:consequence",
-        "narrative:format"
-      ],
-      "sourceName": "Supercars",
-      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
-      "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
-      "needsPreviewRefresh": false
-    },
-    "replayEligible": true,
-    "highlightEligible": true,
-    "catchupEligible": true,
-    "scheduleStatus": "confirmed",
-    "timePrecision": "exact",
-    "narrativeType": "all",
-    "briefingEligible": true
   }
 ];

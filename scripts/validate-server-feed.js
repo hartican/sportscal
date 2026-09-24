@@ -74,7 +74,7 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "follow-policy.v12");
+  assert.match(feedPipeline.SERVER_FEED_BUILD_VERSION, /^follow-policy\.v13:[a-f0-9]{12}$/, "tennis projection changes must invalidate personalised feed caches");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
@@ -217,6 +217,7 @@ async function run(){
     "an explicit parent-sport unfollow must suppress its internal event tags"
   );
   const legacyEventFollowFeed = feedPipeline.buildServerFeed({
+    tennisProjection: {parents:[], contests:[]},
     events: [goodwood],
     userId: "22222222-2222-4222-8222-222222222222",
     userState: {
@@ -328,6 +329,7 @@ async function run(){
     }],
   };
   const feed = feedPipeline.buildServerFeed({
+    tennisProjection: {parents:[], contests:[]},
     events: canonicalEvents,
     userId: "11111111-1111-4111-8111-111111111111",
     userState,

@@ -47,13 +47,14 @@ async function refreshNflResults(now){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1|Official results|Current card evidence)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Current card evidence)/.test(change));
  const codes=new Set();
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
+ if(changes.some(change=>change.startsWith('NBL')))codes.add('nbl');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  const steps=[];
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
@@ -80,6 +81,16 @@ async function refresh({now=new Date(),offline=false}={}){
  run('scripts/apply-current-card-evidence.js');bundle=read(bundlePath);
  const evidenceAfter=semantic({bundle,feed:read('feeds/incoming/events.json'),coverage:read('data/follow-sources/coverage.v1.json'),results:read('data/canonical/official-card-results-2026.json')});
  if(evidenceBefore!==evidenceAfter)changes.push('Current card evidence');
+ if(!offline)try{
+   const nblPath='data/canonical/nbl-2026-27.json',previous=read(nblPath);
+   run('scripts/refresh-nbl-schedule.js');
+   const schedule=read(nblPath),participants=new Map(schedule.participants.map(p=>[p.id,p]));
+   const cards=schedule.events.map(event=>require('./sync-requested-sports-to-feed').cardForEvent(event,schedule,participants));
+   const doc=read('feeds/incoming/events.json'),patched=patchKnown(doc.events,cards);
+   if(patched.count)write('feeds/incoming/events.json',{...doc,events:patched.events});
+   if(patched.count||semantic(previous.events)!==semantic(schedule.events))changes.push(`NBL ${patched.count}`);
+   else write(nblPath,previous);
+ }catch(error){failures.push(`NBL: ${error.message}`);}
  if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;

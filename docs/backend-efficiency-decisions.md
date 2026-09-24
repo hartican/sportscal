@@ -81,3 +81,7 @@ Inspect manual intervention and compute together before changing recurring maint
 Tennis parent projection runs inside `scripts/update-cards.js`, after existing tennis schedule generation; quick refresh regenerates it deterministically. The server build signature includes the parent projection hash so source changes invalidate personalised Feed caches. No additional scheduler, paid AI, database schema or polling is introduced. Browser parent metadata loads once on demand; contest lists load only on expansion and mount in batches of 20. Parent overviews do not enter rating prompts or live-fixture polling.
 
 Validated facts should remain publishable with concise factual copy when richer editorial is unavailable. The new parent presentation depends on sourced facts only. Existing broader editorial/result gates remain mandatory; changing those gates is not implied by this fallback. Retain older narrative only when still consistent with the facts.
+
+## NBL incremental results — 24 September 2026
+
+The existing canonical quick refresh now checks the official NBL schedule alongside its other source adapters, patches known cards and rebuilds the NBL projection when facts change. This repairs missing completed results on days without a full refresh. Timestamp-only NBL checks preserve the previous snapshot; there is no new scheduler, standings-only loader or AI call. Regression: `validate-quick-projection-scope.js` and the canonical result-completeness gate.

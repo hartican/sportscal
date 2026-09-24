@@ -27,3 +27,7 @@ try{
  assert(JSON.parse(fs.readFileSync(path.join(output,'tennis.json'),'utf8')).fixtures.length>0,'Tennis retains released fixtures');
  console.log(`Scoped generator: ${before.size} unrelated files byte-identical.`);
 }finally{fs.rmSync(output,{recursive:true,force:true});}
+
+const nbl=projectionSteps(['NBL 2']);
+assert(nbl.some(step=>step[0]==='scripts/publish-feed.js'),'NBL results must reach the published feed');
+assert(nbl.some(step=>step.includes('--codes=nbl')),'NBL results rebuild only their inspector partition');
