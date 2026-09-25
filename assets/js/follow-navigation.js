@@ -44,6 +44,6 @@
   compact.append(toggle);nav.append(compact,controls);container.prepend(nav,spacer);set(collapsed);
   nav.collapse=()=>set(true);
  }
- addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.closest('.follow-navigation'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
+ addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
  globalThis.NOTHINGSPORTS_FOLLOW_NAV={mount,matches,selected,openFilters,windows};
 })();

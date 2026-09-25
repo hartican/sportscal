@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="313">
+<meta name="app-shell-version" content="314">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=313" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=314" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6875,7 +6875,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=313">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=314">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7171,12 +7171,12 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=313"></script>
+<script src="assets/js/app-shell-runtime.js?v=314"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=313")
+  : loadDeferredScript("config/national-team-identities.js?v=314")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7185,7 +7185,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=313")
+  : loadDeferredScript("config/card-identities.js?v=314")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -8740,8 +8740,8 @@ function loadMatchCentre(){
   panel.innerHTML='<div class="match-centre-heading"><h2>Match Centre</h2></div><p role="status">Loading Match Centre…</p>';
   panel.setAttribute('aria-busy','true');
   if(loadMatchCentre.pending)return loadMatchCentre.pending;
-  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/match-centre.js?v=313'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
-    .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=313'))
+  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/match-centre.js?v=314'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
+    .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=314'))
     .then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();})
     .catch(()=>{
       if(activeTab!=='match-centre')return;
@@ -14240,7 +14240,7 @@ function codeInspectorStandingsSportKey(code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=313').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=313')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=314').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=314')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14256,7 +14256,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=313').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=314').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -16122,7 +16122,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=313').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=314').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
@@ -18382,7 +18382,7 @@ function sportHubEmptyState(copy){
 function renderSportHub(){
   if(globalThis.renderSportHubLoaded)return globalThis.renderSportHubLoaded();
   const panel=document.getElementById('listView');panel.textContent='Loading sport…';
-  void loadDeferredScript('assets/js/sport-hub-ui.js?v=313').then(()=>{if(activeTab==='feed'&&activeSportHubKey())globalThis.renderSportHubLoaded();}).catch(()=>{if(panel.isConnected){panel.textContent='Sport could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderSportHub;panel.append(retry);}});
+  void loadDeferredScript('assets/js/sport-hub-ui.js?v=314').then(()=>{if(activeTab==='feed'&&activeSportHubKey())globalThis.renderSportHubLoaded();}).catch(()=>{if(panel.isConnected){panel.textContent='Sport could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderSportHub;panel.append(retry);}});
 }
 
 function standingsSportKey(competition){
@@ -19637,7 +19637,7 @@ const followBulkSelection=new Set();
 function renderFollowView(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.textContent='Loading Follow…';
-    void loadDeferredScript('assets/js/follow-navigation.js?v=313').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=314').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
