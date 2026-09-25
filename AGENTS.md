@@ -98,3 +98,10 @@ Card identity and coverage release exception — 25 September 2026
 - The canonical refresh was completed locally with recorded exceptions for existing Supercars directory coverage, unresolved-finals/legacy markup and taxonomy assertions, BJK research metadata, Socceroos–Brazil and Bathurst editorial coverage, and refresh-step ordering. These checks were not green and are not represented as passed.
 - Performance passed for the final UI snapshot (1.19% compressed growth against the unchanged 1.25% cap). Preserve all normal safeguards, immutable snapshot packaging, secret exclusion and independent production metadata/rendering verification.
 - Detailed evidence is in the local card-coverage-2026-09-25 implementation report. Repair the recorded failures in follow-up work; no gate or service-worker lifecycle workaround is introduced by this exception.
+
+Feed label alignment PWA exception — 25 September 2026
+------------------------------------------------------
+- For the focused Feed team-label centring release, the owner requested quick deployment and has repeatedly authorised bypass for the known installed-PWA upgrade failure (“use bypass, as per usual”). This exception applies only to the 311 → 312 upgrade check for this release.
+- The exact 311 → 312 installed-Chromium check timed out after worker 312 installed and stayed waiting while worker 311 remained active. Keep the validator and timeout unchanged; this is an unresolved app-upgrade defect.
+- Browser geometry checks passed for full and compact opponent labels at 320, 390, 768 and 1280px in both themes. Card identity, presentation, timing, Follow policy, app-version, startup and static performance checks passed; compressed growth remains 1.19% within the 1.25% cap.
+- Verify GitHub main, immutable deployment SHA, production files and public rendered label alignment separately. This note does not authorise a future bypass.
