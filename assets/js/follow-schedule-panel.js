@@ -26,8 +26,10 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
   const grouped = new Map();
-  const tournamentDates=new Map();for(const f of fixtures){if(f.tournamentId&&f.date&&(!tournamentDates.has(f.tournamentId)||f.date<tournamentDates.get(f.tournamentId)))tournamentDates.set(f.tournamentId,f.date);}
-  const groupLabel=f=>code.groupingMode==='round'?codeInspectorGroupLabel(f,code.groupingMode):`${tournamentDates.get(f.tournamentId)||f.date||'Upcoming'} · ${f.tournamentName||f.competitionName||code.label}`;
+  const eventGroup=f=>f.tournamentId||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
+  const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
+  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1'].includes(code.id);
+  const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${tournamentDates.get(eventGroup(f))||f.date||'Upcoming'} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
     const group = grouped.get(label) || [];

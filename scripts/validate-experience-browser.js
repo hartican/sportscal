@@ -16,6 +16,7 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:33986';
  try{await page.locator('.match-centre-card').waitFor();}catch(error){console.log(await page.evaluate(()=>({tab:activeTab,content:document.getElementById('listView').innerText,loaded:typeof renderMatchCentre})),errors);throw error;}assert.equal(await page.locator('.event-card').count(),0);
  await page.evaluate(()=>{startupCoordinator.isHydrating=globalThis.__oldHydrating;activeTab='follow';saveFollowBrowse({sportId:'sport:golf',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
  await page.locator('.follow-navigation').waitFor();await page.getByRole('button',{name:'Filter schedule',exact:true}).waitFor();
+ await page.locator('.code-inspector-group').first().waitFor();assert((await page.locator('.code-inspector-group h3').first().innerText()).includes('Presidents Cup'),'Golf starts at the ongoing tournament, not January');assert(await page.locator('.code-inspector-group').count()<=3);
  assert.equal(await page.locator('#codeInspectorStartingRound').count(),0);
  await page.evaluate(()=>{document.body.style.overflow='';document.querySelector('.follow-navigation button').focus();scrollTo(0,900);});
  await page.getByRole('button',{name:'Expand Follow navigation'}).waitFor();
@@ -39,6 +40,7 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:33986';
   await page.evaluate(id=>{activeTab='follow';saveFollowBrowse({sportId:id,categoryId:'',section:'schedule',scheduleScope:null});renderAll();},sportId);
   await page.locator('.follow-navigation').waitFor();await page.waitForFunction(id=>codeInspectorChunk?.code?.id===id&&!codeInspectorChunkLoading,sportId);
   assert.equal(await page.locator('#codeInspectorStartingRound').count(),0);
+  if(sportId==='sport:f1'){await page.locator('.code-inspector-group').first().waitFor();assert((await page.locator('.code-inspector-group h3').first().innerText()).includes('Baku'),'F1 starts at current race weekend');}
  }
  const preferencesBefore=await page.evaluate(()=>JSON.stringify(userPreferences));
  await page.getByRole('button',{name:'Filter schedule',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Filter schedule'});await dialog.locator('details').first().locator('summary').click();await dialog.locator('input[type=checkbox]').first().check();await dialog.getByRole('button',{name:'Apply',exact:true}).click();

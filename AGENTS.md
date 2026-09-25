@@ -114,3 +114,4 @@ Sport experience and reliability release exception — 25 September 2026
 - Keep the validator and its timeouts unchanged. This is not authority for future bypasses. Verify main SHA, READY deployment, alias and live rendering separately.
 
 - The same implementation release includes shell 314 to deliver the final auto-collapse focus repair after shell 313 reached READY. The PWA exception remains limited to this task; final 313 → 314 evidence: desktop WebKit passed the full suite; Chromium again timed out after 45 seconds with 313 active and 314 waiting. No iOS Home Screen claim.
+- Shell 315 completes current-tournament/current-race grouping discovered by the live route check. This remains the same authorised implementation release and PWA-only exception.
