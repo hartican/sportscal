@@ -30,10 +30,24 @@ function update(context, driverRows, teamRows, now = new Date()){
   }
   next.ladderSnapshots=snapshots;next.generatedAt=now.toISOString();return next;
 }
+function validRetained(context){
+ const ids=new Set((context.participants||[]).map(p=>p.id));
+ return ['drivers','constructors'].every(kind=>{const table=context.ladderSnapshots?.find(s=>s.competitionId===`competition:f1-${kind}-${context.season}`);return table&&/^https:\/\/www.formula1.com\//.test(table.sourceUrl||table.source?.sourceUrl||'')&&Number.isFinite(Date.parse(table.snapshotTimeUtc))&&table.entries.length>=(kind==='drivers'?22:11)&&table.entries.every((e,i)=>e.rank===i+1&&ids.has(e.participantId)&&Number.isFinite(e.points));});
+}
+async function refresh(context,{fetchImpl=fetch}={}){
+ try{
+  const tables=await Promise.all(['drivers','team'].map(async kind=>{let last;for(let attempt=0;attempt<2;attempt++)try{
+   const response=await fetchImpl(`https://www.formula1.com/en/results/${context.season}/${kind}`,{signal:AbortSignal.timeout(20000)});
+   if(!response.ok){const error=new Error('F1 standings source '+response.status);error.transient=[408,425,429].includes(response.status)||response.status>=500;throw error;}
+   return rows(await response.text());
+  }catch(error){last=error;if(!(error.transient||/fetch failed|timeout|network/i.test(error.message)))throw error;}throw last;}));
+  return update(context,...tables);
+ }catch(error){if((error.transient||/fetch failed|timeout|network/i.test(error.message))&&validRetained(context)){console.warn('F1 standings source unavailable; preserving validated last-good tables and original check time.');return context;}throw error;}
+}
 async function main(){
-  const path='data/canonical/f1-context-2026.json',context=JSON.parse(fs.readFileSync(path));
-  const tables=await Promise.all(['drivers','team'].map(async kind=>{const response=await fetch(`https://www.formula1.com/en/results/${context.season}/${kind}`,{signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error('F1 standings source '+response.status);return rows(await response.text());}));
-  const result=update(context,...tables);fs.writeFileSync(path,JSON.stringify(result,null,2)+'\n');console.log(`F1 standings: ${tables[0].length} drivers and ${tables[1].length} constructors from official current tables.`);
+ const path='data/canonical/f1-context-2026.json',context=JSON.parse(fs.readFileSync(path)),result=await refresh(context);
+ if(result!==context)fs.writeFileSync(path,JSON.stringify(result,null,2)+'\n');
+ console.log(`F1 standings validated: ${result.ladderSnapshots.map(s=>s.entries.length).join('/')} rows.`);
 }
 if(require.main===module)main().catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={rows,update};
+module.exports={rows,update,refresh,validRetained};

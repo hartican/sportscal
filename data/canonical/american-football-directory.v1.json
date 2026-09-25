@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-09-25T01:11:36Z",
+  "generatedAt": "2026-09-25T03:37:49Z",
   "season": 2026,
   "competitions": [
     {
@@ -61875,7 +61875,7 @@
       "time": "10:15",
       "startTimeUtc": "2026-09-25T00:15Z",
       "venue": "Lambeau Field",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -61884,18 +61884,18 @@
           "participantId": "team:nfl:gb",
           "label": "Green Bay Packers",
           "homeAway": "home",
-          "score": "7",
+          "score": "14",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png"
         },
         {
           "participantId": "team:nfl:atl",
           "label": "Atlanta Falcons",
           "homeAway": "away",
-          "score": "7",
+          "score": "35",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png"
         }
       ],
-      "sourceUrl": null
+      "sourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872948/falcons-packers"
     },
     {
       "id": "fixture:nfl:401872949",

@@ -341,7 +341,7 @@ function main(){
       const records = [...chunks.get(sport.key).values()];
       return {
         ...sport,
-        status:records.length ? "available" : "unavailable",
+        status:records.length ? "available" : sport.key === "supercars" ? "schedule-only" : "unavailable",
         recordCount:records.length,
         jsonUrl:`data/follow-directory/${sport.key}.v1.json`,
         scriptUrl:`data/follow-directory/${sport.key}.v1.js`,

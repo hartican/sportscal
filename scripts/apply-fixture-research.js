@@ -7,7 +7,8 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   for(const entry of research.entries){
     if(require('../config/coverage-pauses').womensT20({key:'cricket',name:entry.title}))continue;
     const prefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
-    const targetIds=[...new Set([...feed.events,...catalogue].filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id)).map(event=>event.id))];
+    const overview=entry.id.match(/^tennis-tournament-(.+)-\d{4}-\d{2}-\d{2}$/);
+    const targetIds=[...new Set([...feed.events,...catalogue].filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id) || overview && event.tennisTournamentId===`tournament:tennis:${overview[1]}` && event.cardType==='tournament_overview').map(event=>event.id))];
     if(!targetIds.length)throw new Error('Missing researched fixture '+entry.id);
     const subjectId=`subject:${prefix}`,threadId=`thread:${prefix}`;
     const sourceIds=entry.sources.map((url,index)=>`source:${prefix}:${index}`);
@@ -24,7 +25,7 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
     knowledge.eventProjections.push(projection);
     const indexes=narrative.indexesFor(knowledge);
     const enrich=(event,child=false)=>{
-      if(![event.id,event.eventId,event.canonicalEventId].includes(entry.id))return event;
+      if(!targetIds.includes(event.id))return event;
       if(child){const clean={...event};for(const key of ['selectedSentence','fullSpiel','sourceName','sourceType','sourceCheckedAt','lastReviewedAt','editorialPreview'])delete clean[key];return {...clean,editorialNarrative:narrative.editorialNarrativeFor(projection,indexes)};}
       return {...narrative.applyToFeedEvent(event,projection,indexes),...(entry.promotedReplay?{editorialReplayRecommendation:{rating:5,label:'Promoted replay',sourceUrls:entry.sources,reviewedAt:entry.researchedAt}}:{})};
     };

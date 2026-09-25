@@ -7,6 +7,22 @@
 
   const VERSION = "venue-registry.v3";
   const ENTRIES = Object.freeze([
+    // Exact venue identities already published by the canonical race and fixture sources.
+    ["autodromo-hermanos-rodriguez","Autódromo Hermanos Rodríguez","Autódromo Hermanos Rodríguez",["Autódromo Hermanos Rodríguez"]],
+    ["autodromo-jose-carlos-pace","Autódromo José Carlos Pace","Autódromo José Carlos Pace",["Autódromo José Carlos Pace"]],
+    ["autodromo-nazionale-monza","Autodromo Nazionale Monza","Autodromo Nazionale Monza",["Autodromo Nazionale Monza"]],
+    ["baku-city-circuit","Baku City Circuit","Baku City Circuit",["Baku City Circuit"]],
+    ["circuit-de-spa-francorchamps","Circuit de Spa-Francorchamps","Circuit de Spa-Francorchamps",["Circuit de Spa-Francorchamps"]],
+    ["circuit-of-the-americas","Circuit of The Americas","Circuit of The Americas",["Circuit of The Americas"]],
+    ["circuit-zandvoort","Circuit Zandvoort","Circuit Zandvoort",["Circuit Zandvoort"]],
+    ["hungaroring","Hungaroring","Hungaroring",["Hungaroring"]],
+    ["las-vegas-strip-circuit","Las Vegas Strip Circuit","Las Vegas Strip Circuit",["Las Vegas Strip Circuit"]],
+    ["madring","Madring","Madring",["Madring"]],
+    ["marina-bay-street-circuit","Marina Bay Street Circuit","Marina Bay Street Circuit",["Marina Bay Street Circuit"]],
+    ["mount-panorama","Mount Panorama","Mount Panorama",["Mount Panorama"]],
+    ["pat-rafter-arena","Pat Rafter Arena","Pat Rafter Arena",["Pat Rafter Arena"]],
+    ["sepang-international-circuit","Sepang International Circuit","Sepang International Circuit",["Sepang International Circuit"]],
+    ["yas-marina-circuit","Yas Marina Circuit","Yas Marina Circuit",["Yas Marina Circuit"]],
     ["us-open-louis-armstrong", "Louis Armstrong Stadium", "Louis Armstrong Stadium", ["Louis Armstrong Stadium"]],
     ["arthur-ashe-stadium", "Arthur Ashe Stadium", "Arthur Ashe Stadium", ["Arthur Ashe Stadium"]],
     ["stadium-australia", "Stadium Australia", "Accor Stadium", ["Accor Stadium", "Accor Stadium, Sydney"]],

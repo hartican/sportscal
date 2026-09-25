@@ -42,7 +42,7 @@ const context = JSON.parse(read("data/canonical/wrc-context-2026.json"));
 const feed = JSON.parse(read("data/events.json"));
 const incoming = JSON.parse(read("feeds/incoming/events.json"));
 const schema = JSON.parse(read("schemas/sport-context.schema.json"));
-const appSource = read("index.html");
+const appSource = read("index.html") + read("assets/js/sport-hub-ui.js");
 const serverFeedSource = read("api/feed.js");
 
 assert.deepEqual(validateWrcContext(context), [], "checked-in WRC context must satisfy the strict domain contract");
@@ -253,8 +253,8 @@ try {
 assert(appSource.includes('"sport:rally": "sport:wrc"'));
 assert(appSource.includes('sportKey === "wrc" ? "Results / Replays" : "Results"'));
 assert(appSource.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
-assert(appSource.includes('function renderCodeInspectorResults(panel, code)'));
-assert(appSource.includes('pending.textContent = "Official FIA classification pending."'));
+assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes("codeInspectorTab==='results'"));
+assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes('pending.textContent = "Official FIA classification pending."'));
 assert(appSource.includes('ev.displayTime || "Multiple live stages"'));
 assert(appSource.includes('SPORT_CONTEXT.mergeCanonicalBundles(...contextBundles)'));
 assert(appSource.includes('participant?.metadata?.preferenceDomainId === domainId'));

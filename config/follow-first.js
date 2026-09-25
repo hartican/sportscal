@@ -518,8 +518,9 @@
     if(followPolicy.sportKey(event)==='tennis' && tennis?.isRubber(event))return null;
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
-    const participants = followPolicy.participantIds(event);
-    for (const id of (["golf","masters"].includes(followPolicy.sportKey(event))?[]:participants)){
+    const golf=['golf','masters'].includes(followPolicy.sportKey(event));
+    const participants = golf&&(event.cardType==='golf_session'||event.participantsConfirmed!==true)?[]:followPolicy.participantIds(event);
+    for (const id of participants){
       if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
@@ -570,7 +571,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))

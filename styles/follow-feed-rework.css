@@ -350,3 +350,30 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .parent-tinted{background:linear-gradient(110deg,color-mix(in srgb,var(--fixture-left) 13%,var(--bg-card)),color-mix(in srgb,var(--fixture-right) 13%,var(--bg-card)));}
 #listView .parent-ongoing .tournament-parent-context{font-size:.75rem;color:var(--text-dim);}
 #listView .tennis-feed-parent>details>summary{display:none;}
+
+/* A single owner for Follow navigation keeps all sport controls reachable. */
+.follow-navigation{position:sticky;top:var(--sticky-top-bar-height,132px);z-index:46;background:var(--bg);border-bottom:1px solid var(--border);max-width:100%;}
+.follow-navigation .follow-sport-bar{position:static;}
+.follow-navigation-compact{display:flex;align-items:center;gap:6px;min-height:48px;}
+.follow-navigation-compact>span{flex:1;min-width:0;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.follow-navigation button,.follow-filter-dialog button{min-width:44px;min-height:44px;}
+.follow-navigation [hidden]{display:none!important;}
+#follow-navigation-controls{max-height:55dvh;overflow:auto;}
+.follow-filter-dialog details{padding:10px 0;}
+.follow-filter-dialog label{display:flex;min-height:44px;align-items:center;}
+.follow-filter-actions{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:8px;background:var(--bg);padding:8px 0;}
+.code-inspector-group{scroll-margin-top:calc(var(--sticky-top-bar-height,132px) + 56px);}
+
+#listView .feed-fixture.f1-location-card{background:var(--bg-card);}
+#listView .feed-fixture.f1-location-card::before{display:none;}
+.f1-location-hero{position:relative;isolation:isolate;overflow:hidden;border-radius:12px;margin:4px 0 12px;min-height:150px;background:var(--fixture-left,#526174);}
+.f1-location-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(125deg,transparent 50%,var(--fixture-right) 50% 66%,transparent 66%),linear-gradient(168deg,transparent 65%,var(--fixture-accent,var(--fixture-right)) 65%);}
+.f1-location-hero img{display:block;width:100%;height:220px;object-fit:contain;padding:28px 20px;box-sizing:border-box;filter:drop-shadow(0 2px 3px #0006);}
+.f1-location-date{position:absolute;top:10px;left:10px;padding:7px 10px;border-radius:5px;background:#fff;color:#10141a;font-weight:800;text-transform:uppercase;}
+.f1-location-caption{display:block;padding:8px 12px;background:#0008;color:#fff;font-size:.8rem;text-align:center;}
+.f1-location-card.is-compact-row .f1-location-hero{min-height:90px;}
+.f1-location-card.is-compact-row .f1-location-hero img{height:130px;}
+
+.follow-navigation.is-floating{position:fixed;left:max(12px,calc((100vw - 1120px)/2));right:max(12px,calc((100vw - 1120px)/2));width:auto;box-shadow:0 5px 15px #0002;}
+.follow-navigation-spacer{height:49px;}
+.follow-navigation-spacer[hidden]{display:none;}

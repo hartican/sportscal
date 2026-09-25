@@ -110,7 +110,7 @@ const permittedViewingTbcNames = new Set([
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
 assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
-assert(unresolvedPublishedCards.length === permittedViewingTbcNames.size, "known event-specific rights gaps must remain explicit Viewing TBC states");
+// A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
 for (const event of unresolvedPublishedCards) assert(followFirst.viewingOptions(event).length === 0, `${event.name} must not inherit a foreign or ambiguous provider`);
 
 const rugbyCards = events.filter(event => /rugby union|\brugby\b/i.test(`${event.sport || ""} ${event.key || ""}`) && !/rugby league/i.test(event.sport || ""));

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-09-25T01:12:00Z",
+  "generatedAt": "2026-09-25T03:38:00Z",
   "season": "20262027",
   "competitions": [
     {
@@ -37808,7 +37808,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "Xfinity Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37839,7 +37839,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "Little Caesars Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37854,7 +37854,7 @@
           "participantId": "team:nhl:det",
           "label": "Detroit Red Wings",
           "homeAway": "home",
-          "score": 1,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
         }
       ],
@@ -37870,7 +37870,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "Benchmark International Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37878,14 +37878,14 @@
           "participantId": "team:nhl:fla",
           "label": "Florida Panthers",
           "homeAway": "away",
-          "score": 2,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
         },
         {
           "participantId": "team:nhl:tbl",
           "label": "Tampa Bay Lightning",
           "homeAway": "home",
-          "score": 2,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
         }
       ],
@@ -37901,7 +37901,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "First Horizon Coliseum",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37916,7 +37916,7 @@
           "participantId": "team:nhl:car",
           "label": "Carolina Hurricanes",
           "homeAway": "home",
-          "score": 4,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
         }
       ],
@@ -37932,7 +37932,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "Madison Square Garden",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37940,14 +37940,14 @@
           "participantId": "team:nhl:njd",
           "label": "New Jersey Devils",
           "homeAway": "away",
-          "score": 2,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
         },
         {
           "participantId": "team:nhl:nyr",
           "label": "New York Rangers",
           "homeAway": "home",
-          "score": 2,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
         }
       ],
@@ -37963,7 +37963,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-24T23:00:00Z",
       "venue": "Nationwide Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -37978,7 +37978,7 @@
           "participantId": "team:nhl:cbj",
           "label": "Columbus Blue Jackets",
           "homeAway": "home",
-          "score": 3,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
         }
       ],
@@ -37994,7 +37994,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-09-25T00:00:00Z",
       "venue": "Enterprise Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38009,7 +38009,7 @@
           "participantId": "team:nhl:stl",
           "label": "St. Louis Blues",
           "homeAway": "home",
-          "score": 0,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
         }
       ],
@@ -38025,7 +38025,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-09-25T01:00:00Z",
       "venue": "Rogers Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38033,19 +38033,19 @@
           "participantId": "team:nhl:edm",
           "label": "Edmonton Oilers",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
         },
         {
           "participantId": "team:nhl:van",
           "label": "Vancouver Canucks",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/edm-vs-van/2026/09/24/2026010037",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F06FBB1F?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_PR1&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_PR1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010038",
@@ -38064,19 +38064,19 @@
           "participantId": "team:nhl:cgy",
           "label": "Calgary Flames",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
         },
         {
           "participantId": "team:nhl:sea",
           "label": "Seattle Kraken",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-sea/2026/09/24/2026010038",
-      "ticketUrl": "https://www.nhl.com/kraken/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010039",
@@ -38095,19 +38095,19 @@
           "participantId": "team:nhl:ana",
           "label": "Anaheim Ducks",
           "homeAway": "away",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
         },
         {
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "home",
-          "score": null,
+          "score": 7,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-sjs/2026/09/24/2026010039",
-      "ticketUrl": "https://www.nhl.com/sharks/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010047",
@@ -38126,19 +38126,19 @@
           "participantId": "team:nhl:uta",
           "label": "Utah Mammoth",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
         },
         {
           "participantId": "team:nhl:vgk",
           "label": "Vegas Golden Knights",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-vgk/2026/09/24/2026010047",
-      "ticketUrl": "https://shop.axs.com/?c=axs&e=98247560440462020070"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010049",

@@ -1746,6 +1746,102 @@
           ]
         }
       ]
+    },
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "title": "Socceroos v Brazil — Townsville",
+      "hook": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+      "synopsis": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+      "sources": [
+        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "https://stadiums.qld.gov.au/about/news-and-media/news/queensland-secures-brazil-blockbuster-series-for-socceroos-homec",
+        "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-masculina/a/credenciamento-para-amistosos-da-selecao-brasileira-contra-a-australia-esta-aberto"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia face five-time world champions Brazil in two Queensland friendlies.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The matches prepare Australia for the January 2027 Asian Cup.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Before this series, Brazil led the nine-match international record with seven wins; Australia had one victory and one draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Queensland Country Bank Stadium hosts Australia v Brazil on 2026-09-25 at 8pm Queensland time.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-25T03:32:39.426090Z",
+      "researchDepth": 5,
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-09-25T10:00:00.000Z"
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "title": "Socceroos v Brazil — Brisbane",
+      "hook": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+      "synopsis": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+      "sources": [
+        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "https://stadiums.qld.gov.au/about/news-and-media/news/queensland-secures-brazil-blockbuster-series-for-socceroos-homec",
+        "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-masculina/a/credenciamento-para-amistosos-da-selecao-brasileira-contra-a-australia-esta-aberto"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia face five-time world champions Brazil in two Queensland friendlies.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The matches prepare Australia for the January 2027 Asian Cup.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Before this series, Brazil led the nine-match international record with seven wins; Australia had one victory and one draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Suncorp Stadium hosts Australia v Brazil on 2026-09-29 at 8pm Queensland time.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-25T03:32:39.426090Z",
+      "researchDepth": 5,
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-09-29T10:00:00.000Z"
     }
   ]
 }

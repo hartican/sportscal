@@ -66,5 +66,11 @@
     if(['f1','motogp','wrc','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||null;
     return null;
   }
-  return Object.freeze({dateBanner,venue,ranking,palette,ordinal,displayLabel,parentCompact});
+  function circuitAsset(event){
+    if(event.key!=='f1')return null;
+    const circuits=[['silverstone','gb-1948'],['spa-francorchamps','be-1925'],['albert park','au-1953'],['hungaroring','hu-1986'],['zandvoort','nl-1948'],['monza','it-1922'],['madring','es-2026'],['baku','az-2016'],['sepang','my-1999'],['marina bay','sg-2008'],['americas','us-2012'],['hermanos','mx-1962'],['jose carlos','br-1940'],['las vegas','us-2023'],['lusail','qa-2004'],['yas marina','ae-2009'],['bahrain','bh-2002'],['shanghai','cn-2004'],['suzuka','jp-1962'],['monaco','mc-1929'],['gilles','ca-1978'],['red bull ring','at-1969'],['jeddah','sa-2021'],['miami','us-2022']];
+    const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    const id=circuits.find(([namePart])=>name.includes(namePart))?.[1];return id?`assets/identities/f1/circuits/${id}.svg`:null;
+  }
+  return Object.freeze({dateBanner,venue,ranking,palette,ordinal,displayLabel,parentCompact,circuitAsset});
 });

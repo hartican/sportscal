@@ -14,7 +14,7 @@ assert(selector.internalEventTags.every(node => node.exposed === false && node.s
 
 const hierarchyExpectations = {
   "sport:nrl": [["sport:nrl-premiership", "NRL"], ["sport:nrlw", "NRLW"]],
-  "sport:motorsport": [["sport:f1", "F1"], ["sport:motogp", "MotoGP"], ["sport:wrc", "WRC"]],
+  "sport:motorsport": [["sport:f1", "F1"], ["sport:motogp", "MotoGP"], ["sport:wrc", "WRC"], ["sport:supercars", "V8 Supercars"]],
   "sport:extreme": [["sport:downhill-mtb", "MTB"]],
   "sport:surf": [["sport:big-wave", "Big-wave"]],
   "sport:skiing": [["sport:alpine", "Alpine"], ["sport:freestyle", "Freestyle"]],
@@ -119,19 +119,19 @@ assert.deepEqual(
 );
 
 const initialSession = catalogue.createSessionInclusion(["sport:motorsport", "sport:tennis"]);
-assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc", "sport:tennis"]);
+assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc", "sport:supercars", "sport:tennis"]);
 assert.deepEqual(catalogue.selectionState("sport:motorsport", initialSession), {
   checked: true,
   mixed: false,
-  selectedCount: 4,
-  totalCount: 4,
+  selectedCount: 5,
+  totalCount: 5,
 });
 const withoutWrc = catalogue.setSessionNodeIncluded(initialSession, "sport:wrc", false);
 assert.deepEqual(catalogue.selectionState("sport:motorsport", withoutWrc), {
   checked: false,
   mixed: true,
-  selectedCount: 3,
-  totalCount: 4,
+  selectedCount: 4,
+  totalCount: 5,
 });
 const withoutMotorsport = catalogue.setSessionNodeIncluded(withoutWrc, "sport:motorsport", false);
 assert(!withoutMotorsport.some(id => catalogue.familyIds("sport:motorsport").includes(id)));
@@ -140,9 +140,9 @@ assert.deepEqual(catalogue.selectionState("sport:motorsport", wrcOnly), {
   checked: false,
   mixed: true,
   selectedCount: 1,
-  totalCount: 4,
+  totalCount: 5,
 });
-assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc"]);
+assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc", "sport:supercars"]);
 
 const now = new Date("2026-08-14T00:15:00Z"); // 10:15 on 14 August in Sydney.
 const fixtures = [

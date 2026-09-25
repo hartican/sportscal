@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+  "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -541,7 +541,7 @@
       "fullSpiel": "Azerbaijan GP · Qualifying is scheduled for 2026-09-25 at 22:00. Qualifying sets the grid at Baku City Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -568,11 +568,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -581,7 +581,7 @@
       "fullSpiel": "Azerbaijan GP · Race is scheduled for 2026-09-26 at 21:00. The race is the weekend's points-paying session at Baku City Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -608,11 +608,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -621,7 +621,7 @@
       "fullSpiel": "Singapore GP · Qualifying is scheduled for 2026-10-11 at 00:00. Qualifying sets the grid at Marina Bay Street Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -648,11 +648,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -689,7 +689,7 @@
       "fullSpiel": "Singapore GP · Race is scheduled for 2026-10-11 at 23:00. The race is the weekend's points-paying session at Marina Bay Street Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -716,11 +716,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -729,7 +729,7 @@
       "fullSpiel": "Bahrain GP · Qualifying is scheduled for 2026-10-03 at 18:00. Qualifying sets the grid at Sepang International Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -756,11 +756,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -769,7 +769,7 @@
       "fullSpiel": "Bahrain GP · Race is scheduled for 2026-10-04 at 18:00. The race is the weekend's points-paying session at Sepang International Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -796,11 +796,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -809,7 +809,7 @@
       "fullSpiel": "Singapore GP · Sprint Qualifying is scheduled for 2026-10-09 at 23:30. Qualifying sets the grid at Marina Bay Street Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -836,11 +836,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -849,7 +849,7 @@
       "fullSpiel": "Singapore GP · Sprint is scheduled for 2026-10-10 at 20:00. The sprint brings points and grid pressure at Marina Bay Street Circuit; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -876,11 +876,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -889,7 +889,7 @@
       "fullSpiel": "United States GP · Qualifying is scheduled for 2026-10-25 at 08:00. Qualifying sets the grid at Circuit of The Americas; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -916,11 +916,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -929,7 +929,7 @@
       "fullSpiel": "United States GP · Race is scheduled for 2026-10-26 at 07:00. The race is the weekend's points-paying session at Circuit of The Americas; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -956,11 +956,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -969,7 +969,7 @@
       "fullSpiel": "Mexico City GP · Qualifying is scheduled for 2026-11-01 at 08:00. Qualifying sets the grid at Autódromo Hermanos Rodríguez; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -996,11 +996,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -1009,7 +1009,7 @@
       "fullSpiel": "Mexico City GP · Race is scheduled for 2026-11-02 at 07:00. The race is the weekend's points-paying session at Autódromo Hermanos Rodríguez; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -1036,11 +1036,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -1049,7 +1049,7 @@
       "fullSpiel": "São Paulo GP · Qualifying is scheduled for 2026-11-08 at 05:00. Qualifying sets the grid at Autódromo José Carlos Pace; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -1076,11 +1076,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     },
@@ -1089,7 +1089,7 @@
       "fullSpiel": "São Paulo GP · Race is scheduled for 2026-11-09 at 04:00. The race is the weekend's points-paying session at Autódromo José Carlos Pace; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+      "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -1116,11 +1116,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "c32300704f1f9a8b7f9296cdd10a6551999336bc8e775ba2fa5c4ce50ee42fbd",
+        "digestFingerprint": "f134df45b70435a1f8b9d9e6aa857e762b0bf5c0c34003adce92507ba62ef15f",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-25T01:13:03.898Z",
+        "sourceCheckedAt": "2026-09-25T03:38:46.629Z",
         "needsPreviewRefresh": false
       }
     }

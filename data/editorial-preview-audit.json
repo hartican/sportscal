@@ -1,31 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-22T08:28:54.749Z",
+  "generatedAt": "2026-09-25T03:39:22.293Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 8,
-    "passed": 8,
+    "due": 15,
+    "passed": 15,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "major-match-nrl-finals-2026-preliminary-final-1",
-      "name": "Panthers v Knights",
-      "sport": "NRL",
-      "date": "2026-09-27",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "issues": []
-    },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-2",
       "name": "Dolphins v Roosters",
@@ -41,6 +24,23 @@
         "narrative:schedule"
       ],
       "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "issues": []
+    },
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "name": "Socceroos v Brazil",
+      "sport": "Football",
+      "date": "2026-09-25",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:path",
+        "narrative:history",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
       "issues": []
     },
     {
@@ -110,6 +110,23 @@
       "issues": []
     },
     {
+      "id": "major-match-nrl-finals-2026-preliminary-final-1",
+      "name": "Panthers v Knights",
+      "sport": "NRL",
+      "date": "2026-09-27",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "issues": []
+    },
+    {
       "id": "rugby-australia-south-africa-2026-09-27",
       "name": "Australia v South Africa",
       "sport": "Rugby Union",
@@ -127,6 +144,23 @@
       "issues": []
     },
     {
+      "id": "football-australia-brazil-2026-09-29",
+      "name": "Socceroos v Brazil",
+      "sport": "Football",
+      "date": "2026-09-29",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:path",
+        "narrative:history",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+      "issues": []
+    },
+    {
       "id": "event-wrc-2026-round-13",
       "name": "WRC Rally Italia Sardegna",
       "sport": "WRC",
@@ -141,6 +175,88 @@
         "narrative:format"
       ],
       "sourceUrl": "https://www.wrc.com/en/calendar",
+      "issues": []
+    },
+    {
+      "id": "evt_f1_2026_bahrain_qualifying",
+      "name": "Bahrain GP · Qualifying",
+      "sport": "Formula 1",
+      "date": "2026-10-03",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_japan",
+      "name": "MotoGP Japanese Grand Prix",
+      "sport": "MotoGP",
+      "date": "2026-10-04",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "issues": []
+    },
+    {
+      "id": "evt_nrlw_2026_grand_final",
+      "name": "2026 NRLW Grand Final",
+      "sport": "NRLW",
+      "date": "2026-10-04",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+      "issues": []
+    },
+    {
+      "id": "evt_f1_2026_bahrain_race",
+      "name": "Bahrain GP · Race",
+      "sport": "Formula 1",
+      "date": "2026-10-04",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    },
+    {
+      "id": "evt_84",
+      "name": "NRL Grand Final",
+      "sport": "NRL",
+      "date": "2026-10-04",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:path",
+        "narrative:form",
+        "narrative:history",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
       "issues": []
     }
   ]

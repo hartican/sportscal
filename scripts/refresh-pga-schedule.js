@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
+const {baseFixtures,fixtures}=require('../lib/golf-fixtures');
 const OUTPUT=path.resolve(__dirname,'../data/canonical/pga-tour-schedule.json');
 function dateRange(display,year){
  const match=String(display).match(/^([A-Za-z]+)\s+(\d+)\s*-\s*(?:([A-Za-z]+)\s+)?(\d+)$/);
@@ -38,11 +39,36 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
   try{document.presidentsCup=await require('../lib/presidents-cup').refresh({previous:[{...cup,tournamentParent:true,...previousCup.find(e=>e.tournamentParent)},...previousCup.filter(e=>!e.tournamentParent)],fetchImpl});}
   catch(error){if(!previousCup.length)throw error;document.presidentsCup=previousCup;console.warn('Presidents Cup source unavailable; retaining last-good observations.');}
  }
+ const lpga=require('../lib/golf-participation');
+ const now=Date.now(),day=86400000;
+ document.pgaParticipation=previous?.pgaParticipation||[];
+ for(const base of baseFixtures(document).filter(t=>t.name!=='Presidents Cup'&&Date.parse(t.endDate)>=now-7*day&&Date.parse(t.date)<=now+14*day)){
+  const slug=base.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const root=`https://www.pgatour.com/tournaments/${base.season}/${slug}/${base.tournamentId}`;
+  try{
+   const pages=await Promise.all(['tee-times','field'].map(async suffix=>{const r=await fetchImpl(root+'/'+suffix,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);return r.text();}));
+   const next=lpga.mergeObservation(lpga.parsePga(pages[0],{base,sourceUrl:root+'/tee-times',fieldHtml:pages[1]}),document.pgaParticipation.find(e=>e.id===base.id));
+   document.pgaParticipation=[...document.pgaParticipation.filter(e=>e.id!==base.id),next];
+  }catch(error){console.warn('PGA participation source retained:',base.name,error.message);}
+ }
+
+ document.lpga=previous?.lpga||[];
+ try{
+  const index=await fetchImpl('https://www.lpga.com/tournaments',{signal:AbortSignal.timeout(15000)});if(!index.ok)throw Error('LPGA calendar unavailable');
+  const html=await index.text();
+  const upcoming=lpga.rscObjects(html).filter(t=>t.tournamentCode&&t.month&&t.dateRange&&t.link?.href);
+  const urls=[...new Set(upcoming.filter(t=>{try{const year=Number(t.month.match(/\d{4}/)[0]);const range=dateRange(t.dateRange,year);return Date.parse(range.endDate)>=now-7*day&&Date.parse(range.startDate)<=now+14*day;}catch{return false;}}).map(t=>'https://www.lpga.com'+t.link.href.replace('/overview','/pairings')))];
+  if(!urls.length)throw Error('LPGA calendar contains no tournament links');
+  const observations=[];
+  for(const sourceUrl of urls){
+   try{const r=await fetchImpl(sourceUrl,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);const pairingsHtml=await r.text();const metadata=lpga.parseLpga(pairingsHtml,{sourceUrl});let entriesHtml='';if(Date.parse(metadata.date)<=now+14*day&&Date.parse(metadata.endDate)>=now-7*day){const field=await fetchImpl(sourceUrl.replace('/pairings','/entries'),{signal:AbortSignal.timeout(15000)});if(field.ok)entriesHtml=await field.text();}const next=lpga.parseLpga(pairingsHtml,{sourceUrl,entriesHtml});observations.push(lpga.mergeObservation(next,document.lpga.find(e=>e.id===next.id)));}
+   catch(error){console.warn('LPGA source retained:',sourceUrl,error.message);}
+  }
+  const observed=new Set(observations.map(e=>e.id));document.lpga=[...document.lpga.filter(e=>!observed.has(e.id)),...observations];
+ }catch(error){console.warn('LPGA source retained:',error.message);}
  // The snapshot contains sporting facts only, never page-context/session data.
  if(previous&&JSON.stringify(previous.tournaments)===JSON.stringify(seasons))document.checkedAt=previous.checkedAt;
  fs.writeFileSync(OUTPUT,JSON.stringify(document,null,2)+'\n');console.log(`PGA TOUR: ${seasons.length} published tournaments, ${seasons.filter(t=>t.major).length} majors, ${seasons.filter(t=>t.winners.length).length} confirmed results`);return document;
 }
-function baseFixtures(document){return document.tournaments.map(t=>({id:`fixture:golf:pga:${t.id}`,eventId:`fixture:golf:pga:${t.id}`,key:'golf',sport:'golf',codeId:'sport:golf',competitionId:'competition:pga-tour',competitionName:'PGA TOUR',name:t.name,date:t.startDate,endDate:t.endDate,dateOnly:true,timePrecision:'date-only',timeTbc:true,status:t.status,venue:t.venue,venueCity:t.city,venueCountryCode:t.countryCode,participants:[],participantIds:[],tournamentId:t.id,tournamentName:t.name,season:t.season,isMajor:t.major,stage:t.major?'Major championship':'PGA TOUR',sourceName:document.sourceName,sourceUrl:t.sourceUrl,sourceType:'official',sourceCheckedAt:document.checkedAt,sourceTrust:'verified',...(t.winners.length?{outcomeText:`${t.winners.map(w=>w.name).join(' and ')} won ${t.name}.`,scoreDisplay:`Winner: ${t.winners.map(w=>w.name).join(' / ')}`,resultLabels:['Official winner']}:{}),detailsUnavailable:'Tee times and round-by-round scores are unavailable in the published schedule.'}));}
-function fixtures(document){const cup=(document.presidentsCup||[]).map(event=>{const copy={...event};delete copy.detailsUnavailable;return copy;});return [...baseFixtures(document).filter(e=>!cup.some(c=>c.id===e.id)),...cup];}
 if(require.main===module)refresh().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports={parse,dateRange,refresh,fixtures};

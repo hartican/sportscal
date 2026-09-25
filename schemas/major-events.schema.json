@@ -621,6 +621,40 @@
             "type": "string",
             "format": "uri"
           }
+        },
+        "eliminatedParticipantIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "home",
+              "away"
+            ],
+            "properties": {
+              "home": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "away": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
         }
       }
     },

@@ -7,7 +7,7 @@ function structure(t,fixtures=[],format={}){
  const put=(round,index,kind='match')=>slots.push({slotId:`${id}:${kind}:${round}:${index}`,round,index,kind,status:'provisional',participantSlots:kind==='round'?[]:[{label:'To be confirmed',participantId:null},{label:'To be confirmed',participantId:null}],date:null,time:null});
  if(t.eventFamilyId==='presidents-cup'){for(const f of fixtures.filter(f=>f.cardType==='golf_session')){put(f.stage,1,'round');slots.at(-1).slotId=f.id;}}
  else if(format.sessions){for(const [label,count]of format.sessions)for(let i=1;i<=count;i++)put(label,i,t.key==='golf'?'match':'stage');}
- else if(t.key==='golf')for(let r=1;r<=(format.rounds||4);r++)put(`Round ${r}`,1,'round');
+ else if(t.key==='golf'){if(format.rounds)for(let r=1;r<=format.rounds;r++)put(`Round ${r}`,1,'round');}
  else if(format.drawSize){
   let size=format.drawSize,bracket=2**Math.ceil(Math.log2(size));
   for(let n=bracket;n>=2;n/=2){const count=n===bracket?size-n/2:n/2,label=n===2?'Final':n===4?'Semi-finals':n===8?'Quarter-finals':`Round of ${n}`;for(let i=1;i<=count;i++)put(label,i);}
@@ -15,7 +15,8 @@ function structure(t,fixtures=[],format={}){
  }else{
   // Unknown formats stay explicitly incomplete, never masquerade as a real draw.
   const rounds=[...new Set(fixtures.map(f=>f.roundLabel||f.stage).filter(Boolean))];
-  for(const round of rounds.length?rounds:['Schedule to be confirmed'])put(round,1,'stage');
+  // Unpublished formats have no pretend fixture slots.
+  // Actual contests remain available through publishedFixtures.
  }
  if(format.doublesSize){const size=format.doublesSize,bracket=2**Math.ceil(Math.log2(size));for(let n=bracket;n>=2;n/=2){const count=n===bracket?size-n/2:n/2,label='Doubles '+(n===2?'Final':n===4?'Semi-finals':n===8?'Quarter-finals':`Round of ${n}`);for(let i=1;i<=count;i++)put(label,i,'doubles');}}
  if(format.teamRubbers){for(const tie of [...slots])if(tie.kind==='match'){tie.kind='tie';for(const rubber of ['Singles 1','Singles 2','Doubles'])put(`${tie.round} · Tie ${tie.index} · ${rubber}`,1,'rubber');}}
@@ -26,6 +27,6 @@ function structure(t,fixtures=[],format={}){
   const matching=exact||slots.find(s=>s.round===(f.roundLabel||f.stage)&&s.index===Number(f.drawMatchNumber||f.matchNumber)&&s.kind===(f.slotKind||'match'));
   if(matching)Object.assign(matching,{fixtureId:f.id,status:f.status||'scheduled',participantSlots:f.participantSlots||[],date:f.date||null,time:f.time||null,startTimeUtc:f.startTimeUtc||null});
  }
- return {tournamentId:id,name:t.name,startDate:t.startDate||t.date,endDate:t.endDate||t.date,sourceUrl:t.sourceUrl,formatSourceUrl:format.sourceUrl||t.sourceUrl,formatConfirmed:!!(t.eventFamilyId==='presidents-cup'||format.drawSize||format.rounds||format.sessions),slots};
+ return {tournamentId:id,name:t.name,startDate:t.startDate||t.date,endDate:t.endDate||t.date,sourceUrl:t.sourceUrl,formatSourceUrl:format.sourceUrl||t.sourceUrl,publishedFixtures:fixtures.filter(f=>f.id!==t.id&&!f.detailsUnavailable).map(f=>Object.fromEntries(['id','name','date','time','startTimeUtc','timePrecision','status','cardType','contestUnit','spoilerSafeTitle','participantSlots','participants','participantIds','rubbers','entries','appearances','sourceUrl','sourceCheckedAt'].filter(k=>f[k]!=null).map(k=>[k,f[k]]))),formatConfirmed:!!(t.eventFamilyId==='presidents-cup'||format.drawSize||format.rounds||format.sessions),slots};
 }
 module.exports={day,add,inHorizon,structure};

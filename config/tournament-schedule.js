@@ -21,11 +21,11 @@
   const year=String(f.date||f.startTimeUtc||'').slice(0,4);
   const normalized=slug(raw);
   const candidates=catalogue.filter(t=>String(t.season||t.startDate.slice(0,4))===year).filter(t=>f.tournamentId===t.tournamentId||f.eventFamilyId===family(t)||normalized.includes(slug(t.name))||normalized.includes(family(t)));
-  const t=candidates.find(t=>f.date>=t.startDate&&f.date<=t.endDate)||candidates[0];
+  const t=candidates.find(t=>f.date>=t.startDate&&f.date<=t.endDate)||candidates[0]||(!f.date&&catalogue.find(t=>t.tournamentId===f.tournamentId));
   const name=t?.name||f.tournamentName||f.competitionName||f.majorEventName||(f.key==='wimbledon'?'Wimbledon':null);
   // Unresolved source editions remain separate by published competition and year.
   const label=name||String(f.competitionId||'Tournament unavailable').replace(/^competition:/,'').replace(/[-:]/g,' ');
-  return {id:t?.tournamentId||f.tournamentId||`${slug(label)}:${year}`,label:`${label} ${year}`,startDate:t?.startDate||f.date,endDate:t?.endDate||f.date};
+  return {id:t?.tournamentId||f.tournamentId||`${slug(label)}:${year}`,label:`${label} ${year||t?.season||String(t?.startDate||'').slice(0,4)}`,startDate:t?.startDate||f.date,endDate:t?.endDate||f.date};
  }
  function groups(fixtures,catalogue=[]){
   const out=new Map();for(const f of fixtures){const edition=identify(f,catalogue);let g=out.get(edition.id);if(!g){g={...edition,fixtures:[]};out.set(g.id,g);}g.fixtures.push(f);g.startDate=[g.startDate,f.date].filter(Boolean).sort()[0];g.endDate=[g.endDate,f.date].filter(Boolean).sort().at(-1);}

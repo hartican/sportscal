@@ -44,7 +44,9 @@ assert.match(migration,/last_delivered_at/);
 
 const fixtures=(finals.phases||[]).flatMap(phase=>phase.fixtures||[]);
 const unresolved=fixtures.filter(item=>item.schedulePrecision==='week');
-assert(unresolved.length>=8,'unresolved finals need week anchors');
+assert(fixtures.length>=8,'published finals schedule must retain its contests');
+assert(fixtures.every(item=>item.schedulePrecision==='week'||item.schedulePrecision==='exact'&&item.startTimeUtc||item.schedulePrecision==='date-only'&&item.date),'finals must have exact starts, published dates or explicit week anchors');
+assert(finals.sources.every(source=>/^https:\/\//.test(source.url)), 'finals source register remains auditable');
 assert(unresolved.every(item=>item.weekAnchorDate&&/^Week of Monday, /.test(item.displayDateLabel||'')),'week anchors need public labels');
 for(const code of ['afl','nrl']){
   const grandFinal=fixtures.find(item=>String(item.id||'').includes(code)&&/grand final/i.test(item.publicStageLabel||item.stageLabel||item.name||''));

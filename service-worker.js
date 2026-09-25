@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v312";
-const SHELL_VERSION = "312";
+const CACHE_NAME = "nothingsport-shell-v313";
+const SHELL_VERSION = "313";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
@@ -17,9 +17,9 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=312",
-  "/config/tournament-schedule.js?v=293",
-  "/assets/js/tennis-schedule-ui.js?v=300",
+  "/assets/js/app-shell-runtime.js?v=313",
+  "/config/tournament-schedule.js?v=313",
+  "/assets/js/tennis-schedule-ui.js?v=313",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=275",
@@ -31,7 +31,7 @@ const APP_SHELL = [
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=312",
+  "/styles/follow-feed-rework.css?v=313",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
@@ -40,7 +40,7 @@ const APP_SHELL = [
   "/config/preference-reset-ui.js?v=218",
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
-  "/config/major-events.js?v=279",
+  "/config/major-events.js?v=293",
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",
   "/data/feed/manifest.json",
@@ -230,7 +230,7 @@ async function staleWhileRevalidate(request, event, cacheKey = request){
   // Register the lifetime before returning a cached response. Registering it
   // only after fetch resolves can leave an installed app stuck on its old shell.
   event.waitUntil(network.then(() => undefined));
-  return cached || await network || caches.match("/index.html");
+  return cached || await network || new Response('Temporarily unavailable',{status:503});
 }
 
 async function cacheFirst(request, cacheKey = request){
@@ -244,13 +244,18 @@ async function cacheFirst(request, cacheKey = request){
 
 async function networkFirst(request, event, cacheKey = request, { fresh = false } = {}){
   const cache = await caches.open(CACHE_NAME);
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),8000);
   try{
-    const response = await fetch(fresh ? new Request(request, { cache:"no-store" }) : request);
-    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
-    return response;
-  }catch(_error){
-    return cache.match(cacheKey).then(cached => cached || caches.match("/index.html"));
-  }
+    const response = await fetch(fresh ? new Request(request, { cache:"no-store" }) : request,{signal:controller.signal});
+    if(response.ok){event.waitUntil(cache.put(cacheKey,response.clone()));return response;}
+    if(response.status<500)return response;
+  }catch(_error){ /* A stalled/offline connection must not hold the app indefinitely. */ }
+  finally{clearTimeout(timeout);}
+  const cached=await cache.match(cacheKey);
+  if(cached)return cached;
+  if(request.mode==='navigate'){const shell=await caches.match('/index.html');if(shell)return shell;}
+  return new Response('Temporarily unavailable',{status:503,headers:{'Content-Type':'text/plain'}});
 }
 
 self.addEventListener("fetch", event => {

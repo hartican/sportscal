@@ -38,7 +38,7 @@ function canonicalStepSet(stepBuilder, canonicalBundlePaths) {
 function runStep(args) {
   const command = args[0];
   // Canonical standings changed before this first shell-backed validator.
-  if(command === "scripts/validate-country-flags.js")runStep(["scripts/build-app-shell-runtime.js"]);
+  if(["scripts/validate-country-flags.js","scripts/validate-card-polish.js"].includes(command))runStep(["scripts/build-app-shell-runtime.js"]);
   const isNodeScript = command.endsWith(".js");
   const runner = isNodeScript ? process.execPath : command;
   const commandArgs = isNodeScript ? args : args.slice(1);
@@ -215,6 +215,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-tennis-feed-parents.js"],
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
+  ["scripts/validate-experience-reliability.js"],
+  ["scripts/validate-worker-fallback.js"],
   ["scripts/validate-feed-filter-pagination.js"],
   ["scripts/validate-feed-page-concurrency.js"],
   ["scripts/apply-coverage-pauses.js"],

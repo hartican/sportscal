@@ -32,7 +32,11 @@ for (const script of ["validate-fixture-snapshot","validate-fixture-visibility",
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
-assert.equal(localSteps[0][0], "scripts/snapshot-active-follows.js", "every run must start from a fresh server-only follow snapshot");
+const previousSnapshot=process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH;
+process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH='/tmp/follow-contract-test.json';
+assert.equal(buildSteps({localOnly:true})[0][0], "scripts/snapshot-active-follows.js", "configured follow snapshots must be read before refresh");
+if(previousSnapshot===undefined)delete process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH;else process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH=previousSnapshot;
+assert(localSteps.some(step=>step[0]==='scripts/refresh-pga-schedule.js'));
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1), "every update must refresh the official NBA, Hockey Australia and Diamonds source bundles");
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.includes("--check")), "every update must reject an invalid official follow-source artifact");
 assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1), "every update must regenerate the compact fixture-only follow artifact");
@@ -307,11 +311,11 @@ assert.match(wrapperScript, /REMOTE_META_HASH.*LOCAL_META_HASH_AFTER/s, "the rel
 assert.match(wrapperScript, /REMOTE_SERVICE_WORKER_HASH.*LOCAL_SERVICE_WORKER_HASH_AFTER/s, "the release wrapper must compare the live service worker with the immutable local snapshot");
 assert.match(wrapperScript, /RELEASE_CONTENT_MATCH="NO"/, "a live-content mismatch must fail closed");
 assert.match(tournamentCheckScript, /NODE_BIN="\$\{NODE_BIN:-node\}"/, "the separate tournament job must honour the approved Node runtime override");
-assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-cincinnati-tournament\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
-assert.match(tournamentCheckScript, /refresh-cincinnati-tournament\.js --probe/, "the separate tournament job must probe the official source without mutating output");
+assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-tournament-hydration\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
+assert.match(tournamentCheckScript, /refresh-tournament-hydration\.js --probe/, "the separate tournament job must probe the official source without mutating output");
 assert.match(tournamentCheckScript, /scripts\/update-sportscal-cards-and-release\.sh/, "a changed active tournament must enter the canonical update and immutable release path");
 assert.match(tournamentCheckScript, /No supported tournament is active/, "an inactive tournament check must be an explicit no-op");
-assert.match(tournamentCheckScript, /output is unchanged/, "an unchanged tournament check must be an explicit no-op");
+assert.match(wrapperScript, /no content changes.*no deployment required/i, "an unchanged tournament refresh must be an explicit no-op in its canonical wrapper");
 assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /git config --local --get http\.https:\/\/github\.com\/\.extraheader[^]*git --git-dir="\$push_git_dir" config http\.https:\/\/github\.com\/\.extraheader/, "the isolated release push must inherit the checkout-scoped GitHub Actions credential without logging or persisting it");
@@ -383,12 +387,12 @@ const inactiveTournamentGate = runTournamentGate('{"status":"inactive","changed"
 assert.equal(inactiveTournamentGate.result.status, 0, inactiveTournamentGate.result.stderr);
 assert.match(inactiveTournamentGate.result.stdout, /No supported tournament is active/);
 assert.equal(inactiveTournamentGate.releaseMessage, null, "inactive tournament checks must not call the release wrapper");
-assert.equal(inactiveTournamentGate.nodeArgs, "scripts/refresh-cincinnati-tournament.js --probe", "the gate must use NODE_BIN for only the read-only probe");
+assert.equal(inactiveTournamentGate.nodeArgs, "scripts/refresh-tournament-hydration.js --probe", "the gate must use NODE_BIN for only the read-only probe");
 
 const unchangedTournamentGate = runTournamentGate('{"status":"success","changed":false}');
 assert.equal(unchangedTournamentGate.result.status, 0, unchangedTournamentGate.result.stderr);
-assert.match(unchangedTournamentGate.result.stdout, /output is unchanged/);
-assert.equal(unchangedTournamentGate.releaseMessage, null, "unchanged tournament checks must not call the release wrapper");
+assert.equal(unchangedTournamentGate.releaseMessage, "Refresh active tournament schedule");
+assert(unchangedTournamentGate.releaseMessage, "active tournament probes delegate change detection to the canonical wrapper");
 
 const changedTournamentGate = runTournamentGate('{"status":"success","changed":true}');
 assert.equal(changedTournamentGate.result.status, 0, changedTournamentGate.result.stderr);

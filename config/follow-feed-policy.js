@@ -205,7 +205,7 @@
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','masters'].includes(sportKey(event)))return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
+    if(['golf','masters'].includes(sportKey(event)))return participantFollow&&event.participantsConfirmed===true&&event.cardType!=='golf_session'||(event.cardType!=='golf_session'&&competitionFollow&&australiansOnly&&event.participantsConfirmed===true&&hasAustralianParticipant(event))||(presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event)));
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;

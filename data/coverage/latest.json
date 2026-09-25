@@ -1,7 +1,7 @@
 {
   "schemaVersion": "coverage-report.v1",
-  "reportId": "coverage-report:2026-09-22",
-  "referenceDate": "2026-09-22",
+  "reportId": "coverage-report:2026-09-25",
+  "referenceDate": "2026-09-25",
   "generatedAt": "2026-09-21T20:20:19.813Z",
   "refreshPolicy": {
     "weeklyBreadth": true,
@@ -147,7 +147,7 @@
       "status": "loaded",
       "sourceMode": "reviewed_export",
       "observedAt": "2026-09-21T20:20:19.813Z",
-      "ageDays": 1,
+      "ageDays": 4,
       "windowStart": "2026-09-22",
       "windowEnd": "2026-09-28",
       "itemCount": 16,
@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 1061,
+    "canonicalEventsCompared": 1065,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 16,
@@ -326,7 +326,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:3uvi2g",
       "candidateId": "coverage:3uvi2g",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "UCI Road World Championships",
       "eventTitle": "UCI Road World Championships",
       "source": "stan_sport",
@@ -413,13 +413,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:152j0p7",
       "candidateId": "coverage:152j0p7",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "WTA 500",
       "eventTitle": "WTA 500",
       "source": "stan_sport",
@@ -512,13 +512,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:xlgehn",
       "candidateId": "coverage:xlgehn",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "NPC",
       "eventTitle": "NPC",
       "source": "stan_sport",
@@ -605,13 +605,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1v04al8",
       "candidateId": "coverage:1v04al8",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Australian Schoolboys/U18s",
       "eventTitle": "Australian Schoolboys/U18s",
       "source": "stan_sport",
@@ -704,7 +704,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1kui4db",
       "candidateId": "coverage:1kui4db",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Farah Palmer Cup",
       "eventTitle": "Farah Palmer Cup",
       "source": "stan_sport",
@@ -797,7 +797,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:16ro9xa",
       "candidateId": "coverage:16ro9xa",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Laver Cup",
       "eventTitle": "Laver Cup",
       "source": "stan_sport",
@@ -806,7 +806,7 @@
       "startsAt": "2026-09-24T18:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.08,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -829,11 +829,17 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.08,
         "reasonCodes": [
-          "no_catalogue_match"
+          "same_calendar_date"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "tennis-tournament-bjk-cup-finals-2026-2026-09-25",
+            "title": "Billie Jean King Cup Finals — Team competition",
+            "confidence": 0.08
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -890,7 +896,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:y48rp7",
       "candidateId": "coverage:y48rp7",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Ultimate Sevens",
       "eventTitle": "Ultimate Sevens",
       "source": "stan_sport",
@@ -983,7 +989,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1nd3f8x",
       "candidateId": "coverage:1nd3f8x",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "WTA 250",
       "eventTitle": "WTA 250",
       "source": "stan_sport",
@@ -992,7 +998,7 @@
       "startsAt": "2026-09-25T03:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.08,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -1015,11 +1021,17 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.08,
         "reasonCodes": [
-          "no_catalogue_match"
+          "same_calendar_date"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "tennis-tournament-bjk-cup-finals-2026-2026-09-25",
+            "title": "Billie Jean King Cup Finals — Team competition",
+            "confidence": 0.08
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -1076,7 +1088,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1dq81bl",
       "candidateId": "coverage:1dq81bl",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "NWSL",
       "eventTitle": "NWSL",
       "source": "stan_sport",
@@ -1109,10 +1121,14 @@
       "match": {
         "canonicalEventId": null,
         "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
+        "reasonCodes": [],
+        "alternatives": [
+          {
+            "canonicalEventId": "football-australia-brazil-2026-09-25",
+            "title": "Socceroos v Brazil",
+            "confidence": 0
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -1169,7 +1185,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:m8hr67",
       "candidateId": "coverage:m8hr67",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Premiership Rugby",
       "eventTitle": "Premiership Rugby",
       "source": "stan_sport",
@@ -1266,7 +1282,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1dw2zw4",
       "candidateId": "coverage:1dw2zw4",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "WEC",
       "eventTitle": "WEC",
       "source": "stan_sport",
@@ -1372,7 +1388,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:14czvuv",
       "candidateId": "coverage:14czvuv",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "WSL",
       "eventTitle": "WSL",
       "source": "stan_sport",
@@ -1464,7 +1480,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1q83nl6",
       "candidateId": "coverage:1q83nl6",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "WXV",
       "eventTitle": "WXV",
       "source": "stan_sport",
@@ -1561,7 +1577,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:w0owfv",
       "candidateId": "coverage:w0owfv",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Flight Centre Series",
       "eventTitle": "Flight Centre Series",
       "source": "stan_sport",
@@ -1660,7 +1676,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1s3owc2",
       "candidateId": "coverage:1s3owc2",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "Super Rugby AUS",
       "eventTitle": "Super Rugby AUS",
       "source": "stan_sport",
@@ -1757,7 +1773,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:br31kl",
       "candidateId": "coverage:br31kl",
-      "reportId": "coverage-report:2026-09-22",
+      "reportId": "coverage-report:2026-09-25",
       "title": "UCI Mountain Bike World Series",
       "eventTitle": "UCI Mountain Bike World Series",
       "source": "stan_sport",

@@ -105,3 +105,10 @@ Feed label alignment PWA exception — 25 September 2026
 - The exact 311 → 312 installed-Chromium check timed out after worker 312 installed and stayed waiting while worker 311 remained active. Keep the validator and timeout unchanged; this is an unresolved app-upgrade defect.
 - Browser geometry checks passed for full and compact opponent labels at 320, 390, 768 and 1280px in both themes. Card identity, presentation, timing, Follow policy, app-version, startup and static performance checks passed; compressed growth remains 1.19% within the 1.25% cap.
 - Verify GitHub main, immutable deployment SHA, production files and public rendered label alignment separately. This note does not authorise a future bypass.
+
+
+Sport experience and reliability release exception — 25 September 2026
+----------------------------------------------------------------------
+- The owner explicitly approved the implementation plan and "Bypass PWA and deploy" for this release. Only the installed-PWA gate may be excepted; other release checks remain required.
+- Exact baseline 0a95e54 (shell 312) to candidate shell 313: desktop WebKit passed preferences, optional/core failures, offline recovery and resume upgrade. Chromium reproduced document 313 with worker 312 active and 313 installed/waiting after 45 seconds, with no pending page requests. Underlying activation cause is not established; do not claim it fixed or substitute desktop WebKit for iOS Home Screen verification.
+- Keep the validator and its timeouts unchanged. This is not authority for future bypasses. Verify main SHA, READY deployment, alias and live rendering separately.

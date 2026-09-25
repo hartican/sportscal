@@ -7,15 +7,13 @@ globalThis.renderFollowSchedulePanel=function(container){
     renderCodeInspectorStandings(panel, code);
     return;
   }
-  if (codeInspectorTab === "results"){
-    renderCodeInspectorResults(panel, code);
-    return;
-  }
   if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
     panel.innerHTML = '<div class="empty-state">Loading detailed fixtures…</div>';
     return;
   }
-  const fixtures = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
+  const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
+  const fixtures=available.filter(f=>NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){
     renderCodeInspectorPlayers(panel, codeInspectorChunk.fixtures || []);
     return;
@@ -27,10 +25,11 @@ globalThis.renderFollowSchedulePanel=function(container){
     return;
   }
   if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
-  if(code.id==='sport:golf'){const note=document.createElement('p');note.className='chat-empty';note.textContent='PGA TOUR tournament dates and confirmed winners. Tee times and round-by-round scores remain unavailable where not published.';panel.append(note);}
   const grouped = new Map();
+  const tournamentDates=new Map();for(const f of fixtures){if(f.tournamentId&&f.date&&(!tournamentDates.has(f.tournamentId)||f.date<tournamentDates.get(f.tournamentId)))tournamentDates.set(f.tournamentId,f.date);}
+  const groupLabel=f=>code.groupingMode==='round'?codeInspectorGroupLabel(f,code.groupingMode):`${tournamentDates.get(f.tournamentId)||f.date||'Upcoming'} · ${f.tournamentName||f.competitionName||code.label}`;
   fixtures.forEach(fixture => {
-    const label = codeInspectorGroupLabel(fixture, code.groupingMode);
+    const label = groupLabel(fixture);
     const group = grouped.get(label) || [];
     group.push(fixture);
     grouped.set(label, group);
@@ -42,48 +41,31 @@ globalThis.renderFollowSchedulePanel=function(container){
   )));
   const groupLabels = [...grouped.keys()].sort((first, second) => FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second)
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
-  if (!codeInspectorGroup || !grouped.has(codeInspectorGroup)){
-    const todayKey = formatDateKey(nowAEST());
-    const nextFixture = fixtures.find(fixture => fixture.date && fixture.date >= todayKey);
-    const nextGroup = nextFixture ? codeInspectorGroupLabel(nextFixture, code.groupingMode) : null;
-    codeInspectorGroup = nextGroup && grouped.has(nextGroup) ? nextGroup : groupLabels[0];
-  }
-  const toolbar = document.createElement("div");
-  toolbar.className = "code-inspector-toolbar";
-  const pickerLabel = document.createElement("label");
-  pickerLabel.setAttribute("for", "codeInspectorStartingRound");
-  pickerLabel.textContent = code.groupingMode === "round" ? "Starting round" : "Starting group";
-  const picker = document.createElement("select");
-  picker.id = "codeInspectorStartingRound";
-  picker.className = "starting-round-select";
-  groupLabels.forEach(label => {
-    const option = document.createElement("option");
-    option.value = label;
-    option.textContent = label;
-    option.selected = label === codeInspectorGroup;
-    picker.appendChild(option);
+  const today=formatDateKey(nowAEST());
+  const current=fixtures.filter(f=>(f.endDate||f.date)>=today).sort((a,b)=>String(a.date).localeCompare(String(b.date)))[0]||fixtures.at(-1);
+  const currentIndex=Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
+  const windows=NOTHINGSPORTS_FOLLOW_NAV.windows;
+  const fingerprint=JSON.stringify([codeInspectorTab,followBrowseState().scheduleScope,NOTHINGSPORTS_FOLLOW_NAV.selected(code.id)]);
+  let window=windows.get(code.id);if(!window||window.fingerprint!==fingerprint){window={start:currentIndex,end:Math.min(groupLabels.length,currentIndex+3),fingerprint};windows.set(code.id,window);}
+  const action=(label,callback)=>{const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.onclick=callback;panel.append(b);};
+  action('Jump to current',()=>{window.start=currentIndex;window.end=Math.min(groupLabels.length,currentIndex+3);renderCodeInspector();requestAnimationFrame(()=>document.querySelector('.code-inspector-group')?.scrollIntoView({block:'start'}));});
+  if(window.start>0)action('Earlier rounds / events',()=>{window.start=Math.max(0,window.start-3);renderCodeInspector();});
+  groupLabels.slice(window.start,window.end).forEach(label=>{
+    const section=document.createElement('section');section.className='code-inspector-group';
+    const title=document.createElement('h3');title.textContent=label;
+    const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
+    grouped.get(label).forEach(f=>{
+      const card=buildCodeInspectorFixture(f);
+      if(codeInspectorTab==='results'){
+        const canonical=canonicalFeedFixtureForInspector(f),status=f.resultStatus||canonical?.resultStatus,score=f.resultScore||canonical?.score;
+        if(status==='pending'){const pending=document.createElement('p');pending.textContent = "Official FIA classification pending.";card.append(pending);}
+        else if(userPreferences.showSpoilers&&score){const note=document.createElement('p');note.textContent=`Official: ${score}`;card.append(note);}
+      }
+      list.appendChild(card);
+    });section.append(title,list);panel.append(section);
   });
-  picker.addEventListener("change", () => {
-    const startedAt = feedPerformanceNow();
-    codeInspectorGroup = picker.value;
-    renderCodeInspector();
-    recordFeedInteraction("inspector_round_change", startedAt);
-  });
-  toolbar.append(pickerLabel, picker);
-  panel.appendChild(toolbar);
-  const startIndex = Math.max(0, groupLabels.indexOf(codeInspectorGroup));
-  groupLabels.slice(startIndex, startIndex + 2).forEach(label => {
-    const section = document.createElement("section");
-    section.className = "code-inspector-group";
-    const groupTitle = document.createElement("h3");
-    groupTitle.textContent = label;
-    const list = document.createElement("div");
-    list.className = "code-inspector-fixtures";
-    list.dataset.scrollList = `inspector-group:${label}`;
-    grouped.get(label).forEach(fixture => list.appendChild(buildCodeInspectorFixture(fixture)));
-    section.append(groupTitle, list);
-    panel.appendChild(section);
-  });
+  if(window.end<groupLabels.length)action('Later rounds / events',()=>{window.end=Math.min(groupLabels.length,window.end+3);renderCodeInspector();});
+
 }
 ;
 

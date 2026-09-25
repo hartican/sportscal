@@ -55,7 +55,7 @@ for (const selectorId of ["sport:nrlw", "sport:motogp", "sport:sailgp", "sport:f
   assert(selector.byId[selectorId]?.selectable === true, `${selectorId}: Follow selector is missing`);
 }
 assert.deepEqual(selector.byId["sport:nrl"].childIds, ["sport:nrl-premiership", "sport:nrlw"], "NRL and NRLW must stay separate child competitions");
-assert.deepEqual(selector.byId["sport:motorsport"].childIds, ["sport:f1", "sport:motogp", "sport:wrc"], "MotoGP must be a distinct Motorsport child beside WRC");
+assert.deepEqual(selector.byId["sport:motorsport"].childIds, ["sport:f1", "sport:motogp", "sport:wrc", "sport:supercars"], "MotoGP must be a distinct Motorsport child beside WRC");
 
 for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const directory = readJson(`data/follow-directory/${sportKey}.v1.json`);

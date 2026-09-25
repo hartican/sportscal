@@ -1,7 +1,7 @@
 /* Lazy, read-only score surface. The host owns Feed eligibility and identity. */
 (() => {
  'use strict';
- const scores=new Map(),requested=new Map(),expanded=new Set();let timer,inflight=null,hydrating=null,membership=[],membershipKey='',membershipOwner='',generation=0,manual=null,lastManual=-Infinity,notice='',refreshControl;
+ const scores=new Map(),requested=new Map(),expanded=new Set();let timer,inflight=null,hydrating=null,membership=[],membershipKey='',membershipOwner='',membershipCheckedAt=0,generation=0,manual=null,lastManual=-Infinity,notice='',refreshControl;
  const owner=()=>serverSyncClient?.sessionSubject()||'public';
  const ticket=()=>({generation,owner:owner()});
  const valid=t=>t.generation===generation&&t.owner===owner()&&activeTab==='match-centre';
@@ -13,11 +13,11 @@
   if(hydrating){await hydrating;if(!force)return;}
   if(!valid(t))return;
   const operation=(async()=>{
-  const key=JSON.stringify([owner(),userPreferences,eventActions,Math.floor(Date.now()/300000)]);if(!force&&key===membershipKey)return;
+  const key=JSON.stringify([owner(),userPreferences,eventActions]);if(!force&&key===membershipKey&&Date.now()-membershipCheckedAt<300000)return;
   const next=[];let cursor=0;
-  do{const data=serverPersistence.user?await serverSyncClient.loadFeed({cursor,limit:50,scope:'match-centre'}):await fetch(`/api/feed?scope=match-centre&limit=50&cursor=${cursor}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error();return r.json();});next.push(...(data.events||[]));cursor=data.pagination?.nextCursor??null;}while(cursor!==null&&activeTab==='match-centre');
-  if(!valid(t)||key!==JSON.stringify([owner(),userPreferences,eventActions,Math.floor(Date.now()/300000)]))return;
-  membership=next;membershipKey=key;membershipOwner=serverSyncClient?.sessionSubject()||'public';
+  do{const data=serverPersistence.user?await serverSyncClient.loadFeed({cursor,limit:50,scope:'match-centre'}):await fetch(`/api/feed?scope=match-centre&limit=50&cursor=${cursor}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error();return r.json();});if(!valid(t)||key!==JSON.stringify([owner(),userPreferences,eventActions]))return;next.push(...(data.events||[]));membership=[...new Map(next.map(e=>[m().id(e),e])).values()];membershipOwner=owner();render();cursor=data.pagination?.nextCursor??null;}while(cursor!==null&&activeTab==='match-centre');
+  if(!valid(t)||key!==JSON.stringify([owner(),userPreferences,eventActions]))return;
+  membership=next;membershipKey=key;membershipCheckedAt=Date.now();membershipOwner=serverSyncClient?.sessionSubject()||'public';
   })();hydrating=operation;try{return await operation;}finally{if(hydrating===operation)hydrating=null;}
  }
  function scoreText(s){if(!s)return 'Scores unavailable';if(s.innings)return s.innings.length?s.innings.map(i=>`${i.team||i.participantId||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`).join(' · '):'Scores unavailable';if(s.sets?.length||s.games)return (s.sets||[]).map(x=>`${x.home??'—'}–${x.away??'—'}`).join('  ')+(s.games?` · Games ${s.games.home??'—'}–${s.games.away??'—'}`:'');return s.home!=null&&s.away!=null?`${s.home}–${s.away}`:'Scores unavailable';}
@@ -27,7 +27,7 @@
   const heading=node('div',null,'match-centre-heading');heading.append(node('h2','Match Centre'));
   const refresh=node('button','Refresh','btn ghost');refresh.type='button';refresh.setAttribute('aria-label','Refresh Match Centre');refresh.disabled=Boolean(manual);refresh.onclick=()=>void manualRefresh();heading.append(refresh);panel.replaceChildren(heading);
   const announcement=node('p',notice,'mc-refresh-notice');announcement.setAttribute('role','status');announcement.setAttribute('aria-live','polite');panel.append(announcement);
-  panel.setAttribute('aria-busy',String(Boolean(manual)));
+  panel.setAttribute('aria-busy',String(Boolean(manual||hydrating)));
   panel.append(node('p','Your Feed fixtures · team scores checked every 5 minutes; tennis every 2 minutes.','match-centre-note'));
   const events=candidates();
   if(!events.length)panel.append(node('p',hydrating?'Loading your Feed fixtures…':'No Feed matches in the live window. Fixtures appear 30 minutes before start.'));

@@ -1,5 +1,18 @@
 # Backend efficiency decisions
 
+## Slow navigation recovery and shared golf ingestion — 25 September 2026
+
+Match Centre owns its panel before Feed hydration completes. Lazy loading immediately shows its own state, with a retry on failure. Membership reads have ten-second deadlines, show eligible pages progressively, and use elapsed freshness instead of a clock-boundary cache key. Existing account, preference and navigation guards remain. No polling cadence or score membership scope changes.
+
+The worker's network-first requests have an eight-second transport deadline and use cached verified content on transport failure or HTTP 5xx. HTML fallback applies only to navigations; missing JSON/assets never receive the app's HTML. Preferences and account storage are not cleared. Installed upgrade tests and their timeouts remain intact; passing desktop WebKit does not prove iOS Home Screen behaviour.
+
+The canonical refresh owns PGA and LPGA participation alongside the existing schedule adapter. Source facts are shared across all users; no account preference scanning, AI discovery or new scheduler. Detail requests are limited to seven days behind and fourteen ahead. Official entry lists and pairings are separate observations; per-source failure keeps last-good records. Presidents Cup uses its existing live source owner.
+
+History hashes ignore observation timestamps, including nested score/status/participation check times. Real fixture, participant, time and score changes still create revisions. Source health timestamps remain updated by the existing publish RPC. No history deletion, retention reduction, migration, plan purchase or scheduler change is included.
+
+Read-only inventory on 25 September measured 507,522,195 database bytes (484 MiB), dominated by fixture snapshot payloads. Capacity recommendations are in the release report; increasing resources is not a substitute for fixing client route ownership or worker activation.
+
+
 ## BJK Match Centre score repair — 24 September 2026
 
 The existing live-source owner checks at most two active BJK official reports per pass, reusing the canonical report parser. No new scheduler or score-triggered deployment. This source provides completed-rubber reports, not guaranteed game-level live data; missing rubber updates stay explicitly unavailable. Structured tie totals and source-oriented rubber set strings are translated by the compact score model. Completion uses the first confirmed observation, never scheduled duration. Tests: `validate-team-tennis-scores.js` and `validate-tennis-tie-layout-browser.js`.

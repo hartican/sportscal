@@ -75,7 +75,7 @@ const aflPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:a
 const nrlPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");
 assert.deepEqual(aflPhase.fixtures.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Code phase data must preserve every canonical finals fixture");
 assert.equal(nrlPhase.fixtures.length, 9, "NRL Code phase data must retain four first-week finals, two Semis, two Prelims and the Grand Final");
-assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
+assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null || event.timePrecision === "exact" && /^https:\/\/www\.nrl\.com\//.test(event.sourceUrl || "") && Number.isFinite(Date.parse(event.sourceCheckedAt))), "NRL slots may gain exact start times only with dated official source evidence");
 assert.equal(nrlPhase.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL Code progression must remain structured instead of parsed from slot labels");
 const nrlFinalIds = new Set(nrlPhase.fixtures.map(event => event.id));
 assert.deepEqual(new Set(nrlPhase.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
@@ -284,7 +284,8 @@ invalidCopies.forEach(([document, message]) => {
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("function loadMajorEventsData(options={})"), "Events data must load on demand");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)[1];
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes(`moduleScriptUrl: "config/major-events.js?v=${shellVersion}"`), "the Events runtime must stay off the critical startup path and load with its catalogue");
+const lazyModule=html.match(/moduleScriptUrl: "(config\/major-events\.js\?v=\d+)"/)?.[1];
+assert(!html.includes('<script src="config/major-events.js"></script>') && lazyModule && worker.includes(`"/${lazyModule}"`), "the Events runtime must load lazily with the same version available offline");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function fetchMajorEventsData")), "Events starts its lazy request before rendering");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");

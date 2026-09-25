@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-25T01:04:15Z",
+  "generatedAt": "2026-09-25T03:10:45Z",
   "sports": [
     {
       "key": "afl",
@@ -69,7 +69,7 @@
     {
       "key": "supercars",
       "label": "V8 Supercars",
-      "status": "unavailable",
+      "status": "schedule-only",
       "recordCount": 0,
       "jsonUrl": "data/follow-directory/supercars.v1.json",
       "scriptUrl": "data/follow-directory/supercars.v1.js"

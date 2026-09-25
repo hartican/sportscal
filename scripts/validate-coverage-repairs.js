@@ -22,7 +22,7 @@ const {capture,safeSignal,researchCandidates}=require('./snapshot-editorial-noth
  assert(golf.tournaments.filter(t=>t.status!=='completed').every(t=>!t.winners.length),'defending champions are not results');
  assert.deepEqual(pga.dateRange('Jan 29 - Feb 1',2026),{startDate:'2026-01-29',endDate:'2026-02-01'});
  const inspector=require('../data/code-inspector/golf.json').fixtures;
- for(const t of golf.tournaments){const records=inspector.filter(f=>f.tournamentId===t.id);assert.equal(records.length,1,t.id+' one canonical schedule entry');if(t.status==='completed')assert.match(records[0].outcomeText,/won/);}
+ for(const t of golf.tournaments){const records=inspector.filter(f=>f.tournamentId===t.id&&f.cardType!=='golf_session');assert.equal(records.length,1,t.id+' one canonical schedule entry');if(t.status==='completed')assert.match(records[0].outcomeText,/won/);}
  const catalogue=require('../data/canonical/tennis-catalogue-2026.json').tournaments;
  const sections=tournaments.sections(catalogue,'2026-09-22');assert.deepEqual(sections.map(s=>s.label),['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events']);
  assert.equal(new Set(catalogue.filter(t=>t.level==='grand_slam').map(tournaments.family)).size,4);
@@ -31,7 +31,7 @@ const {capture,safeSignal,researchCandidates}=require('./snapshot-editorial-noth
  for(const name of ['Davis','Billie','United'])assert(catalogue.some(t=>t.name.includes(name)));
  const groups=tournaments.groups(require('../data/code-inspector/tennis.json').fixtures,catalogue);
  assert(groups.some(g=>/us-open-2026/.test(g.id)));assert(groups.some(g=>/wimbledon-2026/.test(g.id)));
- for(const g of groups)assert(g.fixtures.every(f=>String(f.date).slice(0,4)===String(g.startDate).slice(0,4)));
+ for(const g of groups)assert(g.fixtures.every(f=>f.date?String(f.date).slice(0,4)===String(g.startDate).slice(0,4):f.timePrecision==='tbc'&&!f.startTimeUtc&&f.tournamentId===g.id),'undated draws must retain their explicit edition without invented dates');
  const base={id:'test-five',name:'Test fixture',date:'2026-09-25',key:'football',status:'scheduled'};
  const queue=(record,signals=[])=>buildQueue({knowledge:{eventProjections:[]},feed:{events:[record]},majorEvents:{events:[]},signals:{signals},reference:new Date('2026-09-22T00:00:00Z')}).entries[0];
  assert.equal(queue(base,[{sourceEventId:base.id,fiveStarPhases:['heat']}]).priority,'five-star');

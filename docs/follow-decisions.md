@@ -1,5 +1,18 @@
 # Follow and Feed decisions
 
+## Sporting schedules, Follow navigation and golfer entries — 25 September 2026
+
+Approved in the grill-me interview and implementation request. This supersedes the earlier rule excluding ordinary golf tournaments from participant-based admission. An explicit golfer follow, or Golf with Follow Australians enabled, admits one source-confirmed tournament card when that golfer is entered. Tee times and playing partners are nested details, added when officially published. Men's and women's fields use the same opt-in; a broad Golf follow alone retains its existing majors/Presidents Cup scope. A golfer follow does not create separate session cards. Published withdrawals and explicit fixture/family/competition exclusions win. Missing fields, reserve lists, past winners and tour membership do not establish an entry. Temporary source failures retain last verified evidence, with its original check time.
+
+Tournament schedules show published contests and one pending-information note, not a card for every hypothetical bracket slot. Followed golfers and Australians are shown first, with the rest of the published pairings expandable. BJK ties retain actual rubber evidence and Results privacy. Other sports retain their existing consent rules; team membership is not proof of an individual playing in a match.
+
+All Follow sports share collapsible navigation with a persistent compact sport/section bar, Filter action and accessible chevron. Open on the current round/event, with Earlier, Later and Jump to current actions instead of a Starting round selector. Browse filters are separate from Feed filters and follow preferences, stored per sport. Rounds, competitions, tournaments, series, countries and participants appear only where the schedule supplies choices.
+
+F1 uses a location composition, host sporting colours and a sourced circuit outline. Licensed geometry is the graphic fallback; no invented circuit shape or unlicensed photograph is required. F1 never uses opposing-team colour halves.
+
+Regressions: `validate-experience-reliability.js`, `validate-experience-browser.js`, existing Follow/server parity, coverage, tournament and Match Centre validators.
+
+
 ## Match Centre fixture navigation — 24 September 2026
 
 Open fixture returns to the main Feed, expands and focuses the selected eligible card, and never uses the marquee-only standalone fixture page. Seed the selected Match Centre record if ordinary Feed pagination has not loaded it. Clear temporary Feed filters only if they hide this target; do not create pins, follows or reminders, change Results, or resurrect dismissals. Regression: `validate-tennis-tie-layout-browser.js`.

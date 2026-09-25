@@ -686,6 +686,7 @@
         if(feedRequests.has(key))return feedRequests.get(key);
         const cached=feedResponses.get(key);
         const pending=authenticatedRequest(`/api/feed?${params.toString()}`,{
+          ...(scope==='match-centre'?{timeoutMs:10000}:{}),
           headers:cached?.etag?{'If-None-Match':cached.etag}:{},
           cachedPayload:cached?.payload,
           onResponse(response,payload){

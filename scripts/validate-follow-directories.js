@@ -13,6 +13,11 @@ for (const supportKey of ["hockey", "multi-sport"]){
   assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
 }
 manifest.sports.forEach(sport => {
+  if(sport.key==='supercars'){
+    assert.equal(sport.status,'schedule-only','Bathurst-only scope must not imply a sourced driver directory');
+    assert.equal(sport.recordCount,0,'do not invent Supercars participants');
+    assert(fs.existsSync(path.join(ROOT,sport.jsonUrl)),'schedule-only categories retain a lazy empty chunk');return;
+  }
   assert.equal(sport.status, "available", `${sport.key}: every active sport must expose a populated lazy directory`);
   assert.ok(sport.recordCount > 0, `${sport.key}: populated directory cannot be empty`);
   const chunkPath = path.join(ROOT, sport.jsonUrl);
@@ -53,7 +58,8 @@ assert.ok(Number.isFinite(runtime.searchMatchScore(lucas, "Harrington")), "one-c
 const tennis = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
 assert.equal(tennis.records.filter(record => record.watchPoolMember).length, 51, "Tennis must expose the expanded watch-pool players");
 assert.equal(tennis.collections.length, 8, "Tennis must expose the original groups plus ATP/WTA watch lists");
-assert.equal(new Set(tennis.records.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennis.records.length, "Tennis player rows must be deduplicated by name");
+const tennisPlayers=tennis.records.filter(record=>record.entityType!=="team");
+assert.equal(new Set(tennisPlayers.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennisPlayers.length, "Tennis player rows must be deduplicated by name");
 for (const collectionId of ["collection:tennis:mens-top-10", "collection:tennis:womens-top-10"]){
   assert.equal(tennis.collections.find(collection => collection.id === collectionId)?.memberIds.length, 10, `${collectionId}: current top ten must contain ten players`);
 }

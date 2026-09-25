@@ -36,19 +36,18 @@ function renderTennisTournamentSchedule(panel,fixtures){
     panel.textContent='Loading tournament editions…';void loadTennisTournamentCatalogue().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{panel.textContent='Tournament catalogue unavailable. Try opening Schedule again.';});return;
   }
   const groups=NOTHINGSPORTS_TOURNAMENT_SCHEDULE.groups(fixtures,tennisTournamentCatalogue.tournaments);
-  for(const t of tennisTournamentCatalogue.tournaments)if(!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:`${t.name} ${t.season}`,startDate:t.startDate,endDate:t.endDate,fixtures:[]});
+  for(const t of tennisTournamentCatalogue.tournaments)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:`${t.name} ${t.season}`,startDate:t.startDate,endDate:t.endDate,fixtures:[]});
   groups.sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
   const today=formatDateKey(nowAEST());
   const current=groups.filter(g=>g.endDate>=today);const latest=groups.filter(g=>g.endDate<today).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];
   if(!tennisSelectedEdition||!groups.some(g=>g.id===tennisSelectedEdition))tennisSelectedEdition=current[0]?.id||latest?.id||groups[0]?.id;
-  const picker=document.createElement('select');picker.setAttribute('aria-label','Tournament and edition');picker.className='starting-round-select';
+  const picker=document.createElement('select');picker.setAttribute('aria-label','Tournament and edition');picker.className='follow-tournament-select';
   for(const [label,list]of [['Live and upcoming editions',current],['Older editions',groups.filter(g=>g.endDate<today).reverse()]]){const group=document.createElement('optgroup');group.label=label;for(const g of list){const option=document.createElement('option');option.value=g.id;option.textContent=g.label;option.selected=g.id===tennisSelectedEdition;group.append(option);}picker.append(group);}
   picker.onchange=()=>{tennisSelectedEdition=picker.value;renderCodeInspector();};panel.append(picker);
   const chosen=groups.find(g=>g.id===tennisSelectedEdition);if(!chosen)return;
   const latestPlayed=groups.filter(g=>g.fixtures.some(f=>f.status==='completed')).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];
   if(latestPlayed&&latestPlayed.id!==chosen.id){const recent=document.createElement('button');recent.type='button';recent.className='btn ghost';recent.textContent=`Latest completed matches · ${latestPlayed.label}`;recent.onclick=()=>{tennisSelectedEdition=latestPlayed.id;renderCodeInspector();};panel.append(recent);}
   const title=document.createElement('h3');title.textContent=chosen.label;panel.append(title);
-  appendTournamentSlots(panel,{tournamentId:chosen.id});
   if(!chosen.fixtures.length){const note=document.createElement('p');note.textContent='Match schedule and draw not yet published in our verified sources.';panel.append(note);return;}
   const rounds=new Map();for(const fixture of chosen.fixtures){const label=fixture.roundLabel&&fixture.roundLabel!=='all'?fixture.roundLabel:fixture.stage||'Published matches';if(!rounds.has(label))rounds.set(label,[]);rounds.get(label).push(fixture);}
   const latestDay=chosen.fixtures.filter(f=>f.status==='completed').map(f=>f.date).sort().at(-1);

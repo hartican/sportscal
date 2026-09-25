@@ -1,13 +1,13 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z",
+  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
-    "stakesFiveFuture": 25,
-    "shown": 25,
+    "stakesFiveFuture": 26,
+    "shown": 26,
     "eligible": 2,
-    "watching": 23,
+    "watching": 24,
     "actionable": 0,
     "late": 0
   },
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -579,7 +579,7 @@
     {
       "campaignId": "marquee_42ede0fa256411df",
       "campaignRevision": 1,
-      "contentHash": "89d580e15d947f2e27a4e7b0d5e53d4ad7594269ef68ea1f5db34957689d3719",
+      "contentHash": "a9a8f1331bd318cabc0ed07e264c6cdf034433ef1a424a5eed3665cffb2a29fa",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -602,7 +602,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T08:27:01.899Z"
+        "sourceCheckedAt": "2026-09-22T08:30:00.000Z"
       },
       "timing": {
         "startTimeUtc": "2026-09-25T09:50:00.000Z",
@@ -627,8 +627,8 @@
       "source": {
         "name": "Dolphins v Roosters — official research 1",
         "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-        "checkedAt": "2026-09-22T08:27:01.899Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-22T08:30:00.000Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Dolphins v Roosters",
@@ -646,7 +646,7 @@
         "source": {
           "name": "Dolphins v Roosters — official research 1",
           "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-          "checkedAt": "2026-09-22T08:27:01.899Z"
+          "checkedAt": "2026-09-22T08:30:00.000Z"
         },
         "recognisableTitle": "Dolphins v Roosters",
         "matchupLabel": "Dolphins v Roosters",
@@ -680,8 +680,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -696,8 +696,8 @@
           "caption": "UNMISSABLE NRL: Dolphins v Roosters. Fri 25 Sept 2026 at 7:50 pm AEST. 5/5 stakes. The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST.",
           "image": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -731,8 +731,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -770,8 +770,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -814,8 +814,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -824,8 +824,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "path": "/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-a9a8f1331bd3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -888,7 +888,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -1095,7 +1095,7 @@
     {
       "campaignId": "marquee_cd38998faf633e9e",
       "campaignRevision": 1,
-      "contentHash": "f44e141280e1a37dda945dd870d63f9a74ad9feb8e18354e483f75698f476b79",
+      "contentHash": "24a700adf31023ad0d2c58446ebb4ec6aea7e959133d966c1dd18a0c6cd0dd1a",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -1118,7 +1118,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T02:47:23.900Z"
+        "sourceCheckedAt": "2026-09-24T20:16:51.505Z"
       },
       "timing": {
         "startTimeUtc": "2026-09-26T04:30:00.000Z",
@@ -1143,8 +1143,8 @@
       "source": {
         "name": "AFL",
         "url": "https://www.afl.com.au/afl/matches/9028",
-        "checkedAt": "2026-09-22T02:47:23.900Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-24T20:16:51.505Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Fremantle v Brisbane Lions",
@@ -1162,7 +1162,7 @@
         "source": {
           "name": "AFL",
           "url": "https://www.afl.com.au/afl/matches/9028",
-          "checkedAt": "2026-09-22T02:47:23.900Z"
+          "checkedAt": "2026-09-24T20:16:51.505Z"
         },
         "recognisableTitle": "Fremantle v Brisbane Lions",
         "matchupLabel": "Fremantle v Brisbane Lions",
@@ -1196,8 +1196,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1212,8 +1212,8 @@
           "caption": "UNMISSABLE AFL: Fremantle v Brisbane Lions. Sat 26 Sept 2026 at 2:30 pm AEST. 5/5 stakes. Fremantle chase their first premiership. Brisbane stand one win from a second three-peat. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Fremantle v Brisbane Lions, starting Sat 26 Sept 2026 at 2:30 pm AEST.",
           "image": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1247,8 +1247,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1286,8 +1286,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1330,8 +1330,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1340,8 +1340,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-24a700adf310.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1355,7 +1355,7 @@
     {
       "campaignId": "marquee_1af326032547eb75",
       "campaignRevision": 1,
-      "contentHash": "e0c686a26e2047a919f240ba90e0db2ad6ce1a10fcc8ed28d2f4b25f203e6528",
+      "contentHash": "263a8ce3fa254113ffcdf66061db8eef5021b1b8e5bca828801c18818f666d2e",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -1378,7 +1378,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T08:27:01.899Z"
+        "sourceCheckedAt": "2026-09-22T08:30:00.000Z"
       },
       "timing": {
         "startTimeUtc": "2026-09-27T06:00:00.000Z",
@@ -1403,8 +1403,8 @@
       "source": {
         "name": "Panthers v Knights — official research 1",
         "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-        "checkedAt": "2026-09-22T08:27:01.899Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-22T08:30:00.000Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Panthers v Knights",
@@ -1422,7 +1422,7 @@
         "source": {
           "name": "Panthers v Knights — official research 1",
           "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-          "checkedAt": "2026-09-22T08:27:01.899Z"
+          "checkedAt": "2026-09-22T08:30:00.000Z"
         },
         "recognisableTitle": "Panthers v Knights",
         "matchupLabel": "Panthers v Knights",
@@ -1456,8 +1456,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1472,8 +1472,8 @@
           "caption": "UNMISSABLE NRL: Panthers v Knights. Sun 27 Sept 2026 at 4:00 pm AEST. 5/5 stakes. Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST.",
           "image": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1507,8 +1507,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1546,8 +1546,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1590,8 +1590,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1600,8 +1600,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "path": "/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-263a8ce3fa25.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1615,7 +1615,7 @@
     {
       "campaignId": "marquee_ff9103509fd2221f",
       "campaignRevision": 1,
-      "contentHash": "fa54cd180c935023befc9a73ac938da02050a39771c3fd80905c70716f833d8b",
+      "contentHash": "7e6396cdae947b13f44e93f37262911a6bb44bf7ae4f89b26dc4d5c78062e4a4",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -1640,7 +1640,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -1664,8 +1664,8 @@
       "source": {
         "name": "Official 2026 NRL and NRLW Grand Final",
         "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "2026 NRLW Grand Final",
@@ -1680,7 +1680,7 @@
         "source": {
           "name": "Official 2026 NRL and NRLW Grand Final",
           "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "2026 NRLW Grand Final",
         "matchupLabel": "",
@@ -1714,8 +1714,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1730,8 +1730,8 @@
           "caption": "UNMISSABLE NRLW: 2026 NRLW Grand Final. Sun 4 Oct 2026; exact time TBC. 5/5 stakes. The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1765,8 +1765,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1803,8 +1803,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1847,8 +1847,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1857,8 +1857,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-fa54cd180c93.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-7e6396cdae94.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1921,7 +1921,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "NRL Grand Final",
@@ -2131,7 +2131,7 @@
     {
       "campaignId": "marquee_bc8b12ba9bd3e8e2",
       "campaignRevision": 1,
-      "contentHash": "e8e67e30724149a6eaf93a2a09b9488d3a74085f3dfb94fe5450783a9092703f",
+      "contentHash": "93b45179d86e6302b33800ad4ca8a2657b7ce79ca9276c8b9cef982507c3c045",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -2154,7 +2154,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:27.086Z"
+        "sourceCheckedAt": "2026-09-25T03:37:36.520Z"
       },
       "timing": {
         "startTimeUtc": "2026-10-04T07:00:00.000Z",
@@ -2179,8 +2179,8 @@
       "source": {
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
-        "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:37:36.520Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Bahrain GP · Race",
@@ -2189,13 +2189,13 @@
         "competition": "all",
         "startTimeUtc": "2026-10-04T07:00:00.000Z",
         "endTimeUtc": "2026-10-04T10:00:00.000Z",
-        "venue": "",
+        "venue": "Sepang International Circuit",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "stakes": 5,
         "source": {
           "name": "Formula 1 current driver standings",
           "url": "https://www.formula1.com/en/results/2026/drivers",
-          "checkedAt": "2026-09-22T05:09:27.086Z"
+          "checkedAt": "2026-09-25T03:37:36.520Z"
         },
         "recognisableTitle": "Bahrain GP · Race",
         "matchupLabel": "",
@@ -2229,8 +2229,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+          "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2245,8 +2245,8 @@
           "caption": "UNMISSABLE FORMULA 1: Bahrain GP · Race. Sun 4 Oct 2026 at 6:00 pm AEDT. 5/5 stakes. Kimi Antonelli leads by 81 points into Bahrain GP · Race; this session is the points-paying chapter of the weekend. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Bahrain GP · Race, starting Sun 4 Oct 2026 at 6:00 pm AEDT.",
           "image": {
-            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2262,7 +2262,7 @@
             "Kimi Antonelli holds 292 points to George Russell's 211 in the official driver standings. Bahrain GP · Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
             "Join us for the Bahrain GP · Race, on Sun at 6:00 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "Bahrain GP · Race starts Sun 4 Oct 2026 at 6:00 pm AEDT. Expected finish: 9:00 pm AEDT.",
+          "timingLine": "Bahrain GP · Race starts Sun 4 Oct 2026 at 6:00 pm AEDT at Sepang International Circuit. Expected finish: 9:00 pm AEDT.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -2280,8 +2280,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Abahrain%3Arace?source=marquee&campaign=marquee_bc8b12ba9bd3e8e2",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Abahrain%3Arace?source=marquee&campaign=marquee_bc8b12ba9bd3e8e2&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2319,8 +2319,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2363,8 +2363,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+          "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2373,8 +2373,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-e8e67e307241.jpg",
+            "path": "/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bc8b12ba9bd3e8e2-93b45179d86e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2388,7 +2388,7 @@
     {
       "campaignId": "marquee_fc13d522ae846e33",
       "campaignRevision": 1,
-      "contentHash": "2df9d3ffeadf8fb60b3a326f2d1a92c80613a9336f15d5341a0d88338d6357e2",
+      "contentHash": "91a3f77d9622c23f5b26f6c71e7e283c7dc1d036b8301d924f9628b11760b3d5",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -2411,7 +2411,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:27.086Z"
+        "sourceCheckedAt": "2026-09-25T03:37:36.520Z"
       },
       "timing": {
         "startTimeUtc": "2026-10-10T09:00:00.000Z",
@@ -2436,8 +2436,8 @@
       "source": {
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
-        "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:37:36.520Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2446,13 +2446,13 @@
         "competition": "all",
         "startTimeUtc": "2026-10-10T09:00:00.000Z",
         "endTimeUtc": "2026-10-10T12:00:00.000Z",
-        "venue": "",
+        "venue": "Marina Bay Street Circuit",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "stakes": 5,
         "source": {
           "name": "Formula 1 current driver standings",
           "url": "https://www.formula1.com/en/results/2026/drivers",
-          "checkedAt": "2026-09-22T05:09:27.086Z"
+          "checkedAt": "2026-09-25T03:37:36.520Z"
         },
         "recognisableTitle": "Singapore GP · Sprint",
         "matchupLabel": "",
@@ -2486,8 +2486,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+          "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2502,8 +2502,8 @@
           "caption": "UNMISSABLE FORMULA 1: Singapore GP · Sprint. Sat 10 Oct 2026 at 8:00 pm AEDT. 5/5 stakes. Kimi Antonelli leads by 81 points into Singapore GP · Sprint; this session is the points-paying chapter of the weekend. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Singapore GP · Sprint, starting Sat 10 Oct 2026 at 8:00 pm AEDT.",
           "image": {
-            "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+            "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2519,7 +2519,7 @@
             "Kimi Antonelli holds 292 points to George Russell's 211 in the official driver standings. Singapore GP · Sprint now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
             "Join us for the Singapore GP · Sprint, on Sat at 8:00 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "Singapore GP · Sprint starts Sat 10 Oct 2026 at 8:00 pm AEDT. Expected finish: 11:00 pm AEDT.",
+          "timingLine": "Singapore GP · Sprint starts Sat 10 Oct 2026 at 8:00 pm AEDT at Marina Bay Street Circuit. Expected finish: 11:00 pm AEDT.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -2537,8 +2537,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Asingapore%3Asprint?source=marquee&campaign=marquee_fc13d522ae846e33",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Asingapore%3Asprint?source=marquee&campaign=marquee_fc13d522ae846e33&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+            "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2576,8 +2576,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+            "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2620,8 +2620,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+          "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2630,8 +2630,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-2df9d3ffeadf.jpg",
+            "path": "/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_fc13d522ae846e33-91a3f77d9622.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2643,9 +2643,266 @@
       }
     },
     {
+      "campaignId": "marquee_3243a17456931565",
+      "campaignRevision": 1,
+      "contentHash": "c731eb1c6b9d54acf978d48d3839435c2a9be013abce82bf0a34461ff39e8b33",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "supercars-bathurst-1000-2026",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-10-11T00:30:00.000Z",
+        "fixtureDate": "2026-10-11"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-24T01:50:44.155Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-10-11T00:30:00.000Z",
+        "endTimeUtc": "2026-10-11T07:30:00.000Z",
+        "liveWindowHours": 7,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 11 Oct 2026",
+          "time": "11:30 am",
+          "timezone": "AEDT"
+        },
+        "sydneyFinish": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 11 Oct 2026",
+          "time": "6:30 pm",
+          "timezone": "AEDT"
+        }
+      },
+      "source": {
+        "name": "Supercars Bathurst event and schedule",
+        "url": "https://www.supercars.com/events/2026-bathurst-1000",
+        "checkedAt": "2026-09-24T01:50:44.155Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
+      },
+      "material": {
+        "title": "Bathurst 1000",
+        "participants": [],
+        "sport": "V8 Supercars",
+        "competition": "Repco Supercars Championship",
+        "startTimeUtc": "2026-10-11T00:30:00.000Z",
+        "endTimeUtc": "2026-10-11T07:30:00.000Z",
+        "venue": "Mount Panorama",
+        "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+        "stakes": 5,
+        "source": {
+          "name": "Supercars Bathurst event and schedule",
+          "url": "https://www.supercars.com/events/2026-bathurst-1000",
+          "checkedAt": "2026-09-24T01:50:44.155Z"
+        },
+        "recognisableTitle": "Bathurst 1000",
+        "matchupLabel": "",
+        "displayDate": "2026-10-11"
+      },
+      "identities": {
+        "code": {
+          "label": "V8 Supercars",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Sunday watch party: Bathurst 1000",
+        "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+        "kicker": "5/5 stakes · V8 Supercars",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+        }
+      },
+      "drafts": {
+        "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE V8 SUPERCARS: Bathurst 1000. Sun 11 Oct 2026 at 11:30 am AEDT. 5/5 stakes. One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT.",
+          "image": {
+            "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Bathurst 1000 — Sun 11:30 am",
+          "preheader": "Join the Bathurst 1000 watch party, then rate it after the finish.",
+          "headline": "Sunday watch party: Bathurst 1000",
+          "bodyParagraphs": [
+            "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+            "Join us for the Bathurst 1000, on Sun at 11:30 am AEDT. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Bathurst 1000 starts Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Expected finish: 6:30 pm AEDT.",
+          "broadcastLine": "Watch in Australia on Seven / 7mate / 7plus / Foxtel / Kayo.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/supercars-bathurst-1000-2026?source=marquee&campaign=marquee_3243a17456931565"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/supercars-bathurst-1000-2026?source=marquee&campaign=marquee_3243a17456931565&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/supercars-bathurst-1000-2026?source=marquee&campaign=marquee_3243a17456931565",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/supercars-bathurst-1000-2026?source=marquee&campaign=marquee_3243a17456931565&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 11 Oct 2026",
+          "time": "11:30 am",
+          "timezone": "AEDT"
+        },
+        "finish": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 11 Oct 2026",
+          "time": "6:30 pm",
+          "timezone": "AEDT"
+        },
+        "live": {
+          "headline": "Sunday watch party: Bathurst 1000",
+          "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+          "kicker": "5/5 stakes · V8 Supercars",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_3243a17456931565",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/supercars-bathurst-1000-2026?source=marquee&campaign=marquee_3243a17456931565",
+        "ratingWindow": {
+          "opensAt": "2026-10-11T07:30:00.000Z",
+          "closesAt": "2026-10-18T07:30:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-c731eb1c6b9d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Bathurst 1000, starting Sun 11 Oct 2026 at 11:30 am AEDT."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_6b005dad3cbeb12b",
       "campaignRevision": 1,
-      "contentHash": "f9de41e9e88da99ef7cae97beb3ed6af79b0bfc13ce1dd8c324f7ecc33a758f4",
+      "contentHash": "30a4f3984872dbfd4ad4c3932d050fa7b75c67ce401aeb368d0501b9a8f2c2d9",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -2670,7 +2927,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -2694,8 +2951,8 @@
       "source": {
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -2710,7 +2967,7 @@
         "source": {
           "name": "MotoGP 2026 calendar",
           "url": "https://www.motogp.com/en/calendar/2026",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "Australian Motorcycle Grand Prix",
         "matchupLabel": "",
@@ -2744,8 +3001,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2760,8 +3017,8 @@
           "caption": "UNMISSABLE MOTOGP: Australian Motorcycle Grand Prix. Sun 25 Oct 2026; exact time TBC. 5/5 stakes. MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2795,8 +3052,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2833,8 +3090,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2877,8 +3134,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2887,8 +3144,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-f9de41e9e88d.jpg",
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-30a4f3984872.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2902,7 +3159,7 @@
     {
       "campaignId": "marquee_e4073c6fcaa387c9",
       "campaignRevision": 1,
-      "contentHash": "a97749784ea737131e50685fd88ff774fcbeeb54dd78832efb8f52b4909201ee",
+      "contentHash": "2a6cd0fd35dd8ef38d2b64a8450e00293eb448d2085dce4dcfc5a0ea5f041a82",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -2927,7 +3184,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -2951,8 +3208,8 @@
       "source": {
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -2967,7 +3224,7 @@
         "source": {
           "name": "MotoGP 2026 calendar",
           "url": "https://www.motogp.com/en/calendar/2026",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "MotoGP Malaysian Grand Prix",
         "matchupLabel": "",
@@ -3001,8 +3258,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3017,8 +3274,8 @@
           "caption": "UNMISSABLE MOTOGP: MotoGP Malaysian Grand Prix. Sun 1 Nov 2026; exact time TBC. 5/5 stakes. Sepang keeps the MotoGP field in the heat as the available championship points shrink. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3052,8 +3309,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3090,8 +3347,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3134,8 +3391,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3144,8 +3401,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-a97749784ea7.jpg",
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-2a6cd0fd35dd.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3159,7 +3416,7 @@
     {
       "campaignId": "marquee_ac2c44bf73a89804",
       "campaignRevision": 1,
-      "contentHash": "7d734ff5abde36952ab94658f6e95e96bcac741a54bc84d552f3378da866648f",
+      "contentHash": "bbcee87bb9b83161f7520d4d1657aa9908356488410351eeab6402412aedcb2b",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -3184,7 +3441,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -3208,8 +3465,8 @@
       "source": {
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -3224,7 +3481,7 @@
         "source": {
           "name": "MotoGP 2026 calendar",
           "url": "https://www.motogp.com/en/calendar/2026",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "MotoGP Qatar Grand Prix",
         "matchupLabel": "",
@@ -3258,8 +3515,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+          "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3274,8 +3531,8 @@
           "caption": "UNMISSABLE MOTOGP: MotoGP Qatar Grand Prix. Sun 8 Nov 2026; exact time TBC. 5/5 stakes. Lusail's night race carries MotoGP into the final three rounds of 2026. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3309,8 +3566,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3347,8 +3604,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3391,8 +3648,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+          "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3401,8 +3658,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-7d734ff5abde.jpg",
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-bbcee87bb9b8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3416,7 +3673,7 @@
     {
       "campaignId": "marquee_6fe221cb59607039",
       "campaignRevision": 1,
-      "contentHash": "1ad05000f4956f67703f5505e048b0ab67dd12a49efda0bf61006282303eb05e",
+      "contentHash": "86934f6b91b7b2bc3d294d01105a3261ded85ae6709b7355830dee4aa99ab63e",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -3441,7 +3698,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -3465,8 +3722,8 @@
       "source": {
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3481,7 +3738,7 @@
         "source": {
           "name": "SailGP 2026 calendar",
           "url": "https://sailgp.com/general/2026/calendar/",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "Dubai Sail Grand Prix — race day 1",
         "matchupLabel": "",
@@ -3515,8 +3772,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+          "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3531,8 +3788,8 @@
           "caption": "UNMISSABLE SAILGP: Dubai Sail Grand Prix — race day 1. Sat 21 Nov 2026; exact time TBC. 5/5 stakes. Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3566,8 +3823,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3604,8 +3861,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3648,8 +3905,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+          "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3658,8 +3915,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-1ad05000f495.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-86934f6b91b7.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3673,7 +3930,7 @@
     {
       "campaignId": "marquee_90f7eccd81244421",
       "campaignRevision": 1,
-      "contentHash": "ab41e0140f9696fa2a374e06aab1572f7f899eccf46c87368d7b51c7bf51e22a",
+      "contentHash": "3be8119d3f8e1f3fc90010648efe93cf615a5933d8553275fa28403c87e31b1b",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -3698,7 +3955,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -3722,8 +3979,8 @@
       "source": {
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -3738,7 +3995,7 @@
         "source": {
           "name": "MotoGP 2026 calendar",
           "url": "https://www.motogp.com/en/calendar/2026",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "MotoGP Portuguese Grand Prix",
         "matchupLabel": "",
@@ -3772,8 +4029,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+          "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3788,8 +4045,8 @@
           "caption": "UNMISSABLE MOTOGP: MotoGP Portuguese Grand Prix. Sun 22 Nov 2026; exact time TBC. 5/5 stakes. Portimão's elevation changes host MotoGP's penultimate round. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+            "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3823,8 +4080,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+            "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3861,8 +4118,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+            "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3905,8 +4162,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+          "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3915,8 +4172,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-ab41e0140f96.jpg",
+            "path": "/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-3be8119d3f8e.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3930,7 +4187,7 @@
     {
       "campaignId": "marquee_127ace7277cb370c",
       "campaignRevision": 1,
-      "contentHash": "24fa02af7cec6ed4bc54d78f32e61f0ace38af6bbaa5b5012a50b1c98739719c",
+      "contentHash": "1c8cab76dce8d6814d248e6d2e319fed210cb423799def6d30a2ed71a44547b8",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -3955,7 +4212,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -3979,8 +4236,8 @@
       "source": {
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3995,7 +4252,7 @@
         "source": {
           "name": "SailGP 2026 calendar",
           "url": "https://sailgp.com/general/2026/calendar/",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "Dubai Sail Grand Prix — race day 2",
         "matchupLabel": "",
@@ -4029,8 +4286,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+          "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4045,8 +4302,8 @@
           "caption": "UNMISSABLE SAILGP: Dubai Sail Grand Prix — race day 2. Sun 22 Nov 2026; exact time TBC. 5/5 stakes. Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4080,8 +4337,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4118,8 +4375,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4162,8 +4419,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+          "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4172,8 +4429,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-24fa02af7cec.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-1c8cab76dce8.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4187,7 +4444,7 @@
     {
       "campaignId": "marquee_60bb801351c88fdb",
       "campaignRevision": 1,
-      "contentHash": "2e397c763f6543564d23b02362eccbb9e19d8a727168d6db909eb34d9afd99a6",
+      "contentHash": "4e8c903ac1a113a23388e948837bd32b0ca8f05f3ebc606360aae31861359056",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -4212,7 +4469,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -4236,8 +4493,8 @@
       "source": {
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -4252,7 +4509,7 @@
         "source": {
           "name": "SailGP 2026 calendar",
           "url": "https://sailgp.com/general/2026/calendar/",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "Abu Dhabi Sail Grand Prix — race day 1",
         "matchupLabel": "",
@@ -4286,8 +4543,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4302,8 +4559,8 @@
           "caption": "UNMISSABLE SAILGP: Abu Dhabi Sail Grand Prix — race day 1. Sat 28 Nov 2026; exact time TBC. 5/5 stakes. The Abu Dhabi Grand Final opens with the season championship still alive. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4337,8 +4594,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4375,8 +4632,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4419,8 +4676,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4429,8 +4686,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-2e397c763f65.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4e8c903ac1a1.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4444,7 +4701,7 @@
     {
       "campaignId": "marquee_d4197928ec0b8d7a",
       "campaignRevision": 1,
-      "contentHash": "c72cf5979aec8982046be5ce1204496e70d1bb98c431d990f5383cf1a7c333ec",
+      "contentHash": "e801f97608ae957d300f838f2dfad821cfe1ee8307bcd45ad46c96586c5dde68",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -4469,7 +4726,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -4493,8 +4750,8 @@
       "source": {
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -4509,7 +4766,7 @@
         "source": {
           "name": "MotoGP 2026 calendar",
           "url": "https://www.motogp.com/en/calendar/2026",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "MotoGP Valencia Grand Prix",
         "matchupLabel": "",
@@ -4543,8 +4800,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4559,8 +4816,8 @@
           "caption": "UNMISSABLE MOTOGP: MotoGP Valencia Grand Prix. Sun 29 Nov 2026; exact time TBC. 5/5 stakes. Valencia closes the 2026 MotoGP season and settles any championship still alive. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4594,8 +4851,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4632,8 +4889,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4676,8 +4933,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4686,8 +4943,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-c72cf5979aec.jpg",
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-e801f97608ae.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4701,7 +4958,7 @@
     {
       "campaignId": "marquee_1ee34ef38f7a2d90",
       "campaignRevision": 1,
-      "contentHash": "a0b69b0a3b99f82a6804939a66ce5bf55b1ce1705ee5f20afd6efc3479b923a9",
+      "contentHash": "6a760ffcb10c5227dc079a56b706481003f7a8373fd4feb49890ea1410d69d37",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -4726,7 +4983,7 @@
         "confirmedUtcStart": false,
         "finish": "unconfirmed",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:40.238Z"
+        "sourceCheckedAt": "2026-09-25T03:38:06.167Z"
       },
       "timing": {
         "startTimeUtc": "",
@@ -4750,8 +5007,8 @@
       "source": {
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
-        "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:38:06.167Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -4766,7 +5023,7 @@
         "source": {
           "name": "SailGP 2026 calendar",
           "url": "https://sailgp.com/general/2026/calendar/",
-          "checkedAt": "2026-09-22T05:09:40.238Z"
+          "checkedAt": "2026-09-25T03:38:06.167Z"
         },
         "recognisableTitle": "Abu Dhabi Sail Grand Prix — championship day",
         "matchupLabel": "",
@@ -4800,8 +5057,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4816,8 +5073,8 @@
           "caption": "UNMISSABLE SAILGP: Abu Dhabi Sail Grand Prix — championship day. Sun 29 Nov 2026; exact time TBC. 5/5 stakes. SailGP's last race crowns the 2026 champion in Abu Dhabi. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed.",
           "image": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4851,8 +5108,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4889,8 +5146,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4933,8 +5190,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -4943,8 +5200,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-a0b69b0a3b99.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-6a760ffcb10c.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -4958,7 +5215,7 @@
     {
       "campaignId": "marquee_0daa3fe534447f8b",
       "campaignRevision": 1,
-      "contentHash": "df87b7552a56a9b948103fb1e57bd23373888460a5af6fc8de3794ec2b40ab25",
+      "contentHash": "24fe794a8ed394a6250506088235ce06d15e7dc8dd6a525cfe81c2623dd56288",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -4981,7 +5238,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+        "sourceCheckedAt": "2026-09-25T03:37:36.580Z"
       },
       "timing": {
         "startTimeUtc": "2026-11-29T16:00:00.000Z",
@@ -5006,8 +5263,8 @@
       "source": {
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
-        "checkedAt": "2026-09-22T05:09:27.161Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "checkedAt": "2026-09-25T03:37:36.580Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -5016,13 +5273,13 @@
         "competition": "all",
         "startTimeUtc": "2026-11-29T16:00:00.000Z",
         "endTimeUtc": "2026-11-29T19:00:00.000Z",
-        "venue": "",
+        "venue": "Lusail International Circuit",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "stakes": 5,
         "source": {
           "name": "Formula 1 official race hub",
           "url": "https://www.formula1.com/en/racing/2026/qatar",
-          "checkedAt": "2026-09-22T05:09:27.161Z"
+          "checkedAt": "2026-09-25T03:37:36.580Z"
         },
         "recognisableTitle": "Qatar GP · Race",
         "matchupLabel": "",
@@ -5056,8 +5313,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+          "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -5072,8 +5329,8 @@
           "caption": "UNMISSABLE FORMULA 1: Qatar GP · Race. Mon 30 Nov 2026 at 3:00 am AEDT. 5/5 stakes. A championship race with points, strategy, and Australian interest in play. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Qatar GP · Race, starting Mon 30 Nov 2026 at 3:00 am AEDT.",
           "image": {
-            "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+            "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -5089,7 +5346,7 @@
             "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
             "Join us for the Qatar GP · Race, on Mon at 3:00 am AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "Qatar GP · Race starts Mon 30 Nov 2026 at 3:00 am AEDT. Expected finish: 6:00 am AEDT.",
+          "timingLine": "Qatar GP · Race starts Mon 30 Nov 2026 at 3:00 am AEDT at Lusail International Circuit. Expected finish: 6:00 am AEDT.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -5107,8 +5364,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Aqatar%3Arace?source=marquee&campaign=marquee_0daa3fe534447f8b",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Aqatar%3Arace?source=marquee&campaign=marquee_0daa3fe534447f8b&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+            "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -5146,8 +5403,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+            "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -5190,8 +5447,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+          "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -5200,8 +5457,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-df87b7552a56.jpg",
+            "path": "/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0daa3fe534447f8b-24fe794a8ed3.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -5265,7 +5522,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -5522,7 +5779,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -5779,7 +6036,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -6036,7 +6293,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "The 155th Open",
@@ -6292,7 +6549,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260925033900867@2026-09-25T03:39:00.867Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
