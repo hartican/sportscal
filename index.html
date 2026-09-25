@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="310">
+<meta name="app-shell-version" content="311">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=310" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=311" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1781,8 +1781,7 @@ main{
   cursor: pointer;
 }
 
-/* Team matchups have a distinct hierarchy: the crests are the identity layer,
-   while the fixture name is deliberately secondary. */
+
 .event-card.is-logo-led-matchup{
   display:block;
   min-height:0;
@@ -1792,7 +1791,7 @@ main{
     var(--bg-card);
 }
 
-/* Historical context can be quieter without washing out official crests. */
+
 .event-card.is-logo-led-matchup.is-past{ opacity:0.86; }
 .event-card.is-logo-led-matchup.is-past.has-card-result{ opacity:0.92; }
 
@@ -1876,8 +1875,7 @@ main{
   width:min(100%, 88px);
   height:90px;
   padding:4px;
-  /* The fixed box normalises footprint only; brand artwork floats directly
-     on the card rather than being placed on an artificial logo tile. */
+
   background:transparent;
   border:0;
   border-radius:0;
@@ -1888,8 +1886,7 @@ main{
 .matchup-logo-surface-light,
 .matchup-logo-surface-dark{ background:transparent; }
 
-/* Preserve transparent artwork by default. A supplied white-only official
-   mark gets this contrast surface only when no day variant exists. */
+
 .matchup-team-logo-slot[data-logo-surface="dark"]{
   background:#092e4f;
   border-radius:12px;
@@ -1936,8 +1933,7 @@ main{
   text-align:center;
 }
 
-/* The visible fixture title is split beneath the crests. This retains the
-   complete label for assistive technology; disclosure is rendered separately. */
+
 .event-card.is-logo-led-matchup .matchup-visual-title-hidden{
   position:absolute;
   width:1px;
@@ -1970,9 +1966,7 @@ main{
 
 .event-card.is-logo-led-matchup .event-venue{ text-align:center; }
 
-/* The competition remains visible on logo-led fixtures without competing with
-   the two teams. Official marks get a small contrast-safe presentation here;
-   every other sport falls back to its vetted vector sport mark. */
+
 .event-card.is-logo-led-matchup .matchup-competition-tag{
   gap:7px;
 }
@@ -1986,8 +1980,7 @@ main{
 }
 
 .event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo{
-  /* Official organisation marks include dark vector artwork. Give this tiny
-     supporting mark its own pale surface instead of filtering the logo. */
+
   background:#f8fafc;
   border-color:color-mix(in srgb, var(--sport-color) 38%, #d9dee4);
 }
@@ -2017,7 +2010,7 @@ main{
   .event-card.is-logo-led-matchup .meta-item,.event-card.is-logo-led-matchup .badge,.event-card.is-logo-led-matchup .rating-block{ font-size:.62rem; }
 }
 
-/* Single-identity cards use the same visual hierarchy as team matchups. */
+
 .event-card.is-logo-led-event{
   display:block;
   padding:10px 14px 12px;
@@ -2079,8 +2072,7 @@ main{
   .event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }
 }
 
-/* Events is a working feed, with one rich card per tournament and separate
-   sale alerts. Detail areas remain unframed inside the event card. */
+
 .events-feed{ display:flex; flex-direction:column; gap:22px; }
 .events-feed-heading{ display:flex; align-items:end; justify-content:space-between; gap:16px; }
 .events-feed-heading h2{ margin:0; font-family:'Cardo', Georgia, serif; font-size:1.35rem; }
@@ -5433,7 +5425,7 @@ button.chat-room-row{ cursor:pointer; }
   font:900 .52rem/1 'DM Sans',sans-serif;
   letter-spacing:-.03em;
 }
-/* Avatar geometry stays independent of the generic 44px button height. */
+
 .profile-avatar-expandable{ cursor:pointer; min-height:0; aspect-ratio:1; }
 .profile-avatar-expandable:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 .profile-avatar-dialog{ margin:auto; max-height:calc(100dvh - 32px); overflow:auto; width:min(560px,94vw); padding:16px; border:1px solid var(--border); border-radius:18px; background:var(--panel,#15151c); color:var(--text); }
@@ -5994,7 +5986,7 @@ body.nsc-open{ overflow:hidden; }
 
 .browse-more .browse-list{ padding:0 8px 8px; }
 
-/* Read-only Inspector and shared, collision-safe identity frames. */
+
 .identity-frame,
 .code-inspector-identity,
 .matchup-team-logo-slot,
@@ -6332,8 +6324,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   overflow-anchor:none;
 }
 
-/* Fixture-first correction pass: content may grow, but controls and the final
-   metadata row must never be clipped to a decorative fixed card height. */
+
 .cards-grid > .event-card[data-card-state="compact"],
 .cards-grid > .major-event-marker[data-card-state="compact"],
 .cards-grid > .joint-tournament-card[data-card-state="compact"]{
@@ -6462,8 +6453,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   width: 100%;
 }
 
-/* Mobile-first interaction and spacing contract.  The painted controls stay
-   compact while the transparent pseudo-element preserves a 44px tap area. */
+
 :root{
   --card-action-height:34px;
   --card-action-pad-x:11px;
@@ -6696,7 +6686,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .code-inspector-feed-action{ width:100%; min-height:var(--card-action-height); height:var(--card-action-height); }
 }
 
-/* Restrained fixture surface. */
+
 .nsc-card-action{
   width:100%;
   min-height:38px;
@@ -6743,7 +6733,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .major-event-match > .nsc-card-action{ width:100%; }
 }
 
-/* Events cards: compact controls, deliberate action groupings and reversible dismissal. */
+
 .event-card-controls{
   --traffic-dismiss:#ff5f57;
   --traffic-minimise:#febc2e;
@@ -6852,7 +6842,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 
-/* Shared card controls. */
+
 .event-card .team-logo{width:42px;height:42px;flex-basis:42px;}
 .event-card-primary-actions .event-quick-actions{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;width:100%;}
 .event-card-primary-actions .event-quick-action{min-height:44px;min-width:0;flex:0 1 auto;font-size:.68rem;}
@@ -6885,7 +6875,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=310">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=311">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7181,12 +7171,12 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=310"></script>
+<script src="assets/js/app-shell-runtime.js?v=311"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=310")
+  : loadDeferredScript("config/national-team-identities.js?v=311")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7195,7 +7185,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=310")
+  : loadDeferredScript("config/card-identities.js?v=311")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -10955,6 +10945,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           return incoming;
         } catch (error){
           console.warn("Followed schedule using last available fixtures",code.id);
+          return followedScheduleFixtures.get(code.id)||[];
         }
       })().finally(() => followedScheduleLoads.delete(code.id));
       followedScheduleLoads.set(code.id,read);
@@ -12532,7 +12523,7 @@ function mainFeedFixtureSemanticKey(event){
 
 function mergeMainFeedSpecialEvents(events){
   const base = events
-    .filter(event => NOTHINGSPORTS_TENNIS_FEED.isParent(event) || event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
+    .filter(event => NOTHINGSPORTS_TENNIS_FEED.isParent(event) || FOLLOW_FEED_POLICY.presidentsCup(event) || event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
   const canonicalFixtures = majorEventFeedCandidates();
   const specialEvents = [...automaticallyFollowedMajorEventFixtures(), ...selectedMajorEventFixtures()]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event))
@@ -16192,7 +16183,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=293').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=311').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
@@ -16946,8 +16937,15 @@ function loadTennisFeedContests(){
 const tennisFeedOpenParents=new Set();
 function buildTennisFeedParent(parent){
   const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
-  const details=document.createElement('details'),summary=document.createElement('summary'),title=document.createElement('strong'),timing=document.createElement('span');
-  title.textContent=`${parent.name} ${parent.season}`;timing.textContent=NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);summary.append(title,timing);details.append(summary);card.append(details);
+  const details=document.createElement('details'),summary=document.createElement('summary'),timing=document.createElement('span');
+  const ongoing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(parent,nowAEST());
+  card.classList.toggle('parent-ongoing',ongoing);
+  const heading=document.createElement('div');heading.className='tournament-parent-heading';
+  const link=buildFeedScheduleLink(parent);link.textContent=ongoing?({'Billie Jean King Cup Finals':'BJK Cup Finals'}[parent.name]||parent.name):`${parent.name} ${parent.season}`;
+  timing.className='tournament-parent-context';timing.textContent=ongoing?'Ongoing':NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost';toggle.textContent='⌄';toggle.setAttribute('aria-label',`Expand ${parent.name} schedule`);
+  heading.append(link,timing,toggle);card.append(heading);details.append(summary);card.append(details);
+  toggle.onclick=()=>{details.open=!details.open;toggle.setAttribute('aria-expanded',String(details.open));};
   const body=document.createElement('div');body.className='tennis-parent-contests';details.append(body);
   let loaded=false;
   async function paint(){
@@ -16988,12 +16986,23 @@ function buildTennisFeedParent(parent){
   }
   summary.addEventListener('click',()=>{if(details.open)tennisFeedOpenParents.delete(parent.id);else tennisFeedOpenParents.add(parent.id);});
   details.open=tennisFeedOpenParents.has(parent.id);
-  details.addEventListener('toggle',()=>{if(!card.isConnected)return;if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
-  card.append(buildFeedScheduleLink(parent));return card;
+  details.addEventListener('toggle',()=>{if(!card.isConnected)return;toggle.setAttribute('aria-expanded',String(details.open));if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
+  toggle.setAttribute('aria-expanded',String(details.open));return card;
 }
 
+function buildOngoingTournamentParent(ev){
+  const card=document.createElement('article');card.className='event-card tennis-feed-parent parent-ongoing';card.dataset.eventId=ev.eventId||ev.id;card.dataset.scrollKey=`event:calendar:${ev.eventId||ev.id}`;
+  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);card.classList.add('parent-tinted');}
+  const heading=document.createElement('div');heading.className='tournament-parent-heading';const link=buildFeedScheduleLink(ev),context=document.createElement('span'),button=document.createElement('button');
+  context.className='tournament-parent-context';context.textContent='Ongoing';button.type='button';button.className='btn ghost';button.textContent='⌄';button.setAttribute('aria-label',`Expand ${ev.name} schedule`);
+  const body=document.createElement('div');body.hidden=!tennisFeedOpenParents.has(ev.id);button.setAttribute('aria-expanded',String(!body.hidden));
+  let loaded=false;function paint(){if(!body.hidden&&!loaded){loaded=true;appendTournamentSlots(body,ev);}}
+  button.onclick=()=>{body.hidden=!body.hidden;button.setAttribute('aria-expanded',String(!body.hidden));if(body.hidden)tennisFeedOpenParents.delete(ev.id);else tennisFeedOpenParents.add(ev.id);paint();};
+  heading.append(link,context,button);card.append(heading,body);queueMicrotask(paint);return card;
+}
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
+  if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
@@ -17158,7 +17167,7 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
   if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
   const fixtureSides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
   const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev,fixtureSides.map(side=>({...side,participant:{...side.participant,countryCode:side.participant?.countryCode||CARD_IDENTITIES.nationalTeamIdentities?.teamsById?.[side.participant?.id||side.mark?.id]?.countryCode}})));
-  if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);}
+  if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);if(palette[2])card.style.setProperty('--fixture-accent',palette[2]);}
   const main=card.querySelector('.event-main')||card.querySelector('.compact-card-summary');
   if(!main)return;
   const timing=card.querySelector('.fixture-timing-group');
@@ -17198,7 +17207,7 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
     if(/\b(?:singles|doubles)\b/i.test(ev.stage||''))header.dataset.fixtureFormat=ev.stage;
     if(brand&&brand.id?.startsWith('brand:')){const img=document.createElement('img');img.src=CARD_IDENTITIES.logoForTheme(brand,{useDark:themeUsesDarkAssets()});img.alt='';img.width=96;img.height=64;img.decoding='async';img.loading='lazy';img.onerror=()=>img.remove();header.append(img);}
     mark?.remove();card.querySelector('.fixture-event-caption')?.remove();
-  }else if(mark){mark.classList.add('fixture-brand-mark');}
+  }else if(mark){mark.classList.add('fixture-brand-mark');if(ev.key==='f1')card.querySelector('.fixture-event-caption')?.remove();}
   card.prepend(header);
   card.querySelector('.fixture-timing-header')?.remove();
   card.querySelector('.event-date-line')?.remove();

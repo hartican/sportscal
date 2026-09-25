@@ -1,7 +1,7 @@
 {
   "schemaVersion": "individual-sport-directory.v1",
   "sportKey": "swimming",
-  "generatedAt": "2026-09-22T05:10:16.1784643Z",
+  "generatedAt": "2026-09-25T00:36:49.8188959Z",
   "source": {
     "publisher": "World Aquatics",
     "url": "https://www.worldaquatics.com/swimming/rankings",
@@ -2440,7 +2440,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 11,
+          "rank": 12,
           "aquaPoints": 925,
           "time": "21.46",
           "resultDate": "2026-08-16T00:00:00",
@@ -3232,7 +3232,8 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
       ],
       "eventRanks": [
         {
@@ -3258,6 +3259,18 @@
           "time": "1:56.10",
           "resultDate": "2026-06-27T00:00:00",
           "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+        },
+        {
+          "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
+          "disciplineName": "Men's 200m Medley",
+          "stroke": "MEDLEY",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 76,
+          "aquaPoints": 826,
+          "time": "2:00.07",
+          "resultDate": "2026-05-23T00:00:00",
+          "eventName": "2026 Mare Nostrum Monaco (50m)"
         }
       ],
       "bestAquaPoints": 971,
@@ -3876,7 +3889,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 9,
+          "rank": 10,
           "aquaPoints": 927,
           "time": "21.44",
           "resultDate": "2026-07-26T00:00:00",

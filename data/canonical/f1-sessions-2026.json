@@ -1,72 +1,78 @@
 {
   "schemaVersion": "requested-sports-schedule.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-22T05:09:27.161Z",
+  "generatedAt": "2026-09-25T01:11:49.170Z",
   "sources": {
     "f1-spain": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/spain",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-azerbaijan": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-bahrain": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/bahrain",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-singapore": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/singapore",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-united-states": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/united-states",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-mexico": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/mexico",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-brazil": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/brazil",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-las-vegas": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/las-vegas",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-qatar": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/qatar",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     },
     "f1-united-arab-emirates": {
       "name": "Formula 1 official race hub",
       "url": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "type": "official",
-      "checkedAt": "2026-09-22T05:09:27.161Z"
+      "checkedAt": "2026-09-25T01:11:49.170Z"
     }
   },
   "participants": [],
   "events": [
     {
+      "circuitId": "circuit:f1:spain",
+      "venue": "Madring",
+      "venueOfficialName": "Madring",
+      "venueCity": "Madrid",
+      "venueCountryCode": "ES",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
       "id": "event:f1:2026:spain:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -81,14 +87,20 @@
       "stage": "Practice 1",
       "sessionType": "Practice 1",
       "expected": 4,
-      "status": "completed",
+      "status": "upcoming",
       "sourceId": "f1-spain",
       "hook": "Practice 1 at the Spanish GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:spain",
+      "venue": "Madring",
+      "venueOfficialName": "Madring",
+      "venueCity": "Madrid",
+      "venueCountryCode": "ES",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
       "id": "event:f1:2026:spain:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -103,14 +115,20 @@
       "stage": "Practice 2",
       "sessionType": "Practice 2",
       "expected": 4,
-      "status": "completed",
+      "status": "upcoming",
       "sourceId": "f1-spain",
       "hook": "Practice 2 at the Spanish GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:spain",
+      "venue": "Madring",
+      "venueOfficialName": "Madring",
+      "venueCity": "Madrid",
+      "venueCountryCode": "ES",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
       "id": "event:f1:2026:spain:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -125,14 +143,20 @@
       "stage": "Practice 3",
       "sessionType": "Practice 3",
       "expected": 4,
-      "status": "completed",
+      "status": "upcoming",
       "sourceId": "f1-spain",
       "hook": "Practice 3 at the Spanish GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:spain",
+      "venue": "Madring",
+      "venueOfficialName": "Madring",
+      "venueCity": "Madrid",
+      "venueCountryCode": "ES",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
       "id": "event:f1:2026:spain:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -147,14 +171,20 @@
       "stage": "Qualifying",
       "sessionType": "Qualifying",
       "expected": 8,
-      "status": "completed",
+      "status": "upcoming",
       "sourceId": "f1-spain",
       "hook": "Qualifying at the Spanish GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:spain",
+      "venue": "Madring",
+      "venueOfficialName": "Madring",
+      "venueCity": "Madrid",
+      "venueCountryCode": "ES",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
       "id": "event:f1:2026:spain:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -169,14 +199,20 @@
       "stage": "Race",
       "sessionType": "Race",
       "expected": 9,
-      "status": "completed",
+      "status": "upcoming",
       "sourceId": "f1-spain",
       "hook": "Race at the Spanish GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:azerbaijan",
+      "venue": "Baku City Circuit",
+      "venueOfficialName": "Baku City Circuit",
+      "venueCity": "Baku",
+      "venueCountryCode": "AZ",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "id": "event:f1:2026:azerbaijan:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -196,9 +232,15 @@
       "hook": "Practice 1 at the Azerbaijan GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:azerbaijan",
+      "venue": "Baku City Circuit",
+      "venueOfficialName": "Baku City Circuit",
+      "venueCity": "Baku",
+      "venueCountryCode": "AZ",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "id": "event:f1:2026:azerbaijan:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -218,9 +260,15 @@
       "hook": "Practice 2 at the Azerbaijan GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:azerbaijan",
+      "venue": "Baku City Circuit",
+      "venueOfficialName": "Baku City Circuit",
+      "venueCity": "Baku",
+      "venueCountryCode": "AZ",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "id": "event:f1:2026:azerbaijan:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -240,9 +288,15 @@
       "hook": "Practice 3 at the Azerbaijan GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:azerbaijan",
+      "venue": "Baku City Circuit",
+      "venueOfficialName": "Baku City Circuit",
+      "venueCity": "Baku",
+      "venueCountryCode": "AZ",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "id": "event:f1:2026:azerbaijan:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -262,9 +316,15 @@
       "hook": "Qualifying at the Azerbaijan GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:azerbaijan",
+      "venue": "Baku City Circuit",
+      "venueOfficialName": "Baku City Circuit",
+      "venueCity": "Baku",
+      "venueCountryCode": "AZ",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "id": "event:f1:2026:azerbaijan:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -284,9 +344,15 @@
       "hook": "Race at the Azerbaijan GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:bahrain",
+      "venue": "Sepang International Circuit",
+      "venueOfficialName": "Sepang International Circuit",
+      "venueCity": "Kuala Lumpur",
+      "venueCountryCode": "MY",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
       "id": "event:f1:2026:bahrain:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -306,9 +372,15 @@
       "hook": "Practice 1 at the Bahrain GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:bahrain",
+      "venue": "Sepang International Circuit",
+      "venueOfficialName": "Sepang International Circuit",
+      "venueCity": "Kuala Lumpur",
+      "venueCountryCode": "MY",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
       "id": "event:f1:2026:bahrain:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -328,9 +400,15 @@
       "hook": "Practice 2 at the Bahrain GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:bahrain",
+      "venue": "Sepang International Circuit",
+      "venueOfficialName": "Sepang International Circuit",
+      "venueCity": "Kuala Lumpur",
+      "venueCountryCode": "MY",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
       "id": "event:f1:2026:bahrain:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -350,9 +428,15 @@
       "hook": "Practice 3 at the Bahrain GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:bahrain",
+      "venue": "Sepang International Circuit",
+      "venueOfficialName": "Sepang International Circuit",
+      "venueCity": "Kuala Lumpur",
+      "venueCountryCode": "MY",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
       "id": "event:f1:2026:bahrain:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -372,9 +456,15 @@
       "hook": "Qualifying at the Bahrain GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:bahrain",
+      "venue": "Sepang International Circuit",
+      "venueOfficialName": "Sepang International Circuit",
+      "venueCity": "Kuala Lumpur",
+      "venueCountryCode": "MY",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
       "id": "event:f1:2026:bahrain:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -394,9 +484,15 @@
       "hook": "Race at the Bahrain GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:singapore",
+      "venue": "Marina Bay Street Circuit",
+      "venueOfficialName": "Marina Bay Street Circuit",
+      "venueCity": "Singapore",
+      "venueCountryCode": "SG",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
       "id": "event:f1:2026:singapore:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -416,9 +512,15 @@
       "hook": "Practice 1 at the Singapore GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:singapore",
+      "venue": "Marina Bay Street Circuit",
+      "venueOfficialName": "Marina Bay Street Circuit",
+      "venueCity": "Singapore",
+      "venueCountryCode": "SG",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
       "id": "event:f1:2026:singapore:sprint-qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -438,9 +540,15 @@
       "hook": "Sprint Qualifying at the Singapore GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:singapore",
+      "venue": "Marina Bay Street Circuit",
+      "venueOfficialName": "Marina Bay Street Circuit",
+      "venueCity": "Singapore",
+      "venueCountryCode": "SG",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
       "id": "event:f1:2026:singapore:sprint",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -460,9 +568,15 @@
       "hook": "Sprint at the Singapore GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:singapore",
+      "venue": "Marina Bay Street Circuit",
+      "venueOfficialName": "Marina Bay Street Circuit",
+      "venueCity": "Singapore",
+      "venueCountryCode": "SG",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
       "id": "event:f1:2026:singapore:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -482,9 +596,15 @@
       "hook": "Qualifying at the Singapore GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:singapore",
+      "venue": "Marina Bay Street Circuit",
+      "venueOfficialName": "Marina Bay Street Circuit",
+      "venueCity": "Singapore",
+      "venueCountryCode": "SG",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
       "id": "event:f1:2026:singapore:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -504,9 +624,15 @@
       "hook": "Race at the Singapore GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-states",
+      "venue": "Circuit of The Americas",
+      "venueOfficialName": "Circuit of The Americas",
+      "venueCity": "Austin",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "id": "event:f1:2026:united-states:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -526,9 +652,15 @@
       "hook": "Practice 1 at the United States GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-states",
+      "venue": "Circuit of The Americas",
+      "venueOfficialName": "Circuit of The Americas",
+      "venueCity": "Austin",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "id": "event:f1:2026:united-states:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -548,9 +680,15 @@
       "hook": "Practice 2 at the United States GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-states",
+      "venue": "Circuit of The Americas",
+      "venueOfficialName": "Circuit of The Americas",
+      "venueCity": "Austin",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "id": "event:f1:2026:united-states:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -570,9 +708,15 @@
       "hook": "Practice 3 at the United States GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-states",
+      "venue": "Circuit of The Americas",
+      "venueOfficialName": "Circuit of The Americas",
+      "venueCity": "Austin",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "id": "event:f1:2026:united-states:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -592,9 +736,15 @@
       "hook": "Qualifying at the United States GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-states",
+      "venue": "Circuit of The Americas",
+      "venueOfficialName": "Circuit of The Americas",
+      "venueCity": "Austin",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "id": "event:f1:2026:united-states:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -614,9 +764,15 @@
       "hook": "Race at the United States GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:mexico",
+      "venue": "Autódromo Hermanos Rodríguez",
+      "venueOfficialName": "Autódromo Hermanos Rodríguez",
+      "venueCity": "Mexico City",
+      "venueCountryCode": "MX",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
       "id": "event:f1:2026:mexico:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -636,9 +792,15 @@
       "hook": "Practice 1 at the Mexico City GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:mexico",
+      "venue": "Autódromo Hermanos Rodríguez",
+      "venueOfficialName": "Autódromo Hermanos Rodríguez",
+      "venueCity": "Mexico City",
+      "venueCountryCode": "MX",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
       "id": "event:f1:2026:mexico:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -658,9 +820,15 @@
       "hook": "Practice 2 at the Mexico City GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:mexico",
+      "venue": "Autódromo Hermanos Rodríguez",
+      "venueOfficialName": "Autódromo Hermanos Rodríguez",
+      "venueCity": "Mexico City",
+      "venueCountryCode": "MX",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
       "id": "event:f1:2026:mexico:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -680,9 +848,15 @@
       "hook": "Practice 3 at the Mexico City GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:mexico",
+      "venue": "Autódromo Hermanos Rodríguez",
+      "venueOfficialName": "Autódromo Hermanos Rodríguez",
+      "venueCity": "Mexico City",
+      "venueCountryCode": "MX",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
       "id": "event:f1:2026:mexico:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -702,9 +876,15 @@
       "hook": "Qualifying at the Mexico City GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:mexico",
+      "venue": "Autódromo Hermanos Rodríguez",
+      "venueOfficialName": "Autódromo Hermanos Rodríguez",
+      "venueCity": "Mexico City",
+      "venueCountryCode": "MX",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
       "id": "event:f1:2026:mexico:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -724,9 +904,15 @@
       "hook": "Race at the Mexico City GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:brazil",
+      "venue": "Autódromo José Carlos Pace",
+      "venueOfficialName": "Autódromo José Carlos Pace",
+      "venueCity": "São Paulo",
+      "venueCountryCode": "BR",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "id": "event:f1:2026:brazil:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -746,9 +932,15 @@
       "hook": "Practice 1 at the São Paulo GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:brazil",
+      "venue": "Autódromo José Carlos Pace",
+      "venueOfficialName": "Autódromo José Carlos Pace",
+      "venueCity": "São Paulo",
+      "venueCountryCode": "BR",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "id": "event:f1:2026:brazil:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -768,9 +960,15 @@
       "hook": "Practice 2 at the São Paulo GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:brazil",
+      "venue": "Autódromo José Carlos Pace",
+      "venueOfficialName": "Autódromo José Carlos Pace",
+      "venueCity": "São Paulo",
+      "venueCountryCode": "BR",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "id": "event:f1:2026:brazil:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -790,9 +988,15 @@
       "hook": "Practice 3 at the São Paulo GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:brazil",
+      "venue": "Autódromo José Carlos Pace",
+      "venueOfficialName": "Autódromo José Carlos Pace",
+      "venueCity": "São Paulo",
+      "venueCountryCode": "BR",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "id": "event:f1:2026:brazil:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -812,9 +1016,15 @@
       "hook": "Qualifying at the São Paulo GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:brazil",
+      "venue": "Autódromo José Carlos Pace",
+      "venueOfficialName": "Autódromo José Carlos Pace",
+      "venueCity": "São Paulo",
+      "venueCountryCode": "BR",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "id": "event:f1:2026:brazil:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -834,9 +1044,15 @@
       "hook": "Race at the São Paulo GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:las-vegas",
+      "venue": "Las Vegas Strip Circuit",
+      "venueOfficialName": "Las Vegas Strip Circuit",
+      "venueCity": "Las Vegas",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
       "id": "event:f1:2026:las-vegas:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -856,9 +1072,15 @@
       "hook": "Practice 1 at the Las Vegas GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:las-vegas",
+      "venue": "Las Vegas Strip Circuit",
+      "venueOfficialName": "Las Vegas Strip Circuit",
+      "venueCity": "Las Vegas",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
       "id": "event:f1:2026:las-vegas:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -878,9 +1100,15 @@
       "hook": "Practice 2 at the Las Vegas GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:las-vegas",
+      "venue": "Las Vegas Strip Circuit",
+      "venueOfficialName": "Las Vegas Strip Circuit",
+      "venueCity": "Las Vegas",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
       "id": "event:f1:2026:las-vegas:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -900,9 +1128,15 @@
       "hook": "Practice 3 at the Las Vegas GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:las-vegas",
+      "venue": "Las Vegas Strip Circuit",
+      "venueOfficialName": "Las Vegas Strip Circuit",
+      "venueCity": "Las Vegas",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
       "id": "event:f1:2026:las-vegas:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -922,9 +1156,15 @@
       "hook": "Qualifying at the Las Vegas GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:las-vegas",
+      "venue": "Las Vegas Strip Circuit",
+      "venueOfficialName": "Las Vegas Strip Circuit",
+      "venueCity": "Las Vegas",
+      "venueCountryCode": "US",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
       "id": "event:f1:2026:las-vegas:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -944,9 +1184,15 @@
       "hook": "Race at the Las Vegas GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:qatar",
+      "venue": "Lusail International Circuit",
+      "venueOfficialName": "Lusail International Circuit",
+      "venueCity": "Lusail",
+      "venueCountryCode": "QA",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "id": "event:f1:2026:qatar:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -966,9 +1212,15 @@
       "hook": "Practice 1 at the Qatar GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:qatar",
+      "venue": "Lusail International Circuit",
+      "venueOfficialName": "Lusail International Circuit",
+      "venueCity": "Lusail",
+      "venueCountryCode": "QA",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "id": "event:f1:2026:qatar:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -988,9 +1240,15 @@
       "hook": "Practice 2 at the Qatar GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:qatar",
+      "venue": "Lusail International Circuit",
+      "venueOfficialName": "Lusail International Circuit",
+      "venueCity": "Lusail",
+      "venueCountryCode": "QA",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "id": "event:f1:2026:qatar:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1010,9 +1268,15 @@
       "hook": "Practice 3 at the Qatar GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:qatar",
+      "venue": "Lusail International Circuit",
+      "venueOfficialName": "Lusail International Circuit",
+      "venueCity": "Lusail",
+      "venueCountryCode": "QA",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "id": "event:f1:2026:qatar:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1032,9 +1296,15 @@
       "hook": "Qualifying at the Qatar GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:qatar",
+      "venue": "Lusail International Circuit",
+      "venueOfficialName": "Lusail International Circuit",
+      "venueCity": "Lusail",
+      "venueCountryCode": "QA",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "id": "event:f1:2026:qatar:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1054,9 +1324,15 @@
       "hook": "Race at the Qatar GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-arab-emirates",
+      "venue": "Yas Marina Circuit",
+      "venueOfficialName": "Yas Marina Circuit",
+      "venueCity": "Abu Dhabi",
+      "venueCountryCode": "AE",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "id": "event:f1:2026:united-arab-emirates:practice-1",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1076,9 +1352,15 @@
       "hook": "Practice 1 at the Abu Dhabi GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-arab-emirates",
+      "venue": "Yas Marina Circuit",
+      "venueOfficialName": "Yas Marina Circuit",
+      "venueCity": "Abu Dhabi",
+      "venueCountryCode": "AE",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "id": "event:f1:2026:united-arab-emirates:practice-2",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1098,9 +1380,15 @@
       "hook": "Practice 2 at the Abu Dhabi GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-arab-emirates",
+      "venue": "Yas Marina Circuit",
+      "venueOfficialName": "Yas Marina Circuit",
+      "venueCity": "Abu Dhabi",
+      "venueCountryCode": "AE",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "id": "event:f1:2026:united-arab-emirates:practice-3",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1120,9 +1408,15 @@
       "hook": "Practice 3 at the Abu Dhabi GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-arab-emirates",
+      "venue": "Yas Marina Circuit",
+      "venueOfficialName": "Yas Marina Circuit",
+      "venueCity": "Abu Dhabi",
+      "venueCountryCode": "AE",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "id": "event:f1:2026:united-arab-emirates:qualifying",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1142,9 +1436,15 @@
       "hook": "Qualifying at the Abu Dhabi GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     },
     {
+      "circuitId": "circuit:f1:united-arab-emirates",
+      "venue": "Yas Marina Circuit",
+      "venueOfficialName": "Yas Marina Circuit",
+      "venueCity": "Abu Dhabi",
+      "venueCountryCode": "AE",
+      "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "id": "event:f1:2026:united-arab-emirates:race",
       "sportKey": "f1",
       "codeId": "sport:f1",
@@ -1164,7 +1464,7 @@
       "hook": "Race at the Abu Dhabi GP.",
       "context": "Published Formula 1 session from the official 2026 race hub.",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-22T05:09:27.161Z"
+      "sourceCheckedAt": "2026-09-25T01:11:49.170Z"
     }
   ]
 }

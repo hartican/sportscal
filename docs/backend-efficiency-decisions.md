@@ -119,3 +119,11 @@ Source failures preserve last-known facts and do not block valid updates from ot
 Batch summaries retain the existing 50-fixture limit and private account-scoped responses. Independent viewer profile/persona reads now overlap fixture hydration and summary reads; independent panel metadata overlaps fixture rows. The same reads and authorisation checks remain, with no new scheduler or database changes. Live render reuse now observes the existing two-minute summary cadence rather than re-reading after 25 seconds.
 
 Summary requests use an eight-second client deadline (shorter configured deadlines are respected). Failure or omitted fixtures retains last-good snapshots, enters the existing cooldown and exposes an explicit retry for an unresolved signed-in rating. Hidden pre-vote community totals are labelled as requiring a rating, rather than as loading. Slow or failed reads never invent a zero count or reset a saved vote. Regressions: `validate-ratings-read-latency.js`, `validate-feed-card-recovery-browser.js`, `validate-nsc-client-flow.js` and existing submission contracts.
+
+## Presidents Cup source ownership — 25 September 2026
+
+The existing canonical PGA schedule adapter also parses the official Presidents Cup scoring page’s structured tournament, overview, round and tee-time records. Only sporting fields are retained. Match Centre uses awarded numeric totalValue (including halves), never projectedValue. TournamentStatus owns overview completion; round completion is independent. First confirmed completion is recorded, never computed from scheduled duration.
+
+The existing live-source owner adds one leased Presidents Cup source, with its ordinary live/imminent cadence and deadlines. No scheduler, endpoint, migration or client polling budget changes. Fetch failures keep previous records, scores and score observation timestamps. Missing/invalid totals do not replace last-good scores with zero; source staleness remains visible. F1 session loading preserves canonical venue/country fields and no longer infers completion from elapsed end times.
+
+Regressions: validate-card-coverage-corrections.js, existing Match Centre API/model, live-fixtures and observation suites.

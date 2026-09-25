@@ -2,7 +2,7 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-09-22T05:09:40.320Z",
+  "generatedAt": "2026-09-25T01:12:00.705Z",
   "sources": [
     {
       "provider": "Formula 1",
@@ -698,7 +698,7 @@
       "competitionId": "competition:f1-drivers-2026",
       "seasonLabel": "2026",
       "roundLabel": "Current championship standings",
-      "snapshotTimeUtc": "2026-09-22T05:09:27.086Z",
+      "snapshotTimeUtc": "2026-09-25T01:11:49.090Z",
       "entries": [
         {
           "participantId": "competitor:f1:kimi-antonelli",
@@ -867,7 +867,7 @@
         "provider": "Formula 1",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
         "sourceType": "official",
-        "checkedAt": "2026-09-22T05:09:27.086Z"
+        "checkedAt": "2026-09-25T01:11:49.090Z"
       },
       "metadata": {
         "standingsType": "drivers"
@@ -878,7 +878,7 @@
       "competitionId": "competition:f1-constructors-2026",
       "seasonLabel": "2026",
       "roundLabel": "Current championship standings",
-      "snapshotTimeUtc": "2026-09-22T05:09:27.086Z",
+      "snapshotTimeUtc": "2026-09-25T01:11:49.090Z",
       "entries": [
         {
           "participantId": "team:f1:mercedes",
@@ -941,7 +941,7 @@
         "provider": "Formula 1",
         "sourceUrl": "https://www.formula1.com/en/results/2026/team",
         "sourceType": "official",
-        "checkedAt": "2026-09-22T05:09:27.086Z"
+        "checkedAt": "2026-09-25T01:11:49.090Z"
       },
       "metadata": {
         "standingsType": "constructors"

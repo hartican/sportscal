@@ -41,6 +41,7 @@
     ].filter(Boolean).map(String))).filter(id => !excluded.has(id));
   }
 
+  function presidentsCup(event){return sportKey(event)==='golf'&&event.eventFamilyId==='presidents-cup'&&['competition:presidents-cup'].includes(event.competitionId)&&!/^Live From/i.test(event.name||'');}
   function golfMajor(event){
     if(!['golf','masters'].includes(sportKey(event)))return false;
     return sportKey(event)==='masters' || event.isMajor===true || event.major===true || event.stage==='Major' || /^(?:\d{4} )?(?:Masters Tournament|The Masters|PGA Championship|U\.?S\.? Open|The Open(?: Championship)?|U\.?S\.? Women['’]?s Open|AIG Women['’]?s Open|The Chevron Championship|KPMG Women['’]?s PGA Championship|The Amundi Evian Championship)(?: \d{4})?$/i.test(event.tournamentName||event.name||'');
@@ -204,7 +205,7 @@
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
+    if(['golf','masters'].includes(sportKey(event)))return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
@@ -225,5 +226,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
 });

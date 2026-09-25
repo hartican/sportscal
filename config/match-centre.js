@@ -4,7 +4,7 @@
  const sport=e=>({wimbledon:'tennis',rugby:'rugby-union'})[e.key]||e.key;
  const final=e=>/^(completed|finished|final)$/.test(e.status||'');
  const interrupted=e=>/^(stumps|suspended|interrupted|delayed|rain-delay|break)$/.test(e.status||'');
- function supported(e){return ['nrl','afl','cricket','rugby-union','tennis'].includes(sport(e))&&!['tennis_parent','tennis_rubber'].includes(e.cardType)&&!e.parentTieId&&!(e.tieId&&e.contestUnit!=='tie')&&e.contestUnit!=='rubber'&&!['major_event','tournament','ticket_sale','rubber'].includes(e.kind)&&(sport(e)==='tennis'||!/(women|female|aflw|nrlw)/i.test([e.gender,e.genderCategory,e.competitionId,e.codeId].join(' ')));}
+ function supported(e){if(e.key==='golf'&&e.eventFamilyId==='presidents-cup'&&e.tournamentParent===true)return true;return ['nrl','afl','cricket','rugby-union','tennis'].includes(sport(e))&&!['tennis_parent','tennis_rubber'].includes(e.cardType)&&!e.parentTieId&&!(e.tieId&&e.contestUnit!=='tie')&&e.contestUnit!=='rubber'&&!['major_event','tournament','ticket_sale','rubber'].includes(e.kind)&&(sport(e)==='tennis'||!/(women|female|aflw|nrlw)/i.test([e.gender,e.genderCategory,e.competitionId,e.codeId].join(' ')));}
  function completion(e){return Date.parse(e.actualEndTimeUtc||e.completedAt||e.firstConfirmedCompleteAt||e.resultPublishedAt||'');}
  function eligible(e,now=Date.now()){
   if(!supported(e)||/^(cancelled|canceled|abandoned)$/.test(e.status||''))return false;

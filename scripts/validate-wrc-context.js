@@ -107,7 +107,7 @@ assert.throws(
 
 const motorsport = selector.byId["sport:motorsport"];
 const wrc = selector.byId["sport:wrc"];
-assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:motogp", "sport:wrc"]);
+assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:motogp", "sport:wrc", "sport:supercars"]);
 assert.equal(wrc.label, "WRC");
 assert(!selector.exposedSportNodes.some(node => node.id === "sport:rally"));
 assert.equal(taxonomy.competitionFamilies.find(family => family.id === "family:world-rally-championship")?.name, "FIA World Rally Championship");

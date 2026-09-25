@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "aflw",
-  "generatedAt": "2026-09-22T05:09:40.320Z",
+  "generatedAt": "2026-09-25T01:12:00.705Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -220,7 +220,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -439,7 +439,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -658,7 +658,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -877,7 +877,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1096,7 +1096,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1269,7 +1269,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1488,7 +1488,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1524,7 +1524,7 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 6
+          "value": 7
         },
         {
           "label": "Disposals avg",
@@ -1532,29 +1532,29 @@
         },
         {
           "label": "Goals avg",
-          "value": 0.2
+          "value": 0.1
         },
         {
           "label": "Tackles avg",
-          "value": 4.7
+          "value": 4.4
         },
         {
           "label": "Clearances avg",
-          "value": 7.7
+          "value": 7.6
         },
         {
           "label": "Marks avg",
-          "value": 2.2
+          "value": 2.1
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 59
+          "value": 60
         },
         {
           "label": "Disposals",
-          "value": 1310
+          "value": 1339
         },
         {
           "label": "Goals",
@@ -1562,18 +1562,41 @@
         },
         {
           "label": "Tackles",
-          "value": 376
+          "value": 379
         },
         {
           "label": "Clearances",
-          "value": 350
+          "value": 357
         },
         {
           "label": "Marks",
-          "value": 83
+          "value": 85
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Hawthorn",
+          "result": "W 82-46",
+          "stats": [
+            {
+              "label": "D",
+              "value": 29
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 7
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Collingwood",
@@ -1665,29 +1688,6 @@
               "value": 8
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "St Kilda",
-          "result": "W 100-15",
-          "stats": [
-            {
-              "label": "D",
-              "value": 34
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 4
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -1707,7 +1707,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1926,7 +1926,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2145,7 +2145,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2356,7 +2356,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1693/alicia-eva"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2567,7 +2567,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2062/alyce-parker"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2755,7 +2755,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4264/brodee-mowbray"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2966,7 +2966,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12279/caitlin-fletcher"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3177,7 +3177,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/8540/cambridge-mccormick"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3365,7 +3365,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/3609/daisy-walker"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3576,7 +3576,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12278/eilish-odowd"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3671,7 +3671,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2024/eleanor-brown"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3859,7 +3859,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4015/emily-pease"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3954,7 +3954,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/6158/fleur-davies"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4119,7 +4119,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4134/georgia-clark"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4330,7 +4330,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2145/georgia-garnett"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4378,7 +4378,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3
+          "value": 3.2
         },
         {
           "label": "Clearances avg",
@@ -4404,7 +4404,7 @@
         },
         {
           "label": "Tackles",
-          "value": 27
+          "value": 28
         },
         {
           "label": "Clearances",
@@ -4431,7 +4431,7 @@
             },
             {
               "label": "T",
-              "value": 3
+              "value": 4
             },
             {
               "label": "C",
@@ -4541,7 +4541,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15571/grace-kos"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4752,7 +4752,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13753/grace-martin"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4963,7 +4963,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1921/isabel-huntington"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5174,7 +5174,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4310/jessica-doyle"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5269,7 +5269,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12273/kaitlyn-srhoj"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5434,7 +5434,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13519/kiera-yerbury"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5645,7 +5645,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4191/madison-brazendale"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5736,7 +5736,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/17551/maisy-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5947,7 +5947,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4231/mikayla-pauga"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6158,7 +6158,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11804/poppy-boltz"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6369,7 +6369,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1629/rebecca-beeson"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6580,7 +6580,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4671/sara-howley"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6671,7 +6671,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11274/scarlett-johnson"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6762,7 +6762,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15399/sophia-gaukrodger"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6977,7 +6977,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7072,7 +7072,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11803/taylah-levy"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7283,7 +7283,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1420/tilly-lucas-rodd"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7494,7 +7494,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13525/yasmeen-janschek"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7589,7 +7589,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/5862/zarlie-goldsworthy"
         }
       ],
-      "sourceCheckedAt": "2026-09-22T05:09:40.320Z"
+      "sourceCheckedAt": "2026-09-25T01:12:00.705Z"
     }
   ]
 }

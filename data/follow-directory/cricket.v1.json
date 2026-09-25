@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-09-22T05:08:21.403Z",
+  "generatedAt": "2026-09-25T00:54:50.136Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -29,8 +29,8 @@
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia",
-      "logoUrl": "assets/identities/national/cricket/australia.jpg",
-      "logoDarkUrl": "assets/identities/national/cricket/australia.jpg",
+      "logoUrl": "assets/identities/national/cricket/australia-transparent.png",
+      "logoDarkUrl": "assets/identities/national/cricket/australia-transparent.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -41,7 +41,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -67,8 +67,8 @@
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia-women",
-      "logoUrl": "assets/identities/national/cricket/australia.jpg",
-      "logoDarkUrl": "assets/identities/national/cricket/australia.jpg",
+      "logoUrl": "assets/identities/national/cricket/australia-transparent.png",
+      "logoDarkUrl": "assets/identities/national/cricket/australia-transparent.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -116,7 +116,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -148,12 +148,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.tigercricket.com.bd/",
-        "https://www.espn.in/cricket/series/24465/game/1539525/new-zealand-women-vs-bangladesh-women-2nd-odi-24465"
+        "https://www.espn.in/cricket/series/24465/game/1539526/new-zealand-women-vs-bangladesh-women-3rd-odi-24465"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -190,7 +190,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -259,12 +259,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.espn.in/cricket/series/24286/game/1529237/india-vs-sri-lanka-3rd-odi-24286"
+        "https://www.espn.in/cricket/series/24286/game/1529239/india-vs-sri-lanka-2nd-t20i-24286"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -296,12 +296,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.espn.in/cricket/series/24559/game/1543894/south-africa-women-vs-india-women-2nd-odi-24559"
+        "https://www.espn.in/cricket/series/24559/game/1543895/south-africa-women-vs-india-women-3rd-odi-24559"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -339,7 +339,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -372,12 +372,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nzc.nz/",
-        "https://www.espn.in/cricket/series/24465/game/1539525/new-zealand-women-vs-bangladesh-women-2nd-odi-24465"
+        "https://www.espn.in/cricket/series/24465/game/1539526/new-zealand-women-vs-bangladesh-women-3rd-odi-24465"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -414,7 +414,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -489,7 +489,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -522,12 +522,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://cricket.co.za/the-proteas/",
-        "https://www.espn.in/cricket/series/24559/game/1543894/south-africa-women-vs-india-women-2nd-odi-24559"
+        "https://www.espn.in/cricket/series/24559/game/1543895/south-africa-women-vs-india-women-3rd-odi-24559"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -559,12 +559,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://srilankacricket.lk/",
-        "https://www.espn.in/cricket/series/24286/game/1529237/india-vs-sri-lanka-3rd-odi-24286"
+        "https://www.espn.in/cricket/series/24286/game/1529239/india-vs-sri-lanka-2nd-t20i-24286"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -639,7 +639,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -677,7 +677,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -776,12 +776,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545502/melbourne-stars-vs-adelaide-strikers-5th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545507/adelaide-strikers-vs-sydney-thunder-10th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -816,12 +816,12 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:afghanistan",
-      "displayName": "Afghanistan",
+      "displayName": "Afghanistan Men",
       "shortName": null,
       "aliases": [
         "AFG"
@@ -835,8 +835,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24799",
-      "leagueName": "Zimbabwe tour of United Arab Emirates 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:afghanistan",
@@ -846,12 +846,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24799/game/1555124/afghanistan-vs-zimbabwe-2nd-test-24799"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -886,7 +886,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -916,12 +916,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546859/tamil-nadu-vs-andhra-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546877/andhra-vs-vidarbha-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -956,7 +956,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -986,12 +986,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546873/arunachal-pradesh-vs-mizoram-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546893/arunachal-pradesh-vs-sikkim-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1021,12 +1021,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546872/tripura-vs-assam-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546890/uttar-pradesh-vs-assam-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1061,7 +1061,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1096,7 +1096,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1131,7 +1131,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1164,7 +1164,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1199,7 +1199,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1232,7 +1232,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1300,7 +1300,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1335,7 +1335,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1400,12 +1400,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/23315/game/1552798/cayman-islands-vs-bahamas-5th-match-north-america-cup-2026"
+        "https://www.espn.in/cricket/series/23315/game/1552798/cayman-islands-vs-bahamas-4th-match-north-america-cup-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1610,12 +1610,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546860/uttarakhand-vs-baroda-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546878/madhya-pradesh-vs-baroda-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1650,7 +1650,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1715,12 +1715,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546871/puducherry-vs-bengal-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546889/bengal-vs-kerala-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1750,12 +1750,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/23315/game/1552799/bahamas-vs-bermuda-6th-match-north-america-cup-2026"
+        "https://www.espn.in/cricket/series/23315/scorecard/1555386/cayman-islands-vs-bermuda-1st-match-north-america-cup-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1820,12 +1820,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546858/madhya-pradesh-vs-bihar-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546876/uttarakhand-vs-bihar-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1895,7 +1895,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1930,7 +1930,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -1965,7 +1965,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2000,7 +2000,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2065,12 +2065,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championship-2026"
+        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2139,7 +2139,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2174,7 +2174,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2279,7 +2279,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2314,7 +2314,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2349,7 +2349,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2379,12 +2379,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/23315/game/1552798/cayman-islands-vs-bahamas-5th-match-north-america-cup-2026"
+        "https://www.espn.in/cricket/series/23315/scorecard/1555386/cayman-islands-vs-bermuda-1st-match-north-america-cup-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2419,7 +2419,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2454,7 +2454,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2519,12 +2519,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546867/chandigarh-vs-delhi-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546887/punjab-vs-chandigarh-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2554,12 +2554,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546865/punjab-vs-chhattisgarh-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546885/delhi-vs-chhattisgarh-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2589,12 +2589,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555259/chile-women-vs-costa-rica-women-5th-match-south-american-womens-championship-2026"
+        "https://www.espn.in/cricket/series/18940/game/1555259/chile-women-vs-costa-rica-women-5th-match-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2764,12 +2764,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championship-2026"
+        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2804,7 +2804,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2904,12 +2904,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546867/chandigarh-vs-delhi-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546885/delhi-vs-chhattisgarh-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -2944,7 +2944,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3012,7 +3012,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-918645",
+      "displayName": "Diasqua Little Sai Wan Cricket Club",
+      "shortName": null,
+      "aliases": [
+        "DLSWC"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "HK",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-918645",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/19482/game/1555417/hong-kong-cricket-club-vs-diasqua-little-sai-wan-cricket-club-10th-match-hong-kong-premier-league-one-day-tournament-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3047,7 +3082,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3082,7 +3117,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3152,7 +3187,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3220,7 +3255,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3325,7 +3360,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3360,7 +3395,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3395,7 +3430,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3430,7 +3465,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3535,7 +3570,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3570,7 +3605,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3638,7 +3673,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3708,7 +3743,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3743,7 +3778,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3778,7 +3813,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3813,7 +3848,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3881,7 +3916,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -3951,7 +3986,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4019,7 +4054,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4049,12 +4084,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546866/goa-vs-rajasthan-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546886/goa-vs-maharashtra-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4084,12 +4119,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546864/gujarat-vs-haryana-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546880/gujarat-vs-jharkhand-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4194,7 +4229,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4262,7 +4297,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4297,7 +4332,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4327,12 +4362,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546864/gujarat-vs-haryana-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546882/services-vs-haryana-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4362,12 +4397,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546868/himachal-pradesh-vs-maharashtra-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546884/himachal-pradesh-vs-rajasthan-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4402,7 +4437,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4466,12 +4501,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545504/perth-scorchers-vs-hobart-hurricanes-7th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545508/melbourne-renegades-vs-hobart-hurricanes-11th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4506,7 +4541,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4525,8 +4560,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:1554555",
-      "leagueName": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:hong-kong",
@@ -4536,12 +4571,47 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/1554555/game/1554581/hong-kong-vs-singapore-14th-match-"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-1512",
+      "displayName": "Hong Kong Cricket Club",
+      "shortName": null,
+      "aliases": [
+        "HKGCC"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "HK",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-1512",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/19482/game/1555417/hong-kong-cricket-club-vs-diasqua-little-sai-wan-cricket-club-10th-match-hong-kong-premier-league-one-day-tournament-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4606,12 +4676,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546861/jammu-&-kashmir-vs-hyderabad-india-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546881/mumbai-vs-hyderabad-india-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4646,7 +4716,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4714,7 +4784,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4749,7 +4819,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4782,7 +4852,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4850,7 +4920,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4885,7 +4955,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -4920,7 +4990,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5060,7 +5130,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5090,12 +5160,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546861/jammu-&-kashmir-vs-hyderabad-india-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546883/jammu-&-kashmir-vs-saurashtra-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5130,7 +5200,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5198,7 +5268,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5228,12 +5298,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546862/services-vs-jharkhand-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546880/gujarat-vs-jharkhand-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5263,12 +5333,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546869/karnataka-vs-kerala-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546891/karnataka-vs-puducherry-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5303,7 +5373,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5338,7 +5408,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5406,7 +5476,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5441,7 +5511,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5471,12 +5541,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546869/karnataka-vs-kerala-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546889/bengal-vs-kerala-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5511,7 +5581,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5546,7 +5616,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-1521",
+      "displayName": "Kowloon Cricket Club",
+      "shortName": null,
+      "aliases": [
+        "KOW"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "HK",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-1521",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/19482/game/1555414/kowloon-cricket-club-vs-diasqua-little-sai-wan-cricket-club-7th-match-hong-kong-premier-league-one-day-tournament-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5616,7 +5721,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5651,7 +5756,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5686,7 +5791,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5721,7 +5826,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5789,7 +5894,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5859,7 +5964,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5927,7 +6032,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5962,7 +6067,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -5997,7 +6102,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6032,7 +6137,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6067,7 +6172,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6097,12 +6202,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546858/madhya-pradesh-vs-bihar-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546878/madhya-pradesh-vs-baroda-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6137,7 +6242,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6167,12 +6272,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546868/himachal-pradesh-vs-maharashtra-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546886/goa-vs-maharashtra-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6207,7 +6312,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6310,7 +6415,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6375,12 +6480,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546874/nagaland-vs-manipur-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546892/meghalaya-vs-manipur-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6415,7 +6520,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6445,12 +6550,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546875/meghalaya-vs-sikkim-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546892/meghalaya-vs-manipur-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6514,12 +6619,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545498/melbourne-renegades-vs-perth-scorchers-1st-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545508/melbourne-renegades-vs-hobart-hurricanes-11th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6554,7 +6659,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6623,7 +6728,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6658,7 +6763,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6693,7 +6798,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6761,7 +6866,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6791,12 +6896,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546873/arunachal-pradesh-vs-mizoram-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546894/nagaland-vs-mizoram-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6901,7 +7006,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6936,7 +7041,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -6966,12 +7071,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546863/saurashtra-vs-mumbai-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546881/mumbai-vs-hyderabad-india-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7036,12 +7141,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546874/nagaland-vs-manipur-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546894/nagaland-vs-mizoram-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7081,7 +7186,7 @@
     },
     {
       "id": "team:cricket:nepal",
-      "displayName": "Nepal",
+      "displayName": "Nepal Men",
       "shortName": null,
       "aliases": [
         "NEP"
@@ -7095,8 +7200,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:19439",
-      "leagueName": "ICC Men's Cricket World Cup League 2",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:nepal",
@@ -7106,12 +7211,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/19439/game/1554420/oman-vs-nepal-138th-match-icc-mens-cricket-world-cup-league-2-2023-24-2027"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7181,7 +7286,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7216,7 +7321,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7246,12 +7351,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/1552526/game/1552531/new-zealand-a-vs-india-a-3rd-unofficial-test-"
+        "https://www.espn.in/cricket/series/24805/game/1552531/new-zealand-a-vs-india-a-3rd-unofficial-test-24805"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7286,7 +7391,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7321,7 +7426,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7391,7 +7496,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7426,7 +7531,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7496,7 +7601,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7564,7 +7669,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7599,7 +7704,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7634,7 +7739,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7669,7 +7774,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7704,7 +7809,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7739,7 +7844,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7807,7 +7912,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7840,7 +7945,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7905,12 +8010,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546870/uttar-pradesh-vs-odisha-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546888/tripura-vs-odisha-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -7945,12 +8050,12 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:oman",
-      "displayName": "Oman",
+      "displayName": "Oman Men",
       "shortName": null,
       "aliases": [
         "OMA"
@@ -7964,8 +8069,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:19439",
-      "leagueName": "ICC Men's Cricket World Cup League 2",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:oman",
@@ -7975,12 +8080,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/19439/game/1554420/oman-vs-nepal-138th-match-icc-mens-cricket-world-cup-league-2-2023-24-2027"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8015,7 +8120,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8050,7 +8155,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-918647",
+      "displayName": "Pakistan Association of Hong Kong",
+      "shortName": null,
+      "aliases": [
+        "PAHKG"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "HK",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-918647",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/19482/game/1555415/diasqua-little-sai-wan-cricket-club-vs-pakistan-association-of-hong-kong-8th-match-hong-kong-premier-league-one-day-tournament-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8085,7 +8225,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8120,7 +8260,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8190,7 +8330,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8225,7 +8365,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8329,7 +8469,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8364,7 +8504,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8464,12 +8604,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546871/puducherry-vs-bengal-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546891/karnataka-vs-puducherry-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8499,12 +8639,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546865/punjab-vs-chhattisgarh-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546887/punjab-vs-chandigarh-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8574,7 +8714,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8642,7 +8782,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8672,12 +8812,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546857/railways-vs-vidarbha-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546879/railways-vs-tamil-nadu-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8707,12 +8847,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546866/goa-vs-rajasthan-elite-group-c-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546884/himachal-pradesh-vs-rajasthan-elite-group-c-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8747,7 +8887,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8882,12 +9022,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546863/saurashtra-vs-mumbai-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546883/jammu-&-kashmir-vs-saurashtra-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -8987,12 +9127,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546862/services-vs-jharkhand-elite-group-b-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546882/services-vs-haryana-elite-group-b-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9027,7 +9167,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9057,12 +9197,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546875/meghalaya-vs-sikkim-plate-group-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546893/arunachal-pradesh-vs-sikkim-plate-group-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9167,7 +9307,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9235,7 +9375,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9335,12 +9475,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8656/game/1551887/easterns-vs-south-africa-emerging-players-56th-match-super-eights-csa-t20-challenge-2026-27"
+        "https://www.espn.in/cricket/series/8656/game/1551887/easterns-vs-south-africa-emerging-players-pool-b-csa-t20-challenge-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9410,7 +9550,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9513,7 +9653,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9583,7 +9723,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9758,7 +9898,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9793,7 +9933,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9828,7 +9968,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9896,7 +10036,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -9966,7 +10106,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10034,7 +10174,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10098,12 +10238,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545503/sydney-thunder-vs-sydney-sixers-6th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545506/sydney-sixers-vs-melbourne-renegades-9th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10138,7 +10278,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10202,12 +10342,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545503/sydney-thunder-vs-sydney-sixers-6th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545507/adelaide-strikers-vs-sydney-thunder-10th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10242,7 +10382,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10272,12 +10412,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546859/tamil-nadu-vs-andhra-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546879/railways-vs-tamil-nadu-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10347,7 +10487,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10377,12 +10517,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8897/game/1545784/tasmania-women-vs-victoria-women-womens-national-cricket-league-2026-27"
+        "https://www.espn.in/cricket/series/8897/game/1545785/tasmania-women-vs-victoria-women-womens-national-cricket-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10434,8 +10574,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:8836",
-      "leagueName": "President's Trophy",
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:espn-984779",
@@ -10445,12 +10585,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8836/game/1553805/tbc-vs-tbc-final-presidents-trophy-grade-i-2026-27"
+        "https://www.espn.in/cricket/series/19482/game/1555418/tbc-vs-tbc-final-hong-kong-premier-league-one-day-tournament-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10504,8 +10644,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:18940",
-      "leagueName": "South American Women's Championships",
+      "leagueId": "competition:cricket:espn:1554058",
+      "leagueName": "CSA Women Pro50 Series 2026/27",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:espn-984779-women",
@@ -10515,12 +10655,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555261/tbc-vs-tbc-final-south-american-womens-championship-2026"
+        "https://www.espn.in/cricket/series/1554058/game/1554121/tbc-vs-tbc-final-"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10555,7 +10695,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10660,7 +10800,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10695,7 +10835,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10730,7 +10870,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10830,12 +10970,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546872/tripura-vs-assam-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546888/tripura-vs-odisha-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10870,7 +11010,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10905,7 +11045,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -10941,6 +11081,41 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-1197532",
+      "displayName": "United Services Recreation Club",
+      "shortName": null,
+      "aliases": [
+        "USRC"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "HK",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:19482",
+      "leagueName": "Hong Kong Premier League One-Day Tournament",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-1197532",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/19482/game/1555416/hong-kong-cricket-club-vs-united-services-recreation-club-9th-match-hong-kong-premier-league-one-day-tournament-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11005,12 +11180,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546870/uttar-pradesh-vs-odisha-elite-group-d-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546890/uttar-pradesh-vs-assam-elite-group-d-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11040,12 +11215,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546860/uttarakhand-vs-baroda-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546876/uttarakhand-vs-bihar-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11080,7 +11255,40 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:ca-82",
+      "displayName": "Victoria Men",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:4688",
+      "leagueName": "One-Day Cup 2026-27",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:ca-82",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11110,12 +11318,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8897/game/1545784/tasmania-women-vs-victoria-women-womens-national-cricket-league-2026-27"
+        "https://www.espn.in/cricket/series/8897/game/1545785/tasmania-women-vs-victoria-women-womens-national-cricket-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11145,12 +11353,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8890/game/1546857/railways-vs-vidarbha-elite-group-a-vijay-hazare-trophy-2026-27"
+        "https://www.espn.in/cricket/series/8890/game/1546877/andhra-vs-vidarbha-elite-group-a-vijay-hazare-trophy-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11185,7 +11393,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11220,7 +11428,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11288,7 +11496,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11358,7 +11566,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11393,7 +11601,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11428,7 +11636,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11498,7 +11706,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11533,7 +11741,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11568,7 +11776,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11636,7 +11844,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11671,7 +11879,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11739,7 +11947,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11809,7 +12017,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     },
     {
@@ -11844,7 +12052,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-25T00:54:50.136Z",
       "sourceReviewAfter": null
     }
   ],

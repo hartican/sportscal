@@ -1,6 +1,6 @@
 {
   "schemaVersion": "aflw-follow-index.v1",
-  "generatedAt": "2026-09-22T05:09:19.188Z",
+  "generatedAt": "2026-09-25T01:11:41.187Z",
   "teams": [
     {
       "id": "team:aflw:cd_t8098",
@@ -2954,6 +2954,11 @@
     {
       "id": "competitor:aflw:zippy-fish",
       "currentTeamId": "team:aflw:cd_t9408",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
+      "id": "competitor:aflw:zoe-barbakos",
+      "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026"
     },
     {

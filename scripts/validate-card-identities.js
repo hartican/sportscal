@@ -234,7 +234,7 @@ const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, 
 assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
 assert.equal(cricketResolved[0].mark.label, "Australia cricket");
 assert.equal(cricketResolved[1].mark.label, "Bangladesh cricket");
-assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia.jpg", "Australia must use its locally stored official cricket identity");
+assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia-transparent.png", "Australia must use its locally stored official cricket identity");
 assert.equal(cricketResolved[1].mark.url, "assets/identities/national/cricket/bangladesh.jpg", "Bangladesh must use its locally stored official cricket identity");
 assert.notEqual(cricketResolved[0].mark.url, cricketResolved[1].mark.url, "Australia and Bangladesh must retain clearly distinct team identities");
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-22T02:49:30Z",
+  "generatedAt": "2026-09-25T01:04:15Z",
   "sports": [
     {
       "key": "afl",
@@ -14,7 +14,7 @@
       "key": "aflw",
       "label": "AFLW",
       "status": "available",
-      "recordCount": 616,
+      "recordCount": 617,
       "jsonUrl": "data/follow-directory/aflw.v1.json",
       "scriptUrl": "data/follow-directory/aflw.v1.js"
     },
@@ -67,6 +67,14 @@
       "scriptUrl": "data/follow-directory/wrc.v1.js"
     },
     {
+      "key": "supercars",
+      "label": "V8 Supercars",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/supercars.v1.json",
+      "scriptUrl": "data/follow-directory/supercars.v1.js"
+    },
+    {
       "key": "extreme",
       "label": "Extreme",
       "status": "available",
@@ -94,7 +102,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 195,
+      "recordCount": 213,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -126,7 +134,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 339,
+      "recordCount": 345,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },
@@ -174,7 +182,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 2520,
+      "recordCount": 2539,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -206,7 +214,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1983,
+      "recordCount": 1821,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

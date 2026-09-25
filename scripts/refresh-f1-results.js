@@ -4,7 +4,7 @@ const fs=require('node:fs'),feedControls=require('../config/feed-controls');
 const publishedSchedule=require('../data/canonical/f1-published-sessions-2026.json');
 function applyPublishedSchedule(events){
  const sessions=new Map(publishedSchedule.sessions.map(session=>[session.id,session]));
- return events.map(event=>{const session=sessions.get(event.id);if(!session)return event;const {id,...timing}=session;return {...event,...timing,timingSourceUrl:publishedSchedule.sourceUrl,timingCheckedAt:publishedSchedule.checkedAt};});
+ return events.map(require("../lib/f1-venues").enrich).map(event=>{const session=sessions.get(event.id);if(!session)return event;const {id,...timing}=session;return {...event,...timing,timingSourceUrl:publishedSchedule.sourceUrl,timingCheckedAt:publishedSchedule.checkedAt};});
 }
 function text(html){return html.replace(/<span class="md:hidden">[\s\S]*?<\/span>/g,'').replace(/<[^>]*>/g,'').replace(/&nbsp;|\u00a0/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();}
 function resultRows(html){const body=html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/)?.[1];if(!body)return [];return [...body.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].map(m=>[...m[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(c=>text(c[1]))).filter(c=>/^(?:\d+|NC|DSQ|DQ|DNF|DNS)$/i.test(c[0])&&c.length>=7&&c[2]);}

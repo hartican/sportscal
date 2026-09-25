@@ -1042,8 +1042,8 @@
             "researchTier": "marquee",
             "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
             "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
-            "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-            "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+            "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+            "synopsisSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
@@ -1175,8 +1175,8 @@
             "researchTier": "marquee",
             "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
             "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
-            "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-            "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+            "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+            "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
@@ -1563,37 +1563,32 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:rolling:event-afl-cd-m20260142901",
+            "projectionId": "projection:afl:grand-final-2026",
             "researchTier": "marquee",
             "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
             "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-            "hookSpoilerOn": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
-            "synopsisSpoilerOn": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+            "sourceIds": [
+              "source:afl:gf2026:0",
+              "source:afl:gf2026:1",
+              "source:afl:gf2026:2"
+            ],
             "threadIds": [
-              "thread:depth:afl:finals"
+              "thread:afl:gf2026:first-flag-or-threepeat"
             ],
             "factIds": [
-              "fact:depth:afl:event-afl-cd-m20260142901:1",
-              "fact:depth:afl:event-afl-cd-m20260142901:2",
-              "fact:depth:afl:event-afl-cd-m20260142901:3",
-              "fact:depth:afl:event-afl-cd-m20260142901:4"
-            ],
-            "sourceIds": [
-              "source:depth:afl:ladder",
-              "source:depth:afl:finals-fixture",
-              "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142901"
+              "fact:afl:gf2026:0",
+              "fact:afl:gf2026:1",
+              "fact:afl:gf2026:2",
+              "fact:afl:gf2026:3"
             ],
             "dimensions": [
-              "history",
-              "path",
+              "matchup",
               "consequence",
               "venue"
             ],
-            "researchedAt": "2026-09-22T08:27:01.899Z",
-            "refreshAfter": null,
-            "generationMode": "researched",
-            "phase": "preview"
+            "researchedAt": "2026-09-21T12:34:24.741Z",
+            "refreshAfter": "2026-09-26T04:30:00.000Z",
+            "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
@@ -1604,7 +1599,7 @@
             "hookSpoilerOn": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
             "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
             "synopsisSpoilerOn": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-            "lastReviewedAt": "2026-09-22T08:27:01.899Z"
+            "lastReviewedAt": "2026-09-21T12:34:24.741Z"
           },
           "competitionPhase": "grand-final",
           "isFinalRegularSeasonRound": false,
@@ -1932,8 +1927,8 @@
             "resultResearchRequired": false,
             "phase": "preview",
             "resultSignature": "[\"completed\",\"Panthers defeated Roosters 19-12.\",\"Panthers 19-12 Roosters\",\"Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.\"]",
-            "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
-            "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
+            "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+            "synopsisSpoilerOn": "Panthers defeated Roosters in Qualifying Final. Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
           },
           "storyline": {
             "stakes": 5,
@@ -2022,8 +2017,8 @@
             "resultResearchRequired": false,
             "phase": "preview",
             "resultSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",\"The Dolphins came from behind to win 26-16 and advance to a preliminary final.\"]",
-            "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
-            "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final."
+            "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+            "synopsisSpoilerOn": "Dolphins defeated Warriors in Qualifying Final. The Dolphins came from behind to win 26-16 and advance to a preliminary final."
           },
           "storyline": {
             "stakes": 5,
@@ -2111,8 +2106,8 @@
             "resultResearchRequired": false,
             "phase": "preview",
             "resultSignature": "[\"completed\",\"Sharks defeated Cowboys 26-16.\",\"Sharks 26-16 Cowboys\",\"Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.\"]",
-            "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
-            "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
+            "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+            "synopsisSpoilerOn": "Sharks defeated Cowboys in Elimination Final. Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
           },
           "storyline": {
             "stakes": 5,
@@ -2200,8 +2195,8 @@
             "resultResearchRequired": false,
             "phase": "preview",
             "resultSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",\"Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.\"]",
-            "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
-            "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
+            "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+            "synopsisSpoilerOn": "Knights defeated Rabbitohs in Elimination Final. Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
           },
           "storyline": {
             "stakes": 5,

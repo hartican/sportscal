@@ -117,6 +117,7 @@ function cardForEvent(event, schedule, participantsById){
     expected:Number(event.expected),
     stakesScore:stakes,
     venue:event.venue || null,
+    ...Object.fromEntries(["circuitId","venueOfficialName","venueCity","venueCountryCode","venueSourceUrl"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     liveWindow:Number(event.liveWindow || 3),
     round:event.round || "all",
     roundLabel:event.roundLabel || null,
@@ -210,7 +211,16 @@ function main(){
   const legacyF1Ids=new Set(Object.values(F1_LEGACY_STABLE_IDS));
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
-  cards.forEach((card,index)=>{const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);if(identity)cards[index]={...card,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...Object.fromEntries(["storyline","editorialNarrative","editorialPreview","selectedSentence","fullSpiel"].filter(key=>existing?.[key]).map(key=>[key,existing[key]]))};});
+  cards.forEach((card,index)=>{
+    const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);
+    if(!identity)return;
+    // A published schedule cannot revoke a sourced result. Conversely, an old
+    // elapsed-time completion must not drag recap copy into an upcoming card.
+    const confirmed=existing?.status==='completed'&&Boolean(existing.fixtureResults?.sourceUrl||existing.resultPublishedAt);
+    const facts=confirmed?Object.fromEntries(['status','fixtureResults','resultPublishedAt','outcomeText','recapText','score','resultLabels'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]])):{};
+    const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
+    cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]).map(key=>[key,existing[key]])):{})};
+  });
   const next = normalizeFeed({
     ...feed,
     events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],

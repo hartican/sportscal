@@ -13,7 +13,7 @@ function renderTournamentSlots(container,event){
    const rounds=new Map();for(const slot of tournament.slots){if(!rounds.has(slot.round))rounds.set(slot.round,[]);rounds.get(slot.round).push(slot);}
    for(const [round,slots]of rounds){const group=document.createElement('details'),heading=document.createElement('summary');heading.textContent=`${round} · ${slots.length} ${slots[0].kind==='round'?'round':slots[0].kind==='stage'?'stage':'slots'}`;group.append(heading);
     let ready=false;group.addEventListener('toggle',()=>{if(!group.open||ready)return;ready=true;for(const slot of slots){const row=document.createElement('p');row.dataset.tournamentSlotId=slot.slotId;const names=slot.participantSlots?.map(p=>p.label||p.name||'To be confirmed').join(' v ');row.textContent=`${slot.index}. ${names||round} · ${slot.date||'Date to be confirmed'} · ${slot.time||'Time to be confirmed'}`;group.append(row);}});details.append(group);}
-  });container.append(details);
+  });container.append(details);if(container.closest('.parent-ongoing'))details.open=true;
  };
  if(tournamentHorizon)queueMicrotask(paint);else void loadTournamentHorizon().then(paint).catch(()=>{});
 }

@@ -38,6 +38,7 @@
   ]);
 
   const MAJOR_EVENT_FAMILIES = Object.freeze([
+    { id:"presidents-cup", label:"Presidents Cup", sportIds:["golf"] },
     { id:"state-of-origin", label:"State of Origin", sportIds:["nrl"] },
     { id:"australian-open", label:"Australian Open", sportIds:["tennis"] },
     { id:"australian-grand-prix", label:"Australian Grand Prix", sportIds:["f1"] },
@@ -574,6 +575,11 @@
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
+    if(followPolicy.presidentsCup(event)){
+      const direct=(next.followFirst.followedMajorEventIds||[]).includes('presidents-cup')||competitionPreference?.enabled===true;
+      const golf=explicitSelectors.has('sport:golf')||(!explicitSelectors.size&&followedSportIds.has('golf'))||domains.some(d=>d.sportDomainId==='sport:golf'&&d.enabled===true);
+      return followPolicy.eligibleForFollow(event,{competitionFollow:golf,explicitEventFollow:direct})?{type:direct?'event':'sport-marquee',entityKind:direct?'event':'sport',id:direct?'presidents-cup':'golf',label:null,displayTag:false}:null;
+    }
     if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)

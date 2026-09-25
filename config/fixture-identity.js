@@ -95,6 +95,7 @@
     // Bathurst is the explicitly approved inherited Motorsport coverage.
     // Loading the schedule does not override the admission policy's opt-outs.
     if(keys.has('motorsport'))keys.add('supercars');
+    if(preferences?.followFirst?.followedMajorEventIds?.includes('presidents-cup')||(preferences?.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId==='competition:presidents-cup'&&p.enabled===true))keys.add('golf');
     for (const follow of preferences?.preferenceGraph?.entityFollows || []){
       if (["follow", "priority"].includes(follow?.followLevel)) keys.add(String(follow.participantId || "").split(":")[1]);
     }

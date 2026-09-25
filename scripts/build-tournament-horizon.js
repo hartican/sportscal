@@ -9,7 +9,7 @@ function build(today=day()){
   for(const f of fixtures){
    const tournament=f.tournamentId||((f.endDate&&f.endDate!==f.date&&!(f.participantSlots?.length>=2))||['tournament','major_event'].includes(f.kind)?f.id:null);
    audit.push({code:document.code.id,id:f.id,candidate:feedIds.has(f.id),tournament:Boolean(tournament),automaticRule:require('../config/follow-feed-policy').golfMajor(f)?'golf-major':require('../config/follow-feed-policy').aggregateEvent(f)?'event-family-only':'follow-policy'});
-   if(!tournament||!inHorizon(f,today))continue;
+   if(!tournament||!inHorizon(f,today)||f.cardType==='golf_session')continue;
    const entry={...f,tournamentId:tournament};
    tournaments.set(tournament,structure(entry,fixtures.filter(x=>x.tournamentId===tournament),formats[tournament]||{}));
   }

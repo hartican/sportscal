@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-22T05:09:19.188Z",
+  "generatedAt": "2026-09-25T01:11:41.187Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T05:09:19.188Z"
+      "checkedAt": "2026-09-25T01:11:41.187Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T05:09:19.188Z"
+      "checkedAt": "2026-09-25T01:11:41.187Z"
     }
   ],
   "leagues": [
@@ -13669,9 +13669,9 @@
       "photoURL": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1029628.png?im=Scale,width=0.6,height=0.6",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1029628.png?im=Scale,width=0.6,height=0.6",
       "profileRef": "profile:aflw:saraid-taylor",
-      "dateOfBirth": "2000-02-16",
-      "heightInCm": 170,
-      "recruitedFrom": "Geelong (U18)/Geelong (VFLW)",
+      "dateOfBirth": "1998-07-02",
+      "heightInCm": 183,
+      "recruitedFrom": "Port Melbourne (VFLW)/Richmond",
       "debutYear": "2024",
       "active": true
     },
@@ -15259,6 +15259,32 @@
       "heightInCm": 160,
       "recruitedFrom": "East Fremantle (WAFLW)",
       "debutYear": "2025",
+      "active": true
+    },
+    {
+      "id": "competitor:aflw:zoe-barbakos",
+      "displayName": "Zoe Barbakos",
+      "sortName": "Zoe Barbakos",
+      "currentTeamId": "team:aflw:cd_t8796",
+      "leagueId": "competition:aflw-2026",
+      "position": "Medium Forward",
+      "sourceUrl": "https://www.afl.com.au/aflw/players/5948/zoe-barbakos",
+      "sourceRefs": [
+        "source:aflw:players",
+        "source:aflw:teams"
+      ],
+      "providerId": "CD_I1025662",
+      "jumperNumber": 45,
+      "competitionNumber": 45,
+      "competitionNumberKind": "guernsey",
+      "competitionNumberSeason": "2026",
+      "photoURL": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1025662.png?im=Scale,width=0.6,height=0.6",
+      "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1025662.png?im=Scale,width=0.6,height=0.6",
+      "profileRef": "profile:aflw:zoe-barbakos",
+      "dateOfBirth": "2003-11-12",
+      "heightInCm": 170,
+      "recruitedFrom": "St Bedes-Mentone (Vic)/Beaumaris (Vic)/Sandringham U18/Sandringham (VFLW)",
+      "debutYear": "2022",
       "active": true
     },
     {

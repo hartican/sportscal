@@ -205,3 +205,11 @@ The existing 28-day provisional structure remains. A seven-day pre-start source-
 ## Tennis card tournament branding — 25 September 2026
 
 The approved compact Feed polish supersedes the earlier instruction to omit tournament artwork on national ties: show a sourced transparent tournament mark with a readable centred label in the header. Do not reserve an empty hero if no verified mark exists. Reuse the existing scoped schedule link/handler there and remove its duplicate footer link. Admission, tournament follow semantics and navigation state remain unchanged. Regression: `validate-feed-card-polish-browser.js` and `validate-tennis-tie-layout-browser.js`.
+
+## Presidents Cup and ongoing parents — 25 September 2026
+
+Explicit Golf sport followers automatically receive the Presidents Cup overview only. Direct Presidents Cup family/competition follows additionally admit sourced competitive sessions; no direct follow is silently created. Existing exclusions, dismissals and pins retain precedence. Unrelated golfer/tour follows do not opt in, and other golf admission remains unchanged. “Live From” and other studio programmes are not fixtures. Golf’s Major Events directory includes the direct-follow control.
+
+Parent overviews remain full before/on day one and default to a compact title/status row on subsequent active local calendar dates. Underlined titles open scoped Follow schedules; a separate 44px chevron expands inline. Explicit expansion and child cards are preserved. Existing completed retention is unchanged.
+
+Match Centre includes the Presidents Cup overview’s USA–International totals between sessions while authoritative tournament status is active, and for one hour after confirmed completion. Results OFF hides scores. Round completion alone cannot complete the overview. Regressions: validate-card-coverage-corrections.js and validate-card-coverage-browser.js.

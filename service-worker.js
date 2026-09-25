@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v310";
-const SHELL_VERSION = "310";
+const CACHE_NAME = "nothingsport-shell-v311";
+const SHELL_VERSION = "311";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
@@ -17,7 +17,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=310",
+  "/assets/js/app-shell-runtime.js?v=311",
   "/config/tournament-schedule.js?v=293",
   "/assets/js/tennis-schedule-ui.js?v=300",
   "/assets/js/nsc-rankings-ui.js?v=293",
@@ -31,7 +31,7 @@ const APP_SHELL = [
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=310",
+  "/styles/follow-feed-rework.css?v=311",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
@@ -124,7 +124,7 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
   "/assets/identities/national/rugby/england.png",
   "/assets/identities/national/rugby/scotland.png",
   "/assets/identities/national/rugby/wales.png",
-  "/assets/identities/national/cricket/australia.jpg",
+  "/assets/identities/national/cricket/australia-transparent.png",
   "/assets/identities/national/cricket/bangladesh.jpg",
   "/assets/identities/national/cricket/england.jpg",
   "/assets/identities/national/cricket/new-zealand.jpg",

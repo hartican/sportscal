@@ -5,7 +5,8 @@ function inHorizon(t,today=day()){return (t.endDate||t.date||t.startDate)>=today
 function structure(t,fixtures=[],format={}){
  const id=t.tournamentId||t.id,slots=[];
  const put=(round,index,kind='match')=>slots.push({slotId:`${id}:${kind}:${round}:${index}`,round,index,kind,status:'provisional',participantSlots:kind==='round'?[]:[{label:'To be confirmed',participantId:null},{label:'To be confirmed',participantId:null}],date:null,time:null});
- if(format.sessions){for(const [label,count]of format.sessions)for(let i=1;i<=count;i++)put(label,i,t.key==='golf'?'match':'stage');}
+ if(t.eventFamilyId==='presidents-cup'){for(const f of fixtures.filter(f=>f.cardType==='golf_session')){put(f.stage,1,'round');slots.at(-1).slotId=f.id;}}
+ else if(format.sessions){for(const [label,count]of format.sessions)for(let i=1;i<=count;i++)put(label,i,t.key==='golf'?'match':'stage');}
  else if(t.key==='golf')for(let r=1;r<=(format.rounds||4);r++)put(`Round ${r}`,1,'round');
  else if(format.drawSize){
   let size=format.drawSize,bracket=2**Math.ceil(Math.log2(size));
@@ -21,10 +22,10 @@ function structure(t,fixtures=[],format={}){
  for(const [round,confirmed]of Object.entries(format.confirmedTimes||{})){const slot=slots.find(s=>s.round===round);if(slot)Object.assign(slot,confirmed);}
  const byId=new Map(slots.map(s=>[s.slotId,s]));
  for(const f of fixtures){
-  const exact=byId.get(f.tournamentSlotId||f.slotId);
+  const exact=byId.get(f.tournamentSlotId||f.slotId||f.id);
   const matching=exact||slots.find(s=>s.round===(f.roundLabel||f.stage)&&s.index===Number(f.drawMatchNumber||f.matchNumber)&&s.kind===(f.slotKind||'match'));
   if(matching)Object.assign(matching,{fixtureId:f.id,status:f.status||'scheduled',participantSlots:f.participantSlots||[],date:f.date||null,time:f.time||null,startTimeUtc:f.startTimeUtc||null});
  }
- return {tournamentId:id,name:t.name,startDate:t.startDate||t.date,endDate:t.endDate||t.date,sourceUrl:t.sourceUrl,formatSourceUrl:format.sourceUrl||t.sourceUrl,formatConfirmed:!!(format.drawSize||format.rounds||format.sessions),slots};
+ return {tournamentId:id,name:t.name,startDate:t.startDate||t.date,endDate:t.endDate||t.date,sourceUrl:t.sourceUrl,formatSourceUrl:format.sourceUrl||t.sourceUrl,formatConfirmed:!!(t.eventFamilyId==='presidents-cup'||format.drawSize||format.rounds||format.sessions),slots};
 }
 module.exports={day,add,inHorizon,structure};
