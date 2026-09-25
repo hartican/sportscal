@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="311">
+<meta name="app-shell-version" content="312">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=311" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=312" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6875,7 +6875,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=311">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=312">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7171,12 +7171,12 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=311"></script>
+<script src="assets/js/app-shell-runtime.js?v=312"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=311")
+  : loadDeferredScript("config/national-team-identities.js?v=312")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7185,7 +7185,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=311")
+  : loadDeferredScript("config/card-identities.js?v=312")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -16183,7 +16183,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=311').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=312').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);

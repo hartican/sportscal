@@ -258,7 +258,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .fixture-card-footer .fixture-more{padding:6px 12px;}
 #listView .feed-fixture .nsc-inline-rating{margin:0;gap:2px;}
 #listView .feed-fixture .feed-opponent .matchup-team-name{margin:0;}
-#listView .feed-fixture .fixture-profile-link{display:flex;align-items:center;justify-content:center;}
+#listView .feed-fixture .fixture-profile-link{display:flex;align-items:center;justify-content:center;width:100%;}
 #listView .feed-fixture.is-compact-row .fixture-competition-link img{height:32px;width:64px;}
 #listView .feed-fixture .provider-action-text-fallback{white-space:normal;overflow:visible;text-overflow:clip;}
 #listView .feed-fixture .event-top-row{display:block;margin:0;}
