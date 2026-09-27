@@ -35,6 +35,19 @@ async function main(){
  journal=newJournal(account,request);
  await advance({journal,inventory:async()=>base,operations:{...operations,reconcile:async()=>({verified:true,remaining:[]})},persist});
  assert.equal(journal.complete,false);assert.deepEqual(journal.pending,['final_reconciliation_incomplete']);
+ const {stopAccountAuthentication}=require('../lib/account-erasure-auth');
+ const now=Date.parse('2026-09-28T00:00:00Z');let writes=0,lost=true;
+ const authUser={id:account,app_metadata:{nothingsport_erasure_started_at:new Date(now-1000).toISOString()}};
+ const authCall=async(url,options={})=>{
+  assert.equal(url,`/auth/v1/admin/users/${account}`);
+  if(options.method==='PUT'){writes++;authUser.banned_until=new Date(now+86400000*365).toISOString();if(lost){lost=false;throw Error('Lost ban acknowledgement');}}
+  return structuredClone(authUser);
+ };
+ await assert.rejects(()=>stopAccountAuthentication({accountId:account,call:authCall,now:()=>now}),/Lost ban/);
+ assert((await stopAccountAuthentication({accountId:account,call:authCall,now:()=>now})).bannedUntil);
+ assert.equal(writes,1,'Resume reconciles existing ban without repeating mutation');
+ await assert.rejects(()=>stopAccountAuthentication({accountId:account,call:async()=>({id:account,app_metadata:{}}),now:()=>now}),/marker/);
+ await assert.rejects(()=>stopAccountAuthentication({accountId:account,call:async()=>({...authUser,banned_until:null}),now:()=>now}),/not confirmed/);
  const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
  const {openJournal}=require('../lib/account-erasure-journal');
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-erasure-journal-'));

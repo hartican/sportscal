@@ -151,9 +151,15 @@ async function main(){
    checks.push('durable_workflow_freeze_lineage_and_resume_verified','workflow_pauses_for_missing_issuer_and_send_evidence');
   }else barrier=await beginErasure();
   assert.equal(await beginErasure(),barrier,'Erasure begin retries safely');
-  const blockedAuth=await auth('/auth/v1/user',{accessToken:owner.token});
+  const workflowBanned=process.env.ERASURE_WORKFLOW_QA==='1';
+  const blockedAuth=workflowBanned?await service(`/auth/v1/admin/users/${owner.id}`):await auth('/auth/v1/user',{accessToken:owner.token});
   assert(blockedAuth.app_metadata?.nothingsport_erasure_started_at,'Fresh protected Auth metadata marks erasure');
-  const stoppedRead=await api(owner,'user-state');assert.equal(stoppedRead.status,403);assert.equal(stoppedRead.body.code,'account_erasure_in_progress');
+  const stoppedRead=await api(owner,'user-state');assert.equal(stoppedRead.status,403);
+  if(workflowBanned){
+   assert(Date.parse(blockedAuth.banned_until)>Date.now());
+   await assert.rejects(()=>auth('/auth/v1/user',{accessToken:owner.token}),e=>[401,403].includes(e.status));
+   checks.push('workflow_ban_rejects_preissued_auth_token');
+  }else assert.equal(stoppedRead.body.code,'account_erasure_in_progress');
   checks.push('fresh_auth_gate_stops_new_application_requests');
   assert.equal(await admitSend(installations[0],owner.id),null,'Erasing recipient cannot acquire send lease');
   assert.equal(await admitSend(installations[1],peer.id,[owner.id]),null,'Erasing actor cannot enter new outbound payload');
@@ -168,9 +174,9 @@ async function main(){
   await assert.rejects(()=>auth(rest('user_state',`user_id=eq.${owner.id}`),{method:'PATCH',accessToken:owner.token,body:{preferences:{showResults:false}}}),blocked);
   await service(rest('nsc_contributions',`user_id=eq.${peer.id}&event_id=eq.${ratingEvent}`),{method:'PATCH',body:{rating:3}});
   checks.push('service_and_direct_authenticated_writes_blocked','unrelated_peer_write_preserved','erasure_begin_idempotent');
-  await auth('/auth/v1/logout?scope=global',{method:'POST',accessToken:owner.token});
+  if(!workflowBanned)await auth('/auth/v1/logout?scope=global',{method:'POST',accessToken:owner.token});
   await assert.rejects(()=>auth('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:owner.refresh}}),e=>[400,401,403].includes(e.status));
-  checks.push('refresh_rejected_after_global_logout');
+  checks.push(workflowBanned?'refresh_rejected_after_workflow_ban':'refresh_rejected_after_global_logout');
   await service(rest('chat_messages',`sender_id=eq.${owner.id}&room_id=eq.${roomId}`),{method:'DELETE'});
   await deleteAccount(owner);
   for(const table of ['nsc_contributions','nsc_rating_history']){
