@@ -109,13 +109,36 @@
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
   const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
   const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
+  const completed=status=>/^(completed|finished|final)$/i.test(status||'');
+  function inningsAdvanced(base,event){
+    if(sportKey(event)!=='cricket'||!Array.isArray(base?.innings)||!Array.isArray(event.innings))return false;
+    return event.innings.some((next,index)=>{
+      const prior=base.innings[index];if(!prior)return false;
+      // A new representation, team label or score string is not evidence of play.
+      if(prior.participantId&&next.participantId&&prior.participantId!==next.participantId)return false;
+      if(!prior.participantId&&!next.participantId&&prior.team!==next.team)return false;
+      const values=['runs','wickets','overs'].filter(key=>prior[key]!=null&&next[key]!=null&&prior[key]!==''&&next[key]!==''&&Number.isFinite(Number(prior[key]))&&Number.isFinite(Number(next[key])));
+      return values.length>0&&values.every(key=>Number(next[key])>=Number(prior[key]))&&values.some(key=>Number(next[key])>Number(prior[key]));
+    });
+  }
   function reconcileObservation(base,event){
     if(event.enrichmentOnly)return;
+    // Snapshot retrieval time cannot reopen a confirmed result. Preserve final
+    // scores and provenance too; otherwise a stale live score could replace them.
+    if(completed(base?.status)&&!completed(event.status)){
+      for(const key of [...SCORE_OBSERVATION_FIELDS,'homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
+        if(base[key]!==undefined)event[key]=base[key];else delete event[key];
+      }
+      event.status=base.status;event.statusCheckedAt=base.statusCheckedAt||observationTime(base);
+      event.scoreCheckedAt=base.scoreCheckedAt||observationTime(base);
+      event.livePlayObservedAt=null;
+      return;
+    }
     // Only a changed score observed from a live source establishes continuing play.
     // A source check timestamp alone cannot extend the ODI display window.
     const nextTime=Date.parse(event.scoreCheckedAt||observationTime(event)||'');
     const priorTime=Date.parse(base?.scoreCheckedAt||observationTime(base)||'');
-    if(base&&/^(live|in_progress|in-progress|ongoing)$/.test(event.status||'')&&hasScore(event)&&hasScore(base)&&Number.isFinite(nextTime)&&Number.isFinite(priorTime)&&nextTime>priorTime&&SCORE_OBSERVATION_FIELDS.some(k=>event[k]!=null&&JSON.stringify(event[k])!==JSON.stringify(base[k])))event.livePlayObservedAt=new Date(nextTime).toISOString();
+    if(base&&/^(live|in_progress|in-progress|ongoing)$/.test(event.status||'')&&Number.isFinite(nextTime)&&Number.isFinite(priorTime)&&nextTime>priorTime&&inningsAdvanced(base,event))event.livePlayObservedAt=new Date(nextTime).toISOString();
     else if(base?.livePlayObservedAt)event.livePlayObservedAt=base.livePlayObservedAt;
     const scoreTime=event.scoreCheckedAt||observationTime(event),statusTime=event.statusCheckedAt||observationTime(event);
     const older=(next,prior)=>Number.isFinite(Date.parse(next))&&Number.isFinite(Date.parse(prior))&&Date.parse(next)<Date.parse(prior);

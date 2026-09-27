@@ -59,6 +59,7 @@ jobs:
           node scripts/validate-follow-policy-parity.js
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-odi-display.js
+          node scripts/validate-match-observations.js
           node scripts/validate-laver-cup.js
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js

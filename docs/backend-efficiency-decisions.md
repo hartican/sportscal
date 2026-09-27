@@ -148,3 +148,5 @@ Regressions: validate-card-coverage-corrections.js, existing Match Centre API/mo
 ## ODI stale-live display - 27 September 2026
 
 After ten hours from actual start (otherwise confirmed scheduled start), an ODI without explicit continuing-play evidence in the last ten minutes displays Awaiting confirmed result. A fetch timestamp alone is not playing evidence. This is presentation only: no inferred completion timestamp, rewards, or stopped polling. Explicit terminal/interrupted states win. Existing source cadence is unchanged. Regression: validate-odi-display.js.
+
+Confirmed completion and its final scores cannot regress to live when a subsequently fetched snapshot contains stale observations, including provider aliases. Continuing-play inference requires comparable numeric innings progression, not changed formatting or newly added score representations. Confirmed final-score corrections remain allowed. Match Centre and Feed share this reconciliation; validate-match-observations.js exercises the public API handler contract.

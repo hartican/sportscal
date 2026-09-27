@@ -16,4 +16,12 @@ assert.equal(stale.status,'live');assert.equal(mc.compact(stale).completedAt,nul
 const unchanged=identity.mergeOverlays([base],[{...base,sourceCheckedAt:at(14).toISOString()}])[0];assert.equal(unchanged.livePlayObservedAt,undefined);
 const changed=identity.mergeOverlays([base],[{...base,innings:[{runs:201}],sourceCheckedAt:at(14).toISOString()}])[0];assert.equal(changed.livePlayObservedAt,at(14).toISOString());assert.equal(odi.awaiting(changed,at(14)),false);
 const done={...base,status:'completed',sourceCheckedAt:at(8).toISOString()};assert.equal(identity.mergeOverlays([done],[base])[0].status,'completed');
+const laterLive={...base,innings:[{runs:201}],livePlayObservedAt:at(14).toISOString(),sourceCheckedAt:at(14).toISOString()};
+const retained=identity.mergeOverlays([done],[laterLive])[0];
+assert.equal(retained.status,'completed');assert.deepEqual(retained.innings,done.innings);assert.equal(retained.scoreCheckedAt,done.sourceCheckedAt);assert.equal(retained.livePlayObservedAt,null);assert.equal(mc.compact(retained).completedAt,null);
+const reformatted=identity.mergeOverlays([base],[{...base,scoreDisplay:'200 runs',innings:[{runs:'200',team:'South Africa Men'}],sourceCheckedAt:at(14).toISOString()}])[0];assert.equal(reformatted.livePlayObservedAt,undefined);assert.equal(odi.awaiting(reformatted,at(14)),true);
+const representationOnly=identity.mergeOverlays([{...base,innings:undefined,scoreDisplay:'200'}],[laterLive])[0];assert.notEqual(representationOnly.livePlayObservedAt,undefined); // Explicit source evidence is retained, not invented.
+const noEvidence={...laterLive};delete noEvidence.livePlayObservedAt;
+assert.equal(identity.mergeOverlays([{...base,innings:undefined,scoreDisplay:'200'}],[noEvidence])[0].livePlayObservedAt,undefined);
+assert.equal(identity.mergeOverlays([done],[{...done,innings:[{runs:202}],sourceCheckedAt:at(15).toISOString()}])[0].innings[0].runs,202,'confirmed final corrections remain possible');
 console.log('ODI display: cutoff, provenance, delays, explicit states, Feed/Match Centre and completed-overlay preservation passed.');

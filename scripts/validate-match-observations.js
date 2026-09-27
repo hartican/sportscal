@@ -19,5 +19,10 @@ for(const status of ['stumps','suspended','completed','cancelled','postponed']){
  const h=createMatchCentreHandler({enabled:()=>true,published:()=>[base],request:async()=>snapshots.map(s=>({checked_at:s.checked_at,fixture:s.fixtures[0]}))});
  await h({url:'/api/match-centre?ids='+base.id},{setHeader(){},status(){return this;},json(d){output=d.fixtures[0];}});
  assert.equal(output.status,'live');assert.equal(output.checkedAt,scoreTime);assert.equal(output.scoreCheckedAt,scoreTime);assert.equal(output.statusCheckedAt,scoreTime);
+ const final={...base,status:'completed',format:'ODI',scoreDisplay:'South Africa won by 67 runs',innings:[{team:'South Africa Men',runs:297,wickets:8,overs:'50.0'},{team:'Australia Men',runs:230,wickets:10,overs:'41.2'}],sourceCheckedAt:'2026-09-27T06:40:38Z'};
+ const staleAlias={...live,id:'fixture:cricket:ca:stale-alias',livePlayObservedAt:'2026-09-27T08:12:04Z'};
+ const completedHandler=createMatchCentreHandler({enabled:()=>true,published:()=>[final],request:async()=>[{checked_at:'2026-09-27T08:12:04Z',fixture:staleAlias}]});
+ await completedHandler({url:'/api/match-centre?ids='+base.id},{setHeader(){},status(){return this;},json(d){output=d.fixtures[0];}});
+ assert.equal(output.status,'completed','later alias snapshots must not reopen a confirmed result');assert.equal(output.livePlayObservedAt,null);assert.equal(output.completedAt,null);assert.deepEqual(output.score.innings.map(i=>i.runs),[297,230]);
  console.log('Match observations: score/status provenance, schedule regression, interruptions, cancellation and unordered sources passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
