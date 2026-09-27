@@ -37,7 +37,7 @@ if(process.argv.includes('--published')){
  assert.equal(expected.size,165);
  for(const folder of ['code-inspector','follow-schedule']){
   const fixtures=require(`../data/${folder}/nbl.json`).fixtures;
-  for(const f of fixtures){assert.deepEqual(f.viewingOptions,expected.get(f.id),`${folder}: preserve fixture evidence`);}
+  for(const f of fixtures){const semantics=options=>options.map(({verifiedAt,...option})=>option);assert.deepEqual(semantics(f.viewingOptions),semantics(expected.get(f.id)),`${folder}: preserve fixture evidence`);assert(f.viewingOptions.every(o=>Number.isFinite(Date.parse(o.verifiedAt))&&Date.parse(o.verifiedAt)<=Date.parse(schedule.generatedAt)),'retained observation is valid and never in the future');}
  }
  assert([...expected.values()].some(o=>o?.some(v=>v.providerId==='nine')));
  assert([...expected.values()].some(o=>!o?.some(v=>v.providerId==='nine')));

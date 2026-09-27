@@ -44238,7 +44238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -44356,7 +44356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -44364,7 +44364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -44374,7 +44374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -44384,11 +44384,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-19T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -44771,7 +44795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -44889,7 +44913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -44897,7 +44921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -44907,7 +44931,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -44917,11 +44941,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-19T11:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_sailgp_2026_geneva_day_1",
@@ -46229,7 +46277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -46348,7 +46396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -46358,7 +46406,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -46368,11 +46416,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-20T05:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640608",
@@ -46754,7 +46826,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -46872,7 +46944,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -46882,7 +46954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -46892,11 +46964,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-20T07:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640609",
@@ -47873,7 +47969,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -47991,7 +48087,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48001,7 +48097,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48011,11 +48107,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-21T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
@@ -48054,7 +48174,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -48173,7 +48293,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48183,7 +48303,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48193,11 +48313,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-22T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -48236,7 +48380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -48354,7 +48498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48364,7 +48508,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48374,11 +48518,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-23T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 1,
+          "won": 0,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -48684,7 +48852,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -48802,7 +48970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48812,7 +48980,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48822,11 +48990,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-24T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 1,
+          "won": 0,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
@@ -48865,7 +49057,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -48983,7 +49175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -48993,7 +49185,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -49003,11 +49195,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-24T11:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 1,
+          "won": 0,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_2",
@@ -49882,7 +50098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -50000,7 +50216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -50010,7 +50226,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -50020,11 +50236,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-25T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 1,
+          "won": 0,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-2",
@@ -52001,7 +52241,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -52120,7 +52360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -52128,7 +52368,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -52138,7 +52378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -52148,11 +52388,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-26T11:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-27",
@@ -52747,7 +53011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -52869,7 +53133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -52879,7 +53143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -52889,11 +53153,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-27T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-1",
@@ -53273,7 +53561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -53391,7 +53679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -53399,7 +53687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -53409,7 +53697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -53419,11 +53707,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-27T08:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 1,
+          "won": 1,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 2,
+          "won": 0,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "rugby-australia-south-africa-2026-09-27",
@@ -53782,7 +54094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Cairns Taipans is published in the official NBL27 schedule for Round 3 on 2026-09-30 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -53893,7 +54205,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -53903,7 +54215,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -53913,11 +54225,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-30T07:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
@@ -53956,7 +54292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Brisbane Bullets is published in the official NBL27 schedule for Round 3 on 2026-09-30 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -54066,7 +54402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -54076,7 +54412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -54086,11 +54422,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-09-30T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-wrc-2026-round-13",
@@ -54364,7 +54724,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Melbourne United is published in the official NBL27 schedule for Round 3 on 2026-10-01 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -54474,7 +54834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -54484,7 +54844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -54494,11 +54854,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-01T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
@@ -54951,7 +55335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Adelaide 36ers is published in the official NBL27 schedule for Round 3 on 2026-10-02 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -55061,7 +55445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55071,7 +55455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55081,11 +55465,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-02T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
@@ -55124,7 +55532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 3 on 2026-10-02 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -55234,7 +55642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55244,7 +55652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55254,11 +55662,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-02T11:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640803",
@@ -55788,7 +56220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is published in the official NBL27 schedule for Round 3 on 2026-10-03 at 17:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -55898,7 +56330,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -55906,7 +56338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55916,7 +56348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -55926,11 +56358,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-03T07:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_bahrain_qualifying",
@@ -56210,7 +56666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is published in the official NBL27 schedule for Round 3 on 2026-10-03 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -56320,7 +56776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -56328,7 +56784,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -56338,7 +56794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -56348,11 +56804,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-03T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_motogp_2026_japan",
@@ -56660,7 +57140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is published in the official NBL27 schedule for Round 3 on 2026-10-04 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -56770,7 +57250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -56780,7 +57260,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -56790,11 +57270,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-04T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640808",
@@ -57118,7 +57622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v New Zealand Breakers is published in the official NBL27 schedule for Round 3 on 2026-10-04 at 17:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -57229,7 +57733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -57239,7 +57743,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -57249,11 +57753,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-04T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640809",
@@ -57724,7 +58252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Melbourne United is published in the official NBL27 schedule for Round 4 on 2026-10-07 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -57834,7 +58362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -57844,7 +58372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -57854,11 +58382,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-07T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37023ff5_58ad_11f1_88e1_6f9744c8d3ab",
@@ -57897,7 +58449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 4 on 2026-10-08 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -58007,7 +58559,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -58017,7 +58569,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -58027,11 +58579,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-08T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "sport": "Cricket",
@@ -58424,7 +59000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers is published in the official NBL27 schedule for Round 4 on 2026-10-09 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -58534,7 +59110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -58544,7 +59120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -58554,11 +59130,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-09T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_singapore_sprint_qualifying",
@@ -59282,7 +59882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Melbourne United is published in the official NBL27 schedule for Round 4 on 2026-10-10 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -59392,7 +59992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -59400,7 +60000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -59410,7 +60010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -59420,11 +60020,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-10T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_singapore_sprint",
@@ -59704,7 +60328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v New Zealand Breakers is published in the official NBL27 schedule for Round 4 on 2026-10-10 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -59815,7 +60439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -59823,7 +60447,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -59833,7 +60457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -59843,11 +60467,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-10T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-128973",
@@ -61400,7 +62048,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Adelaide 36ers is published in the official NBL27 schedule for Round 4 on 2026-10-11 at 15:00 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -61510,7 +62158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -61520,7 +62168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -61530,11 +62178,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-11T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262640909",
@@ -61698,7 +62370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Cairns Taipans is published in the official NBL27 schedule for Round 4 on 2026-10-11 at 17:00 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -61808,7 +62480,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -61818,7 +62490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -61828,11 +62500,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-11T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_33",
@@ -62549,7 +63245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v New Zealand Breakers is published in the official NBL27 schedule for Round 5 on 2026-10-14 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -62660,7 +63356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -62670,7 +63366,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -62680,11 +63376,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-14T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
@@ -62723,7 +63443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 5 on 2026-10-15 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -62833,7 +63553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -62843,7 +63563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -62853,11 +63573,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-15T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "rlwc-australia-new-zealand-2026",
@@ -63136,7 +63880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Adelaide 36ers is published in the official NBL27 schedule for Round 5 on 2026-10-16 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -63246,7 +63990,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -63256,7 +64000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -63266,11 +64010,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-16T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641002",
@@ -63795,7 +64563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Cairns Taipans is published in the official NBL27 schedule for Round 5 on 2026-10-17 at 17:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -63905,7 +64673,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -63913,7 +64681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -63923,7 +64691,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -63933,11 +64701,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-17T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641005",
@@ -64101,7 +64893,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Perth Wildcats is published in the official NBL27 schedule for Round 5 on 2026-10-17 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -64211,7 +65003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -64219,7 +65011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -64229,7 +65021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -64239,11 +65031,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-17T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-128986",
@@ -65235,7 +66051,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v New Zealand Breakers is published in the official NBL27 schedule for Round 5 on 2026-10-18 at 15:00 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -65346,7 +66162,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -65356,7 +66172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -65366,11 +66182,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-18T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641008",
@@ -65534,7 +66374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Illawarra Hawks is published in the official NBL27 schedule for Round 5 on 2026-10-18 at 17:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -65644,7 +66484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -65654,7 +66494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -65664,11 +66504,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-18T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641009",
@@ -66650,7 +67514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Brisbane Bullets is published in the official NBL27 schedule for Round 6 on 2026-10-21 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -66760,7 +67624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -66770,7 +67634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -66780,11 +67644,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-21T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_370e679e_58ad_11f1_acba_8b618b817e22",
@@ -66823,7 +67711,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Sydney Kings is published in the official NBL27 schedule for Round 6 on 2026-10-22 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -66933,7 +67821,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -66943,7 +67831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -66953,11 +67841,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-22T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641101",
@@ -67121,7 +68033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Melbourne United is published in the official NBL27 schedule for Round 6 on 2026-10-23 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -67231,7 +68143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -67241,7 +68153,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -67251,11 +68163,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-23T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_united_states_practice_1",
@@ -68042,7 +68978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Brisbane Bullets is published in the official NBL27 schedule for Round 6 on 2026-10-24 at 17:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -68152,7 +69088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -68160,7 +69096,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -68170,7 +69106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -68180,11 +69116,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-24T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641105",
@@ -68348,7 +69308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Adelaide 36ers is published in the official NBL27 schedule for Round 6 on 2026-10-24 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -68458,7 +69418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -68466,7 +69426,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -68476,7 +69436,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -68486,11 +69446,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-24T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-128994",
@@ -69719,7 +70703,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v New Zealand Breakers is published in the official NBL27 schedule for Round 6 on 2026-10-25 at 15:00 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -69830,7 +70814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -69840,7 +70824,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -69850,11 +70834,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-25T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641108",
@@ -70018,7 +71026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Sydney Kings is published in the official NBL27 schedule for Round 6 on 2026-10-25 at 17:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -70128,7 +71136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -70138,7 +71146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -70148,11 +71156,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-25T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641109",
@@ -71318,7 +72350,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Sydney Kings is published in the official NBL27 schedule for Round 7 on 2026-10-28 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -71428,7 +72460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71438,7 +72470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71448,11 +72480,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-28T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37196322_58ad_11f1_9f91_61e38b2284ba",
@@ -71491,7 +72547,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Cairns Taipans is published in the official NBL27 schedule for Round 7 on 2026-10-29 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -71601,7 +72657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71611,7 +72667,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71621,11 +72677,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-29T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_371d934c_58ad_11f1_8edf_4b570c3bab13",
@@ -71664,7 +72744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Adelaide 36ers is published in the official NBL27 schedule for Round 7 on 2026-10-30 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -71775,7 +72855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71785,7 +72865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -71795,11 +72875,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-30T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641201",
@@ -71912,7 +73016,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Sydney Kings is published in the official NBL27 schedule for Round 7 on 2026-10-30 at 19:30 Sydney time at Silverdome. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -72022,7 +73126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72032,7 +73136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72042,11 +73146,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-30T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_mexico_practice_1",
@@ -72547,7 +73675,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Melbourne United is published in the official NBL27 schedule for Round 7 on 2026-10-31 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -72657,7 +73785,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -72665,7 +73793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72675,7 +73803,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72685,11 +73813,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-31T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "rlwc-australia-cook-islands-2026",
@@ -72798,7 +73950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Illawarra Hawks is published in the official NBL27 schedule for Round 7 on 2026-10-31 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -72908,7 +74060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -72916,7 +74068,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72926,7 +74078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -72936,11 +74088,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-10-31T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129006",
@@ -74168,7 +75344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Tasmania JackJumpers is published in the official NBL27 schedule for Round 7 on 2026-11-01 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -74278,7 +75454,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74288,7 +75464,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74298,11 +75474,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-01T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641208",
@@ -74415,7 +75615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Brisbane Bullets is published in the official NBL27 schedule for Round 7 on 2026-11-01 at 17:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -74525,7 +75725,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74535,7 +75735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74545,11 +75745,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-01T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "event-aflw-cd_m20262641209",
@@ -74849,7 +76073,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v New Zealand Breakers is published in the official NBL27 schedule for Round 7 on 2026-11-02 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -74960,7 +76184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74970,7 +76194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -74980,11 +76204,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-02T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129011",
@@ -75108,7 +76356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Perth Wildcats is published in the official NBL27 schedule for Round 8 on 2026-11-04 at 19:30 Sydney time at Nissan Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -75218,7 +76466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75228,7 +76476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75238,11 +76486,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-04T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "calendar-nothingsport-manual-seed-uci-downhill-mtb-world-cup-2026",
@@ -75320,7 +76592,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Illawarra Hawks is published in the official NBL27 schedule for Round 8 on 2026-11-05 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -75430,7 +76702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75440,7 +76712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75450,11 +76722,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-05T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3723d8e8_58ad_11f1_b04c_17c1a1f1f487",
@@ -75493,7 +76789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v New Zealand Breakers is published in the official NBL27 schedule for Round 8 on 2026-11-06 at 19:30 Sydney time at Silverdome. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -75604,7 +76900,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75614,7 +76910,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -75624,11 +76920,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-06T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_brazil_practice_1",
@@ -75918,7 +77238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Illawarra Hawks is published in the official NBL27 schedule for Round 8 on 2026-11-07 at 17:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -76028,7 +77348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -76036,7 +77356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -76046,7 +77366,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -76056,11 +77376,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-07T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3723d03c_58ad_11f1_9032_15ea51636534",
@@ -76099,7 +77443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Brisbane Bullets is published in the official NBL27 schedule for Round 8 on 2026-11-07 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -76209,7 +77553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -76217,7 +77561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -76227,7 +77571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -76237,11 +77581,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-07T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129019",
@@ -76949,7 +78317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 8 on 2026-11-08 at 15:00 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -77059,7 +78427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -77069,7 +78437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -77079,11 +78447,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-08T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37289ea9_58ad_11f1_9790_bd240d5ec994",
@@ -77122,7 +78514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Cairns Taipans is published in the official NBL27 schedule for Round 8 on 2026-11-08 at 17:00 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -77232,7 +78624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -77242,7 +78634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -77252,11 +78644,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-08T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129014",
@@ -77959,7 +79375,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is published in the official NBL27 schedule for Round 9 on 2026-11-11 at 19:30 Sydney time at State Basketball Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -78069,7 +79485,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78079,7 +79495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78089,11 +79505,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-11T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_375813e7_58ad_11f1_8c9c_2572c13c410b",
@@ -78132,7 +79572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Melbourne United is published in the official NBL27 schedule for Round 9 on 2026-11-12 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -78242,7 +79682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78252,7 +79692,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78262,11 +79702,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-12T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_373d1fa2_58ad_11f1_ac10_0b8a9f33c19f",
@@ -78305,7 +79769,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Tasmania JackJumpers is published in the official NBL27 schedule for Round 9 on 2026-11-12 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -78415,7 +79879,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78425,7 +79889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78435,11 +79899,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-12T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "cricket-australia-england-first-odi-2026",
@@ -78578,7 +80066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Brisbane Bullets is published in the official NBL27 schedule for Round 9 on 2026-11-13 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -78689,7 +80177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78699,7 +80187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78709,11 +80197,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-13T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3746d2f5_58ad_11f1_9032_1138b8cb68ba",
@@ -78752,7 +80264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Sydney Kings is published in the official NBL27 schedule for Round 9 on 2026-11-13 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -78862,7 +80374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78872,7 +80384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -78882,11 +80394,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-13T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_377ccd38_58ad_11f1_9384_d30081aaf8c6",
@@ -78925,7 +80461,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 9 on 2026-11-14 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -79035,7 +80571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -79043,7 +80579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79053,7 +80589,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79063,11 +80599,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-14T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3743885e_58ad_11f1_b2f7_c9ba3efad88d",
@@ -79106,7 +80666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Illawarra Hawks is published in the official NBL27 schedule for Round 9 on 2026-11-14 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -79216,7 +80776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -79224,7 +80784,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79234,7 +80794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79244,11 +80804,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-14T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "cricket-australia-england-second-odi-2026",
@@ -79389,7 +80973,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v New Zealand Breakers is published in the official NBL27 schedule for Round 9 on 2026-11-15 at 15:00 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -79500,7 +81084,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79510,7 +81094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79520,11 +81104,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-15T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37470d73_58ad_11f1_9bf1_130129845108",
@@ -79563,7 +81171,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is published in the official NBL27 schedule for Round 9 on 2026-11-15 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -79673,7 +81281,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79683,7 +81291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -79693,11 +81301,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-15T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "rugby-scotland-australia-2026-11-16",
@@ -79904,7 +81536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 10 on 2026-11-18 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -80015,7 +81647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80025,7 +81657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80035,11 +81667,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-18T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3748b33b_58ad_11f1_9f9a_71e9315f7411",
@@ -80078,7 +81734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Adelaide 36ers is published in the official NBL27 schedule for Round 10 on 2026-11-19 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -80188,7 +81844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80198,7 +81854,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80208,11 +81864,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-19T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_las_vegas_practice_1",
@@ -80417,7 +82097,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Perth Wildcats is published in the official NBL27 schedule for Round 10 on 2026-11-20 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -80527,7 +82207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80537,7 +82217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -80547,11 +82227,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-20T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_sailgp_2026_dubai_day_1",
@@ -80896,7 +82600,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Illawarra Hawks is published in the official NBL27 schedule for Round 10 on 2026-11-21 at 17:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -81006,7 +82710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -81014,7 +82718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -81024,7 +82728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -81034,11 +82738,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-21T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "cricket-australia-england-first-t20-2026",
@@ -81177,7 +82905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v New Zealand Breakers is published in the official NBL27 schedule for Round 10 on 2026-11-21 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -81288,7 +83016,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -81296,7 +83024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -81306,7 +83034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -81316,11 +83044,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-21T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129030",
@@ -82382,7 +84134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Cairns Taipans is published in the official NBL27 schedule for Round 10 on 2026-11-22 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -82492,7 +84244,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -82502,7 +84254,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -82512,11 +84264,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-22T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_374c5a9d_58ad_11f1_8829_1daf76a0ede8",
@@ -82555,7 +84331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Sydney Kings is published in the official NBL27 schedule for Round 10 on 2026-11-22 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -82665,7 +84441,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -82675,7 +84451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -82685,11 +84461,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-11-22T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129028",
@@ -85166,7 +86966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 11 on 2026-12-02 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -85276,7 +87076,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -85286,7 +87086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -85296,11 +87096,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-02T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129043",
@@ -86189,7 +88013,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Perth Wildcats is published in the official NBL27 schedule for Round 11 on 2026-12-03 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -86299,7 +88123,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86309,7 +88133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86319,11 +88143,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-03T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37509e79_58ad_11f1_9e3b_fbbd24deadd3",
@@ -86362,7 +88210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Melbourne United is published in the official NBL27 schedule for Round 11 on 2026-12-04 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -86473,7 +88321,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86483,7 +88331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86493,11 +88341,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-04T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3751fcc5_58ad_11f1_a32f_279e256f2655",
@@ -86536,7 +88408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Sydney Kings is published in the official NBL27 schedule for Round 11 on 2026-12-04 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -86646,7 +88518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86656,7 +88528,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -86666,11 +88538,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-04T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_1",
@@ -86875,7 +88771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 11 on 2026-12-05 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -86985,7 +88881,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -86993,7 +88889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -87003,7 +88899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -87013,11 +88909,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-05T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3747bbe2_58ad_11f1_a09d_892c4438c413",
@@ -87056,7 +88976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Tasmania JackJumpers is published in the official NBL27 schedule for Round 11 on 2026-12-05 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -87166,7 +89086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -87174,7 +89094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -87184,7 +89104,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -87194,11 +89114,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-05T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_3",
@@ -88253,7 +90197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Brisbane Bullets is published in the official NBL27 schedule for Round 11 on 2026-12-06 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -88363,7 +90307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88373,7 +90317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88383,11 +90327,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-06T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3752cf25_58ad_11f1_9654_2942781e7154",
@@ -88426,7 +90394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Perth Wildcats is published in the official NBL27 schedule for Round 11 on 2026-12-06 at 17:00 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -88536,7 +90504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88546,7 +90514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88556,11 +90524,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-06T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_45",
@@ -88789,7 +90781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Adelaide 36ers is published in the official NBL27 schedule for Round 12 on 2026-12-09 at 18:30 Sydney time at TBC. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -88899,7 +90891,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88909,7 +90901,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -88919,11 +90911,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-09T07:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37754382_58ad_11f1_a2bf_754528413e51",
@@ -88962,7 +90978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers is published in the official NBL27 schedule for Round 12 on 2026-12-10 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -89072,7 +91088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89082,7 +91098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89092,11 +91108,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-10T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37788a52_58ad_11f1_b28e_b7b6f460181f",
@@ -89135,7 +91175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Sydney Kings is published in the official NBL27 schedule for Round 12 on 2026-12-11 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -89246,7 +91286,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89256,7 +91296,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89266,11 +91306,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-11T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37510e22_58ad_11f1_b8d1_0361ae94d7e7",
@@ -89309,7 +91373,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 12 on 2026-12-12 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -89419,7 +91483,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -89427,7 +91491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89437,7 +91501,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89447,11 +91511,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-12T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3754cc1a_58ad_11f1_bc46_67e3bf80bedf",
@@ -89490,7 +91578,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Tasmania JackJumpers is published in the official NBL27 schedule for Round 12 on 2026-12-12 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -89600,7 +91688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -89608,7 +91696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89618,7 +91706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89628,11 +91716,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-12T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129063",
@@ -90521,7 +92633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Sydney Kings is published in the official NBL27 schedule for Round 12 on 2026-12-13 at 15:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -90631,7 +92743,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90641,7 +92753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90651,11 +92763,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-13T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37529d1c_58ad_11f1_8656_3fa3ca05d3dc",
@@ -90694,7 +92830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Perth Wildcats is published in the official NBL27 schedule for Round 12 on 2026-12-13 at 17:00 Sydney time at Gippsland Regional Indoor Sports Stadium. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -90804,7 +92940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90814,7 +92950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90824,11 +92960,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-13T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3755d06f_58ad_11f1_9b2c_679c79eacdbc",
@@ -90867,7 +93027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Melbourne United is published in the official NBL27 schedule for Round 13 on 2026-12-16 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -90977,7 +93137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90987,7 +93147,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90997,11 +93157,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-16T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3754e87b_58ad_11f1_bcdd_c1f492925f49",
@@ -91040,7 +93224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Cairns Taipans is published in the official NBL27 schedule for Round 13 on 2026-12-17 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -91150,7 +93334,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91160,7 +93344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91170,11 +93354,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-17T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_375d497d_58ad_11f1_bfc4_7b56785c5eab",
@@ -91213,7 +93421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Tasmania JackJumpers is published in the official NBL27 schedule for Round 13 on 2026-12-18 at 19:30 Sydney time at TBC. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -91324,7 +93532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91334,7 +93542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91344,11 +93552,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-18T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_375a042e_58ad_11f1_a652_5bbfc6dce39b",
@@ -91387,7 +93619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Brisbane Bullets is published in the official NBL27 schedule for Round 13 on 2026-12-19 at 17:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -91497,7 +93729,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -91505,7 +93737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91515,7 +93747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91525,11 +93757,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-19T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_375df79f_58ad_11f1_b396_39b3918ccc00",
@@ -91568,7 +93824,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Sydney Kings is published in the official NBL27 schedule for Round 13 on 2026-12-19 at 20:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -91678,7 +93934,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -91686,7 +93942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91696,7 +93952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91706,11 +93962,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-19T09:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129073",
@@ -92599,7 +94879,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Melbourne United is published in the official NBL27 schedule for Round 13 on 2026-12-20 at 15:00 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -92709,7 +94989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92719,7 +94999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92729,11 +95009,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-20T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3757e2b3_58ad_11f1_801d_e3b03d7fb141",
@@ -92772,7 +95076,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Perth Wildcats is published in the official NBL27 schedule for Round 13 on 2026-12-20 at 17:00 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -92882,7 +95186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92892,7 +95196,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92902,11 +95206,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-20T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37596f75_58ad_11f1_af00_fdfc50d4d18e",
@@ -92945,7 +95273,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Adelaide 36ers is published in the official NBL27 schedule for Round 13 on 2026-12-21 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -93055,7 +95383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93065,7 +95393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93075,11 +95403,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-21T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_375b49f9_58ad_11f1_94c1_5dfcf5a874c7",
@@ -93118,7 +95470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Brisbane Bullets is published in the official NBL27 schedule for Round 13 on 2026-12-22 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -93229,7 +95581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93239,7 +95591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93249,11 +95601,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-22T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3759b81c_58ad_11f1_a957_a93048d70593",
@@ -93292,7 +95668,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is published in the official NBL27 schedule for Round 14 on 2026-12-23 at 20:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -93402,7 +95778,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93412,7 +95788,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93422,11 +95798,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-23T09:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_377fd891_58ad_11f1_a6fa_c1b6941c6419",
@@ -93465,7 +95865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Perth Wildcats is published in the official NBL27 schedule for Round 14 on 2026-12-24 at 19:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -93575,7 +95975,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93585,7 +95985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93595,11 +95995,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-24T08:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3761c65a_58ad_11f1_85ee_9bf90a853321",
@@ -93638,7 +96062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Illawarra Hawks is published in the official NBL27 schedule for Round 14 on 2026-12-25 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -93748,7 +96172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93758,7 +96182,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93768,11 +96192,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-25T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "sport": "Cricket",
@@ -93924,7 +96372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 14 on 2026-12-26 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -94034,7 +96482,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -94042,7 +96490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94052,7 +96500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94062,11 +96510,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-26T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129083",
@@ -94700,7 +97172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v New Zealand Breakers is published in the official NBL27 schedule for Round 14 on 2026-12-27 at 15:00 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -94811,7 +97283,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94821,7 +97293,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94831,11 +97303,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-27T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379201a1_58ad_11f1_a7bf_ede76c1d904d",
@@ -94874,7 +97370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Cairns Taipans is published in the official NBL27 schedule for Round 14 on 2026-12-27 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -94984,7 +97480,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94994,7 +97490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95004,11 +97500,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-27T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129084",
@@ -95302,7 +97822,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Melbourne United is published in the official NBL27 schedule for Round 14 on 2026-12-29 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -95412,7 +97932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95422,7 +97942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95432,11 +97952,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-29T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129098",
@@ -95730,7 +98274,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Adelaide 36ers is published in the official NBL27 schedule for Round 15 on 2026-12-30 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -95840,7 +98384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95850,7 +98394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95860,11 +98404,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-30T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129094",
@@ -96498,7 +99066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 15 on 2026-12-31 at 17:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -96608,7 +99176,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96618,7 +99186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96628,11 +99196,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-31T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3769a2ba_58ad_11f1_ba9d_6f9744c8d3ab",
@@ -96671,7 +99263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v New Zealand Breakers is published in the official NBL27 schedule for Round 15 on 2026-12-31 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -96782,7 +99374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96792,7 +99384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96802,11 +99394,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2026-12-31T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_378eac70_58ad_11f1_89d4_c958368c756f",
@@ -96845,7 +99461,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Perth Wildcats is published in the official NBL27 schedule for Round 15 on 2027-01-01 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -96955,7 +99571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96965,7 +99581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -96975,11 +99591,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-01T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129108",
@@ -97103,7 +99743,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Cairns Taipans is published in the official NBL27 schedule for Round 15 on 2027-01-02 at 17:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -97213,7 +99853,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -97221,7 +99861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97231,7 +99871,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97241,11 +99881,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-02T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_376dd566_58ad_11f1_a40d_e78395b5c13c",
@@ -97284,7 +99948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 15 on 2027-01-02 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -97394,7 +100058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -97402,7 +100066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97412,7 +100076,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97422,11 +100086,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-02T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129106",
@@ -98060,7 +100748,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Perth Wildcats is published in the official NBL27 schedule for Round 15 on 2027-01-03 at 15:00 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -98171,7 +100859,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98181,7 +100869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98191,11 +100879,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-03T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_377c8615_58ad_11f1_9f3b_1fa229f84a5e",
@@ -98234,7 +100946,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Melbourne United is published in the official NBL27 schedule for Round 15 on 2027-01-03 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -98344,7 +101056,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98354,7 +101066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98364,11 +101076,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-03T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129107",
@@ -98690,7 +101426,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Tasmania JackJumpers is published in the official NBL27 schedule for Round 15 on 2027-01-04 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -98800,7 +101536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98810,7 +101546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -98820,11 +101556,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-04T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129113",
@@ -99288,7 +102048,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Tasmania JackJumpers is published in the official NBL27 schedule for Round 16 on 2027-01-06 at 17:30 Sydney time at State Basketball Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -99398,7 +102158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99408,7 +102168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99418,11 +102178,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-06T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_377ea044_58ad_11f1_bd17_43a6b5595d3e",
@@ -99461,7 +102245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Perth Wildcats is published in the official NBL27 schedule for Round 16 on 2027-01-06 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -99571,7 +102355,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99581,7 +102365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99591,11 +102375,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-06T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129115",
@@ -99974,7 +102782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Adelaide 36ers is published in the official NBL27 schedule for Round 16 on 2027-01-07 at 19:30 Sydney time at Red Energy Arena (Bendigo). The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -100084,7 +102892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100094,7 +102902,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100104,11 +102912,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-07T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129120",
@@ -100232,7 +103064,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Illawarra Hawks is published in the official NBL27 schedule for Round 16 on 2027-01-08 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -100343,7 +103175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100353,7 +103185,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100363,11 +103195,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-08T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_377f12e2_58ad_11f1_a03f_e94b8c35b649",
@@ -100406,7 +103262,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Sydney Kings is published in the official NBL27 schedule for Round 16 on 2027-01-08 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -100516,7 +103372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100526,7 +103382,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100536,11 +103392,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-08T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37811115_58ad_11f1_8a48_93b9302663c0",
@@ -100579,7 +103459,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is published in the official NBL27 schedule for Round 16 on 2027-01-09 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -100689,7 +103569,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -100697,7 +103577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100707,7 +103587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100717,11 +103597,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-09T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3784706a_58ad_11f1_962d_09df0c3978fa",
@@ -100760,7 +103664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Perth Wildcats is published in the official NBL27 schedule for Round 16 on 2027-01-09 at 19:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -100870,7 +103774,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -100878,7 +103782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100888,7 +103792,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100898,11 +103802,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-09T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37876f5f_58ad_11f1_b7ed_b5c487635207",
@@ -100941,7 +103869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v New Zealand Breakers is published in the official NBL27 schedule for Round 16 on 2027-01-10 at 15:00 Sydney time at State Basketball Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101052,7 +103980,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101062,7 +103990,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101072,11 +104000,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-10T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3784d7da_58ad_11f1_88d9_53622f199a68",
@@ -101115,7 +104067,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Melbourne United is published in the official NBL27 schedule for Round 16 on 2027-01-10 at 17:00 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101225,7 +104177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101235,7 +104187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101245,11 +104197,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-10T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37a7ea49_58ad_11f1_903e_c9ba3efad88d",
@@ -101288,7 +104264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is published in the official NBL27 schedule for Round 17 on 2027-01-13 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101398,7 +104374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101408,7 +104384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101418,11 +104394,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-13T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_378cef96_58ad_11f1_a398_d95637fbed2b",
@@ -101461,7 +104461,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 17 on 2027-01-14 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101571,7 +104571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101581,7 +104581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101591,11 +104591,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-14T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b32cce_58ad_11f1_8d47_bd240d5ec994",
@@ -101634,7 +104658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v New Zealand Breakers is published in the official NBL27 schedule for Round 17 on 2027-01-15 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101745,7 +104769,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101755,7 +104779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101765,11 +104789,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-15T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37abe4a4_58ad_11f1_9473_fb9d3a8baf78",
@@ -101808,7 +104856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Adelaide 36ers is published in the official NBL27 schedule for Round 17 on 2027-01-16 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -101918,7 +104966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -101926,7 +104974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101936,7 +104984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101946,11 +104994,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-16T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129123",
@@ -102839,7 +105911,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Illawarra Hawks is published in the official NBL27 schedule for Round 17 on 2027-01-17 at 17:00 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -102949,7 +106021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -102959,7 +106031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -102969,11 +106041,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-17T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b09e5c_58ad_11f1_8cc2_3f7e445158a4",
@@ -103012,7 +106108,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Tasmania JackJumpers is published in the official NBL27 schedule for Round 18 on 2027-01-20 at 17:30 Sydney time at Red Energy Arena (Bendigo). The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -103122,7 +106218,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103132,7 +106228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103142,11 +106238,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-20T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3788eca5_58ad_11f1_a7af_754512109772",
@@ -103185,7 +106305,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v New Zealand Breakers is published in the official NBL27 schedule for Round 18 on 2027-01-20 at 19:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -103296,7 +106416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103306,7 +106426,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103316,11 +106436,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-20T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b85f23_58ad_11f1_9eb0_2bbb920071b5",
@@ -103359,7 +106503,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Adelaide 36ers is published in the official NBL27 schedule for Round 18 on 2027-01-21 at 19:30 Sydney time at State Basketball Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -103469,7 +106613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103479,7 +106623,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103489,11 +106633,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-21T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "calendar-nothingsport-manual-seed-big-wave-nazare-2026",
@@ -103589,7 +106757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Cairns Taipans is published in the official NBL27 schedule for Round 18 on 2027-01-22 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -103699,7 +106867,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103709,7 +106877,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103719,11 +106887,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-22T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b72cf1_58ad_11f1_9c01_6775645a7b9a",
@@ -103762,7 +106954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Sydney Kings is published in the official NBL27 schedule for Round 18 on 2027-01-22 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -103872,7 +107064,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103882,7 +107074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103892,11 +107084,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-22T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_378a267b_58ad_11f1_b1d5_67a8251482c3",
@@ -103935,7 +107151,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Illawarra Hawks is published in the official NBL27 schedule for Round 18 on 2027-01-23 at 17:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -104045,7 +107261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -104053,7 +107269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -104063,7 +107279,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -104073,11 +107289,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-23T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3794465d_58ad_11f1_a534_cb26a6dd9fe9",
@@ -104116,7 +107356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Melbourne United is published in the official NBL27 schedule for Round 18 on 2027-01-23 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -104226,7 +107466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -104234,7 +107474,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -104244,7 +107484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -104254,11 +107494,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-23T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129133",
@@ -105147,7 +108411,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Cairns Taipans is published in the official NBL27 schedule for Round 18 on 2027-01-24 at 15:00 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -105258,7 +108522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105268,7 +108532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105278,11 +108542,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-24T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3787b813_58ad_11f1_a901_7da015763581",
@@ -105321,7 +108609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Perth Wildcats is published in the official NBL27 schedule for Round 18 on 2027-01-24 at 17:00 Sydney time at State Basketball Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -105431,7 +108719,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105441,7 +108729,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105451,11 +108739,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-24T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b5f457_58ad_11f1_bb17_2d4587dc1484",
@@ -105494,7 +108806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Brisbane Bullets is published in the official NBL27 schedule for Round 18 on 2027-01-25 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -105604,7 +108916,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105614,7 +108926,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105624,11 +108936,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-25T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37882039_58ad_11f1_b46f_4bbabfa2dd4f",
@@ -105667,7 +109003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -105746,7 +109082,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105756,7 +109092,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105766,11 +109102,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-27T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_378d7045_58ad_11f1_be6f_59142d8bd7d5",
@@ -105809,7 +109169,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -105888,7 +109248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105898,7 +109258,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105908,11 +109268,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-27T07:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37947616_58ad_11f1_a290_8da1c4ae1ac0",
@@ -105951,7 +109335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -106030,7 +109414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106040,7 +109424,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106050,11 +109434,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-28T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37b7122e_58ad_11f1_9780_077ff55f3c82",
@@ -106093,7 +109501,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -106172,7 +109580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106182,7 +109590,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106192,11 +109600,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-28T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379304e6_58ad_11f1_a000_6d6f61141df2",
@@ -106235,7 +109667,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -106315,7 +109747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106325,7 +109757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106335,11 +109767,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-29T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37912f47_58ad_11f1_a905_9b50298fb358",
@@ -106378,7 +109834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -106457,7 +109913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -106465,7 +109921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106475,7 +109931,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106485,11 +109941,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-30T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37927ea9_58ad_11f1_816a_db7d6019155e",
@@ -106528,7 +110008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -106607,7 +110087,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -106615,7 +110095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106625,7 +110105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -106635,11 +110115,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-30T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129143",
@@ -107528,7 +111032,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -107607,7 +111111,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107617,7 +111121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107627,11 +111131,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-31T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37931e61_58ad_11f1_982d_a93048d70593",
@@ -107670,7 +111198,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 19 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -107749,7 +111277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107759,7 +111287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107769,11 +111297,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-01-31T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379682fb_58ad_11f1_bbe4_a9a6cbaba447",
@@ -107812,7 +111364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -107891,7 +111443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107901,7 +111453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107911,11 +111463,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-04T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379afd67_58ad_11f1_bee5_37c9e1eacb09",
@@ -107954,7 +111530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -108034,7 +111610,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108044,7 +111620,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108054,11 +111630,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-04T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3796b045_58ad_11f1_ad75_2572c13c410b",
@@ -108097,7 +111697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -108176,7 +111776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108186,7 +111786,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108196,11 +111796,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-05T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379a322b_58ad_11f1_9321_87e414b8c2d5",
@@ -108239,7 +111863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -108318,7 +111942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108328,7 +111952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108338,11 +111962,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-05T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37bd67c8_58ad_11f1_9904_6d6fb61b331b",
@@ -108381,7 +112029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -108460,7 +112108,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -108468,7 +112116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108478,7 +112126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108488,11 +112136,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-06T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379c3809_58ad_11f1_a3c5_0919017f2391",
@@ -108531,7 +112203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -108610,7 +112282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -108618,7 +112290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108628,7 +112300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108638,11 +112310,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-06T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026",
@@ -109589,7 +113285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -109669,7 +113365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109679,7 +113375,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109689,11 +113385,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-07T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37995628_58ad_11f1_a2d1_491075c94f1a",
@@ -109732,7 +113452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -109811,7 +113531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109821,7 +113541,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109831,11 +113551,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-07T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3797a4ad_58ad_11f1_bd80_679c79eacdbc",
@@ -109874,7 +113618,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -109953,7 +113697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109963,7 +113707,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109973,11 +113717,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-10T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129163",
@@ -110866,7 +114634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -110946,7 +114714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -110956,7 +114724,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -110966,11 +114734,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-11T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_3797f6e3_58ad_11f1_87a8_fbbd24deadd3",
@@ -111009,7 +114801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111088,7 +114880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111098,7 +114890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111108,11 +114900,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-11T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37974b51_58ad_11f1_85a6_d3f8eb4e543c",
@@ -111151,7 +114967,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111230,7 +115046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111240,7 +115056,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111250,11 +115066,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-12T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37be2ab4_58ad_11f1_841c_2942781e7154",
@@ -111293,7 +115133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111372,7 +115212,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111382,7 +115222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111392,11 +115232,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-12T10:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:perth-wildcats",
+          "name": "Perth Wildcats",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379c1ff2_58ad_11f1_b2ec_411a11259918",
@@ -111435,7 +115299,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111514,7 +115378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -111522,7 +115386,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111532,7 +115396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111542,11 +115406,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-13T06:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 3,
+          "won": 0,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_37c1c5ea_58ad_11f1_956b_892c4438c413",
@@ -111585,7 +115473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111664,7 +115552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z"
+        "verifiedAt": "2026-09-27T17:58:33.157Z"
       },
       {
         "providerId": "disney",
@@ -111672,7 +115560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111682,7 +115570,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111692,11 +115580,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-13T08:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:sydney-kings",
+          "name": "Sydney Kings",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:tasmania-jackjumpers",
+          "name": "Tasmania JackJumpers",
+          "played": 2,
+          "won": 1,
+          "lost": 1
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379eac2d_58ad_11f1_90d4_d98e318e0a1e",
@@ -111735,7 +115647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111815,7 +115727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111825,7 +115737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111835,11 +115747,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-14T04:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 3,
+          "won": 2,
+          "lost": 1
+        },
+        {
+          "participantId": "team:nbl:new-zealand-breakers",
+          "name": "New Zealand Breakers",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "evt_nbl_2026_27_379fc3fc_58ad_11f1_9644_736e6b79ac99",
@@ -111878,7 +115814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-09-27T17:31:41.932Z",
+    "sourceCheckedAt": "2026-09-27T17:58:33.157Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -111957,7 +115893,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111967,7 +115903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -111977,11 +115913,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-09-27T17:31:41.932Z",
+        "verifiedAt": "2026-09-27T17:58:33.157Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
-    ]
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-09-27T17:58:33.157Z",
+      "beforeKickoff": "2027-02-14T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:south-east-melbourne-phoenix",
+          "name": "South East Melbourne Phoenix",
+          "played": 3,
+          "won": 1,
+          "lost": 2
+        },
+        {
+          "participantId": "team:nbl:brisbane-bullets",
+          "name": "Brisbane Bullets",
+          "played": 2,
+          "won": 2,
+          "lost": 0
+        }
+      ]
+    },
+    "season": "2026-27"
   },
   {
     "id": "epl-2026-27-129173",

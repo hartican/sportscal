@@ -8,7 +8,7 @@ const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
-const KEYS=['viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
+const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
 function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));

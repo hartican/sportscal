@@ -82,3 +82,7 @@ Recommended next sequence: finish the specific Football timing/viewing/tie-break
 
 
 28 September standings acceptance: all 72 current UCL/Europa club ranks and eight basic statistics agree with the rendered official tables (648 values, zero mismatches), and the live NS projection matches the checked local bytes. No runtime correction was needed. Final-round discipline/coefficient evidence and broader competition certification remain open; see docs/quality/uefa-standings-reconciliation-2026-09-28.md.
+
+## NBL context tranche — 28 September 2026
+
+Implemented 165 regular-season pre-game win/loss contexts using existing official results, with Results privacy, exact competition/season/start/observation validation and shared optional detail rendering. Ten current team records reconcile with official cumulative totals (20 values, no mismatch). No new provider, subscription or scheduler. Deterministic projection/data tests and Feed/Schedule browser checks cover opening, upcoming and completed fixtures. Ladder rank and NBL full-family quality remain pending; the unverified ranking rule is not substituted with guessed percentage ordering. Release proof is retained in the delivery artifact.

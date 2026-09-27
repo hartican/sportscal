@@ -279,6 +279,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(codeId === "sport:wrc" && event.resultSourceUrl ? { resultSourceUrl:event.resultSourceUrl } : {}),
     sourceUrl:event.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
+    ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext} : {}),
     ...(event.footballMatchContext ? {footballMatchContext:event.footballMatchContext} : {}),
     ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
     ...(event.storyline ? { storyline:event.storyline } : {}),

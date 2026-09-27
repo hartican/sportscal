@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-27T17:31:42.211Z",
+  "generatedAt": "2026-09-27T17:58:33.476Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -207,7 +207,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-27T17:31:42.211Z",
+      "freshAt": "2026-09-27T17:58:33.476Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },

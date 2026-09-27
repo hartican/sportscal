@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="332">
+<meta name="app-shell-version" content="333">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=332" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=333" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=332"></script>
+<script src="assets/js/app-shell-runtime.js?v=333"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16950,7 +16950,7 @@ function buildOngoingTournamentParent(ev){
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
   if(kind==='attribution'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
-  loadDeferredScript('assets/js/football-card-context.js?v=332').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
+  loadDeferredScript('assets/js/football-card-context.js?v=333').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
   return node;
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution?.provider==='OpenLigaDB'?buildEuropeanDetail(ev,'attribution'):null;}
@@ -17096,7 +17096,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
   return topRow;
 }
 
-function buildFootballMatchContext(ev){return ev.footballMatchContext?buildEuropeanDetail(ev,'context'):null;}
+function buildFootballMatchContext(ev){return ev.footballMatchContext||ev.teamMatchContext?buildEuropeanDetail(ev,'context'):null;}
 
 function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, displayTitle, localGame}){
   const ticketOffer=preferredTicketOfferForEvent(ev,{surface:'fixture',localVenueMatched:localGame});

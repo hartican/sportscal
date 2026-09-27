@@ -112,6 +112,7 @@ function cardForEvent(event, schedule, participantsById){
     timePrecision:event.timeTbc ? "tbc" : (event.timePrecision || "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",
     ...(Array.isArray(event.viewingOptions) ? {viewingOptions:event.viewingOptions} : {}),
+    ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext,season:event.season} : {}),
     broadcaster:broadcaster.label,
     broadcastOptions:broadcaster.options,
     broadcasterIds:broadcaster.ids,
