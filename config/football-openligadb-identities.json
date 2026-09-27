@@ -1,0 +1,658 @@
+{
+  "schemaVersion": "football-provider-identities.v1",
+  "provider": "OpenLigaDB",
+  "reviewedAt": "2026-09-27",
+  "sourceUrl": "https://beta.openligadb.de/",
+  "licenceUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "OpenLigaDB provider IDs and source names; NS identity mapping distributed under ODbL.",
+  "teams": [
+    {
+      "providerId": "6",
+      "participantId": "team:football:club:bayer-leverkusen",
+      "displayName": "Bayer Leverkusen",
+      "sourceNames": [
+        "Bayer 04 Leverkusen"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "7",
+      "participantId": "team:football:club:borussia-dortmund",
+      "displayName": "Borussia Dortmund",
+      "sourceNames": [
+        "Borussia Dortmund"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "16",
+      "participantId": "team:football:club:vfb-stuttgart",
+      "displayName": "VfB Stuttgart",
+      "sourceNames": [
+        "VfB Stuttgart"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "40",
+      "participantId": "team:football:club:bayern-munich",
+      "displayName": "Bayern Munich",
+      "sourceNames": [
+        "FC Bayern München"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "175",
+      "participantId": "team:football:club:tsg-hoffenheim",
+      "displayName": "TSG Hoffenheim",
+      "sourceNames": [
+        "TSG Hoffenheim"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "356",
+      "participantId": "team:football:club:barcelona",
+      "displayName": "Barcelona",
+      "sourceNames": [
+        "FC Barcelona"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "366",
+      "participantId": "team:football:club:fenerbahce",
+      "displayName": "Fenerbahçe",
+      "sourceNames": [
+        "Fenerbahçe SK"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "369",
+      "participantId": "team:football:club:juventus",
+      "displayName": "Juventus",
+      "sourceNames": [
+        "Juventus Turin"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "370",
+      "participantId": "team:football:epl:10",
+      "displayName": "Liverpool",
+      "sourceNames": [
+        "FC Liverpool"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "375",
+      "participantId": "team:football:club:porto",
+      "displayName": "Porto",
+      "sourceNames": [
+        "FC Porto"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "376",
+      "participantId": "team:football:club:psv-eindhoven",
+      "displayName": "PSV Eindhoven",
+      "sourceNames": [
+        "PSV Eindhoven"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "378",
+      "participantId": "team:football:club:as-roma",
+      "displayName": "AS Roma",
+      "sourceNames": [
+        "AS Rom"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "382",
+      "participantId": "team:football:club:villarreal",
+      "displayName": "Villarreal",
+      "sourceNames": [
+        "Villarreal CF"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "436",
+      "participantId": "team:football:club:olympiacos",
+      "displayName": "Olympiacos",
+      "sourceNames": [
+        "Olympiakos Piräus"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "438",
+      "participantId": "team:football:epl:2",
+      "displayName": "Aston Villa",
+      "sourceNames": [
+        "Aston Villa"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "441",
+      "participantId": "team:football:club:ac-milan",
+      "displayName": "AC Milan",
+      "sourceNames": [
+        "AC Mailand"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "443",
+      "participantId": "team:football:club:n-e-c",
+      "displayName": "N.E.C.",
+      "sourceNames": [
+        "NEC Nijmegen"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "449",
+      "participantId": "team:football:club:lech-poznan",
+      "displayName": "Lech Poznań",
+      "sourceNames": [
+        "Lech Poznan"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "546",
+      "participantId": "team:football:epl:29",
+      "displayName": "Sunderland",
+      "sourceNames": [
+        "Sunderland AFC"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "632",
+      "participantId": "team:football:club:jagiellonia",
+      "displayName": "Jagiellonia Białystok",
+      "sourceNames": [
+        "Jagiellonia Bialystok"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "727",
+      "participantId": "team:football:club:az-alkmaar",
+      "displayName": "AZ Alkmaar",
+      "sourceNames": [
+        "AZ Alkmaar"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "733",
+      "participantId": "team:football:club:internazionale",
+      "displayName": "Internazionale",
+      "sourceNames": [
+        "Inter Mailand"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1133",
+      "participantId": "team:football:club:real-madrid",
+      "displayName": "Real Madrid",
+      "sourceNames": [
+        "Real Madrid"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1186",
+      "participantId": "team:football:club:shakhtar-donetsk",
+      "displayName": "Shakhtar Donetsk",
+      "sourceNames": [
+        "Shakhtar Donetsk"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1201",
+      "participantId": "team:football:club:salzburg",
+      "displayName": "Salzburg",
+      "sourceNames": [
+        "RB Salzburg"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1204",
+      "participantId": "team:football:club:lille",
+      "displayName": "Lille",
+      "sourceNames": [
+        "Lille OSC"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1205",
+      "participantId": "team:football:club:sporting-cp",
+      "displayName": "Sporting CP",
+      "sourceNames": [
+        "Sporting CP"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1206",
+      "participantId": "team:football:club:levski-sofia",
+      "displayName": "Levski Sofia",
+      "sourceNames": [
+        "Levski Sofia"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1208",
+      "participantId": "team:football:club:gnk-dinamo",
+      "displayName": "GNK Dinamo",
+      "sourceNames": [
+        "Dinamo Zagreb"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1210",
+      "participantId": "team:football:club:club-brugge",
+      "displayName": "Club Brugge",
+      "sourceNames": [
+        "FC Brügge"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1216",
+      "participantId": "team:football:club:anderlecht",
+      "displayName": "Anderlecht",
+      "sourceNames": [
+        "RSC Anderlecht"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1217",
+      "participantId": "team:football:club:aek-athens",
+      "displayName": "AEK Athens",
+      "sourceNames": [
+        "AEK Athen"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1275",
+      "participantId": "team:football:club:real-sociedad",
+      "displayName": "Real Sociedad",
+      "sourceNames": [
+        "Real Sociedad"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1472",
+      "participantId": "team:football:club:lillestrom",
+      "displayName": "Lillestrøm",
+      "sourceNames": [
+        "Lillestrøm SK"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1484",
+      "participantId": "team:football:club:viking",
+      "displayName": "Viking",
+      "sourceNames": [
+        "Viking"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1635",
+      "participantId": "team:football:club:rb-leipzig",
+      "displayName": "RB Leipzig",
+      "sourceNames": [
+        "RB Leipzig"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1770",
+      "participantId": "team:football:club:feyenoord",
+      "displayName": "Feyenoord",
+      "sourceNames": [
+        "Feyenoord Rotterdam"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1804",
+      "participantId": "team:football:club:real-betis",
+      "displayName": "Real Betis",
+      "sourceNames": [
+        "Real Betis"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1816",
+      "participantId": "team:football:club:benfica",
+      "displayName": "Benfica",
+      "sourceNames": [
+        "Benfica Lissabon"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "1819",
+      "participantId": "team:football:club:lyon",
+      "displayName": "Lyon",
+      "sourceNames": [
+        "Olympique Lyon"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "1837",
+      "participantId": "team:football:club:besiktas",
+      "displayName": "Beşiktaş",
+      "sourceNames": [
+        "Besiktas Istanbul"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "2175",
+      "participantId": "team:football:club:celta-vigo",
+      "displayName": "Celta Vigo",
+      "sourceNames": [
+        "Celta Vigo"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2281",
+      "participantId": "team:football:club:paris-saint-germain",
+      "displayName": "Paris Saint-Germain",
+      "sourceNames": [
+        "Paris St. Germain"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2331",
+      "participantId": "team:football:club:napoli",
+      "displayName": "Napoli",
+      "sourceNames": [
+        "SSC Napoli"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2489",
+      "participantId": "team:football:epl:6",
+      "displayName": "Crystal Palace",
+      "sourceNames": [
+        "Crystal Palace FC"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2491",
+      "participantId": "team:football:club:sturm-graz",
+      "displayName": "Sturm Graz",
+      "sourceNames": [
+        "Sturm Graz"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "2554",
+      "participantId": "team:football:club:galatasaray",
+      "displayName": "Galatasaray",
+      "sourceNames": [
+        "Galatasaray Istanbul"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "2556",
+      "participantId": "team:football:epl:12",
+      "displayName": "Manchester United",
+      "sourceNames": [
+        "Manchester United FC"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2557",
+      "participantId": "team:football:club:marseille",
+      "displayName": "Marseille",
+      "sourceNames": [
+        "Olympique Marseille"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2617",
+      "participantId": "team:football:epl:1",
+      "displayName": "Arsenal",
+      "sourceNames": [
+        "FC Arsenal"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2804",
+      "participantId": "team:football:club:celtic",
+      "displayName": "Celtic",
+      "sourceNames": [
+        "Celtic Glasgow"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "2942",
+      "participantId": "team:football:epl:127",
+      "displayName": "AFC Bournemouth",
+      "sourceNames": [
+        "AFC Bournemouth"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "4199",
+      "participantId": "team:football:club:sparta-praha",
+      "displayName": "Sparta Praha",
+      "sourceNames": [
+        "Sparta Prag"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "4241",
+      "participantId": "team:football:club:atletico-madrid",
+      "displayName": "Atlético Madrid",
+      "sourceNames": [
+        "Atletico Madrid"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "4244",
+      "participantId": "team:football:epl:11",
+      "displayName": "Manchester City",
+      "sourceNames": [
+        "Manchester City"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "4462",
+      "participantId": "team:football:club:hapoel-beer-sheva",
+      "displayName": "Hapoel Beer-Sheva",
+      "sourceNames": [
+        "Hapoel Beer Scheva"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "4468",
+      "participantId": "team:football:club:viktoria-plzen",
+      "displayName": "Viktoria Plzeň",
+      "sourceNames": [
+        "Viktoria Pilsen"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "4578",
+      "participantId": "team:football:club:slavia-praha",
+      "displayName": "Slavia Praha",
+      "sourceNames": [
+        "Slavia Prag"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "4639",
+      "participantId": "team:football:club:stade-rennais",
+      "displayName": "Stade Rennais",
+      "sourceNames": [
+        "Stade Rennes"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "4825",
+      "participantId": "team:football:club:union-saint-gilloise",
+      "displayName": "Union Saint-Gilloise",
+      "sourceNames": [
+        "Union Saint-Gilloise"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "5139",
+      "participantId": "team:football:club:lask",
+      "displayName": "LASK",
+      "sourceNames": [
+        "LASK"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "5250",
+      "participantId": "team:football:club:ferencvaros",
+      "displayName": "Ferencváros",
+      "sourceNames": [
+        "Ferencváros Budapest"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "5699",
+      "participantId": "team:football:club:slovan-bratislava",
+      "displayName": "Slovan Bratislava",
+      "sourceNames": [
+        "Slovan Bratislava"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "5705",
+      "participantId": "team:football:club:omonia",
+      "displayName": "Omonia",
+      "sourceNames": [
+        "Omonia Nikosia"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "5707",
+      "participantId": "team:football:club:bod-glimt",
+      "displayName": "Bodø/Glimt",
+      "sourceNames": [
+        "FK Bodö/Glimt"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "5962",
+      "participantId": "team:football:club:lens",
+      "displayName": "Lens",
+      "sourceNames": [
+        "RC Lens"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "8787",
+      "participantId": "team:football:club:como",
+      "displayName": "Como",
+      "sourceNames": [
+        "Como 1907"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "8798",
+      "participantId": "team:football:club:sabah",
+      "displayName": "Sabah",
+      "sourceNames": [
+        "Sabah"
+      ],
+      "preservesExistingId": true
+    },
+    {
+      "providerId": "8811",
+      "participantId": "team:football:club:ofi-crete",
+      "displayName": "OFI Crete",
+      "sourceNames": [
+        "OFI Kreta"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "8876",
+      "participantId": "team:football:club:ararat-armenia",
+      "displayName": "Ararat-Armenia",
+      "sourceNames": [
+        "FC Ararat-Armenia"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "8877",
+      "participantId": "team:football:club:torreense",
+      "displayName": "Torreense",
+      "sourceNames": [
+        "SC União Torreense"
+      ],
+      "preservesExistingId": false
+    },
+    {
+      "providerId": "8885",
+      "participantId": "team:football:club:celje",
+      "displayName": "Celje",
+      "sourceNames": [
+        "NK Celje"
+      ],
+      "preservesExistingId": true
+    }
+  ]
+}

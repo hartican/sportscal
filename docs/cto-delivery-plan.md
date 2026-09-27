@@ -24,6 +24,6 @@ No item becomes complete from a passing narrow validator alone. A release requir
 
 Retain the audit's moonshots as evidence-gated experiments: these are not permission for a rewrite or a subscription. Most-sports quality remains the destination beyond the initial Football pilot. Do not shrink the carried-sport denominator to obtain a passing score. The 90-day repeat-use observation cannot be manufactured by code changes.
 
-## Latest concrete source limitation
+## Source progress and remaining boundary
 
-UEFA publishes current Champions League and Europa league-phase fixture lists. Its [terms section 6.2](https://www.uefa.com/termsconditions/) inspected 27 September restrict reuse to personal viewing and prohibit systematic collection and automated scraping. These pages do not supply a redistribution permission for NS. No automated UEFA scraper has been added. Continue permitted-source feasibility and other repairs; a subscription is still on hold.
+UEFA publishes current Champions League and Europa league-phase fixture lists. Its [terms section 6.2](https://www.uefa.com/termsconditions/) inspected 27 September restrict reuse to personal viewing and prohibit systematic collection and automated scraping. These pages do not supply a redistribution permission for NS. No automated UEFA scraper has been added. OpenLigaDB now supplies a no-cost ODbL candidate: strict league-phase parsing and 72-club identity mapping pass tests and live-response validation. Production integration, attribution and quality proof remain pending; see `docs/quality/football-source-feasibility.md`. A subscription is still on hold.

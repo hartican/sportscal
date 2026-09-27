@@ -12,4 +12,18 @@ Current Champions League projection contains 13 records including old qualificat
 
 ## Recommended next action
 
-Find a documented no-cost provider tier permitting NS's intended fixture display and covering both competitions. Verify current-season completeness, stable match/team IDs, timezone semantics, update limits, attribution and rights before integration. If no permitted no-cost source meets those conditions, keep the gap explicit and continue source-independent improvements. Preserve existing aliases and saved actions when a source is selected. Do not invent clubs, opponents, results or precise start times to fill the gap.
+Proceed with a bounded OpenLigaDB adapter trial, keeping it outside the live Feed until attribution, refresh recovery and source-to-screen checks pass. Preserve existing aliases and saved actions. Do not invent clubs, opponents, results or precise start times to fill gaps.
+
+## No-cost candidate: OpenLigaDB
+
+The [official service](https://beta.openligadb.de/) exposes unauthenticated community-maintained data under [ODbL](https://opendatacommons.org/licenses/odbl/1-0/). Live API responses checked at 11:18 UTC on 27 September contain 144 unique fixtures, 36 clubs and eight matchdays for each of `ucl/2026` and `uel2026/2026`. Each club has eight different opponents, four at home. Three completed results per competition agree with the organiser reference above; this is a sample, not full independent reconciliation.
+
+`normalizeLeague` in `scripts/lib/openligadb-football.js` validates that scope, explicit UTC timestamps, club consistency, full-time result selection and contradictory states before producing provider facts. Elapsed time alone becomes unknown, never an invented live/final result. Source logos and unsupported enrichment are excluded. The reviewed identity map retains 46 existing NS IDs and explicitly maps all 72 clubs; unknown provider/name changes fail closed. Regression: `node scripts/validate-openligadb-football.js`.
+
+This is implemented parsing and identity preparation, **not production coverage**. Research responses and normalized candidates live under the dated delivery-report directory outside the served repository. No refresh scheduler or production source registration has been added yet.
+
+## Publication boundary and remaining gates
+
+ODbL permits commercial use subject to its conditions. Publish the independently retrievable provider-fact dataset and machine-readable transformations with attribution and licence links; show attribution on derived cards. Preserve the separation from private preferences and editorial. A folder name alone does not establish a legal exemption for combined derived data. Do not reuse source logos merely because the fixture database is open.
+
+Remaining: canonical refresh registration with last-good recovery, public attribution/download boundary, full fixture reconciliation, Australian viewing evidence, Feed and Schedule consent/spoiler/timezone checks, real responsive rendering, and workload measurement. Provider request limits and uptime guarantees are unverified, so do not add high-frequency live polling. No subscription, signup or purchase is needed for this trial.
