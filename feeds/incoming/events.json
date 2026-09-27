@@ -31516,7 +31516,9 @@
         "sourceUrl": "https://sailgp.com/general/2026/calendar/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-06T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_china_czechia",
@@ -31678,7 +31680,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-06T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128946",
@@ -32920,7 +32924,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-06T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_usa",
@@ -33082,7 +33088,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-06T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -33244,7 +33252,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -33406,7 +33416,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -33568,7 +33580,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -33730,7 +33744,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-us-open-2026-official-wd-4301",
@@ -34130,7 +34146,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T18:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_japan_spain",
@@ -34292,7 +34310,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T18:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_china",
@@ -34454,7 +34474,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -34616,7 +34638,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-07T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-us-open-2026-official-ms-1503",
@@ -35211,7 +35235,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-08T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-us-open-2026-official-ms-1504",
@@ -35940,7 +35966,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-09T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_quarterfinals",
@@ -36065,7 +36093,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-10T19:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -36223,7 +36253,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-10T12:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -36381,7 +36413,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-11T10:40:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -37173,7 +37207,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-12T05:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640501",
@@ -38119,7 +38155,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-12T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "sport": "NRL",
@@ -38592,9 +38630,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Sharks v Cowboys — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-1",
@@ -39647,7 +39685,9 @@
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
         "sourceCheckedAt": "2026-09-27T06:42:21.001Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_semifinals",
@@ -39772,7 +39812,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-12T22:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128962",
@@ -40231,7 +40273,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-13T05:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640505",
@@ -40691,7 +40735,9 @@
         "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-13T06:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640507",
@@ -41086,9 +41132,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Panthers v Roosters — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-1",
@@ -41365,9 +41411,9 @@
       "narrativeType": "all",
       "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
       "fullSpiel": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
+      "sourceName": "MotoGP",
+      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -41490,7 +41536,12 @@
         "sourceUrl": "https://www.motogp.com/en/calendar/2026",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "sourceRefs": [
+        "https://www.motogp.com/en/calendar/2026",
+        "https://stats.motogp.com/en/gp-results",
+        "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181"
+      ]
     },
     {
       "id": "epl-2026-27-128956",
@@ -41770,7 +41821,9 @@
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
         "sourceCheckedAt": "2026-09-27T06:42:21.001Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-13T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_bronze",
@@ -41895,7 +41948,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-13T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128960",
@@ -42171,7 +42226,9 @@
         "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-13T21:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128958",
@@ -42682,12 +42739,13 @@
         "sourceType": "official",
         "checkedAt": "2026-09-27T06:41:04.568Z"
       },
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sport": "AFL",
-      "sourceName": "Sydney Swans v Fremantle — official research 1",
-      "sourceUrl": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "sourceType": "official",
       "sourceRefs": [
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
         "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
       ],
@@ -43704,12 +43762,13 @@
         "sourceType": "official",
         "checkedAt": "2026-09-27T06:41:04.568Z"
       },
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sport": "AFL",
-      "sourceName": "Hawthorn v Brisbane Lions — official research 1",
-      "sourceUrl": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "sourceType": "official",
       "sourceRefs": [
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
         "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
       ],
@@ -44017,7 +44076,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-19T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -44135,10 +44196,10 @@
       "highlightEligible": false,
       "briefingEligible": false,
       "catchupEligible": false,
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "sport": "NRL",
-      "sourceName": "Sydney Roosters v Cronulla-Sutherland Sharks — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+      "sourceName": "NRL official match report",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/19/sudden-death-saturday-roosters-v-sharks/",
       "sourceType": "official",
       "sourceRefs": [
         "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
@@ -44515,7 +44576,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-19T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_sailgp_2026_geneva_day_1",
@@ -44550,9 +44613,9 @@
       "narrativeType": "all",
       "selectedSentence": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
       "fullSpiel": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
-      "sourceName": "Geneva Sail Grand Prix - race day 1 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceName": "SailGP official team report",
+      "sourceUrl": "https://mediahub.sailgp.com/teams/rockwool-denmark/",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -44673,7 +44736,13 @@
         "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
         "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-19T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "sourceRefs": [
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+        "https://mediahub.sailgp.com/teams/rockwool-denmark/"
+      ]
     },
     {
       "id": "epl-2026-27-128965",
@@ -45158,9 +45227,9 @@
       "narrativeType": "all",
       "selectedSentence": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
       "fullSpiel": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
-      "sourceName": "MotoGP Austrian Grand Prix — official research 1",
-      "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceName": "MotoGP official race classification",
+      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -45287,7 +45356,11 @@
         "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
         "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "sourceRefs": [
+        "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
+        "https://stats.motogp.com/en/gp-results"
+      ]
     },
     {
       "id": "epl-2026-27-128971",
@@ -45474,7 +45547,7 @@
       ],
       "selectedSentence": "Richmond and GWS produced a sharply contrasting afternoon of finishing in their Round 6 AFLW meeting.",
       "fullSpiel": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
-      "sourceName": "AFLW match report",
+      "sourceName": "AFLW",
       "sourceUrl": "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sourceType": "official",
@@ -45910,7 +45983,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-20T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640608",
@@ -46184,8 +46259,8 @@
       "catchupEligible": false,
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sport": "NRL",
-      "sourceName": "New Zealand Warriors v Newcastle Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
       "sourceType": "official",
       "sourceRefs": [
         "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
@@ -46413,7 +46488,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-20T10:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640609",
@@ -47047,9 +47124,9 @@
       "narrativeType": "all",
       "selectedSentence": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
       "fullSpiel": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
-      "sourceName": "Geneva Sail Grand Prix - race day 2 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "sourceName": "SailGP official team race report",
+      "sourceUrl": "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -47170,7 +47247,13 @@
         "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
         "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-20T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "sourceRefs": [
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+        "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report"
+      ]
     },
     {
       "id": "epl-2026-27-128967",
@@ -47480,7 +47563,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-21T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
@@ -47641,7 +47726,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-22T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -47801,7 +47888,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-23T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -48227,7 +48316,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-24T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
@@ -48387,7 +48478,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-24T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_azerbaijan_practice_2",
@@ -49381,7 +49474,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-25T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-2",
@@ -49434,11 +49529,7 @@
         "hookSpoilerOff": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
         "synopsisSpoilerOff": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
         "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
-        "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-27T06:46:37.622Z",
-        "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage."
       },
       "codeId": "sport:nrl",
       "surfaceClassification": "code",
@@ -49506,7 +49597,7 @@
       "weekAnchorDate": null,
       "displayDateLabel": null,
       "displayName": "Dolphins v Roosters",
-      "sourceName": "Dolphins v Roosters — official research 1",
+      "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
       "sourceType": "official",
       "sport": "NRL",
@@ -49518,6 +49609,7 @@
       "localTimezone": "Australia/Brisbane",
       "scheduleStatus": "confirmed",
       "sourceRefs": [
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
         "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
         "https://www.nrl.com/tickets/"
       ],
@@ -49589,11 +49681,7 @@
         "hookSpoilerOff": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
         "synopsisSpoilerOff": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
         "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
-        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
-        "expectedSpectacle": 8,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-27T06:35:07.891Z"
+        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench."
       },
       "name": "Socceroos v Brazil",
       "displayTitleCompact": "Socceroos v Brazil",
@@ -49689,12 +49777,12 @@
           "verifiedAt": "2026-09-23T23:00:53.638Z"
         }
       ],
-      "sourceName": "Socceroos v Brazil — Townsville — official research 1",
+      "sourceName": "Socceroos / Football Australia",
       "sourceUrl": "https://socceroos.com.au/match/australia-v-brazil-friendlies-25-09-2026/22278825",
       "sourceType": "official",
       "sourceTrust": "verified",
       "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
-      "lastReviewedAt": "2026-09-27T06:35:07.891Z",
+      "lastReviewedAt": "2026-09-23T23:00:53.638Z",
       "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
       "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
       "replayEligible": true,
@@ -50392,7 +50480,9 @@
         "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
         "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-25T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-afl-cd_m20260142901",
@@ -50429,11 +50519,11 @@
       ],
       "selectedSentence": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
       "fullSpiel": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T06:53:44.966Z",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "sourceType": "official",
-      "lastReviewedAt": "2026-09-27T06:53:44.966Z",
+      "lastReviewedAt": "2026-09-21T12:34:24.741Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": false,
@@ -50464,52 +50554,43 @@
       "representativeCountryCodes": [],
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-afl-cd-m20260142901",
+        "projectionId": "projection:afl:grand-final-2026",
         "researchTier": "marquee",
         "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
         "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-        "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
-        "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+        "sourceIds": [
+          "source:afl:gf2026:0",
+          "source:afl:gf2026:1",
+          "source:afl:gf2026:2"
+        ],
         "threadIds": [
-          "thread:depth:afl:finals"
+          "thread:afl:gf2026:first-flag-or-threepeat"
         ],
         "factIds": [
-          "fact:depth:afl:event-afl-cd-m20260142901:1",
-          "fact:depth:afl:event-afl-cd-m20260142901:2",
-          "fact:depth:afl:event-afl-cd-m20260142901:3",
-          "fact:depth:afl:event-afl-cd-m20260142901:4"
-        ],
-        "sourceIds": [
-          "source:depth:afl:ladder",
-          "source:depth:afl:finals-fixture",
-          "source:depth:afl:final-ten-rules",
-          "source:depth:afl:match:event-afl-cd-m20260142901"
+          "fact:afl:gf2026:0",
+          "fact:afl:gf2026:1",
+          "fact:afl:gf2026:2",
+          "fact:afl:gf2026:3"
         ],
         "dimensions": [
-          "history",
-          "path",
+          "matchup",
           "consequence",
           "venue"
         ],
-        "researchedAt": "2026-09-27T06:53:44.966Z",
-        "refreshAfter": null,
-        "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "recap",
-        "resultSignature": "[\"completed\",\"Brisbane Lions defeated Fremantle 96-89.\",\"Fremantle v Brisbane Lions — 89-96\",\"Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points.\"]"
+        "researchedAt": "2026-09-21T12:34:24.741Z",
+        "refreshAfter": "2026-09-26T04:30:00.000Z",
+        "generationMode": "researched"
       },
       "storyline": {
         "stakes": 5,
         "intensity": 5,
         "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+        "hookSpoilerOff": "Fremantle v Brisbane Lions is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
-        "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-        "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
-        "lastReviewedAt": "2026-09-27T06:53:44.966Z",
-        "researchDepth": 5,
-        "intensitySource": "computed"
+        "synopsisSpoilerOff": "Fremantle v Brisbane Lions is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points.",
+        "lastReviewedAt": "2026-09-21T12:20:05.571Z"
       },
       "competitionPhase": "grand-final",
       "isFinalRegularSeasonRound": false,
@@ -50596,6 +50677,7 @@
         "checkedAt": "2026-09-27T06:41:04.568Z"
       },
       "sourceRefs": [
+        "https://www.afl.com.au/ladder",
         "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
       ],
       "publicStageLabel": "AFL Grand Final",
@@ -50633,18 +50715,17 @@
       "scoreCheckedAt": "2026-09-22T01:40:00.000Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "AFL 2026 — the first Final Ten",
+        "angle": "Fremantle v Brisbane: the premiership decider",
+        "sourceName": "AFL",
+        "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+        "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+        "needsPreviewRefresh": false,
         "contextSignals": [
           "event-specific",
           "narrative:history",
-          "narrative:path",
-          "narrative:consequence",
-          "narrative:venue"
-        ],
-        "sourceName": "AFL 2026 final home-and-away ladder",
-        "sourceUrl": "https://www.afl.com.au/ladder",
-        "sourceCheckedAt": "2026-09-27T06:53:44.966Z",
-        "needsPreviewRefresh": false
+          "narrative:matchup",
+          "narrative:consequence"
+        ]
       }
     },
     {
@@ -51313,7 +51394,9 @@
         "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
         "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-26T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36f4ac8b_58ad_11f1_bf00_2942781e7154",
@@ -51474,7 +51557,9 @@
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
         "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
         "needsPreviewRefresh": false
-      }
+      },
+      "endTimeUtc": "2026-09-26T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-27",
@@ -51904,7 +51989,7 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "regular-season-fixture",
-      "status": "upcoming",
+      "status": "completed",
       "participants": [
         {
           "id": "team:aflw:cd_t9408",
@@ -51919,9 +52004,9 @@
       ],
       "selectedSentence": "Sydney Swans enter 5th and Brisbane Lions 13th; a late-season contest carrying finals-position pressure.",
       "fullSpiel": "Sydney Swans are 5th with 20 points, while Brisbane Lions are 13th with 8. That makes this more than a date in Round 7: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-09-27T05:28:00.000Z",
+      "sourceName": "AFLW",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8940",
+      "sourceCheckedAt": "2026-09-27T09:31:38Z",
       "sourceType": "official",
       "lastReviewedAt": "2026-09-27T06:38:44.995Z",
       "replayEligible": true,
@@ -52000,14 +52085,23 @@
       },
       "storyline": {
         "researchDepth": 2,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Sydney Swans enter 5th and Brisbane Lions 13th; a late-season contest carrying finals-position pressure.",
-        "hookSpoilerOn": "Sydney Swans enter 5th and Brisbane Lions 13th; a late-season contest carrying finals-position pressure.",
-        "synopsisSpoilerOff": "Sydney Swans are 5th with 20 points, while Brisbane Lions are 13th with 8. That makes this more than a date in Round 7: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-        "synopsisSpoilerOn": "Sydney Swans are 5th with 20 points, while Brisbane Lions are 13th with 8. That makes this more than a date in Round 7: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Sydney Swans v Brisbane Lions is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Sydney Swans defeated Brisbane Lions by 14 points.",
+        "synopsisSpoilerOff": "Sydney Swans v Brisbane Lions is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Sydney Swans won 5.7 (37) to Brisbane Lions 3.5 (23) at Henson Park.",
         "lastReviewedAt": "2026-09-27T06:38:44.995Z",
         "stakes": 1
-      }
+      },
+      "score": "Sydney Swans 5.7 (37) - Brisbane Lions 3.5 (23)",
+      "outcomeText": "Sydney Swans defeated Brisbane Lions by 14 points.",
+      "recapText": "Sydney Swans won 5.7 (37) to Brisbane Lions 3.5 (23) at Henson Park.",
+      "sourceRefs": [
+        "https://www.afl.com.au/aflw/ladder",
+        "https://www.afl.com.au/aflw/matches/8940"
+      ],
+      "endTimeUtc": "2026-09-27T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36f8857c_58ad_11f1_9db7_b15d4ea6aed8",
@@ -52046,10 +52140,10 @@
       "fullSpiel": "Adelaide 36ers v Cairns Taipans is published in the official NBL27 schedule for Round 2 on 2026-09-27 at 16:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-09-27T06:42:33.144Z",
+      "sourceCheckedAt": "2026-09-27T09:34:33.840Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:nbl",
       "competitionId": "competition:nbl",
@@ -52096,12 +52190,12 @@
         "stakes": 3,
         "intensity": 3,
         "intensitySource": "manual",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Adelaide 36ers v Cairns Taipans is set for Round 2 on 2026-09-27, one game in the official 165-match NBL27 regular season.",
-        "hookSpoilerOn": "Adelaide 36ers v Cairns Taipans is set for Round 2 on 2026-09-27, one game in the official 165-match NBL27 regular season.",
-        "synopsisSpoilerOff": "Adelaide 36ers v Cairns Taipans is published in the official NBL27 schedule for Round 2 on 2026-09-27 at 16:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-        "synopsisSpoilerOn": "Adelaide 36ers v Cairns Taipans is published in the official NBL27 schedule for Round 2 on 2026-09-27 at 16:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+        "hookSpoilerOff": "Adelaide 36ers v Cairns Taipans is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Adelaide 36ers 83, Cairns Taipans 69",
+        "synopsisSpoilerOff": "Adelaide 36ers v Cairns Taipans is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-09-27T06:43:30.462Z",
         "researchDepth": 2
       },
@@ -52147,7 +52241,15 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "score": "83-69",
+      "outcomeText": "Adelaide 36ers 83, Cairns Taipans 69",
+      "recapText": "Official NBL result.",
+      "endTimeUtc": "2026-09-27T09:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "sourceRefs": [
+        "https://schedule.nbl.com.au/nbl"
+      ]
     },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-1",
@@ -52191,11 +52293,11 @@
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-        "hookSpoilerOn": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
-        "synopsisSpoilerOff": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-        "synopsisSpoilerOn": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
-        "arcStage": "preview",
+        "hookSpoilerOff": "Panthers v Knights is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Knights defeated Panthers 22-14.",
+        "synopsisSpoilerOff": "Panthers v Knights is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.",
+        "arcStage": "recap",
         "intensity": 5,
         "expectedSpectacle": 1,
         "intensitySource": "computed",
@@ -52209,7 +52311,7 @@
       "competitionId": "competition:nrl-premiership-2026",
       "eventId": "major-match-nrl-finals-2026-preliminary-final-1",
       "canonicalEventId": "major-match:nrl-finals-2026:preliminary-final-1",
-      "status": "upcoming",
+      "status": "completed",
       "timePrecision": "exact",
       "schedulingWindow": {
         "startsOn": "2026-09-12",
@@ -52278,13 +52380,13 @@
       "highlightEligible": false,
       "briefingEligible": false,
       "catchupEligible": false,
-      "sourceCheckedAt": "2026-09-22T08:30:00.000Z",
+      "sourceCheckedAt": "2026-09-27T09:31:38Z",
       "schedulePrecision": "exact",
       "weekAnchorDate": null,
       "displayDateLabel": null,
       "displayName": "Panthers v Knights",
-      "sourceName": "Panthers v Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
       "sourceType": "official",
       "sport": "NRL",
       "venueCountryCode": "AU",
@@ -52296,6 +52398,7 @@
       "scheduleStatus": "confirmed",
       "sourceRefs": [
         "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
         "https://www.nrl.com/tickets/"
       ],
       "resultEditorialBranches": {
@@ -52321,7 +52424,12 @@
           "revealed": "Panthers and Knights finished level in Preliminary Final."
         }
       },
-      "statusCheckedAt": "2026-09-22T08:30:00.000Z"
+      "statusCheckedAt": "2026-09-22T08:30:00.000Z",
+      "score": "Panthers 14-22 Knights",
+      "outcomeText": "Knights defeated Panthers 22-14.",
+      "recapText": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.",
+      "endTimeUtc": "2026-09-27T09:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640709",
@@ -52706,7 +52814,7 @@
       "id": "football-australia-brazil-2026-09-29",
       "eventId": "football-australia-brazil-2026-09-29",
       "canonicalEventId": "football-australia-brazil-2026-09-29",
-      "status": "upcoming",
+      "status": "scheduled",
       "cardKind": "fixture",
       "liveWindow": 2.5,
       "expected": 8,
@@ -52718,11 +52826,7 @@
         "hookSpoilerOff": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
         "hookSpoilerOn": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
         "synopsisSpoilerOff": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
-        "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
-        "expectedSpectacle": 8,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-25T03:32:39.426090Z"
+        "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone."
       },
       "name": "Socceroos v Brazil",
       "displayTitleCompact": "Socceroos v Brazil",
@@ -52805,12 +52909,12 @@
           "verifiedAt": "2026-09-23T23:00:53.638Z"
         }
       ],
-      "sourceName": "Socceroos v Brazil — Brisbane — official research 1",
+      "sourceName": "Football Australia / Socceroos",
       "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "sourceCheckedAt": "2026-09-25T03:32:39.426090Z",
-      "lastReviewedAt": "2026-09-25T03:32:39.426090Z",
+      "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+      "lastReviewedAt": "2026-09-23T23:00:53.638Z",
       "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
       "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
       "replayEligible": true,
@@ -59495,7 +59599,7 @@
       "id": "supercars-bathurst-1000-2026",
       "eventId": "supercars-bathurst-1000-2026",
       "canonicalEventId": "supercars-bathurst-1000-2026",
-      "status": "upcoming",
+      "status": "scheduled",
       "cardKind": "fixture",
       "liveWindow": 7,
       "expected": 10,
@@ -59507,11 +59611,7 @@
         "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
         "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
         "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-        "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-        "expectedSpectacle": 10,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-24T01:50:44.155Z"
+        "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds."
       },
       "name": "Bathurst 1000",
       "displayTitleCompact": "Bathurst 1000",
@@ -59579,7 +59679,7 @@
           "verifiedAt": "2026-09-24T01:50:44.155Z"
         }
       ],
-      "sourceName": "Supercars Bathurst event and schedule",
+      "sourceName": "Supercars",
       "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
       "sourceRefs": [
         "https://www.supercars.com/events/2026-bathurst-1000"
@@ -59617,25 +59717,23 @@
           "source:bathurst2026:2"
         ],
         "dimensions": [
-          "schedule",
           "format",
-          "consequence"
+          "consequence",
+          "venue"
         ],
         "researchedAt": "2026-09-24T01:50:44.155Z",
         "refreshAfter": "2026-10-11T00:30:00.000Z",
-        "generationMode": "researched",
-        "phase": "preview"
+        "generationMode": "researched"
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "The Great Race closes the Enduro Cup",
+        "angle": "Enduro Cup finale at Mount Panorama",
         "contextSignals": [
           "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
+          "narrative:consequence",
+          "narrative:format"
         ],
-        "sourceName": "Supercars Bathurst event and schedule",
+        "sourceName": "Supercars",
         "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
         "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
         "needsPreviewRefresh": false

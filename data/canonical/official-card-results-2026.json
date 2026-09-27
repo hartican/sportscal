@@ -457,6 +457,38 @@
         "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
         "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage."
       }
+    },
+    {
+      "id": "event-aflw-cd_m20262640708",
+      "score": "Sydney Swans 5.7 (37) - Brisbane Lions 3.5 (23)",
+      "outcomeText": "Sydney Swans defeated Brisbane Lions by 14 points.",
+      "sourceName": "AFLW",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8940",
+      "status": "completed",
+      "sourceCheckedAt": "2026-09-27T09:31:38Z",
+      "recapText": "Sydney Swans won 5.7 (37) to Brisbane Lions 3.5 (23) at Henson Park."
+    },
+    {
+      "id": "major-match-nrl-finals-2026-preliminary-final-1",
+      "score": "Panthers 14-22 Knights",
+      "outcomeText": "Knights defeated Panthers 22-14.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+      "status": "completed",
+      "sourceCheckedAt": "2026-09-27T09:31:38Z",
+      "recapText": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
+    },
+    {
+      "id": "evt_nbl_2026_27_36f8857c_58ad_11f1_9db7_b15d4ea6aed8",
+      "score": "83-69",
+      "outcomeText": "Adelaide 36ers 83, Cairns Taipans 69",
+      "recapText": "Official NBL result.",
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-27T09:34:33.840Z",
+      "status": "completed",
+      "endTimeUtc": "2026-09-27T09:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     }
   ]
 }

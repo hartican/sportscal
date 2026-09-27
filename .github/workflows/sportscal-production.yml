@@ -59,6 +59,7 @@ jobs:
           node scripts/validate-follow-policy-parity.js
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-odi-display.js
+          node scripts/validate-football-classification.js --published
           node scripts/validate-notifications.js
           node scripts/validate-live-fixtures.js
           node scripts/validate-match-observations.js
