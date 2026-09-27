@@ -147,6 +147,29 @@ async function main(){
     barrier=journal.steps[0].evidence.startedAt;
     const restored=store.load();await advance({journal:restored,...adapter,persist:store.persist});
     assert.equal(restored.steps[0].evidence.startedAt,barrier);assert.equal(restored.steps.length,2);assert.equal(restored.complete,false);
+    // Component rehearsal only: do not fabricate issuer-drain evidence or move
+    // the workflow past its real gate. Pre-issued uploads can still recreate bytes.
+    const seeded=await fetch(oldUploadUrl,{method:'PUT',headers:{'Content-Type':'text/plain'},body:'Disposable initial sweep',signal:AbortSignal.timeout(20000)});
+    assert.equal(seeded.status,200);
+    const peerObject=`${peer.id}/qa-sweep-${stamp}.txt`;objects.push(peerObject);checkpoint();
+    const peerUpload=await fetch(`${environment.SUPABASE_URL}/storage/v1/object/${bucket}/${peerObject}`,{method:'POST',headers:{apikey:environment.SUPABASE_SERVICE_ROLE_KEY,Authorization:`Bearer ${environment.SUPABASE_SERVICE_ROLE_KEY}`,'Content-Type':'text/plain'},body:'Disposable peer control',signal:AbortSignal.timeout(20000)});
+    assert(peerUpload.ok);
+    let loseDeleteAck=true;
+    const interrupted=operator({environment,request:async(url,options)=>{
+     const response=await supabaseServiceRequest(url,options);
+     if(loseDeleteAck&&url.startsWith('/storage/v1/object/')&&options.method==='DELETE'){loseDeleteAck=false;throw Error('Injected lost Storage acknowledgement');}
+     return response;
+    }});
+    await assert.rejects(()=>interrupted.operations.eraseStorage({accountId:owner.id,journal:restored,persist:store.persist}),/Injected lost Storage/);
+    const resumedSweep=store.load();
+    const sweep=await adapter.operations.eraseStorage({accountId:owner.id,journal:resumedSweep,persist:store.persist});
+    assert.equal(sweep.verified,true);assert.equal(sweep.evidence.finalErasure,false);
+    assert.equal(resumedSweep.steps.length,2);assert.equal(resumedSweep.complete,false);
+    const peerBytes=await fetch(`${environment.SUPABASE_URL}/storage/v1/object/authenticated/${bucket}/${peerObject}`,{headers:{apikey:environment.SUPABASE_SERVICE_ROLE_KEY,Authorization:`Bearer ${environment.SUPABASE_SERVICE_ROLE_KEY}`},signal:AbortSignal.timeout(20000)});
+    assert.equal(peerBytes.status,200,'Exact-owner sweep preserves peer bytes');
+    await removeObject(peerObject); // Remove control bytes before later Auth cleanup.
+    checks.push('initial_storage_sweep_component_lost_ack_resume_and_peer_preservation');
+
    }finally{store.close();}
    checks.push('durable_workflow_freeze_lineage_and_resume_verified','workflow_pauses_for_missing_issuer_and_send_evidence');
   }else barrier=await beginErasure();

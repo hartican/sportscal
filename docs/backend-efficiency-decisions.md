@@ -216,3 +216,7 @@ OpenLigaDB's daily snapshot is not a live observation. Once scheduled kickoff pa
 ## Daily Football rating phases — 27 September 2026
 
 The rating API uses the same unconfirmed-status gate as daily-source Football cards. After kickoff without a confirmed live/final observation, phase is null: new Heat/Impact/Pulse submissions, likes and watching heartbeats cannot write or award points. Identical retries of previously persisted Heat/Impact submissions still return their original receipt. Batch summaries preserve source observation metadata, keep previous owner receipts, withhold phase aggregates (including sealed Heat), and do not freeze an expired session while source status is unknown. Fresh explicit live and confirmed completed fixtures retain their phases. No votes, scoring rules, reward formulas, database schema, scheduler or polling cadence change. Regression: validate-crowd-foresight.js and validate-nothingscore-submissions.js, both release gates.
+
+## Initial erasure Storage sweep — 28 September Sydney
+
+Operator-only, on-demand sweep: at most 20,000 owned paths, Storage lists of 250 with a 200-page ceiling, deletes of 100, and fresh counts-only inventories before and after. Durable lineage precedes effects. No production scheduler, poll or new subscription. Completion of this first sweep never means capability-expiry, late-transfer or full-account reconciliation has passed.
