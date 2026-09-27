@@ -1,5 +1,10 @@
 # Backend efficiency decisions
 
+## Account-owned notification state on erasure — 28 September 2026
+
+Deleting Auth must remove its linked push installations and owned reminders rather than make them anonymous. The account foreign keys now cascade; installation-to-reminder cascade remains. Peer and genuinely anonymous notification state is preserved. No poll, dispatcher cadence, scheduler owner or MVP budget changes. Stored future-state cleanup is verified with disposable users; an already in-flight push remains outside this guarantee. Full account erasure still requires explicit writer/dispatcher quiescence.
+
+
 ## European Football daily source checks — 27 September 2026
 
 The existing daily canonical workflow also refreshes OpenLigaDB in weekday quick mode. It makes two bounded provider requests and rebuilds only Football/Champions League projections and Football identities when the dataset is checked; no second scheduler or live polling is introduced. Derived standings reuse those fixture facts. Source failures retain last-good records and original freshness; quick-mode failures are preserved in the existing workflow artifact and annotated as warnings. Production and canonical workflows use Node 24. Daily snapshots are not real-time scores. Reviewed international results rebuild rugby and cricket Schedule partitions as well as Feed. Quick US Open hydration reapplies the existing reviewed major-event editorial before building Schedule; the scoped editorial command does not rewrite Feed or the knowledge register.

@@ -12,10 +12,10 @@ async function main(){
  const {supabaseServiceRequest,supabaseRequest}=require('../lib/supabase-server');
  const service=(path,options={})=>supabaseServiceRequest(path,{...options,environment});
  const auth=(path,options={})=>supabaseRequest(path,{...options,environment});
- const users=[],objects=[],checks=[];let roomId=null,removed=new Set();
+ const users=[],objects=[],installations=[],checks=[];let roomId=null,removed=new Set();
  const bucket='nothingsports-chat-transient',stamp=crypto.randomBytes(7).toString('hex');
  const manifest=path.join(os.tmpdir(),`nothingsport-erasure-qa-${stamp}.json`);
- function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,removedAccountIds:[...removed]}),{mode:0o600});}
+ function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,installationIds:installations,removedAccountIds:[...removed]}),{mode:0o600});}
  checkpoint();
  const rest=(table,query='')=>`/rest/v1/nothingsports_${table}${query?'?'+query:''}`;
  const post=(table,body)=>service(rest(table),{method:'POST',headers:{Prefer:'return=representation'},body});
@@ -37,6 +37,14 @@ async function main(){
    await post('chat_profiles',{user_id:user.id,email_normalized:email,display_name:'Disposable QA'});
   }
   const [owner,peer]=users;
+  // Future-only reminders and non-routable test endpoints cannot notify a person.
+  for(const userId of [owner.id,peer.id,null]){
+   const id=crypto.randomUUID();installations.push(id);checkpoint();
+   await post('push_installations',{installation_id:id,user_id:userId,secret_hash:crypto.randomBytes(32).toString('hex'),endpoint:`https://push.example.invalid/erasure-${stamp}/${id}`,p256dh:'disposable',auth_key:'disposable'});
+  }
+  for(const [index,userId,suffix] of [[0,owner.id,'own'],[0,null,'own-install-anonymous'],[1,owner.id,'reassigned-device'],[1,peer.id,'peer'],[2,null,'anonymous']]){
+   await post('reminders',{installation_id:installations[index],user_id:userId,event_id:`qa-erasure-${stamp}-${suffix}`,title:'Disposable future reminder',starts_at:'2035-01-01T02:00:00Z',remind_at:'2035-01-01T01:00:00Z'});
+  }
   const room=await post('chat_rooms',{canonical_fixture_id:`qa-erasure-${stamp}`,fixture_snapshot:{title:'Disposable erasure rehearsal',sport:'Football'},room_name:'Disposable erasure rehearsal',created_by:owner.id});roomId=room[0].id;checkpoint();
   await post('chat_members',users.map(u=>({room_id:roomId,user_id:u.id,added_by:owner.id})));
   const original=(await post('chat_messages',{room_id:roomId,sender_id:owner.id,client_id:`qa-original-${stamp}`,body:'Disposable owner message'}))[0];
@@ -65,6 +73,12 @@ async function main(){
   checks.push('refresh_rejected_after_global_logout');
   await service(rest('chat_messages',`sender_id=eq.${owner.id}&room_id=eq.${roomId}`),{method:'DELETE'});
   await deleteAccount(owner);
+  const installFilter=`installation_id=in.(${installations.join(',')})`;
+  const remainingInstalls=await service(rest('push_installations',installFilter+'&select=installation_id'));
+  assert.deepEqual(remainingInstalls.map(r=>r.installation_id).sort(),installations.slice(1).sort());
+  const remainingReminders=await service(rest('reminders',installFilter+'&select=event_id'));
+  assert.deepEqual(remainingReminders.map(r=>r.event_id).sort(),[`qa-erasure-${stamp}-anonymous`,`qa-erasure-${stamp}-peer`].sort());
+  checks.push('owned_push_and_reminders_removed','reassigned_device_own_reminder_removed','peer_and_anonymous_notifications_preserved');
   const surviving=(await service(rest('chat_rooms',`id=eq.${roomId}&select=created_by`)))[0];assert.equal(surviving.created_by,null);
   const members=await service(rest('chat_members',`room_id=eq.${roomId}&select=user_id,added_by`));assert.deepEqual(members,[{user_id:peer.id,added_by:null}]);
   const messages=await service(rest('chat_messages',`room_id=eq.${roomId}&select=sender_id,body,reply_to_message_id`));assert.deepEqual(messages,[{sender_id:peer.id,body:'Disposable peer reply',reply_to_message_id:null}]);
@@ -77,13 +91,14 @@ async function main(){
   // Never use global cleanup helpers: scope every deletion to this run's IDs.
   const cleanupErrors=[];
   for(const object of objects){try{await removeObject(object);}catch(e){cleanupErrors.push('media');}}
+  for(const id of installations){try{await service(rest('push_installations',`installation_id=eq.${id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('installation');}}
   if(roomId){try{await service(rest('chat_rooms',`id=eq.${roomId}`),{method:'DELETE'});}catch(e){cleanupErrors.push('room');}}
   for(const user of users.filter(u=>!removed.has(u.id))){try{await deleteAccount(user);}catch(e){cleanupErrors.push('account');}}
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
   fs.unlinkSync(manifest);
  }
  if(failure)throw failure;
- const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Chat-only seeded service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','No ratings/reminders/calendar/device or cached-copy erasure proof']};
+ const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Seeded chat and notification service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','No ratings/calendar/device-cache or all-category erasure proof; no physical push delivery']};
  if(process.env.CHAT_ERASURE_REPORT)fs.writeFileSync(process.env.CHAT_ERASURE_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify(report));
 }
