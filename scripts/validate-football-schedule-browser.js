@@ -5,11 +5,13 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
  try{
   const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+  // Seed an existing local profile before startup; otherwise the scheduled
+  // first-run wizard can reopen after the test starts clicking schedule tabs.
+  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true})));
   await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&typeof FOLLOW_FIRST!=='undefined');
-  await page.waitForFunction(()=>startupFeedState.phase==='ready');
+  await page.waitForFunction(()=>startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
   await page.evaluate(()=>{
-   document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(x=>x.classList.remove('show'));
    userPreferences=FOLLOW_FIRST.migratePreferences({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true});
    activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();
   });

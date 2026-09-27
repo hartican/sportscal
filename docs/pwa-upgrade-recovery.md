@@ -26,3 +26,20 @@ Desktop WebKit completed the legacy upgrade, unreachable-origin fallback and res
 ## Release acceptance
 
 Publish the scoped commit, deploy that exact snapshot, and match the READY production deployment's releaseGitSha and nothingsport.vercel.app alias. Check the public HTML, worker and version endpoint agree on 244 and the version/worker cache headers forbid stale HTTP reuse. Repeat Settings and current-shell checks against the public alias. Physical confirmation on Jim's home-screen installation remains a separate final check.
+
+## 27 September: unread Feed prefetch blocked Chromium activation
+
+The 319 → 320 browser upgrade repeatedly left worker 319 active with 320 waiting,
+although page requests and explicit worker `waitUntil` promises had finished.
+A minimal page upgraded immediately. Draining proxied data responses isolated the
+failure to Feed traffic; draining only navigation or image/script responses did
+not fix it. `warmNextFeedPageDuringIdle` fetched the next page but ignored its
+body. The original browser scenario passed after consuming that body in the
+page, without changing historical workers or removing activation waits.
+
+Release 321 drains successful prefetch bodies, cancels unsuccessful bodies and
+bounds the request to eight seconds. The existing full upgrade regression is the
+correct test seam: a shallow mocked fetch test would not reproduce Chromium's
+worker/stream interaction. Use `PWA_BASELINE_SHA=c263209` for the actual prior
+release; use `PWA_BROWSER=webkit` for the second engine. Physical installed-device
+behavior still needs separate proof. No diagnostic worker wrappers ship.

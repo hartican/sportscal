@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="320">
+<meta name="app-shell-version" content="321">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=320" as="script">
@@ -11563,7 +11563,15 @@ function warmNextFeedPageDuringIdle(){
   warmedPublicFeedPages.add(path);
   const warm = () => {
     publicFeedWarmHandle = null;
-    fetch(path, { cache:"force-cache", credentials:"same-origin" }).catch(error => {
+    // Drain the body, not only the headers: an unread prefetched response can
+    // keep Chromium's active worker busy and block a waiting shell upgrade.
+    fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) }).then(async response => {
+      if (!response.ok){
+        await response.body?.cancel();
+        throw new Error(`Feed warm-up returned ${response.status}`);
+      }
+      await response.arrayBuffer();
+    }).catch(error => {
       warmedPublicFeedPages.delete(path);
       console.warn("Feed page warm-up unavailable", error);
     });
