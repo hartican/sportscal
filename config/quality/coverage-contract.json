@@ -1,5 +1,6 @@
 {
   "version": "2026-09-27",
+  "evidenceUpdatedAt": "2026-09-28",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
@@ -28,9 +29,83 @@
     {"id":"sailing","codes":["sailgp"],"carried":true}
   ],
   "pilotCompetitions": [
-    {"id":"competition:premier-league-2026-27","family":"football","season":"2026/27","expectedSeasonFixtures":380,"state":"partial","evidence":["scripts/validate-football-schedule.js","scripts/validate-football-schedule-browser.js"],"remaining":["Independent fixture reconciliation","Fixture-specific viewing evidence","Identity and DST cases","Operational and commercial source permission"]},
-    {"id":"competition:uefa-champions-league","family":"football","season":"2026/27","state":"partial","evidence":["scripts/validate-openligadb-football.js","scripts/validate-european-football-browser.js","docs/quality/football-source-feasibility.md"],"remaining":["Independent complete fixture reconciliation","Final standings tie-break verification and later knockout coverage","Card/editorial polish and installed-device proof","Routine refresh reliability and full quality gates"],"expectedLeaguePhaseFixtures":144},
-    {"id":"competition:uefa-europa-league","family":"football","season":"2026/27","state":"partial","evidence":["scripts/validate-openligadb-football.js","scripts/validate-european-football-browser.js","docs/quality/football-source-feasibility.md"],"remaining":["Independent complete fixture reconciliation","Final standings tie-break verification and later knockout coverage","Card/editorial polish and installed-device proof","Routine refresh reliability and full quality gates"],"expectedLeaguePhaseFixtures":144}
+    {
+      "id": "competition:premier-league-2026-27",
+      "family": "football",
+      "season": "2026/27",
+      "expectedSeasonFixtures": 380,
+      "state": "partial",
+      "evidence": [
+        "scripts/validate-football-schedule.js",
+        "scripts/validate-football-schedule-browser.js",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/epl-results-reconciliation-2026-09-28.md"
+      ],
+      "remaining": [
+        "Ranking and tie-break verification",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial permission"
+      ],
+      "verifiedSnapshotProgress": [
+        "380 fixture pair/date/kickoff comparisons against separate league publication; shared ownership",
+        "380 matchweeks and 50 completed results checked with official Fantasy API",
+        "160 basic table values recomputed for 20 clubs; no arithmetic differences"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    },
+    {
+      "id": "competition:uefa-champions-league",
+      "family": "football",
+      "season": "2026/27",
+      "state": "partial",
+      "evidence": [
+        "scripts/validate-openligadb-football.js",
+        "scripts/validate-european-football-browser.js",
+        "docs/quality/football-source-feasibility.md",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md"
+      ],
+      "remaining": [
+        "Historical kickoff and explicit UTC reconciliation",
+        "Final standings tie-break verification; ingest knockout fixtures when actually published",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial source permission"
+      ],
+      "expectedLeaguePhaseFixtures": 144,
+      "verifiedSnapshotProgress": [
+        "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
+        "18 completed outcomes agree; 126 upcoming local times agree",
+        "Source-derived earlier-match records and Results privacy deployed with browser proof"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    },
+    {
+      "id": "competition:uefa-europa-league",
+      "family": "football",
+      "season": "2026/27",
+      "state": "partial",
+      "evidence": [
+        "scripts/validate-openligadb-football.js",
+        "scripts/validate-european-football-browser.js",
+        "docs/quality/football-source-feasibility.md",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md"
+      ],
+      "remaining": [
+        "Historical kickoff and explicit UTC reconciliation",
+        "Final standings tie-break verification; ingest knockout fixtures when actually published",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial source permission"
+      ],
+      "expectedLeaguePhaseFixtures": 144,
+      "verifiedSnapshotProgress": [
+        "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
+        "18 completed outcomes agree; 126 upcoming local times agree",
+        "Source-derived earlier-match records and Results privacy deployed with browser proof"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    }
   ],
   "certifications": []
 }

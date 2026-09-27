@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative implementation status
 
-Updated 27 September 2026. This implements the approved CTO audit; the original report remains an evidence snapshot, not a live completion ledger. Continue phases without recurring owner approvals. No paid subscription or provider purchase. Preserve existing Follow decisions, production gates and unrelated work. Do not interpret an implemented catalogue as verified competition coverage.
+Updated 28 September 2026. This implements the approved CTO audit; the original report remains an evidence snapshot, not a live completion ledger. Continue phases without recurring owner approvals. No paid subscription or provider purchase. Preserve existing Follow decisions, production gates and unrelated work. Do not interpret an implemented catalogue as verified competition coverage.
 
 ## Sequence and acceptance
 
@@ -70,3 +70,12 @@ Live disposable reminder proof at 2026-09-27T16:15:34.910Z verified stable choic
 28 September account-data review: consensus receipts already cascade through the composite prediction reference and were not treated as an orphan defect. Moderation audit snapshots did survive subject-reference detachment; a targeted trigger now removes that subject's copied flags/resolution notes while preserving minimal actions and peer-subject records. Production had no historical audit rows. This does not certify every JSON/text identity path or complete the account cleanup workflow.
 
 28 September indirect cleanup: Auth deletion now removes reward allowlist membership and the exact verified current-email subscription, with peer/unverified-address preservation and barriers against new frozen-account links. The complete workflow remains gated; historical emails, external-provider records, unfinished delivery and final reconciliation are not certified.
+
+
+## Consolidated acceptance checkpoint — 28 September 2026
+
+Current deployed application: `f2b7a7ffa9f12ccb0535b39ca8cb7ed3c7cbb395`, shell 332; workflow 36337422407 passed and live NBL viewing/asset checks passed. The coverage contract now points to dated completed Football comparisons instead of repeating them as wholly missing. EPL's 380 matchweeks, 50 completed results and 160 basic table values have additional snapshot evidence; ranking/tie-break and broader acceptance remain open. Seven retained UCL qualifiers were separately corrected and deployed in 474fc26. NBL fixture viewing and a canonical NBL-only quick refresh shipped in f2b7a7f; no subscription or scheduler was added.
+
+The matrix now distinguishes historical competitions outside the frozen window from current-window requirements. History stays visible; no family leaves the frozen denominator. Missing pilots, invalid/undated records and empty current coverage cannot become certified merely from a supplied proof object. Full certification remains 0/16 carried families, target 13, and 0/3 Football pilots. This corrects audit scope; it is not a product deployment or evidence of better fixture truth by itself.
+
+Recommended next sequence: finish the specific Football timing/viewing/tie-break and operational-permission gaps; continue NBL's missing standings/context after its viewing repair; close full recovery/erasure through isolated rehearsals and evidenced issuer shutdown; obtain physical-device notification/PWA proof; then start the invited-cohort observation and one labelled sponsor experiment only when the existing prerequisites pass. Do not repeatedly recertify already recorded snapshot counts, broaden coverage to avoid difficult gaps, or deploy report-only changes.
