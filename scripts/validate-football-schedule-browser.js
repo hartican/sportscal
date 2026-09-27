@@ -7,9 +7,10 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
   await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&typeof FOLLOW_FIRST!=='undefined');
+  await page.waitForFunction(()=>startupFeedState.phase==='ready');
   await page.evaluate(()=>{
    document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(x=>x.classList.remove('show'));
-   userPreferences=FOLLOW_FIRST.migratePreferences({selectedSelectorEntityIds:['sport:football'],showSpoilers:false});
+   userPreferences=FOLLOW_FIRST.migratePreferences({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true});
    activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();
   });
   await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);

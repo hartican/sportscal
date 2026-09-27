@@ -1,0 +1,36 @@
+{
+  "version": "2026-09-27",
+  "frozenAt": "2026-09-27",
+  "minimumCarriedFamilyPassRate": 0.8,
+  "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
+  "requiredGates": ["fixtureTruth","timingResults","australianViewing","contextEditorial","presentationBehaviour","operationsRights"],
+  "families": [
+    {"id":"australian-rules","codes":["afl","aflw"],"carried":true},
+    {"id":"rugby-league","codes":["nrl","nrlw"],"carried":true},
+    {"id":"motorsport","codes":["motorsport","supercars","wrc","f1","motogp"],"carried":true},
+    {"id":"extreme","codes":["extreme"],"carried":false},
+    {"id":"surfing","codes":["surf"],"carried":true},
+    {"id":"rugby-union","codes":["rugby-union"],"carried":true},
+    {"id":"tennis","codes":["tennis"],"carried":true},
+    {"id":"football","codes":["football","champions-league"],"carried":true},
+    {"id":"cycling","codes":["cycling"],"carried":true},
+    {"id":"cricket","codes":["cricket"],"carried":true},
+    {"id":"basketball","codes":["basketball","nbl","fiba-women"],"carried":true},
+    {"id":"golf","codes":["golf"],"carried":true},
+    {"id":"american-football","codes":["american-football"],"carried":true},
+    {"id":"ice-hockey","codes":["ice-hockey"],"carried":true},
+    {"id":"skiing","codes":["skiing"],"carried":true,"note":"Four future published ski cards exist despite an empty Inspector projection; keep in denominator."},
+    {"id":"athletics","codes":["athletics"],"carried":false},
+    {"id":"swimming","codes":["swimming"],"carried":false},
+    {"id":"netball","codes":["netball"],"carried":false},
+    {"id":"boxing","codes":["boxing"],"carried":false},
+    {"id":"multi-sport","codes":["multi-sport"],"carried":true},
+    {"id":"sailing","codes":["sailgp"],"carried":true}
+  ],
+  "pilotCompetitions": [
+    {"id":"competition:premier-league-2026-27","family":"football","season":"2026/27","expectedSeasonFixtures":380,"state":"partial","evidence":["scripts/validate-football-schedule.js","scripts/validate-football-schedule-browser.js"],"remaining":["Independent fixture reconciliation","Fixture-specific viewing evidence","Identity and DST cases","Operational and commercial source permission"]},
+    {"id":"competition:uefa-champions-league","family":"football","season":"2026/27","state":"incomplete","evidence":["docs/quality/football-source-feasibility.md"],"remaining":["Permitted reliable ingestion","Actual released fixtures and standings","Full card-quality gates"]},
+    {"id":"competition:uefa-europa-league","family":"football","season":"2026/27","state":"missing","evidence":["docs/quality/football-source-feasibility.md"],"remaining":["Permitted reliable ingestion","Competition and club identity","Actual released fixtures and standings","Full card-quality gates"]}
+  ],
+  "certifications": []
+}

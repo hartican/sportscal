@@ -61,6 +61,8 @@ jobs:
           node scripts/validate-odi-display.js
           node scripts/validate-football-classification.js --published
           node scripts/validate-football-schedule.js
+          node scripts/validate-coverage-quality.js
+          node scripts/audit-coverage-quality.js "$NS_DEPLOY_REPORT_DIR/coverage-quality.json"
           node scripts/validate-dispatch-bundle.js
           node scripts/validate-live-rating-alerts.js
           node scripts/validate-backend-efficiency.js
