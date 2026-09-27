@@ -3,7 +3,8 @@
 // Opt-in integration rehearsal. Only accounts/rooms/objects minted by this run.
 // Never accepts a target account ID, reads real conversations, or prints secrets.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
-const {execFileSync}=require('node:child_process');
+const {execFileSync,execFile}=require('node:child_process');
+const execFileAsync=require('node:util').promisify(execFile);
 async function main(){
  if(process.env.CHAT_ERASURE_LIVE_QA!=='1')throw Error('Set CHAT_ERASURE_LIVE_QA=1 for the disposable recovery-project rehearsal.');
  const keys=JSON.parse(execFileSync('node_modules/.bin/supabase',['projects','api-keys','--project-ref','mkghopnkhcxtmfrcjdbc','--reveal','--output','json'],{encoding:'utf8',stdio:['pipe','pipe','pipe'],timeout:20000}));
@@ -36,7 +37,13 @@ async function main(){
   const body=await response.text();
   return {status:response.status,isCalendar:body.startsWith('BEGIN:VCALENDAR'),private:response.headers.get('cache-control')?.includes('no-store')};
  }
- let failure;
+ async function sqlProbe(sql){
+  try{
+   const result=await execFileAsync('node_modules/.bin/supabase',['db','query','--linked','--project-ref','mkghopnkhcxtmfrcjdbc','--output','json',sql],{timeout:40000,maxBuffer:1024*1024});
+   return JSON.parse(result.stdout).rows;
+  }catch(error){throw Error('Disposable concurrency SQL probe failed');}
+ }
+ let failure,heldWrite;
  try{
   for(let i=0;i<3;i++){
    const email=`erasureqa_${stamp}_${i}@example.invalid`,password=crypto.randomBytes(24).toString('base64url');
@@ -100,6 +107,26 @@ async function main(){
    assert([400,404].includes(missing.status),`Deleted object status ${missing.status}`);
   }
   checks.push('storage_retry_and_origin_absence');
+  const beginErasure=()=>service('/rest/v1/rpc/nothingsports_begin_account_erasure',{method:'POST',body:{target_user_id:owner.id}});
+  if(process.env.ERASURE_BARRIER_RACE==='1'){
+   accountOwned(owner.id);assert(/^[a-f0-9-]{36}$/.test(owner.id));
+   heldWrite=sqlProbe(`begin;set local statement_timeout='30s';set local application_name='qa-erasure-${stamp}';update public.nothingsports_user_state set preferences=preferences where user_id='${owner.id}';select pg_sleep(20);commit;select true as held;`).then(rows=>({rows}),()=>({error:true}));
+   // Allow the CLI's connection setup to settle. The required lock timeout below,
+   // followed by successful writer completion, is the observation of overlap.
+   // A missed window fails the test; it cannot produce a false concurrency pass.
+   await new Promise(resolve=>setTimeout(resolve,12000));
+   await assert.rejects(beginErasure,e=>e.payload?.code==='55P03','Begin must time out instead of racing the open write');
+   assert.equal((await service(rest('account_erasure_blocks',`user_id=eq.${owner.id}&select=user_id`))).length,0,'Timed-out begin leaves no active barrier');
+   assert(!(await heldWrite).error,'Held writer completes');
+   checks.push('observed_inflight_write_blocks_erasure_begin');
+  }
+  const barrier=await beginErasure();assert.equal(await beginErasure(),barrier,'Erasure begin retries safely');
+  const blocked=e=>e.payload?.code==='55000';
+  await assert.rejects(()=>service(rest('nsc_contributions',`user_id=eq.${owner.id}&event_id=eq.${ratingEvent}`),{method:'PATCH',body:{rating:4}}),blocked);
+  await assert.rejects(()=>post('user_follows',{follower_user_id:control.id,followed_user_id:owner.id}),blocked);
+  await assert.rejects(()=>auth(rest('user_state',`user_id=eq.${owner.id}`),{method:'PATCH',accessToken:owner.token,body:{preferences:{showResults:false}}}),blocked);
+  await service(rest('nsc_contributions',`user_id=eq.${peer.id}&event_id=eq.${ratingEvent}`),{method:'PATCH',body:{rating:3}});
+  checks.push('service_and_direct_authenticated_writes_blocked','unrelated_peer_write_preserved','erasure_begin_idempotent');
   await auth('/auth/v1/logout?scope=global',{method:'POST',accessToken:owner.token});
   await assert.rejects(()=>auth('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:owner.refresh}}),e=>[400,401,403].includes(e.status));
   checks.push('refresh_rejected_after_global_logout');
@@ -138,6 +165,7 @@ async function main(){
  }catch(e){failure=e;}finally{
   // Never use global cleanup helpers: scope every deletion to this run's IDs.
   const cleanupErrors=[];
+  if(heldWrite&&(await heldWrite).error&&!failure)failure=Error('Held SQL writer failed');
   for(const object of objects){try{await removeObject(object);}catch(e){cleanupErrors.push('media');}}
   for(const id of installations){try{await service(rest('push_installations',`installation_id=eq.${id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('installation');}}
   if(roomId){try{await service(rest('chat_rooms',`id=eq.${roomId}`),{method:'DELETE'});}catch(e){cleanupErrors.push('room');}}
@@ -150,11 +178,12 @@ async function main(){
   if(users.length){
    try{assert.equal((await service(rest('user_follows',`or=(follower_user_id.in.(${users.map(u=>u.id).join(',')}),followed_user_id.in.(${users.map(u=>u.id).join(',')}))&select=follower_user_id`))).length,0);}catch(e){cleanupErrors.push('user_follows');}
   }
+  for(const user of users.filter(u=>removed.has(u.id))){try{await service(rest('account_erasure_blocks',`user_id=eq.${user.id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('erasure_barrier');}}
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
   fs.unlinkSync(manifest);
  }
  if(failure)throw failure;
- const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Disposable chat, notification, preferences, calendar, rating and social-follow service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','Ratings and social follows were service-seeded; no prediction/reward/all-category or device-cache proof; no physical push delivery']};
+ const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Disposable chat, notification, preferences, calendar, rating and social-follow service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','Database barrier excludes Storage grants, indirect identity writes and external delivery','Ratings and social follows were service-seeded; no prediction/reward/all-category or device-cache proof; no physical push delivery']};
  if(process.env.CHAT_ERASURE_REPORT)fs.writeFileSync(process.env.CHAT_ERASURE_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify(report));
 }

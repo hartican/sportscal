@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Account erasure database barrier — 28 September 2026
+
+Direct Auth-linked database writes acquire a per-account shared transaction lock and check a service-only erasure marker. Erasure begin takes an exclusive lock with a two-second timeout, so accepted writes drain and blocked accounts cannot acquire new direct database state. No extra client request, poll or scheduler is added. Unblocked accounts continue with one indexed marker lookup per distinct referenced account in a write; no global write lock. Read Committed is required. Storage capabilities, external delivery and indirect identity writes remain separate orchestration gates. The migration activates no real account. See account-erasure-runbook.md for the live concurrent-session proof and cleanup limits.
+
 ## Account-owned notification state on erasure — 28 September 2026
 
 Deleting Auth must remove its linked push installations and owned reminders rather than make them anonymous. The account foreign keys now cascade; installation-to-reminder cascade remains. Peer and genuinely anonymous notification state is preserved. No poll, dispatcher cadence, scheduler owner or MVP budget changes. Stored future-state cleanup is verified with disposable users; an already in-flight push remains outside this guarantee. Full account erasure still requires explicit writer/dispatcher quiescence.
