@@ -29,3 +29,11 @@ const calendar=require('../config/calendar-export');
 const follows={id:'follows',date:'2026-09-06',time:'09:30',startTimeUtc:'2026-09-05T23:30:00Z',timePrecision:'follows'};
 assert.equal(calendar.eventStart(follows),null);
 assert(calendar.buildIcs([follows]).includes('DTSTART;VALUE=DATE:20260906'),'session-relative fixtures cannot export a guessed start');
+
+{
+ const event={status:'upcoming',startTimeUtc:'2026-09-06T01:00:00Z',sourceAttribution:{provider:'OpenLigaDB'}};
+ for(const time of ['2026-09-06T01:00:00Z','2026-09-07T01:00:00Z'])assert.equal(c.phaseFor(event,new Date(time)),null,'daily-source unknown cannot become Pulse or Impact by clock');
+ assert.equal(c.phaseFor(event,new Date('2026-09-06T00:00:00Z')),'heat');
+ assert.equal(c.phaseFor({...event,status:'completed'},now),'impact');
+ assert.equal(c.phaseFor({...event,status:'live',statusCheckedAt:now.toISOString()},now),'pulse');
+}

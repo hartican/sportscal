@@ -112,10 +112,12 @@ async function snapshotContract(){
   const supabaseCache = require.cache[supabasePath];
   const userId="11111111-1111-4111-8111-111111111111";
     const eventId="event-afl-cd_m20260142701";
-  let rolloutConfigured=true,publicEnabled=true;
+  let rolloutConfigured=true,publicEnabled=true,unknownSession=false;
   supabaseCache.exports={
     ...actualSupabase,
     async supabaseServiceRequest(path){
+      if(unknownSession&&path.includes("/rpc/"))throw new Error("Unknown status must not freeze or write a session");
+      if(unknownSession&&path.includes("nothingsports_nsc_sessions"))return [{event_id:eventId,status:"active",effective_end_at:"2026-09-09T00:00:00Z"}];
       if(path.includes("nothingsports_nsc_early_panel_state"))return rolloutConfigured?[{id:"public",public_enabled:publicEnabled,retirement_threshold:10,retired_at:publicEnabled?null:"2026-06-12T00:00:00.000Z",updated_at:"2026-06-12T00:00:00.000Z"}]:[];
       if(path.includes("nothingsports_nsc_pilot_members"))return[{user_id:userId,approved:true,suspended:false}];
       if(path.includes("nothingsports_nsc_contributions"))return[{
@@ -175,6 +177,15 @@ async function snapshotContract(){
     assert.equal(missing.earlyPanel.includesModelled,false,"missing rollout configuration must degrade to genuine-only results");
     const [killed]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"off"});
     assert.equal(killed.earlyPanel.includesModelled,false,"the environment kill switch must take precedence over stored rollout state");
+    unknownSession=true;
+    const unknown={...server.eventFor(eventId),status:'unknown',startTimeUtc:'2026-09-09T00:00:00Z',sourceAttribution:{provider:'OpenLigaDB'}};
+    server.eventMap().set(eventId,unknown);
+    const [waiting]=await server.snapshots([eventId],{userId,now:fixedNow});
+    assert.equal(waiting.phase,null);assert.equal(waiting.aggregate,null);assert.equal(waiting.peerResults,null);
+    assert.deepEqual(waiting.aggregates,{heat:null,pulse:null,impact:null},'unknown phase must not expose sealed Heat or invent a zero Impact');
+    assert.deepEqual(waiting.currentUser.submissions.heat,snapshot.currentUser.submissions.heat,'previous receipt survives unknown phase');
+    assert.equal(require('../lib/nsc-crowd').phaseFor(server.eventTiming({...unknown,status:'live',statusCheckedAt:fixedNow.toISOString()}),fixedNow),'pulse','server projection retains explicit status evidence');
+
   }finally{
     delete require.cache[serverPath];
     supabaseCache.exports=actualSupabase;
@@ -203,7 +214,7 @@ async function handlerContracts(){
   serverCache.exports={
     TABLES:{profiles:"profiles",sessions:"sessions",contributions:"contributions"},
     canonicalEventId(value){return value;},
-    eventFor(){return eventPhase==="heat"
+    eventFor(){if(eventPhase==="unknown")return {status:"unknown",startTimeUtc:"2020-01-01T00:00:00Z",sourceAttribution:{provider:"OpenLigaDB"}};return eventPhase==="heat"
       ?{startTimeUtc:"2099-01-01T00:00:00.000Z",endTimeUtc:"2099-01-01T03:00:00.000Z"}
       :{startTimeUtc:"2020-01-01T00:00:00.000Z",endTimeUtc:"2020-01-01T03:00:00.000Z"};},
     eventTiming(event){return event;},
@@ -266,7 +277,17 @@ async function handlerContracts(){
     assert.equal(stalePhaseResponse.statusCode,409,"a new draft from an expired phase must not be persisted in the current phase");
     assert.equal(stalePhaseResponse.body.code,"phase_action_mismatch");
     assert.equal(submitCalls.length,callsBeforeStale,"stale new submissions must be rejected before the atomic submission RPC");
-    eventPhase="heat";
+    eventPhase="unknown";
+    const priorWrites=profileWrites,priorSubmissions=submitCalls.length;
+    for(const body of [{action:'submit',phase:'heat',rating:4},{action:'submit',phase:'impact',rating:4},{action:'pulse',rating:4},{action:'like'},{action:'watching'}]){
+      const response=responseCapture();await handler({method:'POST',body:{...body,eventId:'fixture-one'}},response);
+      assert.equal(response.statusCode,409,body.action+' must wait for confirmed phase');
+    }
+    assert.equal(profileWrites,priorWrites);assert.equal(submitCalls.length,priorSubmissions,'unknown phase cannot award points or persist votes');
+    existingSubmission={phase:'heat',rating:4,tags:[],submitted_at:'2026-08-30T01:00:00Z'};
+    const retained=responseCapture();await handler({method:'POST',body:{action:'submit',eventId:'fixture-one',phase:'heat',rating:4}},retained);
+    assert.equal(retained.statusCode,200);assert.equal(retained.body.replayed,true,'uncertain status preserves idempotent receipt recovery');
+    existingSubmission=null;eventPhase="heat";
 
     profileVisibility="hidden";
     const hiddenOwnerResponse=responseCapture();
