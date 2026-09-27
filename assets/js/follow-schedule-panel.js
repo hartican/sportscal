@@ -94,27 +94,28 @@ function renderCodeInspectorStandings(panel, code){
       const title = document.createElement("h3");
       title.textContent = competitionId === "competition:nhl" ? "NHL standings"
         : competitionId === "competition:chl" ? "Champions Hockey League table"
-        : (CANONICAL_TAXONOMY.competitions || []).find(competition => competition.id === competitionId)?.name || "NFL standings";
+        : (CANONICAL_TAXONOMY.competitions || []).find(competition => competition.id === competitionId)?.name || rows[0]?.competitionName || "Competition standings";
       const list = document.createElement("div");
       list.className = "code-inspector-fixtures";
-      rows.sort((first, second) => Number(first.rank || 999) - Number(second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
+      rows.sort((first, second) => Number(first.sortOrder || first.rank || 999) - Number(second.sortOrder || second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
         const row = document.createElement("article");
         row.className = "code-inspector-fixture code-inspector-standing-row";
         const label = document.createElement("strong");
-        label.textContent = `${entry.rank}. ${entry.displayName}`;
+        label.textContent = `${entry.rankPending?"—":(entry.sharedRank?"=":"")+entry.rank+"."} ${entry.displayName}`;
         const facts = document.createElement("span");
         const played = entry.played ?? entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
         const wins = entry.won ?? entry.wins ?? entry.stats?.wins;
         const losses = entry.lost ?? entry.losses ?? entry.stats?.losses;
         const draws = entry.drawn;
         const points = entry.ladderPoints ?? entry.points ?? entry.stats?.points;
-        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
         row.append(label, facts);
         list.appendChild(row);
       });
       const asOf=rows.map(entry=>entry.asOf).filter(Boolean).sort().at(-1);
       section.append(title);
       if(asOf){const checked=document.createElement('p');checked.textContent=`Table checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(asOf))} (Sydney)`;section.append(checked);}
+      if(rows[0]?.tableNote){const note=document.createElement('p');note.className='standings-source-note';note.textContent=rows[0].tableNote;section.append(note);const attribution=buildFixtureDataAttribution(rows[0]);if(attribution)section.append(attribution);}
       section.append(list);
       panel.appendChild(section);
     });

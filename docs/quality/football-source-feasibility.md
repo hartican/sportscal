@@ -1,8 +1,8 @@
 # Football source feasibility — 27 September 2026
 
-## Verified gap
+## Initial gap and current status
 
-Current Champions League projection contains 13 records including old qualification fixtures and unresolved stage fixtures; the canonical file has no standings rows. Europa League has no approved operational fixture adapter. Neither competition is certified. EPL has 380 published matches and a 20-club canonical table, but these counts alone do not prove accuracy or commercial permission.
+Before release 322, the Champions League projection contained 13 records including old qualification fixtures and unresolved stage fixtures; the canonical file has no standings rows. At that point Europa League had no approved operational fixture adapter. Release 322 (dfe9cb9) shipped 144 actual league-phase matches for each competition with verified production rendering; 6275d31 subsequently preserved 16 sourced venue records. Neither competition is certified. EPL has 380 published matches and a 20-club canonical table, but these counts alone do not prove accuracy or commercial permission.
 
 ## Official reference pages
 
@@ -12,7 +12,7 @@ Current Champions League projection contains 13 records including old qualificat
 
 ## Recommended next action
 
-Proceed with a bounded OpenLigaDB adapter trial, keeping it outside the live Feed until attribution, refresh recovery and source-to-screen checks pass. Preserve existing aliases and saved actions. Do not invent clubs, opponents, results or precise start times to fill gaps.
+Continue the bounded OpenLigaDB integration now that attribution, refresh recovery and source-to-screen checks have passed. Preserve existing aliases and saved actions. Do not invent clubs, opponents, results or precise start times to fill gaps.
 
 ## No-cost candidate: OpenLigaDB
 
@@ -30,4 +30,13 @@ Australian Europa League viewing is explicitly resolved to [Stan's competition p
 
 ODbL permits commercial use subject to its conditions. Publish the independently retrievable provider-fact dataset and machine-readable transformations with attribution and licence links; show attribution on derived cards. Preserve the separation from private preferences and editorial. A folder name alone does not establish a legal exemption for combined derived data. Do not reuse source logos merely because the fixture database is open.
 
-Remaining: deployment and live verification, independent full fixture reconciliation, standings, stronger editorial/identity presentation, installed-device checks, measured routine refresh reliability and workload. Provider request limits and uptime guarantees are unverified, so do not add high-frequency live polling. No subscription, signup or purchase is needed for this trial.
+Remaining: release-323 standings production proof, independent full fixture reconciliation and final tie-break verification, stronger editorial/identity presentation, installed-device checks, measured routine refresh reliability and workload. Provider request limits and uptime guarantees are unverified, so do not add high-frequency live polling. No subscription, signup or purchase is needed for this trial.
+
+
+## Derived standings — release 323 candidate
+
+Both 36-club tables are derived from the same validated completed matches, adding no provider requests. Points, played, wins/draws/losses and goals were reconciled for all 72 clubs against OpenLigaDB's separate table endpoint; this is same-provider arithmetic validation, not independent accuracy certification. The published ODbL dataset includes these derived rows.
+
+Interim ordering includes points, goal difference, goals, away goals, wins and away wins. Equal tuples share rank; display ordering uses NS names, which can differ from UEFA abbreviations. Final tables additionally consider opponents' collective points, goal difference and goals. Remaining final ties have no asserted rank because disciplinary and coefficient inputs are unavailable. No qualification/elimination labels are generated.
+
+Rules checked 27 September: [UEFA Champions League explanation](https://www.uefa.com/uefachampionsleague/news/0291-1bd88ae04870-e1e038c319e3-1000--champions-league-league-phase-standings-how-teams-level-on-/), [UEFA Europa League explanation](https://www.uefa.com/uefaeuropaleague/news/02a9-219e607cbaee-b25232b1c986-1000--europa-league-league-phase-standings-how-teams-level-on-/). These are rule references, not scraped data feeds. Visible tables are labelled provisional and community-derived, include source/date links and remain behind the existing Results-off reveal control.

@@ -342,7 +342,7 @@ async function main() {
   if(process.argv.includes('--european-football')){
     const result=await require('./refresh-openligadb-football').refresh();
     console.log(JSON.stringify({source:'OpenLigaDB',fixtures:result.payload.events.length,failures:result.failures}));
-    for(const args of [['scripts/build-code-inspector.js','--codes=football,champions-league'],['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js']])runStep(args);
+    for(const args of [['scripts/build-code-inspector.js','--codes=football,champions-league'],['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-standings.js']])runStep(args);
     if(result.failures.length)process.exitCode=1;
     return;
   }

@@ -433,10 +433,11 @@ function codeStandings(code){
       : code.id === "competition:uefa-champions-league"
         ? canonicalChampionsLeague.standings || []
       : [];
-  return source.map((entry, index) => ({
+  const european=['sport:football','competition:uefa-champions-league'].includes(code.id)?(openLiga.standings||[]).filter(row=>code.id==='sport:football'||row.competitionId===code.id):[];
+  return [...source,...european].map((entry, index) => ({
     ...entry,
-    rank:Number.isFinite(Number(entry.rank)) ? Number(entry.rank) : index + 1,
-    displayName:canonicalParticipantNames.get(entry.participantId) || entry.participantId,
+    rank:entry.rankPending?null:Number.isFinite(Number(entry.rank)) ? Number(entry.rank) : index + 1,
+    displayName:entry.displayName || canonicalParticipantNames.get(entry.participantId) || entry.participantId,
     competitionId:entry.competitionId || (String(entry.participantId).startsWith("team:chl:") ? "competition:chl" : code.id === "sport:ice-hockey" ? "competition:nhl" : "competition:nfl"),
   }));
 }

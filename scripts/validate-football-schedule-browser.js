@@ -25,7 +25,9 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
   await page.getByRole('button',{name:'Reveal standings',exact:true}).click();
   await page.locator('#confirmStandingsRevealBtn').click();
   await page.locator('.code-inspector-standing-row').first().waitFor();
-  assert.equal(await page.locator('.code-inspector-standing-row').count(),20);
+  assert.equal(await page.locator('.code-inspector-standing-row').count(),92);
+  assert.equal(await page.locator('.standings-source-note').count(),2);
+  assert.match(await page.locator('.standings-source-note').first().innerText(),/Provisional.*community/);
   await page.locator('.code-inspector-standing-row').first().scrollIntoViewIfNeeded();
   assert.match(await page.locator('.code-inspector-standing-row').first().innerText(),/played.*wins.*draws.*pts/);
   assert.match(await page.locator('.follow-schedule-panel').innerText(),/Table checked/);
@@ -43,6 +45,6 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
    assert.equal(await free.count(),date==='2026-09-25'?1:0,`${date} ${mode}: fixture-specific free option`);
    if(date==='2026-09-25'){await free.scrollIntoViewIfNeeded();assert(await free.isVisible());assert.equal(await free.getAttribute('href'),'https://10.com.au/');}
   }
-  console.log('Football browser: matchweek navigation, Results-off protection, dated 20-team table, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
+  console.log('Football browser: matchweek navigation, Results-off protection, dated 20-club EPL and two 36-club European tables, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

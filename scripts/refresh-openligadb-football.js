@@ -37,7 +37,7 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
   const leagues=[...retained.values()];const payload={schemaVersion:'openligadb-football-public.v1',licence:'https://opendatacommons.org/licenses/odbl/1-0/',
     attribution:'Contains information from OpenLigaDB, made available under the Open Database License (ODbL). NS normalized fixture facts and identity mappings are provided with this dataset under ODbL.',
     identityMapping:registry.teams,
-    scope:'2026/27 league phases only; community-maintained, not an official UEFA feed',leagues,events:leagues.flatMap(eventsForLeague)};
+    scope:'2026/27 league phases only; community-maintained, not an official UEFA feed',leagues,standings:leagues.flatMap(require('./lib/european-football-standings').deriveStandings),events:leagues.flatMap(eventsForLeague)};
   if(failures.length===2&&previous)return {payload:previous,failures,wrote:false};
   fs.mkdirSync(path.dirname(outputPath),{recursive:true});const temp=`${outputPath}.tmp-${process.pid}`;fs.writeFileSync(temp,JSON.stringify(payload)+'\n');fs.renameSync(temp,outputPath);
   return {payload,failures,wrote:true};

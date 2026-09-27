@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="322">
+<meta name="app-shell-version" content="323">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=322" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=323" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=322"></script>
+<script src="assets/js/app-shell-runtime.js?v=323"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -14264,7 +14264,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=319').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=323').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){

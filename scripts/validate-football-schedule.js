@@ -16,7 +16,9 @@ for(const folder of ['code-inspector','follow-schedule']){
  assert.equal(new Set(fixtures.map(f=>f.roundNumber)).size,38);
  assert(fixtures.every(f=>f.roundLabel===`Premier League Matchweek ${f.roundNumber}`&&f.competitionName==='Premier League'));
  if(folder!=='code-inspector')continue;
- assert.equal(data.standings.length,20);
- assert(data.standings.every(row=>row.competitionId==='competition:premier-league-2026-27'&&row.asOf&&Number.isFinite(row.ladderPoints)), 'only the dated EPL table may enter Football');
+ const epl=data.standings.filter(row=>row.competitionId==='competition:premier-league-2026-27');
+ assert.equal(epl.length,20);
+ assert(epl.every(row=>row.asOf&&Number.isFinite(row.ladderPoints)), 'EPL table remains dated');
+ assert.equal(data.standings.length,92,'only the three reviewed Football tables enter this projection');
 }
 console.log('Football: 380 stable fixtures, 38 sourced matchweeks, dated 20-club table and unknown-round fallback passed.');
