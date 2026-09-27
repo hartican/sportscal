@@ -7,15 +7,16 @@ async function main(){
  const db=new PGlite();
  try{
   await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;
-   create schema auth;create table auth.users(id uuid primary key);
+   create schema auth;create table auth.users(id uuid primary key,raw_app_meta_data jsonb);
    create table public.owned(user_id uuid primary key references auth.users on delete cascade,value text);
    create table public.shared(id int primary key,creator uuid references auth.users on delete set null,editor uuid references auth.users on delete set null,value text);
    grant usage on schema auth to service_role;
    grant all on public.owned,public.shared to service_role;`);
-  await db.query('insert into auth.users values($1),($2)',[owner,peer]);
+  await db.query('insert into auth.users(id) values($1),($2)',[owner,peer]);
   await db.query("insert into public.owned values($1,'owner'),($2,'peer')",[owner,peer]);
   await db.query("insert into public.shared values(1,$1,$1,'shared')",[owner]);
   await db.exec('begin;'+fs.readFileSync('supabase/migrations/20260927144441_guard_account_erasure_writes.sql','utf8')+'commit;');
+  await db.exec('begin;'+fs.readFileSync('supabase/migrations/20260927150138_mark_erasure_in_auth_metadata.sql','utf8')+'commit;');
   await db.exec('set role authenticated');
   await assert.rejects(()=>db.query('select public.nothingsports_begin_account_erasure($1)',[owner]),e=>e.code==='42501');
   await assert.rejects(()=>db.query('select * from public.nothingsports_account_erasure_blocks'),e=>e.code==='42501');
@@ -35,6 +36,7 @@ async function main(){
   await assert.rejects(()=>db.query("update public.shared set value='forbidden' where id=1"),e=>e.code==='55000');
   await db.query("update public.owned set value='peer still writes' where user_id=$1",[peer]);
   await db.exec('reset role;');
+  assert((await db.query('select raw_app_meta_data from auth.users where id=$1',[owner])).rows[0].raw_app_meta_data.nothingsport_erasure_started_at);
   await db.query('delete from auth.users where id=$1',[owner]);
   assert.deepEqual((await db.query('select creator,editor,value from public.shared')).rows,[{creator:null,editor:null,value:'shared'}]);
   assert.deepEqual((await db.query('select user_id,value from public.owned')).rows,[{user_id:peer,value:'peer still writes'}]);

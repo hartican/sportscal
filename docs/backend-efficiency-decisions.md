@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Erasure authentication and Storage expiry — 28 September 2026
+
+Erasure begin stamps server-owned Auth app metadata alongside the database barrier. The existing fresh user lookup rejects marked accounts without an additional network request. Chat and participation/avatar functions have explicit 60-second duration limits. Previously issued signed uploads survive Auth deletion; cleanup must stop every issuer, including old deployments, then wait for capability expiry and reconcile late transfers. A read-only checkpoint remains incomplete until this evidence exists. No new scheduler, poll, subscription or real-account erasure is introduced.
+
 ## Account erasure database barrier — 28 September 2026
 
 Direct Auth-linked database writes acquire a per-account shared transaction lock and check a service-only erasure marker. Erasure begin takes an exclusive lock with a two-second timeout, so accepted writes drain and blocked accounts cannot acquire new direct database state. No extra client request, poll or scheduler is added. Unblocked accounts continue with one indexed marker lookup per distinct referenced account in a write; no global write lock. Read Committed is required. Storage capabilities, external delivery and indirect identity writes remain separate orchestration gates. The migration activates no real account. See account-erasure-runbook.md for the live concurrent-session proof and cleanup limits.

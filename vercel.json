@@ -8,12 +8,14 @@
       "includeFiles": "data/code-inspector/*.json"
     },
     "api/chat.js": {
-      "includeFiles": "data/chat-fixtures.v1.json"
+      "includeFiles": "data/chat-fixtures.v1.json",
+      "maxDuration": 60
     },
     "api/user-state.js": {
       "includeFiles": "data/code-inspector/*.json"
     },
     "api/participation.js": {
+      "maxDuration": 60,
       "includeFiles": "data/{code-inspector/*.json,nsc-forecasts.json}"
     },
     "api/feed.js": {

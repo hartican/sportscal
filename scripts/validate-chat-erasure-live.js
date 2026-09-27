@@ -43,7 +43,7 @@ async function main(){
    return JSON.parse(result.stdout).rows;
   }catch(error){throw Error('Disposable concurrency SQL probe failed');}
  }
- let failure,heldWrite;
+ let failure,heldWrite,oldUploadUrl;
  try{
   for(let i=0;i<3;i++){
    const email=`erasureqa_${stamp}_${i}@example.invalid`,password=crypto.randomBytes(24).toString('base64url');
@@ -90,6 +90,12 @@ async function main(){
   await post('chat_messages',{room_id:roomId,sender_id:peer.id,client_id:`qa-reply-${stamp}`,body:'Disposable peer reply',reply_to_message_id:original.id});
   for(let i=0;i<2;i++){
    const attachmentId=crypto.randomUUID(),object=`${owner.id}/${roomId}/${attachmentId}/qa.txt`;objects.push(object);checkpoint();
+   if(i===0){
+    const signed=await service(`/storage/v1/object/upload/sign/${bucket}/${object}`,{method:'POST',body:{}});
+    const relative=signed.url||signed.signedURL||signed.signedUrl;
+    assert(typeof relative==='string','Disposable signed upload created');
+    oldUploadUrl=relative.startsWith('http')?relative:`${environment.SUPABASE_URL}/storage/v1${relative}`;
+   }
    const uploaded=await fetch(`${environment.SUPABASE_URL}/storage/v1/object/${bucket}/${object}`,{method:'POST',headers:{apikey:environment.SUPABASE_SERVICE_ROLE_KEY,Authorization:`Bearer ${environment.SUPABASE_SERVICE_ROLE_KEY}`,'Content-Type':'text/plain'},body:'Disposable rehearsal media',signal:AbortSignal.timeout(20000)});
    assert(uploaded.ok,`Test media upload status ${uploaded.status}`);
    await post('chat_attachments',{attachment_id:attachmentId,room_id:roomId,message_id:original.id,uploader_id:owner.id,kind:'file',file_name:'qa.txt',content_type:'text/plain',byte_size:26,storage_bucket:bucket,object_path:object,status:'ready'});
@@ -121,6 +127,10 @@ async function main(){
    checks.push('observed_inflight_write_blocks_erasure_begin');
   }
   const barrier=await beginErasure();assert.equal(await beginErasure(),barrier,'Erasure begin retries safely');
+  const blockedAuth=await auth('/auth/v1/user',{accessToken:owner.token});
+  assert(blockedAuth.app_metadata?.nothingsport_erasure_started_at,'Fresh protected Auth metadata marks erasure');
+  const stoppedRead=await api(owner,'user-state');assert.equal(stoppedRead.status,403);assert.equal(stoppedRead.body.code,'account_erasure_in_progress');
+  checks.push('fresh_auth_gate_stops_new_application_requests');
   const blocked=e=>e.payload?.code==='55000';
   await assert.rejects(()=>service(rest('nsc_contributions',`user_id=eq.${owner.id}&event_id=eq.${ratingEvent}`),{method:'PATCH',body:{rating:4}}),blocked);
   await assert.rejects(()=>post('user_follows',{follower_user_id:control.id,followed_user_id:owner.id}),blocked);
@@ -148,6 +158,10 @@ async function main(){
   assert.deepEqual(await calendarRead(owner),{status:404,isCalendar:false,private:true});
   assert.deepEqual(await calendarRead(peer),{status:200,isCalendar:true,private:true});
   checks.push('owned_preferences_and_calendar_removed','old_calendar_link_revoked','peer_preferences_and_calendar_access_preserved');
+  const lateUpload=await fetch(oldUploadUrl,{method:'PUT',headers:{'Content-Type':'text/plain'},body:'Disposable late upload',signal:AbortSignal.timeout(20000)});
+  assert.equal(lateUpload.status,200,'Provider signed upload capability survives Auth deletion');
+  await removeObject(objects[0]);
+  checks.push('preissued_upload_survives_auth_deletion_and_requires_later_sweep');
   const installFilter=`installation_id=in.(${installations.join(',')})`;
   const remainingInstalls=await service(rest('push_installations',installFilter+'&select=installation_id'));
   assert.deepEqual(remainingInstalls.map(r=>r.installation_id).sort(),installations.slice(1).sort());
