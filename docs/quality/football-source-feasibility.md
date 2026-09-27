@@ -44,3 +44,7 @@ Rules checked 27 September: [UEFA Champions League explanation](https://www.uefa
 ## Visible source context — shell 327
 
 European Football Feed and Schedule cards show validated league-phase matchday and an absolute source-check timestamp in Sydney time, alongside the existing provider/licence/dataset links. Unknown or invalid round/date fields are omitted. This is source observation time, not a claim of live scores or independent accuracy. The footer has compact readable styling, 24-pixel link targets and visible keyboard focus. Browser coverage includes both competitions, both surfaces, four widths and day/night; 326→327 cached-shell upgrade preserves preferences and offline fallback. This does not complete editorial, fixture-truth or full competition certification.
+
+## Reference reconciliation — 28 September Sydney
+
+The dated [reference reconciliation](football-reference-reconciliation-2026-09-28.md) compares all 668 fixture identities in release 329: 380 EPL plus 144 each UCL/Europa. European matchdays and all 36 published results agree. EPL list/date/time comparison agrees after an explicitly resolved stale article duplicate and the separate final-day time announcement. EPL is a different publication from the same owner; European completed-match kickoff times and explicit UTC corroboration remain open. This supersedes the earlier three-result sample, not the remaining rights, results, quality or certification gates.

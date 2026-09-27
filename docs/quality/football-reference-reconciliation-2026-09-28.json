@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "football-reference-reconciliation.v1",
+  "checkedAt": "2026-09-27 14:12:26 UTC",
+  "releaseGitSha": "f218c4a6210c76e270cfb6ae3ac281d5719bd7b2",
+  "method": "One-off comparison of existing published provider records against organiser reference publications returned by web research. No reference article scraper, ingestion integration or scheduler added; no article corpus or duplicate fixture dataset retained.",
+  "europe": [
+    {
+      "competitionId": "competition:uefa-champions-league",
+      "referenceCount": 144,
+      "publishedCount": 144,
+      "matched": 144,
+      "dates": 144,
+      "rounds": 144,
+      "scores": 18,
+      "upcomingTimes": 126,
+      "unmatchedPublished": [],
+      "issues": []
+    },
+    {
+      "competitionId": "competition:uefa-europa-league",
+      "referenceCount": 144,
+      "publishedCount": 144,
+      "matched": 144,
+      "dates": 144,
+      "rounds": 144,
+      "scores": 18,
+      "upcomingTimes": 126,
+      "unmatchedPublished": [],
+      "issues": []
+    }
+  ],
+  "epl": {
+    "referenceRawRows": 381,
+    "resolvedReferenceRows": 380,
+    "publishedCount": 380,
+    "uniqueMatched": 380,
+    "dateAgreements": 380,
+    "timeAgreements": 380,
+    "unmatchedPublished": [],
+    "issues": [],
+    "sourceCorrections": [
+      {
+        "reason": "Superseded duplicate resolved by Liverpool dated rescheduling notice",
+        "date": "2026-10-24"
+      }
+    ],
+    "limitations": [
+      "Separate official publication from API, not independent source ownership.",
+      "Final-day 16:00 uses separate official fixture-release announcement.",
+      "Long-range times remain subject to broadcaster and cup amendments.",
+      "This comparison does not verify EPL results."
+    ]
+  },
+  "production": [
+    {
+      "file": "data/providers/openligadb/football-2026-27.json",
+      "status": 200,
+      "localSha256": "3c219f992576dc35ad4180b6362217b41b9be024d550d27b04d69da1517fc123",
+      "liveSha256": "3c219f992576dc35ad4180b6362217b41b9be024d550d27b04d69da1517fc123",
+      "exactBytes": true
+    },
+    {
+      "file": "data/follow-schedule/football.json",
+      "status": 200,
+      "localSha256": "ea17c628330755129cc1d0ab019b75dac73a5c97e100c83b4bff0eef69c47e66",
+      "liveSha256": "ea17c628330755129cc1d0ab019b75dac73a5c97e100c83b4bff0eef69c47e66",
+      "exactBytes": true
+    }
+  ],
+  "sources": {
+    "ucl": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+    "uel": "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures/",
+    "epl": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-202627-premier-league-season",
+    "eplFinalDay": "https://www.premierleague.com/en/news/4675508",
+    "eplDuplicateResolution": "https://www.liverpoolfc.com/tickets/match/liverpool-v-brighton-and-hove-albion-english-premier-league-20261025"
+  },
+  "normalization": {
+    "europeanAliases": {
+      "Inter": "Internazionale",
+      "Roma": "AS Roma",
+      "Stuttgart": "VfB Stuttgart",
+      "Atlético de Madrid": "Atlético Madrid",
+      "Bayern München": "Bayern Munich",
+      "Leipzig": "RB Leipzig",
+      "Hoffenheim": "TSG Hoffenheim",
+      "Milan": "AC Milan",
+      "Leverkusen": "Bayer Leverkusen",
+      "Union SG": "Union Saint-Gilloise",
+      "Bournemouth": "AFC Bournemouth",
+      "N.E.C. Nijmegen": "N.E.C.",
+      "Rennes": "Stade Rennais",
+      "Jagiellonia": "Jagiellonia Białystok",
+      "Celta": "Celta Vigo"
+    },
+    "eplAliases": {
+      "Man City": "Manchester City",
+      "Man Utd": "Manchester United",
+      "Newcastle": "Newcastle United",
+      "Brighton": "Brighton & Hove Albion",
+      "Spurs": "Tottenham Hotspur",
+      "Nott'm Forest": "Nottingham Forest",
+      "Bournemouth": "AFC Bournemouth",
+      "Ipswich": "Ipswich Town",
+      "Leeds": "Leeds United",
+      "Hull": "Hull City",
+      "Coventry": "Coventry City"
+    },
+    "timeZones": {
+      "europe": "Europe/Paris",
+      "epl": "Europe/London"
+    }
+  },
+  "limitations": [
+    "Exact reviewed snapshot only, not a perpetual pass or full competition certification.",
+    "UEFA completed fixtures list outcomes but omit original kickoff times; 36 historical kickoff times were not independently confirmed.",
+    "UEFA article labels times CET; upcoming comparison uses Central European local time with Europe/Paris daylight saving, consistent with provider. Explicit UTC confirmation remains a separate evidence boundary.",
+    "EPL results, standings correctness, viewing rights, commercial rights, editorial depth and physical-device behavior are outside this reconciliation.",
+    "EPL long-range times remain subject to amendment. Source article duplicate was resolved with club evidence; not silently ignored.",
+    "No new provider freshness or production data corrections were made."
+  ]
+}
