@@ -969,6 +969,12 @@ async function run(){
     assert.equal(memberLimit.statusCode, 409);
     assert.equal(memberLimit.body.code, "chat_member_limit");
 
+    // Departed creator attribution cannot grant delete rights to a remaining member.
+    secondRoomRow.created_by = null;
+    members.filter(item => item.room_id === secondRoomId).forEach(item => { item.added_by = null; });
+    const departedCreatorRead = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ roomId:secondRoomId } }));
+    assert.equal(departedCreatorRead.statusCode, 200, "remaining member keeps access after creator departure");
+    assert.equal(departedCreatorRead.body.room.canDeleteRoom, false, "null attribution grants no room ownership");
     const deniedRoomDelete = await invoke(tokenRequest(`token-${ids.userB}`, {
       method:"POST", body:{ action:"delete-room", roomId:secondRoomId },
     }));

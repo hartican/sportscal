@@ -50,6 +50,7 @@ jobs:
           node scripts/build-app-shell-runtime.js --check
           node scripts/validate-security-headers.js
           node scripts/validate-account-erasure-preflight.js
+          node scripts/validate-chat-erasure-database.js
           node scripts/validate-profile-avatars.js
           node scripts/validate-shared-chat-ui.js
           node scripts/validate-private-fixture-chat.js

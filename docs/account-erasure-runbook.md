@@ -10,7 +10,7 @@ Updated 27 September 2026. Current production database: `nothingSport-recovery`,
 4. Review RESTRICT/NO ACTION blockers, SET NULL/SET DEFAULT retained rows and CASCADE effects. Counts overlap and must not be added as unique records. A schema change or timeout is incomplete evidence, not a zero count.
 5. Separately inventory indirect keys, JSON/text identities, email-based communications, device-linked data and Storage object paths. The generator does not discover these. Check views such as sport statistics against their underlying data rather than treating them as independent deletable records.
 
-Verified 27 September: 64 direct public references, comprising 43 CASCADE, 18 SET NULL and three RESTRICT relationships. The restrictions are chat messages `sender_id`, rooms `created_by` and members `added_by`. Push installations and reminders use SET NULL. A sentinel-UUID run executed all 64 generated count queries successfully with zero matches. This proves query compatibility, not successful erasure of a populated account.
+Before the shared-chat migration, 27 September: 64 direct public references, comprising 43 CASCADE, 18 SET NULL and three RESTRICT relationships. The restrictions were chat messages `sender_id`, rooms `created_by` and members `added_by`. After the migration, live verification confirms 43 CASCADE, 20 SET NULL and one RESTRICT (message sender). Push installations and reminders use SET NULL. A sentinel-UUID run executed all 64 generated count queries successfully with zero matches. This proves query compatibility, not successful erasure of a populated account.
 
 ## Required handling before destructive automation
 
@@ -27,7 +27,7 @@ Supabase's [User Management](https://supabase.com/docs/guides/auth/managing-user
 
 Use a disposable account populated with follows, ratings, shared chat, media, reminders, push and calendar state. Test partial failures and safe retry. Reconcile preflight and post-operation records; confirm other members' content remains correct. Check public/private object access and session/refresh rejection. Save only a minimal completion receipt with scope, timestamp and unresolved retention. A successful Auth delete or profile visibility change alone cannot close the request.
 
-No real-user erasure or populated-account rehearsal has been performed by this preflight phase. The next implementation step is the indirect/Storage inventory and shared-chat deletion design, followed by a disposable-account rehearsal.
+No real-user erasure or populated Supabase Auth/Storage rehearsal has been performed. Direct and indirect preflights and an isolated SQL rehearsal are available; the full disposable-account rehearsal remains required.
 
 ## Indirect preflight (27 September 2026)
 
@@ -39,6 +39,14 @@ Fresh metadata revealed 93 account-reachable foreign keys across 55 public table
 
 ### Shared-chat design for the disposable rehearsal
 
-Preserve rooms containing other members, their memberships, messages and saved objects. Current NOT NULL/RESTRICT room `created_by` and member `added_by` columns block Auth deletion. The recommended design is nullable attribution with SET NULL, accompanied by server/UI tests for departed creators and inviters; this migration is not implemented here. Remove the requester's message content and attachment objects through an ordered, retryable workflow; existing reply SET NULL behaviour must preserve other people's replies. Never transfer authorship to another real account. Explicitly decide whether empty private rooms can be removed after proving they contain no other member's content.
+Preserve rooms containing other members, their memberships, messages and saved objects. Migration `20260927131800_preserve_shared_chat_after_account_erasure.sql` makes room `created_by` and member `added_by` nullable with SET NULL. Remaining members keep access but do not inherit creator deletion rights; admins retain their existing authority. Message `sender_id` remains RESTRICT, requiring explicit message handling before Auth deletion. Remove the requester's message content and attachment objects through an ordered, retryable workflow; existing reply SET NULL behaviour must preserve other people's replies. Never transfer authorship to another real account. Explicitly decide whether empty private rooms can be removed after proving they contain no other member's content.
 
-The rehearsal needs two disposable users, a shared room, replies, media and notification state. Capture private scoped lineage before deletion, inject a Storage failure, retry, then verify unaffected peer access, no surviving requester objects, session/refresh rejection and reminder cessation. Local SQL generation and sentinel checks do not prove these outcomes. No PostgreSQL or Docker executable was available in this phase; do not claim a local database rehearsal.
+The rehearsal needs two disposable users, a shared room, replies, media and notification state. Capture private scoped lineage before deletion, inject a Storage failure, retry, then verify unaffected peer access, no surviving requester objects, session/refresh rejection and reminder cessation. Local SQL generation and sentinel checks do not prove these outcomes. The isolated PGlite rehearsal now exercises real PostgreSQL constraints using canonical chat table definitions. It proves message blocking, transaction rollback and safe retry, retained shared rooms/memberships, and reply detachment. It does not run Supabase Auth, Storage, RLS or session services.
+
+## Isolated SQL regression
+
+`node scripts/validate-chat-erasure-database.js` runs in memory, requires no credentials, and never connects to production. PGlite is a pinned development dependency, not application runtime code. This test and the departed-creator API regression are mandatory release gates. The test deliberately retains the sender foreign-key safeguard; no generic or public deletion endpoint is introduced.
+
+References checked 27 September: [PGlite in-memory PostgreSQL](https://pglite.dev/docs/) and [PostgreSQL foreign-key actions](https://www.postgresql.org/docs/current/ddl-constraints.html).
+
+Production migration verified 27 September: both attribution columns nullable/SET NULL, message sender NOT NULL/RESTRICT, all three tables retain RLS and deny anon/authenticated direct writes. Security advisor categories/counts were unchanged; existing anonymous-sign-in and leaked-password-protection warnings are not resolved by this phase. No production rows were deleted.
