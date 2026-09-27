@@ -14,3 +14,18 @@ assert.throws(()=>buildPreflight([rows[0],rows[0]],id),/Duplicate/);
 assert.throws(()=>buildPreflight([],id),/required/);
 assert(SCHEMA_QUERY.includes("con.confrelid='auth.users'::regclass"),'unrelated foreign keys cannot be labelled account deletion rules');
 console.log('Account preflight: bounded read-only counts, exact account filter, overlapping-count warning and injection rejection passed.');
+const {buildIndirectPreflight}=require('./account-erasure-indirect-preflight');
+const indirect=buildIndirectPreflight(id);
+assert(indirect.startsWith('-- Partial indirect inventory'));
+assert(indirect.includes('begin read only;')&&indirect.endsWith('rollback;\n'));
+assert(indirect.includes("statement_timeout='10s'"));
+assert(!/\b(delete from|update\s|insert into|alter\s|drop\s|truncate\s)/i.test(indirect));
+assert.throws(()=>buildIndirectPreflight("x';delete from auth.users;--"),/UUID/);
+assert(indirect.includes('case when t.email is null then null'),'absent Auth email must remain unverified');
+assert(indirect.includes("split_part(name,'/',1)=t.id::text"),'Storage scope requires exact UUID path segment');
+assert(indirect.includes('reply.sender_id is distinct from t.id'));
+assert(indirect.includes("'preserve'"));
+assert(indirect.includes("'stop_if_nonzero'"));
+assert.equal((indirect.match(/ check_name,/g)||[]).length,10); // nine checks plus final select
+assert.equal(buildIndirectPreflight('ABCDEFAB-0000-4000-8000-000000000009').includes('ABCDEFAB'),false);
+console.log('Indirect preflight: nine bounded checks, preserved shared content, exact Storage scope and unknown-email handling passed.');
