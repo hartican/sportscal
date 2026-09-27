@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {PGlite}=require('@electric-sql/pglite');
+const {decision,reconcile}=require('../lib/reminder-schedules');
+async function main(){
+ const now=new Date(),future=h=>new Date(+now+h*3600000).toISOString();
+ const event='event:premier-league:128923';
+ const reminder={id:'00000000-0000-4000-8000-000000000001',event_id:event,starts_at:future(2),updated_at:now.toISOString(),delivery_mode:'match-15'};
+ const fixture={id:event,startTimeUtc:future(3),status:'upcoming',timePrecision:'exact',scheduleStatus:'confirmed'};
+ assert.equal(decision(reminder,fixture,now).new_start,future(3));
+ assert.equal(decision(reminder,{...fixture,startTimeUtc:future(0.1)},now).new_start,future(0.1));
+ for(const status of ['cancelled','postponed','suspended','completed','live'])assert.equal(decision(reminder,{...fixture,status},now).state,'inactive');
+ assert.equal(decision(reminder,{...fixture,startTimeUtc:future(-1)},now).state,'passed');
+ assert.equal(decision(reminder,{...fixture,timePrecision:'estimated'},now).state,'unconfirmed');
+ assert.equal(decision(reminder,null,now).state,'unavailable');
+ assert.equal(decision(reminder,{...fixture,status:'unknown'},now).state,'unconfirmed');
+ assert.throws(()=>decision({...reminder,delivery_mode:'session-start'},fixture,now),/Unreviewed/);
+ let requests=[];const result=await reconcile({now,fixtures:[fixture],request:async(p,o)=>{requests.push({p,body:o.body});return requests.length===1?[reminder]:1;}});
+ assert.equal(result.updated,1);assert.equal(requests[1].body.updates[0].expected_start,reminder.starts_at);
+ requests=[];assert.equal((await reconcile({request:async p=>{requests.push(p);return [];}})).checked,0);assert.equal(requests.length,1,'Empty scan adds no catalogue/provider fetch or reconciliation write');
+ const db=new PGlite();
+ try{
+  await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;
+   create table nothingsports_account_erasure_blocks(user_id uuid primary key);
+   create table nothingsports_push_installations(installation_id uuid primary key,user_id uuid);
+   create table nothingsports_reminders(id uuid primary key,user_id uuid,installation_id uuid,event_id text,title text,delivery_mode text,starts_at timestamptz,remind_at timestamptz,updated_at timestamptz,claimed_at timestamptz,dispatched_at timestamptz);
+   create table nothingsports_inbox(id uuid primary key default gen_random_uuid(),recipient_user_id uuid,kind text,source_key text,event_id text,title text,activity_at timestamptz,surfaced_at timestamptz,read_at timestamptz,unique(recipient_user_id,source_key));
+   create table nothingsports_inbox_epoch(started_at timestamptz);insert into nothingsports_inbox_epoch values(now()-interval '1 day');
+   grant all on all tables in schema public to service_role;`);
+  await db.exec(fs.readFileSync('supabase/migrations/20260927160736_reconcile_football_reminder_times.sql','utf8'));
+  await db.exec('set role authenticated');await assert.rejects(()=>db.query('select * from nothingsports_reminder_schedule_candidates()'),e=>e.code==='42501');await db.exec('reset role');
+  const owner='00000000-0000-4000-8000-000000000002';
+  await db.query("insert into nothingsports_reminders(id,user_id,event_id,title,delivery_mode,starts_at,remind_at,updated_at) values($1,$2,$3,'Match','match-15',$4,$4::timestamptz-interval '15 minutes',$5)",[reminder.id,owner,event,future(2),now.toISOString()]);
+  const control='00000000-0000-4000-8000-000000000003';
+  await db.query("insert into nothingsports_reminders(id,event_id,title,delivery_mode,starts_at,remind_at,updated_at) values($1,'other-sport','Other','match-15',now()+interval '10 minutes',now()-interval '5 minutes',now())",[control]);
+  assert.equal((await db.query("select count(*) n from nothingsports_claim_due_reminders(clock_timestamp(),clock_timestamp()-interval '1 hour',clock_timestamp()-interval '10 minutes',5)")).rows[0].n,1,'Other sports preserve existing eligibility');
+  await db.query('delete from nothingsports_reminders where id=$1',[control]);
+  const read=async()=> (await db.query('select * from nothingsports_reminders where id=$1',[reminder.id])).rows[0];
+  const apply=async(f=fixture)=>{const row=await read();const data=decision({...row,starts_at:new Date(row.starts_at).toISOString(),updated_at:new Date(row.updated_at).toISOString()},f,new Date());return (await db.query('select nothingsports_reconcile_reminder_schedules($1::jsonb) n',[JSON.stringify([data])])).rows[0].n;};
+  const claim=async()=> (await db.query("select * from nothingsports_claim_due_reminders(clock_timestamp(),clock_timestamp()-interval '1 hour',clock_timestamp()-interval '10 minutes',5)")).rows;
+  assert.equal((await db.query('select * from nothingsports_reminder_schedule_candidates()')).rows.length,1);
+  assert.equal(await apply({...fixture,startTimeUtc:future(0.1)}),1,'Earlier kickoff updates a reminder that was not originally due');
+  assert.equal((await read()).id,reminder.id,'Choice identity preserved');assert.equal((await read()).user_id,owner);
+  await db.exec('select nothingsports_inbox_maintenance()');assert.equal((await db.query('select count(*) n from nothingsports_inbox')).rows[0].n,1,'New due time enters inbox');
+  assert.equal((await claim()).length,1);
+  await db.query('update nothingsports_reminders set claimed_at=null where id=$1',[reminder.id]);
+  assert.equal(await apply(),1,'Later kickoff defers existing reminder');assert.equal((await claim()).length,0);
+  assert.equal((await db.query('select count(*) n from nothingsports_inbox')).rows[0].n,0,'Never-surfaced stale entry retracted');
+  await apply({...fixture,startTimeUtc:future(0.1)});await db.exec('select nothingsports_inbox_maintenance();update nothingsports_inbox set surfaced_at=now();');
+  await apply({...fixture,status:'postponed'});assert.equal((await claim()).length,0,'Postponed match held');
+  await db.exec('select nothingsports_inbox_maintenance()');assert.equal((await db.query('select count(*) n from nothingsports_inbox')).rows[0].n,1,'Already-surfaced notification is not silently recalled');
+  const stale=await read();await db.query('update nothingsports_reminders set updated_at=clock_timestamp() where id=$1',[reminder.id]);
+  const update=decision({...stale,starts_at:new Date(stale.starts_at).toISOString(),updated_at:new Date(stale.updated_at).toISOString()},fixture,new Date());
+  assert.equal((await db.query('select nothingsports_reconcile_reminder_schedules($1::jsonb) n',[JSON.stringify([update])])).rows[0].n,0,'Concurrent client change wins');
+  await apply({...fixture,startTimeUtc:future(0.1)});await db.exec("update nothingsports_reminders set schedule_checked_at=now()-interval '11 minutes'");assert.equal((await claim()).length,0,'Stale check cannot send');
+  await db.query('insert into nothingsports_account_erasure_blocks values($1)',[owner]);assert.equal((await db.query('select * from nothingsports_reminder_schedule_candidates()')).rows.length,0,'Erasure does not poison reconciliation');
+  await db.query('delete from nothingsports_reminders where id=$1',[reminder.id]);assert.equal(await db.query('select nothingsports_reconcile_reminder_schedules($1::jsonb) n',[JSON.stringify([update])]).then(r=>r.rows[0].n),0,'Cancelled choice never resurrected');
+ }finally{await db.close();}
+ console.log('Reminder schedules: earlier/later kickoff, retained choices, held unknown/terminal fixtures, push/inbox agreement, stale and concurrent changes, and erasure exclusion passed. No real notifications sent.');
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});

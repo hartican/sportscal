@@ -2,7 +2,7 @@
 
 const webpush = require("web-push");
 const {guardedSend,suppressed}=require("../lib/notification-send");
-const { publicError, SupabaseRequestError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
+const { publicError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
 
 function bearer(request){
   const header = String(request?.headers?.authorization || "");
@@ -10,19 +10,6 @@ function bearer(request){
 }
 
 const CLAIM_STALE_MS = 10 * 60 * 1000;
-
-function claimFilter(id, staleBefore){
-  return `/rest/v1/nothingsports_reminders?id=eq.${encodeURIComponent(id)}&dispatched_at=is.null&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&select=*`;
-}
-
-async function claimReminder(reminder, claimedAt, staleBefore){
-  const rows = await supabaseServiceRequest(claimFilter(reminder.id, staleBefore), {
-    method:"PATCH",
-    headers:{ Prefer:"return=representation" },
-    body:{ claimed_at:claimedAt, updated_at:claimedAt },
-  });
-  return Array.isArray(rows) ? rows[0] || null : null;
-}
 
 async function patchClaimedReminder(id, claimedAt, body){
   return supabaseServiceRequest(`/rest/v1/nothingsports_reminders?id=eq.${encodeURIComponent(id)}&claimed_at=eq.${encodeURIComponent(claimedAt)}`, {
@@ -72,6 +59,7 @@ module.exports = async function notificationDispatchHandler(request, response){
       response.status(503).json({ error:"Notification dispatch paused for database recovery.", code:"supabase_maintenance" });
       return;
     }
+    const scheduleChecks=await require('../lib/reminder-schedules').reconcile({now}).catch(()=>{throw Object.assign(new Error('Reminder schedule reconciliation is unavailable.'),{status:503,payload:{code:'reminder_schedule_reconciliation_failed'}});});
     await supabaseServiceRequest('/rest/v1/rpc/nothingsports_inbox_maintenance',{method:'POST',body:{}});
     const publicKey = String(process.env.VAPID_PUBLIC_KEY || "");
     const privateKey = String(process.env.VAPID_PRIVATE_KEY || "");
@@ -85,18 +73,9 @@ module.exports = async function notificationDispatchHandler(request, response){
     const claimedAt=now.toISOString();
     let reminders=[];
     let claimed=[];
-    try{
-      const rows=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_claim_due_reminders',{method:'POST',body:{claim_at:claimedAt,oldest_due:oldest.toISOString(),stale_before:staleBefore,batch_limit:5}});
-      reminders=Array.isArray(rows)?rows:[];
-      claimed=reminders.map(reminder=>({reminder,claimedAt}));
-    }catch(error){
-      if(!(error instanceof SupabaseRequestError)||![400,404].includes(Number(error.status)))throw error;
-      reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=5&select=*`);
-      for (const reminder of reminders || []){
-        const row = await claimReminder(reminder, claimedAt, staleBefore);
-        if (row) claimed.push({ reminder:row, claimedAt });
-      }
-    }
+    const rows=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_claim_due_reminders',{method:'POST',body:{claim_at:claimedAt,oldest_due:oldest.toISOString(),stale_before:staleBefore,batch_limit:5}});
+    reminders=Array.isArray(rows)?rows:[];
+    claimed=reminders.map(reminder=>({reminder,claimedAt}));
     const ids = [...new Set(claimed.map(item => item.reminder.installation_id).filter(Boolean))];
     const installationRows = ids.length
       ? await supabaseServiceRequest(`/rest/v1/nothingsports_push_installations?installation_id=in.(${ids.map(encodeURIComponent).join(",")})&select=*`)
@@ -137,12 +116,12 @@ module.exports = async function notificationDispatchHandler(request, response){
       failed_count:failed + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0),
       last_error:liveRatings.error || socialRewards.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(liveRatings.error || socialRewards.error ? 503 : 200).json({ liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(liveRatings.error || socialRewards.error ? 503 : 200).json({ scheduleChecks, liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
-    await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:error?.payload?.code === "push_not_configured" ? "push_not_configured" : "notification_dispatch_failed" }).catch(() => null);
+    await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:['push_not_configured','reminder_schedule_reconciliation_failed'].includes(error?.payload?.code) ? error.payload.code : 'notification_dispatch_failed' }).catch(() => null);
     const outgoing = publicError(error);
     response.status(outgoing.status).json(outgoing.body);
   }
 };
 
-module.exports._test = { CLAIM_STALE_MS, claimFilter, notificationPayload, recordDispatchHealth };
+module.exports._test = { CLAIM_STALE_MS, notificationPayload, recordDispatchHealth };

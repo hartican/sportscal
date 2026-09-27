@@ -66,8 +66,8 @@ async function notificationsHarness({ user = null, serviceRequest }){
   };
 }
 
-async function dispatchHarness({ serviceRequest, sendNotification }){
-  const restoreServer = withMockedModule(serverPath, { publicError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:serviceRequest });
+async function dispatchHarness({ serviceRequest, sendNotification, scheduleError=false }){
+  const restoreServer = withMockedModule(serverPath, { publicError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:(path,options)=>path.endsWith('/nothingsports_reminder_schedule_candidates')?(scheduleError?Promise.reject(Error('Private database detail')):Promise.resolve([])):serviceRequest(path,options) });
   const restoreWebPush = withMockedModule(webPushPath, {
     setVapidDetails(){},
     sendNotification,
@@ -75,6 +75,7 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
   const restoreLiveAlerts = withMockedModule(liveAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   delete require.cache[sendGuardPath];
+  delete require.cache[require.resolve('../lib/reminder-schedules')];
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
@@ -96,7 +97,7 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
       }
       return response;
     },
-    close(){ delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreLiveAlerts(); restoreWebPush(); restoreServer(); },
+    close(){ delete require.cache[require.resolve('../lib/reminder-schedules')]; delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreLiveAlerts(); restoreWebPush(); restoreServer(); },
   };
 }
 
@@ -334,6 +335,9 @@ async function main(){
     dispatcher.close();
   }
 
+  const blockedHealth=[];
+  const blockedDispatch=await dispatchHarness({scheduleError:true,serviceRequest:async(p,o)=>{blockedHealth.push(o.body);return [];},sendNotification:async()=>{throw Error('Provider must not be called');}});
+  try{const result=await blockedDispatch.run();assert.equal(result.statusCode,503);assert.equal(result.payload.code,'reminder_schedule_reconciliation_failed');assert(blockedHealth.some(b=>b.last_error==='reminder_schedule_reconciliation_failed'));}finally{blockedDispatch.close();}
   console.log("Reliable Web Push validation passed: UI confirmation, account fan-out, cancellation, and atomic dispatch claims are enforced.");
 }
 

@@ -1,5 +1,14 @@
 # Backend efficiency decisions
 
+## Football reminder schedule reconciliation — 28 September Sydney
+
+The sole five-minute notification dispatcher checks at most 20 pending EPL/UCL/Europa match-15 reminders, oldest schedule check first. One indexed service-only inventory RPC is added per run; an empty result does not load the fixture catalogue or write reconciliation. A nonempty batch uses one bounded update RPC and the already-bundled published Football projection. No new provider call, AI work, cron or polling loop. Existing push claim batches remain five. The hard ceiling is 5,760 small per-reminder check updates per day (20 × 288); these update existing rows and do not append fixture history.
+
+Identity and opt-in persist when kickoff moves in either direction. Unknown, postponed, cancelled, completed, live or passed fixtures are held without inventing a new start. Push claims and newly created inbox entries share the same predicate: confirmed future kickoff, matching verified stored start and a check within ten minutes. Client updates and cancellation win through compare-and-set; active claims are not edited. Only never-surfaced stale inbox entries may be retracted; seen notifications and external pushes cannot be recalled. Existing other sports and broadcast/session modes are unchanged.
+
+This depends on the published source snapshot, not real-time provider truth. Twenty candidates per five-minute pass is a cohort budget, not an unlimited reminder SLA; large queues can remain held until scanned. Report checked/updated/held counts in the existing dispatch response. Do not add another scheduler to hide capacity problems. The old REST claim fallback is removed because it would bypass the shared schedule gate.
+
+
 ## Erasure-aware notification admission — 28 September 2026
 
 Five Web Push paths share a service-only admission/receipt wrapper. It serializes permission to send against account erasure, rechecks installation ownership/permission, and preserves uncertain outcomes without blind retries. Two database requests are added only for actual send attempts; empty queues and scheduler cadence remain unchanged. Reminder/social claims skip erasing accounts; live-rating groups filter them before hydration. No new scheduler or batch enlargement. Finished minimal receipts are opportunistically pruned after seven days, at most 100 per admission; crashed attempts remain exceptions for reconciliation. See account-erasure-runbook.md for the live database proof and external-delivery limits.

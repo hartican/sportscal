@@ -85,6 +85,7 @@ jobs:
           node scripts/validate-live-rating-alerts.js
           node scripts/validate-backend-efficiency.js
           node scripts/validate-notifications.js
+          node scripts/validate-reminder-schedules.js
           node scripts/validate-live-fixtures.js
           node scripts/validate-match-observations.js
           node scripts/validate-laver-cup.js
