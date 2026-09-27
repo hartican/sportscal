@@ -106,6 +106,7 @@
     "competition:ligue-1":viewingRights(["competition:ligue-1", "ligue-1"], [], "https://www.psg.fr/en/content/fixtures-for-matchday-3-of-ligue-1-2026-2027-paris-saint-germain-as-monaco", {coverageStatus:"unverified", verifiedAt:"2026-09-05T00:00:00.000Z"}),
     "competition:premier-league":viewingRights(["competition:premier-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/premier-league", { sourceIsProvider:true }),
     "competition:uefa-champions-league":viewingRights(["competition:uefa-champions-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-champions-league", { sourceIsProvider:true }),
+    "competition:uefa-europa-league":viewingRights(["competition:uefa-europa-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-europa-league", {sourceIsProvider:true, liveOrReplay:"live", verifiedAt:"2026-09-27T00:00:00.000Z"}),
     "competition:tennis:us-open":viewingRights(["competition:tennis:us-open", "us-open"], ["stan"], "https://www.stan.com.au/watch/sport/tennis/us-open", { sourceIsProvider:true }),
     "competition:afl":viewingRights(["competition:afl"], ["kayo", "foxtel", "seven", "watch-afl"], "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights", { liveOrReplay:"live", grandFinalProviderIds:Object.freeze(["seven"]) }),
     "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], null, { grandFinalProviderIds:Object.freeze(["nine"]) }),

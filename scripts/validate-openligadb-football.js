@@ -42,3 +42,50 @@ for(const [provider,id] of [['370','team:football:epl:10'],['2617','team:footbal
 const known=[...require('../data/canonical/football-directory.v1.json').teams,...require('../data/canonical/uefa-champions-league-2026-27.json').participants];
 for(const team of registry.teams.filter(t=>t.preservesExistingId))assert(known.some(t=>t.id===team.participantId&&t.displayName===team.displayName));
 console.log('Identity map: 72 reviewed clubs, 46 existing identities retained, ambiguous or unreviewed changes rejected.');
+
+
+
+const {resolveUserFollowFixtures}=require('../lib/follow-fixture-resolver');
+const {buildServerFeed,normalizeUserFollowState}=require('../lib/server-feed-pipeline');
+function europeanFeed(entityFollows){
+ const userState=normalizeUserFollowState({preferences:{selectedSelectorEntityIds:['sport:football'],preferenceGraph:{entityFollows}}});
+ const before=JSON.stringify(userState);const resolved=resolveUserFollowFixtures({events:[],userState});
+ const feed=buildServerFeed({events:resolved.events,userState,userId:'00000000-0000-4000-8000-000000000009',now:new Date('2026-09-27T00:00:00Z'),limit:500});
+ assert.equal(JSON.stringify(userState),before,'source expansion does not change consent');
+ return feed.events.filter(e=>e.sourceAttribution?.provider==='OpenLigaDB');
+}
+assert.equal(europeanFeed([]).length,0,'broad Football alone does not opt into club fixtures');
+const liverpool=europeanFeed([{participantId:'team:football:epl:10',followLevel:'follow'}]);
+assert.equal(liverpool.length,7,'existing Liverpool follow admits all seven remaining UCL league matches');
+assert(liverpool.every(e=>e.participantIds.includes('team:football:epl:10')));
+assert.equal(europeanFeed([{participantId:'team:football:epl:10',followLevel:'mute'}]).length,0);
+const published=require('../data/providers/openligadb/football-2026-27.json');
+const rights=require('../config/follow-first');
+for(const competition of Object.values(COMPETITIONS)){
+ const events=published.events.filter(e=>e.competitionId===competition.competitionId);assert.equal(events.length,144);
+ assert(events.every(e=>e.participantIds.length===2&&e.sourceType==='community'&&e.sourceAttribution));
+ assert.deepEqual(rights.viewingOptions(events.find(e=>e.status==='upcoming')).map(o=>o.providerId),['stan']);
+}
+const september=published.events.find(e=>e.startTimeUtc==='2026-09-08T16:45:00.000Z');assert.equal(september.time,'02:45');assert.equal(september.date,'2026-09-09');
+const october=published.events.find(e=>e.startTimeUtc==='2026-10-13T16:45:00.000Z');assert.equal(october.time,'03:45');assert.equal(october.date,'2026-10-14');
+console.log('Published UEFA facts: 288 fixtures, Australian viewing, Sydney DST conversion and existing Follow consent passed.');
+
+const ics=require('../config/calendar-export').buildIcs(liverpool).replace(/\r\n /g,'');assert(ics.includes('Data from OpenLigaDB under ODbL:'));assert(ics.includes('/data/providers/openligadb/football-2026-27.json'),'calendar exports retain source and licence attribution');
+
+const identities=require('../config/card-identities');const unmappedArtwork=published.events.find(e=>e.participantIds.includes('team:football:club:lech-poznan'));const sides=identities.matchupSidesForEvent(unmappedArtwork,[],unmappedArtwork.name);assert(sides.some(s=>s.participant?.id==='team:football:club:lech-poznan'),'missing artwork must not remove a confirmed club profile identity');
+
+(async()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');const {refresh}=require('./refresh-openligadb-football');
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-openliga-test-'));const outputPath=path.join(dir,'facts.json');
+ try{
+  const fetchGood=async url=>({ok:true,json:async()=>fixtureSet(url.includes('/ucl/')?'ucl':'uel2026')});
+  const args={outputPath,identityRegistry:mapping,now:new Date(options.checkedAt)};
+  const initial=await refresh({...args,fetchImpl:fetchGood});assert.equal(initial.payload.events.length,288);assert.equal(new Set(initial.payload.events.map(e=>e.id)).size,288,'competitions never share fixture IDs');
+  const before=fs.readFileSync(outputPath,'utf8');
+  const failed=await refresh({...args,fetchImpl:async()=>{throw new Error('offline')}});assert.equal(failed.failures.length,2);assert.equal(fs.readFileSync(outputPath,'utf8'),before,'total failure leaves last-good bytes and freshness untouched');
+  const partial=await refresh({...args,fetchImpl:async url=>url.includes('/ucl/')?fetchGood(url):{ok:true,json:async()=>[]}});assert.equal(partial.failures.length,1);assert.equal(partial.payload.events.length,288,'partial season never replaces complete retained data');
+  await assert.rejects(refresh({...args,outputPath:path.join(dir,'empty.json'),fetchImpl:async()=>({ok:false,status:503})}),/first import incomplete/);
+  assert(!fs.existsSync(path.join(dir,'empty.json')),'failed first import is not published');
+  console.log('Refresh recovery: atomic first import, scoped IDs, partial/total failure retention and unchanged failed-source freshness passed.');
+ }finally{fs.rmSync(dir,{recursive:true,force:true});}
+})().catch(error=>{console.error(error);process.exitCode=1;});

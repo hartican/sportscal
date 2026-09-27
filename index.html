@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="321">
+<meta name="app-shell-version" content="322">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=320" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=322" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=320"></script>
+<script src="assets/js/app-shell-runtime.js?v=322"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16947,12 +16947,23 @@ function buildOngoingTournamentParent(ev){
   button.onclick=()=>{body.hidden=!body.hidden;button.setAttribute('aria-expanded',String(!body.hidden));if(body.hidden)tennisFeedOpenParents.delete(ev.id);else tennisFeedOpenParents.add(ev.id);paint();};
   heading.append(link,context,button);card.append(heading,body);queueMicrotask(paint);return card;
 }
+function buildFixtureDataAttribution(ev){
+  if(ev.sourceAttribution?.provider!=='OpenLigaDB')return null;
+  const note=document.createElement('p');note.className='compact-card-meta fixture-source-attribution';
+  note.append(document.createTextNode('Data: '));
+  for(const [label,href] of [['OpenLigaDB','https://www.openligadb.de/'],['ODbL','https://opendatacommons.org/licenses/odbl/1-0/'],['Dataset','/data/providers/openligadb/football-2026-27.json']]){
+    if(note.children.length)note.append(document.createTextNode(' · '));
+    const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener';link.addEventListener('click',event=>event.stopPropagation());note.append(link);
+  }
+  return note;
+}
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
   if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
     const scheduleLink=buildFeedScheduleLink(ev);
     if(activeTab==='feed'){
       scheduleLink.classList.add('fixture-competition-link');
@@ -16978,7 +16989,9 @@ function buildEventCard(ev, options = {}){
     return card;
   } catch (_error){
     console.warn("Fixture card fallback", ev?.eventId || ev?.id);
-    return buildFixtureFallbackCard(ev, options);
+    const fallback=buildFixtureFallbackCard(ev, options);
+    const attribution=buildFixtureDataAttribution(ev);if(attribution)fallback.append(attribution);
+    return fallback;
   }
 }
 

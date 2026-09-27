@@ -18,6 +18,7 @@ const canonicalTennis=require("../data/canonical/tennis-context-2026.json");
 const canonicalWrc = require("../data/canonical/wrc-context-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
 const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
+const openLiga = require('../data/providers/openligadb/football-2026-27.json');
 const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
@@ -245,7 +246,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueCity','venueSourceUrl','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueCity','venueSourceUrl','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -397,7 +398,7 @@ function codeFixtures(code){
       ? isAflwFixture(event)
       : event.sportDomainId === code.id && !isAflwFixture(event))
     : code.id === "competition:uefa-champions-league"
-      ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || [])
+      ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || []).filter(fixture=>!openLiga.events.length || fixture.id!=="major-stage:uefa-champions-league-2026-27:league-phase")
     : code.id === "sport:american-football"
       ? canonicalAmericanFootball.fixtures || []
       : code.id === "sport:ice-hockey"
@@ -405,7 +406,7 @@ function codeFixtures(code){
         : code.id === "sport:wrc"
           ? canonicalWrc.events || []
         : [];
-  const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
+  const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...openLiga.events,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
   return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf], code.id, new Set([...canonical,...sourced,...golf])).map(enrichFixtureEditorial);
 }
 

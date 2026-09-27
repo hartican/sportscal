@@ -66,7 +66,7 @@
         const end=new Date(`${event.endDate || date}T00:00:00Z`);end.setUTCDate(end.getUTCDate()+1);
         lines.push(`DTSTART;VALUE=DATE:${date.replace(/-/g,'')}`,`DTEND;VALUE=DATE:${end.toISOString().slice(0,10).replace(/-/g,'')}`);
       }
-      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.timePrecision==='estimated'?'Approximate start; follows the prior match and may change.':event.timePrecision==='follows'?'Start follows the prior match; exact time is unconfirmed.':null,event.broadcaster, 'Nothing Sport'].filter(Boolean).join('\n'))}`);
+      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.timePrecision==='estimated'?'Approximate start; follows the prior match and may change.':event.timePrecision==='follows'?'Start follows the prior match; exact time is unconfirmed.':null,event.broadcaster, event.sourceAttribution?.provider==='OpenLigaDB'?'Data from OpenLigaDB under ODbL: https://opendatacommons.org/licenses/odbl/1-0/ ; dataset: https://nothingsport.vercel.app/data/providers/openligadb/football-2026-27.json':null, 'Nothing Sport'].filter(Boolean).join('\n'))}`);
       const updated=event.updatedAt || event.sourceCheckedAt;
       if (updated && Number.isFinite(Date.parse(updated))) lines.push(`LAST-MODIFIED:${stamp(updated)}`);
       if (/cancelled|canceled/i.test(event.status || event.lifecycleStatus || '')) lines.push('STATUS:CANCELLED');

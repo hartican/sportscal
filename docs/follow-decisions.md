@@ -250,3 +250,7 @@ The shared provider registry recognises `ten` as 10 Streaming, an Australian fre
 Evidence: official Socceroos viewing guide checked 27 September, `https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026`. Regression: `validate-football-viewing.js` and the Feed/Schedule links in `validate-football-schedule-browser.js`.
 
 Viewing evidence clarification: fixture-level broadcast entitlement does not imply a direct match URL. Only an explicit link scope or fixture URL establishes that. Completed status alone does not establish a replay; without dated replay/both evidence, the provider action says “Check replay availability.” Existing verified replay actions and provider destinations remain usable. The shared Australian viewing and provider regression suites cover this distinction.
+
+## European club fixtures — 27 September 2026
+
+The free-source trial adds named Champions League and Europa League league-phase fixtures to the existing Football schedule. Preserve 46 existing club IDs; new directory records do not create follows. Existing Liverpool follow admits its seven remaining league-phase fixtures at the 27 September reference clock; broad Football alone does not admit club fixtures. Explicit mutes and normal timeline retention still apply. Shared card and calendar attribution preserves source provenance. This is coverage expansion under existing consent rules, not a new opt-in decision. Regression: `validate-openligadb-football.js` and `validate-european-football-browser.js`.

@@ -342,6 +342,14 @@
         "foxtel"
       ],
       "notes": "Official competition guide; inherited from the reviewed live rule."
+    },
+    "competition:uefa-europa-league": {
+      "sourceUrl": "https://www.stan.com.au/watch/sport/football/uefa-europa-league",
+      "verifiedAt": "2026-09-27T00:00:00.000Z",
+      "providerIds": [
+        "stan"
+      ],
+      "note": "Stan lists the 2026/27 competition and Australian kick-offs. Competition destination, not a verified fixture replay URL."
     }
   }
 }

@@ -54,6 +54,7 @@ const scenarios = [
   ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
   ["Premier League", { sportDomainId:"sport:football", competitionId:"competition:premier-league-2026-27", key:"premier-league" }, ["stan"]],
   ["Champions League", { sportDomainId:"sport:football", competitionId:"competition:uefa-champions-league-2026-27" }, ["stan"]],
+  ["Europa League", {sportDomainId:"sport:football",competitionId:"competition:uefa-europa-league",key:"football"}, ["stan"]],
   ["FIFA World Cup", { competitionId:"competition:fifa-world-cup-2026" }, ["sbs"]],
   ["Australian football", { competitionId:"competition:afc-womens-asian-cup-2026", name:"Matildas v Japan" }, ["paramount"]],
   ["Cricket Australia", { key:"cricket", competitionId:"competition:cricket-australia", name:"Australia v England" }, ["kayo", "foxtel", "seven"]],

@@ -71,6 +71,7 @@ function buildSteps({ localOnly = false } = {}) {
     : []),
   ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
+  ["scripts/refresh-openligadb-football.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
@@ -338,6 +339,13 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function main() {
   const options = parseOptions();
+  if(process.argv.includes('--european-football')){
+    const result=await require('./refresh-openligadb-football').refresh();
+    console.log(JSON.stringify({source:'OpenLigaDB',fixtures:result.payload.events.length,failures:result.failures}));
+    for(const args of [['scripts/build-code-inspector.js','--codes=football,champions-league'],['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js']])runStep(args);
+    if(result.failures.length)process.exitCode=1;
+    return;
+  }
   if(process.argv.includes('--code-projections')){
     const scope=process.argv.find(arg=>arg.startsWith('--codes='));
     if(!scope||!scope.slice(8).split(',').every(slug=>/^[a-z][a-z0-9-]*$/.test(slug)))throw new Error('--code-projections requires --codes=<existing slug,...>');

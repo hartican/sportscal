@@ -1,0 +1,46 @@
+'use strict';
+// Refresh entry point is scripts/update-cards.js; no separate scheduler.
+const fs=require('node:fs'),path=require('node:path');
+const {normalizeLeague,resolveLeagueIdentities,COMPETITIONS}=require('./lib/openligadb-football');
+const registry=require('../config/football-openligadb-identities.json');
+const identity=require('../config/fixture-identity');
+const DEFAULT_OUTPUT=path.resolve(__dirname,'../data/providers/openligadb/football-2026-27.json');
+function eventsForLeague(facts){
+  return facts.fixtures.map(fixture=>{
+    const id=`fixture:football:openligadb:${facts.competitionId.replace("competition:","")}:${fixture.providerFixtureId}`;
+    const participants=fixture.participants.map(p=>({id:p.participantId,participantId:p.participantId,name:p.name,role:p.role,type:'team',teamKind:'club'}));
+    return identity.normalizeCore({id,eventId:id,canonicalEventId:id,key:'football',sport:'Football',sportDomainId:'sport:football',
+      competitionId:facts.competitionId,competitionName:facts.competitionName,competitionScope:'international',season:facts.season,
+      stage:'League phase',roundNumber:fixture.roundNumber,roundLabel:`${facts.competitionName.replace('UEFA ','')} Matchday ${fixture.roundNumber}`,
+      name:participants.map(p=>p.name).join(' v '),participants,participantIds:participants.map(p=>p.id),homeParticipantId:participants[0].id,awayParticipantId:participants[1].id,
+      startTimeUtc:fixture.startTimeUtc,timePrecision:'exact',status:fixture.status,scheduleStatus:'confirmed',gender:'men',isSenior:true,
+      sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:facts.checkedAt,
+      sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},
+      ...(fixture.result?{...fixture.result,score:`${participants[0].name} ${fixture.result.homeScore}-${fixture.result.awayScore} ${participants[1].name}`,scoreCheckedAt:facts.checkedAt,resultSourceUrl:facts.source.url}:{}),
+    });
+  });
+}
+async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date(),identityRegistry=registry}={}){
+  const previous=fs.existsSync(outputPath)?JSON.parse(fs.readFileSync(outputPath,'utf8')):null;
+  const retained=new Map((previous?.leagues||[]).map(f=>[f.competitionId,f]));const failures=[];
+  for(const [league,definition] of Object.entries(COMPETITIONS)){
+    try{
+      const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{signal:AbortSignal.timeout(15000)});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      const facts=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
+      retained.set(definition.competitionId,facts);
+    }catch(error){failures.push({league,message:error.message});}
+  }
+  // Never publish an empty/incomplete first import or erase a last-good season.
+  if(retained.size!==2)throw new Error(`OpenLigaDB first import incomplete: ${failures.map(f=>f.league).join(', ')}`);
+  const leagues=[...retained.values()];const payload={schemaVersion:'openligadb-football-public.v1',licence:'https://opendatacommons.org/licenses/odbl/1-0/',
+    attribution:'Contains information from OpenLigaDB, made available under the Open Database License (ODbL). NS normalized fixture facts and identity mappings are provided with this dataset under ODbL.',
+    identityMapping:registry.teams,
+    scope:'2026/27 league phases only; community-maintained, not an official UEFA feed',leagues,events:leagues.flatMap(eventsForLeague)};
+  if(failures.length===2&&previous)return {payload:previous,failures,wrote:false};
+  fs.mkdirSync(path.dirname(outputPath),{recursive:true});const temp=`${outputPath}.tmp-${process.pid}`;fs.writeFileSync(temp,JSON.stringify(payload)+'\n');fs.renameSync(temp,outputPath);
+  return {payload,failures,wrote:true};
+}
+module.exports={refresh,eventsForLeague};
+
+if(require.main===module)refresh().then(result=>{console.log(JSON.stringify({fixtures:result.payload.events.length,failures:result.failures}));if(result.failures.length)process.exitCode=1;}).catch(error=>{console.error(error.message);process.exitCode=1;});

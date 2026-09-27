@@ -682,7 +682,12 @@
         const record=labelsApi ? labelsApi.participantRecord(candidate.participant,event,participants) : candidate.participant;
         return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),record.name].filter(Boolean)}});
       }) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
-      return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
+      const explicitId=event.participantSlots?.[index]?.participantId || event.participantIds?.[index];
+      const supplied=[...(event.participants||[]),...(participants||[])].find(p=>(p.id||p.participantId)===explicitId);
+      // Artwork may be unavailable while the sourced participant is known.
+      // Preserve that identity for profile/follow links without inventing a logo.
+      const participant=identity?.participant || (explicitId?{...supplied,id:explicitId,displayName:supplied?.displayName||supplied?.name||label}:null);
+      return Object.freeze({ label, participant, mark:identity?.mark || null });
     });
     return labelsApi ? labelsApi.australianFirst(sides,event,participants) : sides;
   }

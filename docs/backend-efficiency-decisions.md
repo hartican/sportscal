@@ -172,3 +172,9 @@ The existing cron-job.org dispatcher remains the sole five-minute owner. Its 30-
 Hydrate only the due rating fixture IDs. Explicitly include the dynamically loaded competition catalogue in the dispatcher function: Vercel's dependency trace omitted all 30 schedule chunks although they existed in the source upload. No new scheduler, subscription, migration or private-data logging.
 
 Regression: notification, live-rating and backend-efficiency validators, plus the dispatcher bundle validator. Live acceptance requires a successful automatic cron run and updated server health, separately from physical-device push delivery.
+
+## European Football source trial — 27 September 2026
+
+OpenLigaDB league-phase fixtures refresh only through the existing `update-cards.js` owner: full refresh or the bounded `--european-football -p` mode. Two season endpoints, one call each, fifteen-second timeout each; no added live polling, cron, database writer or account. Responses must pass complete league-phase and reviewed identity checks before atomic publication. A failed source keeps its original last-good facts and check time; an incomplete first import fails without publishing. Partial/total failures make the canonical command nonzero and must not be reported as successful freshness.
+
+Public provider facts and identity mappings remain independently retrievable under ODbL, with attribution on cards and calendar exports. Private preferences and editorial are not put in the provider dataset. Existing per-user Follow consent and exclusions remain authoritative. This does not establish an uptime guarantee or certify full competition quality.

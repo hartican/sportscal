@@ -242,6 +242,12 @@ function main(){
     (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key)?.set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:player.genderCategory || directoryGender, sourceRefs:[...(player.sourceRefs || []), ...directorySources] })));
     (directory.athletes || []).filter(athlete => athlete.active !== false).forEach(athlete => chunks.get(key)?.set(athlete.id, normalizeRecord({ ...athlete, type:"competitor" }, { genderCategory:athlete.genderCategory, ranking:athlete.ranking, sourceRefs:[...(athlete.sourceRefs || []), ...directorySources] })));
   });
+  for(const league of readJson('data/providers/openligadb/football-2026-27.json').leagues){
+    for(const team of league.teams){
+      const existing=chunks.get('football')?.get(team.participantId);
+      chunks.get('football')?.set(team.participantId,normalizeRecord({...existing,id:team.participantId,displayName:team.name,type:'team',sportDomainId:'sport:football',leagueId:existing?.leagueId||league.competitionId,aliases:[...(existing?.aliases||[]),team.sourceName]}, {genderCategory:'male',sourceRefs:[...(existing?.sourceRefs||[]),league.source.url]}));
+    }
+  }
   (championsLeague.participants || []).forEach(team => {
     chunks.get("football")?.set(team.id, normalizeRecord({ ...team, type:"team" }, {
       genderCategory:"male",
