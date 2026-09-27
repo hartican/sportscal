@@ -38,7 +38,7 @@ async function main(){
  }
  let failure;
  try{
-  for(let i=0;i<2;i++){
+  for(let i=0;i<3;i++){
    const email=`erasureqa_${stamp}_${i}@example.invalid`,password=crypto.randomBytes(24).toString('base64url');
    const created=await service('/auth/v1/admin/users',{method:'POST',body:{email,password,email_confirm:true}});
    const user={id:created.id};users.push(user);checkpoint();
@@ -46,7 +46,15 @@ async function main(){
    user.token=session.access_token;user.refresh=session.refresh_token;assert(user.token&&user.refresh);
    await post('chat_profiles',{user_id:user.id,email_normalized:email,display_name:'Disposable QA'});
   }
-  const [owner,peer]=users;
+  const [owner,peer,control]=users;
+  const ratingEvent=`qa-erasure-${stamp}-ratings`;
+  for(const [index,user] of [owner,peer].entries()){
+   await post('nsc_contributions',{event_id:ratingEvent,user_id:user.id,phase:'impact',rating:index+2});
+  }
+  for(const table of ['nsc_contributions','nsc_rating_history']){
+   assert.equal((await service(rest(table,`event_id=eq.${ratingEvent}&select=user_id`))).length,2,`${table} seeded`);
+  }
+  await post('user_follows',[{follower_user_id:owner.id,followed_user_id:peer.id},{follower_user_id:peer.id,followed_user_id:owner.id},{follower_user_id:peer.id,followed_user_id:control.id}]);
   for(const [index,user] of users.entries()){
    const initial=await api(user,'user-state');assert.equal(initial.status,200);
    const previous=userStateFromRow(initial.body.state)||{};
@@ -70,7 +78,7 @@ async function main(){
    await post('reminders',{installation_id:installations[index],user_id:userId,event_id:`qa-erasure-${stamp}-${suffix}`,title:'Disposable future reminder',starts_at:'2035-01-01T02:00:00Z',remind_at:'2035-01-01T01:00:00Z'});
   }
   const room=await post('chat_rooms',{canonical_fixture_id:`qa-erasure-${stamp}`,fixture_snapshot:{title:'Disposable erasure rehearsal',sport:'Football'},room_name:'Disposable erasure rehearsal',created_by:owner.id});roomId=room[0].id;checkpoint();
-  await post('chat_members',users.map(u=>({room_id:roomId,user_id:u.id,added_by:owner.id})));
+  await post('chat_members',users.slice(0,2).map(u=>({room_id:roomId,user_id:u.id,added_by:owner.id})));
   const original=(await post('chat_messages',{room_id:roomId,sender_id:owner.id,client_id:`qa-original-${stamp}`,body:'Disposable owner message'}))[0];
   await post('chat_messages',{room_id:roomId,sender_id:peer.id,client_id:`qa-reply-${stamp}`,body:'Disposable peer reply',reply_to_message_id:original.id});
   for(let i=0;i<2;i++){
@@ -97,6 +105,13 @@ async function main(){
   checks.push('refresh_rejected_after_global_logout');
   await service(rest('chat_messages',`sender_id=eq.${owner.id}&room_id=eq.${roomId}`),{method:'DELETE'});
   await deleteAccount(owner);
+  for(const table of ['nsc_contributions','nsc_rating_history']){
+   const rows=await service(rest(table,`event_id=eq.${ratingEvent}&select=user_id,rating`));
+   assert.deepEqual(rows,[{user_id:peer.id,rating:3}],`${table} removes owner and preserves peer`);
+  }
+  const follows=await service(rest('user_follows',`or=(follower_user_id.in.(${users.map(u=>u.id).join(',')}),followed_user_id.in.(${users.map(u=>u.id).join(',')}))&select=follower_user_id,followed_user_id`));
+  assert.deepEqual(follows,[{follower_user_id:peer.id,followed_user_id:control.id}]);
+  checks.push('owned_ratings_and_history_removed','incoming_and_outgoing_follows_removed','peer_ratings_and_unrelated_follow_preserved');
   for(const table of ['user_state','calendar_subscriptions']){
    const rows=await service(rest(table,`user_id=in.(${owner.id},${peer.id})&select=user_id`));
    assert.deepEqual(rows,[{user_id:peer.id}],`${table} removes owner and preserves peer`);
@@ -128,15 +143,18 @@ async function main(){
   if(roomId){try{await service(rest('chat_rooms',`id=eq.${roomId}`),{method:'DELETE'});}catch(e){cleanupErrors.push('room');}}
   for(const user of users.filter(u=>!removed.has(u.id))){try{await deleteAccount(user);}catch(e){cleanupErrors.push('account');}}
   if(users.length){
-   for(const table of ['user_state','calendar_subscriptions']){
+   for(const table of ['user_state','calendar_subscriptions','nsc_contributions','nsc_rating_history']){
     try{assert.equal((await service(rest(table,`user_id=in.(${users.map(u=>u.id).join(',')})&select=user_id`))).length,0);}catch(e){cleanupErrors.push(table);}
    }
+  }
+  if(users.length){
+   try{assert.equal((await service(rest('user_follows',`or=(follower_user_id.in.(${users.map(u=>u.id).join(',')}),followed_user_id.in.(${users.map(u=>u.id).join(',')}))&select=follower_user_id`))).length,0);}catch(e){cleanupErrors.push('user_follows');}
   }
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
   fs.unlinkSync(manifest);
  }
  if(failure)throw failure;
- const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Disposable chat, notification, saved-preference and calendar service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','No canonical ratings/social-follow/device-cache or all-category erasure proof; no physical push delivery']};
+ const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Disposable chat, notification, preferences, calendar, rating and social-follow service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','Ratings and social follows were service-seeded; no prediction/reward/all-category or device-cache proof; no physical push delivery']};
  if(process.env.CHAT_ERASURE_REPORT)fs.writeFileSync(process.env.CHAT_ERASURE_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify(report));
 }
