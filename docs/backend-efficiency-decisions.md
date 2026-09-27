@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Erasure-aware notification admission — 28 September 2026
+
+Five Web Push paths share a service-only admission/receipt wrapper. It serializes permission to send against account erasure, rechecks installation ownership/permission, and preserves uncertain outcomes without blind retries. Two database requests are added only for actual send attempts; empty queues and scheduler cadence remain unchanged. Reminder/social claims skip erasing accounts; live-rating groups filter them before hydration. No new scheduler or batch enlargement. Finished minimal receipts are opportunistically pruned after seven days, at most 100 per admission; crashed attempts remain exceptions for reconciliation. See account-erasure-runbook.md for the live database proof and external-delivery limits.
+
 ## Erasure authentication and Storage expiry — 28 September 2026
 
 Erasure begin stamps server-owned Auth app metadata alongside the database barrier. The existing fresh user lookup rejects marked accounts without an additional network request. Chat and participation/avatar functions have explicit 60-second duration limits. Previously issued signed uploads survive Auth deletion; cleanup must stop every issuer, including old deployments, then wait for capability expiry and reconcile late transfers. A read-only checkpoint remains incomplete until this evidence exists. No new scheduler, poll, subscription or real-account erasure is introduced.

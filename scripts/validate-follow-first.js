@@ -186,7 +186,7 @@ assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSou
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
 assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"));
 assert(notificationApi.includes("remind_at") && notificationApi.includes('deliveryMode === "session-start" ? 0 : 15') && notificationApi.includes("leadMinutes * 60 * 1000"), "follow-only session reminders must fire at session start while exact and broadcast starts retain the 15-minute lead");
-assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification") && dispatchApi.includes("claimed_at"));
+assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("guardedSend") && dispatchApi.includes("claimed_at"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
 assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole reminder dispatcher");
 assert.equal(manifest.id, "/");

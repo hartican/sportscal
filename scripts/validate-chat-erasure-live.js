@@ -14,10 +14,10 @@ async function main(){
  const {createPatch}=require('../config/user-state-sync');
  const service=(path,options={})=>supabaseServiceRequest(path,{...options,environment});
  const auth=(path,options={})=>supabaseRequest(path,{...options,environment});
- const users=[],objects=[],installations=[],checks=[];let roomId=null,removed=new Set();
+ const users=[],objects=[],installations=[],sendLeases=[],checks=[];let roomId=null,removed=new Set();
  const bucket='nothingsports-chat-transient',stamp=crypto.randomBytes(7).toString('hex');
  const manifest=path.join(os.tmpdir(),`nothingsport-erasure-qa-${stamp}.json`);
- function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,installationIds:installations,removedAccountIds:[...removed]}),{mode:0o600});}
+ function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,installationIds:installations,sendLeaseIds:sendLeases,removedAccountIds:[...removed]}),{mode:0o600});}
  checkpoint();
  const rest=(table,query='')=>`/rest/v1/nothingsports_${table}${query?'?'+query:''}`;
  const post=(table,body)=>service(rest(table),{method:'POST',headers:{Prefer:'return=representation'},body});
@@ -79,7 +79,7 @@ async function main(){
   // Future-only reminders and non-routable test endpoints cannot notify a person.
   for(const userId of [owner.id,peer.id,null]){
    const id=crypto.randomUUID();installations.push(id);checkpoint();
-   await post('push_installations',{installation_id:id,user_id:userId,secret_hash:crypto.randomBytes(32).toString('hex'),endpoint:`https://push.example.invalid/erasure-${stamp}/${id}`,p256dh:'disposable',auth_key:'disposable'});
+   await post('push_installations',{installation_id:id,user_id:userId,secret_hash:crypto.randomBytes(32).toString('hex'),endpoint:`https://push.example.invalid/erasure-${stamp}/${id}`,permission:'granted',p256dh:'disposable',auth_key:'disposable'});
   }
   for(const [index,userId,suffix] of [[0,owner.id,'own'],[0,null,'own-install-anonymous'],[1,owner.id,'reassigned-device'],[1,peer.id,'peer'],[2,null,'anonymous']]){
    await post('reminders',{installation_id:installations[index],user_id:userId,event_id:`qa-erasure-${stamp}-${suffix}`,title:'Disposable future reminder',starts_at:'2035-01-01T02:00:00Z',remind_at:'2035-01-01T01:00:00Z'});
@@ -113,6 +113,9 @@ async function main(){
    assert([400,404].includes(missing.status),`Deleted object status ${missing.status}`);
   }
   checks.push('storage_retry_and_origin_absence');
+  const admitSend=(installationId,userId,related=[])=>service('/rest/v1/rpc/nothingsports_begin_notification_send',{method:'POST',body:{target_installation:installationId,expected_user:userId,related_users:related}});
+  const admitted=await admitSend(installations[0],owner.id);assert(admitted?.leaseId);sendLeases.push(admitted.leaseId);checkpoint();
+  assert.equal(await admitSend(installations[0],peer.id),null,'Stale device ownership cannot admit a send');
   const beginErasure=()=>service('/rest/v1/rpc/nothingsports_begin_account_erasure',{method:'POST',body:{target_user_id:owner.id}});
   if(process.env.ERASURE_BARRIER_RACE==='1'){
    accountOwned(owner.id);assert(/^[a-f0-9-]{36}$/.test(owner.id));
@@ -131,6 +134,13 @@ async function main(){
   assert(blockedAuth.app_metadata?.nothingsport_erasure_started_at,'Fresh protected Auth metadata marks erasure');
   const stoppedRead=await api(owner,'user-state');assert.equal(stoppedRead.status,403);assert.equal(stoppedRead.body.code,'account_erasure_in_progress');
   checks.push('fresh_auth_gate_stops_new_application_requests');
+  assert.equal(await admitSend(installations[0],owner.id),null,'Erasing recipient cannot acquire send lease');
+  assert.equal(await admitSend(installations[1],peer.id,[owner.id]),null,'Erasing actor cannot enter new outbound payload');
+  const inFlight=await service(rest('notification_send_leases',`lease_id=eq.${admitted.leaseId}&select=outcome`));assert.deepEqual(inFlight,[{outcome:'in_flight'}]);
+  await service(rest('notification_send_leases',`lease_id=eq.${admitted.leaseId}`),{method:'PATCH',body:{outcome:'uncertain',finished_at:new Date().toISOString()}});
+  const peerLease=await admitSend(installations[1],peer.id);assert(peerLease?.leaseId);sendLeases.push(peerLease.leaseId);checkpoint();
+  await service(rest('notification_send_leases',`lease_id=eq.${peerLease.leaseId}`),{method:'PATCH',body:{outcome:'rejected',finished_at:new Date().toISOString()}});
+  checks.push('new_notification_sends_denied_after_barrier','admitted_send_remains_reconcilable','unrelated_peer_send_admission_preserved');
   const blocked=e=>e.payload?.code==='55000';
   await assert.rejects(()=>service(rest('nsc_contributions',`user_id=eq.${owner.id}&event_id=eq.${ratingEvent}`),{method:'PATCH',body:{rating:4}}),blocked);
   await assert.rejects(()=>post('user_follows',{follower_user_id:control.id,followed_user_id:owner.id}),blocked);
@@ -162,6 +172,7 @@ async function main(){
   assert.equal(lateUpload.status,200,'Provider signed upload capability survives Auth deletion');
   await removeObject(objects[0]);
   checks.push('preissued_upload_survives_auth_deletion_and_requires_later_sweep');
+  assert.equal((await service(rest('notification_send_leases',`lease_id=eq.${admitted.leaseId}&select=outcome`)))[0]?.outcome,'uncertain','Send receipt survives Auth removal for reconciliation');
   const installFilter=`installation_id=in.(${installations.join(',')})`;
   const remainingInstalls=await service(rest('push_installations',installFilter+'&select=installation_id'));
   assert.deepEqual(remainingInstalls.map(r=>r.installation_id).sort(),installations.slice(1).sort());
@@ -192,6 +203,7 @@ async function main(){
   if(users.length){
    try{assert.equal((await service(rest('user_follows',`or=(follower_user_id.in.(${users.map(u=>u.id).join(',')}),followed_user_id.in.(${users.map(u=>u.id).join(',')}))&select=follower_user_id`))).length,0);}catch(e){cleanupErrors.push('user_follows');}
   }
+  for(const id of sendLeases){try{await service(rest('notification_send_leases',`lease_id=eq.${id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('send_lease');}}
   for(const user of users.filter(u=>removed.has(u.id))){try{await service(rest('account_erasure_blocks',`user_id=eq.${user.id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('erasure_barrier');}}
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
   fs.unlinkSync(manifest);

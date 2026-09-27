@@ -26,6 +26,6 @@ assert(indirect.includes("split_part(name,'/',1)=t.id::text"),'Storage scope req
 assert(indirect.includes('reply.sender_id is distinct from t.id'));
 assert(indirect.includes("'preserve'"));
 assert(indirect.includes("'stop_if_nonzero'"));
-assert.equal((indirect.match(/ check_name,/g)||[]).length,10); // nine checks plus final select
+assert.equal((indirect.match(/ check_name,/g)||[]).length,11); // ten checks plus final select
 assert.equal(buildIndirectPreflight('ABCDEFAB-0000-4000-8000-000000000009').includes('ABCDEFAB'),false);
-console.log('Indirect preflight: nine bounded checks, preserved shared content, exact Storage scope and unknown-email handling passed.');
+console.log('Indirect preflight: ten bounded checks, preserved shared content, exact Storage scope and unknown-email handling passed.');

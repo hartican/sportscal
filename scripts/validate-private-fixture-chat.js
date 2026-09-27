@@ -1015,6 +1015,8 @@ async function run(){
   global.fetch = async (input, options = {}) => {
     const url = new URL(input);
     pushRequests.push({ url, options });
+    if(url.pathname.endsWith('/rpc/nothingsports_begin_notification_send'))return fetchResponse({leaseId:'99999999-9999-4999-8999-000000000001',subscription:{endpoint:'https://push.example.test/subscription',keys:{p256dh:'p256dh',auth:'auth'}}});
+    if(url.pathname.endsWith('/nothingsports_notification_send_leases'))return fetchResponse([]);
     if (url.pathname.endsWith("/nothingsports_chat_members")) return fetchResponse([{ user_id:ids.userB }]);
     if (url.pathname.endsWith("/nothingsports_push_installations")) return fetchResponse([{
       installation_id:"99999999-9999-4999-8999-999999999999",

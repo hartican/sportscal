@@ -1,6 +1,7 @@
 "use strict";
 
 const webpush = require("web-push");
+const {guardedSend,suppressed}=require("../lib/notification-send");
 const { publicError, SupabaseRequestError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
 
 function bearer(request){
@@ -113,16 +114,14 @@ module.exports = async function notificationDispatchHandler(request, response){
       }
       try{
         const startLabel = new Intl.DateTimeFormat("en-AU", { hour:"numeric", minute:"2-digit", timeZone:installation.timezone || "Australia/Sydney" }).format(new Date(reminder.starts_at));
-        await webpush.sendNotification({
-          endpoint:installation.endpoint,
-          keys:{ p256dh:installation.p256dh, auth:installation.auth_key },
-        }, JSON.stringify(notificationPayload(reminder, startLabel)), { timeout:3000, TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
+        await guardedSend({installationId:installation.installation_id,expectedUserId:installation.user_id||null,relatedUserIds:[reminder.user_id],payload:JSON.stringify(notificationPayload(reminder,startLabel)),options:{timeout:3000,TTL:900,urgency:"high",topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0,32)||undefined}});
         sent += 1;
         await patchClaimedReminder(reminder.id, claimedAt, { claimed_at:null, dispatched_at:new Date().toISOString(), attempts:Number(reminder.attempts || 0) + 1, last_error:null });
       }catch(error){
+        if(suppressed(error))continue;
         failed += 1;
         const status = Number(error?.statusCode || 0);
-        await patchClaimedReminder(reminder.id, claimedAt, { claimed_at:null, attempts:Number(reminder.attempts || 0) + 1, last_error:String(error?.message || "Push delivery failed.").slice(0, 500) });
+        await patchClaimedReminder(reminder.id, claimedAt, { claimed_at:null, attempts:Number(reminder.attempts || 0) + 1, last_error:String(error?.message || "Push delivery failed.").slice(0, 500), ...(!status?{dispatched_at:new Date().toISOString()}: {}) });
         if (status === 404 || status === 410){
           await supabaseServiceRequest(`/rest/v1/nothingsports_push_installations?installation_id=eq.${encodeURIComponent(installation.installation_id)}`, { method:"DELETE" });
         }

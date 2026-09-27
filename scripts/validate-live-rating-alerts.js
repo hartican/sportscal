@@ -21,6 +21,7 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   const deliveries=[];let complete=false,sends=0;
   const api={TABLES:{contributions:'votes'},refreshEventSnapshots:async()=>{},eventFor:()=>phase==='missing'?null:event,eventWithTiming:e=>e,identityMaps:async()=>({profiles:new Map([['jim',{visibility,display_name:'Jim'}]]),personas:new Map([['jim',{moderation_flag:moderation}]])}),rows:async(table)=>{
     if(table==='nothingsports_live_rating_alerts')return complete?[]:[alert];
+    if(table==='nothingsports_account_erasure_blocks')return [];
     if(table==='nothingsports_user_state')return [{preferences:prefs||{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}}}];
     if(table==='nothingsports_user_follows')return friends.map(followed_user_id=>({followed_user_id}));
     if(table==='votes')return votes;
@@ -30,6 +31,8 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
     throw new Error('Unexpected table '+table);
   }};
   const request=async(path,{body})=>{
+    if(path.includes('nothingsports_begin_notification_send'))return {leaseId:'lease',subscription:{endpoint:'https://push.test',keys:{p256dh:'key',auth:'auth'}}};
+    if(path.includes('nothingsports_notification_send_leases'))return [];
     if(path.includes('/rpc/')){
       if(concurrent){if(!deliveries.length)deliveries.push({installation_id:'device',status:'sending'});return [];}
       let d=deliveries[0];if(!d){d={installation_id:'device',status:'pending',attempts:0};deliveries.push(d);}

@@ -1,4 +1,5 @@
 "use strict";
+const {guardedSend}=require("../lib/notification-send");
 
 const crypto = require("node:crypto");
 const webpush = require("web-push");
@@ -237,14 +238,14 @@ async function notificationsHandler(request, response){
       if (!testId) throw new Error("The notification test could not be recorded.");
       try{
         webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), String(process.env.VAPID_PUBLIC_KEY), String(process.env.VAPID_PRIVATE_KEY));
-        await webpush.sendNotification({ endpoint:installation.endpoint, keys:{ p256dh:installation.p256dh, auth:installation.auth_key } }, JSON.stringify({
+        await guardedSend({installationId,expectedUserId:installation.user_id||null,payload:JSON.stringify({
           kind:"test",
           testId,
           title:"Nothing Sport test",
           body:"System notifications are reaching this device.",
           tag:`nothingsport-test-${testId}`,
           url:"/?notificationTest=received",
-        }), { TTL:300, urgency:"high" });
+        }),options:{TTL:300,urgency:"high",timeout:3000}});
         const dispatchedAt = new Date().toISOString();
         await supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?test_id=eq.${encodeURIComponent(testId)}`, { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ dispatched_at:dispatchedAt, last_error:null } });
         response.status(200).json({ sent:true, testId, dispatchedAt });

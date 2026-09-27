@@ -12,6 +12,7 @@ const dispatchPath = require.resolve("../api/notification-dispatch.js");
 const socialAlertsPath = require.resolve("../lib/social-reward-alerts.js");
 const liveAlertsPath = require.resolve("../lib/live-rating-alerts.js");
 const serverPath = require.resolve("../lib/supabase-server.js");
+const sendGuardPath=require.resolve("../lib/notification-send.js");
 const webPushPath = require.resolve("web-push");
 
 function responseHarness(){
@@ -48,6 +49,7 @@ async function notificationsHarness({ user = null, serviceRequest }){
     publicError,
     supabaseServiceRequest:serviceRequest,
   });
+  delete require.cache[sendGuardPath];
   delete require.cache[notificationsPath];
   const handler = require(notificationsPath);
   return {
@@ -72,6 +74,7 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
   });
   const restoreLiveAlerts = withMockedModule(liveAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
+  delete require.cache[sendGuardPath];
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
@@ -142,7 +145,7 @@ async function main(){
       identityMaps:async()=>({profiles:new Map([['actor',{display_name:'Amy',visibility:'visible'}]]),personas:new Map()}),
       rows:async(table,params)=>{socialRows.push({table,params});return table==='nothingsports_push_installations'?[{installation_id:'install-1',endpoint:'https://push.test/social',p256dh:'key',auth_key:'auth'}]:[{notification_id:'social-1',installation_id:'install-1',status:'pending',attempts:0}];},
     },
-    request:async(path,options={})=>{socialCalls.push({path,options});return path.includes('nothingsports_claim_social_notifications')?[socialNotification]:null;},
+    request:async(path,options={})=>{socialCalls.push({path,options});return path.includes('nothingsports_begin_notification_send')?{leaseId:'lease',subscription:{endpoint:'https://push.test/social',keys:{p256dh:'key',auth:'auth'}}}:path.includes('nothingsports_claim_social_notifications')?[socialNotification]:null;},
     send:async(_subscription,body)=>socialPushes.push(JSON.parse(body)),
   });
   assert.deepEqual(socialDispatch,{checked:1,sent:1,failed:0,skipped:0});
@@ -304,6 +307,7 @@ async function main(){
   const dispatchCalls = [];
   const dispatchService = async (path, options = {}) => {
     dispatchCalls.push({ path, options });
+    if(path.includes("nothingsports_begin_notification_send"))return {leaseId:"lease",subscription:{endpoint:installation.endpoint,keys:{p256dh:installation.p256dh,auth:installation.auth_key}}};
     if (path === "/rest/v1/rpc/nothingsports_claim_due_reminders") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claim_at }] : [];
     if (options.method === "PATCH" && options.headers?.Prefer === "return=representation") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claimed_at }] : [];
     if (path.includes("nothingsports_reminders?dispatched_at=is.null")) return [reminder];

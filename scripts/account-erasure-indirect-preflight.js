@@ -5,6 +5,7 @@ function buildIndirectPreflight(userId) {
  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId || '')) throw Error('Expected exact account UUID');
  const id=userId.toLowerCase();
  const checks=[
+ ['notification_send_attempts','review',`select count(*) from public.nothingsports_notification_send_leases where t.id=any(account_ids)`],
  ['reward_eligibility_arrays','review',`select count(*) from public.nothingsports_nsc_reward_campaigns where t.id=any(eligible_user_ids)`],
  ['email_subscriptions','review',`select case when t.email is null then null else (select count(*) from public.nothingsports_marquee_subscribers where email_normalized=lower(trim(t.email))) end`],
  ['avatar_cleanup_paths','review',`select count(*) from public.nothingsports_avatar_cleanup where bucket in ('nothingsports-avatar-originals','nothingsports-avatar-thumbnails','nothingsports-avatar-expanded','nothingsports-profile-avatars') and split_part(object_path,'/',1)=t.id::text`],

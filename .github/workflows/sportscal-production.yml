@@ -54,6 +54,7 @@ jobs:
           node scripts/validate-notification-erasure-database.js
           node scripts/validate-erasure-write-barrier.js
           node scripts/validate-erasure-storage.js
+          node scripts/validate-notification-send-erasure.js
           node scripts/validate-profile-avatars.js
           node scripts/validate-shared-chat-ui.js
           node scripts/validate-private-fixture-chat.js
