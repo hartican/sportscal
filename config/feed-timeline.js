@@ -10,7 +10,9 @@
       if(start && today>=start && today<=event.endDate)return 'live';
       if(today>event.endDate)return 'past';
     }
-    if(controls.timingState(event,now)?.key==='live-now')return 'live';
+    const timing=controls.timingState(event,now)?.key;
+    if(timing==='awaiting-update')return 'unknown';
+    if(timing==='live-now')return 'live';
     const start=calendar.eventStart(event);
     return start && +start<=+now?'past':'upcoming';
   }

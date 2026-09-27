@@ -99,3 +99,24 @@ const identities=require('../config/card-identities');const unmappedArtwork=publ
   console.log('Refresh recovery: atomic first import, scoped IDs, partial/total failure retention and unchanged failed-source freshness passed.');
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 })().catch(error=>{console.error(error);process.exitCode=1;});
+
+// Exercise the same timing contract used by Feed and Schedule cards.
+{
+ const controls=require('../config/feed-controls'),timeline=require('../config/feed-timeline');
+ const fixture={...require('../data/providers/openligadb/football-2026-27.json').events[0],status:'upcoming',startTimeUtc:'2026-10-01T19:00:00Z'};
+ const unchanged=JSON.stringify(fixture);
+ assert.equal(controls.timingState(fixture,new Date('2026-10-01T18:30:00Z')).key,'starts-soon');
+ for(const status of ['upcoming','unknown','past','live'])for(const time of ['2026-10-01T19:00:00Z','2026-10-01T20:00:00Z','2026-10-02T19:00:00Z']){
+  const record={...fixture,status},now=new Date(time);
+  assert.equal(controls.timingState(record,now).key,'awaiting-update');
+  assert.equal(controls.matchesTiming(record,'live_now',now),false);
+  assert.equal(timeline.status(record,now),'unknown');
+  assert.equal(require('../config/card-timing').presentation(record,now).status,'Awaiting match update');
+ }
+ const now=new Date('2026-10-01T20:00:00Z');
+ assert.equal(controls.timingState({...fixture,status:'live',statusCheckedAt:now.toISOString()},now).key,'live-now','fresh explicit live observations remain usable');
+ assert.notEqual(controls.timingState({...fixture,status:'completed'},now)?.key,'awaiting-update');
+ for(const status of ['cancelled','postponed','suspended','abandoned'])assert.equal(controls.timingState({...fixture,status},now),null);
+ assert.equal(JSON.stringify(fixture),unchanged,'display must not mutate source facts or stable identities');
+ console.log('Daily Football timing: no clock-inferred live/final labels, explicit live evidence, terminal states and unchanged facts passed.');
+}

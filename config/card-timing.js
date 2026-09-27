@@ -46,6 +46,9 @@
     else if (statuses.some(value => ["live","in_progress","in-progress","ongoing"].includes(value))) status = "LIVE";
     const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
     if(odi?.awaiting(event,reference))status=odi.label;
+    const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
+    const observed=controls?.timingState(event,reference);
+    if(observed?.key==='awaiting-update')status=observed.label;
     return Object.freeze({label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
   return Object.freeze({presentation});

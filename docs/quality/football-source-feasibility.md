@@ -30,10 +30,10 @@ Australian Europa League viewing is explicitly resolved to [Stan's competition p
 
 ODbL permits commercial use subject to its conditions. Publish the independently retrievable provider-fact dataset and machine-readable transformations with attribution and licence links; show attribution on derived cards. Preserve the separation from private preferences and editorial. A folder name alone does not establish a legal exemption for combined derived data. Do not reuse source logos merely because the fixture database is open.
 
-Remaining: release-323 standings production proof, independent full fixture reconciliation and final tie-break verification, stronger editorial/identity presentation, installed-device checks, measured routine refresh reliability and workload. Provider request limits and uptime guarantees are unverified, so do not add high-frequency live polling. No subscription, signup or purchase is needed for this trial.
+Release 323 standings and release 324 refresh repairs have exact-SHA READY/alias and live-browser proof. Remaining: independent full fixture reconciliation and final tie-break verification, stronger editorial/identity presentation, installed-device checks, measured routine refresh reliability and workload. Provider request limits and uptime guarantees are unverified, so do not add high-frequency live polling. No subscription, signup or purchase is needed for this trial.
 
 
-## Derived standings — release 323 candidate
+## Derived standings — released in 323
 
 Both 36-club tables are derived from the same validated completed matches, adding no provider requests. Points, played, wins/draws/losses and goals were reconciled for all 72 clubs against OpenLigaDB's separate table endpoint; this is same-provider arithmetic validation, not independent accuracy certification. The published ODbL dataset includes these derived rows.
 

@@ -31,6 +31,22 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
    const f=codeInspectorChunk.fixtures.find(f=>f.sourceAttribution?.provider==='OpenLigaDB'&&f.homeScore===1&&f.awayScore===4);
    userPreferences.showSpoilers=false;const card=buildEventCard({...f,eventId:f.id});document.getElementById('listView').replaceChildren(card);return {text:card.innerText,score:f.score};
  });assert(!privacy.text.includes(privacy.score),'hidden results cannot leak the source scoreline');
+ for(const mode of ['schedule','feed']){
+  const unchanged=await page.evaluate(mode=>{
+   const preferences=JSON.stringify(userPreferences),f=codeInspectorChunk.fixtures.find(f=>f.sourceAttribution?.provider==='OpenLigaDB'&&f.status==='upcoming');
+   const record={...f,status:'unknown',startTimeUtc:new Date(+nowAEST()-3600000).toISOString()};
+   activeTab=mode==='feed'?'feed':'follow';document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(record):buildEventCard({...record,eventId:record.id}));
+   return preferences===JSON.stringify(userPreferences);
+  },mode);
+  assert(unchanged,'degraded timing must not change Follow or Results settings');
+  const chip=page.locator(mode==='feed'?'#listView .fixture-timing-badge':'#listView .event-timing-state.awaiting-update');
+  if(!await chip.count())throw new Error(mode+': missing update label: '+await page.locator('#listView').innerText());
+  await chip.scrollIntoViewIfNeeded();assert(await chip.isVisible(),mode+': visible unconfirmed status');
+  assert.equal(await chip.textContent(),'Awaiting match update');
+  for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),mode+': unconfirmed status fits '+width);}
+  assert.equal(await page.locator('#listView .event-timing-state.live-now, #listView .event-timing-state.just-finished').count(),0);
+  assert.equal(await page.locator('#listView .nsc-rating-blocks').count(),0,'unknown status must not invent a local post-match rating prompt');
+ }
  if(process.env.QA_SCREENSHOT){await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{applyThemePreference('day');const f=codeInspectorChunk.fixtures.find(f=>f.competitionId==='competition:uefa-europa-league'&&f.status==='upcoming');document.getElementById('listView').replaceChildren(buildEventCard({...f,eventId:f.id}));document.activeElement?.blur();window.scrollTo(0,0);});await page.screenshot({path:process.env.QA_SCREENSHOT,fullPage:true});}
- console.log('European Football browser: 144 named fixtures per competition, Feed/Schedule cards, visible attribution and four responsive widths passed.');
+ console.log('European Football browser: 144 named fixtures per competition, Feed/Schedule cards, visible attribution, honest unconfirmed timing and four responsive widths passed.');
 }finally{await browser.close();}})().catch(error=>{console.error(error);process.exitCode=1});

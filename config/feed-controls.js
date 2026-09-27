@@ -147,6 +147,15 @@
     const nowMs = reference.getTime();
     const statusCheckedAt=Date.parse(event?.statusCheckedAt || event?.statusSource?.checkedAt || event?.timingSource?.checkedAt || "");
     const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&Math.abs(nowMs-statusCheckedAt)<=30*60*1000;
+    // Daily community schedules are not live observations. A fresh explicit
+    // live overlay may supersede them, but elapsed time never does.
+    if(event?.sourceAttribution?.provider==='OpenLigaDB'){
+      if(['suspended','abandoned'].includes(status))return null;
+      if(nowMs>=startMs && !['completed','finished','final'].includes(status)
+        && !(['live','in_progress','in-progress','ongoing'].includes(status)&&freshExplicitStatus)){
+        return Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+      }
+    }
     if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs && (nowMs<endMs || freshExplicitStatus))return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
