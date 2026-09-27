@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {resumeSteps}=require('./update-cards');
+const steps=[['scripts/snapshot-active-follows.js'],['check.js','--assets-only'],['network.js'],['check.js'],['publish.js']];
+assert.throws(()=>resumeSteps(steps,['--resume-from','check.js']),/Ambiguous/);
+assert.deepEqual(resumeSteps(steps,['--resume-from','check.js','--resume-occurrence','2']),[steps[0],steps[3],steps[4]],'late validation must not rerun network refresh');
+assert.deepEqual(resumeSteps(steps,['--resume-from','publish.js']),[steps[0],steps[4]]);
+for(const n of ['0','3','NaN','1.5'])assert.throws(()=>resumeSteps(steps,['--resume-from','check.js','--resume-occurrence',n]),/Invalid/);
+assert.throws(()=>resumeSteps(steps,['--resume-from','absent.js']),/Unknown/);
+console.log('Refresh resume: duplicate steps fail before work, explicit occurrence skips earlier network calls, snapshot setup retained.');

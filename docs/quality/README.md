@@ -17,3 +17,9 @@ NRL and AFL remain reference candidates, not assumed perfect. Current pilot requ
 - Socceroos: fixture-specific free versus paid viewing survives Feed/Follow merges.
 - UCL/Europa: actual published contests versus unresolved brackets, stable cross-league club identities, permitted sustainable source, explicit degraded state.
 - Every qualifying family: 320/390/768/1280 widths, day/night, accessible controls, back navigation, exclusions, stale-source handling and evidence of live release.
+
+## Reference repair: 27 September NRL Grand Final
+
+Accor Stadium's official programme confirms Roosters–Knights on 4 October at 19:30 Sydney (08:30 UTC, after the DST transition). Nine's finals announcement confirms exclusive live coverage on Nine/9Now. The reviewed finals input now resolves the existing `evt_84` identity rather than creating a second final. Canonical phase sync preserves reviewed participants and follows the alias when applying current editorial. Regression: `validate-nrl-grand-final.js --published`; browser: `validate-grand-final-browser.js`. This named-case repair is not NRL family certification.
+
+Sources: https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals and https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/ .

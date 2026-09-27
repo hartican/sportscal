@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-27T06:54:19.268Z",
+  "generatedAt": "2026-09-27T13:48:11.502Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 271,
-    "completed": 205,
-    "upcoming": 66,
+    "completed": 207,
+    "upcoming": 64,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -3354,7 +3354,7 @@
       "name": "Panthers v Knights",
       "sport": "NRL",
       "date": "2026-09-27",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 5,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -3370,7 +3370,7 @@
       "name": "Australia v South Africa",
       "sport": "Rugby Union",
       "date": "2026-09-27",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -3495,7 +3495,7 @@
     },
     {
       "id": "evt_84",
-      "name": "NRL Grand Final",
+      "name": "Roosters v Knights",
       "sport": "NRL",
       "date": "2026-10-04",
       "status": "upcoming",

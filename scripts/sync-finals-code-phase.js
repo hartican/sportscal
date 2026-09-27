@@ -54,6 +54,7 @@ function syncFixture(fixture, source, feedEvent){
     delete next.weekAnchorDate;
     delete next.displayDateLabel;
   }
+  copyDefined(next, source, ["participants", "participantSlots", "homeParticipantId", "awayParticipantId"]);
   const venueCity = source.venueCity || knownVenueCity(source, feedEvent);
   if (venueCity) next.venueCity = venueCity;
   if (source.name && source.venue && source.date){
@@ -94,7 +95,7 @@ function main(){
         const canonical = sourceIndex.get(fixture.id);
         if (!canonical) return fixture;
         updated += 1;
-        return syncFixture(fixture, canonical, feedIndex.get(fixture.id));
+        return syncFixture(fixture, canonical, feedIndex.get(fixture.id) || (canonical.sourceEventIds || []).map(id => feedIndex.get(id)).find(Boolean));
       }),
     })),
   };

@@ -2,7 +2,7 @@
 
 Reference date: 2026-09-27
 
-Compared 16 live/delayed listings with 1066 canonical events. Found 16 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 16 high-priority recommendations.
+Compared 16 live/delayed listings with 1064 canonical events. Found 16 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 16 high-priority recommendations.
 
 ## Australian source health
 
@@ -24,13 +24,13 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
 | 2026-09-22 | UCI Road World Championships | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-22 | WTA 500 | new | 0.08 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-09-22 | WTA 500 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-24 | NPC | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-25 | Australian Schoolboys/U18s | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-25 | Farah Palmer Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | Laver Cup | new | 0.08 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-09-25 | Laver Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-25 | Ultimate Sevens | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | WTA 250 | new | 0.08 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-09-25 | WTA 250 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-26 | NWSL | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-26 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-26 | WEC | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |

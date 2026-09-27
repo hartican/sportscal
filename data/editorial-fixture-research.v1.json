@@ -1851,6 +1851,81 @@
       "researchDepth": 5,
       "editorialPhase": "preview",
       "refreshAfter": "2026-09-29T10:00:00.000Z"
+    },
+    {
+      "id": "evt_84",
+      "title": "Roosters v Knights — NRL Grand Final",
+      "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
+      "synopsis": "The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "sources": [
+        "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+        "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
+      ],
+      "researchedAt": "2026-09-27T13:39:49.102Z",
+      "researchDepth": 3,
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-04T08:30:00.000Z",
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Roosters face Knights in the 2026 NRL Grand Final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "Accor Stadium hosts the Grand Final on 4 October at 7:30pm local time.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The stadium programme schedules the NRLW Grand Final at 4pm.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Nine and 9Now hold exclusive live coverage of the NRL Grand Final.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rugby-australia-south-africa-2026-09-27",
+      "title": "Australia v South Africa — Perth Test",
+      "hook": "Australia and South Africa contested the Perth Test at Optus Stadium.",
+      "synopsis": "The Wallabies and Springboks met at Optus Stadium on 27 September, bringing international rugby to Perth. The result remains hidden until you choose to reveal it.",
+      "hookSpoilerOn": "Australia defeated South Africa 42–38 in Perth.",
+      "synopsisSpoilerOn": "The Wallabies finished four points ahead of South Africa at Optus Stadium on 27 September. The official match centre confirms the final score.",
+      "sources": [
+        "https://www.rugby.com.au/match-centre/3/2026/949625"
+      ],
+      "researchedAt": "2026-09-27T13:41:55.158384Z",
+      "researchDepth": 3,
+      "editorialPhase": "recap",
+      "refreshAfter": null,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia defeated South Africa 42–38.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Test was played at Optus Stadium on 27 September 2026.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
     }
   ]
 }

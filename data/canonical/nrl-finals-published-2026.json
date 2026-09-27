@@ -295,11 +295,91 @@
         "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
         "https://www.nrl.com/tickets/"
       ]
+    },
+    {
+      "id": "major-match:nrl-finals-2026:grand-final",
+      "eventId": "major-match:nrl-finals-2026:grand-final",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Roosters v Knights",
+      "date": "2026-10-04",
+      "time": "19:30",
+      "startTimeUtc": "2026-10-04T08:30:00.000Z",
+      "venue": "Accor Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Grand Final",
+      "stage": "Grand Final",
+      "participantIds": [
+        "team:nrl:331",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:331",
+      "awayParticipantId": "team:nrl:325",
+      "participants": [
+        {
+          "id": "team:nrl:331",
+          "name": "Roosters",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:325",
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, 9Now",
+      "broadcasterIds": [
+        "nine-tv",
+        "nine"
+      ],
+      "sourceName": "Accor Stadium official Grand Final programme",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceCheckedAt": "2026-09-27T13:39:49.102Z",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "venueName": "Accor Stadium",
+      "venueCity": "Sydney",
+      "localTimezone": "Australia/Sydney",
+      "scheduleStatus": "confirmed",
+      "schedulePrecision": "exact",
+      "timePrecision": "exact",
+      "sourceRefs": [
+        "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+        "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
+      ],
+      "sourceEventIds": [
+        "evt_84"
+      ],
+      "displayName": "Roosters v Knights",
+      "status": "upcoming",
+      "participantSlots": [],
+      "viewingOptions": [
+        {
+          "providerId": "nine-tv",
+          "rightsScope": "fixture",
+          "sourceUrl": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+          "verifiedAt": "2026-09-27T13:39:49.102Z",
+          "linkScope": "sport",
+          "replayVerified": false
+        },
+        {
+          "providerId": "nine",
+          "rightsScope": "fixture",
+          "sourceUrl": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+          "verifiedAt": "2026-09-27T13:39:49.102Z",
+          "linkScope": "sport",
+          "replayVerified": false
+        }
+      ]
     }
   ],
   "sourceUrls": [
     "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-    "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+    "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+    "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+    "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
   ],
-  "updatedAt": "2026-09-22T08:30:00.000Z"
+  "updatedAt": "2026-09-27T13:39:49.102Z"
 }

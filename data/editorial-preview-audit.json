@@ -1,48 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-27T06:54:19.125Z",
+  "generatedAt": "2026-09-27T13:48:11.364Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 9,
-    "passed": 9,
+    "due": 7,
+    "passed": 7,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "major-match-nrl-finals-2026-preliminary-final-1",
-      "name": "Panthers v Knights",
-      "sport": "NRL",
-      "date": "2026-09-27",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "issues": []
-    },
-    {
-      "id": "rugby-australia-south-africa-2026-09-27",
-      "name": "Australia v South Africa",
-      "sport": "Rugby Union",
-      "date": "2026-09-27",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:consequence",
-        "narrative:matchup",
-        "narrative:path",
-        "narrative:form"
-      ],
-      "sourceUrl": "https://www.rugby.com.au/news/wallabies-squad-springboks-perth-test-jordan-petaia-rugby-union-2026914",
-      "issues": []
-    },
     {
       "id": "football-australia-brazil-2026-09-29",
       "name": "Socceroos v Brazil",
@@ -143,7 +109,7 @@
     },
     {
       "id": "evt_84",
-      "name": "NRL Grand Final",
+      "name": "Roosters v Knights",
       "sport": "NRL",
       "date": "2026-10-04",
       "stakes": 5,
@@ -151,12 +117,10 @@
       "contextSignals": [
         "event-specific",
         "narrative:matchup",
-        "narrative:path",
-        "narrative:form",
-        "narrative:history",
+        "narrative:venue",
         "narrative:schedule"
       ],
-      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
       "issues": []
     }
   ]

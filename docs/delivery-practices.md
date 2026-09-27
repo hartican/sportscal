@@ -36,3 +36,5 @@ A 27 September measured release took 97 seconds: dependency installation 14, req
 Model/tool choice should follow the work: use deterministic scripts for inventories and arithmetic, targeted retrieval for code context, and deeper reasoning for ambiguous architecture or risk. Do not delegate merely to increase activity. Prefer bounded output and avoid repeatedly printing generated/minified assets, whole schemas or unchanged job status.
 
 The daily canonical workflow is the refresh owner; weekday quick and Sunday full modes are routes inside it. Keep failed-source reports in its retained artifact, preserving old source timestamps. Do not create another cron to compensate for a broken route.
+
+Canonical refresh retries: `--resume-from script.js` now rejects duplicate step names before any work. Use the explicit one-based `--resume-occurrence N` after inspecting the step list. This prevents an intended late validation retry from silently selecting an earlier asset-only check and repeating source refreshes. Snapshot setup remains attached to the selected suffix.

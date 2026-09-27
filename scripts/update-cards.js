@@ -35,6 +35,18 @@ function canonicalStepSet(stepBuilder, canonicalBundlePaths) {
   return list.flatMap(canonicalBundle => stepBuilder(canonicalBundle));
 }
 
+function resumeSteps(steps, argv){
+  const flag=argv.indexOf('--resume-from');if(flag<0)return steps;
+  const target=argv[flag+1],matches=steps.map((step,index)=>step[0]===target?index:-1).filter(index=>index>=0);
+  if(!matches.length)throw new Error('Unknown canonical resume step');
+  const occurrenceFlag=argv.indexOf('--resume-occurrence');
+  if(matches.length>1&&occurrenceFlag<0)throw new Error(`Ambiguous resume step ${target}: ${matches.length} occurrences; specify --resume-occurrence N. No steps ran.`);
+  const occurrence=occurrenceFlag<0?1:Number(argv[occurrenceFlag+1]);
+  if(!Number.isInteger(occurrence)||occurrence<1||occurrence>matches.length)throw new Error('Invalid resume occurrence');
+  const index=matches[occurrence-1];
+  return [...steps.slice(0,index).filter(step=>step[0]==='scripts/snapshot-active-follows.js'),...steps.slice(index)];
+}
+
 function runStep(args) {
   const command = args[0];
   // Canonical standings changed before this first shell-backed validator.
@@ -314,6 +326,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-australian-presentation.js"],
   ["scripts/validate-feed-repair-reconciliation.js"],
   ["scripts/validate-nrl-preliminary-finals.js", "--published"],
+  ["scripts/validate-nrl-grand-final.js", "--published"],
+  ["scripts/validate-refresh-resume.js"],
   ["scripts/validate-promoted-replay.js"],
   ["scripts/validate-ratings-empty-batch.js"],
   ["scripts/validate-user-follows.js"],
@@ -412,8 +426,7 @@ async function main() {
   }
   const quick=process.argv.includes("--quick");
   let steps = quick ? buildQuickSteps() : buildSteps(options);
-  const resumeIndex=process.argv.indexOf('--resume-from');
-  if(resumeIndex>=0){const target=process.argv[resumeIndex+1],index=steps.findIndex(step=>step[0]===target);if(index<0)throw new Error('Unknown canonical resume step');steps=[...steps.slice(0,index).filter(step=>step[0]==='scripts/snapshot-active-follows.js'),...steps.slice(index)];}
+  steps=resumeSteps(steps,process.argv);
   const needsFollowSnapshot = steps.some(step => step[0] === "scripts/snapshot-active-follows.js");
   const snapshotDirectory = needsFollowSnapshot ? fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-")) : null;
   if (snapshotDirectory) {
@@ -446,6 +459,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  resumeSteps,
   buildSteps,
   buildQuickSteps,
   discoverCanonicalFixtureBundles,

@@ -62,7 +62,8 @@ assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "natio
 assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
 assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
 assert(serviceWorkerSource.includes(`nothingsport-shell-v${shellVersion}`), "the application-shell cache must be bumped for the identity library");
-assert(serviceWorkerSource.includes(`"/assets/js/app-shell-runtime.js?v=${shellVersion}"`), "the offline shell must cache the exact runtime carrying national identities");
+const runtimeAsset=html.match(/<script src="(assets\/js\/app-shell-runtime\.js\?v=\d+)">/)?.[1];
+assert(runtimeAsset&&serviceWorkerSource.includes(`"/${runtimeAsset}"`), "the offline shell must cache the exact runtime carrying national identities");
 
 const regressionCases = [
   [{key:"cricket", name:"India Women v Pakistan Women"}, ["team:cricket:india-women", "team:cricket:pakistan-women"]],

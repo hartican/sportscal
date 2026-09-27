@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 1066,
+    "canonicalEventsCompared": 1064,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 16,
@@ -428,7 +428,7 @@
       "startsAt": "2026-09-22T05:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.08,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -451,17 +451,11 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.08,
+        "confidence": 0,
         "reasonCodes": [
-          "same_calendar_date"
+          "no_catalogue_match"
         ],
-        "alternatives": [
-          {
-            "canonicalEventId": "tennis-tournament-bjk-cup-finals-2026-2026-09-22",
-            "title": "Billie Jean King Cup Finals — Team competition",
-            "confidence": 0.08
-          }
-        ]
+        "alternatives": []
       },
       "broadcastsAu": [
         {
@@ -806,7 +800,7 @@
       "startsAt": "2026-09-24T18:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.08,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -829,17 +823,11 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.08,
+        "confidence": 0,
         "reasonCodes": [
-          "same_calendar_date"
+          "no_catalogue_match"
         ],
-        "alternatives": [
-          {
-            "canonicalEventId": "tennis-tournament-bjk-cup-finals-2026-2026-09-25",
-            "title": "Billie Jean King Cup Finals — Team competition",
-            "confidence": 0.08
-          }
-        ]
+        "alternatives": []
       },
       "broadcastsAu": [
         {
@@ -998,7 +986,7 @@
       "startsAt": "2026-09-25T03:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.08,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -1021,17 +1009,11 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.08,
+        "confidence": 0,
         "reasonCodes": [
-          "same_calendar_date"
+          "no_catalogue_match"
         ],
-        "alternatives": [
-          {
-            "canonicalEventId": "tennis-tournament-bjk-cup-finals-2026-2026-09-25",
-            "title": "Billie Jean King Cup Finals — Team competition",
-            "confidence": 0.08
-          }
-        ]
+        "alternatives": []
       },
       "broadcastsAu": [
         {

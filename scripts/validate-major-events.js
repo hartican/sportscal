@@ -75,7 +75,7 @@ const aflPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:a
 const nrlPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");
 assert.deepEqual(aflPhase.fixtures.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Code phase data must preserve every canonical finals fixture");
 assert.equal(nrlPhase.fixtures.length, 9, "NRL Code phase data must retain four first-week finals, two Semis, two Prelims and the Grand Final");
-assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null || event.timePrecision === "exact" && /^https:\/\/www\.nrl\.com\//.test(event.sourceUrl || "") && Number.isFinite(Date.parse(event.sourceCheckedAt))), "NRL slots may gain exact start times only with dated official source evidence");
+assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null || event.timePrecision === "exact" && (/^https:\/\/www\.nrl\.com\//.test(event.sourceUrl || "") || event.id === "major-match:nrl-finals-2026:grand-final" && event.sourceUrl === "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals") && Number.isFinite(Date.parse(event.sourceCheckedAt))), "NRL slots may gain exact start times only with dated official source evidence");
 assert.equal(nrlPhase.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL Code progression must remain structured instead of parsed from slot labels");
 const nrlFinalIds = new Set(nrlPhase.fixtures.map(event => event.id));
 assert.deepEqual(new Set(nrlPhase.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
