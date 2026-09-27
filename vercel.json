@@ -39,10 +39,22 @@
     }
   ],
   "rewrites": [
-    {"source":"/api/match-centre","destination":"/api/feed?route=match-centre"},
-    {"source":"/api/inbox","destination":"/api/notifications?route=inbox"},
-    {"source":"/api/fixtures","destination":"/api/feed?route=fixtures"},
-    {"source":"/api/fixture-refresh","destination":"/api/feed?route=fixture-refresh"},
+    {
+      "source": "/api/match-centre",
+      "destination": "/api/feed?route=match-centre"
+    },
+    {
+      "source": "/api/inbox",
+      "destination": "/api/notifications?route=inbox"
+    },
+    {
+      "source": "/api/fixtures",
+      "destination": "/api/feed?route=fixtures"
+    },
+    {
+      "source": "/api/fixture-refresh",
+      "destination": "/api/feed?route=fixture-refresh"
+    },
     {
       "source": "/api/calendar",
       "destination": "/api/user-state?route=calendar"
@@ -89,6 +101,27 @@
     }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
     {
       "source": "/app-version.json",
       "headers": [

@@ -48,6 +48,7 @@ jobs:
       - name: Verify feed and deployment safety contracts
         run: |
           node scripts/build-app-shell-runtime.js --check
+          node scripts/validate-security-headers.js
           node scripts/validate-profile-avatars.js
           node scripts/validate-shared-chat-ui.js
           node scripts/validate-private-fixture-chat.js
@@ -80,7 +81,9 @@ jobs:
       - name: Deploy or reuse exact release
         run: bash scripts/deploy-current-commit.sh
       - name: Verify public release
-        run: node scripts/verify-production-release.js
+        run: |
+          node scripts/verify-production-release.js
+          node scripts/validate-security-headers.js https://nothingsport.vercel.app
       - uses: actions/upload-artifact@v4
         if: always()
         with:

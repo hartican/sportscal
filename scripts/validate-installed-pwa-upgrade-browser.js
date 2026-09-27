@@ -16,6 +16,7 @@ const tree = new Map(execFileSync('git',['ls-tree','-rz',baselineSha],{cwd:root,
   const split=line.indexOf('\t'); return [line.slice(split+1),line.slice(0,split).split(' ')[2]];
 }));
 const historical = new Map();
+const candidateHeaders=Object.fromEntries((require('../vercel.json').headers.find(rule=>rule.source==='/(.*)')?.headers||[]).map(h=>[h.key,h.value]));
 function baselineFile(name){
   if (!tree.has(name)) return null;
   if (historical.has(name)) return historical.get(name);
@@ -49,7 +50,7 @@ const server=http.createServer((req,res)=>{
   const bytes=phase==='baseline'?baselineFile(name):candidateFile(name);
   if(!bytes){res.writeHead(404);res.end();return;}
   const type=({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(name)]||'application/octet-stream';
-  res.writeHead(200,{'content-type':type,'cache-control':'no-store'});res.end(bytes);
+  res.writeHead(200,{...(phase==='candidate'?candidateHeaders:{}),'content-type':type,'cache-control':'no-store'});res.end(bytes);
 });
 (async()=>{
   let browser;
@@ -101,6 +102,10 @@ const server=http.createServer((req,res)=>{
     // fresh navigation. The old releases above use authentic historical bytes.
     const currentState=await upgraded.evaluate(async()=>{await NOTHINGSPORTS_APP_UPDATE.check({force:true});return NOTHINGSPORTS_APP_UPDATE.snapshot();});
     assert.equal(currentState.phase,'current');
+    if(candidateHeaders['Content-Security-Policy']){
+      const cachedPolicy=await upgraded.evaluate(async()=>{const shell=await caches.match('/index.html');return shell?.headers.get('content-security-policy');});
+      assert.equal(cachedPolicy,candidateHeaders['Content-Security-Policy'],'installed shell must retain the new response policy offline');
+    }
     const before=versionRequests;
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
