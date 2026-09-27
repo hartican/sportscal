@@ -27,7 +27,7 @@ Supabase's [User Management](https://supabase.com/docs/guides/auth/managing-user
 
 Use a disposable account populated with follows, ratings, shared chat, media, reminders, push and calendar state. Test partial failures and safe retry. Reconcile preflight and post-operation records; confirm other members' content remains correct. Check public/private object access and session/refresh rejection. Save only a minimal completion receipt with scope, timestamp and unresolved retention. A successful Auth delete or profile visibility change alone cannot close the request.
 
-No real-user erasure or populated Supabase Auth/Storage rehearsal has been performed. Direct and indirect preflights and an isolated SQL rehearsal are available; the full disposable-account rehearsal remains required.
+No real-user erasure has been performed. Direct and indirect preflights, an isolated SQL rehearsal and a disposable chat/Auth/Storage rehearsal are available; full account-data coverage remains required.
 
 ## Indirect preflight (27 September 2026)
 
@@ -50,3 +50,11 @@ The rehearsal needs two disposable users, a shared room, replies, media and noti
 References checked 27 September: [PGlite in-memory PostgreSQL](https://pglite.dev/docs/) and [PostgreSQL foreign-key actions](https://www.postgresql.org/docs/current/ddl-constraints.html).
 
 Production migration verified 27 September: both attribution columns nullable/SET NULL, message sender NOT NULL/RESTRICT, all three tables retain RLS and deny anon/authenticated direct writes. Security advisor categories/counts were unchanged; existing anonymous-sign-in and leaked-password-protection warnings are not resolved by this phase. No production rows were deleted.
+
+## Disposable live chat/Auth/Storage rehearsal
+
+`CHAT_ERASURE_LIVE_QA=1 node scripts/validate-chat-erasure-live.js` is an explicit operator integration test, not a customer erasure command. It only creates and removes its own two confirmed `example.invalid` accounts, one room and two Storage objects on recovery. It has no arbitrary target-account parameter, sends no invitation, keeps credentials in memory, and uses a private temporary recovery manifest containing test-only IDs/paths. Successful cleanup removes the manifest; failed cleanup retains it and stops. `CHAT_ERASURE_REPORT` optionally writes a counts/checks-only JSON receipt outside Git. Do not run this on every release; the isolated SQL regression remains the routine gate.
+
+Verified 27 September: first object removal followed by an injected runner failure retained both attachment rows and messages; retry removed both objects. Global logout rejected refresh; subsequent ordered own-message/Auth deletion preserved peer membership/reply and live API access without creator deletion rights. Old access tokens were denied by Auth and live chat (403 is a valid denial alongside 401). Cleanup removed both disposable accounts, the room and media; an independent aggregate query found zero remnants.
+
+Limits: the injected failure is not a real Storage outage. This test runs explicit ordered operations, not a reusable customer-erasure orchestrator. It does not cover ratings, follows, reminders, calendar tokens, all indirect identity data, public/CDN/browser caches or signed-URL lifetime. Do not expose account deletion as complete from this result.
