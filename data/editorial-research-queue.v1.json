@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-27T13:47:43.232Z",
+  "generatedAt": "2026-09-27T14:00:12.144Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -283,7 +283,7 @@
       "fiveStarSignal": true,
       "resultResearchRequired": false,
       "priority": "five-star",
-      "refreshDeadline": "2026-09-27T13:47:43.232Z"
+      "refreshDeadline": "2026-09-27T14:00:12.144Z"
     },
     {
       "targetType": "feed-event",
@@ -810,11 +810,11 @@
     {
       "targetType": "feed-event",
       "targetId": "event:nrlw:2026:grand-final",
-      "title": "2026 NRLW Grand Final",
+      "title": "Roosters v Broncos",
       "researchDepth": 5,
-      "startsAt": "2026-10-03T14:00:00.000Z",
+      "startsAt": "2026-10-04T05:00:00.000Z",
       "reason": "rolling-published-fixtures+classified-marquee",
-      "projectionId": "projection:rolling:evt-nrlw-2026-grand-final",
+      "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
       "coverage": "covered",
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
@@ -823,7 +823,7 @@
       "fiveStarSignal": false,
       "resultResearchRequired": false,
       "priority": "marquee",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-10-04T05:00:00.000Z"
     },
     {
       "targetType": "feed-event",

@@ -63,6 +63,8 @@ jobs:
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-odi-display.js
           node scripts/validate-nrl-grand-final.js --published
+          node scripts/validate-requested-sports.js
+          node scripts/validate-card-identities.js
           node scripts/validate-refresh-resume.js
           node scripts/validate-marquee-candidates.js
           node scripts/validate-football-classification.js --published

@@ -23,3 +23,7 @@ NRL and AFL remain reference candidates, not assumed perfect. Current pilot requ
 Accor Stadium's official programme confirms Roosters–Knights on 4 October at 19:30 Sydney (08:30 UTC, after the DST transition). Nine's finals announcement confirms exclusive live coverage on Nine/9Now. The reviewed finals input now resolves the existing `evt_84` identity rather than creating a second final. Canonical phase sync preserves reviewed participants and follows the alias when applying current editorial. Regression: `validate-nrl-grand-final.js --published`; browser: `validate-grand-final-browser.js`. This named-case repair is not NRL family certification.
 
 Sources: https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals and https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/ .
+
+## NRLW reference follow-up: 28 September Sydney
+
+The same official Accor programme confirms Roosters–Broncos at 16:00 Sydney on 4 October (05:00 UTC; 15:00 Queensland). The canonical input now resolves the existing final, and dated research replaces stale unresolved-bracket copy. Confirmed requested-sport cards explicitly clear a previously published TBC flag. NRLW joins the shared matchup renderer, retaining sourced IDs for profile links; its directory still lacks verified club artwork, so visible monograms remain. This is an explicit remaining polish gap, not full certification. `validate-requested-sports.js` covers both published feeds and Schedule; `validate-grand-final-browser.js` covers both finals at four widths.

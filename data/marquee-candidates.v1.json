@@ -1,6 +1,6 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z",
+  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -628,7 +628,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -835,7 +835,7 @@
     {
       "campaignId": "marquee_ff9103509fd2221f",
       "campaignRevision": 1,
-      "contentHash": "c5acc8c9def3b4ef27412d7f643386a25a760a9f04617bae4c6db595631e4cae",
+      "contentHash": "bf5b3372754823caad22c13a35e26ea47ce339c0c2c86082624a229d81da4701",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -844,66 +844,68 @@
       "readyForExport": false,
       "readinessIssues": [
         "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window",
         "stale_source_provenance"
       ],
       "machineSort": {
         "proposedSendAt": null,
-        "fixtureStartAt": null,
+        "fixtureStartAt": "2026-10-04T05:00:00.000Z",
         "fixtureDate": "2026-10-04"
       },
       "eligibilityEvidence": {
         "stakesExactlyFive": true,
         "readyForExport": false,
         "atomicType": null,
-        "confirmedUtcStart": false,
-        "finish": "unconfirmed",
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z"
+        "sourceCheckedAt": "2026-09-27T13:57:48.000Z"
       },
       "timing": {
-        "startTimeUtc": "",
-        "endTimeUtc": "",
+        "startTimeUtc": "2026-10-04T05:00:00.000Z",
+        "endTimeUtc": "2026-10-04T08:00:00.000Z",
         "liveWindowHours": 3,
-        "endDerived": false,
+        "endDerived": true,
         "sydneyStart": {
           "day": "Sun",
           "weekday": "Sunday",
           "date": "Sun 4 Oct 2026",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
+          "time": "4:00 pm",
+          "timezone": "AEDT"
         },
         "sydneyFinish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "7:00 pm",
+          "timezone": "AEDT"
         }
       },
       "source": {
-        "name": "Official 2026 NRL and NRLW Grand Final",
-        "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-        "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
+        "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+        "checkedAt": "2026-09-27T13:57:48.000Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
-        "title": "2026 NRLW Grand Final",
-        "participants": [],
+        "title": "Roosters v Broncos",
+        "participants": [
+          "Sydney Roosters",
+          "Brisbane Broncos"
+        ],
         "sport": "NRLW",
         "competition": "final",
-        "startTimeUtc": "",
-        "endTimeUtc": "",
+        "startTimeUtc": "2026-10-04T05:00:00.000Z",
+        "endTimeUtc": "2026-10-04T08:00:00.000Z",
         "venue": "Accor Stadium",
         "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
         "stakes": 5,
         "source": {
-          "name": "Official 2026 NRL and NRLW Grand Final",
-          "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-          "checkedAt": "2026-09-27T13:44:57.475Z"
+          "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
+          "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+          "checkedAt": "2026-09-27T13:57:48.000Z"
         },
-        "recognisableTitle": "2026 NRLW Grand Final",
-        "matchupLabel": "",
+        "recognisableTitle": "Roosters v Broncos",
+        "matchupLabel": "Sydney Roosters v Brisbane Broncos",
         "displayDate": "2026-10-04"
       },
       "identities": {
@@ -919,8 +921,8 @@
         "teams": []
       },
       "live": {
-        "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
-        "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+        "headline": "Sunday watch party: Roosters v Broncos",
+        "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
         "kicker": "5/5 stakes · NRLW",
         "heroAssetId": "",
         "logos": {
@@ -934,40 +936,40 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
           "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
         }
       },
       "drafts": {
-        "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+        "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
         "instagram": {
           "account": "@_nothingsports",
-          "caption": "UNMISSABLE NRLW: 2026 NRLW Grand Final. Sun 4 Oct 2026; exact time TBC. 5/5 stakes. The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed.",
+          "caption": "UNMISSABLE NRLW: Roosters v Broncos, Sydney Roosters v Brisbane Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT. 5/5 stakes. Roosters and Broncos meet for the NRLW premiership at Accor Stadium. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT.",
           "image": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+            "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
           }
         },
         "email": {
-          "subject": "5/5 stakes: 2026 NRLW Grand Final — Sun 4 Oct 2026 · time TBC",
-          "preheader": "Join the 2026 NRLW Grand Final watch party, then rate it after the finish.",
-          "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
+          "subject": "5/5 stakes: Roosters v Broncos, Sydney Roosters v Brisbane Broncos — Sun 4:00 pm",
+          "preheader": "Join the Roosters v Broncos watch party, then rate it after the finish.",
+          "headline": "Sunday watch party: Roosters v Broncos",
           "bodyParagraphs": [
-            "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-            "Join us for the 2026 NRLW Grand Final. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+            "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+            "Join us for the Roosters v Broncos, Sydney Roosters v Brisbane Broncos, on Sun at 4:00 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "2026 NRLW Grand Final is listed for Sun 4 Oct 2026; the exact fixture and Sydney start time still need confirmation.",
+          "timingLine": "Roosters v Broncos, Sydney Roosters v Brisbane Broncos starts Sun 4 Oct 2026 at 4:00 pm AEDT at Accor Stadium. Expected finish: 7:00 pm AEDT.",
           "broadcastLine": "Watch in Australia on Nine / 9Now / Fox Sports / Kayo.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -985,31 +987,32 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+            "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
           }
         },
         "when": {
           "day": "Sun",
           "weekday": "Sunday",
           "date": "Sun 4 Oct 2026",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
+          "time": "4:00 pm",
+          "timezone": "AEDT"
         },
         "finish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "7:00 pm",
+          "timezone": "AEDT"
         },
         "live": {
-          "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
-          "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+          "headline": "Sunday watch party: Roosters v Broncos",
+          "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
           "kicker": "5/5 stakes · NRLW",
           "heroAssetId": "",
           "logos": {
@@ -1023,13 +1026,13 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+            "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
           }
         }
       },
@@ -1061,29 +1064,29 @@
         "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_ff9103509fd2221f",
         "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f",
         "ratingWindow": {
-          "opensAt": null,
-          "closesAt": null
+          "opensAt": "2026-10-04T08:00:00.000Z",
+          "closesAt": "2026-10-11T08:00:00.000Z"
         }
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
           "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-c5acc8c9def3.jpg",
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-bf5b33727548.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+            "altText": "Nothing Sport UNMISSABLE card for Roosters v Broncos, Sydney Roosters v Brisbane Broncos, starting Sun 4 Oct 2026 at 4:00 pm AEDT."
           }
         ],
         "uploadPolicy": "approved-media-only"
@@ -1141,7 +1144,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-27T13:44:46.858Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Bahrain GP · Race",
@@ -1398,7 +1401,7 @@
         "name": "Roosters v Knights — NRL Grand Final — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-27T13:39:49.102Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Roosters v Knights",
@@ -1658,7 +1661,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-27T13:44:46.858Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1915,7 +1918,7 @@
         "name": "Supercars Bathurst event and schedule",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -2173,7 +2176,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -2430,7 +2433,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -2687,7 +2690,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -2944,7 +2947,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3201,7 +3204,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -3458,7 +3461,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3715,7 +3718,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -3972,7 +3975,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -4229,7 +4232,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-27T13:44:57.475Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -4485,7 +4488,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-09-27T13:44:46.945Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -4743,7 +4746,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -5000,7 +5003,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -5257,7 +5260,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -5514,7 +5517,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "The 155th Open",
@@ -5770,7 +5773,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260927134749365@2026-09-27T13:47:49.365Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260927140018094@2026-09-27T14:00:18.094Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",

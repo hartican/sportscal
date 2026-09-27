@@ -108,7 +108,7 @@ function cardForEvent(event, schedule, participantsById){
     ...(event.endDate ? {endDate:event.endDate} : {}),
     time:event.time,
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
-    ...(event.timeTbc ? { timeTbc:true } : {}),
+    timeTbc:Boolean(event.timeTbc),
     timePrecision:event.timeTbc ? "tbc" : (event.timePrecision || "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",
     broadcaster:broadcaster.label,

@@ -226,7 +226,13 @@ assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v P
   const sides = identities.matchupSidesForEvent(event, [...activeNrlTeams, ...activeAflTeams, ...footballParticipants], event.name);
   assert.equal(sides.length, 2, `${event.id || event.name} must render exactly two ordered matchup slots`);
   sides.filter(side => !/\b(?:winner|loser|tbc|tbd)\b/i.test(side.label)).forEach(side => {
+    if(event.key === 'nrlw'){
+      // This directory has no verified artwork yet. Require the sourced identity
+      // used by the visible monogram and profile link, never a fabricated crest.
+      assert(side.participant?.id?.startsWith('team:nrlw:'), `${event.id}: missing NRLW profile identity`);
+    }else{
     assert(side.mark?.url || side.mark?.logo?.primary, `${event.id || event.name}: missing published team logo for ${side.label}`);
+    }
   });
 });
 
@@ -307,3 +313,11 @@ assert(!html.includes('mark?.label || "?"'), "recognised teams must never displa
 assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
 console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
+
+// Resolved NRLW finalists must have profile identities even without artwork.
+{
+  const api = require('../config/card-identities');
+  const event = {key:'nrlw',name:'Roosters v Broncos',participantIds:['team:nrlw:roosters','team:nrlw:broncos']};
+  const sides = api.matchupSidesForEvent(event, [], event.name);
+  require('node:assert/strict').deepEqual(sides.map(side=>side.participant.id),event.participantIds);
+}

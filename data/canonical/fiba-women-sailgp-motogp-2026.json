@@ -9,9 +9,10 @@
       "type": "official"
     },
     "nrlw-grand-final": {
-      "name": "Official 2026 NRL and NRLW Grand Final",
-      "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-      "type": "official"
+      "name": "Accor Stadium official Grand Final programme",
+      "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "type": "official",
+      "checkedAt": "2026-09-27T13:57:48.000Z"
     },
     "nrlw-hub": {
       "name": "Official NRLW competition hub",
@@ -1184,10 +1185,10 @@
       "sportKey": "nrlw",
       "codeId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
-      "name": "2026 NRLW Grand Final",
+      "name": "Roosters v Broncos",
       "date": "2026-10-04",
-      "time": "00:00",
-      "timeTbc": true,
+      "time": "16:00",
+      "timeTbc": false,
       "venue": "Accor Stadium",
       "round": "final",
       "roundLabel": "Grand Final",
@@ -1195,8 +1196,15 @@
       "expected": 10,
       "sourceId": "nrlw-grand-final",
       "broadcastSourceId": "nrlw-schedule",
-      "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "context": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series."
+      "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+      "context": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-10-04T05:00:00.000Z",
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:broncos"
+      ],
+      "sourceCheckedAt": "2026-09-27T13:57:48.000Z"
     },
     {
       "id": "event:fiba-women:2026:group-china-czechia",

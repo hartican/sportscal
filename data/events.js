@@ -6357,7 +6357,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Melbourne GP tickets - sale week TBC is complete.",
       "synopsisSpoilerOn": "This week-long alert is the honest ticketing signal currently supported by the official sources. Formula 1 lists the 2027 Australian Grand Prix with a Join the waitlist action, while the Australian Grand Prix Corporation offers registration for release updates. The older grandstand page displays a 2025 sale date and is not treated as a reliable 2027 on-sale date."
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   },
   {
     "sport": "Cycling",
@@ -13774,7 +13774,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
     "sourceName": "Cricket Australia Darwin Test report",
     "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -13801,10 +13801,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
       "synopsisSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin. Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -13858,7 +13858,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -13878,7 +13878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia Darwin Test report",
       "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -16143,7 +16143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128923",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16203,10 +16203,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16263,7 +16263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
     "sourceName": "Cricket Australia 2026/27 international schedule",
     "sourceUrl": "https://www.cricket.com.au/news/4473637/",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -16291,10 +16291,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.",
       "synopsisSpoilerOff": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
       "synopsisSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay. Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -16347,7 +16347,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -16367,7 +16367,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026/27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4473637/",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17071,7 +17071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128926",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17131,10 +17131,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Manchester United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17216,7 +17216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "New Zealand recovered from a 13-12 halftime deficit and controlled the second half to win the opening Test at Ellis Park by 17 points.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z",
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z",
     "sourceTrust": "verified",
     "homeScore": 16,
     "awayScore": 33,
@@ -17237,7 +17237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128925",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17297,10 +17297,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Crystal Palace is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17338,7 +17338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128927",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17398,10 +17398,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Sunderland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17439,7 +17439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128928",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17499,10 +17499,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Leeds United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17590,7 +17590,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128924",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17650,10 +17650,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Tottenham Hotspur is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17719,9 +17719,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17791,7 +17791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -17805,7 +17805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Port Adelaide defeated Essendon 105-95.",
       "synopsisSpoilerOff": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
       "synopsisSpoilerOn": "Port Adelaide defeated Essendon 105-95. Essendon v Port Adelaide finished 95-105 in Round 24, with Port Adelaide winning by 10 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "intensity": 2,
       "expectedSpectacle": 4,
       "intensitySource": "computed",
@@ -17826,7 +17826,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -18007,9 +18007,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -18079,7 +18079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -18093,7 +18093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Sydney Swans defeated North Melbourne 123-70.",
       "synopsisSpoilerOff": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
       "synopsisSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney Swans v North Melbourne finished 123-70 in Round 24, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "intensity": 2,
       "expectedSpectacle": 4,
       "intensitySource": "computed",
@@ -18114,7 +18114,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -18295,9 +18295,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -18367,7 +18367,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -18380,7 +18380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45.",
       "synopsisSpoilerOff": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
       "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles v Hawthorn finished 45-107 in Round 24, with Hawthorn winning by 62 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "arcStage": "recap",
       "intensity": 2,
       "expectedSpectacle": 4,
@@ -18402,7 +18402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -18413,7 +18413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128929",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18473,7 +18473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-08-30T09:42:19.639Z",
@@ -18541,6 +18541,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion defeated Aston Villa 4-0.\",\"Brighton & Hove Albion 4-0 Aston Villa\",\"Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1.\"]"
     },
+    "roundLabel": "Premier League Matchweek 1",
+    "roundNumber": 1,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
@@ -18552,13 +18556,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 1",
-    "roundNumber": 1,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128930",
@@ -18567,7 +18567,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128930",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18627,7 +18627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-08-30T09:42:19.639Z",
@@ -18695,6 +18695,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Bournemouth 2-1.\",\"Manchester City 2-1 Bournemouth\",\"Manchester City completed a 1-goal win in Premier League Matchweek 1.\"]"
     },
+    "roundLabel": "Premier League Matchweek 1",
+    "roundNumber": 1,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester City — 2026/27 identity under pressure",
@@ -18706,13 +18710,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 1",
-    "roundNumber": 1,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "sport": "F1",
@@ -18832,7 +18832,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128931",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18892,7 +18892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-08-30T09:42:19.639Z",
@@ -18960,6 +18960,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United drew Liverpool 2-2.\",\"Newcastle United 2-2 Liverpool\",\"Newcastle United and Liverpool shared the points after a 2-2 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 1",
+    "roundNumber": 1,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Newcastle United — 2026/27 identity under pressure",
@@ -18971,13 +18975,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 1",
-    "roundNumber": 1,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128932",
@@ -18986,7 +18986,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128932",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19046,7 +19046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-08-31T15:59:48.326Z",
@@ -19114,6 +19114,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Chelsea defeated Fulham 3-2.\",\"Fulham 2-3 Chelsea\",\"Chelsea completed a 1-goal win in Premier League Matchweek 1.\"]"
     },
+    "roundLabel": "Premier League Matchweek 1",
+    "roundNumber": 1,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Fulham — 2026/27 identity under pressure",
@@ -19125,13 +19129,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 1",
-    "roundNumber": 1,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-wrc-2026-round-11",
@@ -19535,9 +19535,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19611,7 +19611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -19629,7 +19629,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 4,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "competitionPhase": "wildcard-final",
     "isFinalRegularSeasonRound": false,
@@ -19755,7 +19755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -19908,7 +19908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128937",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19968,7 +19968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-04T15:32:40.440Z",
@@ -20036,6 +20036,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Crystal Palace 4-1.\",\"Crystal Palace 1-4 Manchester City\",\"Manchester City completed a 3-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Crystal Palace — 2026/27 identity under pressure",
@@ -20047,13 +20051,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640301",
@@ -20844,9 +20844,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -20920,7 +20920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -20938,7 +20938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 4,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "competitionPhase": "wildcard-final",
     "isFinalRegularSeasonRound": false,
@@ -21064,7 +21064,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -21075,7 +21075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128939",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21135,7 +21135,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-04T19:39:38.624Z",
@@ -21203,6 +21203,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool drew Nottingham Forest 2-2.\",\"Liverpool 2-2 Nottingham Forest\",\"Liverpool and Nottingham Forest shared the points after a 2-2 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Liverpool — 2026/27 identity under pressure",
@@ -21214,13 +21218,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128934",
@@ -21229,7 +21229,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128934",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21289,7 +21289,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-04T19:39:38.624Z",
@@ -21357,6 +21357,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Bournemouth drew Everton 1-1.\",\"Bournemouth 1-1 Everton\",\"Bournemouth and Everton shared the points after a 1-1 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "AFC Bournemouth — 2026/27 identity under pressure",
@@ -21368,13 +21372,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128936",
@@ -21383,7 +21383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128936",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21443,7 +21443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-04T19:39:38.624Z",
@@ -21511,6 +21511,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Hull City defeated Coventry City 1-0.\",\"Coventry City 0-1 Hull City\",\"Hull City completed a 1-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Coventry City — 2026/27 identity under pressure",
@@ -21522,13 +21526,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128942",
@@ -21537,7 +21537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128942",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21597,7 +21597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-04T19:39:38.624Z",
@@ -21665,6 +21665,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United defeated Tottenham Hotspur 2-0.\",\"Tottenham Hotspur 0-2 Newcastle United\",\"Newcastle United completed a 2-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
@@ -21676,13 +21680,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "rugby-argentina-australia-jujuy-2026-08-30",
@@ -22883,7 +22883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128935",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22943,7 +22943,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-06T11:51:12.946Z",
@@ -23010,6 +23010,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Chelsea defeated Brighton & Hove Albion 4-3.\",\"Chelsea 4-3 Brighton & Hove Albion\",\"Chelsea completed a 1-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Chelsea — 2026/27 identity under pressure",
@@ -23020,13 +23024,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128938",
@@ -23035,7 +23035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128938",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23095,7 +23095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-06T11:51:12.946Z",
@@ -23162,6 +23162,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Leeds United drew Brentford 1-1.\",\"Leeds United 1-1 Brentford\",\"Leeds United and Brentford shared the points after a 1-1 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Leeds United — 2026/27 identity under pressure",
@@ -23172,13 +23176,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128941",
@@ -23187,7 +23187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128941",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23247,7 +23247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-06T11:51:12.946Z",
@@ -23315,6 +23315,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Sunderland defeated Fulham 1-0.\",\"Sunderland 1-0 Fulham\",\"Sunderland completed a 1-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sunderland — 2026/27 identity under pressure",
@@ -23326,13 +23330,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128940",
@@ -23341,7 +23341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128940",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23401,7 +23401,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-06T14:45:24.334Z",
@@ -23469,6 +23469,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester United defeated Ipswich Town 5-2.\",\"Manchester United 5-2 Ipswich Town\",\"Manchester United completed a 3-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester United — 2026/27 identity under pressure",
@@ -23480,13 +23484,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128933",
@@ -23495,7 +23495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128933",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23555,7 +23555,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-06T18:17:46.449Z",
@@ -23623,6 +23623,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Arsenal defeated Aston Villa 1-0.\",\"Aston Villa 0-1 Arsenal\",\"Arsenal completed a 1-goal win in Premier League Matchweek 2.\"]"
     },
+    "roundLabel": "Premier League Matchweek 2",
+    "roundNumber": 2,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Aston Villa — 2026/27 identity under pressure",
@@ -23634,13 +23638,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 2",
-    "roundNumber": 2,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "fixture-us-open-2026-official-ms-1222",
@@ -24480,9 +24480,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -24562,7 +24562,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -24580,7 +24580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "summary": "Official AFL schedule: Fremantle v Hawthorn at Optus Stadium.",
     "viewingOptions": [
@@ -24702,7 +24702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -25568,9 +25568,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -25632,7 +25632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -25663,7 +25663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -25790,7 +25790,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -26416,7 +26416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128949",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26476,7 +26476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -26544,6 +26544,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool defeated Ipswich Town 2-0.\",\"Ipswich Town 0-2 Liverpool\",\"Liverpool completed a 2-goal win in Premier League Matchweek 3.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Ipswich Town — 2026/27 identity under pressure",
@@ -26555,13 +26559,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640401",
@@ -27206,9 +27206,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -27267,7 +27267,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -27285,7 +27285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "competitionPhase": "finals-week-1",
     "isFinalRegularSeasonRound": false,
@@ -27428,7 +27428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -27924,9 +27924,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -27985,7 +27985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -28003,7 +28003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "competitionPhase": "finals-week-1",
     "isFinalRegularSeasonRound": false,
@@ -28146,7 +28146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -28157,7 +28157,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128951",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28217,7 +28217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -28285,6 +28285,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United drew Bournemouth 2-2.\",\"Newcastle United 2-2 Bournemouth\",\"Newcastle United and Bournemouth shared the points after a 2-2 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Newcastle United — 2026/27 identity under pressure",
@@ -28296,13 +28300,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128944",
@@ -28311,7 +28311,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128944",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28371,7 +28371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -28439,6 +28439,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brentford drew Sunderland 1-1.\",\"Brentford 1-1 Sunderland\",\"Brentford and Sunderland shared the points after a 1-1 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Brentford — 2026/27 identity under pressure",
@@ -28450,13 +28454,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128945",
@@ -28465,7 +28465,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128945",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28525,7 +28525,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -28592,6 +28592,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion drew Leeds United 1-1.\",\"Brighton & Hove Albion 1-1 Leeds United\",\"Brighton & Hove Albion and Leeds United shared the points after a 1-1 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
@@ -28602,13 +28606,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128947",
@@ -28617,7 +28617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128947",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28677,7 +28677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -28745,6 +28745,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Crystal Palace defeated Fulham 3-2.\",\"Fulham 2-3 Crystal Palace\",\"Crystal Palace completed a 1-goal win in Premier League Matchweek 3.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Fulham — 2026/27 identity under pressure",
@@ -28756,13 +28760,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128950",
@@ -28771,7 +28771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128950",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28831,7 +28831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -28899,6 +28899,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Coventry City 1-0.\",\"Manchester City 1-0 Coventry City\",\"Manchester City completed a 1-goal win in Premier League Matchweek 3.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester City — 2026/27 identity under pressure",
@@ -28910,13 +28914,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128952",
@@ -28925,7 +28925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128952",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28985,7 +28985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -29053,6 +29053,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Nottingham Forest drew Tottenham Hotspur 0-0.\",\"Nottingham Forest 0-0 Tottenham Hotspur\",\"Nottingham Forest and Tottenham Hotspur shared the points after a 0-0 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Nottingham Forest — 2026/27 identity under pressure",
@@ -29064,13 +29068,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "sport": "F1",
@@ -29896,7 +29896,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128948",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29956,7 +29956,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -30024,6 +30024,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Hull City drew Aston Villa 0-0.\",\"Hull City 0-0 Aston Villa\",\"Hull City and Aston Villa shared the points after a 0-0 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Hull City — 2026/27 identity under pressure",
@@ -30035,13 +30039,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "rugby-argentina-australia-mendoza-2026-09-06",
@@ -31641,7 +31641,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_china_czechia",
@@ -31805,7 +31806,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128946",
@@ -31814,7 +31816,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128946",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31874,7 +31876,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -31942,6 +31944,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Everton drew Manchester United 2-2.\",\"Everton 2-2 Manchester United\",\"Everton and Manchester United shared the points after a 2-2 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Everton — 2026/27 identity under pressure",
@@ -31953,13 +31959,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "sport": "F1",
@@ -32535,7 +32537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128943",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32595,7 +32597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -32663,6 +32665,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Arsenal defeated Chelsea 2-1.\",\"Arsenal 2-1 Chelsea\",\"Arsenal completed a 1-goal win in Premier League Matchweek 3.\"]"
     },
+    "roundLabel": "Premier League Matchweek 3",
+    "roundNumber": 3,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Arsenal — 2026/27 identity under pressure",
@@ -32674,13 +32680,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 3",
-    "roundNumber": 3,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "fixture-us-open-2026-official-ms-1408",
@@ -33057,7 +33059,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_italy_usa",
@@ -33221,7 +33224,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -33385,7 +33389,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -33549,7 +33554,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -33713,7 +33719,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -33877,7 +33884,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "fixture-us-open-2026-official-wd-4301",
@@ -34279,7 +34287,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_japan_spain",
@@ -34443,7 +34452,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_italy_china",
@@ -34607,7 +34617,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -34771,7 +34782,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "fixture-us-open-2026-official-ms-1503",
@@ -35368,7 +35380,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "fixture-us-open-2026-official-ms-1504",
@@ -36099,7 +36112,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_quarterfinals",
@@ -36226,7 +36240,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -36386,7 +36401,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -36546,7 +36562,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -36770,9 +36787,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -36817,7 +36834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -36848,7 +36865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -37015,7 +37032,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -37099,7 +37116,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_spain_practice_2",
@@ -37181,7 +37199,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nrlw_2026_round_11_eels_cowboys",
@@ -37341,7 +37360,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640501",
@@ -38290,7 +38310,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "sport": "NRL",
@@ -38421,9 +38442,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -38468,7 +38489,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -38500,7 +38521,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "form"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -38668,7 +38689,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -38939,7 +38960,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128953",
@@ -38948,7 +38970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128953",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39008,7 +39030,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa arrives with 0W-1D-2L, while Nottingham Forest brings 0W-2D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -39076,6 +39098,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Nottingham Forest defeated Aston Villa 2-1.",
       "synopsisSpoilerOn": "Nottingham Forest completed a 1-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Aston Villa — 2026/27 identity under pressure",
@@ -39087,13 +39113,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128954",
@@ -39102,7 +39124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128954",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39162,7 +39184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "AFC Bournemouth arrives with 0W-2D-1L, while Brentford brings 1W-2D-0L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -39230,6 +39252,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Bournemouth drew Brentford 2-2.",
       "synopsisSpoilerOn": "Bournemouth and Brentford shared the points after a 2-2 draw."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "AFC Bournemouth — 2026/27 identity under pressure",
@@ -39241,13 +39267,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128955",
@@ -39256,7 +39278,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128955",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39316,7 +39338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea arrives with 2W-0D-1L, while Hull City brings 2W-1D-0L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -39384,6 +39406,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Chelsea drew Hull City 2-2.",
       "synopsisSpoilerOn": "Chelsea and Hull City shared the points after a 2-2 draw."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Chelsea — 2026/27 identity under pressure",
@@ -39395,13 +39421,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128957",
@@ -39410,7 +39432,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128957",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39470,7 +39492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace arrives with 1W-0D-2L, while Ipswich Town brings 1W-0D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -39538,6 +39560,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Ipswich Town defeated Crystal Palace 3-2.",
       "synopsisSpoilerOn": "Ipswich Town completed a 1-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Crystal Palace — 2026/27 identity under pressure",
@@ -39549,13 +39575,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128959",
@@ -39564,7 +39586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128959",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39624,7 +39646,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool arrives with 1W-2D-0L, while Fulham brings 3 defeats from 3. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -39692,6 +39714,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Liverpool drew Fulham 0-0.",
       "synopsisSpoilerOn": "Liverpool and Fulham shared the points after a 0-0 draw."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Liverpool — 2026/27 identity under pressure",
@@ -39703,13 +39729,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_28",
@@ -39841,7 +39863,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_semifinals",
@@ -39968,7 +39991,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128962",
@@ -39977,7 +40001,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128962",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40037,7 +40061,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur arrives with 0W-1D-2L, while Everton brings 1W-2D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -40105,6 +40129,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Tottenham Hotspur drew Everton 0-0.",
       "synopsisSpoilerOn": "Tottenham Hotspur and Everton shared the points after a 0-0 draw."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
@@ -40116,13 +40144,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128961",
@@ -40131,7 +40155,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128961",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40191,7 +40215,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland arrives with 1W-1D-1L, while Arsenal brings 3 wins from 3. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -40259,6 +40283,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Arsenal defeated Sunderland 2-0.",
       "synopsisSpoilerOn": "Arsenal completed a 2-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sunderland — 2026/27 identity under pressure",
@@ -40270,13 +40298,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_nrlw_2026_round_11_broncos_warriors",
@@ -40437,7 +40461,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640505",
@@ -40899,7 +40924,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640507",
@@ -41713,7 +41739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128956",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41773,7 +41799,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City arrives with 3 defeats from 3, while Brighton & Hove Albion brings 1W-1D-1L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -41841,6 +41867,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Brighton & Hove Albion defeated Coventry City 5-0.",
       "synopsisSpoilerOn": "Brighton & Hove Albion completed a 5-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Coventry City — 2026/27 identity under pressure",
@@ -41852,13 +41882,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_29",
@@ -41990,7 +42016,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_fiba_women_2026_bronze",
@@ -42117,7 +42144,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128960",
@@ -42126,7 +42154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128960",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42186,7 +42214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United arrives with 1W-1D-1L, while Manchester City brings 3 wins from 3. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -42254,6 +42282,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester City defeated Manchester United 1-0.",
       "synopsisSpoilerOn": "Manchester City completed a 1-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester United — 2026/27 identity under pressure",
@@ -42265,13 +42297,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_fiba_women_2026_final",
@@ -42399,7 +42427,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128958",
@@ -42408,7 +42437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128958",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42468,7 +42497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United arrives with 1W-2D-0L, while Newcastle United brings 1W-2D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-08T14:50:03.143Z",
@@ -42536,6 +42565,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Leeds United defeated Newcastle United 4-1.",
       "synopsisSpoilerOn": "Leeds United completed a 3-goal win in Premier League Matchweek 4."
     },
+    "roundLabel": "Premier League Matchweek 4",
+    "roundNumber": 4,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Leeds United — 2026/27 identity under pressure",
@@ -42547,13 +42580,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 4",
-    "roundNumber": 4,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640601",
@@ -42983,7 +43012,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128964",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -43043,7 +43072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -43110,6 +43139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brentford defeated Chelsea 3-0.\",\"Brentford 3-0 Chelsea\",\"Brentford completed a 3-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Brentford — 2026/27 identity under pressure",
@@ -43120,13 +43153,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640602",
@@ -44255,7 +44284,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -44452,7 +44482,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128972",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -44512,7 +44542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -44580,6 +44610,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Aston Villa defeated Tottenham Hotspur 3-2.\",\"Tottenham Hotspur 2-3 Aston Villa\",\"Aston Villa completed a 1-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
@@ -44591,13 +44625,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_nbl_2026_27_36e0e11c_58ad_11f1_93d0_e78395b5c13c",
@@ -44759,7 +44789,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_sailgp_2026_geneva_day_1",
@@ -44923,7 +44954,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
       "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128965",
@@ -44932,7 +44964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128965",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -44992,7 +45024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -45060,6 +45092,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brighton & Hove Albion defeated Arsenal 3-0.\",\"Brighton & Hove Albion 3-0 Arsenal\",\"Brighton & Hove Albion completed a 3-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
@@ -45071,13 +45107,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128966",
@@ -45086,7 +45118,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128966",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -45146,7 +45178,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -45214,6 +45246,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Everton defeated Ipswich Town 1-0.\",\"Everton 1-0 Ipswich Town\",\"Everton completed a 1-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Everton — 2026/27 identity under pressure",
@@ -45225,13 +45261,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128970",
@@ -45240,7 +45272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128970",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -45300,7 +45332,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -45368,6 +45400,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Newcastle United defeated Hull City 2-1.\",\"Newcastle United 2-1 Hull City\",\"Newcastle United completed a 1-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Newcastle United — 2026/27 identity under pressure",
@@ -45379,13 +45415,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_motogp_2026_austria",
@@ -45562,7 +45594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128971",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -45622,7 +45654,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-25T03:38:48.655Z",
@@ -45690,6 +45722,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Coventry City defeated Nottingham Forest 1-0.\",\"Nottingham Forest 0-1 Coventry City\",\"Coventry City completed a 1-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Nottingham Forest — 2026/27 identity under pressure",
@@ -45701,13 +45737,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640606",
@@ -46182,7 +46214,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640608",
@@ -46687,7 +46720,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640609",
@@ -46847,7 +46881,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128963",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -46907,7 +46941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-27T06:53:44.966Z",
@@ -46975,6 +47009,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Liverpool defeated Bournemouth 1-0.\",\"Bournemouth 0-1 Liverpool\",\"Liverpool completed a 1-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "AFC Bournemouth — 2026/27 identity under pressure",
@@ -46986,13 +47024,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128968",
@@ -47001,7 +47035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128968",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -47061,7 +47095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-27T06:53:44.966Z",
@@ -47128,6 +47162,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Leeds United drew Crystal Palace 0-0.\",\"Leeds United 0-0 Crystal Palace\",\"Leeds United and Crystal Palace shared the points after a 0-0 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Leeds United — 2026/27 identity under pressure",
@@ -47138,13 +47176,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "epl-2026-27-128969",
@@ -47153,7 +47187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128969",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -47213,7 +47247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-27T06:53:44.966Z",
@@ -47281,6 +47315,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Manchester City defeated Sunderland 5-3.\",\"Manchester City 5-3 Sunderland\",\"Manchester City completed a 2-goal win in Premier League Matchweek 5.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester City — 2026/27 identity under pressure",
@@ -47292,13 +47330,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_sailgp_2026_geneva_day_2",
@@ -47462,7 +47496,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
       "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128967",
@@ -47471,7 +47506,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128967",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -47531,10 +47566,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load. The match is complete, with the result protected until spoilers are enabled.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -47560,7 +47595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Fulham drew Manchester United 1-1.",
       "synopsisSpoilerOn": "Fulham drew Manchester United 1-1. Fulham and Manchester United shared the points after a 1-1 draw. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Manchester United's a redesigned midfield carrying Champions League load thread rather than ending the story at full-time.",
       "researchDepth": 2,
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -47592,13 +47627,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Fulham drew Manchester United 1-1.\",\"Fulham 1-1 Manchester United\",\"Fulham and Manchester United shared the points after a 1-1 draw.\"]"
     },
+    "roundLabel": "Premier League Matchweek 5",
+    "roundNumber": 5,
+    "competitionName": "Premier League",
+    "season": "2026/27",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Fulham — 2026/27 identity under pressure",
@@ -47610,13 +47649,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
-    },
-    "roundLabel": "Premier League Matchweek 5",
-    "roundNumber": 5,
-    "competitionName": "Premier League",
-    "season": "2026/27"
+    }
   },
   {
     "id": "evt_nbl_2026_27_36e80b8c_58ad_11f1_ab03_2572c13c410b",
@@ -47778,7 +47813,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
@@ -47941,7 +47977,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -48103,7 +48140,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -48218,7 +48256,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640701",
@@ -48531,7 +48570,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
@@ -48693,7 +48733,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_2",
@@ -48808,7 +48849,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640702",
@@ -49376,7 +49418,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640705",
@@ -49689,7 +49732,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-2",
@@ -50412,7 +50456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "checkedAt": "2026-09-27T13:46:10.661Z"
+      "checkedAt": "2026-09-27T13:59:32.479Z"
     },
     "resultPublishedAt": "2026-09-27T06:35:17.582Z",
     "outcomeText": "George Russell took pole for Azerbaijan GP · Qualifying.",
@@ -50702,7 +50746,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-afl-cd_m20260142901",
@@ -50741,9 +50786,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
     "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -50801,7 +50846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "venue"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "resultResearchRequired": false,
@@ -50817,7 +50862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
       "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
       "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "intensitySource": "computed",
       "researchDepth": 5
     },
@@ -50953,7 +50998,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     }
   },
@@ -51336,7 +51381,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "checkedAt": "2026-09-27T13:46:10.661Z"
+      "checkedAt": "2026-09-27T13:59:32.479Z"
     },
     "resultPublishedAt": "2026-09-27T06:35:17.582Z",
     "outcomeText": "George Russell won Azerbaijan GP · Race.",
@@ -51625,7 +51670,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36f4ac8b_58ad_11f1_bf00_2942781e7154",
@@ -51788,7 +51834,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-27",
@@ -52490,6 +52537,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "83-69",
       "Official result"
     ],
+    "resultStatus": "official",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-09-27T13:44:57.475Z",
+    "consensusResult": {
+      "winner": "Adelaide 36ers",
+      "summary": "Adelaide 36ers 83, Cairns Taipans 69"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -52504,13 +52558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "resultStatus": "official",
-    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
-    "resultSourceCheckedAt": "2026-09-27T13:44:57.475Z",
-    "consensusResult": {
-      "winner": "Adelaide 36ers",
-      "summary": "Adelaide 36ers 83, Cairns Taipans 69"
-    }
+    "timeTbc": false
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-1",
@@ -52988,6 +53036,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "recapText": "Official NBL result.",
     "endTimeUtc": "2026-09-27T11:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-09-27T13:44:57.475Z",
+    "resultLabels": [
+      "Round 2",
+      "121-100",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Sydney Kings",
+      "summary": "Sydney Kings 121, Illawarra Hawks 100"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -53002,18 +53062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "resultStatus": "official",
-    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
-    "resultSourceCheckedAt": "2026-09-27T13:44:57.475Z",
-    "resultLabels": [
-      "Round 2",
-      "121-100",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Sydney Kings",
-      "summary": "Sydney Kings 121, Illawarra Hawks 100"
-    }
+    "timeTbc": false
   },
   {
     "id": "rugby-australia-south-africa-2026-09-27",
@@ -53474,7 +53523,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
@@ -53614,7 +53664,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-wrc-2026-round-13",
@@ -53989,7 +54040,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
@@ -54161,7 +54213,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_bahrain_practice_2",
@@ -54276,7 +54329,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640802",
@@ -54541,7 +54595,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
@@ -54681,7 +54736,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640803",
@@ -54921,7 +54977,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640804",
@@ -55311,7 +55368,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_bahrain_qualifying",
@@ -55426,7 +55484,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640806",
@@ -55691,7 +55750,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_motogp_2026_japan",
@@ -55825,120 +55885,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "source:rolling:motogp:motogp-calendar",
         "source:rolling:motogp:motogp-riders",
         "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-27T13:46:16.043Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "phase": "preview"
-    }
-  },
-  {
-    "id": "evt_nrlw_2026_grand_final",
-    "eventId": "evt_nrlw_2026_grand_final",
-    "canonicalEventId": "event:nrlw:2026:grand-final",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "2026 NRLW Grand Final",
-    "cardKind": "fixture",
-    "displayTitleCompact": "2026 NRLW Grand Final",
-    "date": "2026-10-04",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Accor Stadium",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Grand Final",
-    "stage": "final",
-    "narrativeType": "all",
-    "selectedSentence": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-    "fullSpiel": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-    "sourceName": "Official 2026 NRL and NRLW Grand Final",
-    "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-    "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "hookSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "synopsisSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "synopsisSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "lastReviewedAt": "2026-09-27T13:46:16.043Z",
-      "archetype": "championship decider",
-      "researchDepth": 5
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "Official 2026 NRL and NRLW Grand Final",
-      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-      "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-27T13:46:16.043Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-grand-final",
-      "researchTier": "marquee",
-      "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "synopsis": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-grand-final:schedule",
-        "fact:rolling:event-nrlw-2026-grand-final:field",
-        "fact:rolling:event-nrlw-2026-grand-final:viewing",
-        "fact:rolling:event-nrlw-2026-grand-final:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-grand-final",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-stats"
       ],
       "dimensions": [
         "schedule",
@@ -56214,7 +56160,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640808",
@@ -56339,6 +56286,166 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Collingwood are 16th with 4 points, while Melbourne are 2nd with 24. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "lastReviewedAt": "2026-09-27T06:38:44.995Z",
       "stakes": 1
+    }
+  },
+  {
+    "id": "evt_nrlw_2026_grand_final",
+    "eventId": "evt_nrlw_2026_grand_final",
+    "canonicalEventId": "event:nrlw:2026:grand-final",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Roosters v Broncos",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Roosters v Broncos",
+    "date": "2026-10-04",
+    "time": "16:00",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Accor Stadium",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Grand Final",
+    "stage": "final",
+    "narrativeType": "all",
+    "selectedSentence": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+    "fullSpiel": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+    "sourceName": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
+    "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+    "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "computed",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+      "hookSpoilerOn": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+      "synopsisSpoilerOff": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "synopsisSpoilerOn": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "lastReviewedAt": "2026-09-27T13:57:48.000Z",
+      "researchDepth": 3
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026 NRLW Grand Final — Roosters v Broncos",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:schedule"
+      ],
+      "sourceName": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-27T13:57:48.000Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
+      "researchTier": "standard",
+      "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+      "synopsis": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "threadIds": [
+        "thread:fixture-research:evt_nrlw_2026_grand_final"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_nrlw_2026_grand_final:0",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:1"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_nrlw_2026_grand_final:0"
+      ],
+      "dimensions": [
+        "matchup",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-27T13:57:48.000Z",
+      "refreshAfter": "2026-10-04T05:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "startTimeUtc": "2026-10-04T05:00:00.000Z",
+    "participantIds": [
+      "team:nrlw:roosters",
+      "team:nrlw:broncos"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:roosters",
+        "name": "Sydney Roosters",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:broncos",
+        "name": "Brisbane Broncos",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:roosters",
+        "label": "Sydney Roosters"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:broncos",
+        "label": "Brisbane Broncos"
+      }
+    ],
+    "resultEditorialBranches": {
+      "home": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Roosters defeated Broncos in Grand Final."
+      },
+      "away": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Broncos defeated Roosters in Grand Final."
+      },
+      "draw": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Roosters and Broncos finished level in Grand Final."
+      }
     }
   },
   {
@@ -56480,7 +56587,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640809",
@@ -56720,7 +56828,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "sport": "NRL",
@@ -57051,7 +57160,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37023ff5_58ad_11f1_88e1_6f9744c8d3ab",
@@ -57191,7 +57301,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "sport": "Cricket",
@@ -57210,7 +57321,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
     "sourceName": "Cricket Australia South Africa Test tour guide",
     "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -57233,7 +57344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia South Africa Test tour guide",
       "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "participants": [
@@ -57257,10 +57368,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
       "synopsisSpoilerOff": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
       "synopsisSpoilerOn": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "sourceTrust": "verified",
     "startTimeUtc": "2026-10-09T07:30:00Z",
     "sourceType": "official",
@@ -57300,7 +57411,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-09T07:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -57544,7 +57655,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36fe21e3_58ad_11f1_ba69_dd12ee8972e9",
@@ -57684,7 +57796,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_singapore_sprint_qualifying",
@@ -57799,7 +57912,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640902",
@@ -58508,7 +58622,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_singapore_sprint",
@@ -58623,7 +58738,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640906",
@@ -58889,7 +59005,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128973",
@@ -58898,7 +59015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128973",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -58958,10 +59075,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal arrives with 4W-0D-1L, while Leeds United brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of settled champion structure against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -58997,7 +59114,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T11:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59013,7 +59130,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59023,7 +59140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Leeds' carry-over momentum comes to Arsenal, directly testing Arsenal's first title defence in 22 years.",
       "synopsisSpoilerOff": "Arsenal arrives with 4W-0D-1L, while Leeds United brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of settled champion structure against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Arsenal arrives with 4W-0D-1L, while Leeds United brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of settled champion structure against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -59143,7 +59260,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_motogp_2026_indonesia",
@@ -59296,7 +59414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128974",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -59356,10 +59474,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa arrives with 1W-1D-3L, while Brentford brings 2W-3D-0L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a new midfield and defensive spine against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -59395,7 +59513,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59411,7 +59529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59421,7 +59539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Aston Villa's post-Europa rebuild against Brentford's fast-break identity: one result will move two very different season stories.",
       "synopsisSpoilerOff": "Aston Villa arrives with 1W-1D-3L, while Brentford brings 2W-3D-0L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a new midfield and defensive spine against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Aston Villa arrives with 1W-1D-3L, while Brentford brings 2W-3D-0L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a new midfield and defensive spine against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -59435,7 +59553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128975",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -59495,10 +59613,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea arrives with 2W-1D-2L, while AFC Bournemouth brings 0W-3D-2L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -59534,7 +59652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59550,7 +59668,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59560,7 +59678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Chelsea host AFC Bournemouth with Chelsea's Xabi Alonso reset and Bournemouth's first European-season balancing act both under examination.",
       "synopsisSpoilerOff": "Chelsea arrives with 2W-1D-2L, while AFC Bournemouth brings 0W-3D-2L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Chelsea arrives with 2W-1D-2L, while AFC Bournemouth brings 0W-3D-2L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -59574,7 +59692,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128979",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -59634,10 +59752,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town arrives with 2W-0D-3L, while Fulham brings 0W-2D-3L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -59673,7 +59791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59689,7 +59807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59699,7 +59817,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Ipswich Town host Fulham with Ipswich's immediate top-flight return and Fulham's first post-Marco Silva season both under examination.",
       "synopsisSpoilerOff": "Ipswich Town arrives with 2W-0D-3L, while Fulham brings 0W-2D-3L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Ipswich Town arrives with 2W-0D-3L, while Fulham brings 0W-2D-3L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -59713,7 +59831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128982",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -59773,10 +59891,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland arrives with 1W-1D-3L, while Brighton & Hove Albion brings 3W-1D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the defensive base behind last season's seventh place against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -59812,7 +59930,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59828,7 +59946,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59838,7 +59956,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Sunderland host Brighton & Hove Albion with Sunderland's Europe-and-league balancing act and Brighton's goals-by-committee attack both under examination.",
       "synopsisSpoilerOff": "Sunderland arrives with 1W-1D-3L, while Brighton & Hove Albion brings 3W-1D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the defensive base behind last season's seventh place against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Sunderland arrives with 1W-1D-3L, while Brighton & Hove Albion brings 3W-1D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the defensive base behind last season's seventh place against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -59852,7 +59970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128981",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -59912,10 +60030,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United arrives with 1W-2D-2L, while Tottenham Hotspur brings 0W-2D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -59951,7 +60069,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-10T16:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -59967,7 +60085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -59977,7 +60095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester United's Carrick rebuild meets Tottenham's first full De Zerbi season; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Manchester United arrives with 1W-2D-2L, while Tottenham Hotspur brings 0W-2D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Manchester United arrives with 1W-2D-2L, while Tottenham Hotspur brings 0W-2D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -60530,7 +60648,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262640909",
@@ -60795,7 +60914,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_33",
@@ -60910,7 +61030,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128977",
@@ -60919,7 +61040,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128977",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -60979,10 +61100,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -61017,7 +61138,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-11T13:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -61032,7 +61153,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -61042,7 +61163,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Nottingham Forest's Glasner reset comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
       "synopsisSpoilerOff": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -61056,7 +61177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128978",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -61116,10 +61237,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -61155,7 +61276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-11T13:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -61171,7 +61292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -61181,7 +61302,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Hull's top-flight return after nine years against Everton's search for more attack: one result will move two very different season stories.",
       "synopsisSpoilerOff": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -61195,7 +61316,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128980",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -61255,10 +61376,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -61294,7 +61415,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-11T15:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -61310,7 +61431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -61320,7 +61441,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
       "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -61334,7 +61455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128976",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -61394,10 +61515,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City arrives with 1W-0D-4L, while Newcastle United brings 2W-2D-1L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -61433,7 +61554,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-12T19:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -61449,7 +61570,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -61459,7 +61580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Coventry's return after 25 years meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Coventry City arrives with 1W-0D-4L, while Newcastle United brings 2W-2D-1L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Coventry City arrives with 1W-0D-4L, while Newcastle United brings 2W-2D-1L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 6",
     "roundNumber": 6,
@@ -61605,7 +61726,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
@@ -61745,7 +61867,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "rlwc-australia-new-zealand-2026",
@@ -62125,7 +62248,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641002",
@@ -62751,7 +62875,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641005",
@@ -63016,7 +63141,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128986",
@@ -63025,7 +63151,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128986",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -63085,10 +63211,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton arrives with 2W-3D-0L, while Chelsea brings 2W-1D-2L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -63123,7 +63249,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-17T11:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -63138,7 +63264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -63148,7 +63274,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Everton host Chelsea with Everton's search for more attack and Chelsea's Xabi Alonso reset both under examination.",
       "synopsisSpoilerOff": "Everton arrives with 2W-3D-0L, while Chelsea brings 2W-1D-2L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Everton arrives with 2W-3D-0L, while Chelsea brings 2W-1D-2L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -63162,7 +63288,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128984",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -63222,10 +63348,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford arrives with 2W-3D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -63261,7 +63387,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -63277,7 +63403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -63287,7 +63413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Liverpool's high-press rebuild comes to Brentford, directly testing Brentford's fast-break identity.",
       "synopsisSpoilerOff": "Brentford arrives with 2W-3D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Brentford arrives with 2W-3D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -63301,7 +63427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128987",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -63361,10 +63487,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham arrives with 0W-2D-3L, while Hull City brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a playoff-built counterattack, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -63400,7 +63526,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -63416,7 +63542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -63426,7 +63552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Fulham's first post-Marco Silva season against Hull's top-flight return after nine years: one result will move two very different season stories.",
       "synopsisSpoilerOff": "Fulham arrives with 0W-2D-3L, while Hull City brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a playoff-built counterattack, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Fulham arrives with 0W-2D-3L, while Hull City brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a playoff-built counterattack, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -63440,7 +63566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128989",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -63500,10 +63626,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City arrives with 5 wins from 5, while Ipswich Town brings 2W-0D-3L. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -63539,7 +63665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -63555,7 +63681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -63565,7 +63691,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester City's first post-Guardiola campaign meets Ipswich's immediate top-flight return; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Manchester City arrives with 5 wins from 5, while Ipswich Town brings 2W-0D-3L. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Manchester City arrives with 5 wins from 5, while Ipswich Town brings 2W-0D-3L. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -63579,7 +63705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128990",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -63639,10 +63765,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United arrives with 2W-2D-1L, while Aston Villa brings 1W-1D-3L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a new midfield and defensive spine, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -63678,7 +63804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-17T16:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -63694,7 +63820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -63704,7 +63830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Newcastle's new era after a summer exodus meets Aston Villa's post-Europa rebuild; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Newcastle United arrives with 2W-2D-1L, while Aston Villa brings 1W-1D-3L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a new midfield and defensive spine, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Newcastle United arrives with 2W-2D-1L, while Aston Villa brings 1W-1D-3L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a new midfield and defensive spine, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -64100,7 +64226,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641008",
@@ -64365,7 +64492,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641009",
@@ -64509,7 +64637,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
     "sourceName": "Cricket Australia South Africa Test tour guide",
     "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -64531,10 +64659,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
       "synopsisSpoilerOn": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "participants": [
       {
         "name": "South Africa",
@@ -64557,7 +64685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia South Africa Test tour guide",
       "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -64601,7 +64729,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "matchup",
         "history"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-18T08:00:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -64614,7 +64742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128983",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -64674,10 +64802,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "AFC Bournemouth arrives with 0W-3D-2L, while Sunderland brings 1W-1D-3L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -64713,7 +64841,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -64729,7 +64857,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -64739,7 +64867,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Bournemouth's first European-season balancing act against Sunderland's Europe-and-league balancing act: one result will move two very different season stories.",
       "synopsisSpoilerOff": "AFC Bournemouth arrives with 0W-3D-2L, while Sunderland brings 1W-1D-3L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "AFC Bournemouth arrives with 0W-3D-2L, while Sunderland brings 1W-1D-3L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -64753,7 +64881,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128985",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -64813,10 +64941,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion arrives with 3W-1D-1L, while Crystal Palace brings 1W-1D-3L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -64851,7 +64979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -64866,7 +64994,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -64876,7 +65004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Brighton's goals-by-committee attack meets Crystal Palace's Pierre Sage transition; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Brighton & Hove Albion arrives with 3W-1D-1L, while Crystal Palace brings 1W-1D-3L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Brighton & Hove Albion arrives with 3W-1D-1L, while Crystal Palace brings 1W-1D-3L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -64890,7 +65018,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128988",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -64950,10 +65078,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United arrives with 2W-3D-0L, while Manchester United brings 1W-2D-2L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -64989,7 +65117,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -65005,7 +65133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -65015,7 +65143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester United's Carrick rebuild comes to Leeds United, directly testing Leeds' carry-over momentum.",
       "synopsisSpoilerOff": "Leeds United arrives with 2W-3D-0L, while Manchester United brings 1W-2D-2L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Leeds United arrives with 2W-3D-0L, while Manchester United brings 1W-2D-2L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -65029,7 +65157,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128991",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -65089,10 +65217,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest arrives with 1W-2D-2L, while Arsenal brings 4W-0D-1L. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against settled champion structure, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -65128,7 +65256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-18T15:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -65144,7 +65272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -65154,7 +65282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Arsenal's first title defence in 22 years comes to Nottingham Forest, directly testing Nottingham Forest's Glasner reset.",
       "synopsisSpoilerOff": "Nottingham Forest arrives with 1W-2D-2L, while Arsenal brings 4W-0D-1L. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against settled champion structure, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Nottingham Forest arrives with 1W-2D-2L, while Arsenal brings 4W-0D-1L. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against settled champion structure, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -65168,7 +65296,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128992",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -65228,10 +65356,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur arrives with 0W-2D-3L, while Coventry City brings 1W-0D-4L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -65267,7 +65395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-19T19:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -65283,7 +65411,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -65293,7 +65421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Tottenham's first full De Zerbi season against Coventry's return after 25 years: one result will move two very different season stories.",
       "synopsisSpoilerOff": "Tottenham Hotspur arrives with 0W-2D-3L, while Coventry City brings 1W-0D-4L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Tottenham Hotspur arrives with 0W-2D-3L, while Coventry City brings 1W-0D-4L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 7",
     "roundNumber": 7,
@@ -65438,7 +65566,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_370e679e_58ad_11f1_acba_8b618b817e22",
@@ -65578,7 +65707,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641101",
@@ -65843,7 +65973,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_united_states_practice_1",
@@ -65958,7 +66089,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128999",
@@ -65967,7 +66099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128999",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -66027,10 +66159,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town arrives with 2W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -66066,7 +66198,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-23T19:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -66082,7 +66214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -66092,7 +66224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Nottingham Forest's Glasner reset comes to Ipswich Town, directly testing Ipswich's immediate top-flight return.",
       "synopsisSpoilerOff": "Ipswich Town arrives with 2W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Ipswich Town arrives with 2W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -66212,7 +66344,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641102",
@@ -66727,7 +66860,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641105",
@@ -66992,7 +67126,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-128994",
@@ -67001,7 +67136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128994",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -67061,10 +67196,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa arrives with 1W-1D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -67100,7 +67235,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-24T11:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -67116,7 +67251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -67126,7 +67261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Aston Villa's post-Europa rebuild meets Manchester City's first post-Guardiola campaign; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Aston Villa arrives with 1W-1D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Aston Villa arrives with 1W-1D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -67284,7 +67419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128993",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -67344,10 +67479,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal arrives with 4W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -67383,7 +67518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-24T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -67399,7 +67534,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -67409,7 +67544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Arsenal host Everton with Arsenal's first title defence in 22 years and Everton's search for more attack both under examination.",
       "synopsisSpoilerOff": "Arsenal arrives with 4W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Arsenal arrives with 4W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -67423,7 +67558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128996",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -67483,10 +67618,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-3L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -67522,7 +67657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-24T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -67538,7 +67673,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -67548,7 +67683,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Coventry's return after 25 years against Fulham's first post-Marco Silva season: one result will move two very different season stories.",
       "synopsisSpoilerOff": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-3L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-3L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -67562,7 +67697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128995",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -67622,10 +67757,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea arrives with 2W-1D-2L, while Tottenham Hotspur brings 0W-2D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -67661,7 +67796,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-24T16:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -67677,7 +67812,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -67687,7 +67822,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Tottenham's first full De Zerbi season comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
       "synopsisSpoilerOff": "Chelsea arrives with 2W-1D-2L, while Tottenham Hotspur brings 0W-2D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Chelsea arrives with 2W-1D-2L, while Tottenham Hotspur brings 0W-2D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -67807,7 +67942,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_34",
@@ -67922,7 +68058,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641106",
@@ -68313,7 +68450,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641108",
@@ -68578,7 +68716,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641109",
@@ -68782,7 +68921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128997",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -68842,10 +68981,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -68881,7 +69020,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -68897,7 +69036,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -68907,7 +69046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Crystal Palace host Newcastle United with Crystal Palace's Pierre Sage transition and Newcastle's new era after a summer exodus both under examination.",
       "synopsisSpoilerOff": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -68921,7 +69060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128998",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -68981,10 +69120,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -69020,7 +69159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -69036,7 +69175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -69046,7 +69185,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Hull's top-flight return after nine years meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -69060,7 +69199,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129000",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -69120,10 +69259,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 3W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -69159,7 +69298,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -69175,7 +69314,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -69185,7 +69324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Brighton's goals-by-committee attack comes to Liverpool, directly testing Liverpool's high-press rebuild.",
       "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 3W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 3W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -69199,7 +69338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129001",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -69259,10 +69398,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United arrives with 1W-2D-2L, while AFC Bournemouth brings 0W-3D-2L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -69298,7 +69437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -69314,7 +69453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -69324,7 +69463,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Manchester United's Carrick rebuild meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
       "synopsisSpoilerOff": "Manchester United arrives with 1W-2D-2L, while AFC Bournemouth brings 0W-3D-2L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Manchester United arrives with 1W-2D-2L, while AFC Bournemouth brings 0W-3D-2L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -69338,7 +69477,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129002",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -69398,10 +69537,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland arrives with 1W-1D-3L, while Leeds United brings 2W-3D-0L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
     "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -69437,7 +69576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-25T16:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -69453,7 +69592,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -69463,7 +69602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Sunderland host Leeds United with Sunderland's Europe-and-league balancing act and Leeds' carry-over momentum both under examination.",
       "synopsisSpoilerOff": "Sunderland arrives with 1W-1D-3L, while Leeds United brings 2W-3D-0L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Sunderland arrives with 1W-1D-3L, while Leeds United brings 2W-3D-0L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z"
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z"
     },
     "roundLabel": "Premier League Matchweek 8",
     "roundNumber": 8,
@@ -69583,7 +69722,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "sport": "Cricket",
@@ -69602,7 +69742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
     "sourceName": "Cricket Australia South Africa Test tour guide",
     "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -69624,10 +69764,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
       "synopsisSpoilerOn": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "participants": [
       {
         "name": "South Africa",
@@ -69649,7 +69789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia South Africa Test tour guide",
       "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -69690,7 +69830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "path"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-10-27T08:00:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -69834,7 +69974,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37196322_58ad_11f1_9f91_61e38b2284ba",
@@ -69974,7 +70115,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_371d934c_58ad_11f1_8edf_4b570c3bab13",
@@ -70115,7 +70257,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641201",
@@ -70329,7 +70472,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_mexico_practice_1",
@@ -70411,7 +70555,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_mexico_practice_2",
@@ -70493,7 +70638,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641202",
@@ -70929,7 +71075,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "rlwc-australia-cook-islands-2026",
@@ -71139,7 +71286,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129006",
@@ -71148,7 +71296,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129006",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71208,10 +71356,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71375,7 +71523,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129004",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71435,10 +71583,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71458,7 +71606,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129005",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71518,10 +71666,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71541,7 +71689,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129007",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71601,10 +71749,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71624,7 +71772,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129008",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71684,10 +71832,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71707,7 +71855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129010",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71767,10 +71915,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71790,7 +71938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129012",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -71850,10 +71998,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -71946,7 +72094,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129003",
@@ -71955,7 +72104,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129003",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -72015,10 +72164,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -72071,7 +72220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Mexico City GP · Qualifying is scheduled for 2026-11-01 at 08:00. Qualifying sets the grid at Autódromo Hermanos Rodríguez; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
     "sourceName": "Formula 1 official source",
     "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+    "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -72124,14 +72273,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "sourceType": "official"
         }
       ],
-      "digestFingerprint": "9186db93063b1a30b4bf636835e7a3853b2909867137f3e5332b92cdc09f1611",
+      "digestFingerprint": "14407959a8d249eba9834a5bbc49c8d607fa89944c0e45c7331ef5efc0e074f7",
       "promptVersion": "f1-editorial.v1",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+      "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641206",
@@ -72450,7 +72600,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641208",
@@ -72664,7 +72815,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "event-aflw-cd_m20262641209",
@@ -72747,7 +72899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129009",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -72807,10 +72959,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -72863,7 +73015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Mexico City GP · Race is scheduled for 2026-11-02 at 07:00. The race is the weekend's points-paying session at Autódromo Hermanos Rodríguez; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
     "sourceName": "Formula 1 official source",
     "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+    "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -72915,14 +73067,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "sourceType": "official"
         }
       ],
-      "digestFingerprint": "9186db93063b1a30b4bf636835e7a3853b2909867137f3e5332b92cdc09f1611",
+      "digestFingerprint": "14407959a8d249eba9834a5bbc49c8d607fa89944c0e45c7331ef5efc0e074f7",
       "promptVersion": "f1-editorial.v1",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+      "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_372b8b55_58ad_11f1_9407_d95637fbed2b",
@@ -73063,7 +73216,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129011",
@@ -73072,7 +73226,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129011",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -73132,10 +73286,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -73286,7 +73440,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "calendar-nothingsport-manual-seed-uci-downhill-mtb-world-cup-2026",
@@ -73465,7 +73620,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3723d8e8_58ad_11f1_b04c_17c1a1f1f487",
@@ -73606,7 +73762,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_brazil_practice_1",
@@ -73688,7 +73845,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_brazil_practice_2",
@@ -73770,7 +73928,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129016",
@@ -73779,7 +73938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129016",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -73839,10 +73998,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -73993,7 +74152,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3723d03c_58ad_11f1_9032_15ea51636534",
@@ -74133,7 +74293,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129019",
@@ -74142,7 +74303,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129019",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -74202,10 +74363,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -74442,7 +74603,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129013",
@@ -74451,7 +74613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129013",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -74511,10 +74673,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -74534,7 +74696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129017",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -74594,10 +74756,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -74617,7 +74779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129021",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -74677,10 +74839,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -74733,7 +74895,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "São Paulo GP · Qualifying is scheduled for 2026-11-08 at 05:00. Qualifying sets the grid at Autódromo José Carlos Pace; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
     "sourceName": "Formula 1 official source",
     "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+    "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -74785,14 +74947,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "sourceType": "official"
         }
       ],
-      "digestFingerprint": "9186db93063b1a30b4bf636835e7a3853b2909867137f3e5332b92cdc09f1611",
+      "digestFingerprint": "14407959a8d249eba9834a5bbc49c8d607fa89944c0e45c7331ef5efc0e074f7",
       "promptVersion": "f1-editorial.v1",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+      "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37495c97_58ad_11f1_8f28_d7e4e018b88d",
@@ -74932,7 +75095,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37289ea9_58ad_11f1_9790_bd240d5ec994",
@@ -75072,7 +75236,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129014",
@@ -75081,7 +75246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129014",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -75141,10 +75306,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -75164,7 +75329,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129015",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -75224,10 +75389,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -75247,7 +75412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129018",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -75307,10 +75472,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -75330,7 +75495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129022",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -75390,10 +75555,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -75482,7 +75647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129020",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -75542,10 +75707,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -75598,7 +75763,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "São Paulo GP · Race is scheduled for 2026-11-09 at 04:00. The race is the weekend's points-paying session at Autódromo José Carlos Pace; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
     "sourceName": "Formula 1 official source",
     "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+    "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -75650,14 +75815,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "sourceType": "official"
         }
       ],
-      "digestFingerprint": "9186db93063b1a30b4bf636835e7a3853b2909867137f3e5332b92cdc09f1611",
+      "digestFingerprint": "14407959a8d249eba9834a5bbc49c8d607fa89944c0e45c7331ef5efc0e074f7",
       "promptVersion": "f1-editorial.v1",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:46:14.212Z",
+      "sourceCheckedAt": "2026-09-27T13:59:35.738Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "event-wrc-2026-round-14",
@@ -75865,7 +76031,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_375813e7_58ad_11f1_8c9c_2572c13c410b",
@@ -76005,7 +76172,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_373d1fa2_58ad_11f1_ac10_0b8a9f33c19f",
@@ -76145,7 +76313,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "cricket-australia-england-first-odi-2026",
@@ -76173,7 +76342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
     "sourceName": "Cricket Australia 2026 England ODI series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -76191,7 +76360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-first-odi-2026",
@@ -76217,7 +76386,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-13T03:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -76233,7 +76402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England ODI series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -76243,7 +76412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia changes format and continent in 13 days, opening the England ODI series in Perth after three Tests in South Africa.",
       "synopsisSpoilerOff": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
       "synopsisSpoilerOn": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -76386,7 +76555,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3746d2f5_58ad_11f1_9032_1138b8cb68ba",
@@ -76526,7 +76696,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_377ccd38_58ad_11f1_9384_d30081aaf8c6",
@@ -76666,7 +76837,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3743885e_58ad_11f1_b2f7_c9ba3efad88d",
@@ -76806,7 +76978,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "cricket-australia-england-second-odi-2026",
@@ -76834,7 +77007,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
     "sourceName": "Cricket Australia 2026 England ODI series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -76852,7 +77025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-second-odi-2026",
@@ -76880,7 +77053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-15T03:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -76896,7 +77069,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England ODI series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -76906,7 +77079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "A two-day Perth-to-Adelaide turnaround makes the opening result immediately matter to the three-match ODI series.",
       "synopsisSpoilerOff": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
       "synopsisSpoilerOn": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -77049,7 +77222,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37470d73_58ad_11f1_9bf1_130129845108",
@@ -77189,7 +77363,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "rugby-scotland-australia-2026-11-16",
@@ -77285,7 +77460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
     "sourceName": "Cricket Australia 2026 England ODI series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -77303,7 +77478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-third-odi-2026",
@@ -77329,7 +77504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-18T03:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -77345,7 +77520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England ODI series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -77355,7 +77530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Hobart closes the ODI contest before the same rivalry compresses into five T20s across 12 days.",
       "synopsisSpoilerOff": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
       "synopsisSpoilerOn": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -77498,7 +77673,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3748b33b_58ad_11f1_9f9a_71e9315f7411",
@@ -77638,7 +77814,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_las_vegas_practice_1",
@@ -77720,7 +77897,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_las_vegas_practice_2",
@@ -77802,7 +77980,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37779e30_58ad_11f1_a2d6_d729b42cc855",
@@ -77942,7 +78121,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_sailgp_2026_dubai_day_1",
@@ -78164,7 +78344,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_40",
@@ -78246,7 +78427,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37726ee0_58ad_11f1_8d86_85bf0639ac6b",
@@ -78386,7 +78568,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "cricket-australia-england-first-t20-2026",
@@ -78414,7 +78597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
     "sourceName": "Cricket Australia 2026 England T20 series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -78432,7 +78615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-first-t20-2026",
@@ -78458,7 +78641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "format",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-21T08:15:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -78474,7 +78657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England T20 series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -78484,7 +78667,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Three days after the ODI finale, Australia and England restart the rivalry at the MCG in a five-match T20 series.",
       "synopsisSpoilerOff": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
       "synopsisSpoilerOn": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -78627,7 +78810,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129030",
@@ -78636,7 +78820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129030",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -78696,10 +78880,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79003,7 +79187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129023",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79063,10 +79247,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79086,7 +79270,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129024",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79146,10 +79330,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79169,7 +79353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129026",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79229,10 +79413,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79252,7 +79436,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129027",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79312,10 +79496,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79335,7 +79519,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129032",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79395,10 +79579,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79418,7 +79602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129031",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79478,10 +79662,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -79635,7 +79819,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37514d45_58ad_11f1_917b_0f009f2e4d02",
@@ -79775,7 +79960,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_374c5a9d_58ad_11f1_8829_1daf76a0ede8",
@@ -79915,7 +80101,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129028",
@@ -79924,7 +80111,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129028",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -79984,10 +80171,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -80007,7 +80194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129029",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -80067,10 +80254,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -80090,7 +80277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129025",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -80150,10 +80337,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -80192,7 +80379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
     "sourceName": "Cricket Australia 2026 England T20 series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": false,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -80210,7 +80397,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-second-t20-2026",
@@ -80236,7 +80423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "matchup",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-24T08:15:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -80252,7 +80439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England T20 series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -80262,7 +80449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "The Gold Coast follows the MCG after only two rest days, making adaptation the first persistent thread of the T20 series.",
       "synopsisSpoilerOff": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
       "synopsisSpoilerOn": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -80292,7 +80479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
     "sourceName": "Cricket Australia 2026 England T20 series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -80310,7 +80497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:cricket:england"
     ],
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:cricket-australia-england-third-t20-2026",
@@ -80336,7 +80523,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "form"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-27T08:15:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -80352,7 +80539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England T20 series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -80362,7 +80549,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "The Gabba is the middle game of five—the first point at which either side can make the series mathematically safe.",
       "synopsisSpoilerOff": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
       "synopsisSpoilerOn": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     }
   },
@@ -80654,7 +80841,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_qatar_practice_2",
@@ -80736,7 +80924,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129041",
@@ -80745,7 +80934,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129041",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -80805,10 +80994,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81185,7 +81374,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129039",
@@ -81194,7 +81384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129039",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81254,10 +81444,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81277,7 +81467,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129040",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81337,10 +81527,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81360,7 +81550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129038",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81420,10 +81610,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81516,7 +81706,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "cricket-australia-england-fourth-t20-2026",
@@ -81544,7 +81735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
     "sourceName": "Cricket Australia 2026 England T20 series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -81570,10 +81761,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
       "synopsisSpoilerOn": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cricket — england persistent series",
@@ -81585,7 +81776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England T20 series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -81625,7 +81816,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "form"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-11-29T08:15:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -81638,7 +81829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129036",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81698,10 +81889,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81721,7 +81912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129034",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81781,10 +81972,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81804,7 +81995,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129035",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81864,10 +82055,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81887,7 +82078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129037",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -81947,10 +82138,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -81970,7 +82161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129042",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82030,10 +82221,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82126,7 +82317,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129033",
@@ -82135,7 +82327,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129033",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82195,10 +82387,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82237,7 +82429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
     "sourceName": "Cricket Australia 2026 England T20 series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -82263,10 +82455,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
       "synopsisSpoilerOn": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cricket — england persistent series",
@@ -82278,7 +82470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026 England T20 series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -82318,7 +82510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "matchup"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-12-02T08:15:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -82462,7 +82654,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129043",
@@ -82471,7 +82664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129043",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82531,10 +82724,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82554,7 +82747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129044",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82614,10 +82807,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82637,7 +82830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129045",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82697,10 +82890,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82720,7 +82913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129046",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82780,10 +82973,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82803,7 +82996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129047",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82863,10 +83056,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82886,7 +83079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129048",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -82946,10 +83139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -82969,7 +83162,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129049",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -83029,10 +83222,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -83052,7 +83245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129050",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -83112,10 +83305,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -83135,7 +83328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129051",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -83195,10 +83388,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -83218,7 +83411,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129052",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -83278,10 +83471,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -83432,7 +83625,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37509e79_58ad_11f1_9e3b_fbbd24deadd3",
@@ -83573,7 +83767,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3751fcc5_58ad_11f1_a32f_279e256f2655",
@@ -83713,7 +83908,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_1",
@@ -83795,7 +83991,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_2",
@@ -83877,7 +84074,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37770bc1_58ad_11f1_a93a_ebcda8a5e5b1",
@@ -84017,7 +84215,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3747bbe2_58ad_11f1_a09d_892c4438c413",
@@ -84157,7 +84356,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_3",
@@ -84239,7 +84439,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "evt_44",
@@ -84321,7 +84522,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129053",
@@ -84330,7 +84532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129053",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84390,10 +84592,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84413,7 +84615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129054",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84473,10 +84675,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84496,7 +84698,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129055",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84556,10 +84758,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84579,7 +84781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129056",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84639,10 +84841,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84662,7 +84864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129057",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84722,10 +84924,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84745,7 +84947,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129058",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84805,10 +85007,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84828,7 +85030,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129059",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84888,10 +85090,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84911,7 +85113,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129060",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -84971,10 +85173,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -84994,7 +85196,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129061",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -85054,10 +85256,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -85077,7 +85279,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129062",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -85137,10 +85339,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -85291,7 +85493,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3752cf25_58ad_11f1_9654_2942781e7154",
@@ -85431,7 +85634,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_45",
@@ -85506,7 +85710,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "lastReviewedAt": "2026-09-27T13:44:46.945Z"
+    "lastReviewedAt": "2026-09-27T13:44:46.945Z",
+    "timeTbc": false
   },
   {
     "id": "cricket-australia-new-zealand-test-2026",
@@ -85534,7 +85739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
     "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -85561,10 +85766,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
       "synopsisSpoilerOn": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cricket — new zealand persistent series",
@@ -85576,7 +85781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -85616,7 +85821,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-12-09T02:20:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -85760,7 +85965,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37754382_58ad_11f1_a2bf_754528413e51",
@@ -85900,7 +86106,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37788a52_58ad_11f1_b28e_b7b6f460181f",
@@ -86041,7 +86248,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37510e22_58ad_11f1_b8d1_0361ae94d7e7",
@@ -86181,7 +86389,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3754cc1a_58ad_11f1_bc46_67e3bf80bedf",
@@ -86321,7 +86530,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129063",
@@ -86330,7 +86540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129063",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86390,10 +86600,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86413,7 +86623,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129064",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86473,10 +86683,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86496,7 +86706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129065",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86556,10 +86766,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86579,7 +86789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129066",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86639,10 +86849,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86662,7 +86872,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129067",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86722,10 +86932,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86745,7 +86955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129068",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86805,10 +87015,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86828,7 +87038,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129069",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86888,10 +87098,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86911,7 +87121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129070",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -86971,10 +87181,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -86994,7 +87204,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129071",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -87054,10 +87264,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -87077,7 +87287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129072",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -87137,10 +87347,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -87291,7 +87501,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37529d1c_58ad_11f1_8656_3fa3ca05d3dc",
@@ -87431,7 +87642,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3755d06f_58ad_11f1_9b2c_679c79eacdbc",
@@ -87571,7 +87783,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3754e87b_58ad_11f1_bcdd_c1f492925f49",
@@ -87711,7 +87924,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_375d497d_58ad_11f1_bfc4_7b56785c5eab",
@@ -87852,7 +88066,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_375a042e_58ad_11f1_a652_5bbfc6dce39b",
@@ -87992,7 +88207,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_375df79f_58ad_11f1_b396_39b3918ccc00",
@@ -88132,7 +88348,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129073",
@@ -88141,7 +88358,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129073",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88201,10 +88418,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88224,7 +88441,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129074",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88284,10 +88501,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88307,7 +88524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129075",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88367,10 +88584,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88390,7 +88607,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129076",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88450,10 +88667,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88473,7 +88690,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129077",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88533,10 +88750,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88556,7 +88773,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129078",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88616,10 +88833,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88639,7 +88856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129079",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88699,10 +88916,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88722,7 +88939,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129080",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88782,10 +88999,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88805,7 +89022,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129081",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88865,10 +89082,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -88888,7 +89105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129082",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -88948,10 +89165,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -89102,7 +89319,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3757e2b3_58ad_11f1_801d_e3b03d7fb141",
@@ -89242,7 +89460,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37596f75_58ad_11f1_af00_fdfc50d4d18e",
@@ -89382,7 +89601,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_375b49f9_58ad_11f1_94c1_5dfcf5a874c7",
@@ -89523,7 +89743,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3759b81c_58ad_11f1_a957_a93048d70593",
@@ -89663,7 +89884,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_377fd891_58ad_11f1_a6fa_c1b6941c6419",
@@ -89803,7 +90025,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3761c65a_58ad_11f1_85ee_9bf90a853321",
@@ -89943,7 +90166,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "sport": "Cricket",
@@ -89962,7 +90186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
     "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -89984,10 +90208,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
       "synopsisSpoilerOn": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "participants": [
       {
         "name": "Australia",
@@ -90010,7 +90234,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -90052,7 +90276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2026-12-25T23:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -90196,7 +90420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129083",
@@ -90205,7 +90430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129083",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90265,10 +90490,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90288,7 +90513,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129086",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90348,10 +90573,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90371,7 +90596,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129087",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90431,10 +90656,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90454,7 +90679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129089",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90514,10 +90739,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90537,7 +90762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129092",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90597,10 +90822,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90620,7 +90845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129088",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90680,10 +90905,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90703,7 +90928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129091",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -90763,10 +90988,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -90918,7 +91143,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379201a1_58ad_11f1_a7bf_ede76c1d904d",
@@ -91058,7 +91284,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129084",
@@ -91067,7 +91294,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129084",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91127,10 +91354,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91150,7 +91377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129090",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91210,10 +91437,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91233,7 +91460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129085",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91293,10 +91520,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91447,7 +91674,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129098",
@@ -91456,7 +91684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129098",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91516,10 +91744,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91539,7 +91767,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129102",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91599,10 +91827,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91622,7 +91850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129096",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91682,10 +91910,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91836,7 +92064,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129094",
@@ -91845,7 +92074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129094",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91905,10 +92134,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -91928,7 +92157,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129095",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -91988,10 +92217,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92011,7 +92240,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129097",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92071,10 +92300,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92094,7 +92323,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129100",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92154,10 +92383,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92177,7 +92406,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129101",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92237,10 +92466,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92260,7 +92489,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129093",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92320,10 +92549,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92343,7 +92572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129099",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92403,10 +92632,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -92557,7 +92786,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3769a2ba_58ad_11f1_ba9d_6f9744c8d3ab",
@@ -92698,7 +92928,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_378eac70_58ad_11f1_89d4_c958368c756f",
@@ -92838,7 +93069,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129108",
@@ -92847,7 +93079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129108",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -92907,10 +93139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93061,7 +93293,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_376dd566_58ad_11f1_a40d_e78395b5c13c",
@@ -93201,7 +93434,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129106",
@@ -93210,7 +93444,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129106",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93270,10 +93504,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93293,7 +93527,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129103",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93353,10 +93587,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93376,7 +93610,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129105",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93436,10 +93670,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93459,7 +93693,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129109",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93519,10 +93753,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93542,7 +93776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129111",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93602,10 +93836,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93625,7 +93859,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129112",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93685,10 +93919,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93708,7 +93942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129104",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -93768,10 +94002,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -93923,7 +94157,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_377c8615_58ad_11f1_9f3b_1fa229f84a5e",
@@ -94063,7 +94298,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129107",
@@ -94072,7 +94308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129107",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94132,10 +94368,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94155,7 +94391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129110",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94215,10 +94451,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94248,7 +94484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
     "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-    "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+    "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -94270,10 +94506,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
       "synopsisSpoilerOn": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+      "lastReviewedAt": "2026-09-27T14:00:05.898Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-27T13:46:16.211Z",
+    "lastReviewedAt": "2026-09-27T14:00:05.898Z",
     "participants": [
       {
         "name": "Australia",
@@ -94296,7 +94532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
-      "sourceCheckedAt": "2026-09-27T13:46:16.211Z",
+      "sourceCheckedAt": "2026-09-27T14:00:05.898Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -94338,7 +94574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "history"
       ],
-      "researchedAt": "2026-09-27T13:46:16.211Z",
+      "researchedAt": "2026-09-27T14:00:05.898Z",
       "refreshAfter": "2027-01-03T23:30:00Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -94482,7 +94718,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129113",
@@ -94491,7 +94728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129113",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94551,10 +94788,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94574,7 +94811,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129114",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94634,10 +94871,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94657,7 +94894,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129116",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94717,10 +94954,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94740,7 +94977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129121",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94800,10 +95037,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -94823,7 +95060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129122",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -94883,10 +95120,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95037,7 +95274,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_377ea044_58ad_11f1_bd17_43a6b5595d3e",
@@ -95177,7 +95415,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129115",
@@ -95186,7 +95425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129115",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -95246,10 +95485,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95269,7 +95508,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129117",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -95329,10 +95568,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95352,7 +95591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129118",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -95412,10 +95651,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95435,7 +95674,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129119",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -95495,10 +95734,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95649,7 +95888,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129120",
@@ -95658,7 +95898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129120",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -95718,10 +95958,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -95873,7 +96113,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_377f12e2_58ad_11f1_a03f_e94b8c35b649",
@@ -96013,7 +96254,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37811115_58ad_11f1_8a48_93b9302663c0",
@@ -96153,7 +96395,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3784706a_58ad_11f1_962d_09df0c3978fa",
@@ -96293,7 +96536,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37876f5f_58ad_11f1_b7ed_b5c487635207",
@@ -96434,7 +96678,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3784d7da_58ad_11f1_88d9_53622f199a68",
@@ -96574,7 +96819,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37a7ea49_58ad_11f1_903e_c9ba3efad88d",
@@ -96714,7 +96960,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_378cef96_58ad_11f1_a398_d95637fbed2b",
@@ -96854,7 +97101,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b32cce_58ad_11f1_8d47_bd240d5ec994",
@@ -96995,7 +97243,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37abe4a4_58ad_11f1_9473_fb9d3a8baf78",
@@ -97135,7 +97384,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129123",
@@ -97144,7 +97394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129123",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97204,10 +97454,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97227,7 +97477,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129124",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97287,10 +97537,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97310,7 +97560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129125",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97370,10 +97620,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97393,7 +97643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129126",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97453,10 +97703,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97476,7 +97726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129127",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97536,10 +97786,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97559,7 +97809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129128",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97619,10 +97869,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97642,7 +97892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129129",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97702,10 +97952,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97725,7 +97975,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129130",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97785,10 +98035,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97808,7 +98058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129131",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97868,10 +98118,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -97891,7 +98141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129132",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -97951,10 +98201,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -98105,7 +98355,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b09e5c_58ad_11f1_8cc2_3f7e445158a4",
@@ -98245,7 +98496,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3788eca5_58ad_11f1_a7af_754512109772",
@@ -98386,7 +98638,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b85f23_58ad_11f1_9eb0_2bbb920071b5",
@@ -98526,7 +98779,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "calendar-nothingsport-manual-seed-big-wave-nazare-2026",
@@ -98723,7 +98977,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b72cf1_58ad_11f1_9c01_6775645a7b9a",
@@ -98863,7 +99118,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_378a267b_58ad_11f1_b1d5_67a8251482c3",
@@ -99003,7 +99259,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3794465d_58ad_11f1_a534_cb26a6dd9fe9",
@@ -99143,7 +99400,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129133",
@@ -99152,7 +99410,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129133",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99212,10 +99470,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99235,7 +99493,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129134",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99295,10 +99553,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99318,7 +99576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129135",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99378,10 +99636,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99401,7 +99659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129136",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99461,10 +99719,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99484,7 +99742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129137",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99544,10 +99802,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99567,7 +99825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129138",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99627,10 +99885,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99650,7 +99908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129139",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99710,10 +99968,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99733,7 +99991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129140",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99793,10 +100051,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99816,7 +100074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129141",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99876,10 +100134,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -99899,7 +100157,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129142",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -99959,10 +100217,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -100114,7 +100372,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3787b813_58ad_11f1_a901_7da015763581",
@@ -100254,7 +100513,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b5f457_58ad_11f1_bb17_2d4587dc1484",
@@ -100394,7 +100654,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37882039_58ad_11f1_b46f_4bbabfa2dd4f",
@@ -100503,7 +100764,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_378d7045_58ad_11f1_be6f_59142d8bd7d5",
@@ -100612,7 +100874,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37947616_58ad_11f1_a290_8da1c4ae1ac0",
@@ -100721,7 +100984,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37b7122e_58ad_11f1_9780_077ff55f3c82",
@@ -100830,7 +101094,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379304e6_58ad_11f1_a000_6d6f61141df2",
@@ -100940,7 +101205,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37912f47_58ad_11f1_a905_9b50298fb358",
@@ -101049,7 +101315,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37927ea9_58ad_11f1_816a_db7d6019155e",
@@ -101158,7 +101425,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129143",
@@ -101167,7 +101435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129143",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101227,10 +101495,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101250,7 +101518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129144",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101310,10 +101578,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101333,7 +101601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129145",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101393,10 +101661,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101416,7 +101684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129146",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101476,10 +101744,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101499,7 +101767,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129147",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101559,10 +101827,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101582,7 +101850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129148",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101642,10 +101910,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101665,7 +101933,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129149",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101725,10 +101993,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101748,7 +102016,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129150",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101808,10 +102076,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101831,7 +102099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129151",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101891,10 +102159,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -101914,7 +102182,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129152",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -101974,10 +102242,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -102097,7 +102365,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37931e61_58ad_11f1_982d_a93048d70593",
@@ -102206,7 +102475,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379682fb_58ad_11f1_bbe4_a9a6cbaba447",
@@ -102315,7 +102585,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379afd67_58ad_11f1_bee5_37c9e1eacb09",
@@ -102425,7 +102696,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3796b045_58ad_11f1_ad75_2572c13c410b",
@@ -102534,7 +102806,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379a322b_58ad_11f1_9321_87e414b8c2d5",
@@ -102643,7 +102916,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37bd67c8_58ad_11f1_9904_6d6fb61b331b",
@@ -102752,7 +103026,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379c3809_58ad_11f1_a3c5_0919017f2391",
@@ -102861,7 +103136,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026",
@@ -102928,7 +103204,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129153",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -102988,10 +103264,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103011,7 +103287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129154",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103071,10 +103347,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103094,7 +103370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129155",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103154,10 +103430,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103177,7 +103453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129156",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103237,10 +103513,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103260,7 +103536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129157",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103320,10 +103596,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103343,7 +103619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129158",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103403,10 +103679,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103426,7 +103702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129159",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103486,10 +103762,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103509,7 +103785,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129160",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103569,10 +103845,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103592,7 +103868,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129161",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103652,10 +103928,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103675,7 +103951,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129162",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -103735,10 +104011,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -103859,7 +104135,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37995628_58ad_11f1_a2d1_491075c94f1a",
@@ -103968,7 +104245,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3797a4ad_58ad_11f1_bd80_679c79eacdbc",
@@ -104077,7 +104355,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129163",
@@ -104086,7 +104365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129163",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104146,10 +104425,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104169,7 +104448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129164",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104229,10 +104508,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104252,7 +104531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129165",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104312,10 +104591,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104335,7 +104614,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129166",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104395,10 +104674,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104418,7 +104697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129167",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104478,10 +104757,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104501,7 +104780,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129168",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104561,10 +104840,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104584,7 +104863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129169",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104644,10 +104923,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104667,7 +104946,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129170",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104727,10 +105006,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104750,7 +105029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129171",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104810,10 +105089,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -104833,7 +105112,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129172",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -104893,10 +105172,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -105017,7 +105296,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_3797f6e3_58ad_11f1_87a8_fbbd24deadd3",
@@ -105126,7 +105406,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37974b51_58ad_11f1_85a6_d3f8eb4e543c",
@@ -105235,7 +105516,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37be2ab4_58ad_11f1_841c_2942781e7154",
@@ -105344,7 +105626,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379c1ff2_58ad_11f1_b2ec_411a11259918",
@@ -105453,7 +105736,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_37c1c5ea_58ad_11f1_956b_892c4438c413",
@@ -105562,7 +105846,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379eac2d_58ad_11f1_90d4_d98e318e0a1e",
@@ -105672,7 +105957,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "evt_nbl_2026_27_379fc3fc_58ad_11f1_9644_736e6b79ac99",
@@ -105781,7 +106067,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:44:57.475Z"
+    "lastReviewedAt": "2026-09-27T13:44:57.475Z",
+    "timeTbc": false
   },
   {
     "id": "epl-2026-27-129173",
@@ -105790,7 +106077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129173",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -105850,10 +106137,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -105873,7 +106160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129174",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -105933,10 +106220,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -105956,7 +106243,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129175",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106016,10 +106303,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106039,7 +106326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129176",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106099,10 +106386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106122,7 +106409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129177",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106182,10 +106469,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106205,7 +106492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129178",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106265,10 +106552,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106288,7 +106575,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129179",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106348,10 +106635,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106371,7 +106658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129180",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106431,10 +106718,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106454,7 +106741,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129181",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106514,10 +106801,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106537,7 +106824,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129182",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106597,10 +106884,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106620,7 +106907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129183",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106680,10 +106967,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106703,7 +106990,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129184",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106763,10 +107050,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106786,7 +107073,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129185",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106846,10 +107133,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106869,7 +107156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129186",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -106929,10 +107216,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -106952,7 +107239,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129187",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107012,10 +107299,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107035,7 +107322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129188",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107095,10 +107382,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107118,7 +107405,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129189",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107178,10 +107465,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107201,7 +107488,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129190",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107261,10 +107548,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107284,7 +107571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129191",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107344,10 +107631,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107367,7 +107654,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129192",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107427,10 +107714,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107450,7 +107737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129193",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107510,10 +107797,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107533,7 +107820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129194",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107593,10 +107880,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107616,7 +107903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129195",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107676,10 +107963,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107699,7 +107986,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129196",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107759,10 +108046,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107782,7 +108069,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129197",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107842,10 +108129,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107865,7 +108152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129198",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -107925,10 +108212,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -107948,7 +108235,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129199",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108008,10 +108295,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108031,7 +108318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129200",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108091,10 +108378,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108114,7 +108401,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129201",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108174,10 +108461,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108197,7 +108484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129202",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108257,10 +108544,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108467,7 +108754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact.",
       "synopsisSpoilerOn": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact."
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   },
   {
     "sport": "Ski",
@@ -108506,7 +108793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129203",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108566,10 +108853,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108589,7 +108876,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129204",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108649,10 +108936,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108672,7 +108959,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129205",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108732,10 +109019,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108755,7 +109042,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129206",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108815,10 +109102,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108838,7 +109125,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129207",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108898,10 +109185,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -108921,7 +109208,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129208",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -108981,10 +109268,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109004,7 +109291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129209",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109064,10 +109351,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109087,7 +109374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129210",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109147,10 +109434,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109170,7 +109457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129211",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109230,10 +109517,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109253,7 +109540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129212",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109313,10 +109600,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109384,7 +109671,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129213",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109444,10 +109731,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109467,7 +109754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129214",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109527,10 +109814,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109550,7 +109837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129215",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109610,10 +109897,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109633,7 +109920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129216",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109693,10 +109980,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109716,7 +110003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129217",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109776,10 +110063,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109799,7 +110086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129218",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109859,10 +110146,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109882,7 +110169,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129219",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -109942,10 +110229,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -109965,7 +110252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129220",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110025,10 +110312,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110048,7 +110335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129221",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110108,10 +110395,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110131,7 +110418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129222",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110191,10 +110478,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110278,7 +110565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   },
   {
     "id": "epl-2026-27-129223",
@@ -110287,7 +110574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129223",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110347,10 +110634,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110370,7 +110657,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129224",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110430,10 +110717,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110453,7 +110740,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129225",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110513,10 +110800,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110536,7 +110823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129226",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110596,10 +110883,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110619,7 +110906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129227",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110679,10 +110966,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110702,7 +110989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129228",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110762,10 +111049,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110785,7 +111072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129229",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110845,10 +111132,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110868,7 +111155,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129230",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -110928,10 +111215,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -110951,7 +111238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129231",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111011,10 +111298,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111034,7 +111321,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129232",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111094,10 +111381,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111117,7 +111404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129233",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111177,10 +111464,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111200,7 +111487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129234",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111260,10 +111547,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111283,7 +111570,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129235",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111343,10 +111630,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111366,7 +111653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129236",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111426,10 +111713,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111449,7 +111736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129237",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111509,10 +111796,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111532,7 +111819,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129238",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111592,10 +111879,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111615,7 +111902,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129239",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111675,10 +111962,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111698,7 +111985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129240",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111758,10 +112045,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111781,7 +112068,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129241",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111841,10 +112128,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111864,7 +112151,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129242",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -111924,10 +112211,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -111947,7 +112234,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129243",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112007,10 +112294,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112030,7 +112317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129244",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112090,10 +112377,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112113,7 +112400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129245",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112173,10 +112460,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112196,7 +112483,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129246",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112256,10 +112543,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112279,7 +112566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129247",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112339,10 +112626,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112362,7 +112649,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129248",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112422,10 +112709,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112445,7 +112732,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129249",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112505,10 +112792,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112528,7 +112815,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129250",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112588,10 +112875,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112611,7 +112898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129251",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112671,10 +112958,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112694,7 +112981,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129252",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112754,10 +113041,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112777,7 +113064,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129253",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112837,10 +113124,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112860,7 +113147,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129254",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -112920,10 +113207,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -112943,7 +113230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129255",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113003,10 +113290,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113026,7 +113313,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129256",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113086,10 +113373,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113109,7 +113396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129257",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113169,10 +113456,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113192,7 +113479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129258",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113252,10 +113539,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113275,7 +113562,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129259",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113335,10 +113622,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113358,7 +113645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129260",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113418,10 +113705,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113441,7 +113728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129261",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113501,10 +113788,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113524,7 +113811,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129262",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113584,10 +113871,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113607,7 +113894,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129263",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113667,10 +113954,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113690,7 +113977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129264",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113750,10 +114037,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113773,7 +114060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129265",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113833,10 +114120,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113856,7 +114143,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129266",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113916,10 +114203,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -113939,7 +114226,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129267",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -113999,10 +114286,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114022,7 +114309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129268",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114082,10 +114369,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114105,7 +114392,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129269",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114165,10 +114452,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114188,7 +114475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129270",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114248,10 +114535,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114271,7 +114558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129271",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114331,10 +114618,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114354,7 +114641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129272",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114414,10 +114701,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114437,7 +114724,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129273",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114497,10 +114784,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114520,7 +114807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129274",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114580,10 +114867,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114603,7 +114890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129275",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114663,10 +114950,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114686,7 +114973,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129276",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114746,10 +115033,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114769,7 +115056,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129277",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114829,10 +115116,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114852,7 +115139,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129278",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114912,10 +115199,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -114935,7 +115222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129279",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -114995,10 +115282,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115018,7 +115305,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129280",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115078,10 +115365,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115101,7 +115388,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129281",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115161,10 +115448,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115184,7 +115471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129282",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115244,10 +115531,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115330,7 +115617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   },
   {
     "id": "epl-2026-27-129283",
@@ -115339,7 +115626,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129283",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115399,10 +115686,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115422,7 +115709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129284",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115482,10 +115769,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115505,7 +115792,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129285",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115565,10 +115852,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115588,7 +115875,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129286",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115648,10 +115935,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115671,7 +115958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129287",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115731,10 +116018,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115754,7 +116041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129288",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115814,10 +116101,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115837,7 +116124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129289",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115897,10 +116184,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -115920,7 +116207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129290",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -115980,10 +116267,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116003,7 +116290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129291",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116063,10 +116350,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116086,7 +116373,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129292",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116146,10 +116433,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116169,7 +116456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129293",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116229,10 +116516,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116252,7 +116539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129294",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116312,10 +116599,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116335,7 +116622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129295",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116395,10 +116682,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116418,7 +116705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129296",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116478,10 +116765,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116501,7 +116788,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129297",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116561,10 +116848,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116584,7 +116871,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129298",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116644,10 +116931,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116667,7 +116954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129299",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116727,10 +117014,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116750,7 +117037,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129300",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116810,10 +117097,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116833,7 +117120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129301",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116893,10 +117180,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116916,7 +117203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129302",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "canonicalSourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -116976,10 +117263,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-09-27T13:46:05.789Z",
+    "sourceCheckedAt": "2026-09-27T13:59:27.769Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-27T13:46:05.789Z",
+    "lastReviewedAt": "2026-09-27T13:59:27.769Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -117062,7 +117349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   },
   {
     "id": "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027",
@@ -117173,6 +117460,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-27T13:46:14.734Z"
+    "lastReviewedAt": "2026-09-27T13:59:36.294Z"
   }
 ];

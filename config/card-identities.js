@@ -658,7 +658,7 @@
       fallbackCountryCode:participant.countryCode || participant.metadata?.countryCode || "",
     });
   }
-  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey", "ice-hockey"]);
+  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "nrlw", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey", "ice-hockey"]);
   function isTeamSportMatchup(event, title = ""){
     return TEAM_SPORT_KEYS.has(String(event?.key || "")) && /\s+v\.?\s+/i.test(String(title || event?.name || ""));
   }

@@ -69,6 +69,14 @@ for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
     const cards = feed.events.filter(event => expectedIds.has(event.canonicalEventId));
     assert.equal(cards.length, expected.eventCount, `${feedPath}: ${sportKey} schedule was not published in full`);
     assert(cards.every(card => card.key === sportKey && followFirst.viewingOptions(card).length > 0), `${feedPath}: ${sportKey} cards need exact AU viewing options`);
+    if(sportKey === "nrlw"){
+      const final = cards.find(card => card.canonicalEventId === "event:nrlw:2026:grand-final");
+      assert.equal(final.timeTbc, false, "a confirmed start must explicitly clear a previously published TBC flag");
+      assert.equal(final.startTimeUtc, "2026-10-04T05:00:00.000Z");
+      assert.deepEqual(final.participantIds, ["team:nrlw:roosters", "team:nrlw:broncos"]);
+      assert(!/waits for the two clubs/i.test([final.selectedSentence, final.fullSpiel].join(" ")), "resolved final must not retain bracket copy");
+    }
+
     if (["motogp", "sailgp"].includes(sportKey)){
       assert(cards.every(card => card.participantDisplayMode === "field" && card.participantIds.length === expected.participantCount), `${feedPath}: ${sportKey} field follows must bind to every event without a fake matchup`);
     }
@@ -86,7 +94,11 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   if (["motogp", "sailgp"].includes(sportKey)) assert(chunk.fixtures.every(fixture => fixture.participantSlots.length === 0), `${expected.codeId}: field events must not render as two-sided fixtures`);
   if (sportKey === "nrlw"){
     const grandFinal = chunk.fixtures.find(fixture => fixture.id === "event:nrlw:2026:grand-final");
-    assert(grandFinal?.timeTbc === true && grandFinal.time === null && grandFinal.timePrecision === "tbc", "NRLW Grand Final must retain its unpublished start time instead of rendering midnight");
+    assert(grandFinal && grandFinal.timeTbc !== true && grandFinal.timePrecision === "exact", "NRLW Grand Final must retain its now-published exact start");
+    assert.equal(grandFinal.startTimeUtc, "2026-10-04T05:00:00.000Z", "NRLW Grand Final must use Sydney daylight saving");
+    assert.deepEqual(grandFinal.participantIds, ["team:nrlw:roosters", "team:nrlw:broncos"]);
+    assert.equal(grandFinal.sourceUrl, "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals");
+    assert(Number.isFinite(Date.parse(grandFinal.sourceCheckedAt)), "confirmed final requires dated evidence");
   }
 }
 

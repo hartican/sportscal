@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-27T13:48:11.502Z",
+  "generatedAt": "2026-09-27T14:00:40.046Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -3463,7 +3463,7 @@
     },
     {
       "id": "evt_nrlw_2026_grand_final",
-      "name": "2026 NRLW Grand Final",
+      "name": "Roosters v Broncos",
       "sport": "NRLW",
       "date": "2026-10-04",
       "status": "upcoming",

@@ -1926,6 +1926,33 @@
           ]
         }
       ]
+    },
+    {
+      "id": "evt_nrlw_2026_grand_final",
+      "title": "2026 NRLW Grand Final — Roosters v Broncos",
+      "researchedAt": "2026-09-27T13:57:48.000Z",
+      "researchDepth": 3,
+      "sources": [
+        "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+      ],
+      "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
+      "synopsis": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "facts": [
+        {
+          "statement": "Roosters face Broncos in the NRLW Grand Final at Accor Stadium on 4 October 2026.",
+          "dimension": "matchup",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The stadium programme lists the NRLW final at 4 pm local Sydney time, before the NRL final.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
     }
   ]
 }

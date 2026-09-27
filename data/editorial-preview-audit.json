@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-27T13:48:11.364Z",
+  "generatedAt": "2026-09-27T14:00:39.910Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -77,18 +77,17 @@
     },
     {
       "id": "evt_nrlw_2026_grand_final",
-      "name": "2026 NRLW Grand Final",
+      "name": "Roosters v Broncos",
       "sport": "NRLW",
       "date": "2026-10-04",
       "stakes": 5,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "narrative:matchup",
+        "narrative:schedule"
       ],
-      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
       "issues": []
     },
     {
