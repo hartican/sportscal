@@ -18,6 +18,10 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
   const attribution=page.locator('#listView .fixture-source-attribution');await attribution.scrollIntoViewIfNeeded();assert(await attribution.isVisible());assert.equal(await attribution.getByRole('link',{name:'Dataset',exact:true}).getAttribute('href'),'/data/providers/openligadb/football-2026-27.json');
   for(const width of [320,390,768,1280])for(const theme of ['day','night']){await page.setViewportSize({width,height:844});await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${competition} ${mode} ${width} ${theme}: no overflow`);}
  }
+ for(const mode of ['schedule','feed']){
+  const venue=await page.evaluate(mode=>{const f=codeInspectorChunk.fixtures.find(f=>f.sourceAttribution?.provider==='OpenLigaDB'&&f.venue);if(!f)throw new Error('No sourced venue in published Football');activeTab=mode==='feed'?'feed':'follow';document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(f):buildEventCard({...f,eventId:f.id}));return f.venue;},mode);
+  assert((await page.locator('#listView').innerText()).toLowerCase().includes(venue.toLowerCase()),`${mode}: source venue ${venue} is visibly retained: ${await page.locator('#listView').innerText()}`);
+ }
  await page.evaluate(()=>{const f=codeInspectorChunk.fixtures.find(f=>f.participantIds.includes('team:football:club:lech-poznan')&&f.status==='upcoming');activeTab='feed';document.getElementById('listView').replaceChildren(buildEventCard({...f,eventId:f.id}));});
  await page.getByRole('button',{name:'Open Lech Poznań profile in Follow',exact:true}).click();
  const profile=page.locator('.athlete-profile-drawer');await profile.waitFor();assert((await profile.innerText()).includes('Lech Poznań'));

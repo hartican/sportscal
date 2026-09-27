@@ -31,8 +31,18 @@ completed[0].matchIsFinished=false;completed[0].matchResults=[];assert.equal(nor
 assert.throws(()=>normalizeLeague(fixtureSet(),{...options,season:2027}),/unreviewed/);
 console.log('OpenLigaDB: complete league-phase structure, stable ordering, scope, UTC, club consistency, explicit results, stale-status honesty and image exclusion passed.');
 
+const venues=fixtureSet();venues[0].location={locationStadium:'  BayArena  ',locationCity:'Leverkusen'};
+venues[1].location={locationStadium:'TBC',locationCity:42};
+const venueFacts=normalizeLeague(venues,options);
+assert.equal(venueFacts.fixtures.find(f=>f.providerFixtureId==='1').venue,'BayArena');
+assert.equal(venueFacts.fixtures.find(f=>f.providerFixtureId==='1').venueCity,'Leverkusen');
+assert.equal(venueFacts.fixtures.find(f=>f.providerFixtureId==='2').venue,null);
+assert.equal(venueFacts.fixtures.find(f=>f.providerFixtureId==='2').venueCity,null);
+assert.equal(venueFacts.fixtures.find(f=>f.providerFixtureId==='3').venue,null,'missing stadium is not inferred from a home club');
 const facts=normalizeLeague(fixtureSet(),options);
 const mapping={teams:facts.teams.map(t=>({providerId:t.providerId,participantId:`team:football:test:${t.providerId}`,displayName:t.sourceName,sourceNames:[t.sourceName]}))};
+const venueEvent=require('./refresh-openligadb-football').eventsForLeague(resolveLeagueIdentities(venueFacts,mapping)).find(e=>e.id.endsWith(':1'));
+assert.equal(venueEvent.venue,'BayArena');assert.equal(venueEvent.venueCity,'Leverkusen');assert.equal(venueEvent.venueSourceUrl,venueFacts.source.url);
 assert.equal(resolveLeagueIdentities(facts,mapping).fixtures[0].participants[0].participantId,'team:football:test:19');
 const missing=structuredClone(mapping);missing.teams.pop();assert.throws(()=>resolveLeagueIdentities(facts,missing),/unreviewed club/);
 const changed=structuredClone(facts);changed.teams[0].sourceName='Different club';assert.throws(()=>resolveLeagueIdentities(changed,mapping),/unreviewed club/);

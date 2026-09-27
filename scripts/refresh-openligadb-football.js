@@ -13,6 +13,7 @@ function eventsForLeague(facts){
       competitionId:facts.competitionId,competitionName:facts.competitionName,competitionScope:'international',season:facts.season,
       stage:'League phase',roundNumber:fixture.roundNumber,roundLabel:`${facts.competitionName.replace('UEFA ','')} Matchday ${fixture.roundNumber}`,
       name:participants.map(p=>p.name).join(' v '),participants,participantIds:participants.map(p=>p.id),homeParticipantId:participants[0].id,awayParticipantId:participants[1].id,
+      venue:fixture.venue||null,venueCity:fixture.venueCity||null,...(fixture.venue?{venueSourceUrl:facts.source.url}:{}),
       startTimeUtc:fixture.startTimeUtc,timePrecision:'exact',status:fixture.status,scheduleStatus:'confirmed',gender:'men',isSenior:true,
       sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:facts.checkedAt,
       sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},

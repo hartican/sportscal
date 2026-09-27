@@ -15,6 +15,11 @@ function timestamp(value,label){
   if(normalized.slice(0,19)!==value.slice(0,19))fail(label);
   return normalized;
 }
+function sourcePlace(value){
+  if(typeof value!=='string')return null;
+  const clean=value.trim().replace(/\s+/g,' ');
+  return clean&&!/^(?:tbc|tbd|unknown|-|n\/a)$/i.test(clean)&&clean.length<=200?clean:null;
+}
 function normalizeLeague(matches,{league,season=2026,checkedAt}={}){
   const competition=COMPETITIONS[league];if(!competition||season!==2026)fail('unreviewed competition or season');
   checkedAt=timestamp(checkedAt,'check time must be explicit UTC');
@@ -47,6 +52,7 @@ function normalizeLeague(matches,{league,season=2026,checkedAt}={}){
       if(Date.parse(startTimeUtc)>Date.parse(checkedAt))fail('future fixture marked completed');
     }else if(finalResults.length)fail('unfinished fixture has a final result');
     return {providerFixtureId:String(id),competitionId:competition.competitionId,season:'2026/27',stage:'league-phase',roundNumber:round,startTimeUtc,participants,
+      venue:sourcePlace(match.location?.locationStadium),venueCity:sourcePlace(match.location?.locationCity),
       // Elapsed time is not evidence of live play or completion.
       status:match.matchIsFinished?'completed':Date.parse(startTimeUtc)>Date.parse(checkedAt)?'upcoming':'unknown',result};
   }).sort((a,b)=>a.startTimeUtc.localeCompare(b.startTimeUtc)||a.providerFixtureId.localeCompare(b.providerFixtureId));
