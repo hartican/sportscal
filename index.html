@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="326">
+<meta name="app-shell-version" content="327">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=325" as="script">
@@ -6876,7 +6876,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=318">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=327">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
 <body>
@@ -16949,13 +16949,25 @@ function buildOngoingTournamentParent(ev){
 }
 function buildFixtureDataAttribution(ev){
   if(ev.sourceAttribution?.provider!=='OpenLigaDB')return null;
-  const note=document.createElement('p');note.className='compact-card-meta fixture-source-attribution';
-  note.append(document.createTextNode('Data: '));
-  for(const [label,href] of [['OpenLigaDB','https://www.openligadb.de/'],['ODbL','https://opendatacommons.org/licenses/odbl/1-0/'],['Dataset','/data/providers/openligadb/football-2026-27.json']]){
-    if(note.children.length)note.append(document.createTextNode(' · '));
-    const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener';link.addEventListener('click',event=>event.stopPropagation());note.append(link);
+  const note=document.createElement('div');note.className='fixture-source-attribution';
+  const context=document.createElement('p');context.className='fixture-source-context';
+  const matchday=Number(ev.roundNumber);
+  if(ev.stage==='League phase'&&Number.isInteger(matchday)&&matchday>=1&&matchday<=8)context.textContent=`League phase · Matchday ${matchday}`;
+  if(context.textContent)note.append(context);
+  const checked=new Date(ev.sourceCheckedAt||'');
+  if(Number.isFinite(checked.getTime())){
+    const freshness=document.createElement('p');freshness.className='fixture-source-freshness';
+    const time=document.createElement('time');time.dateTime=checked.toISOString();
+    time.textContent=new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Australia/Sydney',timeZoneName:'short'}).format(checked);
+    freshness.append(document.createTextNode('Source checked '),time);note.append(freshness);
   }
-  return note;
+  const links=document.createElement('p');links.className='fixture-source-links';
+  links.append(document.createTextNode('Data: '));
+  for(const [label,href] of [['OpenLigaDB','https://www.openligadb.de/'],['ODbL','https://opendatacommons.org/licenses/odbl/1-0/'],['Dataset','/data/providers/openligadb/football-2026-27.json']]){
+    if(links.children.length)links.append(document.createTextNode(' · '));
+    const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener';link.addEventListener('click',event=>event.stopPropagation());links.append(link);
+  }
+  note.append(links);return note;
 }
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);

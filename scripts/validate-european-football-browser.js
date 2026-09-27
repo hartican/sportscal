@@ -16,8 +16,15 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
   assert.equal(await page.locator('#listView .fixture-profile-link').count(),2,'both confirmed clubs retain profile links even without artwork');
   const watch=page.locator('#listView a.provider-link[aria-label*="Stan"]');assert.equal(await watch.count(),1);assert((await watch.getAttribute('href')).includes(competition.replace('competition:','')));
   const attribution=page.locator('#listView .fixture-source-attribution');await attribution.scrollIntoViewIfNeeded();assert(await attribution.isVisible());assert.equal(await attribution.getByRole('link',{name:'Dataset',exact:true}).getAttribute('href'),'/data/providers/openligadb/football-2026-27.json');
+  assert.match(await attribution.locator('.fixture-source-context').innerText(),/^League phase · Matchday [1-8]$/);
+  assert.match(await attribution.locator('.fixture-source-freshness').innerText(),/Source checked.*2026/);
+  assert(await attribution.locator('time').getAttribute('datetime'),'machine-readable source observation');
+  assert.equal(await attribution.evaluate(el=>getComputedStyle(el).fontSize),'12px');
+  assert(await attribution.getByRole('link',{name:'Dataset',exact:true}).evaluate(el=>el.getBoundingClientRect().height>=24),'source link retains a usable target');
   for(const width of [320,390,768,1280])for(const theme of ['day','night']){await page.setViewportSize({width,height:844});await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${competition} ${mode} ${width} ${theme}: no overflow`);}
  }
+ const unknownSource=await page.evaluate(()=>{const el=buildFixtureDataAttribution({sourceAttribution:{provider:'OpenLigaDB'},sourceCheckedAt:'invalid',stage:'League phase',roundNumber:99});return {time:el.querySelector('time')!==null,context:el.querySelector('.fixture-source-context')!==null};});
+ assert.deepEqual(unknownSource,{time:false,context:false},'unknown source time or round cannot be fabricated');
  for(const mode of ['schedule','feed']){
   const venue=await page.evaluate(mode=>{const f=codeInspectorChunk.fixtures.find(f=>f.sourceAttribution?.provider==='OpenLigaDB'&&f.venue);if(!f)throw new Error('No sourced venue in published Football');activeTab=mode==='feed'?'feed':'follow';document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(f):buildEventCard({...f,eventId:f.id}));return f.venue;},mode);
   assert((await page.locator('#listView').innerText()).toLowerCase().includes(venue.toLowerCase()),`${mode}: source venue ${venue} is visibly retained: ${await page.locator('#listView').innerText()}`);

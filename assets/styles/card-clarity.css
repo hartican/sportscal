@@ -15,3 +15,8 @@
 
 .nsc-inline-rating.is-epic-burst::after{color:var(--text)}
 .nsc-peer-results,.nsc-peer-summary{--accent:var(--text)}
+
+.fixture-source-attribution{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);text-align:center;font-size:12px;line-height:1.5;color:var(--text)}
+.fixture-source-attribution p{margin:0}.fixture-source-context{font-weight:600}.fixture-source-freshness{font-size:11px}
+.fixture-source-links a{display:inline-flex;align-items:center;min-height:24px;text-decoration:underline;text-underline-offset:2px;padding:0 2px}
+.fixture-source-links a:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:2px}

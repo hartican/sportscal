@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v326";
-const SHELL_VERSION = "326";
+const CACHE_NAME = "nothingsport-shell-v327";
+const SHELL_VERSION = "327";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
@@ -22,7 +22,7 @@ const APP_SHELL = [
   "/assets/js/tennis-schedule-ui.js?v=318",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
-  "/assets/styles/card-clarity.css?v=275",
+  "/assets/styles/card-clarity.css?v=327",
   "/config/follow-directory-worker.js?v=275",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
