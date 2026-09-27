@@ -111,6 +111,7 @@ function cardForEvent(event, schedule, participantsById){
     timeTbc:Boolean(event.timeTbc),
     timePrecision:event.timeTbc ? "tbc" : (event.timePrecision || "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",
+    ...(Array.isArray(event.viewingOptions) ? {viewingOptions:event.viewingOptions} : {}),
     broadcaster:broadcaster.label,
     broadcastOptions:broadcaster.options,
     broadcasterIds:broadcaster.ids,

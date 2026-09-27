@@ -258,3 +258,7 @@ The free-source trial adds named Champions League and Europa League league-phase
 ## Measurement alignment — 28 September 2026
 
 Ordinary Unfollow remains neutral in discovery measurement as well as product behaviour. Negative feedback counts only explicitly discovery-classified negative swipes; unknown recommendation provenance, archive and ordinary unfollow do not establish annoyance. Existing categorical events remain retained. No preference, eligibility or consent rule changes. Versioned operator exports prevent legacy unfollow-inclusive aggregates from silently driving tuning. Regression: `validate-pilot-readout-sql.js` and `validate-discovery-measurement.js`.
+
+## NBL fixture viewing — 28 September 2026
+
+Preserve the official NBL schedule's explicit 9Now label per fixture; a Saturday date alone does not grant free coverage. ESPN-labelled NBL27 fixtures retain Disney+, Kayo and Foxtel as Australian alternatives, with the league's current viewing guide as platform evidence. The provider destination remains a general service link; historical live rights do not establish a replay. Withdrawn fixture options must propagate through the existing quick refresh. Follow admission, preferences and subscription purchases are unchanged. Regression: `validate-nbl-viewing.js` and `validate-nbl-viewing-browser.js`.

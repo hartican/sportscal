@@ -360,6 +360,12 @@ async function main() {
     if(result.failures.length)process.exitCode=1;
     return;
   }
+  if(process.argv.some(arg=>arg.startsWith('--source='))){
+    const sources=process.argv.filter(arg=>arg.startsWith('--source='));
+    if(sources.length!==1||sources[0]!=='--source=nbl'||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick --source=nbl and live source access');
+    runStep(['scripts/quick-results.js',sources[0]]);
+    return;
+  }
   if(process.argv.includes('--code-projections')){
     const scope=process.argv.find(arg=>arg.startsWith('--codes='));
     if(!scope||!scope.slice(8).split(',').every(slug=>/^[a-z][a-z0-9-]*$/.test(slug)))throw new Error('--code-projections requires --codes=<existing slug,...>');

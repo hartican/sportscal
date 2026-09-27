@@ -38,3 +38,7 @@ Model/tool choice should follow the work: use deterministic scripts for inventor
 The daily canonical workflow is the refresh owner; weekday quick and Sunday full modes are routes inside it. Keep failed-source reports in its retained artifact, preserving old source timestamps. Do not create another cron to compensate for a broken route.
 
 Canonical refresh retries: `--resume-from script.js` now rejects duplicate step names before any work. Use the explicit one-based `--resume-occurrence N` after inspecting the step list. This prevents an intended late validation retry from silently selecting an earlier asset-only check and repeating source refreshes. Snapshot setup remains attached to the selected suffix.
+
+### Bounded NBL source refresh
+
+Use `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --quick --source=nbl` for an NBL-only source correction. This is an option on the canonical command, not another scheduler. It reuses the existing loader and patch/projection functions, updates the incoming and published surfaces from their own current facts, and keeps publication/coverage/schema gates. It avoids unrelated tournament, WRC, Football and ladder network work and avoids regenerating unrelated editorial. Missing/invalid source options fail before writes. Source or gate failure restores data/feed artifacts; deployment is still a separate exact-SHA gated action. The observed no-op run made no publication changes. General quick mode remains the daily multi-sport path.

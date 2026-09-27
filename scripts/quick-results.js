@@ -8,8 +8,8 @@ const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
-const KEYS=['status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
-function semantic(value){return JSON.stringify(value,(key,v)=>['checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
+const KEYS=['viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
+function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
  const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of KEYS)if(Object.hasOwn(update,key))next[key]=update[key];if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
@@ -73,7 +73,31 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('European Football')))steps.push(['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-standings.js']);
  return steps;
 }
-async function refresh({now=new Date(),offline=false}={}){
+// A targeted source update starts from each surface's current facts. Rebuilding
+// published data from older unrelated incoming records can regress other sports.
+function nblProjectionSteps(changes){
+ return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2)]:args);
+}
+function refreshNbl(changes,{published=false}={}){
+   const nblPath='data/canonical/nbl-2026-27.json',previous=read(nblPath);
+   run('scripts/refresh-nbl-schedule.js');
+   const schedule=read(nblPath),participants=new Map(schedule.participants.map(p=>[p.id,p]));
+   const cards=schedule.events.map(event=>require('./sync-requested-sports-to-feed').cardForEvent(event,schedule,participants));
+   let count=0;
+   for(const file of ['feeds/incoming/events.json',...(published?['data/events.json']:[])]){
+    const doc=read(file),patched=patchKnown(doc.events,cards);count+=patched.count;
+    if(patched.count)write(file,{...doc,events:patched.events});
+   }
+   if(count||semantic(previous.events)!==semantic(schedule.events))changes.push(`NBL ${count}`);
+   else write(nblPath,previous);
+}
+async function refresh({now=new Date(),offline=false,source=null}={}){
+ if(source){
+  if(source!=='nbl'||offline)throw new Error('Scoped quick refresh supports --source=nbl with live source access only');
+  const changes=[];refreshNbl(changes,{published:true});
+  for(const args of nblProjectionSteps(changes))run(...args);
+  return {mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:[],aiCalls:0};
+ }
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
@@ -93,14 +117,7 @@ async function refresh({now=new Date(),offline=false}={}){
  const evidenceAfter=semantic({bundle,feed:read('feeds/incoming/events.json'),coverage:read('data/follow-sources/coverage.v1.json'),results:read('data/canonical/official-card-results-2026.json')});
  if(evidenceBefore!==evidenceAfter)changes.push('Current card evidence');
  if(!offline)try{
-   const nblPath='data/canonical/nbl-2026-27.json',previous=read(nblPath);
-   run('scripts/refresh-nbl-schedule.js');
-   const schedule=read(nblPath),participants=new Map(schedule.participants.map(p=>[p.id,p]));
-   const cards=schedule.events.map(event=>require('./sync-requested-sports-to-feed').cardForEvent(event,schedule,participants));
-   const doc=read('feeds/incoming/events.json'),patched=patchKnown(doc.events,cards);
-   if(patched.count)write('feeds/incoming/events.json',{...doc,events:patched.events});
-   if(patched.count||semantic(previous.events)!==semantic(schedule.events))changes.push(`NBL ${patched.count}`);
-   else write(nblPath,previous);
+   refreshNbl(changes);
  }catch(error){failures.push(`NBL: ${error.message}`);}
  if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
@@ -138,5 +155,5 @@ async function atomicRefresh(options){
  collect('data');collect('feeds');
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);throw error;}
 }
-if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline')}).catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={patchKnown,refresh,projectionSteps,KEYS};
+if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
+module.exports={patchKnown,refresh,projectionSteps,nblProjectionSteps,KEYS};
