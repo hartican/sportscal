@@ -169,9 +169,6 @@ with measurement_events as (
         event.event_name = 'swipe'
         and event.properties ->> 'recommendationClass' = 'discovery'
         and event.properties ->> 'direction' = 'negative'
-      ) or (
-        event.event_name = 'preference_change'
-        and event.properties ->> 'action' = 'unfollow'
       )
     ) as discovery_negative_actions,
     count(*) filter (
@@ -207,9 +204,6 @@ with measurement_events as (
         event_name = 'swipe'
         and properties ->> 'recommendationClass' = 'discovery'
         and properties ->> 'direction' = 'negative'
-      ) or (
-        event_name = 'preference_change'
-        and properties ->> 'action' = 'unfollow'
       )
     )
   group by sport
@@ -241,9 +235,6 @@ with measurement_events as (
         event_name = 'swipe'
         and properties ->> 'recommendationClass' = 'discovery'
         and properties ->> 'direction' = 'negative'
-      ) or (
-        event_name = 'preference_change'
-        and properties ->> 'action' = 'unfollow'
       )
     )
   group by competition_id
@@ -278,6 +269,7 @@ select
   round(100.0 * behaviour.prompts_dismissed / nullif(behaviour.prompts_shown, 0), 1) as prompt_dismissal_percent,
   round(100.0 * behaviour.ratings_completed / nullif(behaviour.rating_prompts_shown, 0), 1) as spectacle_rating_completion_percent,
   'active'::text as instrumentation_status,
+  'discovery-aggregate.v2'::text as discovery_contract_version,
   discovery.discovery_exposures,
   discovery.discovery_opens,
   discovery.discovery_saves,

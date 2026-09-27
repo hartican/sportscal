@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "discovery-measurement.v1",
+  "schemaVersion": "discovery-measurement.v2",
   "generatedAt": "2026-09-21T20:20:19.813Z",
   "evidenceState": "partial_evidence",
   "coverage": {
@@ -156,6 +156,8 @@
   "behaviour": {
     "status": "insufficient_data",
     "instrumentationStatus": "active",
+    "aggregateVersion": "discovery-aggregate.v2",
+    "expectedAggregateVersion": "discovery-aggregate.v2",
     "missingAggregateFields": [],
     "minimumDiscoveryExposuresForReview": 20,
     "discovery": {
@@ -176,7 +178,7 @@
       "status": "insufficient_data",
       "bySport": [],
       "byCompetition": [],
-      "note": "Discovery negatives combine left swipes with explicit unfollows; rates use discovery opportunity exposures in the same sport or competition as the denominator."
+      "note": "Discovery negatives count only negative swipes explicitly classified as discovery. Ordinary unfollows and archive actions are neutral. Rates use discovery opportunity exposures in the same sport or competition; breakdowns cover all measured accounts."
     },
     "satisfactionProxy": {
       "status": "insufficient_data",
@@ -191,7 +193,8 @@
       "exposureCount": 0,
       "distinctSportCount": 0,
       "ratePercent": null,
-      "definition": "Distinct sports represented within the first ten cold-start opportunities."
+      "firstTenEvidence": "unverified",
+      "definition": "Distinct sports and opportunities across the observation window. Per-user first-ten diversity is not established by these aggregates."
     }
   },
   "tuning": {

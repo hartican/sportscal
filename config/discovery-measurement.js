@@ -9,7 +9,8 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildDiscoveryMeasurement(feedControls, broadcasterDiscovery){
   "use strict";
 
-  const SCHEMA_VERSION = "discovery-measurement.v1";
+  const SCHEMA_VERSION = "discovery-measurement.v2";
+  const AGGREGATE_VERSION = "discovery-aggregate.v2";
   const MIN_DISCOVERY_EXPOSURES_FOR_REVIEW = 20;
   const REQUIRED_BEHAVIOURAL_FIELDS = Object.freeze([
     "discovery_exposures",
@@ -23,12 +24,13 @@
   ]);
 
   function finiteNumber(value, fallback = 0){
+    if (value == null || !["number", "string"].includes(typeof value) || (typeof value === "string" && !value.trim())) return fallback;
     const number = Number(value);
     return Number.isFinite(number) ? number : fallback;
   }
 
   function percent(numerator, denominator){
-    if (!denominator) return null;
+    if (numerator === null || denominator === null || denominator <= 0) return null;
     return Math.round((10000 * numerator) / denominator) / 100;
   }
 
@@ -52,7 +54,6 @@
     const rows = readoutRows(payload);
     return rows.find(row => row?.cohort === "all")
       || rows.find(row => row?.cohort === "overall")
-      || rows[0]
       || null;
   }
 
@@ -142,30 +143,39 @@
     };
   }
 
+  function aggregateCount(value){
+    const number = finiteNumber(value, null);
+    return number !== null && Number.isInteger(number) && number >= 0 ? number : null;
+  }
+
   function behaviouralMetric(payload){
     const row = overallRow(payload);
     const declaredStatus = row?.instrumentation_status || null;
     const missingFields = row
-      ? REQUIRED_BEHAVIOURAL_FIELDS.filter(field => !Object.prototype.hasOwnProperty.call(row, field))
+      ? REQUIRED_BEHAVIOURAL_FIELDS.filter(field => aggregateCount(row[field]) === null)
       : REQUIRED_BEHAVIOURAL_FIELDS.slice();
-    const contractReady = Boolean(row) && !missingFields.length && declaredStatus !== "pending_approval";
-    const exposures = Math.max(0, Math.floor(finiteNumber(row?.discovery_exposures)));
-    const opens = Math.max(0, Math.floor(finiteNumber(row?.discovery_opens)));
-    const saves = Math.max(0, Math.floor(finiteNumber(row?.discovery_saves)));
-    const reminders = Math.max(0, Math.floor(finiteNumber(row?.discovery_reminders)));
-    const watchThroughs = Math.max(0, Math.floor(finiteNumber(row?.discovery_watch_throughs)));
-    const negativeActions = Math.max(0, Math.floor(finiteNumber(row?.discovery_negative_actions)));
-    const coldStartExposures = Math.max(0, Math.floor(finiteNumber(row?.cold_start_exposures)));
-    const coldStartDistinctSports = Math.max(0, Math.floor(finiteNumber(row?.cold_start_distinct_sports)));
+    const compatibleVersion = row?.discovery_contract_version === AGGREGATE_VERSION;
+    const contractReady = Boolean(row) && !missingFields.length && declaredStatus === "active" && compatibleVersion;
+    const exposures = aggregateCount(row?.discovery_exposures);
+    const opens = aggregateCount(row?.discovery_opens);
+    const saves = aggregateCount(row?.discovery_saves);
+    const reminders = aggregateCount(row?.discovery_reminders);
+    const watchThroughs = aggregateCount(row?.discovery_watch_throughs);
+    const negativeActions = compatibleVersion ? aggregateCount(row?.discovery_negative_actions) : null;
+    const coldStartExposures = aggregateCount(row?.cold_start_exposures);
+    const coldStartDistinctSports = aggregateCount(row?.cold_start_distinct_sports);
     const status = !contractReady
       ? "instrumentation_pending"
       : exposures < MIN_DISCOVERY_EXPOSURES_FOR_REVIEW
         ? "insufficient_data"
         : "measured";
-    const positiveActions = opens + saves + reminders + watchThroughs;
+    const positiveActions = [opens, saves, reminders, watchThroughs].includes(null) ? null : opens + saves + reminders + watchThroughs;
+    const satisfactionActions = [saves, reminders, watchThroughs].includes(null) ? null : saves + reminders + watchThroughs;
     return {
       status,
       instrumentationStatus: declaredStatus || (row ? "partial" : "not_available"),
+      aggregateVersion: row?.discovery_contract_version || null,
+      expectedAggregateVersion: AGGREGATE_VERSION,
       missingAggregateFields: missingFields,
       minimumDiscoveryExposuresForReview: MIN_DISCOVERY_EXPOSURES_FOR_REVIEW,
       discovery: {
@@ -184,10 +194,10 @@
       },
       negativeFeedback: {
         status: contractReady ? (exposures ? "measured" : "insufficient_data") : "not_available",
-        bySport: jsonArray(row?.negative_feedback_by_sport),
-        byCompetition: jsonArray(row?.negative_feedback_by_competition),
+        bySport: compatibleVersion ? jsonArray(row?.negative_feedback_by_sport) : [],
+        byCompetition: compatibleVersion ? jsonArray(row?.negative_feedback_by_competition) : [],
         note: contractReady
-          ? "Discovery negatives combine left swipes with explicit unfollows; rates use discovery opportunity exposures in the same sport or competition as the denominator."
+          ? "Discovery negatives count only negative swipes explicitly classified as discovery. Ordinary unfollows and archive actions are neutral. Rates use discovery opportunity exposures in the same sport or competition; breakdowns cover all measured accounts."
           : "The approved categorical action aggregate is not available in this export.",
       },
       satisfactionProxy: {
@@ -195,15 +205,16 @@
         saves,
         reminders,
         watchThroughs,
-        totalActions: saves + reminders + watchThroughs,
-        ratePercent: percent(saves + reminders + watchThroughs, exposures),
+        totalActions: satisfactionActions,
+        ratePercent: percent(satisfactionActions, exposures),
       },
       coldStartDiversity: {
         status: contractReady && coldStartExposures ? "measured" : status,
         exposureCount: coldStartExposures,
         distinctSportCount: coldStartDistinctSports,
-        ratePercent: percent(coldStartDistinctSports, Math.min(coldStartExposures, 10)),
-        definition: "Distinct sports represented within the first ten cold-start opportunities.",
+        ratePercent: null,
+        firstTenEvidence: "unverified",
+        definition: "Distinct sports and opportunities across the observation window. Per-user first-ten diversity is not established by these aggregates.",
       },
     };
   }
@@ -330,6 +341,7 @@
   }
 
   return Object.freeze({
+    AGGREGATE_VERSION,
     MIN_DISCOVERY_EXPOSURES_FOR_REVIEW,
     REQUIRED_BEHAVIOURAL_FIELDS,
     SCHEMA_VERSION,

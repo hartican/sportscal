@@ -91,9 +91,9 @@ function renderHtml(report){
     ${metricCard("Missing-rate trend", trend.direction ? statusLabel(trend.direction) : "Not established", `${trend.observationCount} independent snapshot${trend.observationCount === 1 ? "" : "s"}`, trend.status)}
     ${metricCard("Candidate publish rate", displayPercent(candidates.ratePercent), `${candidates.publishCount}/${candidates.reviewedCount} reviewed candidates published`, candidates.status)}
     ${metricCard("Discovery positive rate", displayPercent(discovery.positiveActionRatePercent), `${discovery.exposures} discovery exposures`, report.behaviour.status)}
-    ${metricCard("Discovery negative rate", displayPercent(discovery.negativeActionRatePercent), "Hide, unfollow and left-swipe signals", report.behaviour.status)}
+    ${metricCard("Discovery negative rate", displayPercent(discovery.negativeActionRatePercent), "Explicit discovery negative swipes; Unfollow stays neutral", report.behaviour.status)}
     ${metricCard("Satisfaction proxy", displayPercent(satisfaction.ratePercent), `${satisfaction.totalActions} saves + reminders + watch-throughs`, satisfaction.status)}
-    ${metricCard("Cold-start diversity", displayPercent(coldStart.ratePercent), `${coldStart.distinctSportCount} sports across ${coldStart.exposureCount} early opportunities`, coldStart.status)}
+    ${metricCard("Observed cold-start breadth", coldStart.distinctSportCount === null ? "Unknown" : `${coldStart.distinctSportCount} sports`, `${coldStart.exposureCount === null ? "Unknown" : coldStart.exposureCount} opportunities across the window; per-user first-ten diversity unverified`, coldStart.status)}
     ${metricCard("Current balanced mix", `${Math.round((current.balancedMix?.discovery || 0) * 100)}% discovery`, `Cap ${current.firstImpressionDiscoveryCap} in first ${current.firstImpressionDepth}`, "baseline_hold")}
   </section>
   <section class="split">

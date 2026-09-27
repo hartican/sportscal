@@ -33,6 +33,23 @@ async function main() {
     assert.equal(Number(rows.find(r => r.cohort === 'curator').returning_useful_users), 1);
     assert.equal(Number(rows.find(r => r.cohort === 'unclassified').useful_action_users), 1);
     assert.equal(rows.find(r => r.cohort === 'hybrid').useful_return_percent, null);
+    // Ordinary Unfollow stays neutral, with or without discovery context. Only
+    // explicit discovery negative swipes count, consistently across breakdowns.
+    await db.exec(`insert into product_events(user_id,event_name,occurred_at,properties,sport,competition_id) values
+      ('once','opportunity_exposed',now(),'{"recommendationClass":"discovery"}','football','epl'),
+      ('once','opportunity_exposed',now(),'{"recommendationClass":"discovery"}','football','epl'),
+      ('once','swipe',now(),'{"recommendationClass":"discovery","direction":"negative"}','football','epl'),
+      ('once','swipe',now(),'{"recommendationClass":"followed","direction":"negative"}','football','epl'),
+      ('once','swipe',now(),'{"direction":"negative"}','football','epl'),
+      ('once','swipe',now(),'{"recommendationClass":"discovery","direction":"positive"}','football','epl'),
+      ('once','preference_change',now(),'{"action":"unfollow"}','football','epl'),
+      ('once','preference_change',now(),'{"recommendationClass":"discovery","action":"unfollow"}','football','epl'),
+      ('once','feed_action',now(),'{"recommendationClass":"discovery","action":"archive"}','football','epl');`);
+    row = await read();
+    assert.equal(row.discovery_contract_version, 'discovery-aggregate.v2');
+    assert.equal(Number(row.discovery_negative_actions), 1);
+    assert.deepEqual(row.negative_feedback_by_sport, [{sport:'football',negativeActions:1,ratePercent:50}]);
+    assert.deepEqual(row.negative_feedback_by_competition, [{competitionId:'epl',negativeActions:1,ratePercent:50}]);
     console.log('Readout SQL valid: null denominators, repeat useful dates, Sydney boundaries, window exclusions and cohorts.');
   } finally { await db.close(); }
 }

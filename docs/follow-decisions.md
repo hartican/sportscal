@@ -254,3 +254,7 @@ Viewing evidence clarification: fixture-level broadcast entitlement does not imp
 ## European club fixtures — 27 September 2026
 
 The free-source trial adds named Champions League and Europa League league-phase fixtures to the existing Football schedule. Preserve 46 existing club IDs; new directory records do not create follows. Existing Liverpool follow admits its seven remaining league-phase fixtures at the 27 September reference clock; broad Football alone does not admit club fixtures. Explicit mutes and normal timeline retention still apply. Shared card and calendar attribution preserves source provenance. This is coverage expansion under existing consent rules, not a new opt-in decision. Regression: `validate-openligadb-football.js` and `validate-european-football-browser.js`.
+
+## Measurement alignment — 28 September 2026
+
+Ordinary Unfollow remains neutral in discovery measurement as well as product behaviour. Negative feedback counts only explicitly discovery-classified negative swipes; unknown recommendation provenance, archive and ordinary unfollow do not establish annoyance. Existing categorical events remain retained. No preference, eligibility or consent rule changes. Versioned operator exports prevent legacy unfollow-inclusive aggregates from silently driving tuning. Regression: `validate-pilot-readout-sql.js` and `validate-discovery-measurement.js`.
