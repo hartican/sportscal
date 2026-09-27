@@ -1,0 +1,32 @@
+{
+  "id": "football-premier-league-2026-27-401879301",
+  "eventId": "football-premier-league-2026-27-401879301",
+  "canonicalEventId": "event:football:premier-league:401879301",
+  "competitionId": "competition:premier-league-2026-27",
+  "sportDomainId": "sport:football",
+  "name": "Arsenal v Coventry City",
+  "participants": [
+    {
+      "name": "Arsenal",
+      "role": "home"
+    },
+    {
+      "name": "Coventry City",
+      "role": "away"
+    }
+  ],
+  "participantIds": [
+    "team:football:epl:1",
+    "team:football:epl:5"
+  ],
+  "startTimeUtc": "2026-08-21T19:00:00.000Z",
+  "endTimeUtc": "2026-08-21T21:00:00.000Z",
+  "status": "completed",
+  "homeScore": 3,
+  "awayScore": 0,
+  "score": "Arsenal 3-0 Coventry City",
+  "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+  "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+  "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+  "broadcastOptions": []
+}

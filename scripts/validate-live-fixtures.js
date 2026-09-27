@@ -1,15 +1,48 @@
 #!/usr/bin/env node
 "use strict";
 const assert=require("node:assert/strict");
-const {refreshDueSources,refreshInterval,contentHash,overlaySnapshots}=require("../lib/live-fixtures");
+const {refreshDueSources,refreshInterval,contentHash,overlaySnapshots,createSnapshotStore}=require("../lib/live-fixtures");
 const now=new Date("2026-09-08T00:00:00Z");
 const event={id:"match",key:"rugby",name:"Test",startTimeUtc:"2026-09-08T00:10:00Z",status:"scheduled"};
 assert.equal(refreshInterval([event],now),120000);
 assert.equal(refreshInterval([{...event,status:"live"}],now),120000);
 assert.equal(refreshInterval([{...event,startTimeUtc:"2026-10-01T00:00:00Z"}],now),30*60000);
 assert.equal(contentHash([event]),contentHash([{...event,sourceCheckedAt:now.toISOString()}]),"checking unchanged facts must not create a new revision");
+// Captured EPL fixture: producer review timestamps change on every successful check.
+const eplReviewFixture=require("./fixtures/live-fixture-epl-review.json");
+const recheckedEpl={...eplReviewFixture,lastReviewedAt:now.toISOString(),sourceCheckedAt:now.toISOString(),canonicalSourceCheckedAt:now.toISOString()};
+assert.equal(contentHash([eplReviewFixture]),contentHash([recheckedEpl]),"EPL observation timestamps alone must not create a fact revision");
+for(const change of [
+  {startTimeUtc:"2026-08-21T20:00:00.000Z"},
+  {endTimeUtc:"2026-08-21T22:00:00.000Z"},
+  {participantIds:["team:football:epl:2","team:football:epl:5"]},
+  {homeScore:4}, {status:"postponed"},
+  {broadcastOptions:[{providerId:"stan",webUrl:"https://www.stan.com.au/sport"}]},
+])assert.notEqual(contentHash([eplReviewFixture]),contentHash([{...recheckedEpl,...change}]),"real fixture changes remain detectable: "+Object.keys(change)[0]);
+assert.notEqual(contentHash([event,eplReviewFixture]),contentHash([eplReviewFixture,event]),"this repair must not change array-order semantics");
 assert.equal(overlaySnapshots([event],[{fixtures:[{...event,status:"postponed",time:null,startTimeUtc:null}]}])[0].status,"postponed");
 async function main(){
+  // Exercise the real publish adapter, including the optional compact-score path.
+  const priorScoreWrites=process.env.MATCH_CENTRE_SCORE_WRITES;
+  try{
+    for(const compact of [false,true]){
+      process.env.MATCH_CENTRE_SCORE_WRITES=String(compact);
+      const calls=[];
+      const adapter=createSnapshotStore({request:async(path,options)=>{calls.push({path,body:options.body});return 1;}});
+      for(const fixture of [eplReviewFixture,recheckedEpl,{...recheckedEpl,homeScore:4}]){
+        await adapter.publish("live-premier-league","test-token",{fixtures:[fixture],hash:contentHash([fixture]),intervalMs:1800000});
+      }
+      assert.equal(calls[0].body.p_hash,calls[1].body.p_hash,"rechecks reach persistence with the same fact hash");
+      if(compact){
+        assert.equal(calls[1].body.p_hash,calls[2].body.p_hash,"score-only changes use the compact score channel");
+        assert.equal(calls[2].body.p_scores[0].homeScore,4,"real scores still reach compact persistence");
+      }else assert.notEqual(calls[1].body.p_hash,calls[2].body.p_hash,"real scores still revise ordinary snapshots");
+      assert.equal(calls[1].body.p_fixtures[0].lastReviewedAt,recheckedEpl.lastReviewedAt,"hashing does not strip observation data from the payload");
+    }
+  }finally{
+    if(priorScoreWrites===undefined)delete process.env.MATCH_CENTRE_SCORE_WRITES;
+    else process.env.MATCH_CENTRE_SCORE_WRITES=priorScoreWrites;
+  }
   // The store is the external database boundary. Real SQL lease/RLS tests run separately.
   const rows=new Map([["rugby",{fixtures:[event,{...event,id:"retained"}],revision:1,nextDueAt:0}]]);
   const store={
