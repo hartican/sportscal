@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-09-27T13:44:27Z",
+  "generatedAt": "2026-09-27T19:58:21.739Z",
   "season": 2026,
   "competitions": [
     {
@@ -61906,7 +61906,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Huntington Bank Field",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -61915,14 +61915,14 @@
           "participantId": "team:nfl:cle",
           "label": "Cleveland Browns",
           "homeAway": "home",
-          "score": "0",
+          "score": "13",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png"
         },
         {
           "participantId": "team:nfl:car",
           "label": "Carolina Panthers",
           "homeAway": "away",
-          "score": "0",
+          "score": "18",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png"
         }
       ],
@@ -61937,7 +61937,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Acrisure Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -61946,14 +61946,14 @@
           "participantId": "team:nfl:pit",
           "label": "Pittsburgh Steelers",
           "homeAway": "home",
-          "score": "0",
+          "score": "27",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png"
         },
         {
           "participantId": "team:nfl:cin",
           "label": "Cincinnati Bengals",
           "homeAway": "away",
-          "score": "0",
+          "score": "27",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cin.png"
         }
       ],
@@ -61968,7 +61968,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Lucas Oil Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -61977,14 +61977,14 @@
           "participantId": "team:nfl:ind",
           "label": "Indianapolis Colts",
           "homeAway": "home",
-          "score": "0",
+          "score": "16",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
         },
         {
           "participantId": "team:nfl:hou",
           "label": "Houston Texans",
           "homeAway": "away",
-          "score": "0",
+          "score": "17",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png"
         }
       ],
@@ -61999,7 +61999,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Hard Rock Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62008,14 +62008,14 @@
           "participantId": "team:nfl:mia",
           "label": "Miami Dolphins",
           "homeAway": "home",
-          "score": "0",
+          "score": "10",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png"
         },
         {
           "participantId": "team:nfl:kc",
           "label": "Kansas City Chiefs",
           "homeAway": "away",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
         }
       ],
@@ -62030,7 +62030,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Highmark Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62039,14 +62039,14 @@
           "participantId": "team:nfl:buf",
           "label": "Buffalo Bills",
           "homeAway": "home",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/buf.png"
         },
         {
           "participantId": "team:nfl:lac",
           "label": "Los Angeles Chargers",
           "homeAway": "away",
-          "score": "0",
+          "score": "13",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lac.png"
         }
       ],
@@ -62061,7 +62061,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Ford Field",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62070,14 +62070,14 @@
           "participantId": "team:nfl:det",
           "label": "Detroit Lions",
           "homeAway": "home",
-          "score": "0",
+          "score": "31",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/det.png"
         },
         {
           "participantId": "team:nfl:nyj",
           "label": "New York Jets",
           "homeAway": "away",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyj.png"
         }
       ],
@@ -62092,7 +62092,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "Northwest Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62101,14 +62101,14 @@
           "participantId": "team:nfl:wsh",
           "label": "Washington Commanders",
           "homeAway": "home",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png"
         },
         {
           "participantId": "team:nfl:sea",
           "label": "Seattle Seahawks",
           "homeAway": "away",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sea.png"
         }
       ],
@@ -62123,7 +62123,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "MetLife Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62132,14 +62132,14 @@
           "participantId": "team:nfl:nyg",
           "label": "New York Giants",
           "homeAway": "home",
-          "score": "0",
+          "score": "12",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
         },
         {
           "participantId": "team:nfl:ten",
           "label": "Tennessee Titans",
           "homeAway": "away",
-          "score": "0",
+          "score": "7",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ten.png"
         }
       ],
@@ -62154,7 +62154,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-09-27T17:00Z",
       "venue": "EverBank Stadium",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62163,14 +62163,14 @@
           "participantId": "team:nfl:jax",
           "label": "Jacksonville Jaguars",
           "homeAway": "home",
-          "score": "0",
+          "score": "35",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png"
         },
         {
           "participantId": "team:nfl:ne",
           "label": "New England Patriots",
           "homeAway": "away",
-          "score": "0",
+          "score": "6",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png"
         }
       ],
