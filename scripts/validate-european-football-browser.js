@@ -70,6 +70,15 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
   assert.equal(await page.locator('#listView .event-timing-state.live-now, #listView .event-timing-state.just-finished').count(),0);
   assert.equal(await page.locator('#listView .nsc-rating-blocks').count(),0,'unknown status must not invent a local post-match rating prompt');
  }
+ const qualifiers=await page.evaluate(async()=>{const response=await fetch('/data/code-inspector/champions-league.json');return (await response.json()).fixtures.filter(f=>f.id.startsWith('major-match:ucl-2026-27:'));});
+ assert.equal(qualifiers.length,7);
+ for(const f of qualifiers)for(const show of [false,true]){
+  await page.evaluate(({f,show})=>{userPreferences.showSpoilers=show;activeTab='follow';setCardState(f,'opened');document.getElementById('listView').replaceChildren(buildCodeInspectorFixture(f));},{f,show});
+  const text=await page.locator('#listView').innerText();
+  if(show)assert(text.includes(String(f.homeScore))&&text.includes(String(f.awayScore)),f.id+': revealed score');
+  else assert(!/aggregate|after extra time|5[–-]1|3[–-]0|5[–-]2/.test(text),f.id+': results protected');
+  assert(!text.includes("LASK producing the stage"),'parent recap must not leak into other matches');
+ }
  if(process.env.QA_SCREENSHOT){await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{applyThemePreference('day');const f=codeInspectorChunk.fixtures.find(f=>f.competitionId==='competition:uefa-europa-league'&&f.status==='upcoming');userPreferences.showSpoilers=true;renderHomeSpoilerToggle();setCardState(f,'opened');document.getElementById('listView').replaceChildren(buildEventCard({...f,eventId:f.id}));document.activeElement?.blur();window.scrollTo(0,0);});await page.screenshot({path:process.env.QA_SCREENSHOT,fullPage:true});}
  const failurePage=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
  await failurePage.route('**/api/**',r=>r.fulfill({status:503,json:{}}));

@@ -503,13 +503,13 @@
               "name": "Hapoel Beer-Sheva"
             }
           ],
-          "summary": "Hapoel Beer-Sheva lead 2-1 after the first leg.",
+          "summary": "Sabah v Hapoel Beer-Sheva is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:sabah-hapoel-second-leg",
             "researchTier": "marquee",
-            "hook": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "Sabah v Hapoel Beer-Sheva is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -535,15 +535,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "Sabah 5–2 Hapoel Beer-Sheva after extra time; aggregate 6–4.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Sabah 5–2 Hapoel Beer-Sheva after extra time; aggregate 6–4.\",\"Sabah 5–2 Hapoel Beer-Sheva\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "Sabah v Hapoel Beer-Sheva is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "Sabah 5–2 Hapoel Beer-Sheva after extra time; aggregate 6–4.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -571,7 +574,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 5,
+          "awayScore": 2,
+          "scoreDisplay": "Sabah 5–2 Hapoel Beer-Sheva",
+          "outcomeText": "Sabah 5–2 Hapoel Beer-Sheva after extra time; aggregate 6–4.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:lask-celtic-second-leg",
@@ -593,13 +605,13 @@
               "name": "Celtic"
             }
           ],
-          "summary": "Celtic lead 3-0 after the first leg.",
+          "summary": "LASK v Celtic is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:lask-celtic-second-leg",
             "researchTier": "marquee",
-            "hook": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "LASK v Celtic is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -625,15 +637,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "LASK 5–1 Celtic after extra time; aggregate 5–4.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"LASK 5–1 Celtic after extra time; aggregate 5–4.\",\"LASK 5–1 Celtic\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "LASK v Celtic is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "LASK 5–1 Celtic after extra time; aggregate 5–4.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -661,7 +676,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 5,
+          "awayScore": 1,
+          "scoreDisplay": "LASK 5–1 Celtic",
+          "outcomeText": "LASK 5–1 Celtic after extra time; aggregate 5–4.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:bodo-nec-second-leg",
@@ -683,13 +707,13 @@
               "name": "N.E.C."
             }
           ],
-          "summary": "Bodø/Glimt lead 3-1 after the first leg.",
+          "summary": "Bodø/Glimt v N.E.C. is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:bodo-nec-second-leg",
             "researchTier": "marquee",
-            "hook": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "Bodø/Glimt v N.E.C. is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -715,15 +739,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "Bodø/Glimt 3–0 N.E.C.; aggregate 6–1.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Bodø/Glimt 3–0 N.E.C.; aggregate 6–1.\",\"Bodø/Glimt 3–0 N.E.C.\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "Bodø/Glimt v N.E.C. is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "Bodø/Glimt 3–0 N.E.C.; aggregate 6–1.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -751,7 +778,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 3,
+          "awayScore": 0,
+          "scoreDisplay": "Bodø/Glimt 3–0 N.E.C.",
+          "outcomeText": "Bodø/Glimt 3–0 N.E.C.; aggregate 6–1.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:aek-levski-second-leg",
@@ -773,13 +809,13 @@
               "name": "Levski Sofia"
             }
           ],
-          "summary": "The tie is level at 0-0 after the first leg.",
+          "summary": "AEK Athens v Levski Sofia is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:aek-levski-second-leg",
             "researchTier": "marquee",
-            "hook": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "AEK Athens v Levski Sofia is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -805,15 +841,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "AEK Athens 4–0 Levski Sofia; aggregate 4–0.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"AEK Athens 4–0 Levski Sofia; aggregate 4–0.\",\"AEK Athens 4–0 Levski Sofia\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "AEK Athens v Levski Sofia is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "AEK Athens 4–0 Levski Sofia; aggregate 4–0.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -841,7 +880,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 4,
+          "awayScore": 0,
+          "scoreDisplay": "AEK Athens 4–0 Levski Sofia",
+          "outcomeText": "AEK Athens 4–0 Levski Sofia; aggregate 4–0.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:viking-dinamo-second-leg",
@@ -863,13 +911,13 @@
               "name": "GNK Dinamo"
             }
           ],
-          "summary": "The tie is level at 2-2 after the first leg.",
+          "summary": "Viking v GNK Dinamo is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:viking-dinamo-second-leg",
             "researchTier": "marquee",
-            "hook": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "Viking v GNK Dinamo is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -895,15 +943,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "Viking 3–1 GNK Dinamo; aggregate 5–3.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Viking 3–1 GNK Dinamo; aggregate 5–3.\",\"Viking 3–1 GNK Dinamo\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "Viking v GNK Dinamo is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "Viking 3–1 GNK Dinamo; aggregate 5–3.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -931,7 +982,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 3,
+          "awayScore": 1,
+          "scoreDisplay": "Viking 3–1 GNK Dinamo",
+          "outcomeText": "Viking 3–1 GNK Dinamo; aggregate 5–3.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:celje-slovan-second-leg",
@@ -953,13 +1013,13 @@
               "name": "Slovan Bratislava"
             }
           ],
-          "summary": "The tie is level at 1-1 after the first leg.",
+          "summary": "Celje v Slovan Bratislava is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:celje-slovan-second-leg",
             "researchTier": "marquee",
-            "hook": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "Celje v Slovan Bratislava is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -985,15 +1045,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "Celje 1–2 Slovan Bratislava after extra time; aggregate 2–3.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Celje 1–2 Slovan Bratislava after extra time; aggregate 2–3.\",\"Celje 1–2 Slovan Bratislava\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "Celje v Slovan Bratislava is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "Celje 1–2 Slovan Bratislava after extra time; aggregate 2–3.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -1021,7 +1084,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 1,
+          "awayScore": 2,
+          "scoreDisplay": "Celje 1–2 Slovan Bratislava",
+          "outcomeText": "Celje 1–2 Slovan Bratislava after extra time; aggregate 2–3.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         },
         {
           "id": "major-match:ucl-2026-27:lyon-fenerbahce-second-leg",
@@ -1043,13 +1115,13 @@
               "name": "Fenerbahçe"
             }
           ],
-          "summary": "The tie is level at 1-1 after the first leg.",
+          "summary": "Lyon v Fenerbahçe is complete. Reveal results for the outcome.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:lyon-fenerbahce-second-leg",
             "researchTier": "marquee",
-            "hook": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsis": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "hook": "Lyon v Fenerbahçe is complete. Reveal results for the outcome.",
+            "synopsis": "",
             "threadIds": [
               "thread:football:ucl-2026-27:qualification-road"
             ],
@@ -1075,15 +1147,18 @@
             ],
             "researchedAt": "2026-08-29T19:30:00.000Z",
             "refreshAfter": null,
-            "generationMode": "verified-parent-child-projection"
+            "generationMode": "reviewed-fixture-result",
+            "hookSpoilerOn": "Lyon 1–2 Fenerbahçe; aggregate 2–3.",
+            "synopsisSpoilerOn": "",
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Lyon 1–2 Fenerbahçe; aggregate 2–3.\",\"Lyon 1–2 Fenerbahçe\",\"\"]"
           },
           "storyline": {
-            "stakes": 5,
-            "hookSpoilerOff": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "hookSpoilerOn": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
-            "synopsisSpoilerOff": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "synopsisSpoilerOn": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-            "arcStage": "preview"
+            "arcStage": "recap",
+            "hookSpoilerOff": "Lyon v Fenerbahçe is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOff": "",
+            "hookSpoilerOn": "Lyon 1–2 Fenerbahçe; aggregate 2–3.",
+            "synopsisSpoilerOn": ""
           },
           "codeId": "competition:uefa-champions-league",
           "sportDomainId": "sport:football",
@@ -1111,7 +1186,16 @@
           "isInternational": true,
           "sourceName": "UEFA 2026/27 Champions League dates and final",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z",
+          "status": "completed",
+          "homeScore": 1,
+          "awayScore": 2,
+          "scoreDisplay": "Lyon 1–2 Fenerbahçe",
+          "outcomeText": "Lyon 1–2 Fenerbahçe; aggregate 2–3.",
+          "resultSourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "resultSourceCheckedAt": "2026-09-27T17:19:22.221Z",
+          "statusCheckedAt": "2026-09-27T17:19:22.221Z",
+          "scoreCheckedAt": "2026-09-27T17:19:22.221Z"
         }
       ]
     },

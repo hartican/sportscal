@@ -27,3 +27,9 @@ Sources: https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals and 
 ## NRLW reference follow-up: 28 September Sydney
 
 The same official Accor programme confirms Roosters–Broncos at 16:00 Sydney on 4 October (05:00 UTC; 15:00 Queensland). The canonical input now resolves the existing final, and dated research replaces stale unresolved-bracket copy. Confirmed requested-sport cards explicitly clear a previously published TBC flag. NRLW joins the shared matchup renderer, retaining sourced IDs for profile links; its directory still lacks verified club artwork, so visible monograms remain. This is an explicit remaining polish gap, not full certification. `validate-requested-sports.js` covers both published feeds and Schedule; `validate-grand-final-browser.js` covers both finals at four widths.
+
+## Retained Champions League qualifiers — 28 September 2026
+
+Seven August second-leg qualifiers had no canonical status/result fields and consequently projected as upcoming. Their inherited parent synopsis also disclosed other matches' outcomes with Results off. UEFA's published qualifying-results article was checked again on 28 September Sydney; all seven now retain their existing IDs with completed status, match scores, explicit extra-time context where applicable, aggregate scores and dated result provenance. Match-specific protected copy replaces the inherited recap. No kickoff time was inferred or changed; this repair does not certify the season or prove commercial reuse permission.
+
+Source: https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/ . Regression: `validate-ucl-qualifier-results.js` covers canonical, Inspector and lightweight Schedule projections; `validate-european-football-browser.js` checks Results off/on for all seven retained fixtures. Canonical projection rebuild adds no recurring network request or subscription.
