@@ -61,6 +61,9 @@ function validateRuntimeAudit(file){
   }
 }
 function main(){
+  const runtimeBuilder=require('./build-app-shell-runtime'),context={};
+  require('node:vm').runInNewContext(runtimeBuilder.standingsSource(),context);
+  assert.deepEqual(JSON.parse(JSON.stringify(context.NOTHINGSPORTS_FEED_CARD_STANDINGS)),runtimeBuilder.cardStandings(),"packed standings must preserve every canonical field and rank");
   assert.equal(fs.readFileSync(path.join(ROOT,"assets/js/app-shell-runtime.js"),"utf8"),require("./build-app-shell-runtime").build(),"runtime must match its source modules");
   const current=criticalAssetMetrics(),baseline=criticalAssetMetrics({ref:BASELINE});
   const growth=(current.gzipBytes/baseline.gzipBytes-1)*100;

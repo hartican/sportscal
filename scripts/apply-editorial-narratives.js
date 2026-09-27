@@ -15,6 +15,7 @@ const majorEventContract = require("../config/major-events.js");
 const competitionClassification = require("../config/competition-classification.js");
 
 const WRITE = process.argv.includes("--write");
+const MAJOR_ONLY = process.argv.includes("--major-events-only");
 const KNOWLEDGE_PATH = path.resolve("data/editorial-knowledge.v1.json");
 const FEED_PATH = path.resolve("feeds/incoming/events.json");
 const PUBLISHED_FEED_PATH = path.resolve("data/events.json");
@@ -123,12 +124,14 @@ function main(){
   if (missing.length) throw new Error(`Editorial projections reference missing targets: ${missing.join(", ")}`);
 
   if (WRITE){
-    writeJson(KNOWLEDGE_PATH, knowledge);
-    writeJson(FEED_PATH, feed);
-    writeJson(PUBLISHED_FEED_PATH, publishedFeed);
+    if (!MAJOR_ONLY){
+      writeJson(KNOWLEDGE_PATH, knowledge);
+      writeJson(FEED_PATH, feed);
+      writeJson(PUBLISHED_FEED_PATH, publishedFeed);
+    }
     writeJson(MAJOR_EVENTS_PATH, majorEvents);
   }
-  console.log(`${WRITE ? "Applied" : "Would apply"} ${feedApplied} feed, ${majorApplied} major-event and ${childApplied} fixture-child editorial projections.`);
+  console.log(`${WRITE ? "Applied" : "Would apply"} ${MAJOR_ONLY ? 0 : feedApplied} feed, ${majorApplied} major-event and ${childApplied} fixture-child editorial projections.`);
 }
 
 if (require.main === module){

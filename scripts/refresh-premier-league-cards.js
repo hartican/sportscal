@@ -143,7 +143,7 @@ function cardForFixture(fixture, checkedAt){
     status: completed ? "completed" : "upcoming",
     expected: 6,
     liveWindow: 3,
-    round: `Premier League Matchweek ${gameweek}`,
+    round: "all",
     roundLabel: `Premier League Matchweek ${gameweek}`,
     roundNumber: gameweek,
     competitionName: "Premier League",

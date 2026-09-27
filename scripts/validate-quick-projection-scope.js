@@ -31,3 +31,18 @@ try{
 const nbl=projectionSteps(['NBL 2']);
 assert(nbl.some(step=>step[0]==='scripts/publish-feed.js'),'NBL results must reach the published feed');
 assert(nbl.some(step=>step.includes('--codes=nbl')),'NBL results rebuild only their inspector partition');
+
+const european=projectionSteps(['European Football source check']);
+assert(european.some(step=>step[0]==='scripts/build-code-inspector.js'&&step.includes('--codes=football,champions-league')),'daily European refresh updates both projections');
+assert(european.some(step=>step[0]==='scripts/build-follow-directories.js'&&step.includes('--codes=football')));
+assert(european.some(step=>step[0]==='scripts/validate-european-football-standings.js'));
+assert(!european.some(step=>step[0]==='scripts/publish-feed.js'),'European-only data refresh does not republish unrelated core Feed');
+
+for(const change of ['Current card evidence','Official results 1']){
+ const step=projectionSteps([change]).find(step=>step[0]==='scripts/build-code-inspector.js');
+ const codes=step[1].slice('--codes='.length).split(',');
+ assert(codes.includes('rugby-union')&&codes.includes('cricket'),'reviewed international results must update Schedule as well as Feed');
+}
+
+assert(tennis.some(step=>step[0]==='scripts/apply-editorial-narratives.js'&&step.includes('--major-events-only')),'quick tennis hydration must restore reviewed child editorial before Schedule publication');
+assert(tennis.findIndex(step=>step[0]==='scripts/apply-editorial-narratives.js')<tennis.findIndex(step=>step[0]==='scripts/build-code-inspector.js'));

@@ -49,7 +49,10 @@ assert.equal(ucl.phases.flatMap(phase => phase.fixtures).length, 13);
 assert(ucl.standingsSource?.url && Array.isArray(ucl.standings), "the Code must retain an official table contract even before rows exist");
 
 assert(inspectorManifest.codes.some(code => code.id === ucl.id && code.parentSportId === "sport:football"));
-assert.equal(uclInspector.fixtures.length, 13);
+const actualLeagueMatches=uclInspector.fixtures.filter(fixture=>fixture.sourceAttribution?.provider==='OpenLigaDB');
+assert.equal(actualLeagueMatches.length,144,'reviewed current league phase has 144 actual matches');
+assert.equal(uclInspector.fixtures.length,156,'retain 12 qualifying/stage context records separately');
+assert(!uclInspector.fixtures.some(fixture=>fixture.id==='major-stage:uefa-champions-league-2026-27:league-phase'),'actual fixtures replace the old league-phase placeholder');
 assert(uclInspector.fixtures.every(fixture => fixture.codeId === ucl.id));
 assert(uclInspector.fixtures.slice(0, 7).every(fixture => fixture.participantSlots.length === 2 && fixture.participantSlots.every(slot => slot.participantId)), "published UCL fixtures must retain followable club identities");
 const uclClubIds = new Set(ucl.participants.map(team => team.id));

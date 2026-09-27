@@ -51,12 +51,15 @@ function projectionSteps(changes,{rebuild=false}={}){
  const codes=new Set();
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
+ if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
  if(changes.some(change=>change.startsWith('NBL')))codes.add('nbl');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
+ if(changes.some(change=>change==='Current card evidence'||change.startsWith('Official results')))['rugby-union','cricket'].forEach(code=>codes.add(code));
  const steps=[];
+ if(changes.some(change=>change.startsWith('US Open')))steps.push(['scripts/apply-editorial-narratives.js','--write','--major-events-only']);
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
  if(feedChanged){steps.push(
   ['scripts/enrich-storyline-cards.js','--write'],
@@ -67,12 +70,18 @@ function projectionSteps(changes,{rebuild=false}={}){
  );}
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
  steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/build-app-shell-runtime.js'],['scripts/apply-current-card-evidence.js','--check'],['scripts/validate-current-card-coverage.js'],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
+ if(changes.some(change=>change.startsWith('European Football')))steps.push(['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-standings.js']);
  return steps;
 }
 async function refresh({now=new Date(),offline=false}={}){
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
+ if(!offline)try{
+  const european=await require('./refresh-openligadb-football').refresh({now});
+  if(european.wrote)changes.push('European Football source check');
+  failures.push(...european.failures.map(f=>`European Football ${f.league}: ${f.message}`));
+ }catch(error){failures.push(`European Football: ${error.message}`);}
  const previousBundle=read(bundlePath);let bundle=previousBundle;
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};
  if(!offline)try{
@@ -117,7 +126,10 @@ async function refresh({now=new Date(),offline=false}={}){
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
- console.log(JSON.stringify({mode:'quick',changed:changes,failures,aiCalls:0}));
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,aiCalls:0};
+ if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}
+ console.log(JSON.stringify(report));
+ if(failures.length)console.warn(`::warning::Quick refresh retained last-good data for ${failures.length} failed source checks; review the refresh report.`);
  if(failures.length&&!changes.length&&!offline)throw new Error('Quick sources failed; preserved last-known-good data.');
  return {changes,failures};
 }

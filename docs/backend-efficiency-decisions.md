@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## European Football daily source checks — 27 September 2026
+
+The existing daily canonical workflow also refreshes OpenLigaDB in weekday quick mode. It makes two bounded provider requests and rebuilds only Football/Champions League projections and Football identities when the dataset is checked; no second scheduler or live polling is introduced. Derived standings reuse those fixture facts. Source failures retain last-good records and original freshness; quick-mode failures are preserved in the existing workflow artifact and annotated as warnings. Production and canonical workflows use Node 24. Daily snapshots are not real-time scores. Reviewed international results rebuild rugby and cricket Schedule partitions as well as Feed. Quick US Open hydration reapplies the existing reviewed major-event editorial before building Schedule; the scoped editorial command does not rewrite Feed or the knowledge register.
+
 ## Public refresh without private preferences - 27 September 2026
 
 Full manual card/result refreshes without a configured follow snapshot preserve and validate the existing compact fixture-only artifact. They rebuild public schedules and run synthetic Follow checks instead of accessing account preferences. An explicitly configured snapshot retains the existing personalised projection/audit path. A public-only audit must not claim that individual accounts were audited. No additional scheduler is introduced.
@@ -175,6 +179,6 @@ Regression: notification, live-rating and backend-efficiency validators, plus th
 
 ## European Football source trial — 27 September 2026
 
-OpenLigaDB league-phase fixtures refresh only through the existing `update-cards.js` owner: full refresh or the bounded `--european-football -p` mode. Two season endpoints, one call each, fifteen-second timeout each; no added live polling, cron, database writer or account. Responses must pass complete league-phase and reviewed identity checks before atomic publication. A failed source keeps its original last-good facts and check time; an incomplete first import fails without publishing. Partial/total failures make the canonical command nonzero and must not be reported as successful freshness.
+OpenLigaDB league-phase fixtures refresh only through the existing `update-cards.js` owner: full refresh, daily quick refresh (see the later decision above), or the bounded `--european-football -p` mode. Two season endpoints, one call each, fifteen-second timeout each; no added live polling, cron, database writer or account. Responses must pass complete league-phase and reviewed identity checks before atomic publication. A failed source keeps its original last-good facts and check time; an incomplete first import fails without publishing. Partial/total failures make the canonical command nonzero and must not be reported as successful freshness.
 
 Public provider facts and identity mappings remain independently retrievable under ODbL, with attribution on cards and calendar exports. Private preferences and editorial are not put in the provider dataset. Existing per-user Follow consent and exclusions remain authoritative. This does not establish an uptime guarantee or certify full competition quality.

@@ -489,6 +489,21 @@
       "status": "completed",
       "endTimeUtc": "2026-09-27T09:00:00.000Z",
       "endTimeBasis": "scheduled-live-window"
+    },
+    {
+      "id": "rugby-australia-south-africa-2026-09-27",
+      "status": "completed",
+      "startTimeUtc": "2026-09-27T09:45:00.000Z",
+      "time": "19:45",
+      "score": "Australia 42-38 South Africa",
+      "homeScore": 42,
+      "awayScore": 38,
+      "outcomeText": "Australia defeated South Africa 42-38.",
+      "recapText": "Australia defeated South Africa 42-38 at Optus Stadium, Perth.",
+      "sourceName": "Rugby Australia official match centre",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625",
+      "sourceCheckedAt": "2026-09-27T12:34:38.105Z",
+      "resultPublishedAt": "2026-09-27T12:34:38.105Z"
     }
   ]
 }

@@ -46,7 +46,7 @@ jobs:
         if: steps.cadence.outputs.run == 'true'
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install project and deployment dependencies
@@ -79,6 +79,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
           TOURNAMENT_HYDRATION_REPORT: ${{ runner.temp }}/tournament-hydration-report.json
+          QUICK_RESULTS_REPORT: ${{ runner.temp }}/quick-results-report.json
           RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
           QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
         run: bash scripts/update-sportscal-cards-and-release.sh
@@ -96,6 +97,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tournament-hydration-report
-          path: ${{ runner.temp }}/tournament-hydration-report.json
+          path: |
+            ${{ runner.temp }}/tournament-hydration-report.json
+            ${{ runner.temp }}/quick-results-report.json
           if-no-files-found: ignore
           retention-days: 14

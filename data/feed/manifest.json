@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20260927093529410",
-  "sourcePublishedAt": "2026-09-27T09:35:29.410Z",
+  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20260927123607380",
+  "sourcePublishedAt": "2026-09-27T12:36:07.380Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 1066,
-  "eventCount": 708,
+  "inputEventCount": 1064,
+  "eventCount": 706,
   "pages": [
     {
       "index": 0,
@@ -229,34 +229,34 @@
       "path": "data/feed/page-032.json",
       "eventCount": 20,
       "firstEventId": "event:premier-league:129296",
-      "lastEventId": "event:aflw:cd_m20262640705"
+      "lastEventId": "event:nbl:2026-27:36f361e7-58ad-11f1-a449-59142d8bd7d5"
     },
     {
       "index": 32,
       "path": "data/feed/page-033.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:36f361e7-58ad-11f1-a449-59142d8bd7d5",
-      "lastEventId": "event:aflw:cd_m20262640606"
+      "firstEventId": "major-match:nrl-finals-2026:preliminary-final-2",
+      "lastEventId": "event:nbl:2026-27:3700706c-58ad-11f1-ae9e-a93048d70593"
     },
     {
       "index": 33,
       "path": "data/feed/page-034.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262640607",
-      "lastEventId": "event:nbl:2026-27:36e0e11c-58ad-11f1-93d0-e78395b5c13c"
+      "firstEventId": "event:aflw:cd_m20262640608",
+      "lastEventId": "event:sailgp:2026:geneva-day-1"
     },
     {
       "index": 34,
       "path": "data/feed/page-035.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128972",
-      "lastEventId": "event:aflw:cd_m20262640506"
+      "firstEventId": "event:aflw:cd_m20262640601",
+      "lastEventId": "event:aflw:cd_m20262640507"
     },
     {
       "index": 35,
       "path": "data/feed/page-036.json",
-      "eventCount": 8,
-      "firstEventId": "event:nrlw:2026:round-11-knights-titans",
+      "eventCount": 6,
+      "firstEventId": "event:aflw:cd_m20262640508",
       "lastEventId": "event:premier-league:128956"
     }
   ]

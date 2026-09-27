@@ -268,7 +268,11 @@ const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-a
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-cards.js"), "utf8");
-const quickEnvironment = { ...process.env };
+// This offline regression verifies the published snapshot, not matches that
+// finish after that snapshot. Production verification keeps its real clock.
+const snapshotTime = JSON.parse(fs.readFileSync(path.join(projectRoot, "data/feed-meta.json"), "utf8")).publishedAt;
+assert(Number.isFinite(Date.parse(snapshotTime)), "published snapshot requires a reference time");
+const quickEnvironment = { ...process.env, RESULT_CHECK_NOW:snapshotTime };
 for (const name of [
   "SUPABASE_URL",
   "SUPABASE_SECRET_KEY",
