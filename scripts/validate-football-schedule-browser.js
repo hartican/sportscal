@@ -32,6 +32,15 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${width} ${theme}: no page overflow`);
   }
   assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([key])=>key!=='followBrowse')))),before,'viewing schedules and revealing table must not mutate follows or Results');
-  console.log('Football browser: matchweek navigation, Results-off protection, dated 20-team table, four widths and unchanged preferences passed.');
+  for(const date of ['2026-09-25','2026-09-29'])for(const mode of ['schedule','feed']){
+   await page.evaluate(({date,mode})=>{
+    const fixture=codeInspectorChunk.fixtures.find(f=>f.id===`football-australia-brazil-${date}`);
+    const host=document.getElementById('listView');host.replaceChildren(mode==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(canonicalFeedFixtureForInspector(fixture)||fixture));
+   },{date,mode});
+   const free=page.locator('#listView a.provider-link[aria-label*="10 Streaming"]');
+   assert.equal(await free.count(),date==='2026-09-25'?1:0,`${date} ${mode}: fixture-specific free option`);
+   if(date==='2026-09-25'){await free.scrollIntoViewIfNeeded();assert(await free.isVisible());assert.equal(await free.getAttribute('href'),'https://10.com.au/');}
+  }
+  console.log('Football browser: matchweek navigation, Results-off protection, dated 20-team table, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

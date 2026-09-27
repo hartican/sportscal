@@ -71,6 +71,7 @@
     foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel-nrl.svg", logoBackground:"#151820" },
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/watch/sport", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
     optus:{ label:"Optus Sport", actionLabel:"Optus Sport", webUrl:"https://sport.optus.com.au/", active:false, paid:true, territory:"AU", accessType:"subscription", aliases:["optus sport", "optus"] },
+    ten:{ label:"10 Streaming", actionLabel:"10 Streaming", webUrl:"https://10.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["network 10", "channel 10", "10 streaming", "10play", "10 play"] },
     paramount:{ label:"Paramount+", actionLabel:"Paramount+", webUrl:"https://www.paramountplus.com/au/", paid:true, territory:"AU", accessType:"subscription", aliases:["paramount+", "paramount plus", "paramount"], logoPath:"assets/providers/paramount-plus.svg", logoBackground:"#ffffff" },
     seven:{ label:"7plus", actionLabel:"7plus", webUrl:"https://7plus.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["7plus", "channel 7", "seven"], logoPath:"assets/providers/7plus-transparent.svg", logoBackground:"transparent" },
     "nine-tv":{label:"Nine",actionLabel:"Nine",webUrl:"https://www.9now.com.au/",paid:false,territory:"AU",accessType:"free",aliases:[],logoPath:"assets/providers/nine.svg"},
@@ -821,11 +822,11 @@
           || explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
         const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
         const explicitUrl = explicitObject.webUrl || explicitObject.url || null;
-        const explicitScope = String(explicitObject.linkScope || explicitObject.rightsScope || "").toLowerCase();
+        const explicitScope = String(explicitObject.linkScope || "").toLowerCase();
         const fixtureUrl = explicitScope === "fixture" ? explicitUrl : explicitObject.fixtureUrl || null;
         const eventUrl = explicitScope === "event" ? explicitUrl : explicitObject.eventUrl || explicitObject.tournamentUrl || rights?.eventUrls?.[providerId] || null;
         const sportUrl = explicitScope === "sport" ? explicitUrl : explicitObject.sportUrl || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
-        const webUrl = fixtureUrl || eventUrl || sportUrl;
+        const webUrl = fixtureUrl || eventUrl || explicitUrl || sportUrl;
         const linkScope = fixtureUrl ? "fixture" : eventUrl ? "event" : "sport";
         return {
           providerId,
@@ -835,6 +836,7 @@
           territory:explicitObject.territory || provider.territory || rights?.territory || "AU",
           accessType:explicitObject.accessType || provider.accessType || (provider.paid ? "subscription" : "free"),
           liveOrReplay:completed ? "replay" : "live",
+          replayVerified:completed && ["replay","both"].includes(explicitObject.liveOrReplay) && Boolean(explicitObject.sourceUrl && explicitObject.verifiedAt),
           rightsScope:explicitObject.rightsScope || (fixtureProviderIds.length ? "fixture" : rights?.rightsScope) || "fixture",
           linkScope,
           sourceUrl:explicitObject.sourceUrl || rights?.sourceUrl || null,

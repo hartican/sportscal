@@ -242,3 +242,11 @@ Rebuild an existing Code projection without fetching unrelated sports through `n
 Entering Football with no saved category opens All Football, rather than implicitly selecting Champions League. Saved explicit categories and user follows remain unchanged. EPL fixtures retain the official matchweek, season and competition display name; earlier publications recover the exact sourced matchweek label without deriving rounds from dates. The existing canonical EPL table is projected into Follow with its observation time, games played, wins, draws, losses and points. Standings remain hidden with Results off until the existing explicit reveal confirmation is accepted; this does not change Results or follows.
 
 Regression: `validate-football-schedule.js` and `validate-football-schedule-browser.js`. This is partial EPL repair, not certification of source accuracy, viewing rights, UCL or Europa League coverage.
+
+## Fixture-specific free viewing — 27 September 2026
+
+The shared provider registry recognises `ten` as 10 Streaming, an Australian free service. Existing sourced fixture options remain authoritative: the 25 September Socceroos–Brazil fixture exposes 10 Streaming and Paramount+, while 29 September remains Paramount+-only. Do not add 10 as a generic national-team competition entitlement. The destination is the provider homepage, not a claimed direct match stream. Retain dated source evidence; availability of a replay is separate from the historical live broadcast right.
+
+Evidence: official Socceroos viewing guide checked 27 September, `https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026`. Regression: `validate-football-viewing.js` and the Feed/Schedule links in `validate-football-schedule-browser.js`.
+
+Viewing evidence clarification: fixture-level broadcast entitlement does not imply a direct match URL. Only an explicit link scope or fixture URL establishes that. Completed status alone does not establish a replay; without dated replay/both evidence, the provider action says “Check replay availability.” Existing verified replay actions and provider destinations remain usable. The shared Australian viewing and provider regression suites cover this distinction.

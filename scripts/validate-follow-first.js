@@ -158,7 +158,7 @@ assert(
     && html.includes('const label = active ? "Reminder ON" : "Remind"')
     && html.includes('chat.textContent = "Chat"')
     && html.includes("buildViewingProviderMark")
-    && html.includes("const verb=viewingLink.liveOrReplay==='replay'?'Replay':'Watch';")
+    && html.includes("const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';")
     && html.includes("link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title)")
     && html.includes("mark.replaceChildren(fallback)")
     && !html.includes("mark.append(fallback, image)"),
