@@ -155,7 +155,7 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 403,
+      "fixtureCount": 402,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",

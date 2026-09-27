@@ -212,6 +212,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-paged-feed.js"],
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/validate-football-classification.js","--published"],
   ["scripts/build-tennis-feed-parents.js"],
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
@@ -337,6 +338,16 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function main() {
   const options = parseOptions();
+  if(process.argv.includes('--code-projections')){
+    const scope=process.argv.find(arg=>arg.startsWith('--codes='));
+    if(!scope||!scope.slice(8).split(',').every(slug=>/^[a-z][a-z0-9-]*$/.test(slug)))throw new Error('--code-projections requires --codes=<existing slug,...>');
+    const known=new Set(require('../data/code-inspector/manifest.json').codes.map(code=>code.slug));
+    if(scope.slice(8).split(',').some(slug=>!known.has(slug)))throw new Error('Unknown Code projection slug');
+    runStep(['scripts/build-code-inspector.js',scope]);
+    runStep(['scripts/validate-football-classification.js','--published']);
+    console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
+    return;
+  }
   if(process.argv.includes('--reviewed-fixtures')){
     for(const args of [
       ['scripts/apply-current-card-evidence.js'],

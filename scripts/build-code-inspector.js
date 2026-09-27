@@ -139,6 +139,14 @@ function eventMatchesCode(event, code){
   if((event.participantIds || []).some(id=>id.startsWith("team:nrl:")) && code.id==="sport:rugby-union")return false;
   const childId = childCodeId(event);
   if (childId) return code.id === childId;
+  // Football must not match American Football by substring or a conflicting legacy key.
+  if(code.id === "sport:football"){
+    const domain=[event?.sportDomainId,event?.codeId,event?.sportId,event?.taxonomyNodeId].find(value=>String(value||" ").startsWith("sport:"));
+    if(domain)return domain === code.id;
+    const aliases=new Set(CODE_KEYS[code.id]);
+    return [event?.key,event?.sportId,event?.sportKey,event?.sport,event?.codeId]
+      .filter(Boolean).some(value=>aliases.has(String(value).toLowerCase().replace(/^sport:/,"")));
+  }
   if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
   const values = [event?.key, event?.sportId, event?.sportKey, event?.sport]
     .filter(Boolean)

@@ -230,3 +230,9 @@ Match Centre includes the Presidents Cup overview’s USA–International totals
 ## Laver Cup - 27 September 2026
 
 London 2026 published singles/doubles use existing canonical athlete/collection follows and exclusions. Tournament overview stays in Events/Schedule; these round-robin contests gain no admission from broad Tennis alone. Completed matches retain the ordinary seven-day window. No user preferences are changed.
+
+## Football projection classification — 27 September 2026
+
+Football Code membership uses an explicit canonical sport ID when present; legacy records use exact Football/Soccer/FIFA/Premier League aliases. Substring matches such as American Football must not enter Football. Preserve Follow consent, saved fixtures and American Football coverage. Regression: `validate-football-classification.js --published`.
+
+Rebuild an existing Code projection without fetching unrelated sports through `node scripts/update-cards.js --code-projections --codes=football -p`. This is a projection rebuild from current canonical facts, not proof that sources, results or standings were refreshed. Current card/result gates still govern publication; a local projection pass cannot waive them.
