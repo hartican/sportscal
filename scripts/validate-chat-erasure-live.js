@@ -14,10 +14,10 @@ async function main(){
  const {createPatch}=require('../config/user-state-sync');
  const service=(path,options={})=>supabaseServiceRequest(path,{...options,environment});
  const auth=(path,options={})=>supabaseRequest(path,{...options,environment});
- const users=[],objects=[],installations=[],sendLeases=[],checks=[];let roomId=null,removed=new Set();
+ const users=[],objects=[],installations=[],sendLeases=[],checks=[];let roomId=null,removed=new Set(),workflowJournalDirectory=null;
  const bucket='nothingsports-chat-transient',stamp=crypto.randomBytes(7).toString('hex');
  const manifest=path.join(os.tmpdir(),`nothingsport-erasure-qa-${stamp}.json`);
- function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,installationIds:installations,sendLeaseIds:sendLeases,removedAccountIds:[...removed]}),{mode:0o600});}
+ function checkpoint(){fs.writeFileSync(manifest,JSON.stringify({project:'mkghopnkhcxtmfrcjdbc',accountIds:users.map(u=>u.id),roomId,bucket,objects,installationIds:installations,sendLeaseIds:sendLeases,workflowJournalDirectory,removedAccountIds:[...removed]}),{mode:0o600});}
  checkpoint();
  const rest=(table,query='')=>`/rest/v1/nothingsports_${table}${query?'?'+query:''}`;
  const post=(table,body)=>service(rest(table),{method:'POST',headers:{Prefer:'return=representation'},body});
@@ -129,7 +129,28 @@ async function main(){
    assert(!(await heldWrite).error,'Held writer completes');
    checks.push('observed_inflight_write_blocks_erasure_begin');
   }
-  const barrier=await beginErasure();assert.equal(await beginErasure(),barrier,'Erasure begin retries safely');
+  let barrier;
+  if(process.env.ERASURE_WORKFLOW_QA==='1'){
+   const {operator}=require('../lib/account-erasure-operator');
+   const {newJournal,advance}=require('../lib/account-erasure-workflow');
+   const {openJournal}=require('../lib/account-erasure-journal');
+   workflowJournalDirectory=path.join(os.tmpdir(),`nothingsport-erasure-journal-${stamp}`);checkpoint();
+   const store=openJournal(workflowJournalDirectory,owner.id),adapter=operator({environment});
+   try{
+    const journal=newJournal(owner.id,{verifiedAccountId:owner.id,requestId:`disposable-${stamp}`,verifiedAt:new Date().toISOString()});
+    await advance({journal,...adapter,persist:store.persist});
+    assert.deepEqual(journal.steps.map(s=>s.phase),['freeze','captureLineage']);
+    assert.equal(journal.phase,'drainIssuers');assert.equal(journal.complete,false);
+    assert(journal.pending.includes('legacy_deployment_shutdown_evidence_required'));
+    assert(journal.pending.includes('notification_attempt_reconciliation_required'));
+    for(const object of objects)assert(journal.lineage.objects.some(item=>item.bucket===bucket&&item.objectPath===object),'Owned Storage lineage survives removal of bytes');
+    barrier=journal.steps[0].evidence.startedAt;
+    const restored=store.load();await advance({journal:restored,...adapter,persist:store.persist});
+    assert.equal(restored.steps[0].evidence.startedAt,barrier);assert.equal(restored.steps.length,2);assert.equal(restored.complete,false);
+   }finally{store.close();}
+   checks.push('durable_workflow_freeze_lineage_and_resume_verified','workflow_pauses_for_missing_issuer_and_send_evidence');
+  }else barrier=await beginErasure();
+  assert.equal(await beginErasure(),barrier,'Erasure begin retries safely');
   const blockedAuth=await auth('/auth/v1/user',{accessToken:owner.token});
   assert(blockedAuth.app_metadata?.nothingsport_erasure_started_at,'Fresh protected Auth metadata marks erasure');
   const stoppedRead=await api(owner,'user-state');assert.equal(stoppedRead.status,403);assert.equal(stoppedRead.body.code,'account_erasure_in_progress');
@@ -206,6 +227,7 @@ async function main(){
   for(const id of sendLeases){try{await service(rest('notification_send_leases',`lease_id=eq.${id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('send_lease');}}
   for(const user of users.filter(u=>removed.has(u.id))){try{await service(rest('account_erasure_blocks',`user_id=eq.${user.id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('erasure_barrier');}}
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
+  if(workflowJournalDirectory)fs.rmSync(workflowJournalDirectory,{recursive:true});
   fs.unlinkSync(manifest);
  }
  if(failure)throw failure;
