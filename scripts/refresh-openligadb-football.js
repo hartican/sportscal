@@ -17,6 +17,7 @@ function eventsForLeague(facts){
       startTimeUtc:fixture.startTimeUtc,timePrecision:'exact',status:fixture.status,scheduleStatus:'confirmed',gender:'men',isSenior:true,
       sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:facts.checkedAt,
       sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},
+      footballMatchContext:require('./lib/football-match-context').matchContext(facts,fixture),
       ...(fixture.result?{...fixture.result,score:`${participants[0].name} ${fixture.result.homeScore}-${fixture.result.awayScore} ${participants[1].name}`,scoreCheckedAt:facts.checkedAt,resultSourceUrl:facts.source.url}:{}),
     });
   });

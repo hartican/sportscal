@@ -53,3 +53,6 @@ UEFA publishes current Champions League and Europa league-phase fixture lists. I
 
 
 Account erasure follow-up (28 September Sydney): issuer drain now verifies an account-specific Auth hold, closing fresh Auth access and new sign-in/refresh for the requested account. Hosted disposable proof preserved peer access and removed both test accounts. One old deployment was Vercel-protected; all legacy issuers and previously issued capabilities remain uncertified, so destructive automation remains stopped. No subscription, new scheduler or real-user hold was introduced.
+
+
+28 September Football context follow-up: all 288 UCL/Europa league-phase cards now carry source-derived earlier-match records in their expanded view, with Results-off privacy and unchanged canonical fixture facts. This adds useful factual context without an editorial subscription or ongoing manual writing. Tests cover exclusion of the current/future/unknown result, personalised Feed propagation, both surfaces and four widths. Family/pilot certification remains 0/16 and 0/3 pending the wider quality gates.

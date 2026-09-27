@@ -68,6 +68,7 @@ assert.equal(europeanFeed([]).length,0,'broad Football alone does not opt into c
 const liverpool=europeanFeed([{participantId:'team:football:epl:10',followLevel:'follow'}]);
 assert.equal(liverpool.length,7,'existing Liverpool follow admits all seven remaining UCL league matches');
 assert(liverpool.every(e=>e.participantIds.includes('team:football:epl:10')));
+assert(liverpool.every(e=>e.footballMatchContext?.teams.length===2),'Personalised Feed preserves the same source-backed context');
 assert.equal(europeanFeed([{participantId:'team:football:epl:10',followLevel:'mute'}]).length,0);
 const published=require('../data/providers/openligadb/football-2026-27.json');
 const rights=require('../config/follow-first');
@@ -119,4 +120,16 @@ const identities=require('../config/card-identities');const unmappedArtwork=publ
  for(const status of ['cancelled','postponed','suspended','abandoned'])assert.equal(controls.timingState({...fixture,status},now),null);
  assert.equal(JSON.stringify(fixture),unchanged,'display must not mutate source facts or stable identities');
  console.log('Daily Football timing: no clock-inferred live/final labels, explicit live evidence, terminal states and unchanged facts passed.');
+}
+
+// Match context must never use this match or a later result as pre-match form.
+{
+ const {matchContext}=require('./lib/football-match-context');
+ const teams=[{participantId:'club:a',name:'Club A'},{participantId:'club:b',name:'Club B'}];
+ const match=(day,homeScore,awayScore)=>({startTimeUtc:`2026-09-${day}T12:00:00.000Z`,status:'completed',participants:teams,result:{homeScore,awayScore}});
+ const target=match('20',9,0),league={competitionId:'test',season:'2026/27',checkedAt:'2026-09-27T00:00:00.000Z',fixtures:[match('10',1,0),target,match('25',0,8)]};
+ const context=matchContext(league,target);assert.deepEqual(context.teams.map(t=>[t.played,t.won,t.drawn,t.lost]),[[1,1,0,0],[1,0,0,1]]);
+ assert.equal(matchContext(league,match('01',0,0)).teams[0].played,0,'No earlier evidence is not invented form');
+ const pending={...match('15',2,0),status:'unknown'};league.fixtures.push(pending);assert.equal(matchContext(league,target).teams[0].played,1,'Unknown results excluded');
+ league.fixtures.push(match('16',-1,0));assert.throws(()=>matchContext(league,target),/confirmed/);
 }

@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="330">
+<meta name="app-shell-version" content="331">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=330" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=331" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=330"></script>
+<script src="assets/js/app-shell-runtime.js?v=331"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16947,28 +16947,14 @@ function buildOngoingTournamentParent(ev){
   button.onclick=()=>{body.hidden=!body.hidden;button.setAttribute('aria-expanded',String(!body.hidden));if(body.hidden)tennisFeedOpenParents.delete(ev.id);else tennisFeedOpenParents.add(ev.id);paint();};
   heading.append(link,context,button);card.append(heading,body);queueMicrotask(paint);return card;
 }
-function buildFixtureDataAttribution(ev){
-  if(ev.sourceAttribution?.provider!=='OpenLigaDB')return null;
-  const note=document.createElement('div');note.className='fixture-source-attribution';
-  const context=document.createElement('p');context.className='fixture-source-context';
-  const matchday=Number(ev.roundNumber);
-  if(ev.stage==='League phase'&&Number.isInteger(matchday)&&matchday>=1&&matchday<=8)context.textContent=`League phase · Matchday ${matchday}`;
-  if(context.textContent)note.append(context);
-  const checked=new Date(ev.sourceCheckedAt||'');
-  if(Number.isFinite(checked.getTime())){
-    const freshness=document.createElement('p');freshness.className='fixture-source-freshness';
-    const time=document.createElement('time');time.dateTime=checked.toISOString();
-    time.textContent=new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Australia/Sydney',timeZoneName:'short'}).format(checked);
-    freshness.append(document.createTextNode('Source checked '),time);note.append(freshness);
-  }
-  const links=document.createElement('p');links.className='fixture-source-links';
-  links.append(document.createTextNode('Data: '));
-  for(const [label,href] of [['OpenLigaDB','https://www.openligadb.de/'],['ODbL','https://opendatacommons.org/licenses/odbl/1-0/'],['Dataset','/data/providers/openligadb/football-2026-27.json']]){
-    if(links.children.length)links.append(document.createTextNode(' · '));
-    const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener';link.addEventListener('click',event=>event.stopPropagation());links.append(link);
-  }
-  note.append(links);return note;
+function buildEuropeanDetail(ev,kind){
+  const node=document.createElement('div');
+  if(kind==='attribution'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
+  loadDeferredScript('assets/js/football-card-context.js?v=331').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
+  return node;
 }
+function buildFixtureDataAttribution(ev){return ev.sourceAttribution?.provider==='OpenLigaDB'?buildEuropeanDetail(ev,'attribution'):null;}
+
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
   if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
@@ -17110,11 +17096,14 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
   return topRow;
 }
 
+function buildFootballMatchContext(ev){return ev.footballMatchContext?buildEuropeanDetail(ev,'context'):null;}
+
 function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, displayTitle, localGame}){
   const ticketOffer=preferredTicketOfferForEvent(ev,{surface:'fixture',localVenueMatched:localGame});
   const whyItMatters = !isMinimised ? buildEventWhyItMatters(ev) : null;
   if (whyItMatters){whyItMatters.dataset.cardArea='expanded-information';parent.appendChild(whyItMatters);}
   if (!isMinimised && state === "opened"){
+    const footballContext=buildFootballMatchContext(ev);if(footballContext)parent.append(footballContext);
     const secondaryActions = document.createElement("div");
     secondaryActions.className = "event-card-secondary-actions";
     secondaryActions.dataset.cardArea="expanded-information";

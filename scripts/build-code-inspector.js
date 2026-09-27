@@ -279,6 +279,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(codeId === "sport:wrc" && event.resultSourceUrl ? { resultSourceUrl:event.resultSourceUrl } : {}),
     sourceUrl:event.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
+    ...(event.footballMatchContext ? {footballMatchContext:event.footballMatchContext} : {}),
     ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
     ...(event.storyline ? { storyline:event.storyline } : {}),
     sourceCoverage: extra.sourceCoverage || "published-feed",
@@ -368,7 +369,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       if (event.detailsExpectedAt === undefined) mergedEvent.detailsExpectedAt = null;
     }
     const normalized = normalizeFixture(mergedEvent, codeId, {
-      sourceCoverage: officialEvents.has(event) ? "official-canonical" : "published-feed",
+      sourceCoverage: mergedEvent.sourceType === "community" ? "community-canonical" : officialEvents.has(event) ? "official-canonical" : "published-feed",
     });
     fixtures.set(retainedId, normalized);
     const normalizedSemantic = semanticFixtureKey(normalized);
