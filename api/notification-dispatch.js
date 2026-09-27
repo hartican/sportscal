@@ -85,12 +85,12 @@ module.exports = async function notificationDispatchHandler(request, response){
     let reminders=[];
     let claimed=[];
     try{
-      const rows=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_claim_due_reminders',{method:'POST',body:{claim_at:claimedAt,oldest_due:oldest.toISOString(),stale_before:staleBefore,batch_limit:100}});
+      const rows=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_claim_due_reminders',{method:'POST',body:{claim_at:claimedAt,oldest_due:oldest.toISOString(),stale_before:staleBefore,batch_limit:5}});
       reminders=Array.isArray(rows)?rows:[];
       claimed=reminders.map(reminder=>({reminder,claimedAt}));
     }catch(error){
       if(!(error instanceof SupabaseRequestError)||![400,404].includes(Number(error.status)))throw error;
-      reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=100&select=*`);
+      reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=5&select=*`);
       for (const reminder of reminders || []){
         const row = await claimReminder(reminder, claimedAt, staleBefore);
         if (row) claimed.push({ reminder:row, claimedAt });
@@ -116,7 +116,7 @@ module.exports = async function notificationDispatchHandler(request, response){
         await webpush.sendNotification({
           endpoint:installation.endpoint,
           keys:{ p256dh:installation.p256dh, auth:installation.auth_key },
-        }, JSON.stringify(notificationPayload(reminder, startLabel)), { TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
+        }, JSON.stringify(notificationPayload(reminder, startLabel)), { timeout:3000, TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
         sent += 1;
         await patchClaimedReminder(reminder.id, claimedAt, { claimed_at:null, dispatched_at:new Date().toISOString(), attempts:Number(reminder.attempts || 0) + 1, last_error:null });
       }catch(error){

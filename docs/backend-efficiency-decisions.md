@@ -164,3 +164,11 @@ Complete source failures use the existing database failure count to back off fro
 Authorised notification attempts record start before maintenance, inbox and VAPID checks. Preflight failures and alert-dispatch exceptions record bounded diagnostic codes rather than raw upstream messages. Unauthorised calls cannot write health. This change does not establish a scheduler owner, enable a second scheduler, or prove delivery to a physical device.
 
 Regressions: live fixture and notification validators, now also in the serialized production workflow.
+
+## Reminder scheduler recovery — 27 September 2026
+
+The existing cron-job.org dispatcher remains the sole five-minute owner. Its 30-second request limit exposed an accumulated outbox processed sequentially in batches of 100. Limit each invocation to two friend-rating groups, two social groups and five reminders; unclaimed work stays queued for the next invocation. Preserve atomic delivery claims, opt-outs and ambiguous-outcome handling. Push transport has a three-second timeout. These are bounded batches, not a guaranteed end-to-end deadline during provider/database outages.
+
+Hydrate only the due rating fixture IDs. Explicitly include the dynamically loaded competition catalogue in the dispatcher function: Vercel's dependency trace omitted all 30 schedule chunks although they existed in the source upload. No new scheduler, subscription, migration or private-data logging.
+
+Regression: notification, live-rating and backend-efficiency validators, plus the dispatcher bundle validator. Live acceptance requires a successful automatic cron run and updated server health, separately from physical-device push delivery.

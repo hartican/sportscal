@@ -4,6 +4,9 @@
     "deploymentEnabled": false
   },
   "functions": {
+    "api/notification-dispatch.js": {
+      "includeFiles": "data/code-inspector/*.json"
+    },
     "api/chat.js": {
       "includeFiles": "data/chat-fixtures.v1.json"
     },

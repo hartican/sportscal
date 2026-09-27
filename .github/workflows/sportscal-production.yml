@@ -60,6 +60,9 @@ jobs:
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-odi-display.js
           node scripts/validate-football-classification.js --published
+          node scripts/validate-dispatch-bundle.js
+          node scripts/validate-live-rating-alerts.js
+          node scripts/validate-backend-efficiency.js
           node scripts/validate-notifications.js
           node scripts/validate-live-fixtures.js
           node scripts/validate-match-observations.js

@@ -41,7 +41,7 @@ async function main(){
   assert.equal(require("../config/nothingscore").PRESENCE_TTL_MS,10*60*1000);
   assert.match(html,/scheduleNothingscoreHeartbeat\(60_000\)/,"the first confirmation must remain one minute after entry");
   assert.match(html,/5\*60_000/,"confirmed watching must settle to five-minute heartbeats");
-  assert(alerts.indexOf("if(!alerts.length)")<alerts.indexOf("await api.refreshEventSnapshots()"),"an empty EPIC outbox must not rebuild event snapshots");
+  assert(alerts.indexOf("if(!alerts.length)")<alerts.indexOf("await api.refreshEventSnapshots("),"an empty EPIC outbox must not rebuild event snapshots");
   assert.match(migration,/nothingsports_fixture_current/);
   assert.match(migration,/current_row\.content_hash is not distinct from p_hash/);
   assert.match(migration,/nothingsports_claim_due_reminders/);

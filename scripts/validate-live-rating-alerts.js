@@ -45,6 +45,21 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   return {sends,complete,deliveries};
 }
 (async()=>{
+  const queued=Array.from({length:5},(_,i)=>({id:`queued-${i}`,event_id:`fixture-${i}`}));
+  const hydrated=[],completed=[];
+  const backlogApi={
+    rows:async(_table,query)=>queued.filter(a=>!completed.includes(a.id)).slice(0,Number(query.limit)),
+    refreshEventSnapshots:async(ids)=>hydrated.push(ids),eventFor:()=>null,
+  };
+  const finish=async(url)=>completed.push(url.split('id=eq.')[1]);
+  assert.equal((await dispatch({now,api:backlogApi,request:finish})).checked,2,'backlog is bounded per invocation');
+  assert.equal(completed.length,2,'unprocessed alerts remain pending');
+  assert.deepEqual(hydrated[0],['fixture-0','fixture-1'],'hydrate only the due batch');
+  await dispatch({now,api:backlogApi,request:finish});
+  await dispatch({now,api:backlogApi,request:finish});
+  assert.equal(new Set(completed).size,5,'successive runs drain without losing or reprocessing alerts');
+  await dispatch({now,api:backlogApi,request:finish});
+  assert.equal(hydrated.length,3,'empty outbox does not hydrate snapshots');
   assert.equal((await dispatchCase()).sends,1,'idempotent across dispatch retries');
   assert.equal((await dispatchCase({fail:[{statusCode:503}]})).sends,2,'confirmed rejection retries');
   assert.equal((await dispatchCase({fail:[{statusCode:503},{statusCode:503},{statusCode:503},{statusCode:503}]})).sends,3,'retry cap');
