@@ -9,7 +9,8 @@ async function main(){
  const keys=JSON.parse(execFileSync('node_modules/.bin/supabase',['projects','api-keys','--project-ref','mkghopnkhcxtmfrcjdbc','--reveal','--output','json'],{encoding:'utf8',stdio:['pipe','pipe','pipe'],timeout:20000}));
  const environment={SUPABASE_URL:'https://mkghopnkhcxtmfrcjdbc.supabase.co',SUPABASE_PUBLISHABLE_KEY:keys.find(k=>k.name==='anon')?.api_key,SUPABASE_SERVICE_ROLE_KEY:keys.find(k=>k.name==='service_role')?.api_key};
  assert(environment.SUPABASE_SERVICE_ROLE_KEY&&environment.SUPABASE_PUBLISHABLE_KEY,'Test credentials unavailable');
- const {supabaseServiceRequest,supabaseRequest}=require('../lib/supabase-server');
+ const {supabaseServiceRequest,supabaseRequest,userStateFromRow}=require('../lib/supabase-server');
+ const {createPatch}=require('../config/user-state-sync');
  const service=(path,options={})=>supabaseServiceRequest(path,{...options,environment});
  const auth=(path,options={})=>supabaseRequest(path,{...options,environment});
  const users=[],objects=[],installations=[],checks=[];let roomId=null,removed=new Set();
@@ -26,6 +27,15 @@ async function main(){
  }
  async function deleteAccount(user){accountOwned(user.id);await service(`/auth/v1/admin/users/${user.id}`,{method:'DELETE'});removed.add(user.id);checkpoint();}
  async function chat(user){const r=await fetch(`https://nothingsport.vercel.app/api/chat?roomId=${roomId}`,{headers:{Authorization:`Bearer ${user.token}`},signal:AbortSignal.timeout(20000)});return {status:r.status,body:await r.json()};}
+ async function api(user,route,method='GET',body){
+  const response=await fetch(`https://nothingsport.vercel.app/api/${route}`,{method,headers:{Authorization:`Bearer ${user.token}`,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});
+  return {status:response.status,body:await response.json()};
+ }
+ async function calendarRead(user){
+  const response=await fetch(`https://nothingsport.vercel.app/api/calendar?token=${user.calendarToken}`,{signal:AbortSignal.timeout(20000)});
+  const body=await response.text();
+  return {status:response.status,isCalendar:body.startsWith('BEGIN:VCALENDAR'),private:response.headers.get('cache-control')?.includes('no-store')};
+ }
  let failure;
  try{
   for(let i=0;i<2;i++){
@@ -37,6 +47,20 @@ async function main(){
    await post('chat_profiles',{user_id:user.id,email_normalized:email,display_name:'Disposable QA'});
   }
   const [owner,peer]=users;
+  for(const [index,user] of users.entries()){
+   const initial=await api(user,'user-state');assert.equal(initial.status,200);
+   const previous=userStateFromRow(initial.body.state)||{};
+   const preferences={...previous.preferences,showResults:index===0,selectedSelectorEntityIds:[index===0?'football':'nrl']};
+   const patch=createPatch(previous,{...previous,preferences},{baseUpdatedAt:initial.body.state?.updated_at||null});
+   const saved=await api(user,'user-state','PUT',{patch});assert.equal(saved.status,200,'Authenticated preference save');
+   user.savedPreferences=preferences;
+   assert.deepEqual((await api(user,'user-state')).body.state.preferences,preferences);
+   const subscription=await api(user,'calendar','POST',{includedIds:[],excludedIds:[]});assert.equal(subscription.status,200,'Authenticated calendar creation');
+   user.calendarToken=subscription.body.subscription?.token;
+   assert(typeof user.calendarToken==='string'&&/^[a-f0-9]{64}$/.test(user.calendarToken),'Calendar secret created');
+   assert.deepEqual(await calendarRead(user),{status:200,isCalendar:true,private:true});
+  }
+  checks.push('authenticated_preferences_and_private_calendars_created');
   // Future-only reminders and non-routable test endpoints cannot notify a person.
   for(const userId of [owner.id,peer.id,null]){
    const id=crypto.randomUUID();installations.push(id);checkpoint();
@@ -73,6 +97,15 @@ async function main(){
   checks.push('refresh_rejected_after_global_logout');
   await service(rest('chat_messages',`sender_id=eq.${owner.id}&room_id=eq.${roomId}`),{method:'DELETE'});
   await deleteAccount(owner);
+  for(const table of ['user_state','calendar_subscriptions']){
+   const rows=await service(rest(table,`user_id=in.(${owner.id},${peer.id})&select=user_id`));
+   assert.deepEqual(rows,[{user_id:peer.id}],`${table} removes owner and preserves peer`);
+  }
+  assert([401,403].includes((await api(owner,'user-state')).status),'Deleted account preferences inaccessible');
+  const peerState=await api(peer,'user-state');assert.equal(peerState.status,200);assert.deepEqual(peerState.body.state.preferences,peer.savedPreferences);
+  assert.deepEqual(await calendarRead(owner),{status:404,isCalendar:false,private:true});
+  assert.deepEqual(await calendarRead(peer),{status:200,isCalendar:true,private:true});
+  checks.push('owned_preferences_and_calendar_removed','old_calendar_link_revoked','peer_preferences_and_calendar_access_preserved');
   const installFilter=`installation_id=in.(${installations.join(',')})`;
   const remainingInstalls=await service(rest('push_installations',installFilter+'&select=installation_id'));
   assert.deepEqual(remainingInstalls.map(r=>r.installation_id).sort(),installations.slice(1).sort());
@@ -94,11 +127,16 @@ async function main(){
   for(const id of installations){try{await service(rest('push_installations',`installation_id=eq.${id}`),{method:'DELETE'});}catch(e){cleanupErrors.push('installation');}}
   if(roomId){try{await service(rest('chat_rooms',`id=eq.${roomId}`),{method:'DELETE'});}catch(e){cleanupErrors.push('room');}}
   for(const user of users.filter(u=>!removed.has(u.id))){try{await deleteAccount(user);}catch(e){cleanupErrors.push('account');}}
+  if(users.length){
+   for(const table of ['user_state','calendar_subscriptions']){
+    try{assert.equal((await service(rest(table,`user_id=in.(${users.map(u=>u.id).join(',')})&select=user_id`))).length,0);}catch(e){cleanupErrors.push(table);}
+   }
+  }
   if(cleanupErrors.length)throw Error(`Disposable cleanup incomplete: ${cleanupErrors.join(',')}. Private recovery manifest: ${manifest}. Do not rerun blindly.`);
   fs.unlinkSync(manifest);
  }
  if(failure)throw failure;
- const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Seeded chat and notification service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','No ratings/calendar/device-cache or all-category erasure proof; no physical push delivery']};
+ const report={checkedAt:new Date().toISOString(),project:'mkghopnkhcxtmfrcjdbc',accountsCreated:users.length,accountsRemoved:removed.size,checks,limitations:['Disposable chat, notification, saved-preference and calendar service rehearsal, not full account erasure','Storage failure injected in runner, not a provider outage','No canonical ratings/social-follow/device-cache or all-category erasure proof; no physical push delivery']};
  if(process.env.CHAT_ERASURE_REPORT)fs.writeFileSync(process.env.CHAT_ERASURE_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify(report));
 }

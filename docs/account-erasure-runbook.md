@@ -68,3 +68,11 @@ Migration `20260927142249_remove_account_owned_notification_data_on_erasure.sql`
 Live recovery proof at 2026-09-27T14:25:31.698Z: two disposable accounts were created and removed; owned/reassigned-device reminders were removed; peer and anonymous notification state survived until explicit test cleanup. Chat/media/session checks still passed. Both tables retain forced RLS and deny direct anon/authenticated writes; security advisor categories/counts were unchanged. No real account was deleted and no push message was dispatched.
 
 This proves deletion of stored future notification state, not cancellation of an already in-flight external push. Full erasure orchestration must still quiesce writers/dispatch, handle all indirect identities and Storage, revoke sessions, reconcile every data category and disclose residual caches. Calendar/rating/follow coverage and the complete customer workflow remain open.
+
+## Saved preferences and private calendars — 28 September Sydney
+
+The opt-in disposable rehearsal now creates preferences through authenticated `PUT /api/user-state` using the current patch contract, reads them back, and creates private calendar subscriptions through authenticated `POST /api/calendar`. Both secret calendar links return an ICS document with no-store caching before erasure. Calendar tokens stay in process memory and are omitted from the report and recovery manifest.
+
+Live proof at 2026-09-27T14:35:12.397Z: deleting the test owner removed its user-state and calendar rows, denied its old authenticated preference read and made its previous calendar link return 404. The peer retained exactly its saved preferences and a working private calendar. Finally cleanup verified that both accounts' user-state and calendar rows were absent. Existing chat/media/session and notification preservation checks also passed. No migration or runtime behavior change was needed.
+
+Scope: this exercises the saved-preference document and calendar access, not canonical crowd ratings, directed social follows, every retained identity or device caches. Calendar applications may retain previously downloaded events; server revocation does not erase a remote cache. The rehearsal still uses explicit ordered operations rather than a complete customer-erasure orchestrator. Earlier exclusions describe the evidence available at those dates.
