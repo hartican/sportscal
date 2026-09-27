@@ -220,3 +220,7 @@ The rating API uses the same unconfirmed-status gate as daily-source Football ca
 ## Initial erasure Storage sweep — 28 September Sydney
 
 Operator-only, on-demand sweep: at most 20,000 owned paths, Storage lists of 250 with a 200-page ceiling, deletes of 100, and fresh counts-only inventories before and after. Durable lineage precedes effects. No production scheduler, poll or new subscription. Completion of this first sweep never means capability-expiry, late-transfer or full-account reconciliation has passed.
+
+## Indirect account cleanup — 28 September Sydney
+
+Reward allowlist admission and verified-email subscriber writes share the existing per-account erasure lock. Auth deletion removes its UUID from reward arrays and its verified current email subscription in the same transaction. These administrative paths add no client polling, scheduler, subscription or external delivery. Existing campaign and subscriber volume was zero at rollout. Historic email ownership and external delivery remain operator exceptions rather than guessed cleanup.
