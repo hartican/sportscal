@@ -45,6 +45,16 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
    assert.equal(await free.count(),date==='2026-09-25'?1:0,`${date} ${mode}: fixture-specific free option`);
    if(date==='2026-09-25'){await free.scrollIntoViewIfNeeded();assert(await free.isVisible());assert.equal(await free.getAttribute('href'),'https://10.com.au/');}
   }
+  for(const mode of ['schedule','feed']){
+   await page.evaluate(mode=>{
+    const fixture=codeInspectorChunk.fixtures.find(f=>f.competitionId==='competition:premier-league-2026-27'&&f.status==='completed');
+    activeTab=mode==='feed'?'feed':'follow';
+    document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(fixture));
+   },mode);
+   const link=page.locator('#listView a.provider-link[aria-label="Check replay availability on Stan Sport"]');
+   assert.equal(await link.count(),1,`${mode}: provider page must not promise a verified fixture replay`);
+   assert.equal(await link.getAttribute('href'),'https://www.stan.com.au/watch/sport/football/premier-league');
+  }
   console.log('Football browser: matchweek navigation, Results-off protection, dated 20-club EPL and two 36-club European tables, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

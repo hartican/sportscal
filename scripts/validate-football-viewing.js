@@ -3,6 +3,17 @@
 const assert=require('node:assert/strict'),follow=require('../config/follow-first');
 for(const folder of ['code-inspector','follow-schedule']){
  const fixtures=require(`../data/${folder}/football.json`).fixtures;
+ const epl=fixtures.filter(f=>f.competitionId==='competition:premier-league-2026-27');
+ assert.equal(epl.length,380);
+ assert(epl.some(f=>f.status==='completed'));
+ for(const fixture of epl){
+  const stan=follow.viewingOptions(fixture).find(o=>o.providerId==='stan');
+  assert(stan,`${folder}: EPL retains its Australian provider`);
+  assert.equal(stan.linkScope,'sport');
+  assert.equal(stan.replayVerified,false,`${fixture.id}: competition rights cannot verify a fixture replay`);
+  assert.equal(stan.permalinkVerifiedAt,null);
+ }
+
  const first=fixtures.find(f=>f.id==='football-australia-brazil-2026-09-25');
  const second=fixtures.find(f=>f.id==='football-australia-brazil-2026-09-29');
  const options=follow.viewingOptions(first);
@@ -15,4 +26,4 @@ for(const folder of ['code-inspector','follow-schedule']){
  assert.deepEqual(follow.viewingOptions(second).map(o=>o.providerId),['paramount'],'do not grant free coverage to the second fixture');
  assert.deepEqual(follow.viewingOptions({...second,viewingOptions:[],broadcaster:''}).map(o=>o.providerId),['paramount'],'national-team fallback must not inherit a fixture exception');
 }
-console.log('Football viewing: sourced 25 September free option retained, 29 September exclusive unchanged, destination and provenance preserved.');
+console.log('Football viewing: all 380 EPL provider destinations avoid unsupported replay guarantees; sourced Socceroos fixture exceptions and provenance preserved.');

@@ -48,3 +48,11 @@ European Football Feed and Schedule cards show validated league-phase matchday a
 ## Reference reconciliation — 28 September Sydney
 
 The dated [reference reconciliation](football-reference-reconciliation-2026-09-28.md) compares all 668 fixture identities in release 329: 380 EPL plus 144 each UCL/Europa. European matchdays and all 36 published results agree. EPL list/date/time comparison agrees after an explicitly resolved stale article duplicate and the separate final-day time announcement. EPL is a different publication from the same owner; European completed-match kickoff times and explicit UTC corroboration remain open. This supersedes the earlier three-result sample, not the remaining rights, results, quality or certification gates.
+
+## EPL result and viewing follow-up — 28 September
+
+A one-off read of the official Fantasy fixtures and team metadata endpoints matched all 380 published club pairs/matchweeks and all 50 completed outcomes. This is a separate API from the same league, not independently owned evidence. Recalculating the eight basic table statistics from those checked outcomes agrees with all 160 values across 20 clubs; rank/tie-break rules were not independently verified.
+
+The EPL adapter previously converted general competition rights into a verified replay claim when a fixture completed. It now retains the competition destination and original live-rights evidence without asserting that an individual replay exists. Completed cards use the existing “Check replay availability” action. Published validators cover all 380 EPL fixtures across both Schedule artifacts, and browser checks cover Feed and Schedule actions. Release proof is recorded separately; this does not remove the outstanding commercial-use and quality gates.
+
+Reference endpoints: https://fantasy.premierleague.com/api/fixtures/ and https://fantasy.premierleague.com/api/bootstrap-static/ .

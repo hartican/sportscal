@@ -132,7 +132,11 @@ function cardForFixture(fixture, checkedAt){
       serviceLabel: "Stan Sport",
       territory: "AU",
       accessType: "subscription",
-      liveOrReplay: completed ? "replay" : "live",
+      // Competition rights and a provider landing page do not verify that this
+      // particular completed fixture is currently available as a replay.
+      liveOrReplay: "live",
+      replayVerified: false,
+      linkScope: "sport",
       rightsScope: "competition",
       webUrl: STAN_SPORT_URL,
       sourceUrl: STAN_SPORT_URL,
