@@ -1,8 +1,16 @@
 # Supabase recovery runbook
 
-Last verified: 14 September 2026
+## Current production target — confirmed 27 September 2026
 
-Project: `jljgtodyviwpslprxaao` (`nothingSport`, Sydney)
+Use `nothingSport-recovery`, project `mkghopnkhcxtmfrcjdbc`. Read-only SQL and the notification dispatcher succeeded on 27 September; the pending rating backlog reached zero. This is service-health evidence, not a backup or restore rehearsal.
+
+The 14 September incident instructions below concern the former project `jljgtodyviwpslprxaao`. They are retained as history, not current operational steps. Do not apply their restart, pause, cleanup, support request or fixed migration list to a healthy current project. For a new incident, first establish the affected project, current error, backup availability and precise recovery action. A repository copy does not back up database rows or Storage objects.
+
+Account lifecycle preflight and outstanding erasure gates are in [account-erasure-runbook.md](account-erasure-runbook.md). Full database-plus-Storage restore proof remains outstanding.
+
+## Historical incident — 14 September 2026
+
+Historical project: `jljgtodyviwpslprxaao` (`nothingSport`, Sydney)
 
 ## Owner recovery preference — 14 September 2026
 

@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {buildPreflight,SCHEMA_QUERY}=require('./account-erasure-preflight');
+const id='00000000-0000-4000-8000-000000000009';
+const rows=[{schema_name:'public',table_name:'nothingsports_chat_messages',column_name:'sender_id',delete_rule:'RESTRICT'},{schema_name:'public',table_name:'nothingsports_reminders',column_name:'user_id',delete_rule:'SET NULL'}];
+const sql=buildPreflight(rows,id);
+assert(sql.includes('begin read only;')&&sql.endsWith('rollback;\n'));
+assert(sql.includes("statement_timeout='10s'"));assert(sql.includes("'RESTRICT' as deletion_rule"));assert(sql.includes("'SET NULL' as deletion_rule"));
+assert(!/\b(delete from|update\s|insert into|alter\s|drop\s|truncate\s)/i.test(sql));
+assert.throws(()=>buildPreflight(rows,"x';delete from auth.users;--"),/UUID/);
+assert.throws(()=>buildPreflight([{...rows[0],table_name:'users;drop table x'}],id),/Unsafe/);
+assert.throws(()=>buildPreflight([{...rows[0],delete_rule:"CASCADE';--"}],id),/Unknown/);
+assert.throws(()=>buildPreflight([rows[0],rows[0]],id),/Duplicate/);
+assert.throws(()=>buildPreflight([],id),/required/);
+assert(SCHEMA_QUERY.includes("con.confrelid='auth.users'::regclass"),'unrelated foreign keys cannot be labelled account deletion rules');
+console.log('Account preflight: bounded read-only counts, exact account filter, overlapping-count warning and injection rejection passed.');
