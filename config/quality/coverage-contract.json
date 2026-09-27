@@ -63,11 +63,12 @@
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
-        "docs/quality/football-reference-reconciliation-2026-09-28.md"
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-standings-reconciliation-2026-09-28.md"
       ],
       "remaining": [
         "Historical kickoff and explicit UTC reconciliation",
-        "Final standings tie-break verification; ingest knockout fixtures when actually published",
+        "Final-round disciplinary/coefficient evidence and tie-break acceptance; ingest knockout fixtures when actually published",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial source permission"
@@ -76,7 +77,8 @@
       "verifiedSnapshotProgress": [
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
         "18 completed outcomes agree; 126 upcoming local times agree",
-        "Source-derived earlier-match records and Results privacy deployed with browser proof"
+        "Source-derived earlier-match records and Results privacy deployed with browser proof",
+        "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"
       ],
       "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
     },
@@ -89,11 +91,12 @@
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
-        "docs/quality/football-reference-reconciliation-2026-09-28.md"
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-standings-reconciliation-2026-09-28.md"
       ],
       "remaining": [
         "Historical kickoff and explicit UTC reconciliation",
-        "Final standings tie-break verification; ingest knockout fixtures when actually published",
+        "Final-round disciplinary/coefficient evidence and tie-break acceptance; ingest knockout fixtures when actually published",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial source permission"
@@ -102,7 +105,8 @@
       "verifiedSnapshotProgress": [
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
         "18 completed outcomes agree; 126 upcoming local times agree",
-        "Source-derived earlier-match records and Results privacy deployed with browser proof"
+        "Source-derived earlier-match records and Results privacy deployed with browser proof",
+        "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"
       ],
       "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
     }
