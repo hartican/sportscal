@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v318";
-const SHELL_VERSION = "318";
+const CACHE_NAME = "nothingsport-shell-v319";
+const SHELL_VERSION = "319";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",

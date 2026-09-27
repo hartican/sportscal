@@ -236,3 +236,9 @@ London 2026 published singles/doubles use existing canonical athlete/collection 
 Football Code membership uses an explicit canonical sport ID when present; legacy records use exact Football/Soccer/FIFA/Premier League aliases. Substring matches such as American Football must not enter Football. Preserve Follow consent, saved fixtures and American Football coverage. Regression: `validate-football-classification.js --published`.
 
 Rebuild an existing Code projection without fetching unrelated sports through `node scripts/update-cards.js --code-projections --codes=football -p`. This is a projection rebuild from current canonical facts, not proof that sources, results or standings were refreshed. Current card/result gates still govern publication; a local projection pass cannot waive them.
+
+## Football schedule context — 27 September 2026
+
+Entering Football with no saved category opens All Football, rather than implicitly selecting Champions League. Saved explicit categories and user follows remain unchanged. EPL fixtures retain the official matchweek, season and competition display name; earlier publications recover the exact sourced matchweek label without deriving rounds from dates. The existing canonical EPL table is projected into Follow with its observation time, games played, wins, draws, losses and points. Standings remain hidden with Results off until the existing explicit reveal confirmation is accepted; this does not change Results or follows.
+
+Regression: `validate-football-schedule.js` and `validate-football-schedule-browser.js`. This is partial EPL repair, not certification of source accuracy, viewing rights, UCL or Europa League coverage.

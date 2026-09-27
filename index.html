@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="318">
+<meta name="app-shell-version" content="319">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=318" as="script">
@@ -14256,7 +14256,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=318').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=319').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -19701,7 +19701,7 @@ function renderFollowView(){
       button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'schedule',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();};choices.appendChild(button);
     });container.appendChild(choices);
     if (!state.categoryId){
-      saveFollowBrowse({categoryId:children[0].id});
+      saveFollowBrowse({categoryId:root.id==='sport:football'?root.id:children[0].id});
     }
   }
   const entity=followSelectedEntity();

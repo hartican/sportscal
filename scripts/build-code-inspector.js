@@ -204,6 +204,14 @@ function sydneyPartsFromUtc(iso){
 
 function normalizeFixture(event, codeId, extra = {}){
   event=fixtureIdentity.normalizeCore(event);
+  // Earlier official EPL cards retained the sourced matchweek only in resultLabels.
+  // Recover that exact field for existing publications; never infer it from dates.
+  if(event.competitionId === 'competition:premier-league-2026-27'){
+    const label=(event.resultLabels || []).find(value=>/^Premier League Matchweek ([1-9]|[12][0-9]|3[0-8])$/.test(value));
+    const week=Number.isInteger(event.roundNumber)?event.roundNumber:label?Number(label.split(' ').at(-1)):null;
+    event={...event,competitionName:event.competitionName || 'Premier League',season:event.season || '2026/27',
+      ...(week?{roundNumber:week,roundLabel:`Premier League Matchweek ${week}`}:{})};
+  }
   const key = fixtureIdentity.sportKey(event, codeId);
   const slots = participantSlots(event);
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
@@ -408,10 +416,11 @@ function groupingMode(fixtures){
 }
 
 function codeStandings(code){
-  const canonicalDocument=code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl'].includes(code.id)?canonicalAflNrl:null;
+  const canonicalDocument=code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null;
   const snapshots=new Map();
   for(const snapshot of canonicalDocument?.ladderSnapshots||[]){
-    if(canonicalDocument===canonicalAflNrl && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
+    if(code.id==='sport:football' && snapshot.competitionId!=='competition:premier-league-2026-27')continue;
+    if(canonicalDocument===canonicalAflNrl && code.id!=='sport:football' && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
     const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
   }
   const source = canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"

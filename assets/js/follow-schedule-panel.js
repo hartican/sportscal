@@ -72,6 +72,12 @@ globalThis.renderFollowSchedulePanel=function(container){
 ;
 
 function renderCodeInspectorStandings(panel, code){
+  if(!userPreferences.showSpoilers && !standingsRevealApproved){
+    const message=document.createElement('p');message.textContent='Standings hidden while Results is off.';
+    const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Reveal standings';
+    reveal.onclick=()=>confirmStandingsReveal(()=>renderCodeInspector());
+    panel.append(message,reveal);return;
+  }
   const publishedStandings = codeInspectorChunk?.code?.id === code.id && Array.isArray(codeInspectorChunk.standings)
     ? codeInspectorChunk.standings
     : [];
@@ -97,15 +103,19 @@ function renderCodeInspectorStandings(panel, code){
         const label = document.createElement("strong");
         label.textContent = `${entry.rank}. ${entry.displayName}`;
         const facts = document.createElement("span");
-        const played = entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
-        const wins = entry.wins ?? entry.stats?.wins;
-        const losses = entry.losses ?? entry.stats?.losses;
-        const points = entry.points ?? entry.stats?.points;
-        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        const played = entry.played ?? entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
+        const wins = entry.won ?? entry.wins ?? entry.stats?.wins;
+        const losses = entry.lost ?? entry.losses ?? entry.stats?.losses;
+        const draws = entry.drawn;
+        const points = entry.ladderPoints ?? entry.points ?? entry.stats?.points;
+        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
         row.append(label, facts);
         list.appendChild(row);
       });
-      section.append(title, list);
+      const asOf=rows.map(entry=>entry.asOf).filter(Boolean).sort().at(-1);
+      section.append(title);
+      if(asOf){const checked=document.createElement('p');checked.textContent=`Table checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(asOf))} (Sydney)`;section.append(checked);}
+      section.append(list);
       panel.appendChild(section);
     });
     return;
