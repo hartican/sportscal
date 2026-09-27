@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20260925033900867",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260927065357715",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-25T03:39:00.867Z",
+  "publishedAt": "2026-09-27T06:53:57.715Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -38,7 +38,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-25",
+    "basisDate": "2026-09-27",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -46,7 +46,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 293,
+    "daysAhead": 291,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -130,9 +130,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 18,
+        "count": 19,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-09-25"
+        "lastEventDate": "2026-09-27"
       },
       "sailgp": {
         "count": 7,

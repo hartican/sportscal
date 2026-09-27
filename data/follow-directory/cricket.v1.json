@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-09-25T03:25:19.923Z",
+  "generatedAt": "2026-09-27T06:40:38.678Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -36,12 +36,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.cricket.com.au/",
-        "https://www.espn.in/cricket/series/24270/game/1528712/australia-vs-new-zealand-2nd-test-24270"
+        "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -79,7 +79,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -116,7 +116,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -153,7 +153,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -185,12 +185,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.ecb.co.uk/",
-        "https://www.espn.in/cricket/series/24198/game/1525671/south-africa-vs-england-1st-test-24198"
+        "https://www.espn.in/cricket/series/24198/game/1525672/south-africa-vs-england-2nd-test-24198"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -247,8 +247,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24286",
-      "leagueName": "Sri Lanka tour of India 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:india",
@@ -259,12 +259,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.espn.in/cricket/series/24286/game/1529239/india-vs-sri-lanka-2nd-t20i-24286"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -296,12 +296,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.espn.in/cricket/series/24559/game/1543895/south-africa-women-vs-india-women-3rd-odi-24559"
+        "https://www.espn.in/cricket/series/24559/game/1548868/south-africa-women-vs-india-women-1st-t20i-24559"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -334,12 +334,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nzc.nz/",
-        "https://www.espn.in/cricket/series/24270/game/1528712/australia-vs-new-zealand-2nd-test-24270"
+        "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -377,7 +377,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -397,8 +397,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24707",
-      "leagueName": "Sri Lanka tour of Pakistan 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:pakistan",
@@ -409,12 +409,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.pcb.com.pk/",
-        "https://www.espn.in/cricket/series/24707/game/1550712/pakistan-vs-sri-lanka-2nd-test-24707"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -484,12 +484,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://cricket.co.za/the-proteas/",
-        "https://www.espn.in/cricket/series/24198/game/1525671/south-africa-vs-england-1st-test-24198"
+        "https://www.espn.in/cricket/series/24198/game/1525672/south-africa-vs-england-2nd-test-24198"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -522,12 +522,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://cricket.co.za/the-proteas/",
-        "https://www.espn.in/cricket/series/24559/game/1543895/south-africa-women-vs-india-women-3rd-odi-24559"
+        "https://www.espn.in/cricket/series/24559/game/1548868/south-africa-women-vs-india-women-1st-t20i-24559"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -547,8 +547,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24286",
-      "leagueName": "Sri Lanka tour of India 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:sri-lanka",
@@ -559,12 +559,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://srilankacricket.lk/",
-        "https://www.espn.in/cricket/series/24286/game/1529239/india-vs-sri-lanka-2nd-t20i-24286"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -622,8 +622,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24756",
-      "leagueName": "West Indies tour of Bangladesh 2026/27",
+      "leagueId": "competition:cricket:4612",
+      "leagueName": "India v West Indies ODIs 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:west-indies",
@@ -634,12 +634,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.windiescricket.com/",
-        "https://www.espn.in/cricket/series/24756/game/1553296/bangladesh-vs-west-indies-2nd-test-24756"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -677,7 +677,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -781,7 +781,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -816,7 +816,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -851,7 +851,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -921,7 +921,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -956,7 +956,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -991,7 +991,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1026,7 +1026,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1061,7 +1061,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1096,7 +1096,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1131,7 +1131,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1164,7 +1164,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1199,7 +1199,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1216,8 +1216,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4643",
-      "leagueName": "India A v Australia A 1-day 2026 - Women",
+      "leagueId": "competition:cricket:4645",
+      "leagueName": "India A v Australia A 4-Day 2026 - Women",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:ca-708-women",
@@ -1232,7 +1232,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1249,8 +1249,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4642",
-      "leagueName": "India v Australia U19 1-day 2026 - Men",
+      "leagueId": "competition:cricket:4644",
+      "leagueName": "India v Australia U19 4-Day 2026 - Men",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:ca-225",
@@ -1265,7 +1265,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1300,7 +1300,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1335,7 +1335,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1400,12 +1400,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/23315/game/1552798/cayman-islands-vs-bahamas-4th-match-north-america-cup-2026"
+        "https://www.espn.in/cricket/series/23315/scorecard/1552800/bahamas-vs-bermuda-3rd-place-play-off-north-america-cup-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1440,7 +1440,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1510,7 +1510,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1584,6 +1584,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:cricket:espn-662",
+      "displayName": "Barishal Division",
+      "shortName": null,
+      "aliases": [
+        "BAR"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-662",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555689/sylhet-division-vs-barishal-division-25th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:cricket:espn-1559",
       "displayName": "Baroda",
       "shortName": null,
@@ -1615,7 +1650,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1720,7 +1755,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1755,7 +1790,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1790,7 +1825,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1825,7 +1860,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1895,7 +1930,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1930,7 +1965,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -1965,7 +2000,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2000,7 +2035,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2065,12 +2100,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championships-2026"
+        "https://www.espn.in/cricket/series/18940/game/1555261/brazil-a-women-vs-costa-rica-women-final-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2134,12 +2169,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545505/melbourne-stars-vs-brisbane-heat-8th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545509/sydney-sixers-vs-brisbane-heat-12th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2174,7 +2209,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2279,7 +2314,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2314,7 +2349,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2349,7 +2384,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2384,7 +2419,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2419,7 +2454,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2454,7 +2489,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2524,7 +2559,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-679",
+      "displayName": "Chattogram Division",
+      "shortName": null,
+      "aliases": [
+        "CHATT"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-679",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555691/dhaka-division-vs-chattogram-division-27th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2559,7 +2629,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2589,12 +2659,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555259/chile-women-vs-costa-rica-women-5th-match-south-american-womens-championships-2026"
+        "https://www.espn.in/cricket/series/18940/scorecard/1555259/chile-women-vs-costa-rica-women-5th-match-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2629,7 +2699,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2764,12 +2834,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/18940/game/1555260/brazil-a-women-vs-costa-rica-women-6th-match-south-american-womens-championships-2026"
+        "https://www.espn.in/cricket/series/18940/game/1555261/brazil-a-women-vs-costa-rica-women-final-south-american-womens-championships-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2804,7 +2874,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2909,7 +2979,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -2939,12 +3009,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513450/worcestershire-vs-derbyshire-55th-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513450/worcestershire-vs-derbyshire-55th-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3016,6 +3086,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:cricket:espn-682",
+      "displayName": "Dhaka Division",
+      "shortName": null,
+      "aliases": [
+        "DHA"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-682",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555691/dhaka-division-vs-chattogram-division-27th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:cricket:espn-918645",
       "displayName": "Diasqua Little Sai Wan Cricket Club",
       "shortName": null,
@@ -3047,7 +3152,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3082,7 +3187,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3117,7 +3222,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3187,7 +3292,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3255,7 +3360,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3360,7 +3465,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3395,7 +3500,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3430,7 +3535,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3465,7 +3570,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3570,7 +3675,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3605,7 +3710,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3673,7 +3778,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3743,7 +3848,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3778,7 +3883,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3813,7 +3918,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3848,7 +3953,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3916,7 +4021,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -3981,12 +4086,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513448/kent-vs-gloucestershire-53rd-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513448/kent-vs-gloucestershire-53rd-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4089,7 +4194,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4124,7 +4229,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4224,12 +4329,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513393/hampshire-vs-sussex-68th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513393/hampshire-vs-sussex-68th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4367,7 +4472,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4402,7 +4507,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4437,7 +4542,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4506,7 +4611,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4541,7 +4646,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4576,7 +4681,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4611,7 +4716,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4681,7 +4786,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4716,7 +4821,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4751,7 +4856,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4784,7 +4889,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4819,7 +4924,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4836,8 +4941,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4643",
-      "leagueName": "India A v Australia A 1-day 2026 - Women",
+      "leagueId": "competition:cricket:4645",
+      "leagueName": "India A v Australia A 4-Day 2026 - Women",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:ca-1439-women",
@@ -4852,7 +4957,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4869,8 +4974,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4642",
-      "leagueName": "India v Australia U19 1-day 2026 - Men",
+      "leagueId": "competition:cricket:4644",
+      "leagueName": "India v Australia U19 4-Day 2026 - Men",
       "teamKind": "club",
       "position": null,
       "identityId": "team:cricket:ca-229",
@@ -4885,7 +4990,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T05:08:21.403Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4920,7 +5025,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4955,7 +5060,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -4990,7 +5095,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5130,7 +5235,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5165,7 +5270,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5195,12 +5300,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/22547/game/1552770/japan-vs-nepal-5th-match-group-a-asian-games-mens-cricket-competition-2026"
+        "https://www.espn.in/cricket/series/22547/scorecard/1552770/japan-vs-nepal-5th-match-group-a-asian-games-mens-cricket-competition-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5303,7 +5408,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5338,7 +5443,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5373,7 +5478,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5403,12 +5508,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513448/kent-vs-gloucestershire-53rd-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513448/kent-vs-gloucestershire-53rd-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5546,7 +5651,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5581,7 +5686,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-700",
+      "displayName": "Khulna Division",
+      "shortName": null,
+      "aliases": [
+        "KHU"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-700",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555692/rangpur-division-vs-khulna-division-28th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5616,7 +5756,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5651,7 +5791,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5721,7 +5861,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5756,7 +5896,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5791,7 +5931,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5826,7 +5966,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5894,7 +6034,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -5959,12 +6099,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513391/warwickshire-vs-leicestershire-66th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513391/warwickshire-vs-leicestershire-66th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6067,7 +6207,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6102,7 +6242,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6137,7 +6277,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6172,7 +6312,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6207,7 +6347,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6242,7 +6382,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6277,7 +6417,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6312,7 +6452,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6347,7 +6487,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6450,7 +6590,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6485,7 +6625,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6520,7 +6660,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6555,7 +6695,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6624,7 +6764,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6659,7 +6799,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6723,12 +6863,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545505/melbourne-stars-vs-brisbane-heat-8th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545510/perth-scorchers-vs-melbourne-stars-13th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6763,7 +6903,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6793,12 +6933,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513449/middlesex-vs-northamptonshire-54th-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513449/middlesex-vs-northamptonshire-54th-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6901,7 +7041,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -6936,7 +7076,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7006,7 +7146,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7041,7 +7181,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7076,7 +7216,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7111,7 +7251,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-683",
+      "displayName": "Mymensingh Division",
+      "shortName": null,
+      "aliases": [
+        "MYMS"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-683",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555690/mymensingh-division-vs-rajshahi-division-26th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7146,7 +7321,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7181,7 +7356,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7216,7 +7391,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7286,7 +7461,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7321,7 +7496,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7356,7 +7531,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7391,7 +7566,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7426,7 +7601,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7496,7 +7671,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7531,7 +7706,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7596,12 +7771,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513449/middlesex-vs-northamptonshire-54th-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513449/middlesex-vs-northamptonshire-54th-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7704,7 +7879,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7739,7 +7914,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7774,7 +7949,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7809,7 +7984,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7839,12 +8014,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513392/nottinghamshire-vs-yorkshire-67th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513392/nottinghamshire-vs-yorkshire-67th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -7949,6 +8124,39 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:cricket:ca-90-women",
+      "displayName": "NSW Women",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:4692",
+      "leagueName": "WNCL 2026-27",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:ca-90-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:cricket:espn-3561",
       "displayName": "Nugegoda Sports Welfare Club",
       "shortName": null,
@@ -8015,7 +8223,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8050,7 +8258,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8120,7 +8328,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8155,7 +8363,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8190,7 +8398,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8225,7 +8433,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8260,7 +8468,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8330,7 +8538,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8365,7 +8573,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8464,12 +8672,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545504/perth-scorchers-vs-hobart-hurricanes-7th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545510/perth-scorchers-vs-melbourne-stars-13th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8504,7 +8712,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8609,7 +8817,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8644,7 +8852,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8679,7 +8887,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8714,7 +8922,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8751,6 +8959,39 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:cricket:ca-89-women",
+      "displayName": "Queensland Fire",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:4692",
+      "leagueName": "WNCL 2026-27",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:ca-89-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:cricket:espn-476-women",
       "displayName": "Queensland Women",
       "shortName": null,
@@ -8782,7 +9023,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8817,7 +9058,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8852,7 +9093,77 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-711",
+      "displayName": "Rajshahi Division",
+      "shortName": null,
+      "aliases": [
+        "RAJ"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-711",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555690/mymensingh-division-vs-rajshahi-division-26th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-536705",
+      "displayName": "Rangpur Division",
+      "shortName": null,
+      "aliases": [
+        "RAN"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-536705",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555692/rangpur-division-vs-khulna-division-28th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8887,7 +9198,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -8992,7 +9303,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9027,7 +9338,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9132,7 +9443,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9167,7 +9478,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9202,7 +9513,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9237,7 +9548,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9307,7 +9618,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9375,7 +9686,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9480,7 +9791,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9515,7 +9826,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9550,7 +9861,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9618,7 +9929,40 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:ca-93-women",
+      "displayName": "South Australia Women",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:4692",
+      "leagueName": "WNCL 2026-27",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:ca-93-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9653,7 +9997,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9688,7 +10032,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9723,7 +10067,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9793,7 +10137,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9898,7 +10242,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9933,7 +10277,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -9968,7 +10312,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10036,7 +10380,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10101,12 +10445,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513393/hampshire-vs-sussex-68th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513393/hampshire-vs-sussex-68th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10238,12 +10582,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8044/game/1545506/sydney-sixers-vs-melbourne-renegades-9th-match-big-bash-league-2026-27"
+        "https://www.espn.in/cricket/series/8044/game/1545509/sydney-sixers-vs-brisbane-heat-12th-match-big-bash-league-2026-27"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10278,7 +10622,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10347,7 +10691,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10382,7 +10726,42 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:espn-718",
+      "displayName": "Sylhet Division",
+      "shortName": null,
+      "aliases": [
+        "SYL"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:8814",
+      "leagueName": "National Cricket League",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:espn-718",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.in/cricket/series/8814/game/1555689/sylhet-division-vs-barishal-division-25th-match-national-cricket-league-2026-27"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10417,7 +10796,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10487,7 +10866,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10522,7 +10901,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10590,7 +10969,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10660,7 +11039,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10695,7 +11074,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10730,7 +11109,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10835,7 +11214,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10870,7 +11249,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -10975,7 +11354,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11045,7 +11424,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11115,7 +11494,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11150,7 +11529,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11185,7 +11564,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11220,7 +11599,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11255,7 +11634,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11323,7 +11702,40 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:ca-88-women",
+      "displayName": "Victoria Women",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:4692",
+      "leagueName": "WNCL 2026-27",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:cricket:ca-88-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11358,7 +11770,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11393,7 +11805,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11423,12 +11835,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513391/warwickshire-vs-leicestershire-66th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513391/warwickshire-vs-leicestershire-66th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11566,7 +11978,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11601,7 +12013,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11636,7 +12048,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11671,7 +12083,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11706,7 +12118,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11741,7 +12153,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11771,12 +12183,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8204/game/1513450/worcestershire-vs-derbyshire-55th-match-county-championship-division-two-2026"
+        "https://www.espn.in/cricket/series/8204/scorecard/1513450/worcestershire-vs-derbyshire-55th-match-county-championship-division-two-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -11874,12 +12286,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/8052/game/1513392/nottinghamshire-vs-yorkshire-67th-match-county-championship-division-one-2026"
+        "https://www.espn.in/cricket/series/8052/scorecard/1513392/nottinghamshire-vs-yorkshire-67th-match-county-championship-division-one-2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -12017,7 +12429,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     },
     {
@@ -12052,7 +12464,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-25T03:25:19.923Z",
+      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
       "sourceReviewAfter": null
     }
   ],

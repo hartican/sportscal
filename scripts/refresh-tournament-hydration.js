@@ -3,6 +3,7 @@
 const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');
 const {day,add}=require('./lib/tournament-horizon');
 const bjk=require('./refresh-bjk-cup');
+const laver=require('./refresh-laver-cup');
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const semantic=value=>JSON.stringify(value,(key,v)=>/^(checkedAt|sourceCheckedAt|generatedAt|updatedAt|capturedAt)$/.test(key)?undefined:v);
 function eligible(t,today){const start=t.startDate||t.date,end=t.endDate||start;return !!start&&!!end&&!(end<today&&(t.status==='completed'||t.winners?.length))&&!['ticket_sale','season'].includes(t.kind)&&!/^ticket[-:]|tickets on sale/i.test(t.id||t.name||'')&&start<=add(today,7)&&end>=add(today,-7);}
@@ -14,10 +15,12 @@ function inventory(today=day()){
  for(const t of read('data/canonical/tennis-catalogue-2026.json').tournaments)put({...t,code:'tennis'});
  for(const t of read('data/canonical/pga-tour-schedule.json').tournaments)put({...t,tournamentId:t.id,code:'golf'});
  for(const t of read('data/major-events.v1.json').events){if(t.kind==='ticket_sale'||!t.startDate||!t.endDate)continue;put({...t,code:t.key||t.sportKey||t.sport||'unknown'});}
+ put({...laver.tournament,code:'tennis'});
  return [...tournaments.values()].filter(t=>eligible(t,today)).map(t=>({...t,fixtures:schedules.filter(f=>(f.tournamentId===t.tournamentId||f.parentId===t.tournamentId)&&f.id!==t.tournamentId&&!/tennis-tournament-/.test(f.id)&&!(f.dateOnly&&f.detailsUnavailable))}));
 }
 // Calendar-only providers are intentionally not advertised as complete draws.
 const ADAPTERS={
+ laver:{codes:['tennis'],coverage:'fixtures',files:['data/canonical/tennis-team-contests.v1.json','data/canonical/tennis-catalogue-2026.json']},
  bjk:{codes:['tennis'],coverage:'fixtures',files:['data/canonical/tennis-team-contests.v1.json']},
  pga:{codes:['golf'],coverage:'calendar',script:'scripts/refresh-pga-schedule.js',files:['data/canonical/pga-tour-schedule.json']},
  wrc:{codes:['wrc'],coverage:'calendar',script:'scripts/refresh-wrc-context.js',files:['data/canonical/wrc-context-2026.json']},
@@ -27,6 +30,7 @@ const ADAPTERS={
 function adapterFor(t){
  const id=t.tournamentId||'',code=String(t.code).toLowerCase();
  if(id===bjk.TOURNAMENT)return 'bjk';
+ if(id===laver.TOURNAMENT)return 'laver';
  if(/^R\d{7}$/.test(id))return 'pga';
  if(/wrc/.test(code+' '+id))return 'wrc';
  if(/cricket|rugby-union/.test(code))return 'coverage';
@@ -61,6 +65,7 @@ async function refresh({now=new Date(),offline=false,mode='quick',runAdapter=nul
    let result;
    if(runAdapter)result=await runAdapter(id);
    else if(id==='bjk')result=await bjk.refresh({now});
+   else if(id==='laver')result=await laver.refresh({now});
    else if(mode==='full')result={}; // Full pipeline has already run these sources.
    else {run(adapter.script);result={};}
    statuses[id]=result||{};

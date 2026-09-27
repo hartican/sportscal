@@ -20,7 +20,10 @@ async function main(){
   assert.equal(artifact.summary.stakesFiveFuture, artifact.candidates.length, "every future 5/5-stakes row must enter the workbench");
   assert.equal(artifact.summary.shown, artifact.candidates.length);
   const grandFinal=require('../data/canonical/afl-nrl-2026.json').events.find(e=>e.id==='event:afl:cd_m20260142901');
-  assert(artifact.candidates.some(candidate=>candidate.eventId===grandFinal.id&&candidate.material.title===require('../lib/finals-presentation').publicFixtureTitle(grandFinal)), 'Grand Final workbench uses the latest confirmed matchup or a safe unresolved stage title');
+  const grandFinalCandidate=artifact.candidates.find(candidate=>candidate.eventId===grandFinal.id);
+  if(Date.parse(grandFinal.startTimeUtc)>now && grandFinal.status!=='completed'){
+    assert(grandFinalCandidate&&grandFinalCandidate.material.title===require('../lib/finals-presentation').publicFixtureTitle(grandFinal), 'Future Grand Final workbench uses the latest confirmed matchup or a safe unresolved stage title');
+  }else assert.equal(grandFinalCandidate,undefined,'Past Grand Final must not remain in the future promotion workbench');
   assert.equal(artifact.summary.eligible, artifact.candidates.filter(candidate => candidate.readyForExport).length);
   assert.equal(artifact.summary.eligible, 2);
   assert.equal(artifact.summary.watching, artifact.candidates.filter(candidate => !candidate.readyForExport).length);

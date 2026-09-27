@@ -142,7 +142,11 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
 }
 
 function main(){
-  const snapshot = readSnapshot();
+  const synthetic = !process.env.FOLLOW_SNAPSHOT_PATH;
+  const snapshot = synthetic ? {profiles:[{profileHash:'synthetic-tennis',entityFollows:[
+    {participantId:'competitor:tennis:atp:alex-de-minaur',followLevel:'follow'},
+    {participantId:'competitor:tennis:atp:alexander-zverev',followLevel:'follow'},
+  ],collectionFollows:[]}]} : readSnapshot();
   const context = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
   const contextualEvents = sportContext.applyContextToEvents(baseFeed.events, context);
   const results = snapshot.profiles.map(profile => auditProfile(profile, { baseEvents:contextualEvents }));
@@ -160,7 +164,7 @@ function main(){
     ...result.missingSameDay.map(eventId => `${result.profileHash}:${eventId}:not_on_initial_page`),
   ]);
   if (failures.length) throw new Error(`Follow fixture audit failed: ${failures.join(", ")}`);
-  console.log(`Anonymised follow fixture audit passed for ${results.length} profiles.`);
+  console.log(`${synthetic ? 'Synthetic public-data' : 'Anonymised'} follow fixture audit passed for ${results.length} profiles.${synthetic ? ' No private preferences accessed; account-specific coverage was not audited.' : ''}`);
 }
 
 if (require.main === module){

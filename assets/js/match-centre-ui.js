@@ -36,7 +36,7 @@
    card.append(node('h3',spoilerSafeDisplayTitle(e)));
    if(m().sport(e)==='tennis'){const brand=node('div',e.tournamentName||e.competitionName||'Tennis','mc-tennis-brand');card.append(brand);}
    const sides=buildMatchupIdentity(e,spoilerSafeDisplayTitle(e));if(sides)card.append(sides);
-   const status=m().final(e)?'Finished':m().interrupted(e)?String(e.status).replace(/-/g,' '):/live|in.progress/.test(e.status)?'Live':/cancel|abandon|postpon/.test(e.status)?String(e.status):e.status==='scheduled'||e.status==='upcoming'?'Not started':'Status unavailable';
+   const status=globalThis.NOTHINGSPORTS_ODI_DISPLAY.awaiting({...e,...snapshot})?'Awaiting confirmed result':m().final(e)?'Finished':m().interrupted(e)?String(e.status).replace(/-/g,' '):/live|in.progress/.test(e.status)?'Live':/cancel|abandon|postpon/.test(e.status)?String(e.status):e.status==='scheduled'||e.status==='upcoming'?'Not started':'Status unavailable';
    card.append(node('p',status));
    if(userPreferences.showSpoilers){
     const scored=node('p',null,'match-centre-score'),identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e));

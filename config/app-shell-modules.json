@@ -1,4 +1,5 @@
 [
+  "config/odi-display.js",
   "config/calendar-export.js",
   "config/brand-copy.js",
   "config/vector-assets.js",

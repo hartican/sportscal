@@ -91,6 +91,12 @@ function main(){
     console.log(`Follow fixture artifact valid: ${payload.events.length} fixtures and no profile data.`);
     return;
   }
+  if (!process.env.FOLLOW_SNAPSHOT_PATH){
+    const existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
+    validatePrivacy(existing);
+    console.log(`Public refresh: retained ${existing.events.length} compact fixtures; no private follow snapshot accessed. Public schedules are refreshed separately.`);
+    return;
+  }
   const snapshot = readSnapshot();
   const existingPayload = fs.existsSync(OUTPUT_PATH) ? JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8")) : null;
   const preserved = preservedArtifactForEmptyFixture(snapshot, existingPayload);

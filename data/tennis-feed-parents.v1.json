@@ -440,6 +440,2045 @@
       "scheduleStatus": "confirmed"
     },
     {
+      "id": "fixture:tennis:laver-cup:2026:ms201",
+      "eventId": "fixture:tennis:laver-cup:2026:ms201",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms201",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Flavio Cobolli v Learner Tien",
+      "status": "completed",
+      "roundLabel": "Day 2 - Match 5",
+      "date": "2026-09-26",
+      "startTimeUtc": "2026-09-26T12:00:00.000Z",
+      "sessionStartTimeUtc": "2026-09-26T12:00:00.000Z",
+      "sessionId": "laver-2026-2-day",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:flavio-cobolli",
+        "competitor:tennis:atp:learner-tien"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:flavio-cobolli",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Flavio Cobolli",
+          "shortName": "Cobolli",
+          "canonicalName": "Flavio Cobolli",
+          "countryCode": "IT",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Cobolli"
+            ],
+            "rankingSingles": 7,
+            "rankingPoints": 3720,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "ITA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:c0e9",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Flavio Cobolli",
+          "sourceUrl": "https://lavercup.com/player/flavio-cobolli"
+        },
+        {
+          "id": "competitor:tennis:atp:learner-tien",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Learner Tien",
+          "shortName": "Tien",
+          "canonicalName": "Learner Tien",
+          "countryCode": "US",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Tien"
+            ],
+            "rankingSingles": 13,
+            "rankingPoints": 2715,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "USA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:t0ha",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Learner Tien",
+          "sourceUrl": "https://lavercup.com/player/learner-tien"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Flavio Cobolli",
+          "participantId": "competitor:tennis:atp:flavio-cobolli"
+        },
+        {
+          "slot": 2,
+          "label": "Learner Tien",
+          "participantId": "competitor:tennis:atp:learner-tien"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Flavio Cobolli",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:flavio-cobolli",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Flavio Cobolli",
+              "shortName": "Cobolli",
+              "canonicalName": "Flavio Cobolli",
+              "countryCode": "IT",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Cobolli"
+                ],
+                "rankingSingles": 7,
+                "rankingPoints": 3720,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "ITA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:c0e9",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Flavio Cobolli",
+              "sourceUrl": "https://lavercup.com/player/flavio-cobolli"
+            }
+          ]
+        },
+        {
+          "name": "Learner Tien",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:learner-tien",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Learner Tien",
+              "shortName": "Tien",
+              "canonicalName": "Learner Tien",
+              "countryCode": "US",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Tien"
+                ],
+                "rankingSingles": 13,
+                "rankingPoints": 2715,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "USA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:t0ha",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Learner Tien",
+              "sourceUrl": "https://lavercup.com/player/learner-tien"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:flavio-cobolli",
+      "awayParticipantId": "competitor:tennis:atp:learner-tien",
+      "sets": [
+        {
+          "home": 3,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 2
+        },
+        {
+          "home": 7,
+          "away": 10,
+          "matchTiebreak": true
+        }
+      ],
+      "score": "3-6 6-2 [7-10]",
+      "scoreDisplay": "Flavio Cobolli 3-6 6-2 [7-10] Learner Tien",
+      "outcomeText": "Learner Tien won for Team World.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:learner-tien"
+      ],
+      "result": {
+        "status": "official",
+        "score": "3-6 6-2 [7-10]",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-5",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Flavio Cobolli face Learner Tien with 2 points at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 2 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Flavio Cobolli v Learner Tien",
+      "time": "22:00",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms201"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:ms202",
+      "eventId": "fixture:tennis:laver-cup:2026:ms202",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms202",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Alexander Zverev v Alex de Minaur",
+      "status": "completed",
+      "roundLabel": "Day 2 - Match 6",
+      "date": "2026-09-26",
+      "startTimeUtc": null,
+      "sessionStartTimeUtc": "2026-09-26T12:00:00.000Z",
+      "sessionId": "laver-2026-2-day",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alex-de-minaur"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:alexander-zverev",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alexander Zverev",
+          "shortName": "Zverev",
+          "canonicalName": "Alexander Zverev",
+          "countryCode": "DE",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Zverev"
+            ],
+            "rankingSingles": 2,
+            "rankingPoints": 9690,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "GER",
+            "isAustralian": false,
+            "providerAlias": "atp:player:z355",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Alexander Zverev",
+          "sourceUrl": "https://lavercup.com/player/alexander-zverev"
+        },
+        {
+          "id": "competitor:tennis:atp:alex-de-minaur",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alex de Minaur",
+          "shortName": "Minaur",
+          "canonicalName": "Alex De Minaur",
+          "countryCode": "AU",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Minaur"
+            ],
+            "rankingSingles": 9,
+            "rankingPoints": 3300,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "AUS",
+            "isAustralian": true,
+            "providerAlias": "atp:player:dh58",
+            "selectionReasons": [
+              "australian",
+              "top_50"
+            ]
+          },
+          "name": "Alex de Minaur",
+          "sourceUrl": "https://lavercup.com/player/alex-de-minaur"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Alexander Zverev",
+          "participantId": "competitor:tennis:atp:alexander-zverev"
+        },
+        {
+          "slot": 2,
+          "label": "Alex de Minaur",
+          "participantId": "competitor:tennis:atp:alex-de-minaur"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Alexander Zverev",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:alexander-zverev",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alexander Zverev",
+              "shortName": "Zverev",
+              "canonicalName": "Alexander Zverev",
+              "countryCode": "DE",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Zverev"
+                ],
+                "rankingSingles": 2,
+                "rankingPoints": 9690,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "GER",
+                "isAustralian": false,
+                "providerAlias": "atp:player:z355",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Alexander Zverev",
+              "sourceUrl": "https://lavercup.com/player/alexander-zverev"
+            }
+          ]
+        },
+        {
+          "name": "Alex de Minaur",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:alex-de-minaur",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alex de Minaur",
+              "shortName": "Minaur",
+              "canonicalName": "Alex De Minaur",
+              "countryCode": "AU",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Minaur"
+                ],
+                "rankingSingles": 9,
+                "rankingPoints": 3300,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "AUS",
+                "isAustralian": true,
+                "providerAlias": "atp:player:dh58",
+                "selectionReasons": [
+                  "australian",
+                  "top_50"
+                ]
+              },
+              "name": "Alex de Minaur",
+              "sourceUrl": "https://lavercup.com/player/alex-de-minaur"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+      "awayParticipantId": "competitor:tennis:atp:alex-de-minaur",
+      "sets": [
+        {
+          "home": 6,
+          "away": 2
+        },
+        {
+          "home": 6,
+          "away": 7,
+          "homeTiebreak": 5,
+          "awayTiebreak": 7
+        },
+        {
+          "home": 9,
+          "away": 11,
+          "matchTiebreak": true
+        }
+      ],
+      "score": "6-2 6(5)-7(7) [9-11]",
+      "scoreDisplay": "Alexander Zverev 6-2 6(5)-7(7) [9-11] Alex de Minaur",
+      "outcomeText": "Alex de Minaur won for Team World.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:alex-de-minaur"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6-2 6(5)-7(7) [9-11]",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-6",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Alexander Zverev face Alex de Minaur with 2 points at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 2 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Alexander Zverev v Alex de Minaur",
+      "time": null,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms202"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:ms203",
+      "eventId": "fixture:tennis:laver-cup:2026:ms203",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms203",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Carlos Alcaraz v Taylor Fritz",
+      "status": "completed",
+      "roundLabel": "Day 2 - Match 7",
+      "date": "2026-09-27",
+      "startTimeUtc": "2026-09-26T18:00:00.000Z",
+      "sessionStartTimeUtc": "2026-09-26T18:00:00.000Z",
+      "sessionId": "laver-2026-2-evening",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:taylor-fritz"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:carlos-alcaraz",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Carlos Alcaraz",
+          "shortName": "Alcaraz",
+          "canonicalName": "Carlos Alcaraz",
+          "countryCode": "ES",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Alcaraz"
+            ],
+            "rankingSingles": 3,
+            "rankingPoints": 5560,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "ESP",
+            "isAustralian": false,
+            "providerAlias": "atp:player:a0e2",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Carlos Alcaraz",
+          "sourceUrl": "https://lavercup.com/player/carlos-alcaraz"
+        },
+        {
+          "id": "competitor:tennis:atp:taylor-fritz",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Taylor Fritz",
+          "shortName": "Fritz",
+          "canonicalName": "Taylor Fritz",
+          "countryCode": "US",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Fritz"
+            ],
+            "rankingSingles": 10,
+            "rankingPoints": 3175,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "USA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:fb98",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Taylor Fritz",
+          "sourceUrl": "https://lavercup.com/player/taylor-fritz"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Carlos Alcaraz",
+          "participantId": "competitor:tennis:atp:carlos-alcaraz"
+        },
+        {
+          "slot": 2,
+          "label": "Taylor Fritz",
+          "participantId": "competitor:tennis:atp:taylor-fritz"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Carlos Alcaraz",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:carlos-alcaraz",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Carlos Alcaraz",
+              "shortName": "Alcaraz",
+              "canonicalName": "Carlos Alcaraz",
+              "countryCode": "ES",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Alcaraz"
+                ],
+                "rankingSingles": 3,
+                "rankingPoints": 5560,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "ESP",
+                "isAustralian": false,
+                "providerAlias": "atp:player:a0e2",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Carlos Alcaraz",
+              "sourceUrl": "https://lavercup.com/player/carlos-alcaraz"
+            }
+          ]
+        },
+        {
+          "name": "Taylor Fritz",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:taylor-fritz",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Taylor Fritz",
+              "shortName": "Fritz",
+              "canonicalName": "Taylor Fritz",
+              "countryCode": "US",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Fritz"
+                ],
+                "rankingSingles": 10,
+                "rankingPoints": 3175,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "USA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:fb98",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Taylor Fritz",
+              "sourceUrl": "https://lavercup.com/player/taylor-fritz"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "awayParticipantId": "competitor:tennis:atp:taylor-fritz",
+      "sets": [
+        {
+          "home": 6,
+          "away": 3
+        },
+        {
+          "home": 4,
+          "away": 6
+        },
+        {
+          "home": 13,
+          "away": 11,
+          "matchTiebreak": true
+        }
+      ],
+      "score": "6-3 4-6 [13-11]",
+      "scoreDisplay": "Carlos Alcaraz 6-3 4-6 [13-11] Taylor Fritz",
+      "outcomeText": "Carlos Alcaraz won for Team Europe.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:carlos-alcaraz"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6-3 4-6 [13-11]",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-7",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Carlos Alcaraz face Taylor Fritz with 2 points at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 2 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Carlos Alcaraz v Taylor Fritz",
+      "time": "04:00",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms203"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:md201",
+      "eventId": "fixture:tennis:laver-cup:2026:md201",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:md201",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "doubles",
+      "matchType": "mens-doubles",
+      "name": "Casper Ruud / Alexander Zverev v Alexander Bublik / Brandon Nakashima",
+      "status": "completed",
+      "roundLabel": "Day 2 - Match 8",
+      "date": "2026-09-27",
+      "startTimeUtc": null,
+      "sessionStartTimeUtc": "2026-09-26T18:00:00.000Z",
+      "sessionId": "laver-2026-2-evening",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:brandon-nakashima"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:casper-ruud",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Casper Ruud",
+          "shortName": "Ruud",
+          "canonicalName": "Casper Ruud",
+          "countryCode": "NO",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Ruud"
+            ],
+            "rankingSingles": 17,
+            "rankingPoints": 2335,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "NOR",
+            "isAustralian": false,
+            "providerAlias": "atp:player:rh16",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Casper Ruud",
+          "sourceUrl": "https://lavercup.com/player/casper-ruud"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-zverev",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alexander Zverev",
+          "shortName": "Zverev",
+          "canonicalName": "Alexander Zverev",
+          "countryCode": "DE",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Zverev"
+            ],
+            "rankingSingles": 2,
+            "rankingPoints": 9690,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "GER",
+            "isAustralian": false,
+            "providerAlias": "atp:player:z355",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Alexander Zverev",
+          "sourceUrl": "https://lavercup.com/player/alexander-zverev"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-bublik",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alexander Bublik",
+          "shortName": "Bublik",
+          "canonicalName": "Alexander Bublik",
+          "countryCode": "KZ",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Bublik"
+            ],
+            "rankingSingles": 21,
+            "rankingPoints": 2185,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "KAZ",
+            "isAustralian": false,
+            "providerAlias": "atp:player:bk92",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Alexander Bublik",
+          "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+        },
+        {
+          "id": "competitor:tennis:atp:brandon-nakashima",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Brandon Nakashima",
+          "shortName": "Nakashima",
+          "canonicalName": "Brandon Nakashima",
+          "countryCode": "US",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Nakashima"
+            ],
+            "rankingSingles": 16,
+            "rankingPoints": 2410,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "USA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:n0ae",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Brandon Nakashima",
+          "sourceUrl": "https://lavercup.com/player/brandon-nakashima"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Casper Ruud / Alexander Zverev",
+          "participantId": null
+        },
+        {
+          "slot": 2,
+          "label": "Alexander Bublik / Brandon Nakashima",
+          "participantId": null
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Casper Ruud / Alexander Zverev",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:casper-ruud",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Casper Ruud",
+              "shortName": "Ruud",
+              "canonicalName": "Casper Ruud",
+              "countryCode": "NO",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Ruud"
+                ],
+                "rankingSingles": 17,
+                "rankingPoints": 2335,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "NOR",
+                "isAustralian": false,
+                "providerAlias": "atp:player:rh16",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Casper Ruud",
+              "sourceUrl": "https://lavercup.com/player/casper-ruud"
+            },
+            {
+              "id": "competitor:tennis:atp:alexander-zverev",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alexander Zverev",
+              "shortName": "Zverev",
+              "canonicalName": "Alexander Zverev",
+              "countryCode": "DE",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Zverev"
+                ],
+                "rankingSingles": 2,
+                "rankingPoints": 9690,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "GER",
+                "isAustralian": false,
+                "providerAlias": "atp:player:z355",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Alexander Zverev",
+              "sourceUrl": "https://lavercup.com/player/alexander-zverev"
+            }
+          ]
+        },
+        {
+          "name": "Alexander Bublik / Brandon Nakashima",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:alexander-bublik",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alexander Bublik",
+              "shortName": "Bublik",
+              "canonicalName": "Alexander Bublik",
+              "countryCode": "KZ",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Bublik"
+                ],
+                "rankingSingles": 21,
+                "rankingPoints": 2185,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "KAZ",
+                "isAustralian": false,
+                "providerAlias": "atp:player:bk92",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Alexander Bublik",
+              "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+            },
+            {
+              "id": "competitor:tennis:atp:brandon-nakashima",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Brandon Nakashima",
+              "shortName": "Nakashima",
+              "canonicalName": "Brandon Nakashima",
+              "countryCode": "US",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Nakashima"
+                ],
+                "rankingSingles": 16,
+                "rankingPoints": 2410,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "USA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:n0ae",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Brandon Nakashima",
+              "sourceUrl": "https://lavercup.com/player/brandon-nakashima"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": null,
+      "awayParticipantId": null,
+      "sets": [
+        {
+          "home": 6,
+          "away": 4
+        },
+        {
+          "home": 7,
+          "away": 6,
+          "homeTiebreak": 9,
+          "awayTiebreak": 7
+        }
+      ],
+      "score": "6-4 7(9)-6(7)",
+      "scoreDisplay": "Casper Ruud / Alexander Zverev 6-4 7(9)-6(7) Alexander Bublik / Brandon Nakashima",
+      "outcomeText": "Casper Ruud / Alexander Zverev won for Team Europe.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alexander-zverev"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6-4 7(9)-6(7)",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-8",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Casper Ruud / Alexander Zverev face Alexander Bublik / Brandon Nakashima with 2 points at stake for their Laver Cup teams.",
+      "fullSpiel": "This doubles match at The O2 is part of day 2 in London. Coordinating returns and covering the net together are the central challenges. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Casper Ruud / Alexander Zverev v Alexander Bublik / Brandon Nakashima",
+      "time": null,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:md201"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:md101",
+      "eventId": "fixture:tennis:laver-cup:2026:md101",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:md101",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "doubles",
+      "matchType": "mens-doubles",
+      "name": "Carlos Alcaraz / Jakub Mensik v Alexander Bublik / Taylor Fritz",
+      "status": "completed",
+      "roundLabel": "Day 1 - Match 4",
+      "date": "2026-09-26",
+      "startTimeUtc": null,
+      "sessionStartTimeUtc": "2026-09-25T18:00:00.000Z",
+      "sessionId": "laver-2026-1-evening",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:taylor-fritz"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:carlos-alcaraz",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Carlos Alcaraz",
+          "shortName": "Alcaraz",
+          "canonicalName": "Carlos Alcaraz",
+          "countryCode": "ES",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Alcaraz"
+            ],
+            "rankingSingles": 3,
+            "rankingPoints": 5560,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "ESP",
+            "isAustralian": false,
+            "providerAlias": "atp:player:a0e2",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Carlos Alcaraz",
+          "sourceUrl": "https://lavercup.com/player/carlos-alcaraz"
+        },
+        {
+          "id": "competitor:tennis:atp:jakub-mensik",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Jakub Mensik",
+          "shortName": "Mensik",
+          "canonicalName": "Jakub Mensik",
+          "countryCode": "CZ",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Mensik"
+            ],
+            "rankingSingles": 15,
+            "rankingPoints": 2495,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "CZE",
+            "isAustralian": false,
+            "providerAlias": "atp:player:m0ni",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Jakub Mensik",
+          "sourceUrl": "https://lavercup.com/player/jakub-mensik"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-bublik",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alexander Bublik",
+          "shortName": "Bublik",
+          "canonicalName": "Alexander Bublik",
+          "countryCode": "KZ",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Bublik"
+            ],
+            "rankingSingles": 21,
+            "rankingPoints": 2185,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "KAZ",
+            "isAustralian": false,
+            "providerAlias": "atp:player:bk92",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Alexander Bublik",
+          "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+        },
+        {
+          "id": "competitor:tennis:atp:taylor-fritz",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Taylor Fritz",
+          "shortName": "Fritz",
+          "canonicalName": "Taylor Fritz",
+          "countryCode": "US",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Fritz"
+            ],
+            "rankingSingles": 10,
+            "rankingPoints": 3175,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "USA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:fb98",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Taylor Fritz",
+          "sourceUrl": "https://lavercup.com/player/taylor-fritz"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Carlos Alcaraz / Jakub Mensik",
+          "participantId": null
+        },
+        {
+          "slot": 2,
+          "label": "Alexander Bublik / Taylor Fritz",
+          "participantId": null
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Carlos Alcaraz / Jakub Mensik",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:carlos-alcaraz",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Carlos Alcaraz",
+              "shortName": "Alcaraz",
+              "canonicalName": "Carlos Alcaraz",
+              "countryCode": "ES",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Alcaraz"
+                ],
+                "rankingSingles": 3,
+                "rankingPoints": 5560,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "ESP",
+                "isAustralian": false,
+                "providerAlias": "atp:player:a0e2",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Carlos Alcaraz",
+              "sourceUrl": "https://lavercup.com/player/carlos-alcaraz"
+            },
+            {
+              "id": "competitor:tennis:atp:jakub-mensik",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Jakub Mensik",
+              "shortName": "Mensik",
+              "canonicalName": "Jakub Mensik",
+              "countryCode": "CZ",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Mensik"
+                ],
+                "rankingSingles": 15,
+                "rankingPoints": 2495,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "CZE",
+                "isAustralian": false,
+                "providerAlias": "atp:player:m0ni",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Jakub Mensik",
+              "sourceUrl": "https://lavercup.com/player/jakub-mensik"
+            }
+          ]
+        },
+        {
+          "name": "Alexander Bublik / Taylor Fritz",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:alexander-bublik",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alexander Bublik",
+              "shortName": "Bublik",
+              "canonicalName": "Alexander Bublik",
+              "countryCode": "KZ",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Bublik"
+                ],
+                "rankingSingles": 21,
+                "rankingPoints": 2185,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "KAZ",
+                "isAustralian": false,
+                "providerAlias": "atp:player:bk92",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Alexander Bublik",
+              "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+            },
+            {
+              "id": "competitor:tennis:atp:taylor-fritz",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Taylor Fritz",
+              "shortName": "Fritz",
+              "canonicalName": "Taylor Fritz",
+              "countryCode": "US",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Fritz"
+                ],
+                "rankingSingles": 10,
+                "rankingPoints": 3175,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "USA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:fb98",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Taylor Fritz",
+              "sourceUrl": "https://lavercup.com/player/taylor-fritz"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": null,
+      "awayParticipantId": null,
+      "sets": [
+        {
+          "home": 6,
+          "away": 4
+        },
+        {
+          "home": 6,
+          "away": 4
+        }
+      ],
+      "score": "6-4 6-4",
+      "scoreDisplay": "Carlos Alcaraz / Jakub Mensik 6-4 6-4 Alexander Bublik / Taylor Fritz",
+      "outcomeText": "Carlos Alcaraz / Jakub Mensik won for Team Europe.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:jakub-mensik"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6-4 6-4",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-4",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Carlos Alcaraz / Jakub Mensik face Alexander Bublik / Taylor Fritz with 1 point at stake for their Laver Cup teams.",
+      "fullSpiel": "This doubles match at The O2 is part of day 1 in London. Coordinating returns and covering the net together are the central challenges. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Carlos Alcaraz / Jakub Mensik v Alexander Bublik / Taylor Fritz",
+      "time": null,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:md101"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:ms103",
+      "eventId": "fixture:tennis:laver-cup:2026:ms103",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms103",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Rafael Jodar v Alexander Bublik",
+      "status": "completed",
+      "roundLabel": "Day 1 - Match 3",
+      "date": "2026-09-26",
+      "startTimeUtc": "2026-09-25T18:00:00.000Z",
+      "sessionStartTimeUtc": "2026-09-25T18:00:00.000Z",
+      "sessionId": "laver-2026-1-evening",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:alexander-bublik"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:rafael-jodar",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Rafael Jodar",
+          "shortName": "Jodar",
+          "canonicalName": "Rafael Jodar",
+          "countryCode": "ES",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Jodar"
+            ],
+            "rankingSingles": 14,
+            "rankingPoints": 2659,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "ESP",
+            "isAustralian": false,
+            "providerAlias": "atp:player:j0dz",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Rafael Jodar",
+          "sourceUrl": "https://lavercup.com/player/rafael-jodar"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-bublik",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Alexander Bublik",
+          "shortName": "Bublik",
+          "canonicalName": "Alexander Bublik",
+          "countryCode": "KZ",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Bublik"
+            ],
+            "rankingSingles": 21,
+            "rankingPoints": 2185,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "KAZ",
+            "isAustralian": false,
+            "providerAlias": "atp:player:bk92",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Alexander Bublik",
+          "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Rafael Jodar",
+          "participantId": "competitor:tennis:atp:rafael-jodar"
+        },
+        {
+          "slot": 2,
+          "label": "Alexander Bublik",
+          "participantId": "competitor:tennis:atp:alexander-bublik"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Rafael Jodar",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:rafael-jodar",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Rafael Jodar",
+              "shortName": "Jodar",
+              "canonicalName": "Rafael Jodar",
+              "countryCode": "ES",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Jodar"
+                ],
+                "rankingSingles": 14,
+                "rankingPoints": 2659,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "ESP",
+                "isAustralian": false,
+                "providerAlias": "atp:player:j0dz",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Rafael Jodar",
+              "sourceUrl": "https://lavercup.com/player/rafael-jodar"
+            }
+          ]
+        },
+        {
+          "name": "Alexander Bublik",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:alexander-bublik",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Alexander Bublik",
+              "shortName": "Bublik",
+              "canonicalName": "Alexander Bublik",
+              "countryCode": "KZ",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Bublik"
+                ],
+                "rankingSingles": 21,
+                "rankingPoints": 2185,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "KAZ",
+                "isAustralian": false,
+                "providerAlias": "atp:player:bk92",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Alexander Bublik",
+              "sourceUrl": "https://lavercup.com/player/alexander-bublik"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:rafael-jodar",
+      "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
+      "sets": [
+        {
+          "home": 6,
+          "away": 2
+        },
+        {
+          "home": 6,
+          "away": 3
+        }
+      ],
+      "score": "6-2 6-3",
+      "scoreDisplay": "Rafael Jodar 6-2 6-3 Alexander Bublik",
+      "outcomeText": "Rafael Jodar won for Team Europe.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:rafael-jodar"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6-2 6-3",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-3",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Rafael Jodar face Alexander Bublik with 1 point at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 1 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Rafael Jodar v Alexander Bublik",
+      "time": "04:00",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms103"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:ms102",
+      "eventId": "fixture:tennis:laver-cup:2026:ms102",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms102",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Jakub Mensik v Brandon Nakashima",
+      "status": "completed",
+      "roundLabel": "Day 1 - Match 2",
+      "date": "2026-09-25",
+      "startTimeUtc": null,
+      "sessionStartTimeUtc": "2026-09-25T12:00:00.000Z",
+      "sessionId": "laver-2026-1-day",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:brandon-nakashima"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:jakub-mensik",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Jakub Mensik",
+          "shortName": "Mensik",
+          "canonicalName": "Jakub Mensik",
+          "countryCode": "CZ",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Mensik"
+            ],
+            "rankingSingles": 15,
+            "rankingPoints": 2495,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "CZE",
+            "isAustralian": false,
+            "providerAlias": "atp:player:m0ni",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Jakub Mensik",
+          "sourceUrl": "https://lavercup.com/player/jakub-mensik"
+        },
+        {
+          "id": "competitor:tennis:atp:brandon-nakashima",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Brandon Nakashima",
+          "shortName": "Nakashima",
+          "canonicalName": "Brandon Nakashima",
+          "countryCode": "US",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Nakashima"
+            ],
+            "rankingSingles": 16,
+            "rankingPoints": 2410,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "USA",
+            "isAustralian": false,
+            "providerAlias": "atp:player:n0ae",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Brandon Nakashima",
+          "sourceUrl": "https://lavercup.com/player/brandon-nakashima"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Jakub Mensik",
+          "participantId": "competitor:tennis:atp:jakub-mensik"
+        },
+        {
+          "slot": 2,
+          "label": "Brandon Nakashima",
+          "participantId": "competitor:tennis:atp:brandon-nakashima"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Jakub Mensik",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:jakub-mensik",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Jakub Mensik",
+              "shortName": "Mensik",
+              "canonicalName": "Jakub Mensik",
+              "countryCode": "CZ",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Mensik"
+                ],
+                "rankingSingles": 15,
+                "rankingPoints": 2495,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "CZE",
+                "isAustralian": false,
+                "providerAlias": "atp:player:m0ni",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Jakub Mensik",
+              "sourceUrl": "https://lavercup.com/player/jakub-mensik"
+            }
+          ]
+        },
+        {
+          "name": "Brandon Nakashima",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:brandon-nakashima",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Brandon Nakashima",
+              "shortName": "Nakashima",
+              "canonicalName": "Brandon Nakashima",
+              "countryCode": "US",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Nakashima"
+                ],
+                "rankingSingles": 16,
+                "rankingPoints": 2410,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "USA",
+                "isAustralian": false,
+                "providerAlias": "atp:player:n0ae",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Brandon Nakashima",
+              "sourceUrl": "https://lavercup.com/player/brandon-nakashima"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:jakub-mensik",
+      "awayParticipantId": "competitor:tennis:atp:brandon-nakashima",
+      "sets": [
+        {
+          "home": 1,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 3
+        },
+        {
+          "home": 7,
+          "away": 10,
+          "matchTiebreak": true
+        }
+      ],
+      "score": "1-6 6-3 [7-10]",
+      "scoreDisplay": "Jakub Mensik 1-6 6-3 [7-10] Brandon Nakashima",
+      "outcomeText": "Brandon Nakashima won for Team World.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:brandon-nakashima"
+      ],
+      "result": {
+        "status": "official",
+        "score": "1-6 6-3 [7-10]",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-2",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Jakub Mensik face Brandon Nakashima with 1 point at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 1 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Jakub Mensik v Brandon Nakashima",
+      "time": null,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms102"
+      ]
+    },
+    {
+      "id": "fixture:tennis:laver-cup:2026:ms101",
+      "eventId": "fixture:tennis:laver-cup:2026:ms101",
+      "canonicalEventId": "fixture:tennis:laver-cup:2026:ms101",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:laver-cup",
+      "competitionName": "Laver Cup",
+      "eventFamilyId": "laver-cup",
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "gender": "men",
+      "tour": "ATP",
+      "cardKind": "fixture",
+      "eventType": "singles",
+      "matchType": "mens-singles",
+      "name": "Casper Ruud v Francisco Cerundolo",
+      "status": "completed",
+      "roundLabel": "Day 1 - Match 1",
+      "date": "2026-09-25",
+      "startTimeUtc": "2026-09-25T12:00:00.000Z",
+      "sessionStartTimeUtc": "2026-09-25T12:00:00.000Z",
+      "sessionId": "laver-2026-1-day",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "venue": "The O2",
+      "venueCountryCode": "GB",
+      "participantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:francisco-cerundolo"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:casper-ruud",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Casper Ruud",
+          "shortName": "Ruud",
+          "canonicalName": "Casper Ruud",
+          "countryCode": "NO",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Ruud"
+            ],
+            "rankingSingles": 17,
+            "rankingPoints": 2335,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "NOR",
+            "isAustralian": false,
+            "providerAlias": "atp:player:rh16",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Casper Ruud",
+          "sourceUrl": "https://lavercup.com/player/casper-ruud"
+        },
+        {
+          "id": "competitor:tennis:atp:francisco-cerundolo",
+          "type": "competitor",
+          "sportDomainId": "sport:tennis:atp",
+          "displayName": "Francisco Cerundolo",
+          "shortName": "Cerundolo",
+          "canonicalName": "Francisco Cerundolo",
+          "countryCode": "AR",
+          "metadata": {
+            "active": true,
+            "titleAliases": [
+              "Cerundolo"
+            ],
+            "rankingSingles": 22,
+            "rankingPoints": 2130,
+            "rankingSnapshotDate": "2026-09-21",
+            "rankingSourceTrust": "verified",
+            "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+            "representedCountryCode": "ARG",
+            "isAustralian": false,
+            "providerAlias": "atp:player:c0au",
+            "selectionReasons": [
+              "top_50"
+            ]
+          },
+          "name": "Francisco Cerundolo",
+          "sourceUrl": "https://lavercup.com/player/francisco-cerundolo"
+        }
+      ],
+      "participantsConfirmed": true,
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Casper Ruud",
+          "participantId": "competitor:tennis:atp:casper-ruud"
+        },
+        {
+          "slot": 2,
+          "label": "Francisco Cerundolo",
+          "participantId": "competitor:tennis:atp:francisco-cerundolo"
+        }
+      ],
+      "matchupSides": [
+        {
+          "name": "Casper Ruud",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:casper-ruud",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Casper Ruud",
+              "shortName": "Ruud",
+              "canonicalName": "Casper Ruud",
+              "countryCode": "NO",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Ruud"
+                ],
+                "rankingSingles": 17,
+                "rankingPoints": 2335,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "NOR",
+                "isAustralian": false,
+                "providerAlias": "atp:player:rh16",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Casper Ruud",
+              "sourceUrl": "https://lavercup.com/player/casper-ruud"
+            }
+          ]
+        },
+        {
+          "name": "Francisco Cerundolo",
+          "players": [
+            {
+              "id": "competitor:tennis:atp:francisco-cerundolo",
+              "type": "competitor",
+              "sportDomainId": "sport:tennis:atp",
+              "displayName": "Francisco Cerundolo",
+              "shortName": "Cerundolo",
+              "canonicalName": "Francisco Cerundolo",
+              "countryCode": "AR",
+              "metadata": {
+                "active": true,
+                "titleAliases": [
+                  "Cerundolo"
+                ],
+                "rankingSingles": 22,
+                "rankingPoints": 2130,
+                "rankingSnapshotDate": "2026-09-21",
+                "rankingSourceTrust": "verified",
+                "rankingPublicationCheckedAt": "2026-09-27T06:41:59.951Z",
+                "representedCountryCode": "ARG",
+                "isAustralian": false,
+                "providerAlias": "atp:player:c0au",
+                "selectionReasons": [
+                  "top_50"
+                ]
+              },
+              "name": "Francisco Cerundolo",
+              "sourceUrl": "https://lavercup.com/player/francisco-cerundolo"
+            }
+          ]
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:casper-ruud",
+      "awayParticipantId": "competitor:tennis:atp:francisco-cerundolo",
+      "sets": [
+        {
+          "home": 6,
+          "away": 7,
+          "homeTiebreak": 4,
+          "awayTiebreak": 7
+        },
+        {
+          "home": 6,
+          "away": 4
+        },
+        {
+          "home": 10,
+          "away": 8,
+          "matchTiebreak": true
+        }
+      ],
+      "score": "6(4)-7(7) 6-4 [10-8]",
+      "scoreDisplay": "Casper Ruud 6(4)-7(7) 6-4 [10-8] Francisco Cerundolo",
+      "outcomeText": "Casper Ruud won for Team Europe.",
+      "winnerParticipantIds": [
+        "competitor:tennis:atp:casper-ruud"
+      ],
+      "result": {
+        "status": "official",
+        "score": "6(4)-7(7) 6-4 [10-8]",
+        "sourceUrl": "https://lavercup.com/scores-results-2026",
+        "checkedAt": "2026-09-27T06:53:24.585Z"
+      },
+      "broadcaster": "Stan Sport",
+      "broadcastSourceUrl": "https://lavercup.com/how-to-watch-the-laver-cup",
+      "sourceUrl": "https://lavercup.com/match/london-2026-match-1",
+      "sourceName": "Laver Cup",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-27T06:53:24.585Z",
+      "selectedSentence": "Casper Ruud face Francisco Cerundolo with 1 point at stake for their Laver Cup teams.",
+      "fullSpiel": "This singles match at The O2 is part of day 1 in London. The individual contest also contributes to the Europe versus World team total. The match format uses a deciding match tiebreak instead of a full third set.",
+      "expected": 6,
+      "stakesScore": 3,
+      "displayTitleCompact": "Casper Ruud v Francisco Cerundolo",
+      "time": "22:00",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-27T06:53:24.585Z",
+      "statusCheckedAt": "2026-09-27T06:53:24.585Z",
+      "sourceEventIds": [
+        "fixture:tennis:laver-cup:2026:ms101"
+      ]
+    },
+    {
       "id": "fixture:tennis:bjk-cup:2026:finals:qf1",
       "eventId": "fixture:tennis:bjk-cup:2026:finals:qf1",
       "key": "tennis",
@@ -477,7 +2516,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -525,7 +2564,7 @@
           "score": "7-6(2) 4-6 6-4",
           "winnerTeamId": "team:tennis:bjk-cup:czechia",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Marie Bouzkova v Sonay Kartal"
         },
         {
@@ -565,7 +2604,7 @@
           "score": "6-2 7-6(3)",
           "winnerTeamId": "team:tennis:bjk-cup:czechia",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Linda Noskova v Katie Boulter"
         },
         {
@@ -586,12 +2625,12 @@
         "team:tennis:bjk-cup:great-britain"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "result": {
         "status": "official",
         "score": "2-0",
         "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T20:16:12.469Z"
+        "checkedAt": "2026-09-27T06:43:00.480Z"
       },
       "outcomeText": "Czechia won 2–0",
       "recapText": "Official Billie Jean King Cup result.",
@@ -662,7 +2701,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -710,7 +2749,7 @@
           "score": "6-2 6-2",
           "winnerTeamId": "team:tennis:bjk-cup:spain",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Jessica Bouzas Maneiro v Sonja Zhiyenbayeva"
         },
         {
@@ -750,7 +2789,7 @@
           "score": "6-2 3-6 6-1",
           "winnerTeamId": "team:tennis:bjk-cup:kazakhstan",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Cristina Bucsa v Yulia Putintseva"
         },
         {
@@ -796,7 +2835,7 @@
           "score": "6-2 7-5",
           "winnerTeamId": "team:tennis:bjk-cup:spain",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Cristina Bucsa / Sara Sorribes Tormo v Anna Danilina / Zhibek Kulambayeva"
         }
       ],
@@ -806,12 +2845,12 @@
         "team:tennis:bjk-cup:kazakhstan"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "result": {
         "status": "official",
         "score": "2-1",
         "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T20:16:12.469Z"
+        "checkedAt": "2026-09-27T06:43:00.480Z"
       },
       "outcomeText": "Spain won 2–1",
       "recapText": "Official Billie Jean King Cup result.",
@@ -882,7 +2921,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -930,7 +2969,7 @@
           "score": "6-7(6) 6-1 6-1",
           "winnerTeamId": "team:tennis:bjk-cup:ukraine",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Anhelina Kalinina v Jana Otzipka"
         },
         {
@@ -970,7 +3009,7 @@
           "score": "6-7(5) 6-4 6-4",
           "winnerTeamId": "team:tennis:bjk-cup:belgium",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Elina Svitolina v Greet Minnen"
         },
         {
@@ -1016,7 +3055,7 @@
           "score": "6-3 6-3",
           "winnerTeamId": "team:tennis:bjk-cup:ukraine",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Anhelina Kalinina / Lyudmyla Kichenok v Magali Kempen / Lara Salden"
         }
       ],
@@ -1026,12 +3065,12 @@
         "team:tennis:bjk-cup:belgium"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "result": {
         "status": "official",
         "score": "2-1",
         "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T20:16:12.469Z"
+        "checkedAt": "2026-09-27T06:43:00.480Z"
       },
       "outcomeText": "Ukraine won 2–1",
       "recapText": "Official Billie Jean King Cup result.",
@@ -1102,7 +3141,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1150,7 +3189,7 @@
           "score": "6-0 6-2",
           "winnerTeamId": "team:tennis:bjk-cup:china",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Zhang Shuai v Elisabetta Cocciaretto"
         },
         {
@@ -1188,7 +3227,7 @@
             }
           ],
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Zheng Qinwen v Jasmine Paolini",
           "score": "6-3 7-6(4)",
           "winnerTeamId": "team:tennis:bjk-cup:italy"
@@ -1234,7 +3273,7 @@
             }
           ],
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
           "name": "Guo Hanyu / Jiang Xinyu v Jasmine Paolini / Sara Errani",
           "score": "6-3 5-7 6-3",
           "winnerTeamId": "team:tennis:bjk-cup:italy"
@@ -1246,12 +3285,12 @@
         "team:tennis:bjk-cup:china"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "result": {
         "status": "official",
         "score": "1-2",
         "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T20:16:12.469Z"
+        "checkedAt": "2026-09-27T06:43:00.480Z"
       },
       "outcomeText": "Italy won 2–1",
       "recapText": "Official Billie Jean King Cup result.",
@@ -1302,7 +3341,7 @@
       "name": "Czechia v Spain",
       "roundLabel": "Semifinal",
       "round": "Semifinal",
-      "status": "upcoming",
+      "status": "completed",
       "participantSlots": [
         {
           "slot": 1,
@@ -1322,7 +3361,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1339,10 +3378,39 @@
           "contestUnit": "rubber",
           "order": 1,
           "matchType": "Singles",
-          "status": "unconfirmed",
+          "status": "completed",
           "conditional": false,
-          "participantIds": [],
-          "sides": []
+          "participantIds": [
+            "competitor:tennis:wta:karolina-muchova",
+            "competitor:tennis:wta:jessica-bouzas-maneiro"
+          ],
+          "sides": [
+            {
+              "countryCode": "CZ",
+              "teamId": "team:tennis:bjk-cup:czechia",
+              "names": [
+                "Karolina Muchova"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:karolina-muchova"
+              ]
+            },
+            {
+              "countryCode": "ES",
+              "teamId": "team:tennis:bjk-cup:spain",
+              "names": [
+                "Jessica Bouzas Maneiro"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jessica-bouzas-maneiro"
+              ]
+            }
+          ],
+          "score": "7-5 6-4",
+          "winnerTeamId": "team:tennis:bjk-cup:czechia",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
+          "name": "Karolina Muchova v Jessica Bouzas Maneiro"
         },
         {
           "id": "fixture:tennis:bjk-cup:2026:finals:sf1:rubber:2",
@@ -1350,10 +3418,39 @@
           "contestUnit": "rubber",
           "order": 2,
           "matchType": "Singles",
-          "status": "unconfirmed",
+          "status": "completed",
           "conditional": false,
-          "participantIds": [],
-          "sides": []
+          "participantIds": [
+            "competitor:tennis:wta:linda-noskova",
+            "competitor:tennis:wta:cristina-bucsa"
+          ],
+          "sides": [
+            {
+              "countryCode": "CZ",
+              "teamId": "team:tennis:bjk-cup:czechia",
+              "names": [
+                "Linda Noskova"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:linda-noskova"
+              ]
+            },
+            {
+              "countryCode": "ES",
+              "teamId": "team:tennis:bjk-cup:spain",
+              "names": [
+                "Cristina Bucsa"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:cristina-bucsa"
+              ]
+            }
+          ],
+          "score": "7-6(5) 6-2",
+          "winnerTeamId": "team:tennis:bjk-cup:czechia",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
+          "name": "Linda Noskova v Cristina Bucsa"
         },
         {
           "id": "fixture:tennis:bjk-cup:2026:finals:sf1:rubber:3",
@@ -1361,7 +3458,7 @@
           "contestUnit": "rubber",
           "order": 3,
           "matchType": "Doubles",
-          "status": "unconfirmed",
+          "status": "not-required",
           "conditional": true,
           "participantIds": [],
           "sides": []
@@ -1372,6 +3469,21 @@
         "qf2"
       ],
       "spoilerSafeTitle": "Winner Quarter-final 1 v Winner Quarter-final 2",
+      "score": "2-0",
+      "winnerParticipantId": "team:tennis:bjk-cup:czechia",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:spain"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
+      "result": {
+        "status": "official",
+        "score": "2-0",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-27T06:43:00.480Z"
+      },
+      "outcomeText": "Czechia won 2–0",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:czechia",
@@ -1419,7 +3531,7 @@
       "name": "Ukraine v Italy",
       "roundLabel": "Semifinal",
       "round": "Semifinal",
-      "status": "upcoming",
+      "status": "completed",
       "participantSlots": [
         {
           "slot": 1,
@@ -1439,7 +3551,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1456,10 +3568,39 @@
           "contestUnit": "rubber",
           "order": 1,
           "matchType": "Singles",
-          "status": "unconfirmed",
+          "status": "completed",
           "conditional": false,
-          "participantIds": [],
-          "sides": []
+          "participantIds": [
+            "competitor:tennis:wta:anhelina-kalinina",
+            "competitor:tennis:wta:tyra-grant"
+          ],
+          "sides": [
+            {
+              "countryCode": "UA",
+              "teamId": "team:tennis:bjk-cup:ukraine",
+              "names": [
+                "Anhelina Kalinina"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:anhelina-kalinina"
+              ]
+            },
+            {
+              "countryCode": "IT",
+              "teamId": "team:tennis:bjk-cup:italy",
+              "names": [
+                "Tyra Grant"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:tyra-grant"
+              ]
+            }
+          ],
+          "score": "6-3 6-4",
+          "winnerTeamId": "team:tennis:bjk-cup:ukraine",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-ukr-2026-billie-jean-king-cup-finals-semi-final",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
+          "name": "Anhelina Kalinina v Tyra Grant"
         },
         {
           "id": "fixture:tennis:bjk-cup:2026:finals:sf2:rubber:2",
@@ -1467,10 +3608,39 @@
           "contestUnit": "rubber",
           "order": 2,
           "matchType": "Singles",
-          "status": "unconfirmed",
+          "status": "completed",
           "conditional": false,
-          "participantIds": [],
-          "sides": []
+          "participantIds": [
+            "competitor:tennis:wta:elina-svitolina",
+            "competitor:tennis:wta:jasmine-paolini"
+          ],
+          "sides": [
+            {
+              "countryCode": "UA",
+              "teamId": "team:tennis:bjk-cup:ukraine",
+              "names": [
+                "Elina Svitolina"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:elina-svitolina"
+              ]
+            },
+            {
+              "countryCode": "IT",
+              "teamId": "team:tennis:bjk-cup:italy",
+              "names": [
+                "Jasmine Paolini"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jasmine-paolini"
+              ]
+            }
+          ],
+          "score": "6-2 6-2",
+          "winnerTeamId": "team:tennis:bjk-cup:ukraine",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-ukr-2026-billie-jean-king-cup-finals-semi-final",
+          "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
+          "name": "Elina Svitolina v Jasmine Paolini"
         },
         {
           "id": "fixture:tennis:bjk-cup:2026:finals:sf2:rubber:3",
@@ -1478,7 +3648,7 @@
           "contestUnit": "rubber",
           "order": 3,
           "matchType": "Doubles",
-          "status": "unconfirmed",
+          "status": "not-required",
           "conditional": true,
           "participantIds": [],
           "sides": []
@@ -1489,6 +3659,21 @@
         "qf4"
       ],
       "spoilerSafeTitle": "Winner Quarter-final 3 v Winner Quarter-final 4",
+      "score": "2-0",
+      "winnerParticipantId": "team:tennis:bjk-cup:ukraine",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:italy"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-ukr-2026-billie-jean-king-cup-finals-semi-final",
+      "resultSourceCheckedAt": "2026-09-27T06:43:00.480Z",
+      "result": {
+        "status": "official",
+        "score": "2-0",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-ukr-2026-billie-jean-king-cup-finals-semi-final",
+        "checkedAt": "2026-09-27T06:43:00.480Z"
+      },
+      "outcomeText": "Ukraine won 2–0",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:ukraine",
@@ -1533,27 +3718,30 @@
       "gender": "women",
       "season": 2026,
       "bracketSlot": "final",
-      "name": "Winner Semi-final 1 v Winner Semi-final 2",
+      "name": "Czechia v Ukraine",
       "roundLabel": "Final",
       "round": "Final",
       "status": "upcoming",
       "participantSlots": [
         {
           "slot": 1,
-          "label": "Winner Semi-final 1",
-          "participantId": null
+          "label": "Czechia",
+          "participantId": "team:tennis:bjk-cup:czechia"
         },
         {
           "slot": 2,
-          "label": "Winner Semi-final 2",
-          "participantId": null
+          "label": "Ukraine",
+          "participantId": "team:tennis:bjk-cup:ukraine"
         }
       ],
-      "participantIds": [],
+      "participantIds": [
+        "team:tennis:bjk-cup:czechia",
+        "team:tennis:bjk-cup:ukraine"
+      ],
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "sourceCheckedAt": "2026-09-27T06:43:00.480Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1603,7 +3791,34 @@
         "sf2"
       ],
       "spoilerSafeTitle": "Winner Semi-final 1 v Winner Semi-final 2",
-      "participants": []
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:czechia",
+          "type": "team",
+          "displayName": "Czechia",
+          "name": "Czechia",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CZ",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:ukraine",
+          "type": "team",
+          "displayName": "Ukraine",
+          "name": "Ukraine",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "UA",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
     }
   ],
   "parents": [
@@ -13228,20 +15443,13 @@
       "excludedParticipantIds": [],
       "participantIds": [
         "team:tennis:bjk-cup:czechia",
-        "team:tennis:bjk-cup:spain",
         "team:tennis:bjk-cup:ukraine",
-        "team:tennis:bjk-cup:italy",
         "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:linda-noskova",
-        "competitor:tennis:wta:jessica-bouzas-maneiro",
-        "competitor:tennis:wta:cristina-bucsa",
-        "competitor:tennis:wta:sara-sorribes-tormo",
         "competitor:tennis:wta:anhelina-kalinina",
         "competitor:tennis:wta:elina-svitolina",
         "competitor:tennis:wta:lyudmyla-kichenok",
-        "competitor:tennis:wta:elisabetta-cocciaretto",
-        "competitor:tennis:wta:jasmine-paolini",
-        "competitor:tennis:wta:sara-errani"
+        "competitor:tennis:wta:karolina-muchova"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -13258,7 +15466,7 @@
         {
           "participantId": "team:tennis:bjk-cup:spain",
           "draw": "ties",
-          "active": true
+          "active": false
         },
         {
           "participantId": "team:tennis:bjk-cup:kazakhstan",
@@ -13283,7 +15491,7 @@
         {
           "participantId": "team:tennis:bjk-cup:italy",
           "draw": "ties",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:marie-bouzkova",
@@ -13313,7 +15521,7 @@
           "participantId": "competitor:tennis:wta:jessica-bouzas-maneiro",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:spain",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:sonja-zhiyenbayeva",
@@ -13331,13 +15539,13 @@
           "participantId": "competitor:tennis:wta:cristina-bucsa",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:spain",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:sara-sorribes-tormo",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:spain",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:anna-danilina",
@@ -13403,13 +15611,13 @@
           "participantId": "competitor:tennis:wta:elisabetta-cocciaretto",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:italy",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:jasmine-paolini",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:italy",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:zheng-qinwen",
@@ -13421,7 +15629,7 @@
           "participantId": "competitor:tennis:wta:sara-errani",
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:italy",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:guo-hanyu",
@@ -13434,25 +15642,30 @@
           "draw": "team",
           "teamId": "team:tennis:bjk-cup:china",
           "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:karolina-muchova",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:czechia",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:tyra-grant",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:italy",
+          "active": false
         }
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
         "team:tennis:bjk-cup:czechia",
-        "team:tennis:bjk-cup:spain",
         "team:tennis:bjk-cup:ukraine",
-        "team:tennis:bjk-cup:italy",
         "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:linda-noskova",
-        "competitor:tennis:wta:jessica-bouzas-maneiro",
-        "competitor:tennis:wta:cristina-bucsa",
-        "competitor:tennis:wta:sara-sorribes-tormo",
         "competitor:tennis:wta:anhelina-kalinina",
         "competitor:tennis:wta:elina-svitolina",
         "competitor:tennis:wta:lyudmyla-kichenok",
-        "competitor:tennis:wta:elisabetta-cocciaretto",
-        "competitor:tennis:wta:jasmine-paolini",
-        "competitor:tennis:wta:sara-errani"
+        "competitor:tennis:wta:karolina-muchova"
       ],
       "contestCount": 7
     },
@@ -13596,6 +15809,174 @@
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
       "contestCount": 0
+    },
+    {
+      "id": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
+      "eventId": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
+      "canonicalEventId": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "cardType": "tennis_parent",
+      "tournamentParent": true,
+      "name": "Laver Cup",
+      "tournamentName": "Laver Cup",
+      "season": 2026,
+      "tournamentId": "tournament:tennis:laver-cup-2026",
+      "tennisTournamentId": "tournament:tennis:laver-cup-2026",
+      "tournamentIds": [
+        "tournament:tennis:laver-cup-2026"
+      ],
+      "eventFamilyId": "laver-cup",
+      "competitionId": "competition:laver-cup",
+      "phaseId": null,
+      "tour": "TEAM",
+      "representedTours": [
+        "ATP"
+      ],
+      "date": "2026-09-25",
+      "endDate": "2026-09-27",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "timeTbc": true,
+      "schedulingWindow": {},
+      "timingProvisional": false,
+      "dateLabel": null,
+      "status": "upcoming",
+      "venue": "London, GBR",
+      "sourceUrl": "https://lavercup.com/scores-results-2026",
+      "sourceName": "Tournament calendar",
+      "sourceType": "published",
+      "participationEvidence": [],
+      "excludedParticipantIds": [],
+      "participantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:brandon-nakashima",
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:flavio-cobolli",
+        "competitor:tennis:atp:learner-tien",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:taylor-fritz",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alex-de-minaur"
+      ],
+      "expected": 5,
+      "sourceParticipation": [
+        {
+          "participantId": "competitor:tennis:atp:casper-ruud",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:francisco-cerundolo",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:brandon-nakashima",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:rafael-jodar",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-bublik",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:flavio-cobolli",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:learner-tien",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-bublik",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:taylor-fritz",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-zverev",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-de-minaur",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:taylor-fritz",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:casper-ruud",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-zverev",
+          "draw": "doubles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:brandon-nakashima",
+          "draw": "doubles",
+          "active": true
+        }
+      ],
+      "participantsConfirmed": true,
+      "sourceParticipantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:brandon-nakashima",
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:flavio-cobolli",
+        "competitor:tennis:atp:learner-tien",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:taylor-fritz",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alex-de-minaur"
+      ],
+      "contestCount": 8
     }
   ]
 }

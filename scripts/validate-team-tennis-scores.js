@@ -12,6 +12,13 @@ assert.equal(model.compact(reversed,{rubbers:true}).rubbers[0].name,'Italy playe
 assert.equal(model.compact({...tie,score:'unavailable'}).score.home,null);
 assert.equal(model.compact(tie).rubbers,undefined);
 console.log('Team tennis: tie totals, source-oriented rubber sets, tiebreaks, unavailable and on-demand details passed');
+{
+ const adapter=require('./refresh-bjk-cup');
+ const ties=structuredClone(fixtures.filter(f=>f.tournamentId===adapter.TOURNAMENT));
+ const updated=adapter.applyArticles(ties,[{url:'https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final',checkedAt:'2026-09-26T00:00:00Z',doc:{blocks:['Match 1: Karolina Muchova (CZE) d. Jessica Bouzas Maneiro (ESP) 7-5 6-4','Match 2: Linda Noskova (CZE) d. Cristina Bucsa (ESP) 7-6(5) 6-2']}}]);
+ const semi=updated.find(f=>f.bracketSlot==='sf1');assert.equal(semi.status,'completed');assert.equal(semi.score,'2-0');assert.equal(semi.rubbers[2].status,'not-required');
+ assert(updated.find(f=>f.bracketSlot==='final').participantIds.includes(adapter.teamId('Czechia')));
+}
 (async()=>{
  const {refresh}=require('../lib/bjk-live');let calls=0;
  const lines=['Match 1: Zhang Shuai (CHN) d. Elisabetta Cocciaretto (ITA) 6-0 6-2','Match 2: Zheng Qinwen (CHN) d. Jasmine Paolini (ITA) 6-4 6-4'];

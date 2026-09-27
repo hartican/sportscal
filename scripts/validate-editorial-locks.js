@@ -5,8 +5,9 @@ const locks=require('../config/editorial-locks'),narrative=require('./lib/editor
 const {createResolver}=require('../lib/fixture-editorial'),{buildQueue}=require('./build-editorial-research-queue');
 const knowledge=JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json'));
 const indexes=narrative.indexesFor(knowledge),feed=JSON.parse(fs.readFileSync('data/events.json'));
-const approved=locks.records[0],base=feed.events.find(event=>locks.recordFor(event));
-assert(base,'locked fixture exists');
+const approved=locks.records[0],publishedBase=feed.events.find(event=>locks.recordFor(event));
+assert(publishedBase,'locked fixture exists');
+const base={...publishedBase,status:'upcoming',scheduleStatus:'confirmed'};
 const projection=narrative.projectionForTarget(knowledge,'feed-event',base);
 const stale={...projection,hook:'Stale placeholder',synopsis:'Stale generated body'};
 for(const id of [approved.canonicalEventId,...approved.aliases]){

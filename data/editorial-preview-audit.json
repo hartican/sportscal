@@ -1,114 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-25T03:39:22.293Z",
+  "generatedAt": "2026-09-27T06:54:19.125Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 15,
-    "passed": 15,
+    "due": 9,
+    "passed": 9,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "major-match-nrl-finals-2026-preliminary-final-2",
-      "name": "Dolphins v Roosters",
-      "sport": "NRL",
-      "date": "2026-09-25",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "issues": []
-    },
-    {
-      "id": "football-australia-brazil-2026-09-25",
-      "name": "Socceroos v Brazil",
-      "sport": "Football",
-      "date": "2026-09-25",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:path",
-        "narrative:history",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-      "issues": []
-    },
-    {
-      "id": "evt_30",
-      "name": "Azerbaijan GP · Qualifying",
-      "sport": "Formula 1",
-      "date": "2026-09-25",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:form"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142901",
-      "name": "Fremantle v Brisbane Lions",
-      "sport": "AFL",
-      "date": "2026-09-26",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:venue"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "issues": []
-    },
-    {
-      "id": "evt_83",
-      "name": "NRL Preliminary Finals",
-      "sport": "NRL",
-      "date": "2026-09-26",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:matchup",
-        "narrative:history"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-      "issues": []
-    },
-    {
-      "id": "evt_31",
-      "name": "Azerbaijan GP · Race",
-      "sport": "Formula 1",
-      "date": "2026-09-26",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:consequence",
-        "narrative:history"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "issues": []
-    },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-1",
       "name": "Panthers v Knights",

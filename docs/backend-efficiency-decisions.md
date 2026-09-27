@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Public refresh without private preferences - 27 September 2026
+
+Full manual card/result refreshes without a configured follow snapshot preserve and validate the existing compact fixture-only artifact. They rebuild public schedules and run synthetic Follow checks instead of accessing account preferences. An explicitly configured snapshot retains the existing personalised projection/audit path. A public-only audit must not claim that individual accounts were audited. No additional scheduler is introduced.
+
 ## Slow navigation recovery and shared golf ingestion — 25 September 2026
 
 Match Centre owns its panel before Feed hydration completes. Lazy loading immediately shows its own state, with a retry on failure. Membership reads have ten-second deadlines, show eligible pages progressively, and use elapsed freshness instead of a clock-boundary cache key. Existing account, preference and navigation guards remain. No polling cadence or score membership scope changes.
@@ -140,3 +144,7 @@ The existing canonical PGA schedule adapter also parses the official Presidents 
 The existing live-source owner adds one leased Presidents Cup source, with its ordinary live/imminent cadence and deadlines. No scheduler, endpoint, migration or client polling budget changes. Fetch failures keep previous records, scores and score observation timestamps. Missing/invalid totals do not replace last-good scores with zero; source staleness remains visible. F1 session loading preserves canonical venue/country fields and no longer infers completion from elapsed end times.
 
 Regressions: validate-card-coverage-corrections.js, existing Match Centre API/model, live-fixtures and observation suites.
+
+## ODI stale-live display - 27 September 2026
+
+After ten hours from actual start (otherwise confirmed scheduled start), an ODI without explicit continuing-play evidence in the last ten minutes displays Awaiting confirmed result. A fetch timestamp alone is not playing evidence. This is presentation only: no inferred completion timestamp, rewards, or stopped polling. Explicit terminal/interrupted states win. Existing source cadence is unchanged. Regression: validate-odi-display.js.

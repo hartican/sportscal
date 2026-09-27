@@ -15,6 +15,12 @@
     return start && +start<=+now?'past':'upcoming';
   }
   function compare(a,b){return +(calendar.eventStart(a)||new Date(`${a.date || a.startDate}T00:00:00Z`)) - +(calendar.eventStart(b)||new Date(`${b.date || b.startDate}T00:00:00Z`)) || calendar.idFor(a).localeCompare(calendar.idFor(b));}
+  function normalizedStatus(event,now=new Date()){
+    // Keep authoritative states across repeated browser normalisation. In
+    // particular, completed follows-time matches have no exact start to infer.
+    const raw=String(event.status||'').toLowerCase();
+    return ['completed','finished','final','cancelled','canceled','postponed','suspended','abandoned'].includes(raw)?raw:status(event,now);
+  }
   function groups(events,now=new Date()){
     const today=calendar.sydneyDay(now),result={retainedPast:[],today:[],future:[],unknown:[]};
     for(const event of events){
@@ -28,5 +34,5 @@
     result.today.sort((a,b)=>Number(status(a,now)!=='past')-Number(status(b,now)!=='past') || compare(a,b));
     return result;
   }
-  return {status,compare,groups};
+  return {status,normalizedStatus,compare,groups};
 });

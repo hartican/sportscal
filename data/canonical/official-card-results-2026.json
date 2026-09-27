@@ -403,6 +403,60 @@
       "awayScore": 68,
       "endTimeUtc": "2026-09-20T23:59:59+10:00",
       "endTimeBasis": "completed-event-local-date-boundary"
+    },
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "status": "completed",
+      "resultStatus": "official",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "Socceroos 1-1 Brazil",
+      "scoreDisplay": "Socceroos 1-1 Brazil",
+      "outcomeText": "Socceroos and Brazil drew 1-1 in Townsville.",
+      "recapText": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
+      "sourceName": "Socceroos / Football Australia",
+      "sourceUrl": "https://socceroos.com.au/match/australia-v-brazil-friendlies-25-09-2026/22278825",
+      "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
+      "resultSourceUrl": "https://socceroos.com.au/match/australia-v-brazil-friendlies-25-09-2026/22278825",
+      "resultSourceCheckedAt": "2026-09-27T06:35:07.891Z",
+      "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
+      "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "hookSpoilerOff": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
+        "synopsisSpoilerOff": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
+        "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
+        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench."
+      }
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-2",
+      "status": "completed",
+      "homeScore": 20,
+      "awayScore": 36,
+      "score": "Dolphins 20-36 Roosters",
+      "scoreDisplay": "Dolphins 20-36 Roosters",
+      "outcomeText": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
+      "recapText": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
+      "resultStatus": "official",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+      "sourceCheckedAt": "2026-09-27T06:46:37.622Z",
+      "resultSourceUrl": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+      "resultSourceCheckedAt": "2026-09-27T06:46:37.622Z",
+      "selectedSentence": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+      "fullSpiel": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "hookSpoilerOff": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+        "synopsisSpoilerOff": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+        "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
+        "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage."
+      }
     }
   ]
 }

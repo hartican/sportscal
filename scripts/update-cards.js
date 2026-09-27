@@ -306,6 +306,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-decisions.js"],
   ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-tournament-hydration.js"],
+  ["scripts/validate-odi-display.js"],
+  ["scripts/validate-laver-cup.js"],
   ["scripts/validate-participant-unfollow.js"],
   ["scripts/validate-australian-presentation.js"],
   ["scripts/validate-feed-repair-reconciliation.js"],

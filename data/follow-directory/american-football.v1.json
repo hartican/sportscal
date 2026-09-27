@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "american-football",
   "label": "American Football",
-  "generatedAt": "2026-09-25T01:04:15Z",
+  "generatedAt": "2026-09-27T06:31:30Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -11367,7 +11367,7 @@
       "identityId": "athlete:nfl:4709983",
       "logoUrl": null,
       "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4709983.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4709983.png",
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
@@ -56871,7 +56871,7 @@
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
-      "currentTeamId": "team:nfl:dal",
+      "currentTeamId": "team:nfl:gb",
       "leagueId": "competition:nfl",
       "teamKind": null,
       "position": "G",
@@ -60873,7 +60873,7 @@
       "identityId": "athlete:nfl:4682641",
       "logoUrl": null,
       "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4682641.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4682641.png",
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
@@ -63715,6 +63715,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4696051/mikail-kamara"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4244310",
+      "displayName": "Mike Brown",
+      "shortName": "M. Brown",
+      "aliases": [
+        "Mike Brown",
+        "M. Brown"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:ne",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "S",
+      "identityId": "athlete:nfl:4244310",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4244310.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4244310/mike-brown"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -68660,41 +68695,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4367210/otito-ogbonnia"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4567219",
-      "displayName": "Owen Pappoe",
-      "shortName": "O. Pappoe",
-      "aliases": [
-        "Owen Pappoe",
-        "O. Pappoe"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "LB",
-      "identityId": "athlete:nfl:4567219",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567219.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4567219/owen-pappoe"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -85244,7 +85244,7 @@
       "currentTeamId": "team:nfl:sea",
       "leagueId": "competition:nfl",
       "teamKind": null,
-      "position": "WR",
+      "position": "RB",
       "identityId": "athlete:nfl:4035693",
       "logoUrl": null,
       "logoDarkUrl": null,
@@ -85915,7 +85915,7 @@
       "identityId": "athlete:nfl:4684963",
       "logoUrl": null,
       "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4684963.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4684963.png",
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [

@@ -33,7 +33,8 @@ check(fixture({key:'afl',round:'Final'}),{followedSports:['afl']},true,'AFL fina
 check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},true,'legacy participant opt-out does not veto broad singles final');
 check(fixture({round:'Final',competitionId:'competition:test'}),{...tennis,preferenceGraph:{competitionPreferences:[{competitionId:'competition:test',enabled:false}],entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},false,'competition exclusion wins');
 const pages=fs.readdirSync('data/feed').filter(f=>/^page-.*json$/.test(f));
-const summary=pages.flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events||[]).find(e=>e.id==='evt_81');
+const summary=pages.flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events||[]).find(e=>e.id==='evt_81')
+ || JSON.parse(fs.readFileSync('data/events.json')).events.find(e=>e.id==='evt_81');
 assert(summary,'published finals-week regression fixture');
 assert.equal(policy.eligibleForFollow(summary,{competitionFollow:true}),false,'NRL Finals Week 1 summary');
 check({...summary,date:'2026-09-09'},{followedSports:['nrl']},false,'NRL summary end to end');

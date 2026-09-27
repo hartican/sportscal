@@ -12,8 +12,11 @@ assert.equal(current.length,2);
 const stale=current.map(({editorialNarrative,editorialPreview,storyline,...fixture})=>fixture);
 let rendered=false;
 const saved=new Map();
+const fixtureIdentity=require('../config/fixture-identity');
+// Exercise cache replacement while these historical fixtures are in retention.
+const scenarioNow=new Date('2026-09-22T12:00:00.000Z');
 const context=vm.createContext({console,Map,Promise,Date,
-  NOTHINGSPORTS_FIXTURE_IDENTITY:require('../config/fixture-identity'),
+  NOTHINGSPORTS_FIXTURE_IDENTITY:{...fixtureIdentity,retainedInActiveTimeline:event=>fixtureIdentity.retainedInActiveTimeline(event,scenarioNow)},
   FEED_FIXTURE_RECONCILIATION:require('../config/feed-fixture-reconciliation'),
   userPreferences:{},liveFixtureRevision:'loaded',liveFixtureEvents:[],
   activeEvents:structuredClone(stale),followedScheduleFixtures:new Map(),followedScheduleLoads:new Map(),

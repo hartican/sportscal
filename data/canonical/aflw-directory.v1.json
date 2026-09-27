@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-25T03:26:23.583Z",
+  "generatedAt": "2026-09-27T06:42:12.612Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-25T03:26:23.583Z"
+      "checkedAt": "2026-09-27T06:42:12.612Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-25T03:26:23.583Z"
+      "checkedAt": "2026-09-27T06:42:12.612Z"
     }
   ],
   "leagues": [
@@ -8057,6 +8057,32 @@
       "heightInCm": 170,
       "recruitedFrom": "Greater Western Victoria Rebels (Vic)",
       "debutYear": "2024",
+      "active": true
+    },
+    {
+      "id": "competitor:aflw:jordan-membrey",
+      "displayName": "Jordan Membrey",
+      "sortName": "Jordan Membrey",
+      "currentTeamId": "team:aflw:cd_t8796",
+      "leagueId": "competition:aflw-2026",
+      "position": "Key Forward",
+      "sourceUrl": "https://www.afl.com.au/aflw/players/1655/jordan-membrey",
+      "sourceRefs": [
+        "source:aflw:players",
+        "source:aflw:teams"
+      ],
+      "providerId": "CD_I1005664",
+      "jumperNumber": 49,
+      "competitionNumber": 49,
+      "competitionNumberKind": "guernsey",
+      "competitionNumberSeason": "2026",
+      "photoURL": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1005664.png?im=Scale,width=0.6,height=0.6",
+      "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1005664.png?im=Scale,width=0.6,height=0.6",
+      "profileRef": "profile:aflw:jordan-membrey",
+      "dateOfBirth": "1996-01-01",
+      "heightInCm": 178,
+      "recruitedFrom": "Carrara (Qld)/Burleigh (Qld)/Coolangatta (QAFLW/Brisbane Lions/Wilston Grange (QAFLW)/ Hawthorn (VFLW)/Collingwood/Sandringham (VFLW)",
+      "debutYear": "2017",
       "active": true
     },
     {

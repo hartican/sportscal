@@ -130,6 +130,8 @@
   }
 
   function timingState(event, now = new Date()){
+    const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
+    if(odi?.awaiting(event,now))return Object.freeze({key:'awaiting-result',label:odi.label,ariaLabel:odi.label});
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
     if(["cancelled","canceled","postponed"].includes(status))return null;
     const start = eventStart(event);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-09-25T03:38:00Z",
+  "generatedAt": "2026-09-27T06:42:30Z",
   "season": "20262027",
   "competitions": [
     {
@@ -1303,25 +1303,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483444",
-      "displayName": "Nathan Gaucher",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483444",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8483444.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483445",
       "displayName": "Cutter Gauthier",
       "shortName": null,
@@ -1436,25 +1417,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483479",
-      "displayName": "Cruz Lucius",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483479",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8483479.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482408",
       "displayName": "Jeff Malott",
       "shortName": null,
@@ -1550,25 +1512,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484767",
-      "displayName": "Lucas Pettersson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484767",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8484767.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480068",
       "displayName": "Ryan Poehling",
       "shortName": null,
@@ -1640,25 +1583,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478366",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8478366.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484238",
-      "displayName": "Anton Wahlberg",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484238",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8484238.png",
       "sourceRefs": [
         "https://www.nhl.com/ana/roster"
       ]
@@ -1968,25 +1892,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484583",
-      "displayName": "Attilio Biasca",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CHE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484583",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8484583.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482213",
       "displayName": "Riley Duran",
       "shortName": null,
@@ -2025,25 +1930,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8476867",
-      "displayName": "Brendan Gaunce",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8476867",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8476867.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479987",
       "displayName": "Morgan Geekie",
       "shortName": null,
@@ -2077,44 +1963,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8485395",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8485395.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483531",
-      "displayName": "Brian Halonen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483531",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8483531.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483930",
-      "displayName": "Ivan Ivan",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483930",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8483930.png",
       "sourceRefs": [
         "https://www.nhl.com/bos/roster"
       ]
@@ -2462,25 +2310,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8480887",
-      "displayName": "Jordan Harris",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480887",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480887.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480035",
       "displayName": "Henri Jokiharju",
       "shortName": null,
@@ -2557,25 +2386,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482399",
-      "displayName": "Billy Sweezey",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482399",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8482399.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477507",
       "displayName": "Nikita Zadorov",
       "shortName": null,
@@ -2609,25 +2419,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480022",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480022.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480238",
-      "displayName": "Jiri Patera",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480238",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480238.png",
       "sourceRefs": [
         "https://www.nhl.com/bos/roster"
       ]
@@ -2728,63 +2519,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483090",
-      "displayName": "Riley Fiddler-Schultz",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483090",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8483090.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484757",
-      "displayName": "Zac Funk",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484757",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484757.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8477419",
-      "displayName": "Mason Geertsen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477419",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8477419.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484797",
       "displayName": "Konsta Helenius",
       "shortName": null,
@@ -2861,25 +2595,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482479",
-      "displayName": "Trevor Kuntar",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482479",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8482479.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479359",
       "displayName": "Beck Malenstyn",
       "shortName": null,
@@ -2899,25 +2614,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481683",
-      "displayName": "Aidan McDonough",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481683",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8481683.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480802",
       "displayName": "Ryan McLeod",
       "shortName": null,
@@ -2932,25 +2628,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480802",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480802.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480292",
-      "displayName": "Carson Meyer",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480292",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480292.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -2994,25 +2671,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484255",
-      "displayName": "Jason Polin",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484255",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484255.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482097",
       "displayName": "Jack Quinn",
       "shortName": null,
@@ -3027,25 +2685,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482097",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8482097.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483755",
-      "displayName": "Jake Richard",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483755",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8483755.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -3146,8 +2785,8 @@
       ]
     },
     {
-      "id": "athlete:nhl:8478502",
-      "displayName": "Dennis Gilbert",
+      "id": "athlete:nhl:8476891",
+      "displayName": "Matt Grzelcyk",
       "shortName": null,
       "aliases": [],
       "active": true,
@@ -3158,65 +2797,8 @@
       "countryCode": "USA",
       "countryBasis": "official-nhl-roster",
       "genderCategory": "male",
-      "identityId": "athlete:nhl:8478502",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8478502.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481564",
-      "displayName": "Ryan Johnson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481564",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8481564.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483732",
-      "displayName": "Vsevolod Komarov",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483732",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8483732.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484192",
-      "displayName": "Gavin McCarthy",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484192",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484192.png",
+      "identityId": "athlete:nhl:8476891",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8476891.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -3236,25 +2818,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484305",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484305.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485404",
-      "displayName": "Radim Mrtka",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485404",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8485404.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -3312,25 +2875,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480807",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480807.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484233",
-      "displayName": "Maxim Strbak",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SVK",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484233",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484233.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -3445,44 +2989,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8479312",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8479312.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484218",
-      "displayName": "Scott Ratzlaff",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484218",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484218.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480191",
-      "displayName": "Matt Villalta",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480191",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480191.png",
       "sourceRefs": [
         "https://www.nhl.com/buf/roster"
       ]
@@ -3735,25 +3241,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483496",
-      "displayName": "Viktor Neuchev",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483496",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8483496.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482785",
       "displayName": "Justin Robidas",
       "shortName": null,
@@ -3863,25 +3350,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484392",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8484392.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484781",
-      "displayName": "Dominik Badinka",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484781",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8484781.png",
       "sourceRefs": [
         "https://www.nhl.com/car/roster"
       ]
@@ -4020,25 +3488,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482911",
-      "displayName": "Joel Nystrom",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482911",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8482911.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476422",
       "displayName": "Mike Reilly",
       "shortName": null,
@@ -4053,25 +3502,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476422",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8476422.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482187",
-      "displayName": "Ronan Seeley",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482187",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8482187.png",
       "sourceRefs": [
         "https://www.nhl.com/car/roster"
       ]
@@ -4153,25 +3583,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484440",
-      "displayName": "Ruslan Khazheyev",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484440",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8484440.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8481611",
       "displayName": "Pyotr Kochetkov",
       "shortName": null,
@@ -4210,25 +3621,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479313",
-      "displayName": "Zach Sawchenko",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479313",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8479313.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475745",
       "displayName": "Charlie Coyle",
       "shortName": null,
@@ -4262,6 +3654,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483432",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8483432.png",
+      "sourceRefs": [
+        "https://www.nhl.com/cbj/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8484166",
+      "displayName": "Adam Fantilli",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:cbj",
+      "leagueId": "competition:nhl",
+      "position": "C",
+      "countryCode": "CAN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8484166",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8484166.png",
       "sourceRefs": [
         "https://www.nhl.com/cbj/roster"
       ]
@@ -4324,25 +3735,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484472",
-      "displayName": "Oiva Keskinen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484472",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8484472.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479066",
       "displayName": "Ryan Lomberg",
       "shortName": null,
@@ -4357,25 +3749,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8479066",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8479066.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480806",
-      "displayName": "Isac Lundeström",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480806",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8480806.png",
       "sourceRefs": [
         "https://www.nhl.com/cbj/roster"
       ]
@@ -4457,25 +3830,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482451",
-      "displayName": "Mikael Pyyhtia",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482451",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482451.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482705",
       "displayName": "Cole Sillinger",
       "shortName": null,
@@ -4490,25 +3844,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482705",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482705.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482134",
-      "displayName": "Luke Tuch",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482134",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482134.png",
       "sourceRefs": [
         "https://www.nhl.com/cbj/roster"
       ]
@@ -4571,25 +3906,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482678",
-      "displayName": "Corson Ceulemans",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482678",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482678.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8481161",
       "displayName": "Jake Christiansen",
       "shortName": null,
@@ -4604,25 +3920,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481161",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8481161.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484808",
-      "displayName": "Charlie Elick",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484808",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8484808.png",
       "sourceRefs": [
         "https://www.nhl.com/cbj/roster"
       ]
@@ -4704,25 +4001,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482692",
-      "displayName": "Guillaume Richard",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482692",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482692.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476923",
       "displayName": "Damon Severson",
       "shortName": null,
@@ -4756,25 +4034,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478460",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8478460.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8478841",
-      "displayName": "Colton White",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478841",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8478841.png",
       "sourceRefs": [
         "https://www.nhl.com/cbj/roster"
       ]
@@ -4818,44 +4077,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483869",
-      "displayName": "Nolan Lalonde",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483869",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8483869.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8478007",
-      "displayName": "Elvis Merzlikins",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cbj",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "LVA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478007",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8478007.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cbj/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475660",
       "displayName": "Cam Talbot",
       "shortName": null,
@@ -4889,25 +4110,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8474150",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8474150.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484782",
-      "displayName": "Andrew Basha",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484782",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484782.png",
       "sourceRefs": [
         "https://www.nhl.com/cgy/roster"
       ]
@@ -5008,25 +4210,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8486056",
-      "displayName": "Tyson Gross",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486056",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8486056.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484180",
       "displayName": "Samuel Honzek",
       "shortName": null,
@@ -5060,44 +4243,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476456",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8476456.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8478211",
-      "displayName": "Dryden Hunt",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478211",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8478211.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480259",
-      "displayName": "Ben Jones",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480259",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8480259.png",
       "sourceRefs": [
         "https://www.nhl.com/cgy/roster"
       ]
@@ -5141,20 +4286,20 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484821",
-      "displayName": "Sam Morton",
+      "id": "athlete:nhl:8479423",
+      "displayName": "Alex Nylander",
       "shortName": null,
       "aliases": [],
       "active": true,
       "entityType": "athlete",
       "currentTeamId": "team:nhl:cgy",
       "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
+      "position": "L",
+      "countryCode": "CAN",
       "countryBasis": "official-nhl-roster",
       "genderCategory": "male",
-      "identityId": "athlete:nhl:8484821",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484821.png",
+      "identityId": "athlete:nhl:8479423",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8479423.png",
       "sourceRefs": [
         "https://www.nhl.com/cgy/roster"
       ]
@@ -5236,25 +4381,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482766",
-      "displayName": "William Stromgren",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482766",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8482766.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484234",
       "displayName": "Aydar Suniev",
       "shortName": null,
@@ -5331,25 +4457,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482107",
-      "displayName": "Mike Benning",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482107",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8482107.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484150",
       "displayName": "Hunter Brzustewicz",
       "shortName": null,
@@ -5364,25 +4471,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484150",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484150.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8477971",
-      "displayName": "Andreas Englund",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477971",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8477971.png",
       "sourceRefs": [
         "https://www.nhl.com/cgy/roster"
       ]
@@ -5407,25 +4495,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484481",
-      "displayName": "Axel Hurtig",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484481",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484481.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482165",
       "displayName": "Yan Kuznetsov",
       "shortName": null,
@@ -5440,25 +4509,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482165",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8482165.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484256",
-      "displayName": "Jake Livingstone",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484256",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484256.png",
       "sourceRefs": [
         "https://www.nhl.com/cgy/roster"
       ]
@@ -5597,25 +4647,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482949",
-      "displayName": "Arsenii Sergeev",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:cgy",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482949",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8482949.png",
-      "sourceRefs": [
-        "https://www.nhl.com/cgy/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8481692",
       "displayName": "Dustin Wolf",
       "shortName": null,
@@ -5744,25 +4775,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8477987",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8477987.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484400",
-      "displayName": "Jiri Felcman",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484400",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484400.png",
       "sourceRefs": [
         "https://www.nhl.com/chi/roster"
       ]
@@ -5920,25 +4932,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8485166",
-      "displayName": "Connor Mylymok",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485166",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8485166.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483493",
       "displayName": "Frank Nazar",
       "shortName": null,
@@ -5991,25 +4984,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482062",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8482062.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484858",
-      "displayName": "Anthony (AJ) Spellacy",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484858",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484858.png",
       "sourceRefs": [
         "https://www.nhl.com/chi/roster"
       ]
@@ -6162,25 +5136,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484783",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484783.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482067",
-      "displayName": "Connor Mackey",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482067",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8482067.png",
       "sourceRefs": [
         "https://www.nhl.com/chi/roster"
       ]
@@ -6599,6 +5554,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481186",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/COL/8481186.png",
+      "sourceRefs": [
+        "https://www.nhl.com/col/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8485105",
+      "displayName": "Nikita Prishchepov",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:col",
+      "leagueId": "competition:nhl",
+      "position": "C",
+      "countryCode": "RUS",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8485105",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/COL/8485105.png",
       "sourceRefs": [
         "https://www.nhl.com/col/roster"
       ]
@@ -7250,25 +6224,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483514",
-      "displayName": "Matthew Seminoff",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:dal",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483514",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DAL/8483514.png",
-      "sourceRefs": [
-        "https://www.nhl.com/dal/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479351",
       "displayName": "Sam Steel",
       "shortName": null,
@@ -7592,25 +6547,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484836",
-      "displayName": "Ondrej Becher",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484836",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484836.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484794",
       "displayName": "Michael Brandsegg-Nygård",
       "shortName": null,
@@ -7625,25 +6561,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484794",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484794.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483045",
-      "displayName": "Cameron Butler",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483045",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8483045.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -7725,44 +6642,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484161",
-      "displayName": "Noah Dower Nilsson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484161",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484161.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480326",
-      "displayName": "Sheldon Dries",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480326",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8480326.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484471",
       "displayName": "Emmitt Finnie",
       "shortName": null,
@@ -7782,25 +6661,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483459",
-      "displayName": "Dylan James",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483459",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8483459.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483464",
       "displayName": "Marco Kasper",
       "shortName": null,
@@ -7815,25 +6675,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483464",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8483464.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484183",
-      "displayName": "Jesse Kiiskinen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484183",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484183.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -7877,25 +6718,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481077",
-      "displayName": "John Leonard",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481077",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8481077.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482802",
       "displayName": "Carter Mazur",
       "shortName": null,
@@ -7910,25 +6732,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482802",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8482802.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484425",
-      "displayName": "Sutter Muzzatti",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484425",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484425.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -7972,63 +6775,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482184",
-      "displayName": "Theo Rochette",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CHE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482184",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8482184.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8479942",
-      "displayName": "Dominik Shine",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479942",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8479942.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484380",
-      "displayName": "Wilmer Skoog",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484380",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484380.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482714",
       "displayName": "Chase Stillman",
       "shortName": null,
@@ -8043,25 +6789,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482714",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8482714.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481521",
-      "displayName": "Ronnie Attard",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481521",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8481521.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -8086,44 +6813,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8480196",
-      "displayName": "Jacob Bryson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480196",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8480196.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482777",
-      "displayName": "Shai Buium",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482777",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8482777.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475279",
       "displayName": "Ben Chiarot",
       "shortName": null,
@@ -8138,6 +6827,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475279",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8475279.png",
+      "sourceRefs": [
+        "https://www.nhl.com/det/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8477971",
+      "displayName": "Andreas Englund",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:det",
+      "leagueId": "competition:nhl",
+      "position": "D",
+      "countryCode": "SWE",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8477971",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8477971.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -8200,25 +6908,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8478021",
-      "displayName": "William Lagesson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478021",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8478021.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484223",
       "displayName": "Axel Sandin-Pellikka",
       "shortName": null,
@@ -8276,25 +6965,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484141",
-      "displayName": "Trey Augustine",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484141",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484141.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476434",
       "displayName": "John Gibson",
       "shortName": null,
@@ -8333,25 +7003,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8485545",
-      "displayName": "Michal Postava",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485545",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8485545.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480193",
       "displayName": "Daniil Tarasov",
       "shortName": null,
@@ -8368,25 +7019,6 @@
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8480193.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484529",
-      "displayName": "Connor Clattenburg",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484529",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8484529.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
       ]
     },
     {
@@ -8504,25 +7136,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8485511",
-      "displayName": "Quinn Hutson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485511",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8485511.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475786",
       "displayName": "Zach Hyman",
       "shortName": null,
@@ -8618,25 +7231,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482759",
-      "displayName": "Viljami Marjala",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482759",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8482759.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478402",
       "displayName": "Connor McDavid",
       "shortName": null,
@@ -8670,25 +7264,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8486161",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8486161.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485087",
-      "displayName": "William Nicholl",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485087",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8485087.png",
       "sourceRefs": [
         "https://www.nhl.com/edm/roster"
       ]
@@ -8732,25 +7307,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481699",
-      "displayName": "Aku Raty",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481699",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8481699.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484509",
       "displayName": "Josh Samanski",
       "shortName": null,
@@ -8789,44 +7345,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483100",
-      "displayName": "James Stefan",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483100",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8483100.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482631",
-      "displayName": "Eduards Tralmaks",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "LVA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482631",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8482631.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480803",
       "displayName": "Evan Bouchard",
       "shortName": null,
@@ -8846,25 +7364,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8477384",
-      "displayName": "Joshua Brown",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477384",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8477384.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8485484",
       "displayName": "Damien Carfagna",
       "shortName": null,
@@ -8879,25 +7378,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8485484",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8485484.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485163",
-      "displayName": "Tomas Cibulka",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485163",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8485163.png",
       "sourceRefs": [
         "https://www.nhl.com/edm/roster"
       ]
@@ -8936,25 +7416,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480834",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8480834.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485509",
-      "displayName": "Atro Leppanen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485509",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8485509.png",
       "sourceRefs": [
         "https://www.nhl.com/edm/roster"
       ]
@@ -9055,25 +7516,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479388",
-      "displayName": "Riley Stillman",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479388",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8479388.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478013",
       "displayName": "Jake Walman",
       "shortName": null,
@@ -9164,25 +7606,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8477035",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8477035.png",
-      "sourceRefs": [
-        "https://www.nhl.com/edm/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483083",
-      "displayName": "Connor Ungar",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:edm",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483083",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8483083.png",
       "sourceRefs": [
         "https://www.nhl.com/edm/roster"
       ]
@@ -9297,25 +7720,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8474189",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8474189.png",
-      "sourceRefs": [
-        "https://www.nhl.com/fla/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480025",
-      "displayName": "MacKenzie Entwistle",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:fla",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480025",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8480025.png",
       "sourceRefs": [
         "https://www.nhl.com/fla/roster"
       ]
@@ -9796,25 +8200,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483712",
-      "displayName": "Ludvig Jansson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:fla",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483712",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8483712.png",
-      "sourceRefs": [
-        "https://www.nhl.com/fla/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477495",
       "displayName": "Seth Jones",
       "shortName": null,
@@ -9891,25 +8276,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484213",
-      "displayName": "Emil Pieniniemi",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:fla",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484213",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8484213.png",
-      "sourceRefs": [
-        "https://www.nhl.com/fla/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482131",
       "displayName": "Donovan Sebrango",
       "shortName": null,
@@ -9967,25 +8333,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482914",
-      "displayName": "Kirill Gerasimyuk",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:fla",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482914",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8482914.png",
-      "sourceRefs": [
-        "https://www.nhl.com/fla/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8474593",
       "displayName": "Jacob Markstrom",
       "shortName": null,
@@ -10000,25 +8347,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8474593",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8474593.png",
-      "sourceRefs": [
-        "https://www.nhl.com/fla/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483736",
-      "displayName": "Tyler Muszelik",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:fla",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483736",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8483736.png",
       "sourceRefs": [
         "https://www.nhl.com/fla/roster"
       ]
@@ -10081,44 +8409,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482160",
-      "displayName": "Martin Chromiak",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "SVK",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482160",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8482160.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483675",
-      "displayName": "Kenny Connors",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483675",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8483675.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477942",
       "displayName": "Kevin Fiala",
       "shortName": null,
@@ -10133,25 +8423,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8477942",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8477942.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480252",
-      "displayName": "Cole Guttman",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480252",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8480252.png",
       "sourceRefs": [
         "https://www.nhl.com/lak/roster"
       ]
@@ -10271,25 +8542,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8486060",
-      "displayName": "Liam Lefebvre",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486060",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8486060.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479675",
       "displayName": "Trevor Moore",
       "shortName": null,
@@ -10328,25 +8580,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8478967",
-      "displayName": "Lane Pederson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478967",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8478967.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8470621",
       "displayName": "Corey Perry",
       "shortName": null,
@@ -10361,25 +8594,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8470621",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8470621.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482748",
-      "displayName": "Francesco Pinelli",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482748",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8482748.png",
       "sourceRefs": [
         "https://www.nhl.com/lak/roster"
       ]
@@ -10418,25 +8632,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483406",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8483406.png",
-      "sourceRefs": [
-        "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483756",
-      "displayName": "Jared Wright",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:lak",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483756",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8483756.png",
       "sourceRefs": [
         "https://www.nhl.com/lak/roster"
       ]
@@ -10594,8 +8789,8 @@
       ]
     },
     {
-      "id": "athlete:nhl:8478176",
-      "displayName": "Joe Hicketts",
+      "id": "athlete:nhl:8482922",
+      "displayName": "Kirill Kirsanov",
       "shortName": null,
       "aliases": [],
       "active": true,
@@ -10603,11 +8798,11 @@
       "currentTeamId": "team:nhl:lak",
       "leagueId": "competition:nhl",
       "position": "D",
-      "countryCode": "CAN",
+      "countryCode": "RUS",
       "countryBasis": "official-nhl-roster",
       "genderCategory": "male",
-      "identityId": "athlete:nhl:8478176",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8478176.png",
+      "identityId": "athlete:nhl:8482922",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8482922.png",
       "sourceRefs": [
         "https://www.nhl.com/lak/roster"
       ]
@@ -10705,25 +8900,6 @@
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8481707.png",
       "sourceRefs": [
         "https://www.nhl.com/lak/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482863",
-      "displayName": "Caedan Bankier",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482863",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8482863.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
       ]
     },
     {
@@ -10841,25 +9017,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479580",
-      "displayName": "Dylan Gambrell",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479580",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8479580.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477451",
       "displayName": "Ryan Hartman",
       "shortName": null,
@@ -10898,25 +9055,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8477993",
-      "displayName": "Justin Kirkland",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477993",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8477993.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477446",
       "displayName": "Michael McCarron",
       "shortName": null,
@@ -10936,25 +9074,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8475752",
-      "displayName": "Tyler Pitlick",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8475752",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8475752.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8485702",
       "displayName": "Maxim Shabanov",
       "shortName": null,
@@ -10969,25 +9088,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8485702",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8485702.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8479972",
-      "displayName": "Mason Shaw",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479972",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8479972.png",
       "sourceRefs": [
         "https://www.nhl.com/min/roster"
       ]
@@ -11183,25 +9283,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482641",
-      "displayName": "Matt Kiersted",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482641",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8482641.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482781",
       "displayName": "Carson Lambos",
       "shortName": null,
@@ -11235,25 +9316,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476874",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8476874.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482693",
-      "displayName": "Roman Schmidt",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482693",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8482693.png",
       "sourceRefs": [
         "https://www.nhl.com/min/roster"
       ]
@@ -11297,25 +9359,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483918",
-      "displayName": "Riley Mercer",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483918",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8483918.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475717",
       "displayName": "Calvin Pickard",
       "shortName": null,
@@ -11330,25 +9373,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475717",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8475717.png",
-      "sourceRefs": [
-        "https://www.nhl.com/min/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8486275",
-      "displayName": "Filip Ruzicka",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:min",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486275",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8486275.png",
       "sourceRefs": [
         "https://www.nhl.com/min/roster"
       ]
@@ -12266,25 +10290,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483439",
-      "displayName": "Josh Filmon",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483439",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8483439.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479996",
       "displayName": "Cody Glass",
       "shortName": null,
@@ -12323,25 +10328,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484177",
-      "displayName": "Lenni Hameenaho",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484177",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484177.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480002",
       "displayName": "Nico Hischier",
       "shortName": null,
@@ -12375,25 +10361,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481559",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8481559.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482941",
-      "displayName": "Shane Lachance",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482941",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8482941.png",
       "sourceRefs": [
         "https://www.nhl.com/njd/roster"
       ]
@@ -12475,25 +10442,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484616",
-      "displayName": "Matyas Melovsky",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484616",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484616.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482110",
       "displayName": "Dawson Mercer",
       "shortName": null,
@@ -12532,25 +10480,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483841",
-      "displayName": "Xavier Parent",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483841",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8483841.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478542",
       "displayName": "Evan Rodrigues",
       "shortName": null,
@@ -12565,44 +10494,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478542",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8478542.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484405",
-      "displayName": "Cam Squires",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484405",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484405.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484834",
-      "displayName": "Ben Steeves",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484834",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484834.png",
       "sourceRefs": [
         "https://www.nhl.com/njd/roster"
       ]
@@ -12703,44 +10594,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483085",
-      "displayName": "Mikael Diotte",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483085",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8483085.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482194",
-      "displayName": "Ethan Edwards",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482194",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8482194.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476462",
       "displayName": "Dougie Hamilton",
       "shortName": null,
@@ -12755,25 +10608,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476462",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8476462.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483086",
-      "displayName": "Jeremy Hanzel",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483086",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8483086.png",
       "sourceRefs": [
         "https://www.nhl.com/njd/roster"
       ]
@@ -12836,25 +10670,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484198",
-      "displayName": "Etienne Morin",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484198",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484198.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477488",
       "displayName": "Brett Pesce",
       "shortName": null,
@@ -12888,25 +10703,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478399",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8478399.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484987",
-      "displayName": "Anton Silaev",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484987",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8484987.png",
       "sourceRefs": [
         "https://www.nhl.com/njd/roster"
       ]
@@ -12964,25 +10760,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482076",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8482076.png",
-      "sourceRefs": [
-        "https://www.nhl.com/njd/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482867",
-      "displayName": "Jakub Malek",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:njd",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482867",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8482867.png",
       "sourceRefs": [
         "https://www.nhl.com/njd/roster"
       ]
@@ -13178,44 +10955,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484206",
-      "displayName": "Felix Nilsson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484206",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8484206.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483696",
-      "displayName": "Cole O'Hara",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483696",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8483696.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8475158",
       "displayName": "Ryan O'Reilly",
       "shortName": null,
@@ -13406,25 +11145,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484196",
-      "displayName": "Tanner Molendyk",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484196",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8484196.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480246",
       "displayName": "Nick Perbix",
       "shortName": null,
@@ -13444,25 +11164,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481715",
-      "displayName": "Hunter Skinner",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481715",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8481715.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476869",
       "displayName": "Brady Skjei",
       "shortName": null,
@@ -13477,6 +11178,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476869",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8476869.png",
+      "sourceRefs": [
+        "https://www.nhl.com/nsh/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8482806",
+      "displayName": "William Trudeau",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:nsh",
+      "leagueId": "competition:nhl",
+      "position": "D",
+      "countryCode": "CAN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8482806",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8482806.png",
       "sourceRefs": [
         "https://www.nhl.com/nsh/roster"
       ]
@@ -13534,25 +11254,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481020",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8481020.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483575",
-      "displayName": "Matt Murray",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483575",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8483575.png",
       "sourceRefs": [
         "https://www.nhl.com/nsh/roster"
       ]
@@ -13805,25 +11506,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482154",
-      "displayName": "Alex Jefferies",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nyi",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482154",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8482154.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nyi/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483104",
       "displayName": "Daylan Kuefler",
       "shortName": null,
@@ -13952,25 +11634,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475151",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8475151.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nyi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485448",
-      "displayName": "Daniil Prokhorov",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nyi",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485448",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8485448.png",
       "sourceRefs": [
         "https://www.nhl.com/nyi/roster"
       ]
@@ -14180,44 +11843,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8485366",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8485366.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nyi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481569",
-      "displayName": "Marshall Warren",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nyi",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481569",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8481569.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nyi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8486136",
-      "displayName": "Joshua Kotai",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nyi",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486136",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8486136.png",
       "sourceRefs": [
         "https://www.nhl.com/nyi/roster"
       ]
@@ -14579,25 +12204,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480434",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8480434.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nyr/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484169",
-      "displayName": "Drew Fortescue",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nyr",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484169",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8484169.png",
       "sourceRefs": [
         "https://www.nhl.com/nyr/roster"
       ]
@@ -15268,25 +12874,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482447",
-      "displayName": "Leevi Meriläinen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ott",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482447",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8482447.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ott/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476999",
       "displayName": "Linus Ullmark",
       "shortName": null,
@@ -15439,25 +13026,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481848",
-      "displayName": "Jacob Gaucher",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:phi",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481848",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8481848.png",
-      "sourceRefs": [
-        "https://www.nhl.com/phi/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483733",
       "displayName": "Nikita Grebenkin",
       "shortName": null,
@@ -15496,25 +13064,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483787",
-      "displayName": "Cole Knuble",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:phi",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483787",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8483787.png",
-      "sourceRefs": [
-        "https://www.nhl.com/phi/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478439",
       "displayName": "Travis Konecny",
       "shortName": null,
@@ -15529,25 +13078,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478439",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8478439.png",
-      "sourceRefs": [
-        "https://www.nhl.com/phi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484779",
-      "displayName": "Jett Luchanko",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:phi",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484779",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8484779.png",
       "sourceRefs": [
         "https://www.nhl.com/phi/roster"
       ]
@@ -15643,25 +13173,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481122",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8481122.png",
-      "sourceRefs": [
-        "https://www.nhl.com/phi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484148",
-      "displayName": "Oliver Bonk",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:phi",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484148",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8484148.png",
       "sourceRefs": [
         "https://www.nhl.com/phi/roster"
       ]
@@ -16750,25 +14261,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483428",
-      "displayName": "Filip Bystedt",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sjs",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483428",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8483428.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sjs/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484801",
       "displayName": "Macklin Celebrini",
       "shortName": null,
@@ -16821,25 +14313,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480848",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8480848.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sjs/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482776",
-      "displayName": "Andre Gasseau",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sjs",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482776",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8482776.png",
       "sourceRefs": [
         "https://www.nhl.com/sjs/roster"
       ]
@@ -16916,25 +14389,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8484911",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8484911.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sjs/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481228",
-      "displayName": "Jimmy Huntington",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sjs",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481228",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8481228.png",
       "sourceRefs": [
         "https://www.nhl.com/sjs/roster"
       ]
@@ -17301,25 +14755,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484763",
-      "displayName": "Leo Sahlin-Wallenius",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sjs",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484763",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8484763.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sjs/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476885",
       "displayName": "Jacob Trouba",
       "shortName": null,
@@ -17353,25 +14788,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482137",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8482137.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sjs/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8477480",
-      "displayName": "Eric Comrie",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sjs",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477480",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8477480.png",
       "sourceRefs": [
         "https://www.nhl.com/sjs/roster"
       ]
@@ -17529,25 +14945,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482090",
-      "displayName": "Jack Finley",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482090",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8482090.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482077",
       "displayName": "Dylan Holloway",
       "shortName": null,
@@ -17581,25 +14978,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8477527",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8477527.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483463",
-      "displayName": "Aleksanteri Kaskimaki",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483463",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8483463.png",
       "sourceRefs": [
         "https://www.nhl.com/stl/roster"
       ]
@@ -17662,25 +15040,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482121",
-      "displayName": "Dylan Peterson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482121",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8482121.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483516",
       "displayName": "Jimmy Snuggerud",
       "shortName": null,
@@ -17695,44 +15054,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483516",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8483516.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484230",
-      "displayName": "Otto Stenberg",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484230",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8484230.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8476897",
-      "displayName": "Oskar Sundqvist",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8476897",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8476897.png",
       "sourceRefs": [
         "https://www.nhl.com/stl/roster"
       ]
@@ -17795,25 +15116,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8477573",
-      "displayName": "Nathan Walker",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "GBR",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477573",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8477573.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8481598",
       "displayName": "Philip Broberg",
       "shortName": null,
@@ -17866,25 +15168,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475764",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8475764.png",
-      "sourceRefs": [
-        "https://www.nhl.com/stl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484790",
-      "displayName": "Adam Jiricek",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:stl",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484790",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/STL/8484790.png",
       "sourceRefs": [
         "https://www.nhl.com/stl/roster"
       ]
@@ -18061,25 +15344,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484310",
-      "displayName": "Tristan Allard",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484310",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8484310.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478519",
       "displayName": "Anthony Cirelli",
       "shortName": null,
@@ -18113,44 +15377,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482663",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8482663.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482951",
-      "displayName": "Cooper Flinton",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482951",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8482951.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484173",
-      "displayName": "Ethan Gauthier",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484173",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8484173.png",
       "sourceRefs": [
         "https://www.nhl.com/tbl/roster"
       ]
@@ -18346,25 +15572,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483727",
-      "displayName": "Connor Kurth",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483727",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8483727.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482518",
       "displayName": "Lucas Mercuri",
       "shortName": null,
@@ -18479,25 +15686,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483921",
-      "displayName": "Milo Roelens",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "BEL",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483921",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8483921.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477149",
       "displayName": "Scott Sabourin",
       "shortName": null,
@@ -18531,25 +15719,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8485091",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8485091.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484507",
-      "displayName": "Gabriel Szturc",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484507",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8484507.png",
       "sourceRefs": [
         "https://www.nhl.com/tbl/roster"
       ]
@@ -18669,25 +15838,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8483692",
-      "displayName": "Dyllan Gill",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483692",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8483692.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482168",
       "displayName": "Maxim Groshev",
       "shortName": null,
@@ -18726,25 +15876,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8486241",
-      "displayName": "Tomas Kralovic",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SVK",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486241",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8486241.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482929",
       "displayName": "Emil Lilleberg",
       "shortName": null,
@@ -18759,25 +15890,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8482929",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8482929.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481547",
-      "displayName": "Simon Lundmark",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481547",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8481547.png",
       "sourceRefs": [
         "https://www.nhl.com/tbl/roster"
       ]
@@ -18821,25 +15933,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8477463",
-      "displayName": "Steven Santini",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477463",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8477463.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483710",
       "displayName": "Dennis Hildeby",
       "shortName": null,
@@ -18854,63 +15947,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483710",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8483710.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8477992",
-      "displayName": "Jonas Johansson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477992",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8477992.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484636",
-      "displayName": "Harrison Meneghin",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484636",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8484636.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tbl/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480885",
-      "displayName": "Olivier Rodrigue",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tbl",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480885",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8480885.png",
       "sourceRefs": [
         "https://www.nhl.com/tbl/roster"
       ]
@@ -18968,25 +16004,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476927",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8476927.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482153",
-      "displayName": "Brendan Brisson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482153",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8482153.png",
       "sourceRefs": [
         "https://www.nhl.com/tor/roster"
       ]
@@ -19106,44 +16123,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479968",
-      "displayName": "Vinni Lettieri",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479968",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8479968.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8478904",
-      "displayName": "Steven Lorentz",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478904",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8478904.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8479772",
       "displayName": "Zack MacEwen",
       "shortName": null,
@@ -19239,25 +16218,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479543",
-      "displayName": "Michael Pezzetta",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479543",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8479543.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478458",
       "displayName": "Jack Roslovic",
       "shortName": null,
@@ -19272,25 +16232,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478458",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8478458.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8481662",
-      "displayName": "Henrik Rybinski",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481662",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8481662.png",
       "sourceRefs": [
         "https://www.nhl.com/tor/roster"
       ]
@@ -19329,25 +16270,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475166",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8475166.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8482525",
-      "displayName": "Ryan Tverberg",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482525",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8482525.png",
       "sourceRefs": [
         "https://www.nhl.com/tor/roster"
       ]
@@ -19410,25 +16332,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8479026",
-      "displayName": "Philippe Myers",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479026",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8479026.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478178",
       "displayName": "Darren Raddysh",
       "shortName": null,
@@ -19462,25 +16365,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476853",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8476853.png",
-      "sourceRefs": [
-        "https://www.nhl.com/tor/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483546",
-      "displayName": "Marshall Rifai",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:tor",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483546",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8483546.png",
       "sourceRefs": [
         "https://www.nhl.com/tor/roster"
       ]
@@ -20018,25 +16902,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484181",
-      "displayName": "Michael Hrabal",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:uta",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CZE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484181",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8484181.png",
-      "sourceRefs": [
-        "https://www.nhl.com/uta/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478872",
       "displayName": "Karel Vejmelka",
       "shortName": null,
@@ -20108,25 +16973,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480078",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8480078.png",
-      "sourceRefs": [
-        "https://www.nhl.com/van/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8485385",
-      "displayName": "Braeden Cootes",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:van",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485385",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8485385.png",
       "sourceRefs": [
         "https://www.nhl.com/van/roster"
       ]
@@ -20341,25 +17187,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481737",
-      "displayName": "Matthew Stienburg",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:van",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481737",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8481737.png",
-      "sourceRefs": [
-        "https://www.nhl.com/van/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478465",
       "displayName": "Guillaume Brisebois",
       "shortName": null,
@@ -20545,6 +17372,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480947",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8480947.png",
+      "sourceRefs": [
+        "https://www.nhl.com/van/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8482447",
+      "displayName": "Leevi Meriläinen",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:van",
+      "leagueId": "competition:nhl",
+      "position": "G",
+      "countryCode": "FIN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8482447",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8482447.png",
       "sourceRefs": [
         "https://www.nhl.com/van/roster"
       ]
@@ -21082,25 +17928,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482761",
-      "displayName": "Carl Lindbom",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:vgk",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482761",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/VGK/8482761.png",
-      "sourceRefs": [
-        "https://www.nhl.com/vgk/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480289",
       "displayName": "Morgan Barron",
       "shortName": null,
@@ -21139,25 +17966,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482787",
-      "displayName": "Nikita Chibrikov",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:wpg",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "RUS",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482787",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8482787.png",
-      "sourceRefs": [
-        "https://www.nhl.com/wpg/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8478398",
       "displayName": "Kyle Connor",
       "shortName": null,
@@ -21172,44 +17980,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478398",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8478398.png",
-      "sourceRefs": [
-        "https://www.nhl.com/wpg/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484135",
-      "displayName": "Parker Ford",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:wpg",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484135",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8484135.png",
-      "sourceRefs": [
-        "https://www.nhl.com/wpg/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8479393",
-      "displayName": "Noah Gregor",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:wpg",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8479393",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8479393.png",
       "sourceRefs": [
         "https://www.nhl.com/wpg/roster"
       ]
@@ -21538,25 +18308,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482192",
-      "displayName": "Isaak Phillips",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:wpg",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482192",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8482192.png",
-      "sourceRefs": [
-        "https://www.nhl.com/wpg/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480145",
       "displayName": "Neal Pionk",
       "shortName": null,
@@ -21666,25 +18417,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476945",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8476945.png",
-      "sourceRefs": [
-        "https://www.nhl.com/wpg/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483114",
-      "displayName": "Thomas Milic",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:wpg",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483114",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8483114.png",
       "sourceRefs": [
         "https://www.nhl.com/wpg/roster"
       ]
@@ -38056,7 +34788,7 @@
       "time": "11:40",
       "startTimeUtc": "2026-09-25T01:40:00Z",
       "venue": "Climate Pledge Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38071,7 +34803,7 @@
           "participantId": "team:nhl:sea",
           "label": "Seattle Kraken",
           "homeAway": "home",
-          "score": 1,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
         }
       ],
@@ -38087,7 +34819,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-09-25T02:00:00Z",
       "venue": "SAP Center at San Jose",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38102,7 +34834,7 @@
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "home",
-          "score": 7,
+          "score": 10,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         }
       ],
@@ -38118,7 +34850,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-09-25T02:00:00Z",
       "venue": "T-Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38126,14 +34858,14 @@
           "participantId": "team:nhl:uta",
           "label": "Utah Mammoth",
           "homeAway": "away",
-          "score": 3,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
         },
         {
           "participantId": "team:nhl:vgk",
           "label": "Vegas Golden Knights",
           "homeAway": "home",
-          "score": 1,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
         }
       ],
@@ -38149,7 +34881,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-25T23:00:00Z",
       "venue": "Capital One Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38157,19 +34889,19 @@
           "participantId": "team:nhl:bos",
           "label": "Boston Bruins",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"
         },
         {
           "participantId": "team:nhl:wsh",
           "label": "Washington Capitals",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/bos-vs-wsh/2026/09/25/2026010049",
-      "ticketUrl": "https://www.nhl.com/capitals/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010051",
@@ -38180,7 +34912,7 @@
       "time": "09:30",
       "startTimeUtc": "2026-09-25T23:30:00Z",
       "venue": "UBS Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38188,19 +34920,19 @@
           "participantId": "team:nhl:nyr",
           "label": "New York Rangers",
           "homeAway": "away",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
         },
         {
           "participantId": "team:nhl:nyi",
           "label": "New York Islanders",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-nyi/2026/09/25/2026010051",
-      "ticketUrl": "https://www.nhl.com/islanders/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010050",
@@ -38211,7 +34943,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-09-26T00:00:00Z",
       "venue": "Grand Casino Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38219,19 +34951,19 @@
           "participantId": "team:nhl:dal",
           "label": "Dallas Stars",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
         },
         {
           "participantId": "team:nhl:min",
           "label": "Minnesota Wild",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/dal-vs-min/2026/09/25/2026010050",
-      "ticketUrl": "https://mnwild.co/e0qt303o"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010048",
@@ -38242,7 +34974,7 @@
       "time": "10:30",
       "startTimeUtc": "2026-09-26T00:30:00Z",
       "venue": "Ball Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38250,19 +34982,19 @@
           "participantId": "team:nhl:wpg",
           "label": "Winnipeg Jets",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
         },
         {
           "participantId": "team:nhl:col",
           "label": "Colorado Avalanche",
           "homeAway": "home",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-col/2026/09/25/2026010048",
-      "ticketUrl": "https://www.nhl.com/avalanche/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010053",
@@ -38273,7 +35005,7 @@
       "time": "05:00",
       "startTimeUtc": "2026-09-26T19:00:00Z",
       "venue": "Bridgestone Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38281,19 +35013,19 @@
           "participantId": "team:nhl:car",
           "label": "Carolina Hurricanes",
           "homeAway": "away",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
         },
         {
           "participantId": "team:nhl:nsh",
           "label": "Nashville Predators",
           "homeAway": "home",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-nsh/2026/09/26/2026010053",
-      "ticketUrl": "https://www.ticketmaster.com/event/1B0064FB97B978EB?brand=predators&artistid=805978&landing=s&wt.mc_id=NHL_TEAM_NSH_SGT_PG_PR2&utm_source=NHL.com&utm_medium=PredsWebSchedule&utm_campaign=NHL_TEAM_NSH_SGT_PG_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010055",
@@ -38304,7 +35036,7 @@
       "time": "05:00",
       "startTimeUtc": "2026-09-26T19:00:00Z",
       "venue": "KeyBank Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38312,19 +35044,19 @@
           "participantId": "team:nhl:pit",
           "label": "Pittsburgh Penguins",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
         },
         {
           "participantId": "team:nhl:buf",
           "label": "Buffalo Sabres",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/pit-vs-buf/2026/09/26/2026010055",
-      "ticketUrl": "https://www.nhl.com/sabres/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010052",
@@ -38335,7 +35067,7 @@
       "time": "06:00",
       "startTimeUtc": "2026-09-26T20:00:00Z",
       "venue": "Crypto.com Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38343,19 +35075,19 @@
           "participantId": "team:nhl:ana",
           "label": "Anaheim Ducks",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
         },
         {
           "participantId": "team:nhl:lak",
           "label": "Los Angeles Kings",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-lak/2026/09/26/2026010052",
-      "ticketUrl": "https://www.nhl.com/kings/tickets/preseason"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010054",
@@ -38366,7 +35098,7 @@
       "time": "07:00",
       "startTimeUtc": "2026-09-26T21:00:00Z",
       "venue": "Delta Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38374,19 +35106,19 @@
           "participantId": "team:nhl:col",
           "label": "Colorado Avalanche",
           "homeAway": "away",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg"
         },
         {
           "participantId": "team:nhl:uta",
           "label": "Utah Mammoth",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/col-vs-uta/2026/09/26/2026010054",
-      "ticketUrl": "https://www.nhl.com/utah/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010057",
@@ -38397,7 +35129,7 @@
       "time": "07:00",
       "startTimeUtc": "2026-09-26T21:00:00Z",
       "venue": "Xfinity Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38405,19 +35137,19 @@
           "participantId": "team:nhl:wsh",
           "label": "Washington Capitals",
           "homeAway": "away",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
         },
         {
           "participantId": "team:nhl:phi",
           "label": "Philadelphia Flyers",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-phi/2026/09/26/2026010057",
-      "ticketUrl": "https://www.nhl.com/flyers/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010059",
@@ -38428,7 +35160,7 @@
       "time": "08:00",
       "startTimeUtc": "2026-09-26T22:00:00Z",
       "venue": "Amerant Bank Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38436,19 +35168,19 @@
           "participantId": "team:nhl:tbl",
           "label": "Tampa Bay Lightning",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
         },
         {
           "participantId": "team:nhl:fla",
           "label": "Florida Panthers",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-fla/2026/09/26/2026010059",
-      "ticketUrl": "https://www.nhl.com/panthers/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010056",
@@ -38459,7 +35191,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-26T23:00:00Z",
       "venue": "Rogers Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38467,19 +35199,19 @@
           "participantId": "team:nhl:sea",
           "label": "Seattle Kraken",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
         },
         {
           "participantId": "team:nhl:van",
           "label": "Vancouver Canucks",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-van/2026/09/26/2026010056",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F075BB27?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_PR2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010058",
@@ -38490,7 +35222,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-26T23:00:00Z",
       "venue": "United Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38498,19 +35230,19 @@
           "participantId": "team:nhl:stl",
           "label": "St. Louis Blues",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
         },
         {
           "participantId": "team:nhl:chi",
           "label": "Chicago Blackhawks",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-chi/2026/09/26/2026010058",
-      "ticketUrl": "https://www.ticketmaster.com/event/040064DE9091503D?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010061",
@@ -38521,7 +35253,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-26T23:00:00Z",
       "venue": "Little Caesars Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38529,19 +35261,19 @@
           "participantId": "team:nhl:cbj",
           "label": "Columbus Blue Jackets",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
         },
         {
           "participantId": "team:nhl:det",
           "label": "Detroit Red Wings",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cbj-vs-det/2026/09/26/2026010061",
-      "ticketUrl": "https://www.nhl.com/redwings/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010064",
@@ -38552,7 +35284,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-26T23:00:00Z",
       "venue": "Canadian Tire Centre",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38560,19 +35292,19 @@
           "participantId": "team:nhl:mtl",
           "label": "Montréal Canadiens",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
         },
         {
           "participantId": "team:nhl:ott",
           "label": "Ottawa Senators",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-ott/2026/09/26/2026010064",
-      "ticketUrl": "https://www.ticketmaster.ca/ottawa-senators-vs-montreal-canadiens-ottawa-ontario-09-26-2026/event/310064D3868235A6?language=en-ca&landing=s"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010065",
@@ -38583,7 +35315,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-26T23:00:00Z",
       "venue": "Centre Bell",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38591,19 +35323,19 @@
           "participantId": "team:nhl:ott",
           "label": "Ottawa Senators",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
         },
         {
           "participantId": "team:nhl:mtl",
           "label": "Montréal Canadiens",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-mtl/2026/09/26/2026010065",
-      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACA9D86FB?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_PR2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010062",
@@ -38614,7 +35346,7 @@
       "time": "09:30",
       "startTimeUtc": "2026-09-26T23:30:00Z",
       "venue": "UBS Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38622,19 +35354,19 @@
           "participantId": "team:nhl:njd",
           "label": "New Jersey Devils",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
         },
         {
           "participantId": "team:nhl:nyi",
           "label": "New York Islanders",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/09/26/2026010062",
-      "ticketUrl": "https://www.nhl.com/islanders/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010060",
@@ -38645,7 +35377,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-09-27T01:00:00Z",
       "venue": "Rogers Place",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38653,19 +35385,19 @@
           "participantId": "team:nhl:cgy",
           "label": "Calgary Flames",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
         },
         {
           "participantId": "team:nhl:edm",
           "label": "Edmonton Oilers",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-edm/2026/09/26/2026010060",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006513A5DAA427?brand=edmontonoilers&artistid=805943&wt.mc_id=NHL_TEAM_EDM_SCHEDULE_PR2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_EDM&utm_content=SCHEDULE_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010063",
@@ -38676,7 +35408,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-09-27T02:00:00Z",
       "venue": "T-Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -38684,19 +35416,19 @@
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         },
         {
           "participantId": "team:nhl:vgk",
           "label": "Vegas Golden Knights",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sjs-vs-vgk/2026/09/26/2026010063",
-      "ticketUrl": "https://shop.axs.com/?c=axs&e=98247560440462020071"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020001",

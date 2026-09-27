@@ -71,8 +71,8 @@ function applyArticles(fixtures,documents,prior=[]){
     f.participantIds=f.participantSlots.map(s=>s.participantId).filter(Boolean);f.name=f.participantSlots.map(s=>s.label).join(' v ');
    }
    for(const {doc,url,checkedAt}of documents){
-    const kind=/quarter-final/i.test(url)?'Quarterfinal':/semi-final/i.test(url)?'Semifinal':/final/i.test(url)?'Final':null;
-    if(kind!==round)continue;
+    // Provider slugs can retain an earlier round label. In this knockout
+    // bracket the confirmed nation pair, not the URL, identifies the tie.
     const rows=parseRubbers(doc,url,checkedAt).filter(r=>r.sides.every(s=>f.participantIds.includes(s.teamId))&&f.participantIds.length===2);
     for(const r of rows){const index=r.order-1,previous=f.rubbers[index];if(previous.status==='completed'&&r.status!=='completed')continue;f.rubbers[index]={...previous,...r,name:[...r.sides].sort((a,b)=>f.participantIds.indexOf(a.teamId)-f.participantIds.indexOf(b.teamId)).map(s=>s.names.join(' / ')).join(' v '),participantIds:r.sides.flatMap(s=>s.participantIds)};}
    }

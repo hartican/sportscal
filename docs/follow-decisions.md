@@ -226,3 +226,7 @@ Explicit Golf sport followers automatically receive the Presidents Cup overview 
 Parent overviews remain full before/on day one and default to a compact title/status row on subsequent active local calendar dates. Underlined titles open scoped Follow schedules; a separate 44px chevron expands inline. Explicit expansion and child cards are preserved. Existing completed retention is unchanged.
 
 Match Centre includes the Presidents Cup overview’s USA–International totals between sessions while authoritative tournament status is active, and for one hour after confirmed completion. Results OFF hides scores. Round completion alone cannot complete the overview. Regressions: validate-card-coverage-corrections.js and validate-card-coverage-browser.js.
+
+## Laver Cup - 27 September 2026
+
+London 2026 published singles/doubles use existing canonical athlete/collection follows and exclusions. Tournament overview stays in Events/Schedule; these round-robin contests gain no admission from broad Tennis alone. Completed matches retain the ordinary seven-day window. No user preferences are changed.

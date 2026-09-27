@@ -12,11 +12,11 @@ const {chromium}=require('playwright');
    await page.goto(process.env.BJK_QA_URL||'http://127.0.0.1:33960',{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating());
    await page.evaluate(async()=>{await loadTennisFeedParents();activeTab='feed';userPreferences.showSpoilers=false;renderAll();});
-   const parent=page.locator('.tennis-feed-parent').filter({hasText:'Billie Jean King Cup'}).first();
-   async function open(){if(await parent.locator('details').first().getAttribute('open')===null)await parent.locator('summary').first().click();await parent.locator('.tennis-contest-row').first().waitFor();}
+   const parent=page.locator('.tennis-feed-parent').filter({has:page.getByRole('button',{name:'Expand Billie Jean King Cup Finals schedule',exact:true})}).first();
+   async function open(){if(await parent.locator('details').first().getAttribute('open')===null)await parent.getByRole('button',{name:'Expand Billie Jean King Cup Finals schedule',exact:true}).click();await parent.locator('.tennis-contest-row').first().waitFor();}
    await open();assert.equal(await parent.locator('.tennis-contest-row').count(),7);
    await parent.locator('.tennis-tie-details summary').first().click();
-   let text=await parent.innerText();assert(text.includes('Marie Bouzkova'));assert(!text.includes('7-6(2)'),'scores hidden');assert(!text.includes('Czechia v Spain'),'future advancement hidden');assert(text.includes('Not before 19:00'));
+   let text=await parent.innerText();assert(text.includes('Marie Bouzkova'));assert(!text.includes('7-6(2)'),'scores hidden');for(const tie of require('../data/canonical/tennis-team-contests.v1.json').fixtures.filter(f=>f.tournamentId==='tournament:tennis:bjk-cup-finals-2026'&&f.progressionSlots&&f.status!=='completed'&&f.participantIds.length===2))assert(!text.includes(tie.name),'future advancement hidden: '+tie.name);assert(text.includes('Not before 19:00'));
    await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});
    await parent.locator('.tennis-contest-row').first().waitFor();
    assert.notEqual(await parent.locator('details').first().getAttribute('open'),null,'background render preserves parent expansion');

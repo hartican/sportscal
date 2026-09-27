@@ -436,7 +436,7 @@ async function run(){
     assert(f1Session, "the authenticated feed must retain an F1 session card");
     assert.equal(f1Session.sportDomainId, "sport:f1", "central F1 cards must use the F1 preference domain");
     assert(f1Session.participantIds.length >= 22, "central F1 cards must retain the actual session field");
-    if(f1Session.participantsConfirmed) assert.equal(f1Session.participantIds.length, f1Session.fixtureResults.rows.length, "completed sessions use the classified field, not the current grid");
+    if(f1Session.participantsConfirmed) assert.equal(f1Session.participantIds.filter(id=>id.startsWith('competitor:f1:')).length, f1Session.fixtureResults.rows.length, "completed sessions use the classified driver field, with constructor follow identities counted separately");
     const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
     assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
     const tennisFinal = contextualCatalogueById.get("wimbledon-final-sinner-zverev-2026");

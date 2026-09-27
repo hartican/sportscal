@@ -1661,46 +1661,53 @@
     {
       "id": "major-match:nrl-finals-2026:preliminary-final-2",
       "title": "Dolphins v Roosters",
-      "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
-      "synopsis": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+      "hook": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+      "synopsis": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
       "sources": [
-        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-        "https://www.nrl.com/news/2026/09/22/katoas-quiet-confidence-grows-as-dolphins-enter-new-frontier/",
-        "https://www.nrl.com/news/2026/09/22/watson-ready-to-deliver-on-pre-game-prediction/"
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+        "https://www.nrl.com/draw",
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
       ],
-      "researchedAt": "2026-09-22T08:30:00.000Z",
+      "researchedAt": "2026-09-27T06:46:37.622Z",
       "researchDepth": 5,
       "facts": [
         {
           "dimension": "matchup",
-          "statement": "The Dolphins host the Roosters in a preliminary final.",
+          "statement": "Roosters defeated Dolphins 36-20 in the preliminary final.",
           "sourceIndexes": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
           "dimension": "form",
-          "statement": "Katoa and Nikorima are named in the Dolphins halves; Walker and Cherry-Evans are named for the Roosters.",
+          "statement": "Mark Nawaqanitawase scored twice and ran for 329 metres.",
           "sourceIndexes": [
             0
           ]
         },
         {
-          "dimension": "path",
-          "statement": "The winner advances to the NRL Grand Final.",
+          "dimension": "history",
+          "statement": "The Roosters reached their first Grand Final since 2019.",
           "sourceIndexes": [
-            1
+            0
           ]
         },
         {
-          "dimension": "schedule",
-          "statement": "The match starts at 7:50pm AEST on 25 September at Suncorp Stadium.",
+          "dimension": "venue",
+          "statement": "The preliminary final was played at Suncorp Stadium in Brisbane.",
           "sourceIndexes": [
             0,
+            1,
             2
           ]
         }
-      ]
+      ],
+      "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
+      "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
     },
     {
       "id": "major-match:nrl-finals-2026:preliminary-final-1",
@@ -1750,17 +1757,17 @@
     {
       "id": "football-australia-brazil-2026-09-25",
       "title": "Socceroos v Brazil — Townsville",
-      "hook": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
-      "synopsis": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+      "hook": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
+      "synopsis": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
       "sources": [
-        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
-        "https://stadiums.qld.gov.au/about/news-and-media/news/queensland-secures-brazil-blockbuster-series-for-socceroos-homec",
-        "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-masculina/a/credenciamento-para-amistosos-da-selecao-brasileira-contra-a-australia-esta-aberto"
+        "https://socceroos.com.au/match/australia-v-brazil-friendlies-25-09-2026/22278825",
+        "https://www.cbf.com.br/selecao-brasileira/noticias/noticias/selecao-masculina/brasil-empata-com-a-australia-em-townsville",
+        "https://www.abc.net.au/news/2026-09-25/socceroos-vs-brazil-live-updates-townsville/107197542"
       ],
       "facts": [
         {
           "dimension": "matchup",
-          "statement": "Australia face five-time world champions Brazil in two Queensland friendlies.",
+          "statement": "Australia and Brazil drew 1-1 in Townsville on 25 September 2026.",
           "sourceIndexes": [
             0,
             1,
@@ -1768,32 +1775,34 @@
           ]
         },
         {
-          "dimension": "path",
-          "statement": "The matches prepare Australia for the January 2027 Asian Cup.",
+          "dimension": "form",
+          "statement": "Irankunda scored a 68th-minute free kick; Rayan equalised in stoppage time.",
           "sourceIndexes": [
-            0
+            0,
+            2
           ]
         },
         {
           "dimension": "history",
-          "statement": "Before this series, Brazil led the nine-match international record with seven wins; Australia had one victory and one draw.",
+          "statement": "Marcus Younis made his Australia debut as a second-half substitute.",
           "sourceIndexes": [
             0
           ]
         },
         {
           "dimension": "schedule",
-          "statement": "Queensland Country Bank Stadium hosts Australia v Brazil on 2026-09-25 at 8pm Queensland time.",
+          "statement": "The first Queensland friendly preceded a second meeting on Tuesday.",
           "sourceIndexes": [
-            0,
-            1
+            0
           ]
         }
       ],
-      "researchedAt": "2026-09-25T03:32:39.426090Z",
+      "researchedAt": "2026-09-27T06:35:07.891Z",
       "researchDepth": 5,
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-09-25T10:00:00.000Z"
+      "editorialPhase": "recap",
+      "refreshAfter": null,
+      "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
+      "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench."
     },
     {
       "id": "football-australia-brazil-2026-09-29",

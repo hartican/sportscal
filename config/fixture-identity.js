@@ -111,6 +111,12 @@
   const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
   function reconcileObservation(base,event){
     if(event.enrichmentOnly)return;
+    // Only a changed score observed from a live source establishes continuing play.
+    // A source check timestamp alone cannot extend the ODI display window.
+    const nextTime=Date.parse(event.scoreCheckedAt||observationTime(event)||'');
+    const priorTime=Date.parse(base?.scoreCheckedAt||observationTime(base)||'');
+    if(base&&/^(live|in_progress|in-progress|ongoing)$/.test(event.status||'')&&hasScore(event)&&hasScore(base)&&Number.isFinite(nextTime)&&Number.isFinite(priorTime)&&nextTime>priorTime&&SCORE_OBSERVATION_FIELDS.some(k=>event[k]!=null&&JSON.stringify(event[k])!==JSON.stringify(base[k])))event.livePlayObservedAt=new Date(nextTime).toISOString();
+    else if(base?.livePlayObservedAt)event.livePlayObservedAt=base.livePlayObservedAt;
     const scoreTime=event.scoreCheckedAt||observationTime(event),statusTime=event.statusCheckedAt||observationTime(event);
     const older=(next,prior)=>Number.isFinite(Date.parse(next))&&Number.isFinite(Date.parse(prior))&&Date.parse(next)<Date.parse(prior);
     if(hasScore(event)&&!older(scoreTime,base?.scoreCheckedAt||observationTime(base))){event.scoreCheckedAt=scoreTime;}
