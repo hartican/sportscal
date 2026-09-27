@@ -53,7 +53,7 @@ const input = inputFromReadout([{
 }], readiness);
 
 const report = READOUT.buildMeasurementReport(input);
-assert.equal(READOUT.SCHEMA_VERSION, "measurement-readout.v2");
+assert.equal(READOUT.SCHEMA_VERSION, "measurement-readout.v3");
 assert.equal(report.status, "report_ready");
 assert.equal(report.recommendation, null, "measurement must not automatically recommend social or another investment");
 assert.equal(report.sample.distinctUsers, 2, "sample sizes must remain descriptive even when small");
@@ -77,3 +77,16 @@ assert.doesNotMatch(runbook, /Fourteen full elapsed days|fourteen-day evidence g
 assert.match(runbook, /sample size is descriptive/i);
 
 console.log("Measurement readout valid: weekly TSDR, versioned pulses, cohort metrics and descriptive samples have no fixed-duration decision gate.");
+
+for (const value of [undefined, null, "", " ", false, [], {}, "invalid"]) {
+  const unknown = READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all", tsdr_percent:value}], {supportedFixtureCoveragePercent:100}));
+  assert.equal(unknown.metrics.tsdrPercent, null);
+  assert.equal(unknown.operationalReady, false, "missing overdue evidence must never pass readiness");
+  assert.equal(unknown.sample.distinctUsers, null);
+}
+const zero = READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all", exposed_users:0, tsdr_percent:0}], {supportedFixtureCoveragePercent:100, overdueResultCount:0}));
+assert.equal(zero.metrics.tsdrPercent, 0);
+assert.equal(zero.sample.distinctUsers, 0);
+assert.equal(zero.operationalReady, true);
+assert.throws(() => inputFromReadout([{cohort:"curator"}], {}), /overall row/);
+assert.equal(READOUT.buildMeasurementReport({}).metrics.usefulReturnPercent, null);

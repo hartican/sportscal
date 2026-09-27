@@ -5,12 +5,18 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPilotReadout(){
   "use strict";
 
-  const SCHEMA_VERSION = "measurement-readout.v2";
+  const SCHEMA_VERSION = "measurement-readout.v3";
   const COHORTS = Object.freeze(["curator", "hybrid", "completist"]);
 
-  function finiteNumber(value, fallback = 0){
+  function finiteNumber(value, fallback = null){
+    if (value == null || !["number", "string"].includes(typeof value) || (typeof value === "string" && !value.trim())) return fallback;
     const number = Number(value);
     return Number.isFinite(number) ? number : fallback;
+  }
+
+  function count(value){
+    const number = finiteNumber(value);
+    return number !== null && Number.isInteger(number) && number >= 0 ? number : null;
   }
 
   function normalizeInput(input = {}){
@@ -23,17 +29,21 @@
     const metrics = input.metrics && typeof input.metrics === "object" ? input.metrics : {};
     return {
       sample: {
+        windowStartedAt: sample.windowStartedAt || null,
         firstObservedAt: sample.firstObservedAt || sample.startedAt || null,
         generatedAt: sample.generatedAt || null,
-        distinctUsers: Math.max(0, Math.floor(finiteNumber(sample.distinctUsers ?? sample.distinctPilotUsers))),
-        weeklyPulseUsers: Math.max(0, Math.floor(finiteNumber(sample.weeklyPulseUsers))),
+        distinctUsers: count(sample.distinctUsers ?? sample.distinctPilotUsers),
+        weeklyPulseUsers: count(sample.weeklyPulseUsers),
         surveyVersion: sample.surveyVersion || null,
       },
       readiness: {
         supportedFixtureCoveragePercent: finiteNumber(readiness.supportedFixtureCoveragePercent),
-        overdueResults: Math.max(0, Math.floor(finiteNumber(readiness.overdueResults))),
+        overdueResults: count(readiness.overdueResults),
       },
       metrics: {
+        usefulActionUsers: count(metrics.usefulActionUsers),
+        returningUsefulUsers: count(metrics.returningUsefulUsers),
+        usefulReturnPercent: finiteNumber(metrics.usefulReturnPercent),
         tsdrPercent: finiteNumber(metrics.tsdrPercent),
         fullFixtureAdoptionPercent: finiteNumber(metrics.fullFixtureAdoptionPercent),
         multipleCrossCheckPercent: finiteNumber(metrics.multipleCrossCheckPercent),
@@ -49,8 +59,9 @@
   }
 
   function sampleDescription(sample){
+    if (sample.distinctUsers === null) return "Exposed-user count is unavailable.";
     if (!sample.distinctUsers) return "No exposed users are represented yet.";
-    return `${sample.distinctUsers} exposed user${sample.distinctUsers === 1 ? "" : "s"}; ${sample.weeklyPulseUsers} pulse respondent${sample.weeklyPulseUsers === 1 ? "" : "s"}.`;
+    return `${sample.distinctUsers} exposed user${sample.distinctUsers === 1 ? "" : "s"}; ${sample.weeklyPulseUsers === null ? "unknown" : sample.weeklyPulseUsers} pulse respondent${sample.weeklyPulseUsers === 1 ? "" : "s"}.`;
   }
 
   function buildMeasurementReport(input){
@@ -61,6 +72,9 @@
       schemaVersion: SCHEMA_VERSION,
       status: "report_ready",
       operationalReady,
+      readinessScope: "NRL/AFL current-window fixture completeness only; not cross-sport or commercial certification.",
+      weeklyTsdrScope: "All measured accounts; partial calendar weeks may appear at the observation-window edges.",
+      missingMetrics: Object.entries(normalized.metrics).filter(([, value]) => value === null).map(([key]) => key),
       recommendation: null,
       sample: {
         ...normalized.sample,
@@ -69,7 +83,8 @@
       readiness: normalized.readiness,
       metrics: normalized.metrics,
       notes: [
-        "Sample size is descriptive and does not block MVP completion.",
+        "Sample size is descriptive; absent observations do not prove repeat use or commercial readiness.",
+        "Useful return counts fixture_check or watch_decision on at least two distinct Sydney dates in the rolling 28-day window. This is not D7 retention or verified invited-cohort membership; owner activity may be included.",
         "This report does not automatically recommend social or any other investment.",
         "Watch decisions count only when a genuine Mark watched or Remind interaction emits watch_decision; passive opens and swipes remain separate categorical actions.",
       ],

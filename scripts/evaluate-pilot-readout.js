@@ -10,13 +10,15 @@ function readJson(filePath){
 }
 
 function numberFrom(row, key){
-  const value = Number(row?.[key]);
-  return Number.isFinite(value) ? value : 0;
+  const raw = row?.[key];
+  if (raw == null || !["number", "string"].includes(typeof raw) || (typeof raw === "string" && !raw.trim())) return null;
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : null;
 }
 
 function overallRow(payload){
   const rows = Array.isArray(payload) ? payload : Array.isArray(payload?.data) ? payload.data : [];
-  return rows.find(row => row?.cohort === "all") || rows.find(row => row?.cohort === "overall") || rows[0] || null;
+  return rows.find(row => row?.cohort === "all") || rows.find(row => row?.cohort === "overall") || null;
 }
 
 function inputFromReadout(payload, readiness){
@@ -25,6 +27,7 @@ function inputFromReadout(payload, readiness){
   if (!row) throw new TypeError("The readout export must contain an overall row.");
   return {
     sample: {
+      windowStartedAt: row.measurement_window_started_at || null,
       firstObservedAt: row.measurement_started_at || null,
       generatedAt: row.measurement_generated_at || null,
       surveyVersion: row.survey_version || null,
@@ -32,10 +35,13 @@ function inputFromReadout(payload, readiness){
       weeklyPulseUsers: numberFrom(row, "pulse_users"),
     },
     readiness: {
-      supportedFixtureCoveragePercent: Number(readiness?.supportedFixtureCoveragePercent || 0),
-      overdueResults: Number(readiness?.overdueResultCount || readiness?.overdueResults || 0),
+      supportedFixtureCoveragePercent: readiness?.supportedFixtureCoveragePercent ?? null,
+      overdueResults: readiness?.overdueResultCount ?? readiness?.overdueResults ?? null,
     },
     metrics: {
+      usefulActionUsers: numberFrom(row, "useful_action_users"),
+      returningUsefulUsers: numberFrom(row, "returning_useful_users"),
+      usefulReturnPercent: numberFrom(row, "useful_return_percent"),
       tsdrPercent: numberFrom(row, "tsdr_percent"),
       fullFixtureAdoptionPercent: numberFrom(row, "full_fixture_adoption_percent"),
       multipleCrossCheckPercent: numberFrom(row, "multiple_cross_check_percent"),

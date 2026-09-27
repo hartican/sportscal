@@ -1,9 +1,11 @@
 -- On-demand nothingSports measurement readout.
 -- Run as a Supabase project administrator. product_events has no authenticated SELECT grant.
 
+-- Rolling observation window, not an MVP completion timer. No account-level export.
 with measurement_events as (
   select event.*
   from public.product_events event
+  where event.occurred_at >= now() - interval '28 days' and event.occurred_at <= now()
 ), pulse_ranked as (
   select
     event.*,
@@ -63,6 +65,8 @@ with measurement_events as (
     bool_or(event.event_name = 'opportunity_exposed') as had_opportunity,
     bool_or(event.event_name in ('fixture_check', 'watch_decision')) as made_decision,
     bool_or(event.event_name = 'fixture_check') as checked_full_fixtures,
+    count(distinct (event.occurred_at at time zone 'Australia/Sydney')::date)
+      filter (where event.event_name in ('fixture_check', 'watch_decision')) as useful_days,
     count(*) filter (where event.event_name = 'opportunity_exposed') as opportunity_exposures,
     count(*) filter (
       where event.event_name in ('fixture_check', 'watch_decision')
@@ -92,6 +96,8 @@ with measurement_events as (
 ), behaviour_by_cohort as (
   select
     cohort_names.cohort,
+    count(*) filter (where user_metrics.useful_days >= 1) as useful_action_users,
+    count(*) filter (where user_metrics.useful_days >= 2) as returning_useful_users,
     count(*) filter (where user_metrics.had_opportunity) as exposed_users,
     count(*) filter (where user_metrics.had_opportunity and user_metrics.made_decision) as decision_users,
     count(*) filter (where user_metrics.had_opportunity and user_metrics.checked_full_fixtures) as fixture_check_users,
@@ -251,11 +257,15 @@ with measurement_events as (
   left join discovery_exposure_by_competition exposure using (competition_id)
 )
 select
+  now() - interval '28 days' as measurement_window_started_at,
   bounds.measurement_started_at,
   bounds.measurement_generated_at,
   pulse.survey_version,
   behaviour.cohort,
   behaviour.exposed_users,
+  behaviour.useful_action_users,
+  behaviour.returning_useful_users,
+  round(100.0 * behaviour.returning_useful_users / nullif(behaviour.useful_action_users, 0), 1) as useful_return_percent,
   pulse.pulse_users,
   coalesce(weekly_tsdr.values, '[]'::jsonb) as weekly_tsdr,
   round(100.0 * behaviour.decision_users / nullif(behaviour.exposed_users, 0), 1) as tsdr_percent,

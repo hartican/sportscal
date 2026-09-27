@@ -2,7 +2,7 @@
 
 ## Scope
 
-This process measures the core sports-decision loop on demand. NRL and AFL are the complete-coverage sports. It has no fixed-duration trial, elapsed-day completion rule, or automatic social-investment recommendation.
+This process measures the core sports-decision loop on demand. NRL and AFL are reference candidates. The narrow fixture-readiness check does not certify their full quality, other sports, or commercial readiness. It has no fixed-duration trial, elapsed-day completion rule, or automatic social-investment recommendation.
 
 Signed-in measurement participation starts automatically and is disclosed in Settings. A user can opt out at any time; signed-out and opted-out use remains fully functional and sends nothing.
 
@@ -10,18 +10,20 @@ Signed-in measurement participation starts automatically and is disclosed in Set
 
 Before each release:
 
-1. Run `node scripts/update-cards.js --local-only` through the single canonical refresh path.
+1. Follow the scoped checks in [delivery practices](../delivery-practices.md) and the required production workflow. When refreshing data, use the single canonical `node scripts/update-cards.js` path.
 2. Run `node scripts/verify-pilot-readiness.js` and require 100% renderable current/next-round AFL and NRL fixtures, fresh canonical and published snapshots, and zero overdue supported results.
-3. Run the complete nothingSports validator suite.
+3. Run the relevant regressions and required release gates; do not repeat unchanged checks without a reason.
 4. Confirm the production alias serves the intended shell and product-events contract before claiming production proof.
 
 ## Measurement report
 
 Run `supabase/nothingsports-pilot-readout.sql` as a Supabase administrator whenever a product decision needs current evidence. Export the rows as JSON outside the repository, then run `node scripts/evaluate-pilot-readout.js <readout.json> --readiness=<readiness.json>`.
 
+The export uses a rolling 28-day window, not a completion timer. Useful return is the share of users with a `fixture_check` or `watch_decision` on at least two distinct Sydney calendar dates, among users with at least one such date. Counts and the window accompany the percentage. This is not D7 retention, verified Australian residence, or verified invited-cohort membership; owner activity may be included. Missing metrics and zero-denominator rates stay null; measured zeros stay zero.
+
 The report keeps weekly TSDR, full-fixture adoption, external cross-checking, missed-fixture reports, feed density, trust confidence, prompt burden, spectacle-rating completion, and curator/hybrid/completist segmentation. Pulse responses are grouped by explicit `surveyVersion`.
 
-Sample size is descriptive only. It does not block MVP completion. The report does not automatically recommend social or any other investment.
+Sample size is descriptive only. Missing observations remain unknown and do not prove repeat use or readiness. The report does not automatically recommend social or any other investment.
 
 `watch_decision` is emitted only for a genuine Remind or Mark watched action. Passive card opens emit categorical `feed_action: open`, and swipes remain separate; neither fabricates a watch decision.
 
