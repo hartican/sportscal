@@ -69,6 +69,12 @@ async function main(){
   const mixed=await refreshDueSources({sources:[{id:'rugby',fetch:async()=>[null,{...event,id:'new-fixture',status:'live'}]}],store,now});
   assert.deepEqual(mixed.refreshed,['rugby'],'one invalid record must not suppress another new followed fixture');
   assert(rows.get('rugby').fixtures.some(row=>row.id==='new-fixture'));
+  for(const [failures,retryMs,expected] of [[0,undefined,300000],[1,undefined,600000],[2,undefined,1200000],[1911,undefined,1800000],[20,3600000,3600000]]){
+    let retry;
+    const failedStore={claim:async()=>({fixtures:[event],failure_count:failures}),fail:async(id,token,value)=>{retry=value;}};
+    await refreshDueSources({sources:[{id:'repeated-failure',retryMs,fetch:async()=>{throw new Error('empty source');}}],store:failedStore,now});
+    assert.equal(retry.retryMs,expected,"repeated source failure backoff must be bounded");
+  }
   console.log("Live fixtures: due cadence, coalescing, revisions and last-good preservation passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

@@ -156,3 +156,11 @@ Confirmed completion and its final scores cannot regress to live when a subseque
 `lastReviewedAt` is observation metadata, like `sourceCheckedAt`; changes to it alone must not create a new fixture-fact revision. Keep the timestamp in source payloads and preserve array order and meaningful schedule, identity, result and viewing changes. Both ordinary and compact-score persistence paths use this rule. The first successful publication after changing the hash definition can create one transitional revision; subsequent unchanged checks must update source health only. Existing seven-day retention remains unchanged.
 
 Regression: `node scripts/validate-live-fixtures.js`, using a captured EPL fixture and both publish adapters. Compare production revision/check timestamps and snapshot growth after deployment; allocation need not immediately fall.
+
+## Bounded source failures and dispatch visibility — 27 September 2026
+
+Complete source failures use the existing database failure count to back off from five to ten to twenty to thirty minutes, capped at thirty minutes unless a source already specifies a longer retry. A successful publication clears the failure count through the existing RPC. Partial-success behaviour is unchanged. Preserve last-good fixtures; do not accept invalid empty sources or change normal healthy-source cadence.
+
+Authorised notification attempts record start before maintenance, inbox and VAPID checks. Preflight failures and alert-dispatch exceptions record bounded diagnostic codes rather than raw upstream messages. Unauthorised calls cannot write health. This change does not establish a scheduler owner, enable a second scheduler, or prove delivery to a physical device.
+
+Regressions: live fixture and notification validators, now also in the serialized production workflow.

@@ -64,7 +64,10 @@ module.exports = async function notificationDispatchHandler(request, response){
       response.status(401).json({ error:"Notification dispatch is not authorised.", code:"unauthorised" });
       return;
     }
+    const now = new Date();
+    await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
     if (supabaseMaintenanceMode()){
+      await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:"supabase_maintenance" }).catch(() => null);
       response.status(503).json({ error:"Notification dispatch paused for database recovery.", code:"supabase_maintenance" });
       return;
     }
@@ -74,10 +77,8 @@ module.exports = async function notificationDispatchHandler(request, response){
     if (!publicKey || !privateKey) throw Object.assign(new Error("Web Push is not configured."), { status:503, payload:{ code:"push_not_configured" } });
     webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), publicKey, privateKey);
 
-    const now = new Date();
-    const liveRatings=await require('../lib/live-rating-alerts').dispatch({now}).catch(error=>({error:String(error.message).slice(0,180)}));
-    const socialRewards=await require('../lib/social-reward-alerts').dispatch({now}).catch(error=>({error:String(error.message).slice(0,180)}));
-    await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
+    const liveRatings=await require('../lib/live-rating-alerts').dispatch({now}).catch(()=>({error:'live_rating_dispatch_failed'}));
+    const socialRewards=await require('../lib/social-reward-alerts').dispatch({now}).catch(()=>({error:'social_reward_dispatch_failed'}));
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
     const staleBefore = new Date(now.getTime() - CLAIM_STALE_MS).toISOString();
     const claimedAt=now.toISOString();
@@ -139,7 +140,7 @@ module.exports = async function notificationDispatchHandler(request, response){
     }).catch(() => null);
     response.status(liveRatings.error || socialRewards.error ? 503 : 200).json({ liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
-    await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:String(error?.message || "Notification dispatch failed.").slice(0, 500) }).catch(() => null);
+    await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:error?.payload?.code === "push_not_configured" ? "push_not_configured" : "notification_dispatch_failed" }).catch(() => null);
     const outgoing = publicError(error);
     response.status(outgoing.status).json(outgoing.body);
   }

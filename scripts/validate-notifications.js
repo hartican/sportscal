@@ -75,16 +75,16 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
-    async run(){
+    async run({env={},authorization="Bearer cron-secret"}={}){
       const response = responseHarness();
       const previousEnvironment = {
         CRON_SECRET:process.env.CRON_SECRET,
         VAPID_PUBLIC_KEY:process.env.VAPID_PUBLIC_KEY,
         VAPID_PRIVATE_KEY:process.env.VAPID_PRIVATE_KEY,
       };
-      Object.assign(process.env, { CRON_SECRET:"cron-secret", VAPID_PUBLIC_KEY:"public", VAPID_PRIVATE_KEY:"private" });
+      Object.assign(process.env, { CRON_SECRET:"cron-secret", VAPID_PUBLIC_KEY:"public", VAPID_PRIVATE_KEY:"private",...env });
       try{
-        await handler({ method:"GET", headers:{ authorization:"Bearer cron-secret" } }, response);
+        await handler({ method:"GET", headers:{ authorization } }, response);
       }finally{
         Object.entries(previousEnvironment).forEach(([key, value]) => {
           if (value === undefined) delete process.env[key];
@@ -259,6 +259,26 @@ async function main(){
   }finally{
     notificationApi.close();
   }
+
+  const healthCalls=[];
+  const brokenDispatcher=await dispatchHarness({
+    serviceRequest:async(path,options={})=>{healthCalls.push({path,body:options.body});if(path.includes('notification_dispatch_health')||path.endsWith('/nothingsports_inbox_maintenance'))return [];throw new Error('private upstream detail must not leak');},
+    sendNotification:async()=>{throw new Error('preflight must not send');},
+  });
+  try{
+    const missing=await brokenDispatcher.run({env:{VAPID_PRIVATE_KEY:""}});
+    assert.equal(missing.statusCode,503);
+    assert(healthCalls[0].body.last_started_at,"authorised invocation is recorded before VAPID preflight");
+    assert.equal(healthCalls.at(-1).body.last_error,"push_not_configured");
+    assert(!healthCalls.some(call=>call.body?.last_success_at));
+    healthCalls.length=0;
+    await brokenDispatcher.run();
+    assert.equal(healthCalls.at(-1).body.last_error,"notification_dispatch_failed","stored health must not expose raw upstream errors");
+    healthCalls.length=0;
+    const denied=await brokenDispatcher.run({authorization:"Bearer wrong"});
+    assert.equal(denied.statusCode,401);
+    assert.equal(healthCalls.length,0,"unauthorised callers must not alter dispatcher health");
+  }finally{brokenDispatcher.close();}
 
   const reminder = {
     id:"reminder-1",
