@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20260927195921513",
-  "sourcePublishedAt": "2026-09-27T19:59:21.513Z",
+  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20260928222422961",
+  "sourcePublishedAt": "2026-09-28T22:24:22.961Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1064,
-  "eventCount": 686,
+  "eventCount": 683,
   "pages": [
     {
       "index": 0,
@@ -248,9 +248,9 @@
     {
       "index": 34,
       "path": "data/feed/page-035.json",
-      "eventCount": 6,
+      "eventCount": 3,
       "firstEventId": "event:aflw:cd_m20262640601",
-      "lastEventId": "event:fiba-women:2026:final"
+      "lastEventId": "event:premier-league:128958"
     }
   ]
 }
