@@ -112,3 +112,7 @@ AFL, AFLW and NRL each completed a successful natural check after the creation-t
 ## Account erasure adapter connection — 30 September 2026
 
 Connected exact-account owned-message and Auth cleanup after existing verified steps, with private durable intent, fresh inventory/Auth gates and lost-response reconciliation. Added isolated connected-operator regressions to the production gate. No real-account deletion or DB mutation. Legacy issuer shutdown still blocks the normal workflow, and expiry/final Storage/reconciliation adapters remain incomplete; this is not customer-erasure launch readiness.
+
+## Account erasure expiry and final Storage connection — 30 September 2026
+
+Connected the resumable upload-expiry checkpoint and bounded post-Auth origin sweep with scoped issuer evidence, fresh marker/schema/account checks, late-object re-listing and durable retries. Isolated connected-operator tests pass; no real deletion or new scheduler. Real issuer proof and final reconciliation remain blocked/incomplete; origin emptiness alone cannot prove in-flight transfers, external caches or all account categories are erased.
