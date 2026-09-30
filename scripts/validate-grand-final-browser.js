@@ -1,21 +1,23 @@
 'use strict';
-const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-(async()=>{const browser=await chromium.launch({channel:'chrome'});try{
+const assert=require('node:assert/strict'),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+(async()=>{const browser=await (process.env.QA_BROWSER==='webkit'?webkit.launch():chromium.launch({channel:'chrome'}));try{
  const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
  await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:nrl-premiership'],followedSports:['nrl'],onboardingComplete:true,showSpoilers:false})));
  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
- await page.waitForFunction(()=>startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
+ await page.waitForFunction(()=>startupFeedState.phase==='ready'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
+ await page.evaluate(()=>{document.querySelectorAll('[role=dialog]').forEach(n=>n.parentElement.style.display='none');document.getElementById('startupLaunch')?.remove();document.querySelectorAll('dialog[open]').forEach(n=>n.close());document.body.classList.remove('modal-open','settings-open');});
  for(const testCase of [{code:'nrl',id:'evt_84',opponent:/Knights/,time:/7:30\s*PM/i,exclusive:true},{code:'nrlw',id:'event:nrlw:2026:grand-final',opponent:/Broncos/,time:/4:00\s*PM/i,exclusive:false}]){
  const data=await page.evaluate(async code=>await(await fetch(`/data/follow-schedule/${code}.json`)).json(),testCase.code);
  const fixture=data.fixtures.find(e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(testCase.id));assert(fixture);
  for(const mode of ['feed','schedule']){
-  await page.evaluate(({fixture,mode})=>{activeTab=mode==='feed'?'feed':'follow';document.getElementById('listView').replaceChildren(mode==='feed'?buildEventCard(fixture):buildCodeInspectorFixture(fixture));},{fixture,mode});
-  const card=page.locator('#listView');const text=await card.innerText();assert.match(text,/Roosters/);assert.match(text,testCase.opponent);assert.match(text,testCase.time);
+  await page.evaluate(({fixture,mode})=>{fixture=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays([{...fixture,startTimeUtc:null,time:null,timeTbc:true,startTimeTbc:true,dateOnly:true,timePrecision:'date-only'}],[fixture])[0];normalizeEvents([fixture]);setCardState(fixture,'opened');activeTab=mode==='feed'?'feed':'follow';document.getElementById('listView').replaceChildren(mode==='feed'?buildEventCard(fixture):buildCodeInspectorFixture(fixture));},{fixture,mode});
+  const card=page.locator('#listView');await card.scrollIntoViewIfNeeded();const text=await card.innerText();assert.match(text,/Roosters/);assert.match(text,testCase.opponent);assert.match(text,testCase.time);
+  if(mode==='feed'){assert.match(await card.locator('.fixture-timing-clock').innerText(),testCase.time,'clock itself confirms start; editorial text cannot satisfy this assertion');if(testCase.code==='nrl'){assert.match(await card.locator('.editorial-l0-hook-copy').textContent(),/wooden spooners/);const closing=await card.locator('.editorial-storyline').textContent();assert.match(closing,/Smith/);assert.match(closing,/Cherry-Evans/);assert.deepEqual(await card.locator('.editorial-l0-hook section').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('aria-label'))),['Form','Storyline'],'Form is followed by sourced narrative');assert.equal(await card.locator('.editorial-l0-hook').evaluate(n=>n.lastElementChild.getAttribute('aria-label')),'Storyline','the expanded editorial closes with narrative');const form=await card.locator('.editorial-form').innerText();assert.match(form,/36–20/);assert.match(form,/22–14/);assert.doesNotMatch(form,/Sydney time|Queensland|9Now/);assert.match(await card.innerText(),/Match context/i);assert.equal(await card.locator('.editorial-l0-hook > .editorial-l0-supplement').last().textContent(),fixture.editorialNarrative.synopsis,'retain the entire existing context verbatim');const terminal=await page.evaluate(fixture=>{setCardState(fixture,'opened');return buildEventWhyItMatters({...fixture,status:'completed'})?.querySelector('.editorial-form')?.textContent||'';},fixture);assert.equal(terminal,'','preview Form cannot survive confirmed completion');}}
   assert.equal(await card.locator('.fixture-profile-link').count(),2);
   assert.equal(await card.locator('a.provider-link[aria-label*="9Now"]').count(),1);
   if(testCase.exclusive) assert.equal(await card.locator('a.provider-link[aria-label*="Kayo"], a.provider-link[aria-label*="Foxtel"]').count(),0,'exclusive final must not inherit normal-round viewing');
-  for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));}
+  for(const width of [320,390,768,1280])for(const theme of ['light','dark']){await page.setViewportSize({width,height:1000});await page.evaluate(theme=>{userPreferences.theme=theme==='dark'?'night':'day';applyThemePreference(userPreferences.theme);},theme);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));if(process.env.QA_SCREENSHOT_DIR&&mode==='feed'&&testCase.code==='nrl'){require('node:fs').mkdirSync(process.env.QA_SCREENSHOT_DIR,{recursive:true});await page.addStyleTag({content:'header.top,.skip-link,#timelineTools,.feed-view-actions,.calendar-selection-toolbar{visibility:hidden!important}'});await card.screenshot({path:`${process.env.QA_SCREENSHOT_DIR}/grand-final-${process.env.QA_BROWSER||'chromium'}-${width}-${theme}.png`});}}
  }
  }
  console.log('NRL and NRLW Grand Final live-render contract: resolved teams, Sydney DST kickoff, profile links, exclusive viewing and four widths passed.');

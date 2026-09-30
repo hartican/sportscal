@@ -9,9 +9,19 @@ function check(events,label){
  assert.deepEqual(e.participantIds,['team:nrl:331','team:nrl:325']);
  const providers=follow.viewingOptions(e);assert.deepEqual(providers.map(p=>p.providerId),['nine-tv','nine']);assert(providers.every(p=>p.sourceUrl?.includes('nineforbrands')&&!p.paid));
  assert(!/winner of PF|routes remain open|qualifying winners|Penrith hosts/i.test(JSON.stringify(e.editorialNarrative||{})),`${label}: no stale bracket editorial`);
+ if(process.argv.includes('--published')){assert.match(e.editorialNarrative.hook,/wooden spooners/);assert.match(e.editorialNarrative.closingCopy,/Smith/);assert.match(e.editorialNarrative.closingCopy,/Cherry-Evans/);assert.match(e.editorialNarrative.formCopy,/36–20/);assert.match(e.editorialNarrative.formCopy,/22–14/);assert(!/Sydney time|Queensland|9Now/.test(e.editorialNarrative.formCopy),'Form is sporting performance only');assert(e.editorialNarrative.dimensions.includes('form'));assert.match(e.editorialNarrative.synopsis,/7:30pm Sydney time/,'existing useful context retained');}
  return e;
 }
 check(programme,'resolver');
+const identity=require('../config/fixture-identity'),timing=require('../config/card-timing');
+const confirmed=programme.find(e=>alias(e).includes('evt_84'));
+const retained={...confirmed,startTimeUtc:null,time:null,timeTbc:true,startTimeTbc:true,dateOnly:true,timePrecision:'date-only'};
+const observation={...confirmed};for(const field of ['timeTbc','startTimeTbc','dateOnly'])delete observation[field];
+const reconciled=identity.mergeOverlays([retained],[observation])[0];
+for(const update of [{...observation,timeTbc:true},{...observation,dateOnly:true},{...observation,timePrecision:'unknown',timeTbc:true}])assert.equal(timing.presentation(identity.mergeOverlays([retained],[update])[0],new Date('2026-10-01T00:00:00Z')).time,'TIME TBC','explicit uncertainty remains conservative');
+assert.equal(timing.presentation(reconciled,new Date('2026-10-01T00:00:00Z')).time,'7:30 PM','confirmed kickoff replaces retained TBC flags in the real overlay path');
+assert.equal(reconciled.id,confirmed.id,'timing repair keeps saved-action identity');
+
 if(process.argv.includes('--published'))for(const file of ['feeds/incoming/events.json','data/events.json','data/follow-schedule/nrl.json']){const d=require('../'+file);check(d.events||d.fixtures,file);}
 const start=new Date('2026-10-04T08:30:00Z');
 for(const [zone,time] of [['Australia/Sydney','19:30'],['Australia/Brisbane','18:30']])assert.equal(new Intl.DateTimeFormat('en-GB',{timeZone:zone,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(start),time);

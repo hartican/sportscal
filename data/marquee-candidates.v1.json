@@ -1,6 +1,6 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z",
+  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -628,7 +628,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -884,7 +884,7 @@
         "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-27T13:57:48.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Roosters v Broncos",
@@ -1144,7 +1144,7 @@
         "name": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
         "checkedAt": "2026-09-29T23:17:33.658Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Bahrain GP (Malaysia) · Race",
@@ -1352,7 +1352,7 @@
     {
       "campaignId": "marquee_0e5f2dcbd82ba9be",
       "campaignRevision": 1,
-      "contentHash": "4aba05f71092880bf07d5136d3446834053819e2cc7d2db2aef6073d2e71bd76",
+      "contentHash": "6652dc7b990230334e794f5c1ac8506057810e46ed602f8ea44a58953d12cc72",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -1375,7 +1375,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-27T13:39:49.102Z"
+        "sourceCheckedAt": "2026-09-30T22:37:31.000Z"
       },
       "timing": {
         "startTimeUtc": "2026-10-04T08:30:00.000Z",
@@ -1400,8 +1400,8 @@
       "source": {
         "name": "Roosters v Knights — NRL Grand Final — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-        "checkedAt": "2026-09-27T13:39:49.102Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "checkedAt": "2026-09-30T22:37:31.000Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Roosters v Knights",
@@ -1419,7 +1419,7 @@
         "source": {
           "name": "Roosters v Knights — NRL Grand Final — official research 1",
           "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-          "checkedAt": "2026-09-27T13:39:49.102Z"
+          "checkedAt": "2026-09-30T22:37:31.000Z"
         },
         "recognisableTitle": "Roosters v Knights",
         "matchupLabel": "Roosters v Knights",
@@ -1439,7 +1439,7 @@
       },
       "live": {
         "headline": "Sunday watch party: Roosters v Knights",
-        "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
+        "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
         "kicker": "5/5 stakes · NRL",
         "heroAssetId": "",
         "logos": {
@@ -1453,8 +1453,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+          "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1463,14 +1463,14 @@
         }
       },
       "drafts": {
-        "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
+        "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
         "instagram": {
           "account": "@_nothingsports",
-          "caption": "UNMISSABLE NRL: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT. 5/5 stakes. Roosters and Knights meet for the premiership at Accor Stadium. Join the watch party and rate it afterwards — link in bio.",
+          "caption": "UNMISSABLE NRL: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT. 5/5 stakes. Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Roosters v Knights, starting Sun 4 Oct 2026 at 7:30 pm AEDT.",
           "image": {
-            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1483,7 +1483,7 @@
           "preheader": "Join the Roosters v Knights watch party, then rate it after the finish.",
           "headline": "Sunday watch party: Roosters v Knights",
           "bodyParagraphs": [
-            "The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+            "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
             "Join us for the Roosters v Knights, on Sun at 7:30 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
           "timingLine": "Roosters v Knights starts Sun 4 Oct 2026 at 7:30 pm AEDT at Accor Stadium. Expected finish: 10:30 pm AEDT.",
@@ -1504,8 +1504,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1529,7 +1529,7 @@
         },
         "live": {
           "headline": "Sunday watch party: Roosters v Knights",
-          "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
+          "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
           "kicker": "5/5 stakes · NRL",
           "heroAssetId": "",
           "logos": {
@@ -1543,8 +1543,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1587,8 +1587,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+          "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1597,8 +1597,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-4aba05f71092.jpg",
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-6652dc7b9902.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1661,7 +1661,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-09-30T12:54:17.477Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1918,7 +1918,7 @@
         "name": "Supercars Bathurst event and schedule",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -2176,7 +2176,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -2433,7 +2433,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -2690,7 +2690,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -2947,7 +2947,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3204,7 +3204,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -3461,7 +3461,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3718,7 +3718,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -3975,7 +3975,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -4232,7 +4232,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-30T12:09:08.398Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -4488,7 +4488,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-09-30T12:09:04.338Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -4746,7 +4746,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -5003,7 +5003,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -5260,7 +5260,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -5517,7 +5517,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "The 155th Open",
@@ -5773,7 +5773,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260930131805999@2026-09-30T13:18:05.999Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260930225146640@2026-09-30T22:51:46.640Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",

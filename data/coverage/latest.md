@@ -1,8 +1,8 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-09-30
+Reference date: 2026-10-01
 
-Compared 16 live/delayed listings with 1064 canonical events. Found 16 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 16 high-priority recommendations.
+Compared 11 live/delayed listings with 1063 canonical events. Found 11 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 10 high-priority recommendations.
 
 ## Australian source health
 
@@ -10,7 +10,7 @@ Compared 16 live/delayed listings with 1064 canonical events. Found 16 catalogue
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 16 listings; 9d old |
+| Stan Sport | loaded | reviewed_export; 11 listings; 1d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
@@ -23,22 +23,17 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
-| 2026-09-22 | UCI Road World Championships | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-22 | WTA 500 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-24 | NPC | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | Australian Schoolboys/U18s | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | Farah Palmer Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | Laver Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | Ultimate Sevens | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-25 | WTA 250 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-26 | NWSL | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-26 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-26 | WEC | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-09-26 | WSL | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-09-26 | WXV | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-27 | Flight Centre Series | new | 0.15 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-27 | Super Rugby AUS | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-28 | UCI Mountain Bike World Series | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-01 | NPC | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-02 | WRC | new | 0.45 | high | review | Stan Sport (included) | new_catalogue_identity |
+| 2026-10-02 | WTA 1000 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-03 | NWSL | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-03 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-03 | Super Rugby AUS | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-03 | UCI Mountain Bike World Series | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-03 | WSL | new | 0.45 | high | review | Stan Sport (included) | new_catalogue_identity |
+| 2026-10-04 | Australian Schoolboys/U18s | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-04 | Motocross Of Nations | new | 0.08 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-04 | WXV | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 
 ## Decision boundary
 
