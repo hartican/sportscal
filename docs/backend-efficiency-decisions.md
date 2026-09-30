@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Stable live fixture creation times — 30 September 2026
+
+AFL, AFLW and NRL live adapters pass the prior snapshot's valid creation times to the existing canonical parsers, keyed by exact fixture ID. A known fixture keeps its first observation; a newly discovered identity receives the current check time. Updated/source-check timestamps still advance. The shared content hash continues to detect creation-time and real fact changes; no global creation-time exclusion is added. No database migration, history deletion, polling or scheduler change is required.
+
+The 30 September read-only follow-up verified the EPL fix in production: zero EPL revisions in the latest 48 hours while successful checks continued. Across sources, comparable 48-hour snapshot counts fell 1,010→369 and stored payload additions 91,877,920→39,467,752 bytes, with retention and other releases as confounders. The latest two AFL/AFLW/NRL revisions differed only in generated creation/update/source-check timestamps. This adapter repair addresses that demonstrated cause. Regression: `validate-live-afl-adapter.js` exercises actual source adapters twice at different times for all three sports, new identity creation and meaningful fact hash changes. Production deployment proof alone does not prove the subsequent storage-growth trend.
+
 ## Football reminder schedule reconciliation — 28 September Sydney
 
 The sole five-minute notification dispatcher checks at most 20 pending EPL/UCL/Europa match-15 reminders, oldest schedule check first. One indexed service-only inventory RPC is added per run; an empty result does not load the fixture catalogue or write reconciliation. A nonempty batch uses one bounded update RPC and the already-bundled published Football projection. No new provider call, AI work, cron or polling loop. Existing push claim batches remain five. The hard ceiling is 5,760 small per-reminder check updates per day (20 × 288); these update existing rows and do not append fixture history.

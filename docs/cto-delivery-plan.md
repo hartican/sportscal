@@ -6,7 +6,7 @@ Updated 28 September 2026. This implements the approved CTO audit; the original 
 
 | Item | Current evidence | Remaining acceptance / next action |
 |---|---|---|
-| Q1 snapshot churn | 25059fa deployed; metadata-only hash regressions pass | Existing 48-hour check due 29 September; verify growth and real fact revisions |
+| Q1 snapshot churn | 25059fa deployed; metadata-only hash regressions pass | 30 September follow-up complete: EPL checks continue with zero revisions in latest 48h; all-source rows/window down 63.5%, payload additions down 57.0% with confounders. Remaining AFL/AFLW/NRL creation-time churn repaired in source adapters; post-release trend still to observe |
 | Q2 scheduler and source reliability | 4425800 backoff; 09f98bb dispatcher bundle/batches; automatic 200 in 16.21s, 27 September 20:20 AEST; pending rating groups drained from 35 to 0 by 11:50 UTC | Physical-device fresh reminder receipt still unverified |
 | Q3 Football classification, rights, timing | 9ca229b excludes NFL; c263209 restores fixture-specific 10 Streaming and honest replay wording; production Feed/Schedule browser checks passed | Source timing precision and remaining cross-surface overlays; viewing repair does not certify all competition rights |
 | Q4 frozen quality inventory | Versioned 16-family denominator and machine-readable competition inventory implemented; 0 certified | Explicit non-overlapping families, competition/season/window gates, evidence-backed reference fixtures; unknown is not pass |

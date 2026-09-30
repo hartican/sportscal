@@ -95,6 +95,7 @@ jobs:
           node scripts/validate-pilot-readout.js
           node scripts/validate-pilot-readout-sql.js
           node scripts/validate-live-fixtures.js
+          node scripts/validate-live-afl-adapter.js
           node scripts/validate-match-observations.js
           node scripts/validate-laver-cup.js
       - name: Bind project and preserve current production
