@@ -46352,14 +46352,14 @@
       "roundLabel": "Practice 1",
       "stage": "Practice 1",
       "narrativeType": "all",
-      "selectedSentence": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 1; this session is the points-paying chapter of the weekend.",
-      "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
+      "selectedSentence": "Azerbaijan GP · Practice 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Azerbaijan GP · Practice 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
+      "sourceCheckedAt": "2026-09-30T05:35:42.873Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -46375,29 +46375,15 @@
       "storyline": {
         "stakes": 2,
         "intensity": 2,
-        "intensitySource": "manual",
-        "arcStage": "preview",
+        "intensitySource": "computed",
+        "arcStage": "recap",
         "expectedSpectacle": 4,
-        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 1; this session is the points-paying chapter of the weekend.",
-        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 1; this session is the points-paying chapter of the weekend.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "hookSpoilerOff": "Azerbaijan GP · Practice 1 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "George Russell was fastest in Azerbaijan GP · Practice 1.",
+        "synopsisSpoilerOff": "Azerbaijan GP · Practice 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "George Russell was fastest in Azerbaijan GP · Practice 1. 1. George Russell (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Charles Leclerc (Ferrari).",
         "lastReviewedAt": "2026-09-27T13:46:16.043Z",
         "researchDepth": 2
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-09-27T13:46:16.043Z",
       "editorialNarrative": {
@@ -46429,7 +46415,438 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "participantIds": [
+        "competitor:f1:george-russell",
+        "team:f1:mercedes",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:charles-leclerc",
+        "team:f1:ferrari",
+        "competitor:f1:lewis-hamilton",
+        "competitor:f1:kimi-antonelli",
+        "competitor:f1:oscar-piastri",
+        "team:f1:mclaren",
+        "competitor:f1:liam-lawson",
+        "team:f1:racing-bulls",
+        "competitor:f1:arvid-lindblad",
+        "competitor:f1:esteban-ocon",
+        "team:f1:haas",
+        "competitor:f1:gabriel-bortoleto",
+        "team:f1:audi",
+        "competitor:f1:nico-hulkenberg",
+        "competitor:f1:carlos-sainz",
+        "team:f1:williams",
+        "competitor:f1:alexander-albon",
+        "competitor:f1:lando-norris",
+        "competitor:f1:oliver-bearman",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:fernando-alonso",
+        "team:f1:aston-martin",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:lance-stroll",
+        "competitor:f1:valtteri-bottas"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        }
+      ],
+      "participantsConfirmed": true,
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Time / Gap",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "1:45.387",
+            "24"
+          ],
+          [
+            "2",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "+0.400s",
+            "22"
+          ],
+          [
+            "3",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "+0.404s",
+            "25"
+          ],
+          [
+            "4",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "+0.437s",
+            "25"
+          ],
+          [
+            "5",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "+0.878s",
+            "9"
+          ],
+          [
+            "6",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "+1.011s",
+            "17"
+          ],
+          [
+            "7",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "+1.053s",
+            "26"
+          ],
+          [
+            "8",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "+1.214s",
+            "23"
+          ],
+          [
+            "9",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "+1.237s",
+            "19"
+          ],
+          [
+            "10",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "+1.301s",
+            "21"
+          ],
+          [
+            "11",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "+1.484s",
+            "22"
+          ],
+          [
+            "12",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "+1.506s",
+            "22"
+          ],
+          [
+            "13",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "+1.552s",
+            "29"
+          ],
+          [
+            "14",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "+1.594s",
+            "14"
+          ],
+          [
+            "15",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "+1.607s",
+            "22"
+          ],
+          [
+            "16",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "+1.656s",
+            "22"
+          ],
+          [
+            "17",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "+1.866s",
+            "24"
+          ],
+          [
+            "18",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "+2.136s",
+            "23"
+          ],
+          [
+            "19",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "+2.448s",
+            "24"
+          ],
+          [
+            "20",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "+2.486s",
+            "8"
+          ],
+          [
+            "21",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "+3.160s",
+            "22"
+          ],
+          [
+            "22",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "+3.928s",
+            "22"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
+        "checkedAt": "2026-09-30T05:35:42.873Z"
+      },
+      "score": "1. George Russell · 2. Max Verstappen · 3. Charles Leclerc",
+      "outcomeText": "George Russell was fastest in Azerbaijan GP · Practice 1.",
+      "recapText": "George Russell was fastest in Azerbaijan GP · Practice 1. 1. George Russell (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Charles Leclerc (Ferrari).",
+      "resultPublishedAt": "2026-09-30T05:34:36.736Z"
     },
     {
       "id": "event-aflw-cd_m20262640701",
@@ -47016,14 +47433,14 @@
       "roundLabel": "Practice 2",
       "stage": "Practice 2",
       "narrativeType": "all",
-      "selectedSentence": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 2; this session is the points-paying chapter of the weekend.",
-      "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
+      "selectedSentence": "Azerbaijan GP · Practice 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Azerbaijan GP · Practice 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2",
+      "sourceCheckedAt": "2026-09-30T05:35:42.873Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -47039,29 +47456,15 @@
       "storyline": {
         "stakes": 2,
         "intensity": 2,
-        "intensitySource": "manual",
-        "arcStage": "preview",
+        "intensitySource": "computed",
+        "arcStage": "recap",
         "expectedSpectacle": 4,
-        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 2; this session is the points-paying chapter of the weekend.",
-        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 2; this session is the points-paying chapter of the weekend.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "hookSpoilerOff": "Azerbaijan GP · Practice 2 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "George Russell was fastest in Azerbaijan GP · Practice 2.",
+        "synopsisSpoilerOff": "Azerbaijan GP · Practice 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "George Russell was fastest in Azerbaijan GP · Practice 2. 1. George Russell (Mercedes); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
         "lastReviewedAt": "2026-09-27T13:46:16.043Z",
         "researchDepth": 2
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-09-27T13:46:16.043Z",
       "editorialNarrative": {
@@ -47093,7 +47496,438 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "participantIds": [
+        "competitor:f1:george-russell",
+        "team:f1:mercedes",
+        "competitor:f1:kimi-antonelli",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:charles-leclerc",
+        "team:f1:ferrari",
+        "competitor:f1:lewis-hamilton",
+        "competitor:f1:lando-norris",
+        "team:f1:mclaren",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:oscar-piastri",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:esteban-ocon",
+        "team:f1:haas",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:liam-lawson",
+        "team:f1:racing-bulls",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:gabriel-bortoleto",
+        "team:f1:audi",
+        "competitor:f1:nico-hulkenberg",
+        "competitor:f1:alexander-albon",
+        "team:f1:williams",
+        "competitor:f1:carlos-sainz",
+        "competitor:f1:arvid-lindblad",
+        "competitor:f1:valtteri-bottas",
+        "competitor:f1:oliver-bearman",
+        "competitor:f1:lance-stroll",
+        "team:f1:aston-martin",
+        "competitor:f1:fernando-alonso"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        }
+      ],
+      "participantsConfirmed": true,
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Time / Gap",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "1:43.347",
+            "24"
+          ],
+          [
+            "2",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "+0.552s",
+            "16"
+          ],
+          [
+            "3",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "+0.827s",
+            "23"
+          ],
+          [
+            "4",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "+1.126s",
+            "24"
+          ],
+          [
+            "5",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "+1.318s",
+            "23"
+          ],
+          [
+            "6",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "+1.484s",
+            "22"
+          ],
+          [
+            "7",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "+1.496s",
+            "23"
+          ],
+          [
+            "8",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "+1.510s",
+            "22"
+          ],
+          [
+            "9",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "+1.521s",
+            "21"
+          ],
+          [
+            "10",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "+1.943s",
+            "25"
+          ],
+          [
+            "11",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "+2.132s",
+            "23"
+          ],
+          [
+            "12",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "+2.334s",
+            "25"
+          ],
+          [
+            "13",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "+2.413s",
+            "23"
+          ],
+          [
+            "14",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "+2.447s",
+            "24"
+          ],
+          [
+            "15",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "+2.507s",
+            "20"
+          ],
+          [
+            "16",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "+2.776s",
+            "24"
+          ],
+          [
+            "17",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "+2.874s",
+            "22"
+          ],
+          [
+            "18",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "+3.044s",
+            "4"
+          ],
+          [
+            "19",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "+3.390s",
+            "26"
+          ],
+          [
+            "20",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "+3.454s",
+            "10"
+          ],
+          [
+            "21",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "+4.056s",
+            "24"
+          ],
+          [
+            "22",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "+4.542s",
+            "9"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2",
+        "checkedAt": "2026-09-30T05:35:42.873Z"
+      },
+      "score": "1. George Russell · 2. Kimi Antonelli · 3. Max Verstappen",
+      "outcomeText": "George Russell was fastest in Azerbaijan GP · Practice 2.",
+      "recapText": "George Russell was fastest in Azerbaijan GP · Practice 2. 1. George Russell (Mercedes); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
+      "resultPublishedAt": "2026-09-30T05:34:36.736Z"
     },
     {
       "id": "event-aflw-cd_m20262640702",
@@ -47546,14 +48380,14 @@
       "roundLabel": "Practice 3",
       "stage": "Practice 3",
       "narrativeType": "all",
-      "selectedSentence": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 3; this session is the points-paying chapter of the weekend.",
-      "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
+      "selectedSentence": "Azerbaijan GP · Practice 3 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Azerbaijan GP · Practice 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/3",
+      "sourceCheckedAt": "2026-09-30T05:35:42.873Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -47569,29 +48403,15 @@
       "storyline": {
         "stakes": 2,
         "intensity": 2,
-        "intensitySource": "manual",
-        "arcStage": "preview",
+        "intensitySource": "computed",
+        "arcStage": "recap",
         "expectedSpectacle": 4,
-        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 3; this session is the points-paying chapter of the weekend.",
-        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Azerbaijan GP · Practice 3; this session is the points-paying chapter of the weekend.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Azerbaijan GP · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "hookSpoilerOff": "Azerbaijan GP · Practice 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Max Verstappen was fastest in Azerbaijan GP · Practice 3.",
+        "synopsisSpoilerOff": "Azerbaijan GP · Practice 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Max Verstappen was fastest in Azerbaijan GP · Practice 3. 1. Max Verstappen (Red Bull Racing); 2. George Russell (Mercedes); 3. Lewis Hamilton (Ferrari).",
         "lastReviewedAt": "2026-09-27T13:46:16.043Z",
         "researchDepth": 2
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-27T13:44:46.858Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-09-27T13:46:16.043Z",
       "editorialNarrative": {
@@ -47623,7 +48443,438 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "participantIds": [
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:george-russell",
+        "team:f1:mercedes",
+        "competitor:f1:lewis-hamilton",
+        "team:f1:ferrari",
+        "competitor:f1:kimi-antonelli",
+        "competitor:f1:charles-leclerc",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:oscar-piastri",
+        "team:f1:mclaren",
+        "competitor:f1:lando-norris",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:carlos-sainz",
+        "team:f1:williams",
+        "competitor:f1:oliver-bearman",
+        "team:f1:haas",
+        "competitor:f1:gabriel-bortoleto",
+        "team:f1:audi",
+        "competitor:f1:esteban-ocon",
+        "competitor:f1:nico-hulkenberg",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:alexander-albon",
+        "competitor:f1:liam-lawson",
+        "team:f1:racing-bulls",
+        "competitor:f1:arvid-lindblad",
+        "competitor:f1:fernando-alonso",
+        "team:f1:aston-martin",
+        "competitor:f1:valtteri-bottas",
+        "competitor:f1:lance-stroll"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        }
+      ],
+      "participantsConfirmed": true,
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Time / Gap",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "1:43.922",
+            "21"
+          ],
+          [
+            "2",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "+0.099s",
+            "21"
+          ],
+          [
+            "3",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "+0.111s",
+            "18"
+          ],
+          [
+            "4",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "+0.351s",
+            "21"
+          ],
+          [
+            "5",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "+0.622s",
+            "22"
+          ],
+          [
+            "6",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "+0.715s",
+            "20"
+          ],
+          [
+            "7",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "+0.824s",
+            "20"
+          ],
+          [
+            "8",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "+0.977s",
+            "20"
+          ],
+          [
+            "9",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "+1.254s",
+            "22"
+          ],
+          [
+            "10",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "+1.670s",
+            "20"
+          ],
+          [
+            "11",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "+1.683s",
+            "24"
+          ],
+          [
+            "12",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "+1.770s",
+            "25"
+          ],
+          [
+            "13",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "+1.932s",
+            "18"
+          ],
+          [
+            "14",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "+1.996s",
+            "21"
+          ],
+          [
+            "15",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "+2.076s",
+            "18"
+          ],
+          [
+            "16",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "+2.082s",
+            "19"
+          ],
+          [
+            "17",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "+2.154s",
+            "24"
+          ],
+          [
+            "18",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "+2.300s",
+            "23"
+          ],
+          [
+            "19",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "+2.349s",
+            "22"
+          ],
+          [
+            "20",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "+2.590s",
+            "19"
+          ],
+          [
+            "21",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "+4.665s",
+            "19"
+          ],
+          [
+            "22",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "+5.357s",
+            "9"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/3",
+        "checkedAt": "2026-09-30T05:35:42.873Z"
+      },
+      "score": "1. Max Verstappen · 2. George Russell · 3. Lewis Hamilton",
+      "outcomeText": "Max Verstappen was fastest in Azerbaijan GP · Practice 3.",
+      "recapText": "Max Verstappen was fastest in Azerbaijan GP · Practice 3. 1. Max Verstappen (Red Bull Racing); 2. George Russell (Mercedes); 3. Lewis Hamilton (Ferrari).",
+      "resultPublishedAt": "2026-09-30T05:34:36.736Z"
     },
     {
       "id": "event-aflw-cd_m20262640705",
@@ -48388,7 +49639,7 @@
       "fullSpiel": "Azerbaijan GP · Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Formula 1 official session results",
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "sourceCheckedAt": "2026-09-27T19:58:21.739Z",
+      "sourceCheckedAt": "2026-09-30T05:35:42.873Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -48653,7 +49904,7 @@
           ]
         ],
         "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-        "checkedAt": "2026-09-27T14:15:28.570Z"
+        "checkedAt": "2026-09-30T05:35:42.873Z"
       },
       "resultPublishedAt": "2026-09-27T06:35:17.582Z",
       "outcomeText": "George Russell took pole for Azerbaijan GP · Qualifying.",
@@ -49313,7 +50564,7 @@
       "fullSpiel": "Azerbaijan GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Formula 1 official session results",
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "sourceCheckedAt": "2026-09-27T19:58:21.739Z",
+      "sourceCheckedAt": "2026-09-30T05:35:42.873Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "status": "completed",
@@ -49555,7 +50806,7 @@
           ]
         ],
         "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-        "checkedAt": "2026-09-27T14:15:28.570Z"
+        "checkedAt": "2026-09-30T05:35:42.873Z"
       },
       "resultPublishedAt": "2026-09-27T06:35:17.582Z",
       "outcomeText": "George Russell won Azerbaijan GP · Race.",

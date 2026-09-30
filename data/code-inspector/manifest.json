@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-30T00:16:42.523Z",
+  "generatedAt": "2026-09-30T05:35:43.879Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-30T00:16:42.523Z",
+      "freshAt": "2026-09-30T05:35:43.879Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -98,7 +98,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-30T00:16:42.523Z",
+      "freshAt": "2026-09-30T05:35:43.879Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },

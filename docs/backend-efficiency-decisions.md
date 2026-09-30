@@ -1,5 +1,14 @@
 # Backend efficiency decisions
 
+## F1 session result tables — 30 September 2026
+
+The existing F1 result owner now reads six-column numbered practice tables and routes sprint qualifying to its own eight-column result page. Practice remains outside Feed admission; its source-backed results are published to F1/Motorsport Schedule. Practice uses fastest-driver wording, not race-win wording. Existing identities and result privacy rules remain intact. Quick refresh preserves full F1 tables and confirmed participant identities.
+
+This uses the existing seven-day bounded fixture window and official results index, with 15-second request deadlines; no new scheduler, provider, subscription or per-user request. A practice is not considered for publication until 90 minutes after its known start and still requires a populated official table, at least ten unique drivers/numbers and resolved identities. This is a conservative delay, not an official session-finality flag; delayed or corrected official classifications remain a source limitation. Cancelled/postponed/abandoned events are preserved. Invalid table shapes or duplicates retain the prior event; unknown participants fail the refresh before file publication.
+
+Scoped canonical command: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --f1-results`. Regression: `validate-f1-session-results.js`, existing F1 Feed admission and storyline spoiler checks. Full sport certification is not implied.
+
+
 ## Daily shared-observation publication — 30 September 2026
 
 Weekday quick refreshes now project the existing live owner's Cricket Australia, ESPN recent/history and World Rugby men's/women's XV/sevens observations into the saved Cricket/Rugby Schedule. The full Sunday source refresh remains authoritative for wider calendars. No source fetch, new scheduler, database write or account scan is added. The existing read-only `nothingsports_read_current_fixtures` RPC includes separately stored scores; reading the source arrays alone would omit those scores.

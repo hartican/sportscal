@@ -379,6 +379,17 @@ async function main() {
     console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
     return;
   }
+  if(process.argv.includes('--f1-results')){
+    for(const args of [
+      ['scripts/validate-f1-session-results.js'],
+      ['scripts/refresh-f1-results.js'],
+      ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=f1,motorsport'],
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--reviewed-fixtures')){
     for(const args of [
       ['scripts/apply-current-card-evidence.js'],

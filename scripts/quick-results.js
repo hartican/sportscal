@@ -12,7 +12,7 @@ const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatu
 function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
- const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of KEYS)if(Object.hasOwn(update,key))next[key]=update[key];if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
+ const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
  return {events:result,count};
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
