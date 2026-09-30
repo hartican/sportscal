@@ -3,12 +3,17 @@
 const fs=require('node:fs');
 const narrative=require('./lib/editorial-narrative');
 function apply(knowledge,feed,majorEvents,research,catalogue=[]){
+  const retention=require('../data/canonical/cricket-retention.v1.json');
+  const retired=new Set((retention.retiredFixtureIds||[]).filter(id=>!retention.fixtureIds.includes(id)));
+  knowledge.eventProjections=knowledge.eventProjections.map(p=>p.targetType==='feed-event'?{...p,targetIds:p.targetIds.filter(id=>!retired.has(id))}:p).filter(p=>p.targetIds.length);
   const upsert=(field,value)=>{const index=knowledge[field].findIndex(row=>row.id===value.id);if(index<0)knowledge[field].push(value);else knowledge[field][index]=value;};
   for(const entry of research.entries){
+    if(retired.has(entry.id))continue;
     if(require('../config/coverage-pauses').womensT20({key:'cricket',name:entry.title}))continue;
     const prefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
     const overview=entry.id.match(/^tennis-tournament-(.+)-\d{4}-\d{2}-\d{2}$/);
-    const targetIds=[...new Set([...feed.events,...catalogue].filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id) || overview && event.tennisTournamentId===`tournament:tennis:${overview[1]}` && event.cardType==='tournament_overview').map(event=>event.id))];
+    const targets=[...feed.events,...catalogue];
+    const targetIds=[...new Set(targets.filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id) || overview && event.tennisTournamentId===`tournament:tennis:${overview[1]}` && ['tournament_overview','tennis_parent'].includes(event.cardType)).map(event=>event.id))];
     if(!targetIds.length)throw new Error('Missing researched fixture '+entry.id);
     const subjectId=`subject:${prefix}`,threadId=`thread:${prefix}`;
     const sourceIds=entry.sources.map((url,index)=>`source:${prefix}:${index}`);
@@ -38,7 +43,7 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
 if(require.main===module){
   const files=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/major-events.v1.json'];
   const values=files.map(file=>JSON.parse(fs.readFileSync(file)));
-  const catalogue=JSON.parse(fs.readFileSync('data/follow-sources/coverage.v1.json')).events;
+  const catalogue=[...JSON.parse(fs.readFileSync('data/follow-sources/coverage.v1.json')).events,...JSON.parse(fs.readFileSync('data/events.json')).events,...JSON.parse(fs.readFileSync('data/tennis-feed-parents.v1.json')).parents];
   const result=apply(...values,JSON.parse(fs.readFileSync('data/editorial-fixture-research.v1.json')),catalogue);
   [result.knowledge,result.feed,result.majorEvents].forEach((value,i)=>fs.writeFileSync(files[i],JSON.stringify(value,null,2)+'\n'));
   console.log('Applied independently researched fixture narratives and editorial replay recommendations.');

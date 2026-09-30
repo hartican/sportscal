@@ -186,6 +186,7 @@
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({
+    "beijing chn": "source_name_pending_review",
     // Newly refreshed source labels: preserve verbatim until canonical venue review.
     "adelaide entertainment centre": "source_name_pending_review",
     "afterpay arena": "source_name_pending_review",

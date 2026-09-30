@@ -42,8 +42,8 @@ function addThread(knowledge, { id, subjectIds, title, summary, factIds, status 
   return id;
 }
 function replaceProjection(knowledge, projection){
-  const targets = new Set(projection.targetIds);
-  knowledge.eventProjections = knowledge.eventProjections.filter(item => item.targetType !== projection.targetType || !item.targetIds.some(id => targets.has(id)));
+  const targets = new Set(projection.targetIds.flatMap(id=>require("../config/fixture-identity").fixtureAliases(id)));
+  knowledge.eventProjections = knowledge.eventProjections.filter(item => item.id !== projection.id && (item.targetType !== projection.targetType || !item.targetIds.some(id => targets.has(id))));
   knowledge.eventProjections.push(projection);
 }
 
@@ -224,16 +224,17 @@ const CRICKET_CORRECTIONS = Object.freeze({
 
 function reconcileCricket(document){
   document.events = document.events.map(event => {
-    const correction = CRICKET_CORRECTIONS[idFor(event)];
+    const legacyId=require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).find(id=>CRICKET_CORRECTIONS[id]);
+    const correction = CRICKET_CORRECTIONS[legacyId];
     if (!correction) return event;
-    const opponent = idFor(event).startsWith("evt_8") ? "South Africa" : idFor(event).startsWith("evt_9") ? "New Zealand" : null;
+    const opponent = legacyId.startsWith("evt_8") ? "South Africa" : legacyId.startsWith("evt_9") ? "New Zealand" : null;
     return {
-      ...event, ...correction,
+      ...event, ...correction,...require("../config/reviewed-fixture-repairs").facts(require("../config/fixture-identity").canonicalFixtureId(idFor(event))),
       sourceName:"Cricket Australia 2026/27 official series schedule",
       sourceUrl:opponent === "South Africa" ? "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg" : event.sourceUrl,
       sourceCheckedAt:CHECKED_AT,
       sourceType:"official", sourceTrust:"verified", competitionScope:"international", isInternational:true,
-      ...(opponent ? { participants:[{ name:opponent === "South Africa" ? "South Africa" : "Australia", role:"home" }, { name:opponent === "South Africa" ? "Australia" : "New Zealand", role:"away" }], participantIds:[opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand"], representativeCountryCodes:["AUS"], representativeSportKey:"cricket" } : {}),
+      ...(opponent ? { participants:[{ id:opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", name:opponent === "South Africa" ? "South Africa" : "Australia", role:"home" }, { id:opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand", name:opponent === "South Africa" ? "Australia" : "New Zealand", role:"away" }], participantIds:[opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand"], representativeCountryCodes:["AUS"], representativeSportKey:"cricket" } : {}),
     };
   });
 }
@@ -277,9 +278,9 @@ function buildCricket(knowledge, events, reference){
     "new-zealand":addSubject(knowledge, "subject:depth:cricket:new-zealand-tests-2026-27", "series", "Australia v New Zealand Tests 2026/27"),
   };
   const threadFacts = { bangladesh:[], "south-africa":[], england:[], "new-zealand":[] };
-  const targetEvents = events.filter(event => CRICKET_STORIES[idFor(event)] && researchDepthFor(event) >= 3);
+  const targetEvents = events.filter(event => require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).some(id=>CRICKET_STORIES[id]) && researchDepthFor(event) >= 3);
   for (const event of targetEvents){
-    const story = CRICKET_STORIES[idFor(event)];
+    const story = CRICKET_STORIES[require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).find(id=>CRICKET_STORIES[id])];
     const subjectId = subjects[story.thread];
     const sourceIds = story.sources.map(key => sourceMap[key]);
     const factIds = story.facts.map((statement, index) => addFact(knowledge, { id:`fact:depth:cricket:${slug(idFor(event))}:${index + 1}`, subjectIds:[subjectId], statement, dimension:story.dims[index], sourceIds:[sourceIds[index % sourceIds.length]] }));

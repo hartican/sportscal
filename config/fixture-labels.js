@@ -6,7 +6,8 @@ function gender(event){
  if(/^(men|mens|men's|male|m)$/.test(value))return 'men';
  if(value==='mixed')return 'mixed';
  const id=String(event.competitionId||'');
- if(event.key==='aflw'||event.key==='nrlw'||/(?:^|:)wta(?:-|:|$)|(?:^|:)aflw(?:-|:|$)|(?:^|:)nrlw(?:-|:|$)/.test(id))return 'women';
+ if(/women|female|wbbl/i.test([event.competitionName,id,event.name].join(' '))||(Array.isArray(event.participantIds)?event.participantIds:[]).some(id=>/-women$/.test(id)))return 'women';
+ if(event.key==='aflw'||event.key==='nrlw'||event.key==='netball'||event.key==='wnba'||event.key==='fiba-women'||/(?:^|:)wta(?:-|:|$)|(?:^|:)aflw(?:-|:|$)|(?:^|:)nrlw(?:-|:|$)/.test(id))return 'women';
  if(event.key==='afl'||event.key==='nrl'||/(?:^|:)atp(?:-|:|$)|afl-premiership/.test(id))return 'men';
  return null;
 }
@@ -21,10 +22,11 @@ function sport(event){
  return family;
 }
 function badge(event){
- const key=event.key,sex=gender(event),suffix=sex?({men:' Men',women:' Women',mixed:' Mixed'})[sex]:'';
+ const key=event.key,sex=gender(event),suffix=sex?({men:event.key==='tennis'?' Men':'',women:' Women',mixed:' Mixed'})[sex]:'';
  if(['afl','aflw','nrl','nrlw'].includes(key))return (sex==='women'?({afl:'aflw',nrl:'nrlw'})[key]||key:key).toUpperCase();
  const values=[event.format,event.matchFormat,event.playingFormat,event.competitionName,event.name].filter(Boolean).join(' ');
- if(key==='cricket'){
+ if(key==='cricket'||key==='cricket-women'){
+  if(/warm.up/i.test(values))return 'Warm-up'+suffix;
   const format=/\btest\b/i.test(values)?'Test Match':/\bt20i?\b/i.test(values)?'T20':/\bodi\b|one.day international/i.test(values)?'ODI':String(event.format||event.matchFormat||'');
   return format?format+suffix:String(event.competitionName||'Cricket')+suffix;
  }
@@ -47,8 +49,9 @@ function isAustralian(value,event={},records=[]){
 function australianFirst(values,event={},records=[]){
  return [...values].sort((a,b)=>Number(isAustralian(b,event,records))-Number(isAustralian(a,event,records)));
 }
+function displayName(value,event={}){return /tennis/.test(event.key||event.sportKey||'')?String(value||''):String(value||'').replace(/\s+[—–-]\s+Men(?:’s|'s)?\b|\bMen(?:’s|'s)?\s+|\s+Men(?:’s|'s)?\b/g,'').trim();}
 function matchupTitle(event,title,records=[]){
- const source=String(title||event.displayTitleCompact||event.name||'');
+ const source=displayName(title||event.displayTitleCompact||event.name||'',event);
  if(/hidden|winner of|loser of|\bTBC\b/i.test(source))return source;
  const split=source.match(/^(.*?)\s+v(?:s\.?|\.)?\s+(.*?)(\s+[—–]\s+.*)?$/i);
  if(!split)return source;
@@ -59,5 +62,5 @@ function matchupTitle(event,title,records=[]){
  const ordered=australianFirst(sides,event,records);
  return ordered[0]===sides[0]?source:`${split[2]} v ${split[1]}${split[3]||''}`;
 }
-return {gender,sport,badge,participantRecord,isAustralian,australianFirst,matchupTitle};
+return {displayName,gender,sport,badge,participantRecord,isAustralian,australianFirst,matchupTitle};
 });

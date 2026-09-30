@@ -133,7 +133,8 @@ if (!assetsOnly){
   const followRecords = fs.readdirSync(path.join(ROOT, "data/follow-directory")).filter(name => name.endsWith(".v1.json") && name !== "manifest.v1.json")
     .flatMap(name => JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory", name), "utf8")).records || [])
     .filter(record => record.teamKind === "national" && registry.teamForId(record.id));
-  assert.equal(followRecords.length, 67, "generated Follow data must retain all national teams as teamKind national");
+  const expected=registry.participants.filter(r=>require("../config/cricket-coverage").followable(r.id));
+  assert.deepEqual(new Set(followRecords.map(r=>r.id)),new Set(expected.map(r=>r.id)),"Follow retains covered national teams while retiring out-of-scope cricket teams");
   followRecords.forEach(record => {
     assert(registry.teamForId(record.id), `Follow contains unknown national team ${record.id}`);
     assert.match(record.logoUrl || "", /^assets\/identities\/national\//, `${record.id} Follow logo must be local`);

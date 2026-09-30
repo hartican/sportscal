@@ -5,6 +5,7 @@
  const persist=()=>{try{localStorage.setItem(savedKey,JSON.stringify(filters));}catch{}};
  const selected=code=>filters[code]||{};
  const rawValues=(f,key)=>{
+  if(key==='format')return [NOTHINGSPORTS_CRICKET_COVERAGE.format(f)].filter(Boolean);
   if(key==='round')return [f.roundLabel||f.round||f.stage].filter(Boolean);
   if(key==='competition')return [f.competitionId||f.competitionName].filter(Boolean);
   if(key==='tournament')return [f.tournamentId||f.eventFamilyId].filter(Boolean);
@@ -13,12 +14,12 @@
   return [...new Set([...(f.participantIds||[]),...(f.participants||[]).map(p=>p.id),...(f.participantSlots||[]).map(p=>p.participantId)].filter(Boolean))];
  };
  const values=(f,key)=>rawValues(f,key).map(String);
- const matches=(f,code)=>Object.entries(selected(code)).every(([k,v])=>!v.length||values(f,k).some(x=>v.includes(x)));
+ const matches=(f,code)=>Object.entries(selected(code)).filter(([k])=>!code.includes('cricket')||['format','participant'].includes(k)).every(([k,v])=>!v.length||values(f,k).some(x=>v.includes(x)));
  function openFilters(code,fixtures){
   const dialog=document.createElement('dialog');dialog.className='follow-more-dialog follow-filter-dialog';dialog.setAttribute('aria-label','Filter schedule');
   const title=document.createElement('h2');title.textContent='Filter schedule';dialog.append(title);
   const draft=JSON.parse(JSON.stringify(selected(code)));
-  for(const [key,label]of [['round','Rounds'],['competition','Competitions / championships'],['tournament','Tournaments'],['series','Series'],['country','Countries'],['participant','Teams & players']]){
+  for(const [key,label]of (code.includes('cricket')?[['format','Format'],['participant','Teams']]:[['round','Rounds'],['competition','Competitions'],['tournament','Tournaments'],['participant','Teams & players']])){
    const choices=new Map();for(const f of fixtures)for(const value of values(f,key)){
     const person=(f.participants||[]).find(p=>p.id===value)||(f.participantSlots||[]).find(p=>p.participantId===value)||cardIdentityParticipants().find(p=>p.id===value);
     const name=key==='competition'?f.competitionName||value:key==='tournament'?f.tournamentName||value:key==='participant'?person?.displayName||person?.name||person?.label||value:key==='country'?(value.length===2?new Intl.DisplayNames(['en'],{type:'region'}).of(value):value):value;

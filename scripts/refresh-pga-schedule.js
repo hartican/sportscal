@@ -44,7 +44,8 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
  document.pgaParticipation=previous?.pgaParticipation||[];
  for(const base of baseFixtures(document).filter(t=>t.name!=='Presidents Cup'&&Date.parse(t.endDate)>=now-7*day&&Date.parse(t.date)<=now+14*day)){
   const slug=base.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const root=`https://www.pgatour.com/tournaments/${base.season}/${slug}/${base.tournamentId}`;
+  if(!/^[RH]\d{7}$/.test(base.tournamentId))continue;
+  const root=`https://www.pgatour.com/${base.tournamentId.startsWith('H')?'korn-ferry-tour/':''}tournaments/${base.season}/${slug}/${base.tournamentId}`;
   try{
    const pages=await Promise.all(['tee-times','field'].map(async suffix=>{const r=await fetchImpl(root+'/'+suffix,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);return r.text();}));
    const next=lpga.mergeObservation(lpga.parsePga(pages[0],{base,sourceUrl:root+'/tee-times',fieldHtml:pages[1]}),document.pgaParticipation.find(e=>e.id===base.id));

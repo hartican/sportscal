@@ -257,7 +257,8 @@ function validateFeed(feed) {
       if (!preview || typeof preview !== "object" || Array.isArray(preview)) {
         errors.push(`${prefix}.editorialPreview must be an object if present.`);
       } else {
-        if (!['journalistic', 'research-required'].includes(preview.status)) errors.push(`${prefix}.editorialPreview.status must be journalistic or research-required.`);
+        if (!['journalistic', 'research-required', 'withheld'].includes(preview.status)) errors.push(`${prefix}.editorialPreview.status must be journalistic, research-required or withheld.`);
+        if (preview.status === 'withheld' && (String(event.selectedSentence||'').trim() || String(event.fullSpiel||'').trim())) errors.push(`${prefix} withheld editorial must not contain fallback copy.`);
         if (preview.status === 'journalistic') {
           if (!String(preview.angle || '').trim()) errors.push(`${prefix}.editorialPreview.angle is required for journalistic previews.`);
           if (!Array.isArray(preview.contextSignals) || preview.contextSignals.filter(Boolean).length < 2) errors.push(`${prefix}.editorialPreview.contextSignals must contain at least two values for journalistic previews.`);

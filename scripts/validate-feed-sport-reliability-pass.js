@@ -18,7 +18,7 @@ const identities = require(path.join(ROOT, "config/card-identities.js"));
 const html = read("index.html");
 const exposedSports = taxonomy.exposedSportNodes.filter(node => Number(node.level) === 2);
 const exposedIds = exposedSports.map(node => node.id);
-assert.equal(exposedSports.length, 22, "the user-facing catalogue must expose the approved twenty-two top-level sports including NBL");
+assert.equal(exposedSports.length, 38, "the user-facing catalogue must expose the approved categories with separate women sports including NBL");
 assert(exposedIds.includes("sport:ice-hockey"), "Ice Hockey must be a first-class exposed sport");
 for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"]){
   assert(!exposedIds.includes(retiredId), `${retiredId} must not remain user-facing`);
@@ -43,9 +43,11 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 28, "the lazy Follow manifest must include twenty-two exposed sports plus AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
+assert.equal(manifest.sports.length, 44, "the lazy Follow manifest must include separate gender chunks and AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
-const swimming = chunks.get("swimming")?.records || [];
+const swimming = [...(chunks.get("swimming")?.records || []),...(chunks.get("swimming-women")?.records || [])];
+assert(chunks.get("swimming").records.every(r=>r.genderCategory!=="female"));
+assert(chunks.get("swimming-women").records.every(r=>r.genderCategory==="female"));
 assert.equal(swimming.length, 60, "Swimming must contain exactly sixty current ranked athletes");
 assert.equal(swimming.filter(record => record.genderCategory === "female").length, 30, "Swimming must contain thirty women");
 assert.equal(swimming.filter(record => record.genderCategory === "male").length, 30, "Swimming must contain thirty men");
@@ -58,8 +60,16 @@ const iceHockey = chunks.get("ice-hockey")?.records || [];
 assert(iceHockey.filter(record => record.leagueId === "competition:nhl" && record.entityType === "team").length === 32, "NHL must expose all thirty-two clubs");
 assert(iceHockey.filter(record => record.entityType === "athlete").length >= 700, "Ice Hockey must expose complete current rosters");
 const iceHockeyCanonical = json("data/canonical/ice-hockey-directory.v1.json");
-assert.equal(iceHockeyCanonical.sourceStatus.nhl.standingsStatus, "not-started", "unpublished 2026–27 NHL standings must not inherit the previous season's table");
-assert.equal(iceHockeyCanonical.standings.filter(row => row.competitionId === "competition:nhl").length, 0, "the previous NHL season must not be presented as the current ladder");
+const nhlRows=iceHockeyCanonical.standings.filter(row=>row.participantId?.startsWith('team:nhl:'));
+const nhlStatus=iceHockeyCanonical.sourceStatus.nhl.standingsStatus;
+if(nhlStatus==='not-started')assert.equal(nhlRows.length,0,'unpublished current season must not inherit the previous table');
+else {
+ assert.equal(nhlStatus,'published');
+ assert.equal(iceHockeyCanonical.sourceStatus.nhl.latestPublishedStandingsSeason,iceHockeyCanonical.season,'published standings must belong to the current canonical season');
+ assert.equal(iceHockeyCanonical.competitions.find(c=>c.id==='competition:nhl').standingsSeason,iceHockeyCanonical.season);
+ assert.equal(nhlRows.length,32,'the current official table includes every NHL club');
+ assert(nhlRows.every(r=>Number.isFinite(r.gamesPlayed)&&r.gamesPlayed>=0));
+}
 assert(iceHockeyCanonical.fixtures.filter(fixture => fixture.competitionId === "competition:chl").every(fixture => fixture.viewingOptions?.[0]?.providerId === "iihf-tv" && fixture.viewingOptions[0].linkScope === "sport"), "CHL fixtures must use the verified IIHF.TV all-other-markets fallback without inventing fixture permalinks");
 
 for (const [sportKey, chunk] of chunks){

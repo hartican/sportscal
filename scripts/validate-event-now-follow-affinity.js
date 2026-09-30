@@ -150,9 +150,10 @@ assert(!Number.isNaN(Date.parse(watchPool.sourceReviewAfter)), "watch-pool evide
 assert(watchPool.collections.every(collection => collection.parentId === "sport:tennis" && (collection.memberIds.length || collection.includeTour)), "static and tour-expanded collections require an explicit membership basis");
 
 const tennisDirectory = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
-assert.equal(tennisDirectory.collections.length, 8, "the lazy Tennis directory must publish the original groups plus ATP/WTA watch lists");
+const womensDirectory=require("../data/follow-directory/tennis-women.v1.json");
+assert.equal(new Set([...tennisDirectory.collections,...womensDirectory.collections].map(c=>c.id)).size, 8, "the lazy Tennis directory must publish the original groups plus ATP/WTA watch lists");
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:mens-top-10").memberIds.length, 10);
-assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
+assert.equal(womensDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
 
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");

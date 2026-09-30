@@ -7,7 +7,10 @@ const OUTPUT=path.join(__dirname,"../data/follow-sources/coverage.v1.json");
 async function refreshCoverage({now=new Date(),sources=coverageSources(),scoped=false}={}){
   const prior=JSON.parse(fs.readFileSync(OUTPUT,"utf8")),results=[];
   for(let offset=0;offset<sources.length;offset+=2)results.push(...await Promise.allSettled(sources.slice(offset,offset+2).map(source=>source.fetch({now,previous:prior.events,coverage:prior.sources?.find(row=>row.id===source.id)?.coverage||{}}))));
-  const events=mergeFixtureSnapshot(prior.events,[...require('../data/follow-sources/verified-fixtures.v1.json').events,...results.flatMap(result=>result.status==="fulfilled"?result.value:[])]).events;
+  const mergedEvents=mergeFixtureSnapshot(prior.events,[...require('../data/follow-sources/verified-fixtures.v1.json').events,...results.flatMap(result=>result.status==="fulfilled"?result.value:[])]).events;
+  const identity=require('../config/fixture-identity'),scope=require('../config/cricket-coverage');
+  const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
+  const events=mergedEvents.map(identity.normalizeCore).filter(e=>scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
   const participants=new Map((prior.participants||[]).map(record=>[record.id,record]));
   for(const event of events)for(const participant of event.participants||[]){
     if(!participant.id)continue;

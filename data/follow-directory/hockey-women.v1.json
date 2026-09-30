@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "follow-directory-chunk.v1",
+  "sportKey": "hockey-women",
+  "label": "Field Hockey Women",
+  "generatedAt": "2026-09-30T08:35:08.448Z",
+  "status": "available",
+  "sortBasis": "ranking-or-ladder-then-alphabetical",
+  "records": [
+    {
+      "id": "team:hockey:hockeyroos",
+      "displayName": "Hockeyroos",
+      "shortName": "Hockeyroos",
+      "aliases": [
+        "Hockeyroos",
+        "Australia Women"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:hockey:hockeyroos",
+      "logoUrl": "assets/identities/national/hockey/hockeyroos.png",
+      "logoDarkUrl": "assets/identities/national/hockey/hockeyroos.png",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.hockey.org.au/teams/hockeyroos",
+        "catalogue:hockey"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    }
+  ]
+}

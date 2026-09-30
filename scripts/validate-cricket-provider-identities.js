@@ -14,15 +14,15 @@ for(const order of [[ca,espn],[espn,ca]]){
  for(const id of [caTeam,espnTeam]){
   const prefs={preferenceGraph:{entityFollows:[{participantId:id,followLevel:'follow'}]}};
   for(const excluded of [caTeam,espnTeam]){const withdrawn={...f,excludedParticipantIds:[excluded]};assert.equal(follow.reasonForEvent(withdrawn,prefs),null);assert.equal(buildServerFeed({events:[withdrawn],userId:'fixture-alias-test',userState:{preferences:prefs},now:new Date('2026-09-30T00:00:00Z')}).events.length,0);}
-  assert(follow.effectiveParticipantFollow(caTeam,prefs).followed);assert(follow.reasonForEvent(f,prefs));
-  assert(buildServerFeed({events:[f],userId:'fixture-alias-test',userState:{preferences:prefs},now:new Date('2026-09-30T00:00:00Z')}).events.length>0);
+  assert.equal(follow.effectiveParticipantFollow(caTeam,prefs).followed,false,'retired county follow removed');assert.equal(follow.reasonForEvent(f,prefs),null);
+  assert(buildServerFeed({events:[f],userId:'fixture-alias-test',userState:{preferences:prefs},now:new Date('2026-09-30T00:00:00Z')}).events.length===0);
  }
  for(const id of [caId,espnId]){const action={dismissed:true,lastActionAt:'2026-09-29T00:00:00Z'};assert.equal(actions.resolveAction(f,{[id]:action}).action,action);}
  const old={dismissed:false,lastActionAt:'2026-09-28T00:00:00Z'},recent={dismissed:true,lastActionAt:'2026-09-29T00:00:00Z'};assert.equal(actions.resolveAction(f,{[caId]:old,[espnId]:recent}).action,recent);
 }
 const mixed={preferenceGraph:{entityFollows:[{participantId:espnTeam,followLevel:'unfollow'},{participantId:caTeam,followLevel:'follow'}]}};
 assert.equal(follow.effectiveParticipantFollow(caTeam,mixed).followed,false);
-const refollow=preferences.setEntityFollow(mixed.preferenceGraph,caTeam,'follow');assert.equal(refollow.entityFollows.length,1);assert(follow.effectiveParticipantFollow(espnTeam,{preferenceGraph:refollow}).followed);
+const refollow=preferences.setEntityFollow(mixed.preferenceGraph,caTeam,'follow');assert.equal(refollow.entityFollows.length,1);assert.equal(follow.effectiveParticipantFollow(espnTeam,{preferenceGraph:refollow}).followed,false,'offline retired county refollow is pruned');
 const removed=preferences.setEntityFollow(refollow,espnTeam,'unfollow');assert(!follow.effectiveParticipantFollow(caTeam,{preferenceGraph:removed}).followed);
 for(const id of ['team:cricket:espn-1116-women','team:cricket:espn-1116-u19','team:cricket:espn-99999'])assert.equal(identity.canonicalParticipantId(id),id);
 assert.equal(identity.canonicalFixtureId('fixture:cricket:espn:1513452'),'fixture:cricket:espn:1513452');

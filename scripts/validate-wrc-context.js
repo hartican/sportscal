@@ -255,7 +255,7 @@ assert(appSource.includes('sportKey === "wrc" ? "Results / Replays" : "Results"'
 assert(appSource.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
 assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes("codeInspectorTab==='results'"));
 assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes('pending.textContent = "Official FIA classification pending."'));
-assert(appSource.includes('ev.displayTime || "Multiple live stages"'));
+assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only'}).time,'TIME TBC', 'date-only rallies explicitly disclose an unknown clock');
 assert(appSource.includes('SPORT_CONTEXT.mergeCanonicalBundles(...contextBundles)'));
 assert(appSource.includes('participant?.metadata?.preferenceDomainId === domainId'));
 assert(serverFeedSource.includes('require("../data/canonical/wrc-context-2026.json")'), "the authenticated feed must merge the WRC participant scope");

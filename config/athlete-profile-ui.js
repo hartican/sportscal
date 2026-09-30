@@ -179,7 +179,7 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
     const close = document.createElement("button"); close.type = "button"; close.className = "athlete-profile-close"; close.setAttribute("aria-label", "Close athlete profile"); close.textContent = "×";
     const body = document.createElement("div"); body.className = "athlete-profile-body"; body.innerHTML = "<p>Loading official profile…</p>";
     drawer.append(close);
-    if(typeof root.buildDirectoryFollowButton==='function')drawer.append(root.buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
+    if(!record.profileOnly&&typeof root.buildDirectoryFollowButton==='function')drawer.append(root.buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
     drawer.append(body);const context=document.createElement('div');drawer.append(context);void appendProfileFixtureContext(context,record,sportKey,options.fixture); backdrop.appendChild(drawer); document.body.appendChild(backdrop);
     const historyToken=options.fixture?`profile:${record.id}:${Date.now()}`:null,originUrl=location.href;
     if(historyToken)history.pushState({...history.state,fixtureProfile:historyToken},'');
@@ -197,7 +197,7 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
     };
     close.addEventListener("click", dismiss); backdrop.addEventListener("click", event => { if (event.target === backdrop) dismiss(); }); document.addEventListener("keydown", onKey); close.focus();
     try{
-      let profile = await loadProfile(record.profileRef, sportKey);
+      let profile = record.profileOnly ? {...record,sourceUrl:record.sourceRefs?.[0]} : await loadProfile(record.profileRef, sportKey);
       let cross;
       try{
         if(!globalThis.NOTHINGSPORTS_ATHLETE_PARTICIPATION)await loadScript('data/canonical/athlete-participation.v1.js');

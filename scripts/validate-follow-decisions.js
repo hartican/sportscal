@@ -14,7 +14,7 @@ function check(event,prefs,expected,label){
 const tennis={followedSports:['tennis']};
 check(fixture({round:'Round 1',marqueeClassification:{isMarquee:true,sourceUrls:['https://example.org']}}),tennis,false,'early marquee needs a player');
 check(fixture({round:'Round 1',participantCountryCodes:['AUS']}),{...tennis,followFirst:{australiansOnlySportIds:['sport:tennis']}},false,'Australian tennis does not bypass player follows');
-for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,round==='Final',round);
+for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,true,round);
 for(const round of ['Quarterfinal','Semi-final'])check(fixture({round,eventType:'doubles'}),tennis,false,'doubles '+round);
 check(fixture({round:'Final',eventType:'doubles'}),tennis,false,'doubles final');
 check(fixture({round:'Round 1'}),{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'one followed player is sufficient');
@@ -24,10 +24,10 @@ for(const key of ['aflw','nrlw']){
  check(e,{selectedSelectorEntityIds:['sport:'+parent],followedSports:[parent,key]},false,'inherited '+key);
  check(e,{selectedSelectorEntityIds:['sport:'+key]},true,'explicit '+key);
 }
-const women=fixture({key:'cricket',gender:'women',competitionId:'competition:cricket-women-test',competitionScope:'international'});
+const women=fixture({key:'cricket',gender:'women',format:'Test',participantIds:['team:cricket:australia-women','team:cricket:england-women'],competitionId:'competition:cricket-women-test',competitionScope:'international'});
 check(women,{followedSports:['cricket']},false,'women cricket parent');
 check(women,{preferenceGraph:{competitionPreferences:[{competitionId:women.competitionId,enabled:true}]}},true,'explicit women competition');
-check(women,{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'explicit women player');
+check(women,{preferenceGraph:{entityFollows:[{participantId:'team:cricket:australia-women',followLevel:'follow'}]}},true,'explicit women team');
 check(fixture({key:'nrl',round:'Final'}),{followedSports:['nrl']},true,'NRL final');
 check(fixture({key:'afl',round:'Final'}),{followedSports:['afl']},true,'AFL final');
 check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},true,'legacy participant opt-out does not veto broad singles final');

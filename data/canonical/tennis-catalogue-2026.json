@@ -4610,28 +4610,6 @@
       "taxonomySportId": "sport:tennis",
       "disciplineId": "discipline:tennis:professional",
       "baselineEligible": true
-    },
-    {
-      "providerId": "laver-cup-2026",
-      "name": "Laver Cup",
-      "tour": "TEAM",
-      "representedTours": [
-        "ATP"
-      ],
-      "level": "team_competition",
-      "startDate": "2026-09-25",
-      "endDate": "2026-09-27",
-      "city": "London",
-      "countryCode": "GBR",
-      "surface": "hard",
-      "sourceUrl": "https://lavercup.com/scores-results-2026",
-      "season": 2026,
-      "tournamentId": "tournament:tennis:laver-cup-2026",
-      "providerAlias": "team:tournament:laver-cup-2026",
-      "competitionId": "competition:laver-cup",
-      "taxonomySportId": "sport:tennis",
-      "disciplineId": "discipline:tennis:professional",
-      "baselineEligible": true
     }
   ]
 }

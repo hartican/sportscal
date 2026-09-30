@@ -28,8 +28,8 @@ globalThis.renderFollowSchedulePanel=function(container){
   const grouped = new Map();
   const eventGroup=f=>f.tournamentId||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
-  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1'].includes(code.id);
-  const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${tournamentDates.get(eventGroup(f))||f.date||'Upcoming'} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
+  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women'].includes(code.id);
+  const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
     const group = grouped.get(label) || [];
@@ -41,7 +41,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second)
+  const groupLabels = [...grouped.keys()].sort((first, second) => (!useRounds ? String(grouped.get(first)[0]?.date||'').localeCompare(String(grouped.get(second)[0]?.date||'')) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
   const today=formatDateKey(nowAEST());
   const current=fixtures.filter(f=>(f.endDate||f.date)>=today).sort((a,b)=>String(a.date).localeCompare(String(b.date)))[0]||fixtures.at(-1);
@@ -79,7 +79,7 @@ function renderCodeInspectorStandings(panel, code){
     panel.append(message,reveal);return;
   }
   const publishedStandings = codeInspectorChunk?.code?.id === code.id && Array.isArray(codeInspectorChunk.standings)
-    ? codeInspectorChunk.standings
+    ? codeInspectorChunk.standings.filter(row=>NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({...row,key:code.slug},followBrowseState().sportId))
     : [];
   if (publishedStandings.length){
     const byCompetition = new Map();
@@ -124,7 +124,8 @@ function renderCodeInspectorStandings(panel, code){
   const sportKey = codeInspectorStandingsSportKey(code);
   const competitions = (CANONICAL_TAXONOMY.competitions || [])
     .filter(competition => competition.supportsLadder)
-    .filter(competition => standingsSportKey(competition) === sportKey);
+    .filter(competition => standingsSportKey(competition) === sportKey)
+    .filter(competition => NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches(competition,followBrowseState().sportId));
   if (!competitions.length){
     panel.appendChild(sportHubEmptyState(`Standings or rankings are not meaningfully available for ${code.label}.`));
     return;
@@ -134,6 +135,7 @@ function renderCodeInspectorStandings(panel, code){
 
 function followScheduleScopeMatches(f){
   const scope=followBrowseState().scheduleScope,fixtures=codeInspectorChunk?.fixtures||[];
+  if(!NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches(f,followBrowseState().sportId))return false;
   if(!scope)return true;
   if(scope.tournamentId&&fixtures.some(x=>(x.tournamentId||x.tennisTournamentId)===scope.tournamentId))return (f.tournamentId||f.tennisTournamentId)===scope.tournamentId;
   if(scope.competitionId&&fixtures.some(x=>x.competitionId===scope.competitionId))return f.competitionId===scope.competitionId;

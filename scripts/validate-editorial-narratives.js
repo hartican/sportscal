@@ -31,7 +31,7 @@ function stakesFor(event){
 }
 function byIdentity(records){
   const index = new Map();
-  records.forEach(record => [record.id, record.eventId, record.canonicalEventId].filter(Boolean).forEach(id => index.set(id, record)));
+  records.forEach(record => [record.id, record.eventId, record.canonicalEventId].filter(Boolean).flatMap(id=>require("../config/fixture-identity").fixtureAliases(id)).forEach(id => index.set(id, record)));
   return index;
 }
 function activeFeedMarquee(events){
@@ -74,13 +74,23 @@ const majorEvents = readJson("data/major-events.v1.json");
 const incomingById = byIdentity(incoming.events);
 const publishedById = byIdentity(published.events);
 const majorById = byIdentity(majorEvents.events);
-const sourceCatalogueById=byIdentity(require("../lib/calendar-catalogue").catalogue());
+const parents=require("../data/tennis-feed-parents.v1.json").parents;
+const sourceCatalogueById=byIdentity([...require("../lib/calendar-catalogue").catalogue(),...parents]);
 
 knowledge.eventProjections.forEach(projection => {
   projection.targetIds.forEach(targetId => {
     if (projection.targetType === "feed-event") {
       const incomingEvent = incomingById.get(targetId);
       const publishedEvent = publishedById.get(targetId);
+      if(!incomingEvent&&["major_event","tournament","tennis_parent","tournament_overview"].includes(publishedEvent?.kind)){
+        assertProjected(publishedEvent,projection,`retained published overview ${targetId}`);
+        return;
+      }
+      if(!incomingEvent&&parents.some(p=>p.id===targetId)){
+        assertProjected(sourceCatalogueById.get(targetId),projection,`parent ${targetId}`);
+        if(publishedEvent)assertProjected(publishedEvent,projection,`published parent ${targetId}`);
+        return;
+      }
       if(!incomingEvent&&!publishedEvent){
         const catalogueEvent=sourceCatalogueById.get(targetId);
         assert(catalogueEvent,`${targetId} editorial target must exist in Feed or the published source catalogue`);
@@ -111,7 +121,8 @@ activeFeedMarquee(incoming.events).forEach(event => {
 });
 rollingEditorial(incoming.events).forEach(event => {
   const projection = projectionForTarget(knowledge, "feed-event", event);
-  assertProjected(event, projection, `rolling stakes-${stakesFor(event)} feed ${event.eventId || event.id}`);
+  if(projection)assertProjected(event, projection, `rolling stakes-${stakesFor(event)} feed ${event.eventId || event.id}`);
+  else assert(!require("../config/enrichment-engine").editorialNarrativeReadyForCard(event.editorialNarrative),"unresearched copy stays hidden while the fixture remains valid");
 });
 activeOrRecentMajor(majorEvents.events).forEach(record => {
   const projection = projectionForTarget(knowledge, "major-event", record);

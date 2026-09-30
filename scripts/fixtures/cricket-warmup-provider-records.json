@@ -1,0 +1,162 @@
+[
+  {
+    "id": "fixture:cricket:espn:1525658",
+    "eventId": "fixture:cricket:espn:1525658",
+    "canonicalEventId": "fixture:cricket:espn:1525658",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Cricket South Africa Invitation XI v Australia",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-10-03T08:00:00.000Z",
+    "date": "2026-10-03",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "Test",
+    "roundLabel": "Tour Match",
+    "venue": "Senwes Park, Potchefstroom",
+    "participants": [
+      {
+        "id": "team:cricket:espn-1075499",
+        "name": "Cricket South Africa Invitation XI",
+        "displayName": "Cricket South Africa Invitation XI",
+        "aliases": [
+          "SA-XI"
+        ],
+        "sourceIds": {
+          "espn": "1075499"
+        },
+        "countryCode": "ZA",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:australia",
+        "name": "Australia",
+        "displayName": "Australia",
+        "aliases": [
+          "AUS"
+        ],
+        "sourceIds": {
+          "espn": "2"
+        },
+        "countryCode": "AU",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-1075499",
+      "team:cricket:australia"
+    ],
+    "participantCountryCodes": [
+      "ZA",
+      "AU"
+    ],
+    "homeParticipantId": "team:cricket:espn-1075499",
+    "awayParticipantId": "team:cricket:australia",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1525658",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525658/cricket-south-africa-invitation-xi-vs-australia-tour-match-24203",
+    "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525658/cricket-south-africa-invitation-xi-vs-australia-tour-match-24203",
+      "checkedAt": "2026-09-27T06:40:38.678Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Cricket South Africa Invitation XI v Australia",
+    "time": "18:00",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "numberOfDays": 4,
+    "endDate": "2026-10-06"
+  },
+  {
+    "id": "fixture:cricket:CA:40593",
+    "eventId": "fixture:cricket:CA:40593",
+    "canonicalEventId": "fixture:cricket:CA:40593",
+    "sourceFixtureId": "CA:40593",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "competitionId": "competition:cricket:4675",
+    "competitionName": "CSA Invitation XI v Australians 2026 - Men",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "name": "CSA Invitation XI v Australia Men",
+    "roundLabel": "Only Warm-Up Match",
+    "startTimeUtc": "2026-10-03T08:00:00.000Z",
+    "endTimeUtc": "2026-10-04T00:00:00Z",
+    "timePrecision": "exact",
+    "venue": "NWC Oval, Potchefstroom",
+    "participantIds": [
+      "team:cricket:ca-1466",
+      "team:cricket:australia"
+    ],
+    "participants": [
+      {
+        "id": "team:cricket:ca-1466",
+        "name": "CSA Invitation XI",
+        "countryCode": null,
+        "teamKind": "club",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:australia",
+        "name": "Australia Men",
+        "countryCode": "AU",
+        "teamKind": "national",
+        "genderCategory": "male"
+      }
+    ],
+    "participantCountryCodes": [
+      "AU"
+    ],
+    "homeParticipantId": "team:cricket:ca-1466",
+    "awayParticipantId": "team:cricket:australia",
+    "status": "scheduled",
+    "scoreDisplay": null,
+    "innings": [],
+    "format": "Non Accredited Test",
+    "numberOfDays": 2,
+    "sourceName": "Cricket Australia",
+    "sourceType": "official",
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "checkedAt": "2026-09-30T03:31:22.297Z"
+    },
+    "displayTitleCompact": "CSA Invitation XI v Australia Men",
+    "date": "2026-10-03",
+    "time": "18:00",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": []
+  }
+]

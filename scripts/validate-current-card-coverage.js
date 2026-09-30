@@ -22,7 +22,7 @@ for(const expected of evidence.fixtureOverrides){
   assert.equal(record.startTimeUtc, expected.startTimeUtc, `${expected.name} start time drifted`);
   assert.equal(record.venue, expected.venue, `${expected.name} venue drifted`);
   assert.equal(record.broadcaster, expected.broadcaster, `${expected.name} broadcaster drifted`);
-  assert.deepEqual(record.participantIds, expected.participantIds, `${expected.name} participants drifted`);
+  assert.deepEqual(record.participantIds || [], expected.participantIds || [], `${expected.name} participants drifted`);
 }
 for(const expected of evidence.resultOverrides){
   const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected)) || cricket.find(item => matches(item, expected));

@@ -29,12 +29,12 @@
     const delta = key ? (Date.parse(key) - Date.parse(currentDay)) / 86400000 : null;
     const dated = value => format(value, {weekday:"short", day:"numeric", month:"short", ...(dayKey(value).slice(0,4) !== currentDay.slice(0,4) ? {year:"numeric"} : {})});
     let day = date ? delta === 0 ? "TODAY" : delta > 0 && delta < 7 ? format(date,{weekday:"short"}) : dated(date) : "DATE TBC";
-    let fullDate = date ? format(date,{weekday:"long",day:"numeric",month:"long",year:"numeric"}) : "DATE TBC";
+    let fullDate = date ? dated(date) : "DATE TBC";
     const end = calendarDate(event.endDate);
     const range = end && key && dayKey(end) !== key;
-    if (range){ day = `${dated(date)} – ${dated(end)}`; fullDate += ` – ${format(end,{weekday:"long",day:"numeric",month:"long",year:"numeric"})}`; }
+    if (range){ day = `${dated(date)} – ${dated(end)}`; fullDate += ` – ${dated(end)}`; }
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
-    const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly ? "" : uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : ""}${clock}`;
+    const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : ""}${clock}`;
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
     const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + " (Sydney time)";
     // Explicit source status only: duration heuristics must not claim completion.
@@ -43,13 +43,14 @@
     if (statuses.some(value => ["cancelled","canceled"].includes(value))) status = "CANCELLED";
     else if (statuses.includes("postponed")) status = "POSTPONED";
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
-    else if (statuses.some(value => ["live","in_progress","in-progress","ongoing"].includes(value))) status = "LIVE";
+    else if(statuses.includes("ongoing"))status="ONGOING";
+    else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";
     const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
     if(odi?.awaiting(event,reference))status=odi.label;
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
+    return Object.freeze({day:date?(range?day:dated(date)):'DATE TBC',time,label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
   return Object.freeze({presentation});
 });

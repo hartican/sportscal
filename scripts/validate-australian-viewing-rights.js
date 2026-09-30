@@ -104,6 +104,7 @@ const events = fs.readdirSync(feedDir)
   .flatMap(name => JSON.parse(fs.readFileSync(path.join(feedDir, name), "utf8")).events || []);
 
 const permittedViewingTbcNames = new Set([
+  "China Open — WTA 1000",
   "Billie Jean King Cup Finals — Team competition", "2027 PGA Championship",
   "WSL Margaret River Pro", "UCI Downhill MTB World Cup",
   "Kvitfjell — Men's Downhill World Cup", "Kvitfjell — Men's Super-G World Cup",
@@ -111,6 +112,8 @@ const permittedViewingTbcNames = new Set([
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
 assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
+const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
+if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
 for (const event of unresolvedPublishedCards) assert(followFirst.viewingOptions(event).length === 0, `${event.name} must not inherit a foreign or ambiguous provider`);
 

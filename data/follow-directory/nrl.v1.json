@@ -2,47 +2,10 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "nrl",
   "label": "NRL",
-  "generatedAt": "2026-09-15T04:02:05.012Z",
+  "generatedAt": "2026-09-30T08:35:08.448Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
-    {
-      "id": "team:nrl:jillaroos",
-      "displayName": "Australian Jillaroos",
-      "shortName": "Australian Jillaroos",
-      "aliases": [
-        "Australian Jillaroos",
-        "Australia Women",
-        "Jillaroos"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": 0,
-      "ladderPosition": 0,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": null,
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:nrl:jillaroos",
-      "logoUrl": "assets/identities/national/rugby-league/jillaroos.svg",
-      "logoDarkUrl": "assets/identities/national/rugby-league/jillaroos.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nrl.com/players/?competition=196",
-        "catalogue:nrl"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
     {
       "id": "team:nrl:kangaroos",
       "displayName": "Australian Kangaroos",
@@ -146,43 +109,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nrl.com/players/?competition=195",
-        "catalogue:nrl"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:nrl:kiwi-ferns",
-      "displayName": "New Zealand Kiwi Ferns",
-      "shortName": "New Zealand Kiwi Ferns",
-      "aliases": [
-        "New Zealand Kiwi Ferns",
-        "New Zealand Women",
-        "Kiwi Ferns"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "NZ",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": 0,
-      "ladderPosition": 0,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": null,
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:nrl:kiwi-ferns",
-      "logoUrl": "assets/identities/national/rugby-league/kiwi-ferns.png",
-      "logoDarkUrl": "assets/identities/national/rugby-league/kiwi-ferns.png",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://nzrl.co.nz/national-teams/kiwi-ferns",
         "catalogue:nrl"
       ],
       "watchPoolMember": false,

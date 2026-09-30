@@ -221,7 +221,7 @@ function main(){
     const confirmed=existing?.status==='completed'&&Boolean(existing.fixtureResults?.sourceUrl||existing.resultPublishedAt);
     const facts=confirmed?Object.fromEntries(['status','fixtureResults','resultPublishedAt','outcomeText','recapText','score','resultLabels'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]])):{};
     const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
-    cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]).map(key=>[key,existing[key]])):{})};
+    cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
   });
   const next = normalizeFeed({
     ...feed,

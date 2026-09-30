@@ -5,7 +5,7 @@ assert(m.eligible(base,now));assert(!m.eligible({...base,startTimeUtc:new Date(n
 assert(!m.eligible({...base,key:'tennis',cardType:'tennis_parent'},now));
 assert(!m.eligible({...base,key:'tennis',contestUnit:'rubber'},now));
 assert(m.eligible({...base,key:'tennis',contestUnit:'tie'},now));
-assert(!m.eligible({...base,gender:'women'},now));assert(m.eligible({...base,key:'tennis',gender:'women'},now));
+assert(m.eligible({...base,gender:'women'},now));assert(m.eligible({...base,key:'tennis',gender:'women'},now));
 assert(m.eligible({...base,status:'stumps',startTimeUtc:'2026-09-20T00:00:00Z'},now));
 assert(!m.eligible({...base,status:'completed',endTimeUtc:new Date(now).toISOString()},now),'scheduled end is not completion');
 assert(m.eligible({...base,status:'completed',completedAt:new Date(now-3600000).toISOString()},now));

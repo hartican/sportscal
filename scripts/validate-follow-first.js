@@ -53,7 +53,7 @@ assert.equal(australiaReason, null, "Rugby international fixtures require explic
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
 const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
 assert.equal(followFirst.reasonForEvent(fiveOfFive, followed),null,"legacy stakes must not confer eligibility");
-assert.equal(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),null,"a Rugby domestic final still requires a team or competition follow");
+assert(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),"a source-labelled Rugby final is admitted within a followed sport");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } }), null, "a senior Rugby international is not admitted by a broad sport follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"], participantIds:["team:direct"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false }, preferenceGraph:{ entityFollows:[{ participantId:"team:direct", followLevel:"follow" }] } })?.entityKind, "team", "direct follows override the global Australia switch");
@@ -131,7 +131,7 @@ assert.match(html, />Follow</);
 assert.match(html, /Back to Feed/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
 const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
-assert.deepEqual(navLabels, ["Feed", "Events", "Follow"]);
+assert.deepEqual(navLabels, ["Feed", "Events", "Follow", "Match Centre"]);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";

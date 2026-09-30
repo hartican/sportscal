@@ -271,3 +271,21 @@ Preserve the official NBL schedule's explicit 9Now label per fixture; a Saturday
 ## Fixture profile return and Results enforcement — 30 September 2026
 
 Implementation of the existing profile-return and spoiler decisions: use the fixture's canonical Football Code for EPL aliases; show only the relevant competition's standings behind the current Results setting or a profile-local reveal. Closing a profile restores the originating route, participant control and card position, including late Feed redraws, until the next user interaction. It never recreates dismissed/excluded fixtures or changes Follow/Results consent. Regression and scope: `docs/quality/football-profile-journey.md`, `scripts/validate-football-profile-browser.js`.
+
+## 30 September 2026 — coverage repair (supersedes earlier conflicting rules)
+
+Within an explicitly followed sport/category, source-confirmed finals series qualify regardless of team/competition follow or audience. Tennis singles qualify from quarter-finals; national-team knockout ties qualify, with rubbers nested. Doubles retain participant/manual admission. Competition names containing Finals and golf final rounds are not knockout evidence. Explicit exclusions, mutes and dismissals win; ordinary Unfollow stays neutral.
+
+Women have separate sport choices, follows, filters, schedules and rankings. Only the unfiltered main Feed may interleave explicitly followed categories chronologically. Other surfaces retain one selected category. Combined tennis tournament overviews may differentiate draws; rankings remain separate. Remove unnecessary Men display suffixes without changing canonical gender.
+
+Cricket follows use format then team: Tests, ODIs, T20Is and BBL. Retain twelve national sides (Australia, England, India, New Zealand, South Africa, Pakistan, Sri Lanka, West Indies, Bangladesh, Afghanistan, Ireland, Zimbabwe), BBL and its eight clubs. No player or round browsing. Women's coverage is Australia Tests, all Women's Ashes formats and Australia's ODI/T20 World Cup matches; this boundary overrides finals admission and the earlier women's T20 detail pause. Remove out-of-scope follows for every account with a repeatable versioned migration and recovery snapshot; preserve saved activity and necessary opponent/score identities. Enforce the same boundary on ingestion, server preference writes and old client caches.
+
+Events and Match Centre are independent navigation destinations. Events contains followed-sport tournament/series/race overviews and scoped schedules. Match Centre uses the complete eligible personalised Feed, all sports, 30 minutes before start to one hour after confirmed completion, including multi-day breaks. Membership does not remove Feed cards. Retained cards render immediately while refresh runs; scores and status share an observation, terminal results survive stale live data. Keep existing scheduler ownership and request budgets.
+
+Regression contracts: scripts/validate-coverage-repair.js, scripts/validate-cricket-coverage.js, existing Follow client/server parity and Match Centre contracts. Production and physical installed-PWA verification remain release gates without historical waivers.
+
+30 September implementation clarification: preference version 24 preserves an explicit participant mute. Older clients used mute for ordinary Unfollow; their records migrate to neutral Unfollow. Discovery and graph migration must preserve the current version and its mute meaning. Missing worthwhile research remains queued and must not block a valid fixture; explicitly locked owner previews still require their researched copy. Withheld previews publish no fallback prose.
+
+## 1 October 2026 — approval to deploy the coverage repair candidate
+
+After reviewing the candidate and the explicit notice that physical installed-PWA acceptance remained outstanding, the owner instructed: “Look good. Deploy it”. Release PR #23 with its passing automated/browser gates. This is fresh approval for this candidate, not a historical waiver or evidence that physical-device testing passed. Keep physical installed-PWA acceptance recorded as unverified; all database recovery, GitHub SHA, READY deployment, production alias and live-render verification requirements remain in force.

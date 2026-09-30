@@ -1,12 +1,12 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-27T06:31:30Z",
+  "generatedAt": "2026-09-30T12:09:34.4921142Z",
   "sports": [
     {
       "key": "afl",
       "label": "Aussie Rules Football",
       "status": "available",
-      "recordCount": 835,
+      "recordCount": 833,
       "jsonUrl": "data/follow-directory/afl.v1.json",
       "scriptUrl": "data/follow-directory/afl.v1.js"
     },
@@ -14,7 +14,7 @@
       "key": "aflw",
       "label": "AFLW",
       "status": "available",
-      "recordCount": 618,
+      "recordCount": 620,
       "jsonUrl": "data/follow-directory/aflw.v1.json",
       "scriptUrl": "data/follow-directory/aflw.v1.js"
     },
@@ -22,7 +22,7 @@
       "key": "nrl",
       "label": "NRL",
       "status": "available",
-      "recordCount": 590,
+      "recordCount": 588,
       "jsonUrl": "data/follow-directory/nrl.v1.json",
       "scriptUrl": "data/follow-directory/nrl.v1.js"
     },
@@ -30,7 +30,7 @@
       "key": "nrlw",
       "label": "NRLW",
       "status": "available",
-      "recordCount": 12,
+      "recordCount": 14,
       "jsonUrl": "data/follow-directory/nrlw.v1.json",
       "scriptUrl": "data/follow-directory/nrlw.v1.js"
     },
@@ -54,7 +54,7 @@
       "key": "motogp",
       "label": "MotoGP",
       "status": "available",
-      "recordCount": 22,
+      "recordCount": 23,
       "jsonUrl": "data/follow-directory/motogp.v1.json",
       "scriptUrl": "data/follow-directory/motogp.v1.js"
     },
@@ -78,7 +78,7 @@
       "key": "extreme",
       "label": "Extreme",
       "status": "available",
-      "recordCount": 28,
+      "recordCount": 18,
       "jsonUrl": "data/follow-directory/extreme.v1.json",
       "scriptUrl": "data/follow-directory/extreme.v1.js"
     },
@@ -86,7 +86,7 @@
       "key": "surf",
       "label": "Surfing",
       "status": "available",
-      "recordCount": 20,
+      "recordCount": 12,
       "jsonUrl": "data/follow-directory/surf.v1.json",
       "scriptUrl": "data/follow-directory/surf.v1.js"
     },
@@ -94,7 +94,7 @@
       "key": "skiing",
       "label": "Snow",
       "status": "available",
-      "recordCount": 18,
+      "recordCount": 7,
       "jsonUrl": "data/follow-directory/skiing.v1.json",
       "scriptUrl": "data/follow-directory/skiing.v1.js"
     },
@@ -102,7 +102,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 213,
+      "recordCount": 171,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -110,7 +110,7 @@
       "key": "tennis",
       "label": "Tennis",
       "status": "available",
-      "recordCount": 269,
+      "recordCount": 149,
       "jsonUrl": "data/follow-directory/tennis.v1.json",
       "scriptUrl": "data/follow-directory/tennis.v1.js"
     },
@@ -118,7 +118,7 @@
       "key": "football",
       "label": "Football",
       "status": "available",
-      "recordCount": 1601,
+      "recordCount": 1600,
       "jsonUrl": "data/follow-directory/football.v1.json",
       "scriptUrl": "data/follow-directory/football.v1.js"
     },
@@ -134,15 +134,143 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 357,
+      "recordCount": 20,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
+    },
+    {
+      "key": "surf-women",
+      "label": "Surfing Women",
+      "status": "available",
+      "recordCount": 8,
+      "jsonUrl": "data/follow-directory/surf-women.v1.json",
+      "scriptUrl": "data/follow-directory/surf-women.v1.js"
+    },
+    {
+      "key": "skiing-women",
+      "label": "Snow Women",
+      "status": "available",
+      "recordCount": 11,
+      "jsonUrl": "data/follow-directory/skiing-women.v1.json",
+      "scriptUrl": "data/follow-directory/skiing-women.v1.js"
+    },
+    {
+      "key": "extreme-women",
+      "label": "Extreme Women",
+      "status": "available",
+      "recordCount": 10,
+      "jsonUrl": "data/follow-directory/extreme-women.v1.json",
+      "scriptUrl": "data/follow-directory/extreme-women.v1.js"
+    },
+    {
+      "key": "hockey-women",
+      "label": "Field Hockey Women",
+      "status": "available",
+      "recordCount": 1,
+      "jsonUrl": "data/follow-directory/hockey-women.v1.json",
+      "scriptUrl": "data/follow-directory/hockey-women.v1.js"
+    },
+    {
+      "key": "gymnastics-women",
+      "label": "Gymnastics Women",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/gymnastics-women.v1.json",
+      "scriptUrl": "data/follow-directory/gymnastics-women.v1.js"
+    },
+    {
+      "key": "nba-women",
+      "label": "Basketball Women",
+      "status": "available",
+      "recordCount": 1,
+      "jsonUrl": "data/follow-directory/nba-women.v1.json",
+      "scriptUrl": "data/follow-directory/nba-women.v1.js"
+    },
+    {
+      "key": "cricket-women",
+      "label": "Cricket Women",
+      "status": "available",
+      "recordCount": 1,
+      "jsonUrl": "data/follow-directory/cricket-women.v1.json",
+      "scriptUrl": "data/follow-directory/cricket-women.v1.js"
+    },
+    {
+      "key": "rugby-women",
+      "label": "Rugby Union Women",
+      "status": "available",
+      "recordCount": 42,
+      "jsonUrl": "data/follow-directory/rugby-women.v1.json",
+      "scriptUrl": "data/follow-directory/rugby-women.v1.js"
+    },
+    {
+      "key": "football-women",
+      "label": "Football Women",
+      "status": "available",
+      "recordCount": 1,
+      "jsonUrl": "data/follow-directory/football-women.v1.json",
+      "scriptUrl": "data/follow-directory/football-women.v1.js"
+    },
+    {
+      "key": "tennis-women",
+      "label": "Tennis Women",
+      "status": "available",
+      "recordCount": 120,
+      "jsonUrl": "data/follow-directory/tennis-women.v1.json",
+      "scriptUrl": "data/follow-directory/tennis-women.v1.js"
+    },
+    {
+      "key": "golf-women",
+      "label": "Golf Women",
+      "status": "available",
+      "recordCount": 13,
+      "jsonUrl": "data/follow-directory/golf-women.v1.json",
+      "scriptUrl": "data/follow-directory/golf-women.v1.js"
+    },
+    {
+      "key": "cycling-women",
+      "label": "Cycling Women",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/cycling-women.v1.json",
+      "scriptUrl": "data/follow-directory/cycling-women.v1.js"
+    },
+    {
+      "key": "athletics-women",
+      "label": "Athletics Women",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/athletics-women.v1.json",
+      "scriptUrl": "data/follow-directory/athletics-women.v1.js"
+    },
+    {
+      "key": "swimming-women",
+      "label": "Swimming Women",
+      "status": "available",
+      "recordCount": 30,
+      "jsonUrl": "data/follow-directory/swimming-women.v1.json",
+      "scriptUrl": "data/follow-directory/swimming-women.v1.js"
+    },
+    {
+      "key": "boxing-women",
+      "label": "Boxing Women",
+      "status": "available",
+      "recordCount": 4,
+      "jsonUrl": "data/follow-directory/boxing-women.v1.json",
+      "scriptUrl": "data/follow-directory/boxing-women.v1.js"
+    },
+    {
+      "key": "ice-hockey-women",
+      "label": "Ice Hockey Women",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/ice-hockey-women.v1.json",
+      "scriptUrl": "data/follow-directory/ice-hockey-women.v1.js"
     },
     {
       "key": "nba",
       "label": "Basketball",
       "status": "available",
-      "recordCount": 47,
+      "recordCount": 46,
       "jsonUrl": "data/follow-directory/nba.v1.json",
       "scriptUrl": "data/follow-directory/nba.v1.js"
     },
@@ -174,7 +302,7 @@
       "key": "golf",
       "label": "Golf",
       "status": "available",
-      "recordCount": 23,
+      "recordCount": 10,
       "jsonUrl": "data/follow-directory/golf.v1.json",
       "scriptUrl": "data/follow-directory/golf.v1.js"
     },
@@ -182,7 +310,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 2539,
+      "recordCount": 2545,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -198,7 +326,7 @@
       "key": "swimming",
       "label": "Swimming",
       "status": "available",
-      "recordCount": 60,
+      "recordCount": 30,
       "jsonUrl": "data/follow-directory/swimming.v1.json",
       "scriptUrl": "data/follow-directory/swimming.v1.js"
     },
@@ -214,7 +342,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1649,
+      "recordCount": 1498,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },
@@ -222,7 +350,7 @@
       "key": "boxing",
       "label": "Boxing",
       "status": "available",
-      "recordCount": 8,
+      "recordCount": 4,
       "jsonUrl": "data/follow-directory/boxing.v1.json",
       "scriptUrl": "data/follow-directory/boxing.v1.js"
     }

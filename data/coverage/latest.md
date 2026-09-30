@@ -1,6 +1,6 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-09-28
+Reference date: 2026-09-30
 
 Compared 16 live/delayed listings with 1064 canonical events. Found 16 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 16 high-priority recommendations.
 
@@ -10,7 +10,7 @@ Compared 16 live/delayed listings with 1064 canonical events. Found 16 catalogue
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 16 listings; 7d old |
+| Stan Sport | loaded | reviewed_export; 16 listings; 9d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "football",
   "label": "Football",
-  "generatedAt": "2026-09-27T06:42:43Z",
+  "generatedAt": "2026-09-30T08:35:08.448Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -1065,44 +1065,6 @@
         "source:football:ligue-1:official",
         "source:football:ligue-1:bootstrap",
         "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:football:matildas",
-      "displayName": "Matildas",
-      "shortName": "Matildas",
-      "aliases": [
-        "Matildas",
-        "Australia Women",
-        "Australian Women",
-        "CommBank Matildas"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": 0,
-      "ladderPosition": 0,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": null,
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:football:matildas",
-      "logoUrl": "assets/identities/national/football/matildas.png",
-      "logoDarkUrl": "assets/identities/national/football/matildas.png",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://matildas.com.au/",
-        "catalogue:football"
       ],
       "watchPoolMember": false,
       "statusCategory": null,

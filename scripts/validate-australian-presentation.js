@@ -20,7 +20,7 @@ console.log('Australian-first presentation preserves source roles, result labels
 
 const alternate={...e,name:'South Africa Men v Australia Men',participants:e.participants.map(p=>({...p,name:p.name+' Men'})),participantSlots:e.participantIds.map(id=>({participantId:id,label:id.endsWith('australia')?'Australia cricket':'South Africa cricket'}))};
 const records=alternate.participantIds.map(id=>({id,displayName:id.endsWith('australia')?'Australia cricket':'South Africa cricket'}));
-assert.deepEqual(cards.matchupSidesForEvent(alternate,records,labels.matchupTitle(alternate,alternate.name,records)).map(s=>[s.label,s.participant.id]),[['Australia Men','team:cricket:australia'],['South Africa Men','team:cricket:south-africa']]);
+assert.deepEqual(cards.matchupSidesForEvent(alternate,records,labels.matchupTitle(alternate,alternate.name,records)).map(s=>[s.label,s.participant.id]),[['Australia','team:cricket:australia'],['South Africa','team:cricket:south-africa']]);
 
 const tennis={key:'tennis',name:'Opponent v Australian',participants:sides.flatMap(s=>s.players),scoreDisplay:'6-4 6-3'};
 const table=results.tennisSets(tennis,'Australian v Opponent',{});

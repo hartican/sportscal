@@ -250,8 +250,11 @@ function indexesFor(document){
 }
 
 function projectionForTarget(document, targetType, record){
-  const ids = unique([record?.id, record?.eventId, record?.canonicalEventId].map(value => String(value || "")).filter(Boolean));
-  return document.eventProjections.find(projection => projection.targetType === targetType && projection.targetIds.some(id => ids.includes(id))) || null;
+  const ids = unique([record?.id, record?.eventId, record?.canonicalEventId,...(record?.sourceEventIds||[])].flatMap(value=>require('../../config/fixture-identity').fixtureAliases(value)).map(value => String(value || "")).filter(Boolean));
+  for(const id of [record?.id,record?.eventId,record?.canonicalEventId,...ids]){
+    const projection=document.eventProjections.find(p=>p.targetType===targetType&&p.targetIds.includes(id));if(projection)return projection;
+  }
+  return null;
 }
 
 function editorialNarrativeFor(projection, indexes){

@@ -445,6 +445,7 @@
   })));
 
   const baseParticipantMarks = Object.freeze(Object.fromEntries([
+    ...['roosters','broncos'].map(slug=>[`team:nrlw:${slug}`,officialMark(`participant:team:nrlw:${slug}`,slug==='roosters'?'Sydney Roosters':'Brisbane Broncos',`assets/identities/nrlw-${slug}.svg`,'https://www.nrl.com/clubs/')]),
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
       logo: {
         light: `https://www.nrl.com/.theme/${slug}/badge.svg`,
@@ -511,6 +512,7 @@
     afl: Object.freeze(["team:afl:"]),
     aflw: Object.freeze(["team:aflw:"]),
     nrl: Object.freeze(["team:nrl:"]),
+    nrlw: Object.freeze(["team:nrlw:"]),
     rugby: Object.freeze(["team:rugby:"]),
     cricket: Object.freeze(["team:cricket:"]),
     f1: Object.freeze(["team:f1:"]),
@@ -680,7 +682,7 @@
     const sides = labels.map((label, index) => {
       const identity = resolved.find(candidate => {
         const record=labelsApi ? labelsApi.participantRecord(candidate.participant,event,participants) : candidate.participant;
-        return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),record.name].filter(Boolean)}});
+        return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),...(candidate.mark?.aliases||[]),labelsApi?labelsApi.displayName(record.name,event):record.name].filter(Boolean)}});
       }) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
       const explicitId=event.participantSlots?.[index]?.participantId || event.participantIds?.[index];
       const supplied=[...(event.participants||[]),...(participants||[])].find(p=>(p.id||p.participantId)===explicitId);
