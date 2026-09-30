@@ -56,6 +56,41 @@ const truncatedPayload = structuredClone(rawPayload);
 truncatedPayload.tables[0].entries.pop();
 assert.throws(() => standingsEntries(truncatedPayload), /expected 20 unique clubs/, "partial official responses must fail closed");
 
+const mutations = [
+  ["null statistic", rows => { rows[0].overall.won = null; }],
+  ["blank statistic", rows => { rows[0].overall.won = ""; }],
+  ["boolean statistic", rows => { rows[0].overall.won = false; }],
+  ["fractional statistic", rows => { rows[0].overall.won = 0.5; }],
+  ["negative match count", rows => { rows[0].overall.played = -1; }],
+  ["contradictory result count", rows => { rows[0].overall.played += 1; }],
+  ["contradictory goal difference", rows => { rows[0].overall.goalsDifference += 1; }],
+  ["contradictory rank", rows => { rows.at(-1).overall.points = rows[0].overall.points + 1; }],
+];
+for (const [name, mutate] of mutations){
+  const invalid = structuredClone(rawPayload);
+  mutate(invalid.tables[0].entries);
+  assert.throws(() => standingsEntries(invalid), /incomplete|inconsistent|contradicts/, name);
+}
+// Equal primary statistics remain in official display order, never alphabetical or
+// invented head-to-head order. This also exercises genuine preseason zeroes.
+const equal = structuredClone(rawPayload);
+for (const row of equal.tables[0].entries) for (const key of Object.keys(row.overall)) row.overall[key] = 0;
+assert.deepEqual(standingsEntries(equal).map(row => row.participantId), snapshot.entries.map(row => row.participantId));
+equal.tables[0].entries.at(-1).overall.points = -3;
+assert.equal(standingsEntries(equal).at(-1).ladderPoints, -3, "official points deductions are retained");
+for (const field of ["goalsDifference", "goalsFor"]){
+  const invalid = structuredClone(equal);
+  const last = invalid.tables[0].entries.at(-1).overall;
+  last.points = 0;
+  last.goalsFor = 2;
+  last.goalsAgainst = field === "goalsDifference" ? 0 : 2;
+  last.goalsDifference = last.goalsFor - last.goalsAgainst;
+  assert.throws(() => standingsEntries(invalid), /rank contradicts/, `${field} breaks equal points`);
+}
+const invalidPublished = structuredClone(bundle);
+invalidPublished.ladderSnapshots.find(row => row.competitionId === COMPETITION_ID).entries[0].played += 1;
+assert.throws(() => validatePublishedContext(invalidPublished), /inconsistent/, "offline snapshots receive the same arithmetic checks");
+
 async function validateFailurePreservation(){
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-epl-"));
   const temporaryBundle = path.join(temporaryDirectory, "context.json");
@@ -70,7 +105,15 @@ async function validateFailurePreservation(){
     }),
     /synthetic upstream failure/,
   );
-  assert.equal(fs.readFileSync(temporaryBundle, "utf8"), before, "a failed refresh must leave the last validated snapshot byte-for-byte untouched");
+  assert.equal(fs.readFileSync(temporaryBundle, "utf8"), before, "network failure preserves last good bytes");
+  for (const [, mutate] of mutations){
+    const invalid = structuredClone(rawPayload);
+    mutate(invalid.tables[0].entries);
+    await assert.rejects(refresh({ bundlePath: temporaryBundle, directoryPath, fetcher: async () => invalid }), /incomplete|inconsistent|contradicts/);
+    assert.equal(fs.readFileSync(temporaryBundle, "utf8"), before, "malformed source data must preserve last good bytes");
+  }
+  fs.rmSync(temporaryDirectory, { recursive: true });
+
 }
 
 validateFailurePreservation()

@@ -42,7 +42,7 @@
         "docs/quality/epl-results-reconciliation-2026-09-28.md"
       ],
       "remaining": [
-        "Ranking and tie-break verification",
+        "Final-season tie-break and exact-tie acceptance beyond official displayed rank",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial permission"
@@ -50,7 +50,8 @@
       "verifiedSnapshotProgress": [
         "380 fixture pair/date/kickoff comparisons against separate league publication; shared ownership",
         "380 matchweeks and 50 completed results checked with official Fantasy API",
-        "160 basic table values recomputed for 20 clubs; no arithmetic differences"
+        "160 basic table values recomputed for 20 clubs; no arithmetic differences",
+        "30 September: current official ranks and eight statistics agree for all 20 clubs (180 values); points/GD/goals ordering and row arithmetic validated, exact ties retain provider order"
       ],
       "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
     },

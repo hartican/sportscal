@@ -48,6 +48,28 @@ function officialSource(checkedAt){
   };
 }
 
+// Validate facts independently of the provider's displayed order. Equal primary
+// statistics retain the published rank; end-of-season head-to-head is not inferred.
+function validateTableFacts(entries){
+  const counts = ["played", "won", "drawn", "lost", "pointsFor", "pointsAgainst"];
+  for (const entry of entries){
+    if (counts.some(field => !Number.isSafeInteger(entry[field]) || entry[field] < 0)
+      || !Number.isSafeInteger(entry.pointsDifference) || !Number.isSafeInteger(entry.ladderPoints)
+      || entry.played !== entry.won + entry.drawn + entry.lost
+      || entry.pointsDifference !== entry.pointsFor - entry.pointsAgainst){
+      throw new Error(`Premier League standings contain inconsistent statistics for ${entry.participantId}.`);
+    }
+    // Points may include an official disciplinary adjustment, including a negative total.
+  }
+  const ranked = [...entries].sort((a, b) => a.rank - b.rank);
+  for (let index = 1; index < ranked.length; index++){
+    const higher = ranked[index - 1], lower = ranked[index];
+    const difference = higher.ladderPoints - lower.ladderPoints
+      || higher.pointsDifference - lower.pointsDifference || higher.pointsFor - lower.pointsFor;
+    if (difference < 0) throw new Error("Premier League standings rank contradicts points, goal difference or goals scored.");
+  }
+}
+
 function standingsEntries(payload){
   if (Number(payload?.compSeason?.id) !== PULSE_SEASON_ID || Number(payload?.compSeason?.competition?.id) !== PULSE_COMPETITION_ID){
     throw new Error("Premier League standings refresh failed closed: unexpected competition or season identity.");
@@ -61,7 +83,7 @@ function standingsEntries(payload){
       throw new Error("Premier League standings refresh failed closed: a club identity or position is unresolved.");
     }
     const numericFields = ["played", "won", "drawn", "lost", "goalsFor", "goalsAgainst", "goalsDifference", "points"];
-    if (numericFields.some(field => !Number.isFinite(Number(overall[field])))){
+    if (numericFields.some(field => !Number.isSafeInteger(overall[field]))){
       throw new Error(`Premier League standings refresh failed closed: club ${clubId} has incomplete statistics.`);
     }
     return {
@@ -83,6 +105,7 @@ function standingsEntries(payload){
   if (normalized.length !== EXPECTED_TEAM_COUNT || participantIds.size !== EXPECTED_TEAM_COUNT || ranks.some((rank, index) => rank !== expectedRanks[index])){
     throw new Error(`Premier League standings refresh failed closed: expected ${EXPECTED_TEAM_COUNT} unique clubs ranked 1-${EXPECTED_TEAM_COUNT}.`);
   }
+  validateTableFacts(normalized);
   return normalized.sort((first, second) => first.rank - second.rank);
 }
 
@@ -175,6 +198,7 @@ function validatePublishedContext(bundle){
     || entries.some(entry => requiredNumericFields.some(field => !Number.isFinite(entry[field])))){
     throw new Error("Premier League canonical standings contain invalid ranks or league-table statistics.");
   }
+  validateTableFacts(entries);
   const participants = new Set((bundle.participants || []).map(item => item.id));
   if (entries.some(entry => !participants.has(entry.participantId))){
     throw new Error("Premier League canonical standings contain an unresolved participant.");
