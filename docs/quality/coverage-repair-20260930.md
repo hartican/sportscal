@@ -21,3 +21,7 @@ The canonical validator inventory passed 159/159 commands. Coverage and Match Ce
 The migration passed two runs inside a rolled-back transaction, including SQL/client boundary parity, account convergence, earned-credit/history/chat preservation and prediction lead preservation. Production still has the original records; the migration has not been applied.
 
 Physical installed-PWA acceptance remains an explicit release gate. Main publication, phase releases, production migration, READY deployment, alias/SHA and live rendering proof are pending. No historical waiver applies. The local request register remains Pending ranking.
+
+## Release approval — 1 October 2026
+
+The owner reviewed the candidate and instructed “Look good. Deploy it” after the outstanding physical installed-PWA gate was reported. Proceed with this approved candidate; physical-device acceptance remains unverified. Record migration inventories and exact production SHA/READY/alias/render evidence in the release report.

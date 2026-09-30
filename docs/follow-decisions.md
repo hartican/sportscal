@@ -285,3 +285,7 @@ Events and Match Centre are independent navigation destinations. Events contains
 Regression contracts: scripts/validate-coverage-repair.js, scripts/validate-cricket-coverage.js, existing Follow client/server parity and Match Centre contracts. Production and physical installed-PWA verification remain release gates without historical waivers.
 
 30 September implementation clarification: preference version 24 preserves an explicit participant mute. Older clients used mute for ordinary Unfollow; their records migrate to neutral Unfollow. Discovery and graph migration must preserve the current version and its mute meaning. Missing worthwhile research remains queued and must not block a valid fixture; explicitly locked owner previews still require their researched copy. Withheld previews publish no fallback prose.
+
+## 1 October 2026 — approval to deploy the coverage repair candidate
+
+After reviewing the candidate and the explicit notice that physical installed-PWA acceptance remained outstanding, the owner instructed: “Look good. Deploy it”. Release PR #23 with its passing automated/browser gates. This is fresh approval for this candidate, not a historical waiver or evidence that physical-device testing passed. Keep physical installed-PWA acceptance recorded as unverified; all database recovery, GitHub SHA, READY deployment, production alias and live-render verification requirements remain in force.
