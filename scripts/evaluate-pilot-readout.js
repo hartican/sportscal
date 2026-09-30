@@ -36,6 +36,7 @@ function inputFromReadout(payload, readiness){
       weeklyPulseUsers: numberFrom(row, "pulse_users"),
     },
     readiness: {
+      verified: readiness?.ready === true,
       supportedFixtureCoveragePercent: readiness?.supportedFixtureCoveragePercent ?? null,
       overdueResults: readiness?.overdueResultCount ?? readiness?.overdueResults ?? null,
     },

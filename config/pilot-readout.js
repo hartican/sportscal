@@ -37,6 +37,7 @@
         surveyVersion: sample.surveyVersion || null,
       },
       readiness: {
+        verified: readiness.verified === true,
         supportedFixtureCoveragePercent: finiteNumber(readiness.supportedFixtureCoveragePercent),
         overdueResults: count(readiness.overdueResults),
       },
@@ -66,13 +67,14 @@
 
   function buildMeasurementReport(input){
     const normalized = normalizeInput(input);
-    const operationalReady = normalized.readiness.supportedFixtureCoveragePercent === 100
+    const operationalReady = normalized.readiness.verified
+      && normalized.readiness.supportedFixtureCoveragePercent === 100
       && normalized.readiness.overdueResults === 0;
     return {
       schemaVersion: SCHEMA_VERSION,
       status: "report_ready",
       operationalReady,
-      readinessScope: "NRL/AFL current-window fixture completeness only; not cross-sport or commercial certification.",
+      readinessScope: "NRL/AFL current-window completeness, nine NRL finals slots, due results and snapshot freshness; not cross-sport or commercial certification.",
       weeklyTsdrScope: "All measured accounts; partial calendar weeks may appear at the observation-window edges.",
       missingMetrics: Object.entries(normalized.metrics).filter(([, value]) => value === null).map(([key]) => key),
       recommendation: null,

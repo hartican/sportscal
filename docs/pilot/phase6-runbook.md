@@ -11,13 +11,15 @@ Signed-in measurement participation starts automatically and is disclosed in Set
 Before each release:
 
 1. Follow the scoped checks in [delivery practices](../delivery-practices.md) and the required production workflow. When refreshing data, use the single canonical `node scripts/update-cards.js` path.
-2. Run `node scripts/verify-pilot-readiness.js` and require 100% renderable current/next-round AFL and NRL fixtures, fresh canonical and published snapshots, and zero overdue supported results.
+2. Run `node scripts/verify-pilot-readiness.js` and require 100% renderable current/next-round AFL and NRL fixtures, fresh canonical and published snapshots, all nine NRL finals slots matched to reviewed schedules, and zero overdue supported results.
 3. Run the relevant regressions and required release gates; do not repeat unchanged checks without a reason.
 4. Confirm the production alias serves the intended shell and product-events contract before claiming production proof.
 
 ## Measurement report
 
 Run `supabase/nothingsports-pilot-readout.sql` as a Supabase administrator whenever a product decision needs current evidence. Export the rows as JSON outside the repository, then run `node scripts/evaluate-pilot-readout.js <readout.json> --readiness=<readiness.json>`.
+
+The operator summary requires the explicit successful readiness verdict as well as coverage/result counts. A missing verdict or stale snapshot remains attention required even when counts are 100% and zero overdue; old input exports need a fresh readiness report. This is an operational fact check, not a minimum cohort-size gate.
 
 The export uses a rolling 28-day window, not a completion timer. Useful return is the share of users with a `fixture_check` or `watch_decision` on at least two distinct Sydney calendar dates, among users with at least one such date. Counts and the window accompany the percentage. This is not D7 retention, verified Australian residence, or verified invited-cohort membership; owner activity may be included. Missing metrics and zero-denominator rates stay null; measured zeros stay zero.
 

@@ -85,9 +85,21 @@ for (const value of [undefined, null, "", " ", false, [], {}, "invalid"]) {
   assert.equal(unknown.operationalReady, false, "missing overdue evidence must never pass readiness");
   assert.equal(unknown.sample.distinctUsers, null);
 }
-const zero = READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all", exposed_users:0, tsdr_percent:0}], {supportedFixtureCoveragePercent:100, overdueResultCount:0}));
+const zero = READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all", exposed_users:0, tsdr_percent:0}], {ready:true, supportedFixtureCoveragePercent:100, overdueResultCount:0}));
 assert.equal(zero.metrics.tsdrPercent, 0);
 assert.equal(zero.sample.distinctUsers, 0);
 assert.equal(zero.operationalReady, true);
 assert.throws(() => inputFromReadout([{cohort:"curator"}], {}), /overall row/);
 assert.equal(READOUT.buildMeasurementReport({}).metrics.usefulReturnPercent, null);
+
+for (const verdict of [undefined, false, null, "true"]){
+  const unverified = READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all",exposed_users:0}], {ready:verdict,supportedFixtureCoveragePercent:100,overdueResultCount:0}));
+  assert.equal(unverified.operationalReady, false, "coverage counts cannot override a failed or missing readiness verdict");
+}
+const staleCanonical = {...canonical,generatedAt:"2026-01-01T00:00:00Z"};
+const staleSnapshot = buildReadinessReport({canonical:staleCanonical,feedMeta,finals:readFinalsEvidence(),now:new Date(feedMeta.publishedAt)});
+assert.equal(staleSnapshot.supportedFixtureCoveragePercent,100);
+assert.equal(staleSnapshot.overdueResultCount,0);
+assert.equal(staleSnapshot.ready,false);
+assert.equal(READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all"}],staleSnapshot)).operationalReady,false,"stale snapshots remain attention required in the operator readout");
+console.log("Operator readiness preserves failed, absent and stale-snapshot verdicts.");
