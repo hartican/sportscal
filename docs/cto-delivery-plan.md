@@ -98,3 +98,7 @@ The current official table agrees with the canonical snapshot across 20 ranks an
 ## European Football kickoff evidence — 30 September 2026
 
 Closed the historical/explicit-UTC snapshot gap with all 288 organiser UTC timestamps and Sydney date/time conversions reconciled, including all 36 completed fixtures. Zero differences; production data matches. No source integration, fixture correction or deployment is warranted. See docs/quality/uefa-utc-reconciliation-2026-09-30.md. Full pilot/family certification remains unchanged; viewing/replay, final tie-breaks, installed-device, recovery and commercial evidence are still required.
+
+## Football viewing evidence — 30 September 2026
+
+Reviewed 82 unique public Stan live listings (next EPL round and two rounds each of UCL/Europa), zero pairing/kickoff differences. Expanded existing destination tests to all 668 pilot fixtures and six completed Feed/Schedule browser cases; live rendering passed. Public actions lead to signup and do not verify individual replay playback, so existing cautious labels remain. No app correction, subscription, scheduled scraper or standalone deployment. See docs/quality/football-viewing-acceptance-2026-09-30.md for scope and evidence.
