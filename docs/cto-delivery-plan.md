@@ -116,3 +116,8 @@ Connected exact-account owned-message and Auth cleanup after existing verified s
 ## Account erasure expiry and final Storage connection — 30 September 2026
 
 Connected the resumable upload-expiry checkpoint and bounded post-Auth origin sweep with scoped issuer evidence, fresh marker/schema/account checks, late-object re-listing and durable retries. Isolated connected-operator tests pass; no real deletion or new scheduler. Real issuer proof and final reconciliation remain blocked/incomplete; origin emptiness alone cannot prove in-flight transfers, external caches or all account categories are erased.
+
+
+## Account erasure reconciliation connection — 30 September 2026
+
+Release 39422ee preserves the verified current-email identity in the private journal before Auth deletion and connects read-only final residual reporting. Six local erasure validators and all production gates passed; workflow 36656601090 succeeded, READY dpl_9QYPgnvPVofSGpcSdDRqg2tGNeGN and exact-SHA/public-byte/alias proof at 01:46:56 UTC. No actual erasure or migration. Final reconciliation explicitly remains incomplete for accepted transfers, external delivery/caches, historical/unlinked identity and peer-preservation evidence; normal execution still stops at the legacy issuer gate. Full customer-erasure and DB/Storage recovery certification are not achieved. Details: account-erasure-runbook.md and the erasure-reconciliation delivery artifact.
