@@ -1,0 +1,24 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {stats,seconds,summarize,collect,markdown}=require('./delivery-readout');
+const now='2026-09-30T00:00:00Z',from='2026-09-23T00:00:00Z',sha='a'.repeat(40);
+const run=(id,conclusion='success',extra={})=>({databaseId:id,displayTitle:'Deploy '+sha+' request',status:'completed',conclusion,createdAt:`2026-09-${id===1?'29':'28'}T00:00:00Z`,attempt:1,url:'https://github.com/hartican/sportscal/actions/runs/'+id,...extra});
+const job=(runId,duration,conclusion='success')=>({runId,jobs:[{name:'deploy',status:'completed',conclusion,started_at:'2026-09-29T00:00:00Z',completed_at:new Date(Date.parse('2026-09-29T00:00:00Z')+duration*1000).toISOString(),steps:[{name:'Safety gate',conclusion,started_at:'2026-09-29T00:00:00Z',completed_at:'2026-09-29T00:00:10Z'}]}]});
+const options={now,from,limit:100,sample:10};
+assert.deepEqual(stats([null,NaN,10,20,30,40]),{count:4,median:25,p90:40});assert.equal(seconds(null,now),null);assert.equal(seconds(now,from),null);
+const empty=summarize([],[],options);assert.equal(empty.successfulJobSeconds.median,null);assert.equal(empty.costs.cash,null);assert.equal(empty.window.complete,true);
+assert.equal(summarize([run(1,'success',{displayTitle:'Legacy release',headSha:sha})],[],options).unknownRequestedShaCounts,1,'workflow revision is not substituted for requested deployment SHA');
+const report=summarize([run(3,'failure'),run(1),run(2,'success',{attempt:3}),run(4,'cancelled',{attempt:null})],[job(1,100),job(2,200),job(3,30,'failure')],options);
+assert.deepEqual(report.counts,{success:2,failure:1,cancelled:1});assert.equal(report.successfulJobSeconds.median,150);assert.equal(report.successfulJobSeconds.count,2);assert.equal(report.additionalAttemptsLowerBound,2);assert.equal(report.unknownAttemptCounts,1);assert.equal(report.repeatedRequestedShas.length,1);assert.deepEqual(report.jobEvidence.find(j=>j.runId===3).failedSteps,['Safety gate']);
+const partial=summarize([run(1),run(2)],[],{...options,limit:1});assert.equal(partial.window.complete,false);assert.equal(partial.observedRuns,1);assert(markdown(partial).includes('TRUNCATED'));
+assert.equal(summarize([run(1,'success',{createdAt:'2026-10-01T00:00:00Z'}),run(2,'success',{createdAt:'2020-01-01T00:00:00Z'})],[],options).observedRuns,0);
+const failedRead=summarize([run(1)],[{runId:1,error:'job_request_failed'}],options);assert.equal(failedRead.successfulJobSeconds.median,null);assert.equal(failedRead.jobEvidence.length,1);
+assert.throws(()=>summarize([run(1),run(1)],[],options),/duplicated/);assert.throws(()=>summarize([run(1)],[job(2,100)],options),/window/);
+const invalidDuration=job(1,100);invalidDuration.jobs[0].completed_at='invalid';assert.equal(summarize([run(1)],[invalidDuration],options).successfulJobSeconds.count,0);
+(async()=>{
+ const calls=[];
+ const read=async args=>{calls.push(args);if(args[0]==='run')return [run(1),run(2,'failure')];assert.equal(args[0],'api');assert.match(args[1],/^repos\/hartican\/sportscal\/actions\/runs\/\d+\/jobs\?/);if(args[1].includes('/2/'))throw Error('Service unavailable');return {total_count:1,jobs:job(1,112).jobs};};
+ const result=await collect({now:new Date(now),read});assert.equal(result.successfulJobSeconds.median,112);assert.equal(result.jobEvidence.filter(j=>j.error).length,1);assert.equal(calls.length,3);assert(calls[0].includes('101'),'sentinel detects truncation');assert(calls.every(c=>!c.includes('--method')),'read-only CLI calls');
+ await assert.rejects(()=>collect({sample:21,read}),/Bounds/);await assert.rejects(()=>collect({days:0,read}),/Bounds/);assert.equal(calls.length,3,'invalid bounds fail before network');
+ console.log('Delivery readout: incomplete/empty evidence, real job timing, failed/cancelled separation, reruns, bounded read-only sampling and unavailable costs passed.');
+})().catch(e=>{console.error(e);process.exitCode=1});
