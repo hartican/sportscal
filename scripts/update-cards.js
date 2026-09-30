@@ -238,6 +238,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-coverage-repairs.js"],
   ["scripts/validate-australia-international-editorial.js"],
   ["scripts/validate-f1-context.js"],
+  ["scripts/validate-bahrain-relocation.js"],
+  ["scripts/validate-current-card-evidence-provenance.js"],
   ["scripts/validate-tennis-context.js"],
   ["scripts/validate-nba-context.js"],
   ["scripts/validate-cycling-context.js"],

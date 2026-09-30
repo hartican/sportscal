@@ -45,11 +45,13 @@ function factualFallback(event, context, generatedAt){
   const leader = (context.participants || []).find(participant => participant.id === driverTable?.entries?.[0]?.participantId)?.displayName || "the championship leader";
   const session = /qualifying/i.test(event.name) ? "Qualifying sets the grid" : /sprint/i.test(event.name) ? "The sprint brings points and grid pressure" : "The race is the weekend's points-paying session";
   const place = event.venue && !/tbc/i.test(event.venue) ? ` at ${event.venue}` : "";
-  const evidenceReferences = officialEvidence(context);
+  const relocation = require("../lib/f1-bahrain-relocation");
+  const relocated = relocation.applies(event);
+  const evidenceReferences = [...(relocated ? relocation.sources.map(s=>({title:s.name,url:s.url,sourceType:s.sourceType,checkedAt:s.checkedAt})) : []), ...officialEvidence(context)];
   return {
     eventId:eventId(event),
     selectedSentence:`${session}${place}, with ${leader} carrying the current title lead into ${event.name}.`,
-    fullSpiel:`${event.name} is scheduled for ${event.date || "date TBC"} at ${event.time || "time TBC"}. ${session}${place}; ${leader} leads the official 2026 driver standings at this refresh.`,
+    fullSpiel:`${relocated?relocation.synopsis+" ":""}${event.name} is scheduled for ${event.date || "date TBC"} at ${event.time || "time TBC"}. ${session}${place}; ${leader} leads the official 2026 driver standings at this refresh.`,
     angle:"The next published session viewed through current championship position and its direct sporting consequence.",
     contextSignals:["fixture-specific", "current-championship-standings", /qualifying/i.test(event.name) ? "grid-setting" : "points-paying-session"],
     evidenceReferences,

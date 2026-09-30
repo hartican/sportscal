@@ -19,7 +19,7 @@ function applyOfficialResults(events, snapshot){
       ...event,
       ...result,
       resultPublishedAt:event.resultPublishedAt || snapshot.checkedAt,
-      sourceCheckedAt:snapshot.checkedAt,
+      sourceCheckedAt:(!result.sourceUrl || result.sourceUrl === event.sourceUrl) && Date.parse(event.sourceCheckedAt) > Date.parse(result.sourceCheckedAt || snapshot.checkedAt) ? event.sourceCheckedAt : result.sourceCheckedAt || snapshot.checkedAt,
       lastReviewedAt:snapshot.checkedAt,
       sourceType:"official",
       resultLabels:[event.roundLabel || event.stage || "Result", result.score, "Official result"],

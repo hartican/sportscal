@@ -504,6 +504,19 @@
       "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625",
       "sourceCheckedAt": "2026-09-27T12:34:38.105Z",
       "resultPublishedAt": "2026-09-27T12:34:38.105Z"
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "status": "completed",
+      "score": "Australia 2-4 Brazil",
+      "homeScore": 2,
+      "awayScore": 4,
+      "outcomeText": "Brazil defeated Australia 4-2.",
+      "recapText": "Brazil defeated Australia 4-2 in their second September friendly.",
+      "sourceName": "Brazilian Football Confederation official report",
+      "sourceUrl": "https://www.cbf.com.br/selecao-brasileira/noticias/jogos/a/brasil-vence-a-australia-por-4-a-2",
+      "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
+      "resultPublishedAt": "2026-09-29T12:50:00.000Z"
     }
   ]
 }

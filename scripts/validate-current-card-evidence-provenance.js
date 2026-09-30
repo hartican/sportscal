@@ -1,0 +1,15 @@
+"use strict";
+const assert = require("node:assert/strict");
+const { mergeRecord } = require("./apply-current-card-evidence");
+const record = {id:"fixture", sourceUrl:"https://example.com/schedule", sourceCheckedAt:"2026-09-30T00:00:00Z"};
+const older = {sourceUrl:record.sourceUrl, sourceCheckedAt:"2026-09-29T00:00:00Z", status:"completed"};
+assert.equal(mergeRecord(record, older).sourceCheckedAt, record.sourceCheckedAt, "reviewed evidence must not regress a newer observation of the same source");
+assert.equal(mergeRecord(record, older).status, "completed", "retain the reviewed result");
+const newer = {...older, sourceCheckedAt:"2026-10-01T00:00:00Z"};
+assert.equal(mergeRecord(record, newer).sourceCheckedAt, newer.sourceCheckedAt);
+const different = {...older, sourceUrl:"https://example.com/report"};
+assert.equal(mergeRecord(record, different).sourceCheckedAt, different.sourceCheckedAt, "a different source must retain its own observation time");
+console.log("Reviewed evidence preserves source-specific observation times.");
+const { applyOfficialResults } = require("./sync-official-card-results");
+const applied = applyOfficialResults([record], {checkedAt:older.sourceCheckedAt, results:[{id:record.id,...older}]}).events[0];
+assert.equal(applied.sourceCheckedAt, record.sourceCheckedAt, "replaying a result must not regress the fixture observation");

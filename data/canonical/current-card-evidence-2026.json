@@ -631,6 +631,456 @@
       "replayEligible": true,
       "highlightEligible": true,
       "catchupEligible": true
+    },
+    {
+      "id": "evt_f1_2026_bahrain_practice_1",
+      "canonicalId": "event:f1:2026:bahrain:practice-1",
+      "name": "Bahrain GP (Malaysia) · Practice 1",
+      "displayTitleCompact": "Bahrain GP (Malaysia) · Practice 1",
+      "date": "2026-10-02",
+      "time": "14:30",
+      "startTimeUtc": "2026-10-02T04:30:00.000Z",
+      "venue": "Sepang International Circuit",
+      "broadcaster": "Fox Sports via Kayo / Foxtel",
+      "selectedSentence": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 1; this session is the points-paying chapter of the weekend.",
+      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+      "storyline": {
+        "stakes": 2,
+        "intensity": 2,
+        "intensitySource": "manual",
+        "arcStage": "preview",
+        "expectedSpectacle": 4,
+        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 1; this session is the points-paying chapter of the weekend.",
+        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 1; this session is the points-paying chapter of the weekend.",
+        "synopsisSpoilerOff": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "synopsisSpoilerOn": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "lastReviewedAt": "2026-09-27T13:46:16.043Z",
+        "researchDepth": 2
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:rolling:evt-f1-2026-bahrain-practice-1",
+        "researchTier": "standard",
+        "hook": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 1; this session is the points-paying chapter of the weekend.",
+        "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 1 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "threadIds": [
+          "thread:rolling:f1-title"
+        ],
+        "factIds": [
+          "fact:f1:bahrain-relocation-2026",
+          "fact:rolling:f1:constructors",
+          "fact:rolling:f1:session:evt-f1-2026-bahrain-practice-1",
+          "fact:rolling:f1:leader",
+          "fact:rolling:f1:race-consequence"
+        ],
+        "sourceIds": [
+          "source:f1:bahrain-relocation-2026",
+          "source:f1:bahrain-safety-2026",
+          "source:rolling:f1:driver-standings",
+          "source:rolling:f1:constructors",
+          "source:rolling:f1:session:evt-f1-2026-bahrain-practice-1"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "consequence"
+        ],
+        "researchedAt": "2026-09-29T23:38:21.617Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "2026 Formula 1 title pressure",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:consequence"
+        ],
+        "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+        "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+        "needsPreviewRefresh": false,
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+            "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          },
+          {
+            "title": "Formula 1 statement on April races and regional safety",
+            "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "evt_f1_2026_bahrain_practice_2",
+      "canonicalId": "event:f1:2026:bahrain:practice-2",
+      "name": "Bahrain GP (Malaysia) · Practice 2",
+      "displayTitleCompact": "Bahrain GP (Malaysia) · Practice 2",
+      "date": "2026-10-02",
+      "time": "18:00",
+      "startTimeUtc": "2026-10-02T08:00:00.000Z",
+      "venue": "Sepang International Circuit",
+      "broadcaster": "Fox Sports via Kayo / Foxtel",
+      "selectedSentence": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 2; this session is the points-paying chapter of the weekend.",
+      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+      "storyline": {
+        "stakes": 2,
+        "intensity": 2,
+        "intensitySource": "manual",
+        "arcStage": "preview",
+        "expectedSpectacle": 4,
+        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 2; this session is the points-paying chapter of the weekend.",
+        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 2; this session is the points-paying chapter of the weekend.",
+        "synopsisSpoilerOff": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "synopsisSpoilerOn": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "lastReviewedAt": "2026-09-27T13:46:16.043Z",
+        "researchDepth": 2
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:rolling:evt-f1-2026-bahrain-practice-2",
+        "researchTier": "standard",
+        "hook": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 2; this session is the points-paying chapter of the weekend.",
+        "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 2 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "threadIds": [
+          "thread:rolling:f1-title"
+        ],
+        "factIds": [
+          "fact:f1:bahrain-relocation-2026",
+          "fact:rolling:f1:constructors",
+          "fact:rolling:f1:session:evt-f1-2026-bahrain-practice-2",
+          "fact:rolling:f1:leader",
+          "fact:rolling:f1:race-consequence"
+        ],
+        "sourceIds": [
+          "source:f1:bahrain-relocation-2026",
+          "source:f1:bahrain-safety-2026",
+          "source:rolling:f1:driver-standings",
+          "source:rolling:f1:constructors",
+          "source:rolling:f1:session:evt-f1-2026-bahrain-practice-2"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "consequence"
+        ],
+        "researchedAt": "2026-09-29T23:38:21.617Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "2026 Formula 1 title pressure",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:consequence"
+        ],
+        "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+        "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+        "needsPreviewRefresh": false,
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+            "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          },
+          {
+            "title": "Formula 1 statement on April races and regional safety",
+            "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "evt_f1_2026_bahrain_practice_3",
+      "canonicalId": "event:f1:2026:bahrain:practice-3",
+      "name": "Bahrain GP (Malaysia) · Practice 3",
+      "displayTitleCompact": "Bahrain GP (Malaysia) · Practice 3",
+      "date": "2026-10-03",
+      "time": "14:30",
+      "startTimeUtc": "2026-10-03T04:30:00.000Z",
+      "venue": "Sepang International Circuit",
+      "broadcaster": "Fox Sports via Kayo / Foxtel",
+      "selectedSentence": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 3; this session is the points-paying chapter of the weekend.",
+      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+      "storyline": {
+        "stakes": 2,
+        "intensity": 2,
+        "intensitySource": "manual",
+        "arcStage": "preview",
+        "expectedSpectacle": 4,
+        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 3; this session is the points-paying chapter of the weekend.",
+        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 3; this session is the points-paying chapter of the weekend.",
+        "synopsisSpoilerOff": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "synopsisSpoilerOn": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "lastReviewedAt": "2026-09-27T13:46:16.043Z",
+        "researchDepth": 2
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:rolling:evt-f1-2026-bahrain-practice-3",
+        "researchTier": "standard",
+        "hook": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Practice 3; this session is the points-paying chapter of the weekend.",
+        "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Practice 3 now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "threadIds": [
+          "thread:rolling:f1-title"
+        ],
+        "factIds": [
+          "fact:f1:bahrain-relocation-2026",
+          "fact:rolling:f1:constructors",
+          "fact:rolling:f1:session:evt-f1-2026-bahrain-practice-3",
+          "fact:rolling:f1:leader",
+          "fact:rolling:f1:race-consequence"
+        ],
+        "sourceIds": [
+          "source:f1:bahrain-relocation-2026",
+          "source:f1:bahrain-safety-2026",
+          "source:rolling:f1:driver-standings",
+          "source:rolling:f1:constructors",
+          "source:rolling:f1:session:evt-f1-2026-bahrain-practice-3"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "consequence"
+        ],
+        "researchedAt": "2026-09-29T23:38:21.617Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "2026 Formula 1 title pressure",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:consequence"
+        ],
+        "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+        "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+        "needsPreviewRefresh": false,
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+            "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          },
+          {
+            "title": "Formula 1 statement on April races and regional safety",
+            "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "evt_f1_2026_bahrain_qualifying",
+      "canonicalId": "event:f1:2026:bahrain:qualifying",
+      "name": "Bahrain GP (Malaysia) · Qualifying",
+      "displayTitleCompact": "Bahrain GP (Malaysia) · Qualifying",
+      "date": "2026-10-03",
+      "time": "18:00",
+      "startTimeUtc": "2026-10-03T08:00:00.000Z",
+      "venue": "Sepang International Circuit",
+      "broadcaster": "Fox Sports via Kayo / Foxtel",
+      "selectedSentence": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Qualifying; this session sets the grid and determines who controls the race start.",
+      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+      "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "intensitySource": "computed",
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Qualifying; this session sets the grid and determines who controls the race start.",
+        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Qualifying; this session sets the grid and determines who controls the race start.",
+        "synopsisSpoilerOff": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+        "synopsisSpoilerOn": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+        "lastReviewedAt": "2026-09-27T13:46:16.043Z",
+        "researchDepth": 5
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:rolling:evt-f1-2026-bahrain-qualifying",
+        "researchTier": "marquee",
+        "hook": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Qualifying; this session sets the grid and determines who controls the race start.",
+        "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+        "threadIds": [
+          "thread:rolling:f1-title"
+        ],
+        "factIds": [
+          "fact:f1:bahrain-relocation-2026",
+          "fact:rolling:f1:constructors",
+          "fact:rolling:f1:session:evt-f1-2026-bahrain-qualifying",
+          "fact:rolling:f1:leader",
+          "fact:rolling:f1:qualifying-consequence"
+        ],
+        "sourceIds": [
+          "source:f1:bahrain-relocation-2026",
+          "source:f1:bahrain-safety-2026",
+          "source:rolling:f1:driver-standings",
+          "source:rolling:f1:constructors",
+          "source:rolling:f1:session:evt-f1-2026-bahrain-qualifying"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "consequence"
+        ],
+        "researchedAt": "2026-09-29T23:38:21.617Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "2026 Formula 1 title pressure",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:consequence"
+        ],
+        "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+        "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+        "needsPreviewRefresh": false,
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+            "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          },
+          {
+            "title": "Formula 1 statement on April races and regional safety",
+            "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "evt_f1_2026_bahrain_race",
+      "canonicalId": "event:f1:2026:bahrain:race",
+      "name": "Bahrain GP (Malaysia) · Race",
+      "displayTitleCompact": "Bahrain GP (Malaysia) · Race",
+      "date": "2026-10-04",
+      "time": "18:00",
+      "startTimeUtc": "2026-10-04T07:00:00.000Z",
+      "venue": "Sepang International Circuit",
+      "broadcaster": "Fox Sports via Kayo / Foxtel",
+      "selectedSentence": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Race; this session is the points-paying chapter of the weekend.",
+      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "intensitySource": "computed",
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Race; this session is the points-paying chapter of the weekend.",
+        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Race; this session is the points-paying chapter of the weekend.",
+        "synopsisSpoilerOff": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "synopsisSpoilerOn": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "lastReviewedAt": "2026-09-27T13:46:16.043Z",
+        "researchDepth": 5
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:rolling:evt-f1-2026-bahrain-race",
+        "researchTier": "marquee",
+        "hook": "Kimi Antonelli leads by 66 points into Bahrain GP (Malaysia) · Race; this session is the points-paying chapter of the weekend.",
+        "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings. Bahrain GP (Malaysia) · Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "threadIds": [
+          "thread:rolling:f1-title"
+        ],
+        "factIds": [
+          "fact:f1:bahrain-relocation-2026",
+          "fact:rolling:f1:constructors",
+          "fact:rolling:f1:session:evt-f1-2026-bahrain-race",
+          "fact:rolling:f1:leader",
+          "fact:rolling:f1:race-consequence"
+        ],
+        "sourceIds": [
+          "source:f1:bahrain-relocation-2026",
+          "source:f1:bahrain-safety-2026",
+          "source:rolling:f1:driver-standings",
+          "source:rolling:f1:constructors",
+          "source:rolling:f1:session:evt-f1-2026-bahrain-race"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "consequence"
+        ],
+        "researchedAt": "2026-09-29T23:38:21.617Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "2026 Formula 1 title pressure",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:consequence"
+        ],
+        "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+        "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+        "needsPreviewRefresh": false,
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
+            "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          },
+          {
+            "title": "Formula 1 statement on April races and regional safety",
+            "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
+            "sourceType": "official",
+            "checkedAt": "2026-09-29T23:17:33.658Z"
+          }
+        ]
+      }
     }
   ],
   "resultOverrides": [
@@ -929,6 +1379,19 @@
       "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625",
       "sourceCheckedAt": "2026-09-27T12:34:38.105Z",
       "resultPublishedAt": "2026-09-27T12:34:38.105Z"
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "status": "completed",
+      "score": "Australia 2-4 Brazil",
+      "homeScore": 2,
+      "awayScore": 4,
+      "outcomeText": "Brazil defeated Australia 4-2.",
+      "recapText": "Brazil defeated Australia 4-2 in their second September friendly.",
+      "sourceName": "Brazilian Football Confederation official report",
+      "sourceUrl": "https://www.cbf.com.br/selecao-brasileira/noticias/jogos/a/brasil-vence-a-australia-por-4-a-2",
+      "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
+      "resultPublishedAt": "2026-09-29T12:50:00.000Z"
     }
   ],
   "broadcastOverrides": [

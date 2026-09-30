@@ -28,7 +28,7 @@ function mergeRecord(record, override, checkedAt){
     id:record.id,
     eventId:record.eventId || record.id,
     canonicalEventId:record.canonicalEventId || override.canonicalId || record.id,
-    sourceCheckedAt:override.sourceCheckedAt || checkedAt,
+    sourceCheckedAt:override.sourceUrl === record.sourceUrl && Date.parse(record.sourceCheckedAt) > Date.parse(override.sourceCheckedAt || checkedAt) ? record.sourceCheckedAt : override.sourceCheckedAt || checkedAt,
     sourceType:"official",
     sourceTrust:"verified",
     sourceRefs,
@@ -121,4 +121,4 @@ function applyEvidence({ check=false } = {}){
 }
 
 if(require.main === module) applyEvidence({ check:process.argv.includes("--check") });
-module.exports = { applyEvidence, normalizeCompletedTiming };
+module.exports = { applyEvidence, normalizeCompletedTiming, mergeRecord };

@@ -107,7 +107,9 @@ function f1Narrative(event, context, reference){
   const sessionSourceUrl=event.timingSource?.url||sessionEvidence?.url||sessionContextSource?.sourceUrl||event.canonicalSourceUrl||event.sourceUrl||"https://www.formula1.com/en/racing/2026";
   const constructorSource=front&&second?{id:'source:rolling:f1:constructors',name:'Formula 1 constructors standings',url:constructors.source.sourceUrl,sourceType:'official',checkedAt:constructors.snapshotTimeUtc}:null;
   const sessionSource={id:sessionSourceId,name:`Formula 1 published session record for ${event.name}`,url:sessionSourceUrl,sourceType:'official',checkedAt:event.canonicalSourceCheckedAt||event.sourceCheckedAt||reference.toISOString()};
-  const extraSources=[constructorSource,sessionSource].filter(Boolean);
+  const relocation=require("../lib/f1-bahrain-relocation");
+  const relocated=relocation.applies(event);
+  const extraSources=[constructorSource,sessionSource,...(relocated?relocation.sources:[])].filter(Boolean);
   const consequence = qualifying ? "sets the grid and determines who controls the race start" : "is the points-paying chapter of the weekend";
   return {
     ladder,
@@ -115,6 +117,7 @@ function f1Narrative(event, context, reference){
     sourceId,
     extraSources,
     facts:[
+      ...(relocated?[{id:'fact:f1:bahrain-relocation-2026',subjectIds:['subject:rolling:f1-season'],statement:`The ${relocation.officialTitle} takes place at Sepang on 2–4 October 2026 after safety concerns over regional conflict prevented the original April race in Bahrain.`,dimension:'schedule',sourceIds:relocation.sources.map(s=>s.id),observedAt:relocation.sources[0].checkedAt,expiresAt:null}]:[]),
       ...(constructorSource ? [{id:'fact:rolling:f1:constructors',subjectIds:['subject:rolling:f1-season'],statement:`${participants.get(front.participantId)?.displayName||'The leading constructor'} has ${front.points} constructors points, while ${participants.get(second.participantId)?.displayName||'second place'} has ${second.points}.`,dimension:'form',sourceIds:[constructorSource.id],observedAt:constructors.snapshotTimeUtc,expiresAt:null}] : []),
       {id:`fact:rolling:f1:session:${slug(idFor(event))}`,subjectIds:['subject:rolling:f1-season'],statement:`${event.name} is the published ${qualifying?'qualifying':'race'} session for this 2026 Formula 1 round.`,dimension:'schedule',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null},
       ...(circuit ? [{id:`fact:rolling:f1:circuit:${circuit.slug}:${slug(idFor(event))}`,subjectIds:['subject:rolling:f1-season'],statement:circuit.fact,dimension:'format',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null}] : []),
@@ -122,7 +125,7 @@ function f1Narrative(event, context, reference){
       { id:`fact:rolling:f1:${qualifying ? "qualifying" : "race"}-consequence`, subjectIds:["subject:rolling:f1-season"], statement:`In a Formula 1 weekend, ${qualifying ? "qualifying sets the starting grid and track-position baseline for the race" : "the race awards the championship points that convert weekend pace into the title standings"}.`, dimension:"consequence", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
     ],
     safeHook:fit(`${leaderName} leads by ${leader.points - challenger.points} points into ${event.name}; this session ${consequence}.`, 180),
-    safeSynopsis:fit(`${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings. ${event.name} now tests that advantage because it ${consequence}, turning the championship gap into an immediate competitive problem rather than background information.`, 700),
+    safeSynopsis:fit(`${relocated?relocation.synopsis+" ":""}${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings. ${event.name} now tests that advantage because it ${consequence}, turning the championship gap into an immediate competitive problem rather than background information.`, 700),
     reference,
   };
 }
@@ -409,7 +412,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       threadIds = ["thread:rolling:f1-title"];
       factIds = motor.facts.map(fact => fact.id);
       motor.extraSources.forEach(source=>upsert(knowledge.sources,source));
-      sourceIds = [motor.sourceId,...motor.extraSources.map(source=>source.id)];
+      sourceIds = [...motor.extraSources.filter(source=>source.id.startsWith("source:f1:bahrain-")).map(source=>source.id),motor.sourceId,...motor.extraSources.filter(source=>!source.id.startsWith("source:f1:bahrain-")).map(source=>source.id)];
       hook = motor.safeHook;
       synopsis = motor.safeSynopsis;
     } else if (rally) {

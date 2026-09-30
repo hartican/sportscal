@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-09-28T22:23:47.714Z",
+  "generatedAt": "2026-09-30T00:13:49.390Z",
   "season": 2026,
   "competitions": [
     {
@@ -62340,7 +62340,7 @@
       "time": "10:15",
       "startTimeUtc": "2026-09-29T00:15Z",
       "venue": "Soldier Field",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 3",
       "roundNumber": 3,
@@ -62349,14 +62349,14 @@
           "participantId": "team:nfl:chi",
           "label": "Chicago Bears",
           "homeAway": "home",
-          "score": "0",
+          "score": "27",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png"
         },
         {
           "participantId": "team:nfl:phi",
           "label": "Philadelphia Eagles",
           "homeAway": "away",
-          "score": "0",
+          "score": "7",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png"
         }
       ],
