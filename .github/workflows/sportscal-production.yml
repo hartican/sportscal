@@ -105,6 +105,7 @@ jobs:
           node scripts/validate-live-fixtures.js
           node scripts/validate-live-afl-adapter.js
           node scripts/validate-asia-cup-source.js --published
+          node scripts/validate-cricket-current-results.js
           node scripts/validate-match-observations.js
           node scripts/validate-laver-cup.js
       - name: Bind project and preserve current production

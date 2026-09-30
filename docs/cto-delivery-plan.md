@@ -141,3 +141,8 @@ Recommended next operating change: batch related edits around one demonstrable u
 NRL repair f81c55f is live: four reviewed week-one finals no longer reopen as scheduled, all nine finals slots now enter readiness, and eight due results pass. Exact-SHA READY/alias/public bytes and production browser evidence are retained. Reporting-only a71c31b preserves failed/missing freshness verdicts instead of reconstructing readiness from coverage counts; no separate app deployment.
 
 A real disposable signed-in Football journey verified persisted follows, personalised admission for three pilot teams, 668 Schedule fixtures and Results privacy. It exposed an empty legacy onboarding seed that caused a database constraint failure and incorrectly marked sync unavailable. Shell 334 skips that absent seed while preserving saved follows and valid seed semantics. Tests and release proof belong to the startup-meta delivery artifact. Email signup, physical devices and full cross-sport certification remain open; no invitation or subscription was added.
+
+
+### Current cricket results repair — 30 September 2026
+
+Implemented bounded completed-results reconciliation in the existing Cricket Australia current source. A disappeared current-page fixture can now acquire its official result without another provider or scheduler. Local canonical refresh and source contract tests passed; deployment and live rendering remain pending until recorded release proof. Six-page initial catch-up leaves one known CA identity unresolved (39484); do not count all Cricket quality as certified.

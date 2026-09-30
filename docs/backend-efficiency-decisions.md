@@ -1,5 +1,14 @@
 # Backend efficiency decisions
 
+## Current cricket completed-results reconciliation — 30 September 2026
+
+The existing `cricket-ca-current` owner reads the current calendar plus one completed-results page (13 records). For known unresolved CA fixtures whose scheduled end/start falls within the preceding 14 days, it can read up to six pages, at most once per six hours using the existing source discovery report. No added source, scheduler, subscription, AI call or per-user work. Additional result requests are at most one per ordinary invocation plus 20 extra per day for four full catch-ups; the existing dynamic refresh cadence remains authoritative.
+
+Only explicit provider completion with a nonempty result and resolved participants is accepted. Exact overlapping cursor rows are deduplicated; conflicting duplicates, stuck pagination, invalid records and failed pages reject the observation, retaining last-good data. Unresolved IDs are recorded separately from transport failures and never completed from elapsed time. This is a bounded recent reconciliation, not exhaustive worldwide or historical coverage. The initial catch-up retained unresolved CA39484 (Lancashire–Durham); follow-up source investigation remains required.
+
+Canonical scoped repair: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --coverage --coverage-source=cricket-ca-current`. Regression: `validate-cricket-current-results.js`; presentation/spoilers: `validate-cricket-current-browser.js`. Shared current and completed records retain the same CA identities.
+
+
 ## Completed Asia Cup source — 30 September 2026
 
 The fixed Women's Asia Cup 2026 source reads Cricket Australia's own completed-results API instead of the series page's empty upcoming-only embedded array. The official UI confirmed a 28 August–13 September tournament and resolved the final; two observed API pages return all 15 results. The adapter permits at most three pages of 13 records, rejects wrong competition/gender, duplicate IDs, unresolved participants, incomplete totals and failed pages, and publishes only the complete collection. Existing fixture identities and alternative-provider aliases survive. No new provider or scheduler is introduced.

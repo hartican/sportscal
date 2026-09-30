@@ -424,8 +424,8 @@ async function main() {
   if(process.argv.includes("--coverage")){
     const coverageScope=process.argv.find(arg=>arg.startsWith('--coverage-source='));
     if(coverageScope){
-      if(coverageScope!=='--coverage-source=cricket-ca-4710')throw new Error('Unsupported coverage source');
-      const sources=require('../lib/source-coverage').coverageSources().filter(source=>source.id==='cricket-ca-4710');
+      if(!['--coverage-source=cricket-ca-4710','--coverage-source=cricket-ca-current'].includes(coverageScope))throw new Error('Unsupported coverage source');
+      const sources=require('../lib/source-coverage').coverageSources().filter(source=>source.id===coverageScope.split('=')[1]);
       await require('./refresh-source-coverage').refreshCoverage({sources,scoped:true});
       runStep(['scripts/build-code-inspector.js','--codes=cricket']);
       runStep(['scripts/validate-source-coverage.js']);
