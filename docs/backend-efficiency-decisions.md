@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## LPGA completed classifications — 30 September 2026
+
+The existing full golf owner and weekday quick refresh reconcile up to four already-known LPGA tournaments ending within the past 14 days, after a conservative 36-hour allowance from the end-date midnight UTC for the final local day to finish. Each uses one official leaderboard request with a 15-second deadline; there is no new scheduler, subscription or per-user request. Only Golf projections rebuild when facts change. Repeated identical results preserve bytes. This bounded recent window is not historical or worldwide LPGA coverage.
+
+Completion requires the exact tournament ID and dates, one first-place player with a published positive award, complete rounds for every classified player, consistent stroke totals, unique provider identities and recognised result statuses. A populated live table or elapsed time alone is insufficient. The official settled-results payload has no explicit finality flag: these publication signals are the acceptance contract, and later official corrections remain possible. Advertising rows are excluded; malformed sporting rows reject the observation. Errors retain prior results and appear in the existing refresh failure report. Later pairings cannot regress a confirmed classification; participation freshness remains separate.
+
+Scoped canonical command: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --lpga-results`. Regression: `validate-lpga-results.js`, existing participation and quick projection tests; presentation: `validate-lpga-results-browser.js`. No Feed admission or follow rules change.
+
 ## F1 session result tables — 30 September 2026
 
 The existing F1 result owner now reads six-column numbered practice tables and routes sprint qualifying to its own eight-column result page. Practice remains outside Feed admission; its source-backed results are published to F1/Motorsport Schedule. Practice uses fastest-driver wording, not race-win wording. Existing identities and result privacy rules remain intact. Quick refresh preserves full F1 tables and confirmed participant identities.

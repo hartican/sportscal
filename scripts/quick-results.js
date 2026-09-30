@@ -56,6 +56,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
+ if(changes.some(change=>change.startsWith('LPGA')))codes.add('golf');
  if(changes.some(change=>change.startsWith('NBL')))codes.add('nbl');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  if(changes.some(change=>change==='Current card evidence'||change.startsWith('Official results')))['rugby-union','cricket'].forEach(code=>codes.add(code));
@@ -148,6 +149,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    if(known.length){const fixtures=await pl.loadFixtures();const cards=fixtures.map(f=>pl.cardForFixture(f,now.toISOString()));const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
+ if(!offline)try{const path='data/canonical/pga-tour-schedule.json',result=await require('../lib/lpga-results').refresh(read(path),{now});if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.message}`));}catch(error){failures.push(`LPGA: ${error.message}`);}
  for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');

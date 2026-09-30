@@ -8,7 +8,7 @@ function sportHubDateTimeLabel(view){
     const range = view.event.endDate && view.event.endDate !== view.event.date
       ? `${dayDateLabel(view.event.date)} – ${dayDateLabel(view.event.endDate)}`
       : dayDateLabel(view.event.date);
-    return `${range} · Multiple live stages`;
+    return `${range} · ${["completed","finished","final"].includes(view.event.status)?"Completed":view.event.displayTime||"Session times vary"}`;
   }
   if (!view?.event?.date || !view?.event?.time) return "Date and time TBC";
   return `${dayDateLabel(view.event.date)} · ${fmtTime12(view.event.time)}`;

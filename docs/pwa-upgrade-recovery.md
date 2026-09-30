@@ -43,3 +43,9 @@ correct test seam: a shallow mocked fetch test would not reproduce Chromium's
 worker/stream interaction. Use `PWA_BASELINE_SHA=c263209` for the actual prior
 release; use `PWA_BROWSER=webkit` for the second engine. Physical installed-device
 behavior still needs separate proof. No diagnostic worker wrappers ship.
+
+## 30 September: exact runtime cache URL mismatch
+
+The 337→338 rehearsal caught a later offline/resume failure in Chromium: a new worker activated but the page stayed at the prior version. Diagnostics showed `metaByKey` initialization failing before the update callback was registered. The install manifest still requested runtime `?v=336` while the document requested `?v=338`; offline fallback could serve the HTML without its exact runtime cache entry. WebKit happened to pass and alone would have missed this defect.
+
+The repair synchronises the install URL with the document. `validate-shell-script-cache.js` fails on the original mismatch and checks every critical local script URL, including its query string, against the worker install manifest. It is a required production gate. The callback-ready experiment did not fix the actual failure and was removed; no update-handler change or diagnostic instrumentation ships. The full installed-browser upgrade rehearsal remains necessary alongside this fast structural check. Physical-device restoration is still separate evidence.

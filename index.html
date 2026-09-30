@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="337">
+<meta name="app-shell-version" content="338">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=337" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=338" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=337"></script>
+<script src="assets/js/app-shell-runtime.js?v=338"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13082,7 +13082,7 @@ function eventLocationLabel(ev){
 function eventTimeLabel(ev){
   if(ev.timePrecision==="estimated")return `Approx. ${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==="follows")return "Follows prior match";
-  if(ev.dateOnly)return `${ev.displayTime || "Multiple live stages"} · ${eventLocationLabel(ev)}`;
+  if(ev.dateOnly)return `${["completed","finished","final"].includes(ev.status)?"Completed":ev.displayTime || "Session times vary"} · ${eventLocationLabel(ev)}`;
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time TBC";
   return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
@@ -18400,7 +18400,7 @@ function sportHubEmptyState(copy){
 function renderSportHub(){
   if(globalThis.renderSportHubLoaded)return globalThis.renderSportHubLoaded();
   const panel=document.getElementById('listView');panel.textContent='Loading sport…';
-  void loadDeferredScript('assets/js/sport-hub-ui.js?v=318').then(()=>{if(activeTab==='feed'&&activeSportHubKey())globalThis.renderSportHubLoaded();}).catch(()=>{if(panel.isConnected){panel.textContent='Sport could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderSportHub;panel.append(retry);}});
+  void loadDeferredScript('assets/js/sport-hub-ui.js?v=338').then(()=>{if(activeTab==='feed'&&activeSportHubKey())globalThis.renderSportHubLoaded();}).catch(()=>{if(panel.isConnected){panel.textContent='Sport could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderSportHub;panel.append(retry);}});
 }
 
 function standingsSportKey(competition){

@@ -1,0 +1,3011 @@
+{
+  "tournamentId": 2026063,
+  "results": {
+    "tournament": {
+      "tournamentId": 2026063,
+      "totalRounds": 3,
+      "rounds": [
+        {
+          "roundNum": 1,
+          "selected": false,
+          "name": "Round 1",
+          "roundFormat": "Stroke Play"
+        },
+        {
+          "roundNum": 2,
+          "selected": false,
+          "name": "Round 2",
+          "roundFormat": "Stroke Play"
+        },
+        {
+          "roundNum": 3,
+          "selected": true,
+          "name": "Round 3",
+          "roundFormat": "Stroke Play"
+        }
+      ],
+      "startDate": "2026-09-25T00:00:00",
+      "endDate": "2026-09-27T00:00:00",
+      "availableYears": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2018,
+        2017,
+        2016,
+        2015,
+        2014,
+        2013,
+        2012,
+        2011,
+        2010,
+        2009,
+        2008,
+        2007
+      ],
+      "year": 2026
+    },
+    "entries": [
+      {
+        "entryId": 208765,
+        "position": "1",
+        "player": {
+          "playerId": 100690,
+          "firstName": "Yuna",
+          "lastName": "Nishimura",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "63",
+          "63",
+          "66"
+        ],
+        "total": 192,
+        "toPar": "-21",
+        "prizeMoney": "$$450,000",
+        "points": "500.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207033,
+        "position": "T2",
+        "player": {
+          "playerId": 98372,
+          "firstName": "In Gee",
+          "lastName": "Chun",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "65",
+          "65"
+        ],
+        "total": 197,
+        "toPar": "-16",
+        "prizeMoney": "$$212,764",
+        "points": "243.333",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207797,
+        "position": "T2",
+        "player": {
+          "playerId": 100925,
+          "firstName": "Chanettee",
+          "lastName": "Wannasaen",
+          "countryAbbr": "THA"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "68",
+          "64"
+        ],
+        "total": 197,
+        "toPar": "-16",
+        "prizeMoney": "$$212,764",
+        "points": "243.333",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209261,
+        "position": "T2",
+        "player": {
+          "playerId": 102175,
+          "firstName": "Aki",
+          "lastName": "Iwai",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "69",
+          "62"
+        ],
+        "total": 197,
+        "toPar": "-16",
+        "prizeMoney": "$$212,764",
+        "points": "243.333",
+        "noScorecards": false
+      },
+      {
+        "entryId": 204722,
+        "position": "T5",
+        "player": {
+          "playerId": 88290,
+          "firstName": "Jodi",
+          "lastName": "Ewart Shadoff",
+          "countryAbbr": "ENG"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "66",
+          "66"
+        ],
+        "total": 198,
+        "toPar": "-15",
+        "prizeMoney": "$$105,198",
+        "points": "121.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208588,
+        "position": "T5",
+        "player": {
+          "playerId": 101861,
+          "firstName": "Jenny",
+          "lastName": "Bae",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "68",
+          "64"
+        ],
+        "total": 198,
+        "toPar": "-15",
+        "prizeMoney": "$$105,198",
+        "points": "121.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208936,
+        "position": "T5",
+        "player": {
+          "playerId": 100052,
+          "firstName": "Auston",
+          "lastName": "Kim",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "64",
+          "67"
+        ],
+        "total": 198,
+        "toPar": "-15",
+        "prizeMoney": "$$105,198",
+        "points": "121.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205653,
+        "position": "T8",
+        "player": {
+          "playerId": 100380,
+          "firstName": "Jin Hee",
+          "lastName": "Im",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "67",
+          "67"
+        ],
+        "total": 199,
+        "toPar": "-14",
+        "prizeMoney": "$$65,717",
+        "points": "78.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207563,
+        "position": "T8",
+        "player": {
+          "playerId": 102077,
+          "firstName": "Miyu",
+          "lastName": "Yamashita",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "63",
+          "66"
+        ],
+        "total": 199,
+        "toPar": "-14",
+        "prizeMoney": "$$65,717",
+        "points": "78.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209195,
+        "position": "T8",
+        "player": {
+          "playerId": 99340,
+          "firstName": "Mary",
+          "lastName": "Liu",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "64",
+          "68"
+        ],
+        "total": 199,
+        "toPar": "-14",
+        "prizeMoney": "$$65,717",
+        "points": "78.750",
+        "noScorecards": false
+      },
+      {
+        "ad": {}
+      },
+      {
+        "entryId": 209601,
+        "position": "T8",
+        "player": {
+          "playerId": 104870,
+          "firstName": "Julia",
+          "lastName": "Lopez Ramirez",
+          "countryAbbr": "ESP"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "64",
+          "66"
+        ],
+        "total": 199,
+        "toPar": "-14",
+        "prizeMoney": "$$65,717",
+        "points": "78.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207755,
+        "position": "T12",
+        "player": {
+          "playerId": 88815,
+          "firstName": "Lauren",
+          "lastName": "Coughlin",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "61",
+          "66"
+        ],
+        "total": 200,
+        "toPar": "-13",
+        "prizeMoney": "$$50,229",
+        "points": "60.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207801,
+        "position": "T12",
+        "player": {
+          "playerId": 102009,
+          "firstName": "Michelle",
+          "lastName": "Zhang",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "64",
+          "69"
+        ],
+        "total": 200,
+        "toPar": "-13",
+        "prizeMoney": "$$50,229",
+        "points": "60.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209271,
+        "position": "T12",
+        "player": {
+          "playerId": 99133,
+          "firstName": "Sophia",
+          "lastName": "Schubert",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "67",
+          "68"
+        ],
+        "total": 200,
+        "toPar": "-13",
+        "prizeMoney": "$$50,229",
+        "points": "60.667",
+        "noScorecards": false
+      },
+      {
+        "entryId": 204826,
+        "position": "T15",
+        "player": {
+          "playerId": 82901,
+          "firstName": "Amy",
+          "lastName": "Yang",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "68",
+          "68"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209204,
+        "position": "T15",
+        "player": {
+          "playerId": 99643,
+          "firstName": "Yealimi",
+          "lastName": "Noh",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "67",
+          "64"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209314,
+        "position": "T15",
+        "player": {
+          "playerId": 99068,
+          "firstName": "Pajaree",
+          "lastName": "Anannarukarn",
+          "countryAbbr": "THA"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "67",
+          "68"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209350,
+        "position": "T15",
+        "player": {
+          "playerId": 99308,
+          "firstName": "Yuri",
+          "lastName": "Yoshida",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "65",
+          "69"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209362,
+        "position": "T15",
+        "player": {
+          "playerId": 88510,
+          "firstName": "Lizette",
+          "lastName": "Salas",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "68",
+          "68"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209423,
+        "position": "T15",
+        "player": {
+          "playerId": 99705,
+          "firstName": "A Lim",
+          "lastName": "Kim",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "66",
+          "69"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "49.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209662,
+        "position": "T15",
+        "player": {
+          "playerId": 102167,
+          "firstName": "Mirabel",
+          "lastName": "Ting",
+          "countryAbbr": "MAS"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "68",
+          "67"
+        ],
+        "total": 201,
+        "toPar": "-12",
+        "prizeMoney": "$$38,469",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208700,
+        "position": "T22",
+        "player": {
+          "playerId": 102206,
+          "firstName": "Youmin",
+          "lastName": "Hwang",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "67",
+          "67"
+        ],
+        "total": 202,
+        "toPar": "-11",
+        "prizeMoney": "$$31,483",
+        "points": "39.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209422,
+        "position": "T22",
+        "player": {
+          "playerId": 99635,
+          "firstName": "Frida",
+          "lastName": "Kinhult",
+          "countryAbbr": "SWE"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "70",
+          "67"
+        ],
+        "total": 202,
+        "toPar": "-11",
+        "prizeMoney": "$$31,483",
+        "points": "39.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209468,
+        "position": "T22",
+        "player": {
+          "playerId": 98215,
+          "firstName": "Charley",
+          "lastName": "Hull",
+          "countryAbbr": "ENG"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "67",
+          "70"
+        ],
+        "total": 202,
+        "toPar": "-11",
+        "prizeMoney": "$$31,483",
+        "points": "39.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 206922,
+        "position": "T25",
+        "player": {
+          "playerId": 99975,
+          "firstName": "Erika",
+          "lastName": "Hara",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "69",
+          "65"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207219,
+        "position": "T25",
+        "player": {
+          "playerId": 101954,
+          "firstName": "Laney",
+          "lastName": "Frye",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "68",
+          "66"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207735,
+        "position": "T25",
+        "player": {
+          "playerId": 53696,
+          "firstName": "Gaby",
+          "lastName": "Lopez",
+          "countryAbbr": "MEX"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "69",
+          "68"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208198,
+        "position": "T25",
+        "player": {
+          "playerId": 98237,
+          "firstName": "Yu",
+          "lastName": "Liu",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "64",
+          "68",
+          "71"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209184,
+        "position": "T25",
+        "player": {
+          "playerId": 102705,
+          "firstName": "Chiara",
+          "lastName": "Tamburlini",
+          "countryAbbr": "SUI"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "69",
+          "67"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209461,
+        "position": "T25",
+        "player": {
+          "playerId": 101089,
+          "firstName": "Gurleen",
+          "lastName": "Kaur",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "65",
+          "69"
+        ],
+        "total": 203,
+        "toPar": "-10",
+        "prizeMoney": "$$26,541",
+        "points": "30.000",
+        "noScorecards": false
+      },
+      {
+        "ad": {}
+      },
+      {
+        "entryId": 205422,
+        "position": "T31",
+        "player": {
+          "playerId": 98355,
+          "firstName": "Celine",
+          "lastName": "Boutier",
+          "countryAbbr": "FRA"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "69",
+          "70"
+        ],
+        "total": 204,
+        "toPar": "-9",
+        "prizeMoney": "$$22,160",
+        "points": "23.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208185,
+        "position": "T31",
+        "player": {
+          "playerId": 82896,
+          "firstName": "Ashleigh",
+          "lastName": "Buhai",
+          "countryAbbr": "RSA"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "71",
+          "67"
+        ],
+        "total": 204,
+        "toPar": "-9",
+        "prizeMoney": "$$22,160",
+        "points": "23.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208757,
+        "position": "T31",
+        "player": {
+          "playerId": 98830,
+          "firstName": "Nasa",
+          "lastName": "Hataoka",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "70",
+          "67"
+        ],
+        "total": 204,
+        "toPar": "-9",
+        "prizeMoney": "$$22,160",
+        "points": "23.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205428,
+        "position": "T34",
+        "player": {
+          "playerId": 99454,
+          "firstName": "Manon",
+          "lastName": "De Roey",
+          "countryAbbr": "BEL"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "67",
+          "72"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 206523,
+        "position": "T34",
+        "player": {
+          "playerId": 93254,
+          "firstName": "Carlota",
+          "lastName": "Ciganda",
+          "countryAbbr": "ESP"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "70",
+          "67"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207904,
+        "position": "T34",
+        "player": {
+          "playerId": 98776,
+          "firstName": "Gemma",
+          "lastName": "Dryburgh",
+          "countryAbbr": "SCO"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "67",
+          "70"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207982,
+        "position": "T34",
+        "player": {
+          "playerId": 100248,
+          "firstName": "Ana",
+          "lastName": "Belac",
+          "countryAbbr": "SLO"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "67",
+          "70"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208162,
+        "position": "T34",
+        "player": {
+          "playerId": 99088,
+          "firstName": "Gina",
+          "lastName": "Kim",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "68",
+          "67"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208773,
+        "position": "T34",
+        "player": {
+          "playerId": 101918,
+          "firstName": "Mao",
+          "lastName": "Saigo",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "67",
+          "69"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208814,
+        "position": "T34",
+        "player": {
+          "playerId": 100323,
+          "firstName": "Somi",
+          "lastName": "Lee",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "67",
+          "67"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208882,
+        "position": "T34",
+        "player": {
+          "playerId": 98222,
+          "firstName": "Andrea",
+          "lastName": "Lee",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "67",
+          "71"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209252,
+        "position": "T34",
+        "player": {
+          "playerId": 99632,
+          "firstName": "Dewi",
+          "lastName": "Weber",
+          "countryAbbr": "NED"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "66",
+          "71"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209273,
+        "position": "T34",
+        "player": {
+          "playerId": 102161,
+          "firstName": "Chizzy",
+          "lastName": "Iwai",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "65",
+          "70"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209510,
+        "position": "T34",
+        "player": {
+          "playerId": 100129,
+          "firstName": "Yuka",
+          "lastName": "Saso",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "70",
+          "67"
+        ],
+        "total": 205,
+        "toPar": "-8",
+        "prizeMoney": "$$16,714",
+        "points": "16.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207394,
+        "position": "T45",
+        "player": {
+          "playerId": 100999,
+          "firstName": "Juniper",
+          "lastName": "Jang",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "65",
+          "69",
+          "72"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208527,
+        "position": "T45",
+        "player": {
+          "playerId": 100040,
+          "firstName": "Jiwon",
+          "lastName": "Jeon",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "70",
+          "69"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208693,
+        "position": "T45",
+        "player": {
+          "playerId": 102615,
+          "firstName": "Rio",
+          "lastName": "Takeda",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "70",
+          "70"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208707,
+        "position": "T45",
+        "player": {
+          "playerId": 99095,
+          "firstName": "Morgane",
+          "lastName": "Metraux",
+          "countryAbbr": "SUI"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "65",
+          "70"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208794,
+        "position": "T45",
+        "player": {
+          "playerId": 101854,
+          "firstName": "Nataliya",
+          "lastName": "Guseva",
+          "countryAbbr": "UNA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "68",
+          "69"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209381,
+        "position": "T45",
+        "player": {
+          "playerId": 102759,
+          "firstName": "Caley",
+          "lastName": "McGinty",
+          "countryAbbr": "ENG"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "72",
+          "68"
+        ],
+        "total": 206,
+        "toPar": "-7",
+        "prizeMoney": "$$11,844",
+        "points": "8.750",
+        "noScorecards": false
+      },
+      {
+        "ad": {}
+      },
+      {
+        "entryId": 208650,
+        "position": "T51",
+        "player": {
+          "playerId": 88128,
+          "firstName": "Paula",
+          "lastName": "Reto",
+          "countryAbbr": "RSA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "69",
+          "69"
+        ],
+        "total": 207,
+        "toPar": "-6",
+        "prizeMoney": "$$9,781",
+        "points": "6.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208997,
+        "position": "T51",
+        "player": {
+          "playerId": 98608,
+          "firstName": "Daniela",
+          "lastName": "Darquea",
+          "countryAbbr": "ECU"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "69",
+          "69"
+        ],
+        "total": 207,
+        "toPar": "-6",
+        "prizeMoney": "$$9,781",
+        "points": "6.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209211,
+        "position": "T51",
+        "player": {
+          "playerId": 98815,
+          "firstName": "Robyn",
+          "lastName": "Choi",
+          "countryAbbr": "AUS"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "71",
+          "69"
+        ],
+        "total": 207,
+        "toPar": "-6",
+        "prizeMoney": "$$9,781",
+        "points": "6.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209240,
+        "position": "T51",
+        "player": {
+          "playerId": 101690,
+          "firstName": "Briana",
+          "lastName": "Chacon",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "65",
+          "73"
+        ],
+        "total": 207,
+        "toPar": "-6",
+        "prizeMoney": "$$9,781",
+        "points": "6.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209393,
+        "position": "T51",
+        "player": {
+          "playerId": 101583,
+          "firstName": "Linn",
+          "lastName": "Grant",
+          "countryAbbr": "SWE"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "69",
+          "69"
+        ],
+        "total": 207,
+        "toPar": "-6",
+        "prizeMoney": "$$9,781",
+        "points": "6.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 206235,
+        "position": "T56",
+        "player": {
+          "playerId": 98137,
+          "firstName": "Maude-Aimee",
+          "lastName": "Leblanc",
+          "countryAbbr": "CAN"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "68",
+          "74"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208609,
+        "position": "T56",
+        "player": {
+          "playerId": 101522,
+          "firstName": "Lauren",
+          "lastName": "Walsh",
+          "countryAbbr": "IRL"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "68",
+          "70"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208839,
+        "position": "T56",
+        "player": {
+          "playerId": 100099,
+          "firstName": "Brooke",
+          "lastName": "Matthews",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "66",
+          "73"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209249,
+        "position": "T56",
+        "player": {
+          "playerId": 98183,
+          "firstName": "Mi Hyang",
+          "lastName": "Lee",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "68",
+          "72"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209269,
+        "position": "T56",
+        "player": {
+          "playerId": 99503,
+          "firstName": "Jennifer",
+          "lastName": "Chang",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "69",
+          "71"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209286,
+        "position": "T56",
+        "player": {
+          "playerId": 93328,
+          "firstName": "Brianna",
+          "lastName": "Do",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "70",
+          "70"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209364,
+        "position": "T56",
+        "player": {
+          "playerId": 101361,
+          "firstName": "Lauren",
+          "lastName": "Tenuta",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "70",
+          "71"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "4.100",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209634,
+        "position": "T56",
+        "player": {
+          "playerId": 100077,
+          "firstName": "Reagan",
+          "lastName": "Zibilski",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "69",
+          "72"
+        ],
+        "total": 208,
+        "toPar": "-5",
+        "prizeMoney": "$$7,909",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205439,
+        "position": "T64",
+        "player": {
+          "playerId": 101339,
+          "firstName": "Polly",
+          "lastName": "Mack",
+          "countryAbbr": "GER"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "68",
+          "73"
+        ],
+        "total": 209,
+        "toPar": "-4",
+        "prizeMoney": "$$6,877",
+        "points": "3.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 206388,
+        "position": "T64",
+        "player": {
+          "playerId": 101990,
+          "firstName": "Cassie",
+          "lastName": "Porter",
+          "countryAbbr": "AUS"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "71",
+          "71"
+        ],
+        "total": 209,
+        "toPar": "-4",
+        "prizeMoney": "$$6,877",
+        "points": "3.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207838,
+        "position": "T64",
+        "player": {
+          "playerId": 101865,
+          "firstName": "Soo Bin",
+          "lastName": "Joo",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "67",
+          "74"
+        ],
+        "total": 209,
+        "toPar": "-4",
+        "prizeMoney": "$$6,877",
+        "points": "3.000",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209499,
+        "position": "67",
+        "player": {
+          "playerId": 100176,
+          "firstName": "Hinako",
+          "lastName": "Shibuno",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "70",
+          "74"
+        ],
+        "total": 210,
+        "toPar": "-3",
+        "prizeMoney": "$$6,573",
+        "points": "2.600",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208541,
+        "position": "68",
+        "player": {
+          "playerId": 98640,
+          "firstName": "Linnea",
+          "lastName": "Strom",
+          "countryAbbr": "SWE"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "69",
+          "74"
+        ],
+        "total": 211,
+        "toPar": "-2",
+        "prizeMoney": "$$6,418",
+        "points": "2.400",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205437,
+        "position": "69",
+        "player": {
+          "playerId": 99194,
+          "firstName": "Celine",
+          "lastName": "Borge",
+          "countryAbbr": "NOR"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "69",
+          "75"
+        ],
+        "total": 213,
+        "toPar": "E",
+        "prizeMoney": "$$6,266",
+        "points": "2.200",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208161,
+        "position": "WDC",
+        "player": {
+          "playerId": 102684,
+          "firstName": "Lottie",
+          "lastName": "Woad",
+          "countryAbbr": "ENG"
+        },
+        "players": null,
+        "scores": [
+          "66",
+          "66"
+        ],
+        "total": 132,
+        "toPar": "-10",
+        "prizeMoney": "$$6,114",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 204666,
+        "position": "CUT",
+        "player": {
+          "playerId": 88110,
+          "firstName": "Pornanong",
+          "lastName": "Phatlum",
+          "countryAbbr": "THA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "70"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205442,
+        "position": "CUT",
+        "player": {
+          "playerId": 100233,
+          "firstName": "Madison",
+          "lastName": "Young",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "69"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207266,
+        "position": "CUT",
+        "player": {
+          "playerId": 87987,
+          "firstName": "Chella",
+          "lastName": "Choi",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "66"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207606,
+        "position": "CUT",
+        "player": {
+          "playerId": 99046,
+          "firstName": "Natasha",
+          "lastName": "Oon",
+          "countryAbbr": "MAS"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "71"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207883,
+        "position": "CUT",
+        "player": {
+          "playerId": 102801,
+          "firstName": "Mimi",
+          "lastName": "Rhodes",
+          "countryAbbr": "ENG"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "72"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207967,
+        "position": "CUT",
+        "player": {
+          "playerId": 104972,
+          "firstName": "Carolina",
+          "lastName": "Chacarra",
+          "countryAbbr": "ESP"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "69"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208082,
+        "position": "CUT",
+        "player": {
+          "playerId": 99109,
+          "firstName": "Jeongeun",
+          "lastName": "Lee6",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "70"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208396,
+        "position": "CUT",
+        "player": {
+          "playerId": 98139,
+          "firstName": "Laetitia",
+          "lastName": "Beck",
+          "countryAbbr": "ISR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "68"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208736,
+        "position": "CUT",
+        "player": {
+          "playerId": 98313,
+          "firstName": "Perrine",
+          "lastName": "Delacour",
+          "countryAbbr": "FRA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "68"
+        ],
+        "total": 139,
+        "toPar": "-3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207733,
+        "position": "CUT",
+        "player": {
+          "playerId": 82873,
+          "firstName": "Sandra",
+          "lastName": "Gal",
+          "countryAbbr": "GER"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "71"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208579,
+        "position": "CUT",
+        "player": {
+          "playerId": 101149,
+          "firstName": "Sofia",
+          "lastName": "Garcia",
+          "countryAbbr": "PAR"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "73"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208667,
+        "position": "CUT",
+        "player": {
+          "playerId": 102005,
+          "firstName": "Riley",
+          "lastName": "Smyth",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "71"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208679,
+        "position": "CUT",
+        "player": {
+          "playerId": 99506,
+          "firstName": "Leah",
+          "lastName": "John",
+          "countryAbbr": "CAN"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "73"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208904,
+        "position": "CUT",
+        "player": {
+          "playerId": 102274,
+          "firstName": "Yahui",
+          "lastName": "Zhang",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "70"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208984,
+        "position": "CUT",
+        "player": {
+          "playerId": 99723,
+          "firstName": "Minami",
+          "lastName": "Katsu",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "71"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209189,
+        "position": "CUT",
+        "player": {
+          "playerId": 98455,
+          "firstName": "Jin Young",
+          "lastName": "Ko",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "69"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209483,
+        "position": "CUT",
+        "player": {
+          "playerId": 101953,
+          "firstName": "Melanie",
+          "lastName": "Green",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "71"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209574,
+        "position": "CUT",
+        "player": {
+          "playerId": 98397,
+          "firstName": "Emily Kristine",
+          "lastName": "Pedersen",
+          "countryAbbr": "DEN"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "69"
+        ],
+        "total": 140,
+        "toPar": "-2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 204692,
+        "position": "CUT",
+        "player": {
+          "playerId": 99498,
+          "firstName": "Alexa",
+          "lastName": "Pano",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "73"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207048,
+        "position": "CUT",
+        "player": {
+          "playerId": 102644,
+          "firstName": "Suvichaya",
+          "lastName": "Vinijchaitham",
+          "countryAbbr": "THA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "71"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207177,
+        "position": "CUT",
+        "player": {
+          "playerId": 102401,
+          "firstName": "Ina",
+          "lastName": "Yoon",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "70"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208040,
+        "position": "CUT",
+        "player": {
+          "playerId": 98241,
+          "firstName": "Gigi",
+          "lastName": "Stoll",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "69"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208683,
+        "position": "CUT",
+        "player": {
+          "playerId": 98417,
+          "firstName": "Jessica",
+          "lastName": "Porvasnik",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "72"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208816,
+        "position": "CUT",
+        "player": {
+          "playerId": 100012,
+          "firstName": "Kumkang",
+          "lastName": "Park",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "68",
+          "73"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208857,
+        "position": "CUT",
+        "player": {
+          "playerId": 101948,
+          "firstName": "Saki",
+          "lastName": "Baba",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "72"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208972,
+        "position": "CUT",
+        "player": {
+          "playerId": 100384,
+          "firstName": "Benedetta",
+          "lastName": "Moresco",
+          "countryAbbr": "ITA"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "69"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209224,
+        "position": "CUT",
+        "player": {
+          "playerId": 100053,
+          "firstName": "Gabriela",
+          "lastName": "Ruffels",
+          "countryAbbr": "AUS"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "71"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209243,
+        "position": "CUT",
+        "player": {
+          "playerId": 100116,
+          "firstName": "Pauline",
+          "lastName": "Roussin-Bouchard",
+          "countryAbbr": "FRA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "71"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209307,
+        "position": "CUT",
+        "player": {
+          "playerId": 98615,
+          "firstName": "Maria",
+          "lastName": "Fassi",
+          "countryAbbr": "MEX"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "70"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209369,
+        "position": "CUT",
+        "player": {
+          "playerId": 102758,
+          "firstName": "Carla",
+          "lastName": "Tejedo Mulet",
+          "countryAbbr": "ESP"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "69"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209427,
+        "position": "CUT",
+        "player": {
+          "playerId": 105137,
+          "firstName": "Carolina",
+          "lastName": "Melgrati",
+          "countryAbbr": "ITA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "70"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209450,
+        "position": "CUT",
+        "player": {
+          "playerId": 98422,
+          "firstName": "Lucy",
+          "lastName": "Li",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "70"
+        ],
+        "total": 141,
+        "toPar": "-1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207453,
+        "position": "CUT",
+        "player": {
+          "playerId": 105117,
+          "firstName": "Dongeun",
+          "lastName": "Lee",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "71"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208051,
+        "position": "CUT",
+        "player": {
+          "playerId": 98230,
+          "firstName": "Lilia",
+          "lastName": "Vu",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "71"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208390,
+        "position": "CUT",
+        "player": {
+          "playerId": 100217,
+          "firstName": "Amanda",
+          "lastName": "Doherty",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "69"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208418,
+        "position": "CUT",
+        "player": {
+          "playerId": 101024,
+          "firstName": "Kate",
+          "lastName": "Smith-Stroh",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "72"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208419,
+        "position": "CUT",
+        "player": {
+          "playerId": 81112,
+          "firstName": "Christina",
+          "lastName": "Kim",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "72"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208442,
+        "position": "CUT",
+        "player": {
+          "playerId": 88260,
+          "firstName": "Mina",
+          "lastName": "Kreiter",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "67",
+          "75"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208525,
+        "position": "CUT",
+        "player": {
+          "playerId": 98842,
+          "firstName": "Jennifer",
+          "lastName": "Kupcho",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "72"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208804,
+        "position": "CUT",
+        "player": {
+          "playerId": 98489,
+          "firstName": "Celine",
+          "lastName": "Herbin-Marshall",
+          "countryAbbr": "FRA"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "70"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208888,
+        "position": "CUT",
+        "player": {
+          "playerId": 100688,
+          "firstName": "Narin",
+          "lastName": "An",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "71"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209294,
+        "position": "CUT",
+        "player": {
+          "playerId": 88947,
+          "firstName": "Stephanie",
+          "lastName": "Meadow",
+          "countryAbbr": "NIR"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "73"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209331,
+        "position": "CUT",
+        "player": {
+          "playerId": 98501,
+          "firstName": "Patty",
+          "lastName": "Tavatanakit",
+          "countryAbbr": "THA"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "70"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209345,
+        "position": "CUT",
+        "player": {
+          "playerId": 88308,
+          "firstName": "Jenny",
+          "lastName": "Shin",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "71"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209454,
+        "position": "CUT",
+        "player": {
+          "playerId": 99997,
+          "firstName": "Ingrid",
+          "lastName": "Lindblad",
+          "countryAbbr": "SWE"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "72"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209469,
+        "position": "CUT",
+        "player": {
+          "playerId": 104852,
+          "firstName": "Maria Jose",
+          "lastName": "Marin (a)",
+          "countryAbbr": "COL"
+        },
+        "players": null,
+        "scores": [
+          "74",
+          "68"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209646,
+        "position": "CUT",
+        "player": {
+          "playerId": 98184,
+          "firstName": "Lexi",
+          "lastName": "Thompson",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "70"
+        ],
+        "total": 142,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205438,
+        "position": "CUT",
+        "player": {
+          "playerId": 98284,
+          "firstName": "Jing",
+          "lastName": "Yan",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "74",
+          "69"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207103,
+        "position": "CUT",
+        "player": {
+          "playerId": 99087,
+          "firstName": "Anne",
+          "lastName": "Chen",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "70"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207818,
+        "position": "CUT",
+        "player": {
+          "playerId": 101964,
+          "firstName": "Minji",
+          "lastName": "Kang",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "73"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208457,
+        "position": "CUT",
+        "player": {
+          "playerId": 100374,
+          "firstName": "Stephanie",
+          "lastName": "Kyriacou",
+          "countryAbbr": "AUS"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "73"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208699,
+        "position": "CUT",
+        "player": {
+          "playerId": 88561,
+          "firstName": "Danielle",
+          "lastName": "Kang",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "72"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209254,
+        "position": "CUT",
+        "player": {
+          "playerId": 98444,
+          "firstName": "Nicole",
+          "lastName": "Broch Estrup",
+          "countryAbbr": "DEN"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "71"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209296,
+        "position": "CUT",
+        "player": {
+          "playerId": 102792,
+          "firstName": "Camille",
+          "lastName": "Boyd",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "74"
+        ],
+        "total": 143,
+        "toPar": "+1",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205998,
+        "position": "CUT",
+        "player": {
+          "playerId": 93275,
+          "firstName": "Jeongeun",
+          "lastName": "Lee5",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [
+          "76",
+          "68"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207862,
+        "position": "CUT",
+        "player": {
+          "playerId": 101950,
+          "firstName": "Emma",
+          "lastName": "McMyler",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "76",
+          "68"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208628,
+        "position": "CUT",
+        "player": {
+          "playerId": 99143,
+          "firstName": "Hailee",
+          "lastName": "Cooper",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "74",
+          "70"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209163,
+        "position": "CUT",
+        "player": {
+          "playerId": 98620,
+          "firstName": "Muni",
+          "lastName": "He",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "73"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209226,
+        "position": "CUT",
+        "player": {
+          "playerId": 105015,
+          "firstName": "Helen",
+          "lastName": "Briem",
+          "countryAbbr": "GER"
+        },
+        "players": null,
+        "scores": [
+          "76",
+          "68"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209290,
+        "position": "CUT",
+        "player": {
+          "playerId": 98263,
+          "firstName": "Angel",
+          "lastName": "Yin",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "73"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209315,
+        "position": "CUT",
+        "player": {
+          "playerId": 101941,
+          "firstName": "Yana",
+          "lastName": "Wilson",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "69",
+          "75"
+        ],
+        "total": 144,
+        "toPar": "+2",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205440,
+        "position": "CUT",
+        "player": {
+          "playerId": 98796,
+          "firstName": "Isi",
+          "lastName": "Gabsa",
+          "countryAbbr": "GER"
+        },
+        "players": null,
+        "scores": [
+          "77",
+          "68"
+        ],
+        "total": 145,
+        "toPar": "+3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208633,
+        "position": "CUT",
+        "player": {
+          "playerId": 102400,
+          "firstName": "Cocona",
+          "lastName": "Sakurai",
+          "countryAbbr": "JPN"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "75"
+        ],
+        "total": 145,
+        "toPar": "+3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209219,
+        "position": "CUT",
+        "player": {
+          "playerId": 98270,
+          "firstName": "Leona",
+          "lastName": "Maguire",
+          "countryAbbr": "IRL"
+        },
+        "players": null,
+        "scores": [
+          "70",
+          "75"
+        ],
+        "total": 145,
+        "toPar": "+3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209356,
+        "position": "CUT",
+        "player": {
+          "playerId": 101131,
+          "firstName": "Kiara",
+          "lastName": "Romero",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "72"
+        ],
+        "total": 145,
+        "toPar": "+3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209661,
+        "position": "CUT",
+        "player": {
+          "playerId": 101198,
+          "firstName": "Siyun",
+          "lastName": "Liu",
+          "countryAbbr": "CHN"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "73"
+        ],
+        "total": 145,
+        "toPar": "+3",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205753,
+        "position": "CUT",
+        "player": {
+          "playerId": 98359,
+          "firstName": "Dani",
+          "lastName": "Holmqvist",
+          "countryAbbr": "SWE"
+        },
+        "players": null,
+        "scores": [
+          "72",
+          "74"
+        ],
+        "total": 146,
+        "toPar": "+4",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 209221,
+        "position": "CUT",
+        "player": {
+          "playerId": 102719,
+          "firstName": "Adela",
+          "lastName": "Cernousek",
+          "countryAbbr": "FRA"
+        },
+        "players": null,
+        "scores": [
+          "73",
+          "73"
+        ],
+        "total": 146,
+        "toPar": "+4",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 205425,
+        "position": "CUT",
+        "player": {
+          "playerId": 98244,
+          "firstName": "Megan",
+          "lastName": "Khang",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "71",
+          "76"
+        ],
+        "total": 147,
+        "toPar": "+5",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207069,
+        "position": "CUT",
+        "player": {
+          "playerId": 80727,
+          "firstName": "Natalie",
+          "lastName": "Gulbis",
+          "countryAbbr": "USA"
+        },
+        "players": null,
+        "scores": [
+          "74",
+          "75"
+        ],
+        "total": 149,
+        "toPar": "+7",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208914,
+        "position": "CUT",
+        "player": {
+          "playerId": 99646,
+          "firstName": "Savannah",
+          "lastName": "Grewal",
+          "countryAbbr": "CAN"
+        },
+        "players": null,
+        "scores": [
+          "74",
+          "75"
+        ],
+        "total": 149,
+        "toPar": "+7",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208635,
+        "position": "CUT",
+        "player": {
+          "playerId": 99983,
+          "firstName": "Hira",
+          "lastName": "Naveed",
+          "countryAbbr": "AUS"
+        },
+        "players": null,
+        "scores": [
+          "75",
+          "75"
+        ],
+        "total": 150,
+        "toPar": "+8",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 208386,
+        "position": "CUT",
+        "player": {
+          "playerId": 99270,
+          "firstName": "Matilda",
+          "lastName": "Castren",
+          "countryAbbr": "FIN"
+        },
+        "players": null,
+        "scores": [
+          "81",
+          "78"
+        ],
+        "total": 159,
+        "toPar": "+17",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": false
+      },
+      {
+        "entryId": 207432,
+        "position": "WD",
+        "player": {
+          "playerId": 98598,
+          "firstName": "Hye-Jin",
+          "lastName": "Choi",
+          "countryAbbr": "KOR"
+        },
+        "players": null,
+        "scores": [],
+        "total": 0,
+        "toPar": "E",
+        "prizeMoney": "$$0",
+        "points": "",
+        "noScorecards": true
+      }
+    ]
+  }
+}

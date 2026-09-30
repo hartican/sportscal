@@ -379,6 +379,13 @@ async function main() {
     console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
     return;
   }
+  if(process.argv.includes('--lpga-results')){
+    runStep(['scripts/validate-lpga-results.js']);
+    runStep(['scripts/refresh-lpga-results.js']);
+    runStep(['scripts/build-code-inspector.js','--codes=golf']);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--f1-results')){
     for(const args of [
       ['scripts/validate-f1-session-results.js'],

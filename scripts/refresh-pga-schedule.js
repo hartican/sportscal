@@ -32,7 +32,7 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
   if(!response.ok)throw new Error(`PGA schedule ${year}: HTTP ${response.status}`);
   try{seasons.push(...parse(await response.text(),year,{requireFull:!future}));}catch(error){if(future&&error.code==='PGA_SEASON_UNPUBLISHED'){console.log(error.message);continue;}throw error;}
  }
- const document={schemaVersion:'pga-tour-schedule.v1',sourceName:'PGA TOUR official schedule',checkedAt:new Date().toISOString(),tournaments:seasons};
+ let document={schemaVersion:'pga-tour-schedule.v1',sourceName:'PGA TOUR official schedule',checkedAt:new Date().toISOString(),tournaments:seasons};
  const cup=baseFixtures(document).find(t=>t.name==='Presidents Cup');
  if(cup){
   const previousCup=previous?.presidentsCup||[];
@@ -66,6 +66,7 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
   }
   const observed=new Set(observations.map(e=>e.id));document.lpga=[...document.lpga.filter(e=>!observed.has(e.id)),...observations];
  }catch(error){console.warn('LPGA source retained:',error.message);}
+ const results=await require('../lib/lpga-results').refresh(document,{fetchImpl});document=results.document;for(const failure of results.failures)console.warn('LPGA results retained:',failure.id,failure.message);
  // The snapshot contains sporting facts only, never page-context/session data.
  if(previous&&JSON.stringify(previous.tournaments)===JSON.stringify(seasons))document.checkedAt=previous.checkedAt;
  fs.writeFileSync(OUTPUT,JSON.stringify(document,null,2)+'\n');console.log(`PGA TOUR: ${seasons.length} published tournaments, ${seasons.filter(t=>t.major).length} majors, ${seasons.filter(t=>t.winners.length).length} confirmed results`);return document;

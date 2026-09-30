@@ -209,7 +209,7 @@
       time: start.time,
       dateOnly: fixture.dateOnly === true,
       timePrecision: fixture.timePrecision,
-      displayTime: fixture.dateOnly ? "Multiple live stages" : null,
+      displayTime: fixture.dateOnly ? (fixtureIsFinished(fixture) ? "Completed" : "Session times vary") : null,
       startTimeUtc: fixture.startTimeUtc,
       status: fixtureIsFinished(fixture) ? "completed" : "upcoming",
       scheduleStatus: fixture.scheduleStatus,
