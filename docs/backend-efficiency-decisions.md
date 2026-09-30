@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Completed Asia Cup source — 30 September 2026
+
+The fixed Women's Asia Cup 2026 source reads Cricket Australia's own completed-results API instead of the series page's empty upcoming-only embedded array. The official UI confirmed a 28 August–13 September tournament and resolved the final; two observed API pages return all 15 results. The adapter permits at most three pages of 13 records, rejects wrong competition/gender, duplicate IDs, unresolved participants, incomplete totals and failed pages, and publishes only the complete collection. Existing fixture identities and alternative-provider aliases survive. No new provider or scheduler is introduced.
+
+This finished competition has a six-hour minimum live refresh interval, at most 12 requests per day at the three-page ceiling (eight for the observed two-page result), replacing failed half-hour retries. Last-good records survive provider failure. The canonical scoped command is `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --coverage --coverage-source=cricket-ca-4710`; it refreshes only this source, preserves other source statuses and rebuilds Cricket Schedule/Inspector projections. It makes no AI calls. Do not use the completed-only adapter as a generic future tournament feed.
+
+Schedule merging keeps richer viewing metadata but does not let it replace a newer official confirmed result with an older scheduled state. Source timestamps and result evidence are required; postponed/cancelled states are not overridden by this fallback. Regression: `validate-asia-cup-source.js --published`, existing Inspector contracts and `validate-asia-cup-browser.js`. Full cricket quality and commercial-source permission remain separate gates.
+
 ## Stable live fixture creation times — 30 September 2026
 
 AFL, AFLW and NRL live adapters pass the prior snapshot's valid creation times to the existing canonical parsers, keyed by exact fixture ID. A known fixture keeps its first observation; a newly discovered identity receives the current check time. Updated/source-check timestamps still advance. The shared content hash continues to detect creation-time and real fact changes; no global creation-time exclusion is added. No database migration, history deletion, polling or scheduler change is required.

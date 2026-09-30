@@ -421,6 +421,16 @@ async function main() {
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
   if(process.argv.includes("--coverage")){
+    const coverageScope=process.argv.find(arg=>arg.startsWith('--coverage-source='));
+    if(coverageScope){
+      if(coverageScope!=='--coverage-source=cricket-ca-4710')throw new Error('Unsupported coverage source');
+      const sources=require('../lib/source-coverage').coverageSources().filter(source=>source.id==='cricket-ca-4710');
+      await require('./refresh-source-coverage').refreshCoverage({sources,scoped:true});
+      runStep(['scripts/build-code-inspector.js','--codes=cricket']);
+      runStep(['scripts/validate-source-coverage.js']);
+      runStep(['scripts/validate-asia-cup-source.js','--published']);
+      return;
+    }
     await require("./refresh-source-coverage").refreshCoverage();
     runStep(["scripts/refresh-us-open-events.js"]);
     runStep(["scripts/refresh-us-open-events.js","--check"]);

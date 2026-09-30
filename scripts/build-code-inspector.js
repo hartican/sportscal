@@ -352,9 +352,17 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       event.canonicalEventId,
       ...(event.sourceEventIds || []),
     ].filter(Boolean))];
+    // Viewing richness must not undo a newer, source-backed final result.
+    const terminalUpdate = secondary?.status === 'completed'
+      && ['scheduled','upcoming','live','finished'].includes(preferred?.status)
+      && secondary.sourceType === 'official'
+      && Boolean(secondary.scoreDisplay || secondary.result || secondary.innings?.length)
+      && Number.isFinite(Date.parse(secondary.sourceCheckedAt))
+      && Date.parse(secondary.sourceCheckedAt) >= (Date.parse(preferred.sourceCheckedAt) || 0);
     const mergedEvent = previous ? {
-      ...secondary,
-      ...preferred,
+      ...(terminalUpdate ? preferred : secondary),
+      ...(terminalUpdate ? secondary : preferred),
+      ...(terminalUpdate ? Object.fromEntries(["broadcaster","viewingOptions","broadcastOptions","broadcasterIds"].filter(key=>preferred[key]!=null).map(key=>[key,preferred[key]])) : {}),
       id:retainedId,
       eventId:preferred.eventId || retainedId,
       canonicalEventId:preferred.canonicalEventId || retainedId,
