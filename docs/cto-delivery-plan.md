@@ -108,3 +108,7 @@ Reviewed 82 unique public Stan live listings (next EPL round and two rounds each
 Read-only recovery-project observation at 01:21 UTC confirms the first autonomous Asia Cup success at 01:20:24 UTC: all 15 completed fixtures persisted, failure count fell from 2,036 to zero, next due exactly six hours later. No manual replay, database mutation or scheduler change was used. All 35 source failure counters are zero at this observation; that is not a full freshness or sport-quality certification.
 
 AFL, AFLW and NRL each completed a successful natural check after the creation-time repair deployed at 00:42:12 UTC. Their current revisions remain 7133, 7119 and 7131 respectively, with zero added snapshots since the release. This closes initial runtime acceptance, not a long-term savings estimate. Production READY release 47410f5 contains both repair commits by verified Git ancestry. Evidence: source-recovery-proof-2026-09-30.json in the delivery folder. No repeat monitor or documentation-only deployment is needed.
+
+## Account erasure adapter connection — 30 September 2026
+
+Connected exact-account owned-message and Auth cleanup after existing verified steps, with private durable intent, fresh inventory/Auth gates and lost-response reconciliation. Added isolated connected-operator regressions to the production gate. No real-account deletion or DB mutation. Legacy issuer shutdown still blocks the normal workflow, and expiry/final Storage/reconciliation adapters remain incomplete; this is not customer-erasure launch readiness.

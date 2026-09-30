@@ -57,6 +57,7 @@ jobs:
           node scripts/validate-notification-send-erasure.js
           node scripts/validate-erasure-workflow.js
           node scripts/validate-erasure-storage-sweep.js
+          node scripts/validate-erasure-owned-data.js
           node scripts/validate-erasure-audit-snapshots.js
           node scripts/validate-erasure-indirect-memberships.js
           node scripts/validate-profile-avatars.js
