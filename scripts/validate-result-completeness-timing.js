@@ -40,6 +40,20 @@ try {
   const afterEightHours = runCheck(oneDayEvent, "2026-08-13T09:00:00.000Z");
   assert.equal(afterEightHours.status, 1, "ordinary liveWindow timing must remain unchanged");
 
+  const rules = require('./lib/storyline-card-rules');
+  const scheduled = {...oneDayEvent, status:'scheduled', name:'Home v Away', selectedSentence:'Home hosts Away.', fullSpiel:'The next meeting awaits.'};
+  const afterKickoff = new Date('2026-08-20T09:00:00Z');
+  for (const status of ['scheduled','live','postponed','cancelled','abandoned']) {
+    assert.equal(rules.lifecycleFor({...scheduled,status},afterKickoff),'upcoming','the clock cannot establish a completed result');
+  }
+  scheduled.storyline = rules.storylineFor(scheduled,afterKickoff);
+  assert.equal(scheduled.storyline.arcStage,'preview');
+  assert.deepEqual(rules.spoilerContractIssues(scheduled,afterKickoff),[],'unresolved scheduled cards must survive intermediate projection');
+  assert.equal(runCheck(scheduled,afterKickoff.toISOString()).status,1,'overdue results still block final publication');
+  const completed = {...scheduled,status:'completed',outcomeText:'Home defeated Away.',recapText:'Home finished ahead.'};
+  assert.equal(rules.storylineFor(completed,afterKickoff).arcStage,'recap','confirmed completion still selects result copy');
+  assert(rules.spoilerContractIssues(completed,afterKickoff).length,'stale previews on genuinely completed cards remain invalid');
+
   assert.equal(runCheck({...oneDayEvent,gender:'women',format:'T20'},'2026-08-20T09:00:00.000Z').status,0,'Paused women T20 results create no publication demand');
   assert.equal(runCheck({...oneDayEvent,gender:'women',format:'ODI'},'2026-08-20T09:00:00.000Z').status,1,'Women ODI results remain required');
   assert.equal(runCheck({...oneDayEvent,key:'f1',name:'Spanish GP Practice 1',sessionType:'practice'},'2026-08-20T09:00:00.000Z').status,0,'Practice stays outside the Feed result contract');

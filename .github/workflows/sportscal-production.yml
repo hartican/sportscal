@@ -77,6 +77,7 @@ jobs:
           node scripts/validate-nrl-grand-final.js --published
           node scripts/validate-nrl-finals-readiness.js
           node scripts/validate-update-cards.js
+          node scripts/validate-result-completeness-timing.js
           node scripts/validate-requested-sports.js
           node scripts/validate-card-identities.js
           node scripts/validate-refresh-resume.js

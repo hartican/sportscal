@@ -21,6 +21,9 @@ function startTime(event) {
 
 function lifecycleFor(event, now = new Date()) {
   if (event.status === "completed" || event.status === "upcoming") return event.status;
+  // A scheduled or unresolved fixture cannot become a recap from the clock.
+  // Result completeness independently rejects overdue fixtures without results.
+  if (["scheduled", "live", "postponed", "cancelled", "abandoned"].includes(event.status)) return "upcoming";
   const end = startTime(event).getTime() + Number(event.liveWindow || 3) * 60 * 60 * 1000;
   return end < now.getTime() ? "completed" : "upcoming";
 }

@@ -268,6 +268,13 @@ const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-a
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-cards.js"), "utf8");
+// Exercise the actual release allowlist against every generated quick-refresh
+// surface, including runtime standings and secondary projection manifests.
+const releaseOutputs = [...releaseScript.match(/CARD_OUTPUT_FILES=\(([\s\S]*?)\n\)/)[1].matchAll(/"([^"]+)"/g)].map(match=>match[1]);
+for(const file of ['assets/js/app-shell-runtime.js','data/chat-fixtures.v1.json','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
+  assert(releaseOutputs.some(output=>file===output||file.startsWith(output+'/')),`${file} must travel with refreshed canonical data`);
+}
+assert(releaseScript.indexOf('node scripts/build-app-shell-runtime.js --check') < releaseScript.indexOf('git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"',releaseScript.indexOf('INITIAL_HEAD=')),'stale generated runtime must fail before the release commit');
 // This offline regression verifies the published snapshot, not matches that
 // finish after that snapshot. Production verification keeps its real clock.
 const snapshotTime = JSON.parse(fs.readFileSync(path.join(projectRoot, "data/feed-meta.json"), "utf8")).publishedAt;
@@ -286,7 +293,7 @@ for (const name of [
 const quickFixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-quick-qa-'));
 let quickResult;
 try{
-  for(const directory of ['scripts','config','lib','api','data','feeds','schemas'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
+  for(const directory of ['scripts','config','lib','api','data','feeds','schemas','assets'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
   for(const file of ['package.json','index.html','service-worker.js','app-version.json','vercel.json'])fs.copyFileSync(path.join(projectRoot,file),path.join(quickFixtureRoot,file));
   fs.symlinkSync(path.join(projectRoot,'node_modules'),path.join(quickFixtureRoot,'node_modules'),'dir');
   quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
@@ -294,6 +301,20 @@ try{
     env:quickEnvironment,
     encoding:"utf8",
   });
+  // Fail after runtime generation. Neither the new standings runtime nor its
+  // source data may escape a rejected atomic refresh.
+  const runtimePath=path.join(quickFixtureRoot,'assets/js/app-shell-runtime.js');
+  fs.appendFileSync(runtimePath,'\n// Prior published runtime bytes for rollback regression.\n');
+  const oldRuntime=fs.readFileSync(runtimePath);
+  const canonicalPath=path.join(quickFixtureRoot,'data/canonical/afl-nrl-2026.json');
+  const oldCanonical=fs.readFileSync(canonicalPath);
+  fs.writeFileSync(path.join(quickFixtureRoot,'scripts/verify-result-completeness.js'),"console.error('Injected final completeness failure');process.exit(1);\n");
+  const rejected=spawnSync(process.execPath,['scripts/update-cards.js','--quick','--offline','--rebuild','--local-only'],{cwd:quickFixtureRoot,env:quickEnvironment,encoding:'utf8'});
+  assert.notEqual(rejected.status,0);
+  assert.match(rejected.stdout,/App shell runtime:/,'test must reach runtime generation before failure');
+  assert.match(rejected.stderr,/Injected final completeness failure/);
+  assert(fs.readFileSync(runtimePath).equals(oldRuntime),'failed refresh must restore the runtime');
+  assert(fs.readFileSync(canonicalPath).equals(oldCanonical),'failed refresh must restore canonical data');
 }finally{fs.rmSync(quickFixtureRoot,{recursive:true,force:true});}
 assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
 assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
