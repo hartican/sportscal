@@ -17,7 +17,7 @@ async function verify(){
  const calls=[];
  const fetchPage=async url=>{calls.push(url);return url.endsWith('/races')?'<a href="/en/results/2026/races/1295/azerbaijan/race-result">Race</a>':table();};
  const result=await updatesFor([fixture],now,fetchPage,context);
- assert.equal(result.length,1);assert.equal(result[0].status,'completed');assert.match(result[0].outcomeText,/was fastest in/);assert.equal(result[0].fixtureResults.columns.length,6);assert.match(calls[1],/practice\/3$/);assert.equal(result[0].id,fixture.id);
+ assert.equal(result.length,1);assert.equal(result[0].status,'completed');assert.match(result[0].outcomeText,/was fastest in/);assert.equal(result[0].fixtureResults.columns.length,6);assert.match(calls[1],/practice\/3$/);assert.equal(result[0].id,fixture.id);assert.equal(require('../config/card-results').scoreLine(result[0],fixture.name,{score:result[0].score}),result[0].score);
  const patched=require('./quick-results').patchKnown([fixture],result);assert.equal(patched.count,1);assert.deepEqual(patched.events[0].fixtureResults,result[0].fixtureResults);assert.deepEqual(patched.events[0].participantIds,result[0].participantIds);assert.equal(require('./quick-results').patchKnown(patched.events,result).count,0);
  for(const status of ['cancelled','postponed','abandoned'])assert.equal((await updatesFor([{...fixture,status}],now,fetchPage,context)).length,0);
  assert.equal((await updatesFor([fixture],new Date('2026-09-25T09:00:00Z'),fetchPage,context)).length,0);

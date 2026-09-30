@@ -23,6 +23,8 @@
     const structured = structuredScore(event);
     const original = String(structured || result?.score || result?.outcome || "").trim();
     if (!original) return null;
+    // Multi-driver classifications need each ranked identity, even when participants are shown elsewhere.
+    if(event?.key==='f1' && event?.fixtureResults?.rows?.length)return original;
     // A cricket margin needs its winner; stripping team names makes "by 59 runs" ambiguous.
     const cricketOutcome=String(event?.outcomeText || result?.outcome || '').trim();
     if(event?.key==='cricket' && /\b(?:won|defeated|beat)\b/i.test(cricketOutcome) && /\bby\b/i.test(cricketOutcome))return cricketOutcome;
