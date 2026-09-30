@@ -432,7 +432,9 @@
   function setEntityFollow(graph, participantId, followLevel){
     if (followLevel === "mute") followLevel = "unfollow"; // Older clients used mute for ordinary Unfollow.
     const next = cloneGraph(graph);
-    next.entityFollows = next.entityFollows.filter(preference => preference.participantId !== participantId);
+    const identity=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY || (typeof require==='function'?require('./fixture-identity'):null);
+    const canonical=id=>identity?.canonicalParticipantId?.(id)||id;
+    next.entityFollows = next.entityFollows.filter(preference => canonical(preference.participantId) !== canonical(participantId));
     if (["follow", "priority", "unfollow"].includes(followLevel)){
       next.entityFollows.push({ profileId: next.profileId, participantId, followLevel });
     }

@@ -1,5 +1,10 @@
 # Follow and Feed decisions
 
+## Reviewed Lancashire/Durham provider equivalence — 30 September 2026
+
+CA50/ESPN1116 identify the same men's Lancashire side, and CA40/ESPN924 the same men's Durham side. An existing explicit Follow under either exact ID applies to the same participant; it does not opt into a different competition, gender or reserve side. Updating Follow through either alias replaces the group's prior explicit choice, so an old Unfollow cannot defeat a deliberate refollow. Confirmed participant exclusions match both aliases; ordinary Unfollow retains its existing neutral semantics. Stored preferences are not bulk rewritten. Only the separately reviewed CA39484/ESPN1513451 fixture pair is consolidated; both action aliases remain. Evidence and cutover limits: `docs/quality/cricket-provider-identities.md`. Regressions: `validate-cricket-provider-identities.js`, `validate-cricket-identities-browser.js`, existing server/client Follow parity.
+
+
 ## Sporting schedules, Follow navigation and golfer entries — 25 September 2026
 
 Approved in the grill-me interview and implementation request. This supersedes the earlier rule excluding ordinary golf tournaments from participant-based admission. An explicit golfer follow, or Golf with Follow Australians enabled, admits one source-confirmed tournament card when that golfer is entered. Tee times and playing partners are nested details, added when officially published. Men's and women's fields use the same opt-in; a broad Golf follow alone retains its existing majors/Presidents Cup scope. A golfer follow does not create separate session cards. Published withdrawals and explicit fixture/family/competition exclusions win. Missing fields, reserve lists, past winners and tour membership do not establish an entry. Temporary source failures retain last verified evidence, with its original check time.

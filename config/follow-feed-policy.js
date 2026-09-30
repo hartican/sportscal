@@ -28,7 +28,9 @@
   }
 
   function participantIds(event){
-    const excluded = new Set(Array.isArray(event?.excludedParticipantIds) ? event.excludedParticipantIds : []);
+    const identity=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY || (typeof require==='function'?require('./fixture-identity'):null);
+    const canonical=id=>identity?.canonicalParticipantId?.(id)||id;
+    const excluded = new Set((Array.isArray(event?.excludedParticipantIds) ? event.excludedParticipantIds : []).map(canonical));
     return Array.from(new Set([
       ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
       ...(Array.isArray(event?.participantSlots) ? event.participantSlots.map(slot => slot?.participantId) : []),
@@ -38,7 +40,7 @@
       event?.awayTeamId,
       event?.homeParticipantId,
       event?.awayParticipantId,
-    ].filter(Boolean).map(String))).filter(id => !excluded.has(id));
+    ].filter(Boolean).map(String))).filter(id => !excluded.has(canonical(id)));
   }
 
   function presidentsCup(event){return sportKey(event)==='golf'&&event.eventFamilyId==='presidents-cup'&&['competition:presidents-cup'].includes(event.competitionId)&&!/^Live From/i.test(event.name||'');}

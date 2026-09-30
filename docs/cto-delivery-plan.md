@@ -150,4 +150,9 @@ Implemented bounded completed-results reconciliation in the existing Cricket Aus
 
 ### Shared cricket/rugby publication — 30 September 2026
 
-The weekday quick path skipped source coverage, leaving saved Schedule behind the existing live store. A bounded read-only projection now reuses that store, including separate scores, with 36-hour observation validity, no inferred completion and no-op byte preservation. Local replay moved 52 additional coverage records to completed, cleared 24 rugby stale candidates and reduced cricket candidates from 22 to 3. Three candidates are not three proven unfinished repairs: multi-day ongoing fixtures require assessment; CA39484 still overlaps an ESPN completed Lancashire–Durham record. Full sport certification remains unchanged. Deployment evidence is pending until this phase's production report.
+The weekday quick path skipped source coverage, leaving saved Schedule behind the existing live store. A bounded read-only projection now reuses that store, including separate scores, with 36-hour observation validity, no inferred completion and no-op byte preservation. Local replay moved 52 additional coverage records to completed, cleared 24 rugby stale candidates and reduced cricket candidates from 22 to 3. Three candidates are not three proven unfinished repairs: multi-day ongoing fixtures require assessment; CA39484 still overlaps an ESPN completed Lancashire–Durham record. Full sport certification remains unchanged. Deployed as 758956485a8fc1a6e503d39c25768bdf857cc095; exact-SHA READY, real read-only RPC and public projections/rendering verified in live-coverage-delivery-2026-09-30.md.
+
+
+### Reviewed cricket identity repair — 30 September 2026
+
+Implemented one reviewed Lancashire–Durham fixture equivalence and two exact team Follow equivalences. Durable-reference preflight found no affected persisted activity; saved local action aliases and neutral Unfollow/refollow are covered by regressions. Broad historic ID migrations and private-chat merges are excluded. Shell 335 publication remains pending release evidence.

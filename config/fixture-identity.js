@@ -29,6 +29,13 @@
     return codes.find(code => code.id === (aliases[entity.parentId] || entity.parentId)) || null;
   }
 
+  // Reviewed exact provider identities; no name-based inference. Evidence and
+  // durable-reference preflight: docs/quality/cricket-provider-identities.md.
+  const PARTICIPANT_ALIASES=Object.freeze({'team:cricket:espn-1116':'team:cricket:ca-50','team:cricket:espn-924':'team:cricket:ca-40'});
+  const FIXTURE_ALIASES=Object.freeze({'fixture:cricket:espn:1513451':'fixture:cricket:CA:39484'});
+  function canonicalParticipantId(id){return PARTICIPANT_ALIASES[String(id||'')]||String(id||'');}
+  function canonicalFixtureId(id){return FIXTURE_ALIASES[String(id||'')]||String(id||'');}
+
   function normalizeCore(event){
     const value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
     const text = input => typeof input === "string" ? input : "";
@@ -57,6 +64,16 @@
     }
     for (const key of ["storyline", "calendarTemplate"]){
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
+    }
+    // Only the reviewed fixture pair is consolidated here. Team Follow aliases
+    // do not implicitly merge every historic fixture or its durable actions.
+    if(normalized.key==='cricket'&&canonicalFixtureId(normalized.id)==='fixture:cricket:CA:39484'){
+      normalized.canonicalEventId='fixture:cricket:CA:39484';
+      normalized.sourceEventIds=[...new Set([...(value.sourceEventIds||[]),'fixture:cricket:CA:39484','fixture:cricket:espn:1513451'])];
+      normalized.participantIds=normalized.participantIds.map(canonicalParticipantId);
+      normalized.participants=normalized.participants.map(p=>({...p,id:canonicalParticipantId(p.id)}));
+      for(const key of ['homeParticipantId','awayParticipantId','winnerParticipantId'])if(normalized[key])normalized[key]=canonicalParticipantId(normalized[key]);
+      if(Array.isArray(normalized.innings))normalized.innings=normalized.innings.map(i=>({...i,...(i.participantId?{participantId:canonicalParticipantId(i.participantId)}:{})}));
     }
     normalized.consensusTags=consensusTagsForEvent(normalized);
     const national = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -156,8 +173,16 @@
     }else if(event.status)event.statusCheckedAt=statusTime;
   }
 
+  function reconcileReviewedFixtureAliases(events){
+    const matches=events.filter(e=>canonicalFixtureId(e?.id||e?.eventId)==='fixture:cricket:CA:39484');
+    if(!matches.length)return events;
+    const [merged]=mergeOverlays([],matches);
+    const fixture={...merged,id:'fixture:cricket:CA:39484',eventId:'fixture:cricket:CA:39484',canonicalEventId:'fixture:cricket:CA:39484'};
+    let inserted=false;
+    return events.flatMap(e=>{if(!matches.includes(e))return [e];if(inserted)return [];inserted=true;return [fixture];});
+  }
   function mergeOverlays(events,updates){
-    const result=events.slice(),indexes=new Map(),semanticIndexes=new Map();
+    const result=reconcileReviewedFixtureAliases(events).slice(),indexes=new Map(),semanticIndexes=new Map();
     const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id,...(event?.sourceEventIds||[])].filter(Boolean);
     const semanticKey=event=>{
       const ids=[...new Set([event.homeParticipantId,event.awayParticipantId].filter(Boolean))];
@@ -169,7 +194,7 @@
     // Enrichment is an additive overlay, never a replacement score/status feed.
     const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
     for(const update of ordered){
-      const event = {...update};
+      const event = {...(canonicalFixtureId(update?.id||update?.eventId)==='fixture:cricket:CA:39484'?normalizeCore(update):update)};
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
@@ -285,5 +310,5 @@
     const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
     return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
-  return Object.freeze({sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
+  return Object.freeze({canonicalParticipantId,canonicalFixtureId,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });

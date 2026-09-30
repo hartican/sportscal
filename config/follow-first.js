@@ -399,7 +399,8 @@
   }
 
   function participantFollowIdentityKey(participantId){
-    const id = String(participantId || "");
+    const identity=root.NOTHINGSPORTS_FIXTURE_IDENTITY || (typeof require==='function'?require('./fixture-identity'):null);
+    const id = identity?.canonicalParticipantId?.(participantId) || String(participantId || "");
     const tennis = id.match(/^(?:athlete:tennis|competitor:tennis:(?:atp|wta)):(.+)$/);
     return tennis ? `tennis:${tennis[1]}` : id;
   }

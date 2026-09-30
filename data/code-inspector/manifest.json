@@ -179,7 +179,7 @@
       "id": "sport:cricket",
       "slug": "cricket",
       "label": "Cricket",
-      "fixtureCount": 1307,
+      "fixtureCount": 1306,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
