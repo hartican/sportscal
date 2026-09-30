@@ -443,6 +443,13 @@
       "sport": "cricket",
       "scope": "international",
       "gender": "men"
+    },
+    {
+      "id": "competition:cricket:4675",
+      "name": "Australia tour of South Africa · Warm-up",
+      "sport": "cricket",
+      "scope": "domestic",
+      "gender": "men"
     }
   ],
   "events": [
@@ -3073,7 +3080,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "completed",
       "format": "ODI",
       "roundLabel": "2nd ODI (D/N)",
       "venue": "Barsapara Cricket Stadium, Guwahati",
@@ -3081,32 +3088,32 @@
         {
           "id": "team:cricket:india",
           "name": "India",
-          "displayName": "India",
+          "role": "home",
           "aliases": [
             "IND"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "6"
           },
           "countryCode": "IN",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "India",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:west-indies",
           "name": "West Indies",
-          "displayName": "West Indies",
+          "role": "away",
           "aliases": [
             "WI"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "4"
           },
           "countryCode": null,
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "West Indies",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -3118,16 +3125,16 @@
       ],
       "homeParticipantId": "team:cricket:india",
       "awayParticipantId": "team:cricket:west-indies",
-      "scoreDisplay": null,
+      "scoreDisplay": "India won by 8 wkts (39b rem)",
       "sourceFixtureId": "1529228",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24289/game/1529228/india-vs-west-indies-2nd-odi-24289",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceUrl": "https://www.espn.in/cricket/series/24289/scorecard/1529228/india-vs-west-indies-2nd-odi-24289",
+      "sourceCheckedAt": "2026-09-30T19:42:04.526Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/24289/game/1529228/india-vs-west-indies-2nd-odi-24289",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T19:42:04.526Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/24289/scorecard/1529228/india-vs-west-indies-2nd-odi-24289"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "India v West Indies",
@@ -3144,7 +3151,12 @@
       "endDate": "2026-09-30",
       "sourceEventIds": [
         "fixture:cricket:espn:1529228"
-      ]
+      ],
+      "firstConfirmedCompleteAt": "2026-09-30T16:52:04.964978+00:00",
+      "scoreCheckedAt": "2026-09-30T19:42:04.526Z",
+      "statusCheckedAt": "2026-09-30T19:42:04.526Z",
+      "endTimeUtc": "2026-09-30T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1525657",
@@ -3164,7 +3176,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "completed",
       "format": "ODI",
       "roundLabel": "3rd ODI (D/N)",
       "venue": "Senwes Park, Potchefstroom",
@@ -3172,32 +3184,32 @@
         {
           "id": "team:cricket:south-africa",
           "name": "South Africa",
-          "displayName": "South Africa",
+          "role": "home",
           "aliases": [
             "SA"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "3"
           },
           "countryCode": "ZA",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "South Africa",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:australia",
           "name": "Australia",
-          "displayName": "Australia",
+          "role": "away",
           "aliases": [
             "AUS"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "2"
           },
           "countryCode": "AU",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Australia",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -3210,16 +3222,16 @@
       ],
       "homeParticipantId": "team:cricket:south-africa",
       "awayParticipantId": "team:cricket:australia",
-      "scoreDisplay": null,
+      "scoreDisplay": "Australia won by 45 runs (DLS)",
       "sourceFixtureId": "1525657",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525657/south-africa-vs-australia-3rd-odi-24203",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceUrl": "https://www.espn.in/cricket/series/24203/scorecard/1525657/south-africa-vs-australia-3rd-odi-24203",
+      "sourceCheckedAt": "2026-09-30T19:42:04.526Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525657/south-africa-vs-australia-3rd-odi-24203",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T19:42:04.526Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/24203/scorecard/1525657/south-africa-vs-australia-3rd-odi-24203"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "South Africa v Australia",
@@ -3236,7 +3248,12 @@
       "endDate": "2026-09-30",
       "sourceEventIds": [
         "fixture:cricket:espn:1525657"
-      ]
+      ],
+      "firstConfirmedCompleteAt": "2026-09-30T19:42:08.056924+00:00",
+      "scoreCheckedAt": "2026-09-30T19:42:04.526Z",
+      "statusCheckedAt": "2026-09-30T19:42:04.526Z",
+      "endTimeUtc": "2026-09-30T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552776",
@@ -3446,20 +3463,20 @@
       "id": "fixture:cricket:espn:1525658",
       "eventId": "fixture:cricket:espn:1525658",
       "canonicalEventId": "fixture:cricket:espn:1525658",
-      "sourceFixtureId": "1525658",
+      "sourceFixtureId": "CA:40593",
       "key": "cricket",
       "sport": "Cricket",
       "sportDomainId": "sport:cricket",
-      "competitionId": "competition:cricket:espn:24203",
+      "competitionId": "competition:cricket:4675",
       "competitionName": "Australia tour of South Africa · Warm-up",
       "competitionScope": "domestic",
       "isInternational": false,
       "isSenior": true,
       "gender": "men",
       "name": "CSA Invitation XI v Australia",
-      "roundLabel": "Tour Match",
+      "roundLabel": "Only Warm-Up Match",
       "startTimeUtc": "2026-10-03T08:00:00.000Z",
-      "endTimeUtc": "2026-10-04T00:00:00Z",
+      "endTimeUtc": null,
       "timePrecision": "exact",
       "venue": "NWC Oval, Potchefstroom",
       "participantIds": [
@@ -3469,37 +3486,20 @@
       "participants": [
         {
           "id": "team:cricket:espn-1075499",
-          "name": "Cricket South Africa Invitation XI",
-          "displayName": "Cricket South Africa Invitation XI",
-          "aliases": [
-            "SA-XI"
-          ],
-          "sourceIds": {
-            "espn": "1075499"
-          },
-          "countryCode": "ZA",
+          "name": "CSA Invitation XI",
           "teamKind": "club",
-          "genderCategory": "male",
-          "role": "home"
+          "countryCode": null,
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:australia",
-          "name": "Australia",
-          "displayName": "Australia",
-          "aliases": [
-            "AUS"
-          ],
-          "sourceIds": {
-            "espn": "2"
-          },
-          "countryCode": "AU",
+          "name": "Australia Men",
           "teamKind": "national",
-          "genderCategory": "male",
-          "role": "away"
+          "countryCode": "AU",
+          "genderCategory": "male"
         }
       ],
       "participantCountryCodes": [
-        "ZA",
         "AU"
       ],
       "homeParticipantId": "team:cricket:espn-1075499",
@@ -3510,13 +3510,13 @@
       "format": "Warm-up",
       "numberOfDays": 2,
       "sourceName": "Cricket Australia",
-      "sourceType": "trusted-reporting",
+      "sourceType": "official",
       "sourceUrl": "https://www.cricket.com.au/matches/series",
-      "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
+      "sourceCheckedAt": "2026-09-30T19:24:00.629Z",
       "timingProvenance": {
-        "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525658/cricket-south-africa-invitation-xi-vs-australia-tour-match-24203",
-        "checkedAt": "2026-09-30T11:15:20.723Z"
+        "kind": "official",
+        "checkedAt": "2026-09-30T19:24:00.629Z",
+        "sourceUrl": "https://www.cricket.com.au/matches/"
       },
       "displayTitleCompact": "CSA Invitation XI v Australia",
       "date": "2026-10-03",
@@ -3537,7 +3537,8 @@
       "sourceEventIds": [
         "fixture:cricket:espn:1525658",
         "fixture:cricket:CA:40593"
-      ]
+      ],
+      "statusCheckedAt": "2026-09-30T19:24:00.629Z"
     },
     {
       "id": "fixture:cricket:espn:1529230",
@@ -3729,7 +3730,7 @@
       "key": "cricket",
       "sport": "Cricket",
       "sportDomainId": "sport:cricket",
-      "name": "South Africa v Australia",
+      "name": "South Africa v Australia — First Test",
       "competitionId": "competition:cricket:espn:24203",
       "competitionName": "Australia tour of South Africa 2026/27",
       "competitionScope": "international",
@@ -3788,9 +3789,9 @@
       "awayParticipantId": "team:cricket:australia",
       "scoreDisplay": null,
       "sourceFixtureId": "1525659",
-      "sourceName": "ESPNcricinfo",
+      "sourceName": "Cricket Australia",
       "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525659/south-africa-vs-australia-1st-test-24203",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
       "timingProvenance": {
         "kind": "published-schedule",
@@ -3798,7 +3799,7 @@
         "checkedAt": "2026-09-30T11:15:20.723Z"
       },
       "discoverySourceId": "cricket-espn",
-      "displayTitleCompact": "South Africa v Australia",
+      "displayTitleCompact": "South Africa v Australia — First Test",
       "time": "18:30",
       "broadcaster": "",
       "participantSlots": [],
@@ -3811,8 +3812,11 @@
       "numberOfDays": 5,
       "endDate": "2026-10-13",
       "sourceEventIds": [
-        "fixture:cricket:espn:1525659"
-      ]
+        "fixture:cricket:espn:1525659",
+        "evt_87"
+      ],
+      "matchFormat": "Test",
+      "statusCheckedAt": "2026-09-30T11:15:20.723Z"
     },
     {
       "id": "fixture:cricket:espn:1529231",
@@ -4645,7 +4649,7 @@
       "key": "cricket",
       "sport": "Cricket",
       "sportDomainId": "sport:cricket",
-      "name": "South Africa v Australia",
+      "name": "South Africa v Australia — Second Test",
       "competitionId": "competition:cricket:espn:24203",
       "competitionName": "Australia tour of South Africa 2026/27",
       "competitionScope": "international",
@@ -4704,9 +4708,9 @@
       "awayParticipantId": "team:cricket:australia",
       "scoreDisplay": null,
       "sourceFixtureId": "1525660",
-      "sourceName": "ESPNcricinfo",
+      "sourceName": "Cricket Australia",
       "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525660/south-africa-vs-australia-2nd-test-24203",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
       "timingProvenance": {
         "kind": "published-schedule",
@@ -4714,7 +4718,7 @@
         "checkedAt": "2026-09-30T11:15:20.723Z"
       },
       "discoverySourceId": "cricket-espn",
-      "displayTitleCompact": "South Africa v Australia",
+      "displayTitleCompact": "South Africa v Australia — Second Test",
       "time": "19:00",
       "broadcaster": "",
       "participantSlots": [],
@@ -4727,8 +4731,11 @@
       "numberOfDays": 5,
       "endDate": "2026-10-22",
       "sourceEventIds": [
-        "fixture:cricket:espn:1525660"
-      ]
+        "fixture:cricket:espn:1525660",
+        "evt_88"
+      ],
+      "matchFormat": "Test",
+      "statusCheckedAt": "2026-09-30T11:15:20.723Z"
     },
     {
       "id": "fixture:cricket:espn:1550714",
@@ -5565,7 +5572,7 @@
       "key": "cricket",
       "sport": "Cricket",
       "sportDomainId": "sport:cricket",
-      "name": "South Africa v Australia",
+      "name": "South Africa v Australia — Third Test",
       "competitionId": "competition:cricket:espn:24203",
       "competitionName": "Australia tour of South Africa 2026/27",
       "competitionScope": "international",
@@ -5624,9 +5631,9 @@
       "awayParticipantId": "team:cricket:australia",
       "scoreDisplay": null,
       "sourceFixtureId": "1525661",
-      "sourceName": "ESPNcricinfo",
+      "sourceName": "Cricket Australia",
       "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525661/south-africa-vs-australia-3rd-test-24203",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
       "timingProvenance": {
         "kind": "published-schedule",
@@ -5634,7 +5641,7 @@
         "checkedAt": "2026-09-30T11:15:20.723Z"
       },
       "discoverySourceId": "cricket-espn",
-      "displayTitleCompact": "South Africa v Australia",
+      "displayTitleCompact": "South Africa v Australia — Third Test",
       "time": "19:30",
       "broadcaster": "",
       "participantSlots": [],
@@ -5647,8 +5654,11 @@
       "numberOfDays": 5,
       "endDate": "2026-10-31",
       "sourceEventIds": [
-        "fixture:cricket:espn:1525661"
-      ]
+        "fixture:cricket:espn:1525661",
+        "evt_89"
+      ],
+      "matchFormat": "Test",
+      "statusCheckedAt": "2026-09-30T11:15:20.723Z"
     },
     {
       "id": "fixture:cricket:espn:1550718",
@@ -29257,26 +29267,26 @@
         {
           "id": "team:rugby:all-blacks",
           "name": "New Zealand",
-          "displayName": "New Zealand",
+          "role": "home",
+          "teamKind": "national",
           "sourceIds": {
             "worldRugby": "37"
           },
           "countryCode": "NZ",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "New Zealand",
+          "genderCategory": "male"
         },
         {
           "id": "team:rugby:wallabies",
           "name": "Australia",
-          "displayName": "Australia",
+          "role": "away",
+          "teamKind": "national",
           "sourceIds": {
             "worldRugby": "38"
           },
           "countryCode": "AU",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Australia",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -29293,11 +29303,11 @@
       "sourceName": "Eden Park",
       "sourceType": "official",
       "sourceUrl": "https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/",
-      "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
+      "sourceCheckedAt": "2026-09-30T18:22:00.995Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-23&endDate=2026-12-29&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1",
-        "checkedAt": "2026-09-30T11:15:20.723Z"
+        "checkedAt": "2026-09-30T18:22:00.995Z",
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-23&endDate=2026-12-29&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
       },
       "discoverySourceId": "rugby-wr-mru",
       "displayTitleCompact": "All Blacks v Wallabies",
@@ -29312,14 +29322,14 @@
       "consensusTags": [],
       "sourceStatus": "U",
       "sourceTime": {
+        "label": "2026-10-10",
         "millis": 1791616200000,
-        "gmtOffset": 12,
-        "label": "2026-10-10"
+        "gmtOffset": 12
       },
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "statusCheckedAt": "2026-09-30T18:22:00.995Z",
       "sourceEventIds": [
-        "fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6",
-        "rugby-new-zealand-australia-2026-10-10"
+        "rugby-new-zealand-australia-2026-10-10",
+        "fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6"
       ]
     },
     {
@@ -58485,32 +58495,32 @@
         {
           "id": "team:cricket:south-africa",
           "name": "South Africa",
-          "displayName": "South Africa",
+          "role": "home",
           "aliases": [
             "SA"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "3"
           },
           "countryCode": "ZA",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "South Africa",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:australia",
           "name": "Australia",
-          "displayName": "Australia",
+          "role": "away",
           "aliases": [
             "AUS"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "2"
           },
           "countryCode": "AU",
-          "teamKind": "national",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Australia",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -58531,8 +58541,8 @@
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/24203/scorecard/1525656/south-africa-vs-australia-2nd-odi-24203",
-        "checkedAt": "2026-09-30T11:15:20.723Z"
+        "checkedAt": "2026-09-30T18:58:01.505Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/24203/scorecard/1525656/south-africa-vs-australia-2nd-odi-24203"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "South Africa v Australia",
@@ -58575,8 +58585,8 @@
       ],
       "stakesScore": 5,
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803217+00:00",
-      "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "scoreCheckedAt": "2026-09-30T18:58:01.505Z",
+      "statusCheckedAt": "2026-09-30T18:58:01.505Z",
       "endTimeUtc": "2026-09-27T11:00:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceEventIds": [
@@ -73158,19 +73168,77 @@
       ],
       "homeParticipantId": "team:cricket:india",
       "awayParticipantId": "team:cricket:west-indies",
-      "status": "live",
-      "scoreDisplay": null,
-      "innings": [],
+      "status": "completed",
+      "scoreDisplay": "India win by 8 wickets",
+      "innings": [
+        {
+          "id": 76688,
+          "day": 1,
+          "team": "West Indies Men",
+          "balls": 300,
+          "noBalls": 1,
+          "byesRuns": 1,
+          "fixtureId": 40208,
+          "penalties": 0,
+          "wideBalls": 20,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 405,
+          "isForfeited": false,
+          "legByesRuns": 1,
+          "oversBowled": "50.0",
+          "totalExtras": 23,
+          "inningNumber": 1,
+          "battingTeamId": 24,
+          "bowlingTeamId": 3,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:west-indies",
+          "ballsRemaining": 0,
+          "currentRunRate": 8.1,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 7
+        },
+        {
+          "id": 76692,
+          "day": 1,
+          "team": "India Men",
+          "balls": 261,
+          "noBalls": 3,
+          "byesRuns": 0,
+          "fixtureId": 40208,
+          "penalties": 0,
+          "wideBalls": 17,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 406,
+          "isForfeited": false,
+          "legByesRuns": 2,
+          "oversBowled": "43.3",
+          "totalExtras": 22,
+          "inningNumber": 2,
+          "battingTeamId": 3,
+          "bowlingTeamId": 24,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:india",
+          "ballsRemaining": 39,
+          "currentRunRate": 9.33,
+          "requiredRunRate": 0,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 2
+        }
+      ],
       "format": "ODI",
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T08:08:01.073Z",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-09-30T19:24:00.629Z",
       "timingProvenance": {
         "kind": "official",
-        "checkedAt": "2026-09-30T08:08:01.073Z",
-        "sourceUrl": "https://www.cricket.com.au/matches/"
+        "checkedAt": "2026-09-30T19:24:00.629Z",
+        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       },
       "displayTitleCompact": "India Men v West Indies Men",
       "date": "2026-09-30",
@@ -73183,10 +73251,12 @@
       "broadcasts": [],
       "viewingOptions": [],
       "consensusTags": [],
-      "statusCheckedAt": "2026-09-30T08:08:01.073Z",
+      "statusCheckedAt": "2026-09-30T19:24:00.629Z",
       "sourceEventIds": [
         "fixture:cricket:CA:40208"
-      ]
+      ],
+      "firstConfirmedCompleteAt": "2026-09-30T16:48:06.366937+00:00",
+      "scoreCheckedAt": "2026-09-30T19:24:00.629Z"
     },
     {
       "id": "fixture:cricket:CA:39989",
@@ -73216,15 +73286,15 @@
         {
           "id": "team:cricket:south-africa",
           "name": "South Africa Men",
-          "countryCode": "ZA",
           "teamKind": "national",
+          "countryCode": "ZA",
           "genderCategory": "male"
         },
         {
           "id": "team:cricket:australia",
           "name": "Australia Men",
-          "countryCode": "AU",
           "teamKind": "national",
+          "countryCode": "AU",
           "genderCategory": "male"
         }
       ],
@@ -73234,19 +73304,76 @@
       ],
       "homeParticipantId": "team:cricket:south-africa",
       "awayParticipantId": "team:cricket:australia",
-      "status": "scheduled",
-      "scoreDisplay": null,
-      "innings": [],
+      "status": "completed",
+      "scoreDisplay": "Australia win by 45 runs (DLS Method)",
+      "innings": [
+        {
+          "id": 76691,
+          "day": 1,
+          "team": "Australia Men",
+          "balls": 300,
+          "noBalls": 2,
+          "byesRuns": 1,
+          "fixtureId": 39989,
+          "penalties": 0,
+          "wideBalls": 9,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 322,
+          "isForfeited": false,
+          "legByesRuns": 8,
+          "oversBowled": "50.0",
+          "totalExtras": 20,
+          "inningNumber": 1,
+          "battingTeamId": 23,
+          "bowlingTeamId": 21,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:australia",
+          "ballsRemaining": 0,
+          "currentRunRate": 6.43,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 9
+        },
+        {
+          "id": 76693,
+          "day": 1,
+          "team": "South Africa Men",
+          "balls": 168,
+          "noBalls": 0,
+          "byesRuns": 0,
+          "fixtureId": 39989,
+          "penalties": 0,
+          "wideBalls": 3,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 145,
+          "isForfeited": false,
+          "legByesRuns": 4,
+          "oversBowled": "28.0",
+          "totalExtras": 7,
+          "inningNumber": 2,
+          "battingTeamId": 21,
+          "bowlingTeamId": 23,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:south-africa",
+          "ballsRemaining": 0,
+          "currentRunRate": 5.17,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 4
+        }
+      ],
       "format": "ODI",
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-09-30T19:24:00.629Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-30T03:31:22.297Z"
+        "checkedAt": "2026-09-30T19:24:00.629Z",
+        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       },
       "displayTitleCompact": "South Africa Men v Australia Men",
       "date": "2026-09-30",
@@ -73261,7 +73388,10 @@
       "consensusTags": [],
       "sourceEventIds": [
         "fixture:cricket:CA:39989"
-      ]
+      ],
+      "firstConfirmedCompleteAt": "2026-09-30T19:24:03.94897+00:00",
+      "scoreCheckedAt": "2026-09-30T19:24:00.629Z",
+      "statusCheckedAt": "2026-09-30T19:24:00.629Z"
     },
     {
       "id": "fixture:cricket:CA:40999",

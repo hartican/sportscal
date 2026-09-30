@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20260930131805999",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260930211313599",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-30T13:18:05.999Z",
+  "publishedAt": "2026-09-30T21:13:13.599Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -129,7 +129,7 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 18,
+        "count": 17,
         "firstEventDate": "2026-09-03",
         "lastEventDate": "2026-09-30"
       },
