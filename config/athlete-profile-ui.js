@@ -17,7 +17,7 @@
 .athlete-profile-trigger{border:0;background:transparent;color:inherit;padding:0;text-align:left;cursor:pointer}.athlete-profile-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}.athlete-headshot{width:38px;height:38px;flex:0 0 38px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--panel);box-shadow:0 0 0 1px var(--border)}.athlete-number{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 6px;border-radius:999px;background:color-mix(in srgb,var(--sport-color,var(--accent)) 17%,var(--panel));color:var(--text);font-size:.66rem;font-weight:900}
 .athlete-profile-backdrop{position:fixed;inset:0;z-index:10040;display:flex;justify-content:flex-end;background:rgba(0,0,0,.54)}
 .athlete-profile-drawer{width:min(100%,560px);height:100%;overflow:auto;padding:calc(18px + env(safe-area-inset-top)) 18px calc(24px + env(safe-area-inset-bottom));background:var(--bg-card);color:var(--text);box-shadow:-18px 0 50px rgba(0,0,0,.28)}
-.athlete-profile-close{float:right;width:40px;height:40px;border:1px solid var(--border);border-radius:50%;background:var(--panel);color:var(--text);font-size:1.2rem;cursor:pointer}
+.athlete-profile-close{float:right;width:44px;height:44px;border:1px solid var(--border);border-radius:50%;background:var(--panel);color:var(--text);font-size:1.2rem;cursor:pointer}
 .athlete-profile-hero{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:16px;clear:both;padding:12px 0 20px}.athlete-profile-hero .athlete-headshot{width:92px;height:92px}.athlete-profile-hero h2{margin:0;font-size:1.45rem}.athlete-profile-hero p,.athlete-profile-body p{margin:5px 0 0;color:var(--text-dim);font-size:.76rem;line-height:1.55}
 .athlete-profile-section{padding:16px 0;border-top:1px solid var(--border)}.athlete-profile-section h3{margin:0 0 10px;font-size:.84rem}.athlete-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.athlete-stat{padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--panel)}.athlete-stat span{display:block;color:var(--text-dim);font-size:.64rem}.athlete-stat strong{display:block;margin-top:3px;font-size:.82rem}.athlete-recent{display:grid;gap:7px}.athlete-recent-row{padding:9px 10px;border:1px solid var(--border);border-radius:8px;font-size:.7rem;line-height:1.45}.athlete-source-links{display:flex;flex-wrap:wrap;gap:8px}.athlete-source-links a{color:var(--accent);font-size:.7rem;font-weight:800}
 @media(max-width:640px){.athlete-profile-drawer{width:100%}}
@@ -138,18 +138,38 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
   const table=(columns,rows)=>{const wrap=document.createElement('div');wrap.style.overflowX='auto';const t=document.createElement('table');t.className='profile-context-table';const head=document.createElement('tr');columns.forEach(label=>{const th=document.createElement('th');th.textContent=label;head.append(th);});t.append(head);rows.forEach(row=>{const tr=document.createElement('tr');row.forEach(value=>{const td=document.createElement('td');td.textContent=String(value??'—');tr.append(td);});t.append(tr);});wrap.append(t);return wrap;};
   if(fixture){
     const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent=`Fixture results · ${spoilerSafeDisplayTitle(fixture)||fixture.name}`;section.append(heading);
-    const show=()=>{const result=fixture.fixtureResults;if(result?.rows?.length)section.append(table(result.columns,result.rows));else{const p=document.createElement('p');p.textContent=fixture.scoreDisplay||fixture.result||fixture.outcomeText||fixture.score||'Full results are not published yet.';section.append(p);}if(fixture.fixtureResults?.sourceUrl){const a=document.createElement('a');a.href=fixture.fixtureResults.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official full results';section.append(a);}};
+    const show=()=>{const result=fixture.fixtureResults;if(result?.rows?.length)section.append(table(result.columns,result.rows));else{const p=document.createElement('p');p.textContent=[fixture.scoreDisplay,fixture.result?.scorelineText,fixture.result,fixture.outcomeText,fixture.score?.display,fixture.score].find(value=>typeof value==='string'&&value.trim())||'Full results are not published yet.';section.append(p);}if(fixture.fixtureResults?.sourceUrl){const a=document.createElement('a');a.href=fixture.fixtureResults.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official full results';section.append(a);}};
     if(userPreferences.showSpoilers)show();else{const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show fixture results';reveal.onclick=()=>{reveal.remove();show();};section.append(reveal);}container.append(section);
   }
-  const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent='Ladder / standings';const status=document.createElement('p');status.textContent='Loading standings…';section.append(heading,status);container.append(section);
-  try{
-    const manifest=await loadCodeInspectorManifest();const code=(manifest?.codes||codeInspectorManifest?.codes||[]).find(c=>c.slug===sportKey || c.id===`sport:${sportKey}`);
-    if(!code){status.textContent='Standings are not published for this competition yet.';return;}
-    if(!profileStandingsChunks.has(code.id))profileStandingsChunks.set(code.id,fetchJson(code.chunkPath).catch(error=>{profileStandingsChunks.delete(code.id);throw error;}));
-    const chunk=await profileStandingsChunks.get(code.id);if(!section.isConnected)return;
-    const standings=chunk.standings||[];status.textContent=standings.length?'':'Standings are not published for this competition yet.';
-    for(const competition of new Set(standings.map(e=>e.competitionId))){const rows=standings.filter(e=>e.competitionId===competition);const label=document.createElement('p');label.textContent=[competition?.replace(/^competition:/,'').replaceAll('-',' '),rows[0]?.roundLabel,rows[0]?.asOf?'As of '+new Date(rows[0].asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[e.rank,e.displayName,e.points??e.ladderPoints,e.played])));}
-  }catch(error){status.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>{section.remove();void appendProfileFixtureContext(container,record,sportKey,null);};status.append(retry);}
+  const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent='Ladder / standings';section.append(heading);container.append(section);
+  const showStandings=async()=>{
+    const status=document.createElement('p');status.textContent='Loading standings…';section.replaceChildren(heading,status);
+    try{
+      const manifest=await loadCodeInspectorManifest();
+      const codeId=fixture&&typeof root.codeIdForEvent==='function'?root.codeIdForEvent(fixture):`sport:${sportKey}`;
+      const code=(manifest?.codes||codeInspectorManifest?.codes||[]).find(c=>c.id===codeId||c.slug===sportKey);
+      if(!code){status.textContent='Standings are not published for this competition yet.';return;}
+      if(!profileStandingsChunks.has(code.id))profileStandingsChunks.set(code.id,fetchJson(code.chunkPath).catch(error=>{profileStandingsChunks.delete(code.id);throw error;}));
+      const chunk=await profileStandingsChunks.get(code.id);if(!section.isConnected)return;
+      const all=chunk.standings||[];
+      const relevant=new Set(fixture?.competitionId?[fixture.competitionId]:all.filter(row=>[record.id,record.currentTeamId].includes(row.participantId)).map(row=>row.competitionId));
+      const standings=all.filter(row=>relevant.has(row.competitionId));
+      status.textContent=standings.length?'':'Standings are not published for this competition yet.';
+      for(const competition of new Set(standings.map(e=>e.competitionId))){
+        const rows=standings.filter(e=>e.competitionId===competition),first=rows[0];
+        const label=document.createElement('p');label.textContent=[first.competitionName||competition?.replace(/^competition:/,'').replaceAll('-',' '),first.roundLabel,first.asOf?'As of '+new Date(first.asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');
+        section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[e.rank,e.displayName,e.points??e.ladderPoints,e.played])));
+        if(first.tableNote){const note=document.createElement('p');note.textContent=first.tableNote;section.append(note);}
+        if(/^https:\/\//i.test(first.sourceUrl||'')){const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);}
+      }
+    }catch(error){status.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry standings';retry.onclick=showStandings;status.append(retry);}
+  };
+  if(userPreferences.showSpoilers)void showStandings();
+  else{
+    const note=document.createElement('p');note.textContent='Standings hidden while Results is off.';
+    const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show profile standings';
+    reveal.onclick=()=>void showStandings();section.append(note,reveal);
+  }
 }
 
   async function open(record, sportKey, trigger, options={}){
@@ -161,13 +181,20 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
     drawer.append(close);
     if(typeof root.buildDirectoryFollowButton==='function')drawer.append(root.buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
     drawer.append(body);const context=document.createElement('div');drawer.append(context);void appendProfileFixtureContext(context,record,sportKey,options.fixture); backdrop.appendChild(drawer); document.body.appendChild(backdrop);
-    const historyToken=options.fixture?`profile:${record.id}:${Date.now()}`:null;
+    const historyToken=options.fixture?`profile:${record.id}:${Date.now()}`:null,originUrl=location.href;
     if(historyToken)history.pushState({...history.state,fixtureProfile:historyToken},'');
-    const cleanup=()=>{if(!backdrop.isConnected)return;backdrop.remove();options.onClose?.();trigger?.focus?.({preventScroll:true});document.removeEventListener('keydown',onKey);window.removeEventListener('popstate',onBack);};
-    const onBack=()=>{if(history.state?.fixtureProfile!==historyToken)cleanup();};
-    if(historyToken)window.addEventListener('popstate',onBack);
+    const cleanup=()=>{if(!backdrop.isConnected)return;backdrop.remove();options.onClose?.();if(trigger?.isConnected)trigger.focus?.({preventScroll:true});document.removeEventListener('keydown',onKey);window.removeEventListener('popstate',onBack,true);};
+    const onBack=event=>{if(history.state?.fixtureProfile!==historyToken){if(location.href===originUrl)event.stopImmediatePropagation();cleanup();}};
+    if(historyToken)window.addEventListener('popstate',onBack,true);
     const dismiss=()=>{if(historyToken&&history.state?.fixtureProfile===historyToken)history.back();else cleanup();};
-    const onKey = event => { if (event.key === "Escape") dismiss(); };
+    const onKey = event => {
+      if(event.key==='Escape'){event.preventDefault();event.stopPropagation();dismiss();return;}
+      if(event.key!=='Tab')return;
+      const controls=[...drawer.querySelectorAll('button,a[href],input,select,textarea,[tabindex]')].filter(node=>!node.disabled&&node.tabIndex>=0&&node.getClientRects().length);
+      const first=controls[0]||close,last=controls[controls.length-1]||close;
+      if(event.shiftKey&&(!drawer.contains(document.activeElement)||document.activeElement===first)){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&(!drawer.contains(document.activeElement)||document.activeElement===last)){event.preventDefault();first.focus();}
+    };
     close.addEventListener("click", dismiss); backdrop.addEventListener("click", event => { if (event.target === backdrop) dismiss(); }); document.addEventListener("keydown", onKey); close.focus();
     try{
       let profile = await loadProfile(record.profileRef, sportKey);
@@ -221,5 +248,43 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
     }
   }
 
-  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, decorateIdentity, makeTrigger });
+async function openFromFixture(id,label,sportKey,trigger,origin={}){
+  if(!id)return;
+  const fixture=profileFixtureEvents.get(trigger?.closest('[data-event-id]')?.dataset.eventId);
+  const previous={tab:activeTab,inspector:activeInspectorCodeId,y:origin.y??scrollY,cardTop:origin.top??trigger?.closest('[data-event-id]')?.getBoundingClientRect().top,browse:{...followBrowseState()},eventId:fixture?.eventId||fixture?.id,label:trigger?.getAttribute('aria-label')};
+  const restore=()=>{
+    activeTab=previous.tab;activeInspectorCodeId=previous.inspector;saveFollowBrowse(previous.browse);renderAll();
+    const host=document.getElementById('listView');let frame=null,stopped=false;
+    const intent=['pointerdown','touchstart','wheel','keydown','pagehide'];
+    const stop=()=>{stopped=true;observer.disconnect();resize?.disconnect();if(frame!==null)cancelAnimationFrame(frame);intent.forEach(type=>window.removeEventListener(type,stop,true));document.removeEventListener('focusin',onFocus);};
+    const onFocus=event=>{if(event.target!==document.body&&event.target?.closest('[data-event-id]')?.dataset.eventId!==previous.eventId)stop();};
+    const restoreTarget=()=>{
+      frame=null;if(stopped)return;
+      if(activeTab!==previous.tab||activeInspectorCodeId!==previous.inspector){stop();return;}
+      const item=previous.tab==='feed'?[...feedCardSlots.values()].find(item=>(item.event.eventId||item.event.id)===previous.eventId):null;
+      if(item&&!item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
+      const card=[...host.querySelectorAll('[data-event-id]')].find(node=>node.dataset.eventId===previous.eventId);
+      const target=[...(card?.querySelectorAll('.fixture-profile-link')||[])].find(node=>node.getAttribute('aria-label')===previous.label);
+      (target||card)?.focus({preventScroll:true});
+      scrollTo({top:card&&Number.isFinite(previous.cardTop)?scrollY+card.getBoundingClientRect().top-previous.cardTop:previous.y,behavior:'instant'});
+    };
+    const schedule=()=>{if(!stopped&&frame===null)frame=requestAnimationFrame(restoreTarget);};
+    const observer=new MutationObserver(schedule),resize=typeof ResizeObserver==='function'?new ResizeObserver(schedule):null;
+    observer.observe(host,{childList:true,subtree:true});resize?.observe(host);
+    intent.forEach(type=>window.addEventListener(type,stop,{capture:true,once:true,passive:true}));document.addEventListener('focusin',onFocus);
+    schedule();
+  };
+  const key=fixture&&codeIdForEvent(fixture)==='sport:football'?'football':sportKey==='wimbledon'?'tennis':sportKey;
+  activeTab='follow';saveFollowBrowse({sportId:key==='f1'?'sport:motorsport':key==='aflw'?'sport:afl':key==='nrlw'?'sport:nrl':`sport:${key}`,categoryId:['f1','aflw','nrlw'].includes(key)?`sport:${key}`:'',section:'teams-players'});
+  renderAll({preserveViewport:true});
+  try{
+    const chunk=await loadFollowDirectoryChunk(key).catch(()=>({}));
+    const records=[...(chunk.participants||[]),...(chunk.teams||[]),...(chunk.players||[]),...(chunk.records||[])];
+    const identityKey=FOLLOW_FIRST.participantFollowIdentityKey;
+    const record=records.find(p=>p.id===id || identityKey?.(p.id)===identityKey?.(id)) || cardIdentityParticipants().find(p=>p.id===id) || {id,displayName:label};
+    await open({...record,id:record.id||id,displayName:record.displayName||record.name||label},key,trigger,{fixture,onClose:restore});
+  }catch(error){restore();showToast('Profile unavailable. Please try again.');}
+}
+
+  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, decorateIdentity, makeTrigger });
 })(typeof globalThis !== "undefined" ? globalThis : window);

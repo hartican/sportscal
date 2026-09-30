@@ -267,3 +267,7 @@ Ordinary Unfollow remains neutral in discovery measurement as well as product be
 ## NBL fixture viewing — 28 September 2026
 
 Preserve the official NBL schedule's explicit 9Now label per fixture; a Saturday date alone does not grant free coverage. ESPN-labelled NBL27 fixtures retain Disney+, Kayo and Foxtel as Australian alternatives, with the league's current viewing guide as platform evidence. The provider destination remains a general service link; historical live rights do not establish a replay. Withdrawn fixture options must propagate through the existing quick refresh. Follow admission, preferences and subscription purchases are unchanged. Regression: `validate-nbl-viewing.js` and `validate-nbl-viewing-browser.js`.
+
+## Fixture profile return and Results enforcement — 30 September 2026
+
+Implementation of the existing profile-return and spoiler decisions: use the fixture's canonical Football Code for EPL aliases; show only the relevant competition's standings behind the current Results setting or a profile-local reveal. Closing a profile restores the originating route, participant control and card position, including late Feed redraws, until the next user interaction. It never recreates dismissed/excluded fixtures or changes Follow/Results consent. Regression and scope: `docs/quality/football-profile-journey.md`, `scripts/validate-football-profile-browser.js`.

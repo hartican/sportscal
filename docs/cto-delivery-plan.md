@@ -155,4 +155,13 @@ The weekday quick path skipped source coverage, leaving saved Schedule behind th
 
 ### Reviewed cricket identity repair — 30 September 2026
 
-Implemented one reviewed Lancashire–Durham fixture equivalence and two exact team Follow equivalences. Durable-reference preflight found no affected persisted activity; saved local action aliases and neutral Unfollow/refollow are covered by regressions. Broad historic ID migrations and private-chat merges are excluded. Shell 335 publication remains pending release evidence.
+Implemented one reviewed Lancashire–Durham fixture equivalence and two exact team Follow equivalences. Durable-reference preflight found no affected persisted activity; saved local action aliases and neutral Unfollow/refollow are covered by regressions. Broad historic ID migrations and private-chat merges are excluded. Shell 335 is deployed as 36e2be8f726bf0ae67567657030af488ee83e7fb. Workflow 36669645562 passed; exact-SHA READY, public bytes, the 1,306-fixture cricket projection and live Follow/Results checks are verified in cricket-identities-delivery-2026-09-30.md. No gate was waived. Physical-device and full-family acceptance remain open.
+
+
+### Football keyboard sampling — 30 September 2026
+
+Twelve production-rendered component cases across EPL/UCL/Europa, upcoming/completed and Feed/Schedule passed keyboard disclosure expansion/collapse, focus preservation and visible control-name checks. The isolated-container harness avoids competing app-list rendering; it does not prove full navigation, screen-reader, compact-mode or physical-device acceptance. Evidence: football-keyboard-acceptance-2026-09-30.json/.md in the delivery folder. No additional runtime change or deployment.
+
+### Football profile journey repair — 30 September 2026
+
+Candidate shell 336 repairs missing EPL profile standings, Results-off standings leakage and loss of focus on profile return. The existing optional profile module owns the navigation flow so eight startup requests and the unchanged compressed-byte budget are retained. Profile return tracks the originating card through late redraws and stops on the next user interaction. All three Football competitions remain uncertified pending the full contract; physical devices and general athlete profile content remain separate. Release evidence is pending in the football-profile delivery artifact.

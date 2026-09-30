@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="335">
+<meta name="app-shell-version" content="336">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=335" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=336" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7171,7 +7171,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=335"></script>
+<script src="assets/js/app-shell-runtime.js?v=336"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7877,20 +7877,9 @@ function matchupIdentityMatches(ev, displayTitle){
 
 const profileFixtureEvents=new Map();
 async function openFeedParticipantProfile(id,label,sportKey,trigger){
-  if(!id)return;
-  const fixture=profileFixtureEvents.get(trigger?.closest('[data-event-id]')?.dataset.eventId);
-  const previous={tab:activeTab,y:scrollY,browse:{...followBrowseState()}};
-  const key=sportKey==='wimbledon'?'tennis':sportKey;
-  activeTab='follow';saveFollowBrowse({sportId:key==='f1'?'sport:motorsport':key==='aflw'?'sport:afl':key==='nrlw'?'sport:nrl':`sport:${key}`,categoryId:['f1','aflw','nrlw'].includes(key)?`sport:${key}`:'',section:'teams-players'});
-  renderAll({preserveViewport:true});
-  try{
-    const chunk=await loadFollowDirectoryChunk(key).catch(()=>({}));
-    const records=[...(chunk.participants||[]),...(chunk.teams||[]),...(chunk.players||[]),...(chunk.records||[])];
-    const identityKey=FOLLOW_FIRST.participantFollowIdentityKey;
-    const record=records.find(p=>p.id===id || identityKey?.(p.id)===identityKey?.(id)) || cardIdentityParticipants().find(p=>p.id===id) || {id,displayName:label};
-    const ui=await ensureAthleteProfileUi();
-    await ui.open({...record,id:record.id||id,displayName:record.displayName||record.name||label},key,trigger,{fixture,onClose:()=>{activeTab=previous.tab;saveFollowBrowse(previous.browse);renderAll({preserveViewport:true});requestAnimationFrame(()=>scrollTo({top:previous.y,behavior:'instant'}));}});
-  }catch(error){showToast('Profile unavailable. Please try again.');}
+  const origin={y:scrollY,top:trigger?.closest('[data-event-id]')?.getBoundingClientRect().top};
+  try{const ui=await ensureAthleteProfileUi();await ui.openFromFixture(id,label,sportKey,trigger,origin);}
+  catch(error){showToast('Profile unavailable. Please try again.');}
 }
 function participantProfileLink(id,label,key){
   if(!id || /^(?:winner|loser|tbc|tbd|placeholder|slot):/i.test(id) || /^(?:Winner|Loser) of /i.test(label)){
@@ -10752,7 +10741,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=336").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 
 async function loadFootballDirectoryData(){
