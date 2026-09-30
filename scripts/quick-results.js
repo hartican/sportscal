@@ -49,6 +49,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
  const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Current card evidence)/.test(change));
  const codes=new Set();
+ for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
@@ -104,6 +105,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   for(const args of nblProjectionSteps(changes))run(...args);
   return {mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:[],aiCalls:0};
  }
+ let liveCoverage=null;
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
@@ -112,6 +114,9 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   if(european.wrote)changes.push('European Football source check');
   failures.push(...european.failures.map(f=>`European Football ${f.league}: ${f.message}`));
  }catch(error){failures.push(`European Football: ${error.message}`);}
+ if(!offline)try{
+  liveCoverage=await require('./sync-live-coverage').sync({now});for(const code of liveCoverage.codes)changes.push(`Live coverage ${code}`);
+ }catch(error){failures.push(`Live coverage: ${error.message}`);}
  const previousBundle=read(bundlePath);let bundle=previousBundle;
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};
  if(!offline)try{
@@ -149,7 +154,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,aiCalls:0};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,aiCalls:0};
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}
  console.log(JSON.stringify(report));
  if(failures.length)console.warn(`::warning::Quick refresh retained last-good data for ${failures.length} failed source checks; review the refresh report.`);

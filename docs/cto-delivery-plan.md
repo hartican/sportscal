@@ -145,4 +145,9 @@ A real disposable signed-in Football journey verified persisted follows, persona
 
 ### Current cricket results repair — 30 September 2026
 
-Implemented bounded completed-results reconciliation in the existing Cricket Australia current source. A disappeared current-page fixture can now acquire its official result without another provider or scheduler. Local canonical refresh and source contract tests passed; deployment and live rendering remain pending until recorded release proof. Six-page initial catch-up leaves one known CA identity unresolved (39484); do not count all Cricket quality as certified.
+Implemented bounded completed-results reconciliation in the existing Cricket Australia current source. A disappeared current-page fixture can now acquire its official result without another provider or scheduler. Released as be83d7afc9ea4d27b1d5a7925e71a5919b5b2e7b; exact-SHA READY production and sampled Feed/Schedule rendering verified in cricket-current-delivery-2026-09-30.md. Six-page initial catch-up leaves one known CA identity unresolved (39484); do not count all Cricket quality as certified.
+
+
+### Shared cricket/rugby publication — 30 September 2026
+
+The weekday quick path skipped source coverage, leaving saved Schedule behind the existing live store. A bounded read-only projection now reuses that store, including separate scores, with 36-hour observation validity, no inferred completion and no-op byte preservation. Local replay moved 52 additional coverage records to completed, cleared 24 rugby stale candidates and reduced cricket candidates from 22 to 3. Three candidates are not three proven unfinished repairs: multi-day ongoing fixtures require assessment; CA39484 still overlaps an ESPN completed Lancashire–Durham record. Full sport certification remains unchanged. Deployment evidence is pending until this phase's production report.

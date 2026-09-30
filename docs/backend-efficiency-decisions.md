@@ -1,5 +1,16 @@
 # Backend efficiency decisions
 
+## Daily shared-observation publication — 30 September 2026
+
+Weekday quick refreshes now project the existing live owner's Cricket Australia, ESPN recent/history and World Rugby men's/women's XV/sevens observations into the saved Cricket/Rugby Schedule. The full Sunday source refresh remains authoritative for wider calendars. No source fetch, new scheduler, database write or account scan is added. The existing read-only `nothingsports_read_current_fixtures` RPC includes separately stored scores; reading the source arrays alone would omit those scores.
+
+The read uses an explicit 12-source allowlist, stable source/fixture ordering and pages of 500, capped at eight requests per invocation. The observed export contained 1,287 rows (three REST pages); each daily quick refresh and production input verification uses that same bounded read. Page failures, duplicates, invalid identities/sports or exhaustion preserve the old saved coverage. Production verification is read-only and does not publish its result.
+
+Only observations from the preceding 36 hours are projected; their original fixture timestamps remain intact, never replaced by poll or export time. Older observations cannot shift an existing fixture's kickoff. Shared reconciliation preserves completed results against stale near-source schedules and separately sourced viewing details. Missing rows are not deletions. Repeat identical observations and timestamp-only polls preserve bytes; only changed sport partitions rebuild. Transport/freshness failures appear in the existing quick-refresh failure report. This daily publication is not real-time delivery or exhaustive source certification.
+
+Scoped canonical rehearsal: `node scripts/update-cards.js -p --local-only --coverage-live`. An explicit `--live-coverage-snapshot=PATH` can replay a saved read-only RPC export for reproducible local validation without credentials. It uses the same validation and age limits. Tests: `validate-live-coverage-publication.js`, `validate-live-coverage-browser.js`, existing quick projection scope and source coverage checks.
+
+
 ## Current cricket completed-results reconciliation — 30 September 2026
 
 The existing `cricket-ca-current` owner reads the current calendar plus one completed-results page (13 records). For known unresolved CA fixtures whose scheduled end/start falls within the preceding 14 days, it can read up to six pages, at most once per six hours using the existing source discovery report. No added source, scheduler, subscription, AI call or per-user work. Additional result requests are at most one per ordinary invocation plus 20 extra per day for four full catch-ups; the existing dynamic refresh cadence remains authoritative.

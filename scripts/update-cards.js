@@ -421,6 +421,14 @@ async function main() {
     for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-tennis-feed-parents","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
+  if(process.argv.includes('--coverage-live')){
+    const snapshot=process.argv.find(arg=>arg.startsWith('--live-coverage-snapshot='));
+    const rows=snapshot?JSON.parse(fs.readFileSync(snapshot.slice('--live-coverage-snapshot='.length),'utf8')):undefined;
+    const report=await require('./sync-live-coverage').sync({rows});
+    if(report.codes.length)runStep(['scripts/build-code-inspector.js',`--codes=${report.codes.join(',')}`]);
+    runStep(['scripts/validate-source-coverage.js']);
+    console.log(JSON.stringify(report));return;
+  }
   if(process.argv.includes("--coverage")){
     const coverageScope=process.argv.find(arg=>arg.startsWith('--coverage-source='));
     if(coverageScope){
