@@ -5,6 +5,7 @@ const actions=require('../config/event-action-identity');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const source=require('./fixtures/source-coverage/lancashire-durham-identities.json');
 const caId='fixture:cricket:CA:39484',espnId='fixture:cricket:espn:1513451';
+const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds),protectedHistory=[caId,espnId].some(id=>protectedIds.has(id));
 const ca=source.find(f=>f.id===caId),espn=source.find(f=>f.id===espnId);
 const caTeam='team:cricket:ca-50',espnTeam='team:cricket:espn-1116';
 assert(ca&&espn,'test requires retained source records');
@@ -27,7 +28,7 @@ const removed=preferences.setEntityFollow(refollow,espnTeam,'unfollow');assert(!
 for(const id of ['team:cricket:espn-1116-women','team:cricket:espn-1116-u19','team:cricket:espn-99999'])assert.equal(identity.canonicalParticipantId(id),id);
 assert.equal(identity.canonicalFixtureId('fixture:cricket:espn:1513452'),'fixture:cricket:espn:1513452');
 const nsc=require('../lib/nothingscore-server');assert.equal(nsc.canonicalEventId(espnId),caId);
-if(process.argv.includes('--published')){assert.equal(nsc.eventFor(espnId).canonicalEventId,caId);assert.equal(nsc.eventFor(espnId).status,'completed');const map=require('../api/chat')._test.loadFixtureMap();assert.equal(map.get(espnId),map.get(caId));assert.equal(map.get(caId).status,'completed');}
+if(process.argv.includes('--published')){const map=require('../api/chat')._test.loadFixtureMap();if(protectedHistory){assert.equal(nsc.eventFor(espnId).canonicalEventId,caId);assert.equal(nsc.eventFor(espnId).status,'completed');assert.equal(map.get(espnId),map.get(caId));assert.equal(map.get(caId).status,'completed');}else{assert.equal(nsc.eventFor(espnId),null,'unprotected county fixture removed from rating catalogue');assert(!map.has(espnId)&&!map.has(caId),'unprotected county fixtures removed from chat discovery');}}
 const baseMerged=identity.mergeOverlays([ca,espn],[]);assert.equal(baseMerged.length,1);assert.equal(baseMerged[0].status,'completed');
-if(process.argv.includes('--published'))for(const file of ['../data/code-inspector/cricket.json','../data/follow-schedule/cricket.json','../data/chat-fixtures.v1.json']){const d=require(file);const matching=(d.fixtures||d.events).filter(f=>[f.id,...(f.sourceEventIds||[])].some(id=>[caId,espnId].includes(id)));assert.equal(matching.length,1,file);assert.equal(matching[0].canonicalEventId||matching[0].eventId||matching[0].id,caId);assert.equal(matching[0].status,'completed');}
+if(process.argv.includes('--published'))for(const file of ['../data/code-inspector/cricket.json','../data/follow-schedule/cricket.json','../data/chat-fixtures.v1.json']){const d=require(file);const matching=(d.fixtures||d.events).filter(f=>[f.id,...(f.sourceEventIds||[])].some(id=>[caId,espnId].includes(id)));assert.equal(matching.length,protectedHistory?1:0,file+': retain county history only for saved activity');if(protectedHistory){assert.equal(matching[0].canonicalEventId||matching[0].eventId||matching[0].id,caId);assert.equal(matching[0].status,'completed');}}
 console.log('Cricket provider identities: one reviewed result in either source order; both Follow identities, refollow/unfollow, action history, rating request alias and distinct women/youth/other fixtures passed.');
