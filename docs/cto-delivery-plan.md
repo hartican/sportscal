@@ -94,3 +94,7 @@ Replaced the empty upcoming-only series-page parser path with the official compl
 ## EPL standings integrity — 30 September 2026
 
 The current official table agrees with the canonical snapshot across 20 ranks and 160 basic statistics. Ingestion and stored-snapshot validation now reject null/blank/boolean/fractional statistics, negative counts, inconsistent played/W/D/L and goal difference, and ranks contradicting points/GD/goals. Official points deductions (including negative totals) remain valid; identical primary statistics retain the published order. Malformed refreshes preserve last-good bytes. The production gate runs these regressions. This does not certify final-season head-to-head/play-off decisions or commercial source permission. Evidence and release proof are in the EPL standings delivery artifact; no new source, requests, scheduler or subscription.
+
+## European Football kickoff evidence — 30 September 2026
+
+Closed the historical/explicit-UTC snapshot gap with all 288 organiser UTC timestamps and Sydney date/time conversions reconciled, including all 36 completed fixtures. Zero differences; production data matches. No source integration, fixture correction or deployment is warranted. See docs/quality/uefa-utc-reconciliation-2026-09-30.md. Full pilot/family certification remains unchanged; viewing/replay, final tie-breaks, installed-device, recovery and commercial evidence are still required.
