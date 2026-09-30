@@ -1,12 +1,12 @@
 # CTO delivery programme — authoritative implementation status
 
-Updated 28 September 2026. This implements the approved CTO audit; the original report remains an evidence snapshot, not a live completion ledger. Continue phases without recurring owner approvals. No paid subscription or provider purchase. Preserve existing Follow decisions, production gates and unrelated work. Do not interpret an implemented catalogue as verified competition coverage.
+Updated 30 September 2026. This implements the approved CTO audit; the original report remains an evidence snapshot, not a live completion ledger. Continue phases without recurring owner approvals. No paid subscription or provider purchase. Preserve existing Follow decisions, production gates and unrelated work. Do not interpret an implemented catalogue as verified competition coverage.
 
 ## Sequence and acceptance
 
 | Item | Current evidence | Remaining acceptance / next action |
 |---|---|---|
-| Q1 snapshot churn | 25059fa deployed; metadata-only hash regressions pass | 30 September follow-up complete: EPL checks continue with zero revisions in latest 48h; all-source rows/window down 63.5%, payload additions down 57.0% with confounders. Remaining AFL/AFLW/NRL creation-time churn repaired in source adapters; post-release trend still to observe |
+| Q1 snapshot churn | 25059fa deployed; metadata-only hash regressions pass | 30 September follow-up complete: EPL checks continue with zero revisions in latest 48h; all-source rows/window down 63.5%, payload additions down 57.0% with confounders. AFL/AFLW/NRL creation-time churn repaired; natural post-release checks now pass with zero added revisions for all three. Longer-term savings remain unmeasured |
 | Q2 scheduler and source reliability | 4425800 backoff; 09f98bb dispatcher bundle/batches; automatic 200 in 16.21s, 27 September 20:20 AEST; pending rating groups drained from 35 to 0 by 11:50 UTC | Physical-device fresh reminder receipt still unverified |
 | Q3 Football classification, rights, timing | 9ca229b excludes NFL; c263209 restores fixture-specific 10 Streaming and honest replay wording; production Feed/Schedule browser checks passed | Source timing precision and remaining cross-surface overlays; viewing repair does not certify all competition rights |
 | Q4 frozen quality inventory | Versioned 16-family denominator and machine-readable competition inventory implemented; 0 certified | Explicit non-overlapping families, competition/season/window gates, evidence-backed reference fixtures; unknown is not pass |
@@ -102,3 +102,9 @@ Closed the historical/explicit-UTC snapshot gap with all 288 organiser UTC times
 ## Football viewing evidence — 30 September 2026
 
 Reviewed 82 unique public Stan live listings (next EPL round and two rounds each of UCL/Europa), zero pairing/kickoff differences. Expanded existing destination tests to all 668 pilot fixtures and six completed Feed/Schedule browser cases; live rendering passed. Public actions lead to signup and do not verify individual replay playback, so existing cautious labels remain. No app correction, subscription, scheduled scraper or standalone deployment. See docs/quality/football-viewing-acceptance-2026-09-30.md for scope and evidence.
+
+## Natural source recovery proof — 30 September 2026
+
+Read-only recovery-project observation at 01:21 UTC confirms the first autonomous Asia Cup success at 01:20:24 UTC: all 15 completed fixtures persisted, failure count fell from 2,036 to zero, next due exactly six hours later. No manual replay, database mutation or scheduler change was used. All 35 source failure counters are zero at this observation; that is not a full freshness or sport-quality certification.
+
+AFL, AFLW and NRL each completed a successful natural check after the creation-time repair deployed at 00:42:12 UTC. Their current revisions remain 7133, 7119 and 7131 respectively, with zero added snapshots since the release. This closes initial runtime acceptance, not a long-term savings estimate. Production READY release 47410f5 contains both repair commits by verified Git ancestry. Evidence: source-recovery-proof-2026-09-30.json in the delivery folder. No repeat monitor or documentation-only deployment is needed.
