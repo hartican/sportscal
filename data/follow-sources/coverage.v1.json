@@ -30682,7 +30682,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126773+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513393",
@@ -30962,7 +30964,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126792+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513391",
@@ -31153,9 +31157,9 @@
       "statusCheckedAt": "2026-09-30T00:52:01.968Z"
     },
     {
-      "id": "fixture:cricket:espn:1513451",
-      "eventId": "fixture:cricket:espn:1513451",
-      "canonicalEventId": "fixture:cricket:espn:1513451",
+      "id": "fixture:cricket:CA:39484",
+      "eventId": "fixture:cricket:CA:39484",
+      "canonicalEventId": "fixture:cricket:CA:39484",
       "key": "cricket",
       "sport": "Cricket",
       "sportDomainId": "sport:cricket",
@@ -31176,7 +31180,7 @@
       "venue": "Old Trafford, Manchester",
       "participants": [
         {
-          "id": "team:cricket:espn-1116",
+          "id": "team:cricket:ca-50",
           "name": "Lancashire",
           "role": "home",
           "aliases": [
@@ -31191,7 +31195,7 @@
           "genderCategory": "male"
         },
         {
-          "id": "team:cricket:espn-924",
+          "id": "team:cricket:ca-40",
           "name": "Durham",
           "role": "away",
           "aliases": [
@@ -31207,24 +31211,24 @@
         }
       ],
       "participantIds": [
-        "team:cricket:espn-1116",
-        "team:cricket:espn-924"
+        "team:cricket:ca-50",
+        "team:cricket:ca-40"
       ],
       "participantCountryCodes": [
         "GB",
         "GB"
       ],
-      "homeParticipantId": "team:cricket:espn-1116",
-      "awayParticipantId": "team:cricket:espn-924",
+      "homeParticipantId": "team:cricket:ca-50",
+      "awayParticipantId": "team:cricket:ca-40",
       "scoreDisplay": "Match drawn",
       "sourceFixtureId": "1513451",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/8204/scorecard/1513451/lancashire-vs-durham-56th-match-county-championship-division-two-2026",
-      "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+      "sourceCheckedAt": "2026-09-30T06:54:00.809Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:52:01.968Z",
+        "checkedAt": "2026-09-30T06:54:00.809Z",
         "sourceUrl": "https://www.espn.in/cricket/series/8204/scorecard/1513451/lancashire-vs-durham-56th-match-county-championship-division-two-2026"
       },
       "discoverySourceId": "cricket-espn",
@@ -31241,8 +31245,14 @@
       "numberOfDays": 4,
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126729+00:00",
-      "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "scoreCheckedAt": "2026-09-30T06:54:00.809Z",
+      "statusCheckedAt": "2026-09-30T06:54:00.809Z",
+      "sourceEventIds": [
+        "fixture:cricket:CA:39484",
+        "fixture:cricket:espn:1513451"
+      ],
+      "endTimeUtc": "2026-09-27T00:00:00Z",
+      "livePlayObservedAt": null
     },
     {
       "id": "fixture:cricket:espn:1513449",
@@ -32619,10 +32629,10 @@
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/24377/scorecard/1535684/india-under-19s-vs-australia-under-19s-1st-youth-test-24377",
-      "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:52:01.968Z",
+        "checkedAt": "2026-09-30T07:40:00.620Z",
         "sourceUrl": "https://www.espn.in/cricket/series/24377/scorecard/1535684/india-under-19s-vs-australia-under-19s-1st-youth-test-24377"
       },
       "discoverySourceId": "cricket-espn",
@@ -32638,9 +32648,11 @@
       "consensusTags": [],
       "numberOfDays": 5,
       "endDate": "2026-10-01",
-      "firstConfirmedCompleteAt": "2026-09-29T12:30:12.100971+00:00",
-      "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "firstConfirmedCompleteAt": "2026-09-29T10:06:03.881783+00:00",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z",
+      "endTimeUtc": "2026-09-27T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551839",
@@ -32732,7 +32744,9 @@
       "endDate": "2026-09-28",
       "firstConfirmedCompleteAt": "2026-09-30T00:34:09.02777+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-28T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552772",
@@ -32948,7 +32962,7 @@
       "isInternational": false,
       "isSenior": true,
       "gender": "men",
-      "startTimeUtc": "2026-09-28T05:00:00.000Z",
+      "startTimeUtc": "2026-09-28T05:30:00.000Z",
       "date": "2026-09-28",
       "dateOnly": false,
       "timePrecision": "exact",
@@ -33003,15 +33017,15 @@
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/18479/scorecard/1551343/mah-e-par-stars-vs-hindukush-strikers-12th-match-ahmad-shah-abdali-4-day-tournament-2026",
-      "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:52:01.968Z",
+        "checkedAt": "2026-09-30T07:40:00.620Z",
         "sourceUrl": "https://www.espn.in/cricket/series/18479/scorecard/1551343/mah-e-par-stars-vs-hindukush-strikers-12th-match-ahmad-shah-abdali-4-day-tournament-2026"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Mah-e-Par Stars v Hindukush Strikers",
-      "time": "15:00",
+      "time": "15:30",
       "broadcaster": "",
       "participantSlots": [],
       "representativeCountryCodes": [],
@@ -33022,9 +33036,11 @@
       "consensusTags": [],
       "numberOfDays": 4,
       "endDate": "2026-10-01",
-      "firstConfirmedCompleteAt": "2026-09-30T00:34:09.027759+00:00",
-      "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "firstConfirmedCompleteAt": "2026-09-29T11:30:05.272147+00:00",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z",
+      "endTimeUtc": "2026-09-28T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551342",
@@ -33040,7 +33056,7 @@
       "isInternational": false,
       "isSenior": true,
       "gender": "men",
-      "startTimeUtc": "2026-09-28T05:00:00.000Z",
+      "startTimeUtc": "2026-09-28T05:30:00.000Z",
       "date": "2026-09-28",
       "dateOnly": false,
       "timePrecision": "exact",
@@ -33095,15 +33111,15 @@
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/18479/scorecard/1551342/maiwand-champions-vs-pamir-legends-11th-match-ahmad-shah-abdali-4-day-tournament-2026",
-      "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:52:01.968Z",
+        "checkedAt": "2026-09-30T07:40:00.620Z",
         "sourceUrl": "https://www.espn.in/cricket/series/18479/scorecard/1551342/maiwand-champions-vs-pamir-legends-11th-match-ahmad-shah-abdali-4-day-tournament-2026"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Maiwand Champions v Pamir Legends",
-      "time": "15:00",
+      "time": "15:30",
       "broadcaster": "",
       "participantSlots": [],
       "representativeCountryCodes": [],
@@ -33114,9 +33130,11 @@
       "consensusTags": [],
       "numberOfDays": 4,
       "endDate": "2026-10-01",
-      "firstConfirmedCompleteAt": "2026-09-30T00:34:09.027719+00:00",
-      "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "firstConfirmedCompleteAt": "2026-09-29T12:42:04.871176+00:00",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z",
+      "endTimeUtc": "2026-09-28T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1545775",
@@ -33484,7 +33502,9 @@
       "endDate": "2026-09-30",
       "firstConfirmedCompleteAt": "2026-09-29T19:22:05.341382+00:00",
       "scoreCheckedAt": "2026-09-30T00:08:01.650Z",
-      "statusCheckedAt": "2026-09-30T00:08:01.650Z"
+      "statusCheckedAt": "2026-09-30T00:08:01.650Z",
+      "endTimeUtc": "2026-09-29T19:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551842",
@@ -33667,7 +33687,9 @@
       "endDate": "2026-09-29",
       "firstConfirmedCompleteAt": "2026-09-29T15:34:06.806208+00:00",
       "scoreCheckedAt": "2026-09-30T00:08:01.650Z",
-      "statusCheckedAt": "2026-09-30T00:08:01.650Z"
+      "statusCheckedAt": "2026-09-30T00:08:01.650Z",
+      "endTimeUtc": "2026-09-29T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552774",
@@ -33833,15 +33855,15 @@
       ],
       "homeParticipantId": "team:cricket:espn-1813-women",
       "awayParticipantId": "team:cricket:espn-217-women",
-      "scoreDisplay": "IND-A Women won toss & batted",
+      "scoreDisplay": "AUS-A Women trail by 216 runs",
       "sourceFixtureId": "1552027",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/24725/game/1552027/india-a-women-vs-australia-a-women-only-unofficial-test-24725",
-      "sourceCheckedAt": "2026-09-30T00:08:01.650Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:08:01.650Z",
+        "checkedAt": "2026-09-30T07:40:00.620Z",
         "sourceUrl": "https://www.espn.in/cricket/series/24725/game/1552027/india-a-women-vs-australia-a-women-only-unofficial-test-24725"
       },
       "discoverySourceId": "cricket-espn",
@@ -33857,8 +33879,8 @@
       "consensusTags": [],
       "numberOfDays": 4,
       "endDate": "2026-10-02",
-      "scoreCheckedAt": "2026-09-30T00:08:01.650Z",
-      "statusCheckedAt": "2026-09-30T00:08:01.650Z"
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1535673",
@@ -33924,15 +33946,15 @@
       ],
       "homeParticipantId": "team:cricket:espn-1781",
       "awayParticipantId": "team:cricket:espn-49",
-      "scoreDisplay": "Australia A won toss & batted",
+      "scoreDisplay": "India A trail by 310 runs",
       "sourceFixtureId": "1535673",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/24375/game/1535673/india-a-vs-australia-a-2nd-unofficial-test-24375",
-      "sourceCheckedAt": "2026-09-30T00:08:01.650Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "checkedAt": "2026-09-30T00:08:01.650Z",
+        "checkedAt": "2026-09-30T07:40:00.620Z",
         "sourceUrl": "https://www.espn.in/cricket/series/24375/game/1535673/india-a-vs-australia-a-2nd-unofficial-test-24375"
       },
       "discoverySourceId": "cricket-espn",
@@ -33948,8 +33970,8 @@
       "consensusTags": [],
       "numberOfDays": 4,
       "endDate": "2026-10-02",
-      "scoreCheckedAt": "2026-09-30T00:08:01.650Z",
-      "statusCheckedAt": "2026-09-30T00:08:01.650Z"
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1552775",
@@ -85595,7 +85617,9 @@
       "scoreDisplay": "33–28",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772546+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:7c8addab-8f47-4fb9-98f5-a39a7ce70872",
@@ -85684,7 +85708,9 @@
       "scoreDisplay": "24–28",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772601+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:fd8fc6a4-f276-44ca-9cd8-2691e13ebf45",
@@ -85773,7 +85799,9 @@
       "scoreDisplay": "73–40",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772636+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:615c694f-2eca-46ce-9d88-2588941f525f",
@@ -85862,7 +85890,9 @@
       "scoreDisplay": "36–19",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772669+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a3f9016e-fccc-4a63-9b63-6e25d81cce07",
@@ -85951,7 +85981,9 @@
       "scoreDisplay": "29–15",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772701+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:9033caa9-0f87-4027-9299-320ea80265a1",
@@ -86040,7 +86072,9 @@
       "scoreDisplay": "78–12",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772734+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5bf5174c-3bb4-40ab-8b1b-68afa79e332c",
@@ -86129,7 +86163,9 @@
       "scoreDisplay": "33–52",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.772941+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a211bf64-53ad-410d-bf1d-f4a99fd27515",
@@ -86218,7 +86254,9 @@
       "scoreDisplay": "43–69",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.773051+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:b865c742-894c-4831-bfe7-9cc8bf1dcdf8",
@@ -86307,7 +86345,9 @@
       "scoreDisplay": "31–45",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.773099+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:473bcbb6-305a-413a-943a-df797f1f07ff",
@@ -86396,7 +86436,9 @@
       "scoreDisplay": "57–12",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.773211+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:45bfef1c-995e-477e-a0bd-7d32494b92a4",
@@ -86485,7 +86527,9 @@
       "scoreDisplay": "37–25",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.773281+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:18654235-d9ec-425e-8675-1c94c2085911",
@@ -86574,7 +86618,9 @@
       "scoreDisplay": "5–34",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.773319+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:444104db-8f9e-4e1c-a5f7-88e2282081c9",
@@ -86754,7 +86800,9 @@
       "scoreDisplay": "43–42",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.77458+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T05:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:b9ca72bd-d61b-4cd3-a6d9-9565ee16f603",
@@ -88393,7 +88441,9 @@
       "scoreDisplay": "42–38",
       "firstConfirmedCompleteAt": "2026-09-27T11:56:12.509671+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:38083fcc-edc6-4f15-bc8c-6c4aa14656a9",
@@ -88482,7 +88532,9 @@
       "scoreDisplay": "38–40",
       "firstConfirmedCompleteAt": "2026-09-27T17:58:12.445772+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a46593bb-75c5-4f76-b0e9-0361aebeac20",
@@ -88571,7 +88623,9 @@
       "scoreDisplay": "40–18",
       "firstConfirmedCompleteAt": "2026-09-28T00:00:08.757184+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T22:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:c4b7279e-b1af-4d6a-9637-cac2b567217d",
@@ -118599,7 +118653,9 @@
       "scoreDisplay": "0–25",
       "firstConfirmedCompleteAt": "2026-09-28T00:00:08.624019+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T04:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:53271482-7e3e-4aba-a7ef-7e143ec2a47f",
@@ -118691,7 +118747,9 @@
       "scoreDisplay": "31–24",
       "firstConfirmedCompleteAt": "2026-09-27T17:58:10.011766+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T14:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a963c567-2e87-475a-93ef-3aa5986ccec1",
@@ -118780,7 +118838,9 @@
       "scoreDisplay": "67–13",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:09.20714+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:448182b7-fb53-443a-953a-248d8ade7c4b",
@@ -118869,7 +118929,9 @@
       "scoreDisplay": "26–12",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:09.207161+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:d02f5c9f-858f-406b-b7b2-333b068196a9",
@@ -122622,7 +122684,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803832+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551838",
@@ -122714,7 +122778,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803843+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551837",
@@ -122806,7 +122872,9 @@
       "endDate": "2026-09-28",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.805012+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T19:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1525656",
@@ -122874,10 +122942,10 @@
       "awayParticipantId": "team:cricket:australia",
       "scoreDisplay": "South Africa won by 32 runs",
       "sourceFixtureId": "1525656",
-      "sourceName": "ESPNcricinfo",
-      "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.espn.in/cricket/series/24203/scorecard/1525656/south-africa-vs-australia-2nd-odi-24203",
-      "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4567/south-africa-v-australia-odis-2026-men",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "timingProvenance": {
         "kind": "published-schedule",
         "checkedAt": "2026-09-30T00:52:01.968Z",
@@ -122919,12 +122987,15 @@
       "sourceTrust": "verified",
       "sourceRefs": [
         "https://www.cricket.com.au/matches/series/CA:4567/south-africa-v-australia-odis-2026-men",
+        "https://www.espn.in/cricket/series/24203/scorecard/1525656/south-africa-vs-australia-2nd-odi-24203",
         "https://www.espn.in/cricket/series/24203/game/1525656/south-africa-vs-australia-2nd-odi-24203"
       ],
       "stakesScore": 5,
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803217+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1529227",
@@ -123015,7 +123086,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803793+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1496590",
@@ -123107,7 +123180,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803821+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552801",
@@ -123208,7 +123283,9 @@
       "endDate": "2026-09-28",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.805027+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T21:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551835",
@@ -125737,8 +125814,8 @@
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceUrl": "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-09-30T03:36:03.593Z",
@@ -125760,6 +125837,7 @@
       "sourceTrust": "verified",
       "sourceRefs": [
         "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa",
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
         "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm",
         "https://www.cricket.com.au/matches/"
       ],
@@ -128755,7 +128833,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126655+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553788",
@@ -128847,7 +128927,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.12667+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553786",
@@ -128939,7 +129021,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126614+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553787",
@@ -129031,7 +129115,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126638+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-24T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553789",
@@ -129051,7 +129137,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "live",
       "format": "Test",
       "roundLabel": "13th Match",
       "venue": "Abbottabad Cricket Stadium",
@@ -129059,32 +129145,32 @@
         {
           "id": "team:cricket:espn-1413171",
           "name": "Ghani",
-          "displayName": "Ghani",
+          "role": "home",
           "aliases": [
             "GHA"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "1413171"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "Ghani",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:espn-1553774",
           "name": "Markhor IT Solutions",
-          "displayName": "Markhor IT Solutions",
+          "role": "away",
           "aliases": [
             "MITS"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "1553774"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Markhor IT Solutions",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -129097,16 +129183,16 @@
       ],
       "homeParticipantId": "team:cricket:espn-1413171",
       "awayParticipantId": "team:cricket:espn-1553774",
-      "scoreDisplay": null,
+      "scoreDisplay": "Starts at 10:00 local time",
       "sourceFixtureId": "1553789",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553789/ghani-vs-markhor-it-solutions-13th-match-presidents-trophy-grade-i-2026-27",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553789/ghani-vs-markhor-it-solutions-13th-match-presidents-trophy-grade-i-2026-27",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T07:40:00.620Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553789/ghani-vs-markhor-it-solutions-13th-match-presidents-trophy-grade-i-2026-27"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Ghani v Markhor IT Solutions",
@@ -129120,7 +129206,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-10-03"
+      "endDate": "2026-10-03",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1553790",
@@ -129140,7 +129228,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "live",
       "format": "Test",
       "roundLabel": "14th Match",
       "venue": "National Ground, Islamabad",
@@ -129148,32 +129236,32 @@
         {
           "id": "team:cricket:espn-2831",
           "name": "Khan Research Laboratories",
-          "displayName": "Khan Research Laboratories",
+          "role": "home",
           "aliases": [
             "KRL"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "2831"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "Khan Research Laboratories",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:espn-1549016",
           "name": "Hyderabad Kingsmen Academy",
-          "displayName": "Hyderabad Kingsmen Academy",
+          "role": "away",
           "aliases": [
             "HHKA"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "1549016"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Hyderabad Kingsmen Academy",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -129186,16 +129274,16 @@
       ],
       "homeParticipantId": "team:cricket:espn-2831",
       "awayParticipantId": "team:cricket:espn-1549016",
-      "scoreDisplay": null,
+      "scoreDisplay": "Starts at 10:00 local time",
       "sourceFixtureId": "1553790",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553790/khan-research-laboratories-vs-hyderabad-kingsmen-academy-14th-match-presidents-trophy-grade-i-2026-27",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553790/khan-research-laboratories-vs-hyderabad-kingsmen-academy-14th-match-presidents-trophy-grade-i-2026-27",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T07:40:00.620Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553790/khan-research-laboratories-vs-hyderabad-kingsmen-academy-14th-match-presidents-trophy-grade-i-2026-27"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Khan Research Laboratories v Hyderabad Kingsmen Academy",
@@ -129209,7 +129297,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-10-03"
+      "endDate": "2026-10-03",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1553792",
@@ -129229,7 +129319,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "live",
       "format": "Test",
       "roundLabel": "16th Match",
       "venue": "Diamond Club Ground, Islamabad",
@@ -129237,32 +129327,32 @@
         {
           "id": "team:cricket:espn-1453495",
           "name": "Oil & Gas Development Company Limited",
-          "displayName": "Oil & Gas Development Company Limited",
+          "role": "home",
           "aliases": [
             "O&G"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "1453495"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "Oil & Gas Development Company Limited",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:espn-3110",
           "name": "State Bank of Pakistan",
-          "displayName": "State Bank of Pakistan",
+          "role": "away",
           "aliases": [
             "SBP"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "3110"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "State Bank of Pakistan",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -129275,16 +129365,16 @@
       ],
       "homeParticipantId": "team:cricket:espn-1453495",
       "awayParticipantId": "team:cricket:espn-3110",
-      "scoreDisplay": null,
+      "scoreDisplay": "Starts at 10:00 local time",
       "sourceFixtureId": "1553792",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553792/oil-&-gas-development-company-limited-vs-state-bank-of-pakistan-16th-match-presidents-trophy-grade-i-2026-27",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553792/oil-&-gas-development-company-limited-vs-state-bank-of-pakistan-16th-match-presidents-trophy-grade-i-2026-27",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T07:40:00.620Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553792/oil-&-gas-development-company-limited-vs-state-bank-of-pakistan-16th-match-presidents-trophy-grade-i-2026-27"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Oil & Gas Development Company Limited v State Bank of Pakistan",
@@ -129298,7 +129388,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-10-03"
+      "endDate": "2026-10-03",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1553791",
@@ -129318,7 +129410,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "live",
       "format": "Test",
       "roundLabel": "15th Match",
       "venue": "Imran Khan Cricket Stadium, Peshawar",
@@ -129326,32 +129418,32 @@
         {
           "id": "team:cricket:espn-2960",
           "name": "Pakistan Television",
-          "displayName": "Pakistan Television",
+          "role": "home",
           "aliases": [
             "PakTV"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "2960"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "home"
+          "displayName": "Pakistan Television",
+          "genderCategory": "male"
         },
         {
           "id": "team:cricket:espn-3088",
           "name": "Sui Northern Gas Pipelines Limited",
-          "displayName": "Sui Northern Gas Pipelines Limited",
+          "role": "away",
           "aliases": [
             "SNGP"
           ],
+          "teamKind": "club",
           "sourceIds": {
             "espn": "3088"
           },
           "countryCode": "PK",
-          "teamKind": "club",
-          "genderCategory": "male",
-          "role": "away"
+          "displayName": "Sui Northern Gas Pipelines Limited",
+          "genderCategory": "male"
         }
       ],
       "participantIds": [
@@ -129364,16 +129456,16 @@
       ],
       "homeParticipantId": "team:cricket:espn-2960",
       "awayParticipantId": "team:cricket:espn-3088",
-      "scoreDisplay": null,
+      "scoreDisplay": "Starts at 10:00 local time",
       "sourceFixtureId": "1553791",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553791/pakistan-television-vs-sui-northern-gas-pipelines-limited-15th-match-presidents-trophy-grade-i-2026-27",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553791/pakistan-television-vs-sui-northern-gas-pipelines-limited-15th-match-presidents-trophy-grade-i-2026-27",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T07:40:00.620Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/8836/game/1553791/pakistan-television-vs-sui-northern-gas-pipelines-limited-15th-match-presidents-trophy-grade-i-2026-27"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Pakistan Television v Sui Northern Gas Pipelines Limited",
@@ -129387,7 +129479,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-10-03"
+      "endDate": "2026-10-03",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1554061",
@@ -139369,7 +139463,9 @@
       "scoreDisplay": "12–17",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.774996+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T05:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:fc92129f-3f2c-477c-8836-b1753c85ebfc",
@@ -139458,7 +139554,9 @@
       "scoreDisplay": "33–26",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.775071+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-27T07:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be",
@@ -145156,7 +145254,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803202+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1554593",
@@ -145248,7 +145348,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.803809+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T12:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1554594",
@@ -145340,7 +145442,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.805001+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1554977",
@@ -145360,7 +145464,7 @@
       "date": "2026-09-30",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "live",
       "format": "ODI",
       "roundLabel": "3rd ODI",
       "venue": "Harare Sports Club",
@@ -145368,32 +145472,32 @@
         {
           "id": "team:cricket:zimbabwe-women",
           "name": "Zimbabwe Women",
-          "displayName": "Zimbabwe Women",
+          "role": "home",
           "aliases": [
             "ZIM-W"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "271866"
           },
           "countryCode": "ZW",
-          "teamKind": "national",
-          "genderCategory": "female",
-          "role": "home"
+          "displayName": "Zimbabwe Women",
+          "genderCategory": "female"
         },
         {
           "id": "team:cricket:west-indies-women",
           "name": "West Indies Women",
-          "displayName": "West Indies Women",
+          "role": "away",
           "aliases": [
             "WI-W"
           ],
+          "teamKind": "national",
           "sourceIds": {
             "espn": "3816"
           },
           "countryCode": null,
-          "teamKind": "national",
-          "genderCategory": "female",
-          "role": "away"
+          "displayName": "West Indies Women",
+          "genderCategory": "female"
         }
       ],
       "participantIds": [
@@ -145405,16 +145509,16 @@
       ],
       "homeParticipantId": "team:cricket:zimbabwe-women",
       "awayParticipantId": "team:cricket:west-indies-women",
-      "scoreDisplay": null,
+      "scoreDisplay": "ZIM Women won toss & fielded",
       "sourceFixtureId": "1554977",
       "sourceName": "ESPNcricinfo",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.espn.in/cricket/series/24796/game/1554977/zimbabwe-women-vs-west-indies-women-3rd-odi-24796",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-09-30T07:40:00.620Z",
       "timingProvenance": {
         "kind": "published-schedule",
-        "sourceUrl": "https://www.espn.in/cricket/series/24796/game/1554977/zimbabwe-women-vs-west-indies-women-3rd-odi-24796",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
+        "checkedAt": "2026-09-30T07:40:00.620Z",
+        "sourceUrl": "https://www.espn.in/cricket/series/24796/game/1554977/zimbabwe-women-vs-west-indies-women-3rd-odi-24796"
       },
       "discoverySourceId": "cricket-espn",
       "displayTitleCompact": "Zimbabwe Women v West Indies Women",
@@ -145428,7 +145532,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-30"
+      "endDate": "2026-09-30",
+      "scoreCheckedAt": "2026-09-30T07:40:00.620Z",
+      "statusCheckedAt": "2026-09-30T07:40:00.620Z"
     },
     {
       "id": "fixture:cricket:espn:1554707",
@@ -162357,7 +162463,9 @@
       "numberOfDays": 1,
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.804984+00:00",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1554271",
@@ -165546,131 +165654,6 @@
       "statusCheckedAt": "2026-09-30T03:36:03.593Z"
     },
     {
-      "id": "fixture:cricket:CA:39484",
-      "eventId": "fixture:cricket:CA:39484",
-      "canonicalEventId": "fixture:cricket:CA:39484",
-      "sourceFixtureId": "CA:39484",
-      "key": "cricket",
-      "sport": "Cricket",
-      "sportDomainId": "sport:cricket",
-      "competitionId": "competition:cricket:4503",
-      "competitionName": "County Championship 2026",
-      "competitionScope": "domestic",
-      "isInternational": false,
-      "isSenior": true,
-      "gender": "men",
-      "name": "Lancashire Men v Durham Men",
-      "roundLabel": "Division 2",
-      "startTimeUtc": "2026-09-24T09:30:00.000Z",
-      "endTimeUtc": "2026-09-27T00:00:00Z",
-      "timePrecision": "exact",
-      "venue": "Old Trafford, Manchester",
-      "participantIds": [
-        "team:cricket:ca-50",
-        "team:cricket:ca-40"
-      ],
-      "participants": [
-        {
-          "id": "team:cricket:ca-50",
-          "name": "Lancashire Men",
-          "countryCode": null,
-          "teamKind": "club",
-          "genderCategory": "male"
-        },
-        {
-          "id": "team:cricket:ca-40",
-          "name": "Durham Men",
-          "countryCode": null,
-          "teamKind": "club",
-          "genderCategory": "male"
-        }
-      ],
-      "participantCountryCodes": [],
-      "homeParticipantId": "team:cricket:ca-50",
-      "awayParticipantId": "team:cricket:ca-40",
-      "status": "live",
-      "scoreDisplay": null,
-      "innings": [
-        {
-          "id": 76622,
-          "fixtureId": 39484,
-          "inningNumber": 1,
-          "battingTeamId": 40,
-          "bowlingTeamId": 50,
-          "isDeclared": false,
-          "isFollowOn": false,
-          "isForfeited": false,
-          "overnightRuns": 0,
-          "overnightWickets": 0,
-          "byesRuns": 0,
-          "legByesRuns": 20,
-          "noBalls": 16,
-          "penalties": 0,
-          "totalExtras": 37,
-          "wideBalls": 1,
-          "oversBowled": "145.3",
-          "balls": 873,
-          "runsScored": 493,
-          "currentRunRate": 3.38,
-          "numberOfWicketsFallen": 10,
-          "day": 1,
-          "duckworthLewisOvers": "",
-          "participantId": "team:cricket:ca-40",
-          "team": "Durham Men"
-        },
-        {
-          "id": 76653,
-          "fixtureId": 39484,
-          "inningNumber": 2,
-          "battingTeamId": 50,
-          "bowlingTeamId": 40,
-          "isDeclared": false,
-          "isFollowOn": false,
-          "isForfeited": false,
-          "overnightRuns": 0,
-          "overnightWickets": 0,
-          "byesRuns": 5,
-          "legByesRuns": 4,
-          "noBalls": 4,
-          "penalties": 0,
-          "totalExtras": 13,
-          "wideBalls": 0,
-          "oversBowled": "113.0",
-          "balls": 678,
-          "runsScored": 267,
-          "requiredRunRate": 0,
-          "currentRunRate": 2.36,
-          "numberOfWicketsFallen": 5,
-          "day": 1,
-          "duckworthLewisOvers": "",
-          "participantId": "team:cricket:ca-50",
-          "team": "Lancashire Men"
-        }
-      ],
-      "format": "First Class Domestic",
-      "numberOfDays": 4,
-      "sourceName": "Cricket Australia",
-      "sourceType": "official",
-      "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
-      "timingProvenance": {
-        "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-27T06:40:38.678Z"
-      },
-      "displayTitleCompact": "Lancashire Men v Durham Men",
-      "date": "2026-09-24",
-      "time": "19:30",
-      "broadcaster": "",
-      "participantSlots": [],
-      "representativeCountryCodes": [],
-      "broadcastOptions": [],
-      "broadcasterIds": [],
-      "broadcasts": [],
-      "viewingOptions": [],
-      "consensusTags": []
-    },
-    {
       "id": "fixture:cricket:CA:39485",
       "eventId": "fixture:cricket:CA:39485",
       "canonicalEventId": "fixture:cricket:CA:39485",
@@ -166930,7 +166913,9 @@
       "endDate": "2026-09-27",
       "firstConfirmedCompleteAt": "2026-09-29T00:26:03.801792+00:00",
       "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
-      "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+      "statusCheckedAt": "2026-09-30T00:52:01.968Z",
+      "endTimeUtc": "2026-09-27T05:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1555409",
@@ -170804,7 +170789,9 @@
       "scoreDisplay": "53–0",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.781509+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:bd86ff72-fe5f-44d6-8df3-2b1aec74ef85",
@@ -170896,7 +170883,9 @@
       "scoreDisplay": "27–38",
       "firstConfirmedCompleteAt": "2026-09-28T12:04:10.781566+00:00",
       "scoreCheckedAt": "2026-09-30T00:16:01.062Z",
-      "statusCheckedAt": "2026-09-30T00:16:01.062Z"
+      "statusCheckedAt": "2026-09-30T00:16:01.062Z",
+      "endTimeUtc": "2026-09-26T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:d6201b49-8be5-4676-9af7-5477758d61d4",
@@ -172818,15 +172807,15 @@
         {
           "id": "team:cricket:ca-63",
           "name": "India A Men",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "male"
         },
         {
           "id": "team:cricket:ca-64",
           "name": "Australia A Men",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "male"
         }
       ],
@@ -172838,30 +172827,58 @@
       "innings": [
         {
           "id": 76679,
+          "day": 1,
+          "team": "Australia A Men",
+          "balls": 699,
+          "noBalls": 22,
+          "byesRuns": 4,
           "fixtureId": 40400,
+          "penalties": 0,
+          "wideBalls": 1,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 358,
+          "isForfeited": false,
+          "legByesRuns": 2,
+          "oversBowled": "116.3",
+          "totalExtras": 29,
           "inningNumber": 1,
           "battingTeamId": 64,
           "bowlingTeamId": 63,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:ca-64",
+          "currentRunRate": 3.07,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 10
+        },
+        {
+          "id": 76686,
+          "day": 1,
+          "team": "India A Men",
+          "balls": 96,
+          "noBalls": 1,
+          "byesRuns": 0,
+          "fixtureId": 40400,
+          "penalties": 0,
+          "wideBalls": 0,
           "isDeclared": false,
           "isFollowOn": false,
+          "runsScored": 42,
           "isForfeited": false,
+          "legByesRuns": 0,
+          "oversBowled": "16.0",
+          "totalExtras": 1,
+          "inningNumber": 2,
+          "battingTeamId": 63,
+          "bowlingTeamId": 64,
           "overnightRuns": 0,
+          "participantId": "team:cricket:ca-63",
+          "currentRunRate": 2.62,
+          "requiredRunRate": 0,
           "overnightWickets": 0,
-          "byesRuns": 4,
-          "legByesRuns": 2,
-          "noBalls": 21,
-          "penalties": 0,
-          "totalExtras": 27,
-          "wideBalls": 0,
-          "oversBowled": "87.0",
-          "balls": 522,
-          "runsScored": 282,
-          "currentRunRate": 3.24,
-          "numberOfWicketsFallen": 7,
-          "day": 1,
           "duckworthLewisOvers": "",
-          "participantId": "team:cricket:ca-64",
-          "team": "Australia A Men"
+          "numberOfWicketsFallen": 2
         }
       ],
       "format": "First Class Domestic",
@@ -172869,11 +172886,11 @@
       "sourceName": "Cricket Australia",
       "sourceType": "official",
       "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-09-30T08:08:01.073Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-30T03:31:22.297Z"
+        "checkedAt": "2026-09-30T08:08:01.073Z",
+        "sourceUrl": "https://www.cricket.com.au/matches/"
       },
       "displayTitleCompact": "India A Men v Australia A Men",
       "date": "2026-09-29",
@@ -172885,7 +172902,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-30T08:08:01.073Z",
+      "statusCheckedAt": "2026-09-30T08:08:01.073Z"
     },
     {
       "id": "fixture:cricket:CA:40415",
@@ -172915,15 +172934,15 @@
         {
           "id": "team:cricket:ca-1439-women",
           "name": "India A Women",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "female"
         },
         {
           "id": "team:cricket:ca-708-women",
           "name": "Australia A Women",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "female"
         }
       ],
@@ -172935,30 +172954,58 @@
       "innings": [
         {
           "id": 76680,
+          "day": 1,
+          "team": "India A Women",
+          "balls": 621,
+          "noBalls": 0,
+          "byesRuns": 6,
           "fixtureId": 40415,
+          "penalties": 0,
+          "wideBalls": 7,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "runsScored": 364,
+          "isForfeited": false,
+          "legByesRuns": 1,
+          "oversBowled": "103.3",
+          "totalExtras": 14,
           "inningNumber": 1,
           "battingTeamId": 1439,
           "bowlingTeamId": 708,
+          "overnightRuns": 0,
+          "participantId": "team:cricket:ca-1439-women",
+          "currentRunRate": 3.51,
+          "overnightWickets": 0,
+          "duckworthLewisOvers": "",
+          "numberOfWicketsFallen": 10
+        },
+        {
+          "id": 76685,
+          "day": 1,
+          "team": "Australia A Women",
+          "balls": 312,
+          "noBalls": 0,
+          "byesRuns": 4,
+          "fixtureId": 40415,
+          "penalties": 0,
+          "wideBalls": 0,
           "isDeclared": false,
           "isFollowOn": false,
+          "runsScored": 148,
           "isForfeited": false,
+          "legByesRuns": 0,
+          "oversBowled": "52.0",
+          "totalExtras": 4,
+          "inningNumber": 2,
+          "battingTeamId": 708,
+          "bowlingTeamId": 1439,
           "overnightRuns": 0,
+          "participantId": "team:cricket:ca-708-women",
+          "currentRunRate": 2.84,
+          "requiredRunRate": 0,
           "overnightWickets": 0,
-          "byesRuns": 6,
-          "legByesRuns": 1,
-          "noBalls": 0,
-          "penalties": 0,
-          "totalExtras": 14,
-          "wideBalls": 7,
-          "oversBowled": "100.0",
-          "balls": 600,
-          "runsScored": 351,
-          "currentRunRate": 3.51,
-          "numberOfWicketsFallen": 9,
-          "day": 1,
           "duckworthLewisOvers": "",
-          "participantId": "team:cricket:ca-1439-women",
-          "team": "India A Women"
+          "numberOfWicketsFallen": 7
         }
       ],
       "format": null,
@@ -172966,11 +173013,11 @@
       "sourceName": "Cricket Australia",
       "sourceType": "official",
       "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-09-30T08:08:01.073Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-30T03:31:22.297Z"
+        "checkedAt": "2026-09-30T08:08:01.073Z",
+        "sourceUrl": "https://www.cricket.com.au/matches/"
       },
       "displayTitleCompact": "India A Women v Australia A Women",
       "date": "2026-09-29",
@@ -172982,7 +173029,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "scoreCheckedAt": "2026-09-30T08:08:01.073Z",
+      "statusCheckedAt": "2026-09-30T08:08:01.073Z"
     },
     {
       "id": "fixture:cricket:CA:40764",
@@ -179123,15 +179172,15 @@
         {
           "id": "team:cricket:india",
           "name": "India Men",
-          "countryCode": "IN",
           "teamKind": "national",
+          "countryCode": "IN",
           "genderCategory": "male"
         },
         {
           "id": "team:cricket:west-indies",
           "name": "West Indies Men",
-          "countryCode": null,
           "teamKind": "national",
+          "countryCode": null,
           "genderCategory": "male"
         }
       ],
@@ -179140,7 +179189,7 @@
       ],
       "homeParticipantId": "team:cricket:india",
       "awayParticipantId": "team:cricket:west-indies",
-      "status": "scheduled",
+      "status": "live",
       "scoreDisplay": null,
       "innings": [],
       "format": "ODI",
@@ -179148,11 +179197,11 @@
       "sourceName": "Cricket Australia",
       "sourceType": "official",
       "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-09-30T08:08:01.073Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-30T03:31:22.297Z"
+        "checkedAt": "2026-09-30T08:08:01.073Z",
+        "sourceUrl": "https://www.cricket.com.au/matches/"
       },
       "displayTitleCompact": "India Men v West Indies Men",
       "date": "2026-09-30",
@@ -179164,7 +179213,8 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "statusCheckedAt": "2026-09-30T08:08:01.073Z"
     },
     {
       "id": "fixture:cricket:CA:39989",
@@ -179875,7 +179925,7 @@
       "startTimeUtc": "2026-10-05T04:00:00.000Z",
       "endTimeUtc": "2026-10-08T00:00:00Z",
       "timePrecision": "exact",
-      "venue": "Narendra Modi Stadium Ground 'B', Ahmedabad",
+      "venue": "Narendra Modi Stadium Ground 'A', Ahmedabad",
       "participantIds": [
         "team:cricket:ca-229",
         "team:cricket:ca-225"
@@ -179884,15 +179934,15 @@
         {
           "id": "team:cricket:ca-229",
           "name": "India U19 Men",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "male"
         },
         {
           "id": "team:cricket:ca-225",
           "name": "Australia U19 Men",
-          "countryCode": null,
           "teamKind": "club",
+          "countryCode": null,
           "genderCategory": "male"
         }
       ],
@@ -179907,11 +179957,11 @@
       "sourceName": "Cricket Australia",
       "sourceType": "official",
       "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-09-30T08:08:01.073Z",
       "timingProvenance": {
         "kind": "official",
-        "sourceUrl": "https://www.cricket.com.au/matches/",
-        "checkedAt": "2026-09-30T03:31:22.297Z"
+        "checkedAt": "2026-09-30T08:08:01.073Z",
+        "sourceUrl": "https://www.cricket.com.au/matches/"
       },
       "displayTitleCompact": "India U19 Men v Australia U19 Men",
       "date": "2026-10-05",
@@ -179923,7 +179973,8 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "statusCheckedAt": "2026-09-30T08:08:01.073Z"
     },
     {
       "id": "fixture:cricket:CA:40766",
@@ -180818,8 +180869,8 @@
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceUrl": "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-09-30T03:36:03.593Z",
@@ -180838,7 +180889,18 @@
       "consensusTags": [],
       "firstConfirmedCompleteAt": "2026-09-30T03:36:10.207727+00:00",
       "scoreCheckedAt": "2026-09-30T03:36:03.593Z",
-      "statusCheckedAt": "2026-09-30T03:36:03.593Z"
+      "statusCheckedAt": "2026-09-30T03:36:03.593Z",
+      "outcomeText": "Australia defeated Zimbabwe by one wicket.",
+      "recapText": "Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+      "score": "Australia defeated Zimbabwe by one wicket.",
+      "resultSourceUrl": "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett",
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+      ],
+      "stakesScore": 5
     },
     {
       "id": "fixture:cricket:CA:40667",
@@ -181753,8 +181815,8 @@
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceUrl": "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-09-30T03:36:03.593Z",
@@ -181773,7 +181835,18 @@
       "consensusTags": [],
       "firstConfirmedCompleteAt": "2026-09-30T03:36:10.20467+00:00",
       "scoreCheckedAt": "2026-09-30T03:36:03.593Z",
-      "statusCheckedAt": "2026-09-30T03:36:03.593Z"
+      "statusCheckedAt": "2026-09-30T03:36:03.593Z",
+      "outcomeText": "Australia defeated Zimbabwe by 84 runs.",
+      "recapText": "Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+      "score": "Australia defeated Zimbabwe by 84 runs.",
+      "resultSourceUrl": "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake",
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+      ],
+      "stakesScore": 5
     },
     {
       "id": "fixture:cricket:CA:40664",
