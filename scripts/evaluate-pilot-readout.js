@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { readFinalsEvidence } = require("./lib/pilot-finals-readiness");
 
 const fs = require("node:fs");
 const path = require("node:path");
@@ -59,6 +60,7 @@ function inputFromReadout(payload, readiness){
 function localReadiness(now = new Date()){
   return buildReadinessReport({
     canonical: readJson("data/canonical/afl-nrl-2026.json"),
+    finals: readFinalsEvidence(),
     feedMeta: readJson("data/feed-meta.json"),
     now,
   });

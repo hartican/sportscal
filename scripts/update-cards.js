@@ -282,6 +282,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
   ["scripts/verify-pilot-readiness.js"],
+  ["scripts/validate-nrl-finals-readiness.js"],
   ["scripts/validate-pilot-readout.js"],
   ["scripts/build-discovery-dashboard.js"],
   ["scripts/build-discovery-dashboard.js", "--check"],

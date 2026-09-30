@@ -9,11 +9,18 @@ const { storylineFor, spoilerSafeRootCopy } = require("./lib/storyline-card-rule
 const ROOT = path.resolve(__dirname, "..");
 const SNAPSHOT_PATH = path.join(ROOT, "data/canonical/official-card-results-2026.json");
 
+// Exact recorded aliases, with the historical NRL finals spelling only.
+// Do not use names or dates to join results to fixtures.
+function resultAliases(event){
+  return [...new Set([event.id, event.eventId, event.canonicalEventId, ...(event.sourceEventIds || [])]
+    .filter(Boolean).flatMap(id => [id, String(id).replace(/^major-match:(nrl-finals-\d{4}):/, "major-match-$1-")]))];
+}
+
 function applyOfficialResults(events, snapshot){
-  const results = new Map((snapshot.results || []).map(result => [result.id, result]));
+  const results = new Map((snapshot.results || []).flatMap(result => resultAliases(result).map(id => [id, result])));
   let count = 0;
   const nextEvents = events.map(event => {
-    const result = results.get(event.id) || results.get(event.eventId);
+    const result = resultAliases(event).map(id => results.get(id)).find(Boolean);
     if (!result) return event;
     const next = {
       ...event,

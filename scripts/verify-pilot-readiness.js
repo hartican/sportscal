@@ -4,7 +4,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const SPORT_HUBS = require("../config/sport-hubs");
 
-const SCHEMA_VERSION = "pilot-readiness.v1";
+const { readFinalsEvidence, assessFinals } = require("./lib/pilot-finals-readiness");
+const SCHEMA_VERSION = "pilot-readiness.v2";
 const RESULT_GRACE_HOURS = 6;
 const MAX_SNAPSHOT_AGE_HOURS = 15;
 const SUPPORTED_SPORTS = Object.freeze(["afl", "nrl"]);
@@ -68,7 +69,7 @@ function completedResultIsPresent(fixture){
     && fixture.result.scorelineText.trim().length > 0;
 }
 
-function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
+function buildReadinessReport({ canonical, feedMeta, finals, now = new Date() } = {}){
   if (!canonical || !Array.isArray(canonical.events) || !Array.isArray(canonical.participants)){
     throw new TypeError("A canonical-sports bundle with events and participants is required.");
   }
@@ -157,6 +158,12 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
     }));
   overdueResults.forEach(fixture => issues.push(`${fixture.sport.toUpperCase()} ${fixture.id}: result is overdue.`));
 
+  const finalsReport = assessFinals(finals, now, RESULT_GRACE_HOURS);
+  issues.push(...finalsReport.issues);
+  overdueResults.push(...finalsReport.overdueResults);
+  supportedFixtureCount += finalsReport.fixtureCount;
+  completeFixtureCount += finalsReport.completeFixtureCount;
+
   const canonicalAgeHours = ageHours(canonical.generatedAt, now);
   const feedAgeHours = ageHours(feedMeta?.publishedAt, now);
   if (canonicalAgeHours === null || canonicalAgeHours < 0 || canonicalAgeHours > MAX_SNAPSHOT_AGE_HOURS){
@@ -178,7 +185,8 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
     completeFixtureCount,
     deferredPlaceholderCount,
     deferredPlaceholders,
-    dueSupportedFixtureCount: dueSupportedFixtures.length,
+    dueSupportedFixtureCount: dueSupportedFixtures.length + finalsReport.dueCount,
+    supplementalNrlFinals: finalsReport,
     overdueResultCount: overdueResults.length,
     overdueResults,
     snapshot: {
@@ -219,6 +227,7 @@ function main(){
   const options = parseOptions();
   const report = buildReadinessReport({
     canonical: readJson(options.canonicalPath),
+    finals: readFinalsEvidence(),
     feedMeta: readJson(options.feedMetaPath),
     now: options.now,
   });
@@ -227,7 +236,7 @@ function main(){
     if (!options.jsonOnly) process.stderr.write(`Pilot readiness failed with ${report.issues.length} issue(s).\n`);
     process.exitCode = 1;
   }else if (!options.jsonOnly){
-    process.stdout.write(`Pilot readiness passed: ${report.supportedFixtureCount} current/next-round AFL and NRL fixtures are complete, snapshots are fresh, and no supported result is overdue.\n`);
+    process.stdout.write(`Pilot readiness passed: ${report.supportedFixtureCount} current/next-round AFL/NRL fixtures and NRL finals slots are complete, snapshots are fresh, and no supported result is overdue.\n`);
   }
 }
 

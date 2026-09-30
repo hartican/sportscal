@@ -476,7 +476,9 @@
       "sourceUrl": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
       "status": "completed",
       "sourceCheckedAt": "2026-09-27T09:31:38Z",
-      "recapText": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
+      "recapText": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.",
+      "homeScore": 14,
+      "awayScore": 22
     },
     {
       "id": "evt_nbl_2026_27_36f8857c_58ad_11f1_9db7_b15d4ea6aed8",

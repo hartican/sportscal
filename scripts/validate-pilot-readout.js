@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { readFinalsEvidence } = require("./lib/pilot-finals-readiness");
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -8,7 +9,7 @@ const { inputFromReadout } = require("./evaluate-pilot-readout");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
-const readiness = buildReadinessReport({ canonical, feedMeta, now: new Date(feedMeta.publishedAt) });
+const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: new Date(feedMeta.publishedAt) });
 const participantsById = new Map(canonical.participants.map(participant => [participant.id, participant]));
 const unresolvedPlaceholders = canonical.events.filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById));
 const placeholderParticipant = { id:"test:afl:tbd", teamCode:"TBD" };
