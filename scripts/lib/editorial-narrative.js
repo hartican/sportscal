@@ -213,6 +213,8 @@ function validateKnowledge(document){
     (projection.factIds || []).forEach(id => { if (!facts.has(id)) issues.push(`${projection.id} references unknown fact ${id}.`); });
     (projection.sourceIds || []).forEach(id => { if (!sources.has(id)) issues.push(`${projection.id} references unknown source ${id}.`); });
     const dimensions = unique((projection.factIds || []).map(id => facts.get(id)?.dimension).filter(Boolean));
+    if (projection.formCopy !== undefined && (!nonEmpty(projection.formCopy) || projection.formCopy.length > 700 || !dimensions.includes('form'))) issues.push(`${projection.id}.formCopy requires 1-700 characters and sourced form facts.`);
+    if (projection.closingCopy !== undefined && (!nonEmpty(projection.closingCopy) || projection.closingCopy.length > 700 || !dimensions.some(dimension=>['history','path','consequence'].includes(dimension)))) issues.push(`${projection.id}.closingCopy requires 1-700 characters and sourced storyline facts.`);
     const factSourceIds = unique((projection.factIds || []).flatMap(id => facts.get(id)?.sourceIds || []));
     if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for research depth ${(projection.researchDepth || projection.stakes)}.`);
     if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for research depth ${(projection.researchDepth || projection.stakes)}.`);
@@ -275,6 +277,8 @@ function editorialNarrativeFor(projection, indexes){
     researchTier:(projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard",
     hook:projection.hook,
     synopsis:projection.synopsis,
+    ...(projection.formCopy ? { formCopy:projection.formCopy } : {}),
+    ...(projection.closingCopy ? { closingCopy:projection.closingCopy } : {}),
     ...(projection.hookSpoilerOn ? { hookSpoilerOn:projection.hookSpoilerOn } : {}),
     ...(projection.synopsisSpoilerOn ? { synopsisSpoilerOn:projection.synopsisSpoilerOn } : {}),
     threadIds:[...projection.threadIds],

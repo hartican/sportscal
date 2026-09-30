@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-30T13:17:58.189Z",
+  "generatedAt": "2026-09-30T22:51:39.893Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -9,7 +9,7 @@
   },
   "consequenceMigration": {
     "covered": 0,
-    "queued": 225
+    "queued": 227
   },
   "entries": [
     {
@@ -283,7 +283,7 @@
       "fiveStarSignal": true,
       "resultResearchRequired": false,
       "priority": "five-star",
-      "refreshDeadline": "2026-09-30T13:17:58.189Z"
+      "refreshDeadline": "2026-09-30T22:51:39.893Z"
     },
     {
       "targetType": "feed-event",
@@ -4073,6 +4073,42 @@
       "startsAt": "2026-10-30T08:30:00.000Z",
       "reason": "rolling-published-fixtures",
       "projectionId": "projection:rolling:evt-nbl-2026-27-3718733a-58ad-11f1-b000-3ffa71afcf53",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "promotedReplay": false,
+      "editorialPhase": "preview",
+      "fiveStarSignal": false,
+      "resultResearchRequired": false,
+      "priority": "rolling",
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:f1:2026:mexico:practice-1",
+      "title": "Mexico City GP · Practice 1",
+      "researchDepth": 2,
+      "startsAt": "2026-10-30T18:30:00.000Z",
+      "reason": "rolling-published-fixtures",
+      "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-1",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "promotedReplay": false,
+      "editorialPhase": "preview",
+      "fiveStarSignal": false,
+      "resultResearchRequired": false,
+      "priority": "rolling",
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:f1:2026:mexico:practice-2",
+      "title": "Mexico City GP · Practice 2",
+      "researchDepth": 2,
+      "startsAt": "2026-10-30T22:00:00.000Z",
+      "reason": "rolling-published-fixtures",
+      "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-2",
       "coverage": "covered",
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,

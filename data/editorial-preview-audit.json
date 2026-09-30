@@ -1,30 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-30T13:18:31.661Z",
+  "generatedAt": "2026-09-30T22:52:13.409Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 10,
-    "passed": 10,
+    "due": 13,
+    "passed": 13,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "tennis-tournament-wta-beijing-2026-2026-09-30",
-      "name": "China Open — WTA 1000",
-      "sport": "Tennis",
-      "date": "2026-09-30",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "wta-tour",
-        "wta_1000",
-        "active-tournament-window",
-        "hard-surface"
-      ],
-      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
-      "issues": []
-    },
     {
       "id": "event-wrc-2026-round-13",
       "name": "WRC Rally Italia Sardegna",
@@ -116,7 +100,10 @@
         "event-specific",
         "narrative:matchup",
         "narrative:venue",
-        "narrative:schedule"
+        "narrative:schedule",
+        "narrative:form",
+        "narrative:history",
+        "narrative:path"
       ],
       "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
       "issues": []
@@ -160,6 +147,70 @@
       "sport": "Formula 1",
       "date": "2026-10-10",
       "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    },
+    {
+      "id": "evt_32",
+      "name": "Singapore GP · Qualifying",
+      "sport": "Formula 1",
+      "date": "2026-10-11",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_indonesia",
+      "name": "MotoGP Indonesian Grand Prix",
+      "sport": "MotoGP",
+      "date": "2026-10-11",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "issues": []
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "name": "Bathurst 1000",
+      "sport": "V8 Supercars",
+      "date": "2026-10-11",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "issues": []
+    },
+    {
+      "id": "evt_33",
+      "name": "Singapore GP · Race",
+      "sport": "Formula 1",
+      "date": "2026-10-11",
+      "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",

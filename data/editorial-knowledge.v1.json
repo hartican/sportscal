@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-09-30T13:17:58.857Z",
+  "updatedAt": "2026-09-30T22:51:40.486Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -1483,21 +1483,21 @@
       "name": "Premier League current 2026/27 table",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:season-guide",
       "name": "Premier League 2026/27 club guide",
       "url": "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:fixtures",
       "name": "Premier League 2026/27 fixture list",
       "url": "https://www.premierleague.com/en/news/4675097",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128929",
@@ -1812,161 +1812,161 @@
       "name": "AFL 2026 final home-and-away ladder",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:finals-fixture",
       "name": "AFL 2026 finals fixture",
       "url": "https://www.afl.com.au/news/1597385/finals-fixture-ticket-details-schedule-confirmed-for-week-two-of-the-2026-finals-series/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:final-ten-rules",
       "name": "AFL 2026 Final Ten regulations",
       "url": "https://resources.afl.com.au/afl/document/2026/02/13/54c158af-15e9-483b-a195-62a0f4e33b11/AFL-Regulations-Final-11-February-2026-.pdf",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142404",
       "name": "AFL match record for Essendon v Port Adelaide",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142408",
       "name": "AFL match record for Sydney Swans v North Melbourne",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142409",
       "name": "AFL match record for West Coast Eagles v Hawthorn",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142502",
       "name": "AFL match record for Western Bulldogs v Collingwood",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142501",
       "name": "AFL match record for Melbourne v Carlton",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142601",
       "name": "AFL match record for Fremantle v Hawthorn",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142603",
       "name": "AFL match record for Geelong Cats v Carlton",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142602",
       "name": "AFL match record for Sydney Swans v Brisbane Lions",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142604",
       "name": "AFL match record for Adelaide Crows v Western Bulldogs",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142901",
       "name": "AFL match record for Fremantle v Brisbane Lions",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:season",
       "name": "Cricket Australia 2026/27 international schedule",
       "url": "https://www.cricket.com.au/news/4473637/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:test-workload",
       "name": "Cricket Australia Test workload analysis",
       "url": "https://www.cricket.com.au/news/4473693",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:bangladesh-first",
       "name": "Cricket Australia Darwin Test report",
       "url": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:bangladesh-second",
       "name": "Cricket Australia Mackay Test report",
       "url": "https://www.cricket.com.au/news/4565090/match-report-australia-beat-bangladesh-innings-victory-day-two-second-test-mackay-highlights-scores-mitchell-starc-ten-wickets-pat-cummins-cameron-green-fifty",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:south-africa",
       "name": "Cricket Australia South Africa Test tour guide",
       "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:england-odi",
       "name": "Cricket Australia 2026 England ODI series",
       "url": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:england-t20",
       "name": "Cricket Australia 2026 England T20 series",
       "url": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:england-history",
       "name": "Cricket Australia previous England ODI series report",
       "url": "https://www.cricket.com.au/news/4135227/australia-england-fifth-odi-series-decider-bristol-scores-highlights-report-duckett-brook-head-zampa-short",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:new-zealand",
       "name": "Cricket Australia 2026/27 New Zealand Test series",
       "url": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:cricket:new-zealand-tactics",
       "name": "Cricket Australia trans-Tasman tactical preview",
       "url": "https://www.cricket.com.au/news/4544351/alex-carey-tom-blundell-wicketkeeping-up-to-stumps-standing-england-bazball-downfall-australia-new-zealand-test-series-2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:consequence:event-nrl-129992607:result",
@@ -2372,14 +2372,14 @@
       "name": "AFL match record for Fremantle v Geelong Cats",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:afl:match:event-afl-cd-m20260142702",
       "name": "AFL match record for Brisbane Lions v Adelaide Crows",
       "url": "https://www.afl.com.au/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:rolling:sailgp:sailgp-calendar",
@@ -2428,21 +2428,21 @@
       "name": "WRC official 2026 calendar",
       "url": "https://www.wrc.com/en/calendar",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T08:35:08.448Z"
+      "checkedAt": "2026-09-30T21:12:24.043Z"
     },
     {
       "id": "source:rolling:wrc:driver-standings",
       "name": "FIA World Rally Championship driver standings",
       "url": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T08:35:08.448Z"
+      "checkedAt": "2026-09-30T21:12:24.043Z"
     },
     {
       "id": "source:rolling:wrc:stan-sport",
       "name": "Stan Sport WRC coverage",
       "url": "https://www.stan.com.au/watch/sport/motorsport/wrc",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T08:35:08.448Z"
+      "checkedAt": "2026-09-30T21:12:24.043Z"
     },
     {
       "id": "source:rolling:nrlw:nrlw-schedule",
@@ -4017,140 +4017,140 @@
       "name": "Premier League match record for Arsenal v Leeds United",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128974",
       "name": "Premier League match record for Aston Villa v Brentford",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128975",
       "name": "Premier League match record for Chelsea v Bournemouth",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128979",
       "name": "Premier League match record for Ipswich Town v Fulham",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128982",
       "name": "Premier League match record for Sunderland v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128981",
       "name": "Premier League match record for Manchester United v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128977",
       "name": "Premier League match record for Crystal Palace v Nottingham Forest",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128978",
       "name": "Premier League match record for Hull City v Everton",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128980",
       "name": "Premier League match record for Liverpool v Manchester City",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128976",
       "name": "Premier League match record for Coventry City v Newcastle United",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128986",
       "name": "Premier League match record for Everton v Chelsea",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128984",
       "name": "Premier League match record for Brentford v Liverpool",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128987",
       "name": "Premier League match record for Fulham v Hull City",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128989",
       "name": "Premier League match record for Manchester City v Ipswich Town",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128990",
       "name": "Premier League match record for Newcastle United v Aston Villa",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128983",
       "name": "Premier League match record for Bournemouth v Sunderland",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128985",
       "name": "Premier League match record for Brighton & Hove Albion v Crystal Palace",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128988",
       "name": "Premier League match record for Leeds United v Manchester United",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128991",
       "name": "Premier League match record for Nottingham Forest v Arsenal",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128992",
       "name": "Premier League match record for Tottenham Hotspur v Coventry City",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
@@ -4465,35 +4465,35 @@
       "name": "Premier League match record for Ipswich Town v Nottingham Forest",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128994",
       "name": "Premier League match record for Aston Villa v Manchester City",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128993",
       "name": "Premier League match record for Arsenal v Everton",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128996",
       "name": "Premier League match record for Coventry City v Fulham",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128995",
       "name": "Premier League match record for Chelsea v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641108:fixture",
@@ -4556,49 +4556,49 @@
       "name": "Premier League match record for Crystal Palace v Newcastle United",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128998",
       "name": "Premier League match record for Hull City v Brentford",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129000",
       "name": "Premier League match record for Liverpool v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129001",
       "name": "Premier League match record for Manchester United v Bournemouth",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129002",
       "name": "Premier League match record for Sunderland v Leeds United",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T13:17:48.846Z"
+      "checkedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "source:fixture-research:evt_84:0",
       "name": "Roosters v Knights — NRL Grand Final — official research 1",
       "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
       "sourceType": "official",
-      "checkedAt": "2026-09-27T13:39:49.102Z"
+      "checkedAt": "2026-09-30T22:37:31.000Z"
     },
     {
       "id": "source:fixture-research:evt_84:1",
       "name": "Roosters v Knights — NRL Grand Final — official research 2",
       "url": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
       "sourceType": "official",
-      "checkedAt": "2026-09-27T13:39:49.102Z"
+      "checkedAt": "2026-09-30T22:37:31.000Z"
     },
     {
       "id": "source:fixture-research:rugby-australia-south-africa-2026-09-27:0",
@@ -4634,6 +4634,48 @@
       "url": "https://www.afl.com.au/aflw/matches/8978",
       "sourceType": "official",
       "checkedAt": "2026-09-30T11:17:05.038Z"
+    },
+    {
+      "id": "source:fixture-research:evt_84:2",
+      "name": "Roosters v Knights — NRL Grand Final — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T22:37:31.000Z"
+    },
+    {
+      "id": "source:fixture-research:evt_84:3",
+      "name": "Roosters v Knights — NRL Grand Final — official research 4",
+      "url": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T22:37:31.000Z"
+    },
+    {
+      "id": "source:rolling:f1:session:evt-f1-2026-mexico-practice-1",
+      "name": "Formula 1 published session record for Mexico City GP · Practice 1",
+      "url": "https://www.formula1.com/en/results/2026/races",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T12:09:04.338Z"
+    },
+    {
+      "id": "source:rolling:f1:session:evt-f1-2026-mexico-practice-2",
+      "name": "Formula 1 published session record for Mexico City GP · Practice 2",
+      "url": "https://www.formula1.com/en/results/2026/races",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T12:09:04.338Z"
+    },
+    {
+      "id": "source:fixture-research:evt_84:4",
+      "name": "Roosters v Knights — NRL Grand Final — official research 5",
+      "url": "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T22:37:31.000Z"
+    },
+    {
+      "id": "source:fixture-research:evt_84:5",
+      "name": "Roosters v Knights — NRL Grand Final — official research 6",
+      "url": "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-30T22:37:31.000Z"
     }
   ],
   "narrativeFacts": [
@@ -6665,7 +6707,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6678,7 +6720,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6734,7 +6776,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6747,7 +6789,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6803,7 +6845,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6816,7 +6858,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6872,7 +6914,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6885,7 +6927,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6941,7 +6983,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -6997,7 +7039,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7053,7 +7095,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7109,7 +7151,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7122,7 +7164,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7178,7 +7220,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7277,7 +7319,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7290,7 +7332,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7346,7 +7388,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7402,7 +7444,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7415,7 +7457,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -7471,7 +7513,7 @@
       "sourceIds": [
         "source:depth:epl:season-guide"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8818,7 +8860,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142404"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8832,7 +8874,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8846,7 +8888,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142408"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8860,7 +8902,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8874,7 +8916,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142409"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8888,7 +8930,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8902,7 +8944,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8916,7 +8958,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8930,7 +8972,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142501"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8944,7 +8986,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8958,7 +9000,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142601"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8972,7 +9014,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -8986,7 +9028,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142603"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9000,7 +9042,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9014,7 +9056,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142602"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9028,7 +9070,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9042,7 +9084,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142604"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9056,7 +9098,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9070,7 +9112,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142901"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9084,7 +9126,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9097,7 +9139,7 @@
       "sourceIds": [
         "source:depth:cricket:bangladesh-first"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9110,7 +9152,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9123,7 +9165,7 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9136,7 +9178,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9149,7 +9191,7 @@
       "sourceIds": [
         "source:depth:cricket:bangladesh-first"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9162,7 +9204,7 @@
       "sourceIds": [
         "source:depth:cricket:bangladesh-second"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9292,7 +9334,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9305,7 +9347,7 @@
       "sourceIds": [
         "source:depth:cricket:england-history"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9318,7 +9360,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9331,7 +9373,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9344,7 +9386,7 @@
       "sourceIds": [
         "source:depth:cricket:england-history"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9357,7 +9399,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9370,7 +9412,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9383,7 +9425,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9396,7 +9438,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9409,7 +9451,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9422,7 +9464,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9435,7 +9477,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9448,7 +9490,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9461,7 +9503,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9474,7 +9516,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9487,7 +9529,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9500,7 +9542,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9513,7 +9555,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9526,7 +9568,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9539,7 +9581,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9552,7 +9594,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9565,7 +9607,7 @@
       "sourceIds": [
         "source:depth:cricket:england-t20"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9578,7 +9620,7 @@
       "sourceIds": [
         "source:depth:cricket:england-odi"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9591,7 +9633,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9604,7 +9646,7 @@
       "sourceIds": [
         "source:depth:cricket:new-zealand"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9617,7 +9659,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9630,7 +9672,7 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9643,7 +9685,7 @@
       "sourceIds": [
         "source:depth:cricket:new-zealand"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9656,7 +9698,7 @@
       "sourceIds": [
         "source:depth:cricket:new-zealand-tactics"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9669,7 +9711,7 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9682,7 +9724,7 @@
       "sourceIds": [
         "source:depth:cricket:new-zealand"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9695,7 +9737,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9708,7 +9750,7 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9775,7 +9817,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9789,7 +9831,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9803,7 +9845,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9817,7 +9859,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9831,7 +9873,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9845,7 +9887,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9859,7 +9901,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -9873,7 +9915,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10671,7 +10713,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142701"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10685,7 +10727,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10699,7 +10741,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10713,7 +10755,7 @@
         "source:depth:afl:ladder",
         "source:depth:afl:match:event-afl-cd-m20260142702"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10727,7 +10769,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -10741,7 +10783,7 @@
         "source:depth:afl:finals-fixture",
         "source:depth:afl:final-ten-rules"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -12262,7 +12304,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-09-30T08:35:08.448Z",
+      "observedAt": "2026-09-30T21:12:24.043Z",
       "expiresAt": null
     },
     {
@@ -12275,7 +12317,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-09-30T08:35:08.448Z",
+      "observedAt": "2026-09-30T21:12:24.043Z",
       "expiresAt": null
     },
     {
@@ -12288,7 +12330,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-09-30T08:35:08.448Z",
+      "observedAt": "2026-09-30T21:12:24.043Z",
       "expiresAt": null
     },
     {
@@ -12301,7 +12343,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-09-30T08:35:08.448Z",
+      "observedAt": "2026-09-30T21:12:24.043Z",
       "expiresAt": null
     },
     {
@@ -23541,7 +23583,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128973"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T11:30:00.000Z"
     },
     {
@@ -23555,7 +23597,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128973"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T11:30:00.000Z"
     },
     {
@@ -23570,7 +23612,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23584,7 +23626,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128974"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23598,7 +23640,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128974"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23613,7 +23655,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23627,7 +23669,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128975"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23641,7 +23683,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128975"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23656,7 +23698,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23670,7 +23712,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128979"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23684,7 +23726,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128979"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23699,7 +23741,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23713,7 +23755,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128982"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23727,7 +23769,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128982"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T14:00:00.000Z"
     },
     {
@@ -23742,7 +23784,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23756,7 +23798,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128981"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T16:30:00.000Z"
     },
     {
@@ -23770,7 +23812,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128981"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-10T16:30:00.000Z"
     },
     {
@@ -23785,7 +23827,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23799,7 +23841,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128977"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T13:00:00.000Z"
     },
     {
@@ -23813,7 +23855,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128977"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T13:00:00.000Z"
     },
     {
@@ -23828,7 +23870,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23842,7 +23884,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128978"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T13:00:00.000Z"
     },
     {
@@ -23856,7 +23898,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128978"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T13:00:00.000Z"
     },
     {
@@ -23871,7 +23913,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23885,7 +23927,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128980"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T15:30:00.000Z"
     },
     {
@@ -23899,7 +23941,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128980"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-11T15:30:00.000Z"
     },
     {
@@ -23914,7 +23956,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23928,7 +23970,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128976"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-12T19:00:00.000Z"
     },
     {
@@ -23942,7 +23984,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128976"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-12T19:00:00.000Z"
     },
     {
@@ -23957,7 +23999,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -23971,7 +24013,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128986"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T11:30:00.000Z"
     },
     {
@@ -23985,7 +24027,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128986"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T11:30:00.000Z"
     },
     {
@@ -24000,7 +24042,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24014,7 +24056,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128984"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24028,7 +24070,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128984"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24043,7 +24085,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24057,7 +24099,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128987"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24071,7 +24113,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128987"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24086,7 +24128,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24100,7 +24142,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128989"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24114,7 +24156,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128989"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T14:00:00.000Z"
     },
     {
@@ -24129,7 +24171,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24143,7 +24185,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128990"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T16:30:00.000Z"
     },
     {
@@ -24157,7 +24199,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128990"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-17T16:30:00.000Z"
     },
     {
@@ -24172,7 +24214,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24186,7 +24228,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128983"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24200,7 +24242,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128983"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24215,7 +24257,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24229,7 +24271,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128985"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24243,7 +24285,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128985"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24258,7 +24300,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24272,7 +24314,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128988"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24286,7 +24328,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128988"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T13:00:00.000Z"
     },
     {
@@ -24301,7 +24343,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24315,7 +24357,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128991"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T15:30:00.000Z"
     },
     {
@@ -24329,7 +24371,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128991"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-18T15:30:00.000Z"
     },
     {
@@ -24344,7 +24386,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -24358,7 +24400,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128992"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-19T19:00:00.000Z"
     },
     {
@@ -24372,7 +24414,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128992"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-19T19:00:00.000Z"
     },
     {
@@ -24387,7 +24429,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25379,7 +25421,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128999"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-23T19:00:00.000Z"
     },
     {
@@ -25393,7 +25435,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128999"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-23T19:00:00.000Z"
     },
     {
@@ -25408,7 +25450,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25422,7 +25464,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128994"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T11:30:00.000Z"
     },
     {
@@ -25436,7 +25478,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128994"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T11:30:00.000Z"
     },
     {
@@ -25451,7 +25493,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25465,7 +25507,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128993"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T14:00:00.000Z"
     },
     {
@@ -25479,7 +25521,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128993"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T14:00:00.000Z"
     },
     {
@@ -25494,7 +25536,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25508,7 +25550,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128996"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T14:00:00.000Z"
     },
     {
@@ -25522,7 +25564,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128996"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T14:00:00.000Z"
     },
     {
@@ -25537,7 +25579,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25551,7 +25593,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128995"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T16:30:00.000Z"
     },
     {
@@ -25565,7 +25607,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128995"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-24T16:30:00.000Z"
     },
     {
@@ -25580,7 +25622,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25939,7 +25981,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128997"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -25953,7 +25995,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128997"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -25968,7 +26010,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -25982,7 +26024,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128998"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -25996,7 +26038,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-128998"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -26011,7 +26053,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26025,7 +26067,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129000"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -26039,7 +26081,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129000"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -26054,7 +26096,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26068,7 +26110,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129001"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -26082,7 +26124,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129001"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T14:00:00.000Z"
     },
     {
@@ -26097,7 +26139,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26111,7 +26153,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129002"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T16:30:00.000Z"
     },
     {
@@ -26125,7 +26167,7 @@
         "source:depth:epl:table",
         "source:depth:epl:match:epl-2026-27-129002"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": "2026-10-25T16:30:00.000Z"
     },
     {
@@ -26140,7 +26182,7 @@
         "source:depth:epl:season-guide",
         "source:depth:epl:fixtures"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26153,7 +26195,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-09-27T13:39:49.102Z",
+      "observedAt": "2026-09-30T22:37:31.000Z",
       "expiresAt": null
     },
     {
@@ -26166,7 +26208,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-09-27T13:39:49.102Z",
+      "observedAt": "2026-09-30T22:37:31.000Z",
       "expiresAt": null
     },
     {
@@ -26179,7 +26221,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-09-27T13:39:49.102Z",
+      "observedAt": "2026-09-30T22:37:31.000Z",
       "expiresAt": null
     },
     {
@@ -26192,7 +26234,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:1"
       ],
-      "observedAt": "2026-09-27T13:39:49.102Z",
+      "observedAt": "2026-09-30T22:37:31.000Z",
       "expiresAt": null
     },
     {
@@ -26597,7 +26639,7 @@
       "sourceIds": [
         "source:depth:cricket:south-africa"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26610,7 +26652,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26623,7 +26665,7 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26636,7 +26678,7 @@
       "sourceIds": [
         "source:depth:cricket:south-africa"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26649,7 +26691,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26662,7 +26704,7 @@
       "sourceIds": [
         "source:depth:cricket:south-africa"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26675,7 +26717,7 @@
       "sourceIds": [
         "source:depth:cricket:south-africa"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26688,7 +26730,7 @@
       "sourceIds": [
         "source:depth:cricket:season"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
       "expiresAt": null
     },
     {
@@ -26701,7 +26743,99 @@
       "sourceIds": [
         "source:depth:cricket:test-workload"
       ],
-      "observedAt": "2026-09-30T13:17:48.846Z",
+      "observedAt": "2026-09-30T22:50:31.966Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_84:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_84"
+      ],
+      "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_84:2"
+      ],
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_84:5",
+      "subjectIds": [
+        "subject:fixture-research:evt_84"
+      ],
+      "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_84:3"
+      ],
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:f1:session:evt-f1-2026-mexico-practice-1",
+      "subjectIds": [
+        "subject:rolling:f1-season"
+      ],
+      "statement": "Mexico City GP · Practice 1 is the published race session for this 2026 Formula 1 round.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
+      ],
+      "observedAt": "2026-09-30T12:09:04.338Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:f1:session:evt-f1-2026-mexico-practice-2",
+      "subjectIds": [
+        "subject:rolling:f1-season"
+      ],
+      "statement": "Mexico City GP · Practice 2 is the published race session for this 2026 Formula 1 round.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
+      ],
+      "observedAt": "2026-09-30T12:09:04.338Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_84:6",
+      "subjectIds": [
+        "subject:fixture-research:evt_84"
+      ],
+      "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_84:3",
+        "source:fixture-research:evt_84:4"
+      ],
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_84:7",
+      "subjectIds": [
+        "subject:fixture-research:evt_84"
+      ],
+      "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_84:4"
+      ],
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_84:8",
+      "subjectIds": [
+        "subject:fixture-research:evt_84"
+      ],
+      "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_84:5"
+      ],
+      "observedAt": "2026-09-30T22:37:31.000Z",
       "expiresAt": null
     }
   ],
@@ -27785,7 +27919,7 @@
         "fact:depth:epl:epl-2026-27-129000:team-football-epl-131:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-2:2026-27",
@@ -27799,7 +27933,7 @@
         "fact:depth:epl:epl-2026-27-128994:team-football-epl-2:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-11:2026-27",
@@ -27813,7 +27947,7 @@
         "fact:depth:epl:epl-2026-27-128994:team-football-epl-11:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-127:2026-27",
@@ -27827,7 +27961,7 @@
         "fact:depth:epl:epl-2026-27-129001:team-football-epl-127:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-23:2026-27",
@@ -27841,7 +27975,7 @@
         "fact:depth:epl:epl-2026-27-128997:team-football-epl-23:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-10:2026-27",
@@ -27855,7 +27989,7 @@
         "fact:depth:epl:epl-2026-27-129000:team-football-epl-10:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-34:2026-27",
@@ -27869,7 +28003,7 @@
         "fact:depth:epl:epl-2026-27-128996:team-football-epl-34:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-4:2026-27",
@@ -27883,7 +28017,7 @@
         "fact:depth:epl:epl-2026-27-128995:team-football-epl-4:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-6:2026-27",
@@ -27897,7 +28031,7 @@
         "fact:depth:epl:epl-2026-27-128997:team-football-epl-6:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-15:2026-27",
@@ -27911,7 +28045,7 @@
         "fact:depth:epl:epl-2026-27-128999:team-football-epl-15:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-7:2026-27",
@@ -27925,7 +28059,7 @@
         "fact:depth:epl:epl-2026-27-128993:team-football-epl-7:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-5:2026-27",
@@ -27939,7 +28073,7 @@
         "fact:depth:epl:epl-2026-27-128996:team-football-epl-5:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-41:2026-27",
@@ -27953,7 +28087,7 @@
         "fact:depth:epl:epl-2026-27-128998:team-football-epl-41:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-21:2026-27",
@@ -27967,7 +28101,7 @@
         "fact:depth:epl:epl-2026-27-128995:team-football-epl-21:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-9:2026-27",
@@ -27981,7 +28115,7 @@
         "fact:depth:epl:epl-2026-27-129002:team-football-epl-9:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-130:2026-27",
@@ -27995,7 +28129,7 @@
         "fact:depth:epl:epl-2026-27-128998:team-football-epl-130:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-29:2026-27",
@@ -28009,7 +28143,7 @@
         "fact:depth:epl:epl-2026-27-129002:team-football-epl-29:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-12:2026-27",
@@ -28023,7 +28157,7 @@
         "fact:depth:epl:epl-2026-27-129001:team-football-epl-12:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-8:2026-27",
@@ -28037,7 +28171,7 @@
         "fact:depth:epl:epl-2026-27-128999:team-football-epl-8:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-1:2026-27",
@@ -28051,7 +28185,7 @@
         "fact:depth:epl:epl-2026-27-128993:team-football-epl-1:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:afl:close",
@@ -28069,7 +28203,7 @@
         "fact:depth:afl:event-afl-cd-m20260142409:2"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:afl:finals",
@@ -28109,7 +28243,7 @@
         "fact:depth:afl:event-afl-cd-m20260142901:4"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:cricket:bangladesh",
@@ -28127,7 +28261,7 @@
         "fact:depth:cricket:cricket-australia-bangladesh-second-test-2026:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:cricket:south-africa",
@@ -28148,7 +28282,7 @@
         "fact:depth:cricket:fixture-cricket-espn-1525661:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:cricket:england",
@@ -28184,7 +28318,7 @@
         "fact:depth:cricket:cricket-australia-england-fifth-t20-2026:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:depth:cricket:new-zealand",
@@ -28205,7 +28339,7 @@
         "fact:depth:cricket:evt-91:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T13:17:48.846Z"
+      "updatedAt": "2026-09-30T22:50:31.966Z"
     },
     {
       "id": "thread:rolling:team-afl-cd-t50",
@@ -28293,7 +28427,7 @@
         "fact:rolling:event-wrc-2026-round-13:viewing"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T08:35:08.448Z"
+      "updatedAt": "2026-09-30T21:12:24.043Z"
     },
     {
       "id": "thread:rolling:nrlw:2026",
@@ -29350,15 +29484,20 @@
         "subject:fixture-research:evt_84"
       ],
       "title": "Roosters v Knights — NRL Grand Final",
-      "summary": "The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "summary": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
       "factIds": [
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3"
+        "fact:fixture-research:evt_84:3",
+        "fact:fixture-research:evt_84:4",
+        "fact:fixture-research:evt_84:5",
+        "fact:fixture-research:evt_84:6",
+        "fact:fixture-research:evt_84:7",
+        "fact:fixture-research:evt_84:8"
       ],
       "status": "active",
-      "updatedAt": "2026-09-27T13:39:49.102Z"
+      "updatedAt": "2026-09-30T22:37:31.000Z"
     },
     {
       "id": "thread:fixture-research:rugby-australia-south-africa-2026-09-27",
@@ -32224,12 +32363,12 @@
         "source:rolling:wrc:driver-standings",
         "source:rolling:wrc:stan-sport"
       ],
-      "researchedAt": "2026-09-30T12:28:17.995Z",
+      "researchedAt": "2026-09-30T22:31:26.033Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T12:28:17.995Z"
+        "reviewedAt": "2026-09-30T22:31:26.033Z"
       }
     },
     {
@@ -34963,12 +35102,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1"
       ],
-      "researchedAt": "2026-09-30T13:17:58.857Z",
+      "researchedAt": "2026-09-30T22:51:40.486Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:58.857Z"
+        "reviewedAt": "2026-09-30T22:51:40.486Z"
       }
     },
     {
@@ -35058,12 +35197,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-2"
       ],
-      "researchedAt": "2026-09-30T13:17:58.857Z",
+      "researchedAt": "2026-09-30T22:51:40.486Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:58.857Z"
+        "reviewedAt": "2026-09-30T22:51:40.486Z"
       }
     },
     {
@@ -35089,12 +35228,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-3"
       ],
-      "researchedAt": "2026-09-30T13:17:58.857Z",
+      "researchedAt": "2026-09-30T22:51:40.486Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:58.857Z"
+        "reviewedAt": "2026-09-30T22:51:40.486Z"
       }
     },
     {
@@ -40731,6 +40870,68 @@
       }
     },
     {
+      "id": "projection:rolling:evt-f1-2026-mexico-practice-1",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_f1_2026_mexico_practice_1"
+      ],
+      "researchDepth": 2,
+      "hook": "Mexico City GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+      "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:constructors",
+        "fact:rolling:f1:session:evt-f1-2026-mexico-practice-1",
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:race-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings",
+        "source:rolling:f1:constructors",
+        "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
+      ],
+      "researchedAt": "2026-09-30T22:31:26.033Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-30T22:31:26.033Z"
+      }
+    },
+    {
+      "id": "projection:rolling:evt-f1-2026-mexico-practice-2",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_f1_2026_mexico_practice_2"
+      ],
+      "researchDepth": 2,
+      "hook": "Mexico City GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+      "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:constructors",
+        "fact:rolling:f1:session:evt-f1-2026-mexico-practice-2",
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:race-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings",
+        "source:rolling:f1:constructors",
+        "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
+      ],
+      "researchedAt": "2026-09-30T22:31:26.033Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-30T22:31:26.033Z"
+      }
+    },
+    {
       "id": "projection:fixture-research:fixture:us-open-2026:official:ms:1504",
       "targetType": "feed-event",
       "targetIds": [
@@ -41896,7 +42097,6 @@
       "id": "projection:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22",
       "targetType": "feed-event",
       "targetIds": [
-        "tennis-tournament-bjk-cup-finals-2026-2026-09-27",
         "tennis-parent:billie-jean-king-cup:2026:tournament:tennis:bjk-cup-finals-2026"
       ],
       "researchDepth": 5,
@@ -42064,8 +42264,10 @@
         "evt_84"
       ],
       "researchDepth": 3,
-      "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
-      "synopsis": "The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
+      "synopsis": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "formCopy": "The Roosters beat the Dolphins 36–20 in their preliminary final, with Mark Nawaqanitawase running for 329 metres and Sam Walker scoring on his return from injury. Newcastle overcame Penrith 22–14 despite playing with 12 men after Phoenix Crossland’s dismissal. They conceded no second-half points; Sandon Smith’s two breakaway tries decided the match.",
+      "closingCopy": "Sandon Smith was squeezed out when the Roosters signed Daly Cherry-Evans. Now his first season at Newcastle ends against the club he left, with a chance to deny Cherry-Evans a premiership in his final NRL match. Mark Nawaqanitawase also has one game left before returning to rugby union. The Knights’ improbable revival meets a Roosters side with two farewells to finish.",
       "threadIds": [
         "thread:fixture-research:evt_84"
       ],
@@ -42073,19 +42275,28 @@
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3"
+        "fact:fixture-research:evt_84:3",
+        "fact:fixture-research:evt_84:4",
+        "fact:fixture-research:evt_84:5",
+        "fact:fixture-research:evt_84:6",
+        "fact:fixture-research:evt_84:7",
+        "fact:fixture-research:evt_84:8"
       ],
       "sourceIds": [
         "source:fixture-research:evt_84:0",
-        "source:fixture-research:evt_84:1"
+        "source:fixture-research:evt_84:1",
+        "source:fixture-research:evt_84:2",
+        "source:fixture-research:evt_84:3",
+        "source:fixture-research:evt_84:4",
+        "source:fixture-research:evt_84:5"
       ],
-      "researchedAt": "2026-09-27T13:39:49.102Z",
+      "researchedAt": "2026-09-30T22:37:31.000Z",
       "editorialPhase": "preview",
       "refreshAfter": "2026-10-04T08:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-27T13:39:49.102Z"
+        "reviewedAt": "2026-09-30T22:37:31.000Z"
       }
     },
     {
@@ -42172,12 +42383,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128973"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T11:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42206,12 +42417,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128974"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42240,12 +42451,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128975"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42274,12 +42485,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128979"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42308,12 +42519,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128982"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42342,12 +42553,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128981"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-10T16:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42376,12 +42587,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128977"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-11T13:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42410,12 +42621,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128978"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-11T13:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42444,12 +42655,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128980"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-11T15:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42478,12 +42689,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128976"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-12T19:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42512,12 +42723,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128986"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-17T11:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42546,12 +42757,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128984"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42580,12 +42791,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128987"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42614,12 +42825,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128989"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-17T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42648,12 +42859,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128990"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-17T16:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42682,12 +42893,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128983"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42716,12 +42927,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128985"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42750,12 +42961,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128988"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-18T13:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42784,12 +42995,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128991"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-18T15:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42818,12 +43029,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128992"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-19T19:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42852,12 +43063,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128999"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-23T19:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42886,12 +43097,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128994"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-24T11:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42920,12 +43131,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128993"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-24T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42954,12 +43165,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128996"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-24T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -42988,12 +43199,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128995"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-24T16:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43022,12 +43233,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128997"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43056,12 +43267,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-128998"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43090,12 +43301,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-129000"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43124,12 +43335,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-129001"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-25T14:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43158,12 +43369,12 @@
         "source:depth:epl:fixtures",
         "source:depth:epl:match:epl-2026-27-129002"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-25T16:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43190,12 +43401,12 @@
         "source:depth:afl:final-ten-rules",
         "source:depth:afl:match:event-afl-cd-m20260142404"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43222,12 +43433,12 @@
         "source:depth:afl:final-ten-rules",
         "source:depth:afl:match:event-afl-cd-m20260142408"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43254,12 +43465,12 @@
         "source:depth:afl:final-ten-rules",
         "source:depth:afl:match:event-afl-cd-m20260142409"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43289,12 +43500,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142502",
         "source:depth:afl:match:event-afl-cd-m20260142501"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43324,12 +43535,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142501",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43359,12 +43570,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142601",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43394,12 +43605,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142603",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43429,12 +43640,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142602",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43464,12 +43675,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142604",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43499,12 +43710,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142701",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43534,12 +43745,12 @@
         "source:depth:afl:match:event-afl-cd-m20260142702",
         "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43568,12 +43779,12 @@
         "source:depth:afl:final-ten-rules",
         "source:depth:afl:match:event-afl-cd-m20260142901"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43601,12 +43812,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43634,19 +43845,19 @@
         "source:depth:cricket:bangladesh-first",
         "source:depth:cricket:bangladesh-second"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
       "id": "projection:sport-depth:fixture-cricket-espn-1525659",
       "targetType": "feed-event",
       "targetIds": [
-        "fixture-cricket-espn-1525659"
+        "fixture:cricket:espn:1525659"
       ],
       "researchDepth": 5,
       "hook": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
@@ -43665,19 +43876,19 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-09T07:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
       "id": "projection:sport-depth:fixture-cricket-espn-1525660",
       "targetType": "feed-event",
       "targetIds": [
-        "fixture-cricket-espn-1525660"
+        "fixture:cricket:espn:1525660"
       ],
       "researchDepth": 5,
       "hook": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
@@ -43698,19 +43909,19 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-18T08:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
       "id": "projection:sport-depth:fixture-cricket-espn-1525661",
       "targetType": "feed-event",
       "targetIds": [
-        "fixture-cricket-espn-1525661"
+        "fixture:cricket:espn:1525661"
       ],
       "researchDepth": 5,
       "hook": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
@@ -43729,12 +43940,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-10-27T08:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43760,12 +43971,12 @@
         "source:depth:cricket:england-history",
         "source:depth:cricket:season"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-13T03:30:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43793,12 +44004,12 @@
         "source:depth:cricket:england-history",
         "source:depth:cricket:season"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-15T03:30:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43824,12 +44035,12 @@
         "source:depth:cricket:england-t20",
         "source:depth:cricket:season"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-18T03:30:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43855,12 +44066,12 @@
         "source:depth:cricket:england-odi",
         "source:depth:cricket:season"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-21T08:15:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43886,12 +44097,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:england-odi"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-24T08:15:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43917,12 +44128,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:england-odi"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-27T08:15:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43948,12 +44159,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:england-odi"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-11-29T08:15:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -43979,12 +44190,12 @@
         "source:depth:cricket:england-odi",
         "source:depth:cricket:season"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-12-02T08:15:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -44010,12 +44221,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-12-09T02:20:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -44041,12 +44252,12 @@
         "source:depth:cricket:new-zealand-tactics",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2026-12-25T23:30:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     },
     {
@@ -44072,12 +44283,12 @@
         "source:depth:cricket:season",
         "source:depth:cricket:test-workload"
       ],
-      "researchedAt": "2026-09-30T13:17:48.846Z",
+      "researchedAt": "2026-09-30T22:50:31.966Z",
       "refreshAfter": "2027-01-03T23:30:00Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T13:17:48.846Z"
+        "reviewedAt": "2026-09-30T22:50:31.966Z"
       }
     }
   ]

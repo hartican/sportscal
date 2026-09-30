@@ -218,6 +218,12 @@
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
+      // A confirmed sporting start supersedes an older date-only placeholder.
+      // Missing optional flags must not inherit TBC from the retained record.
+      // Explicitly uncertain new observations keep their uncertainty.
+      if(base && (base.timeTbc || base.startTimeTbc || base.dateOnly) && event.timePrecision==='exact' && event.scheduleStatus==='confirmed' && Number.isFinite(Date.parse(event.startTimeUtc)) && !event.timeTbc && !event.startTimeTbc && !event.dateOnly){
+        event.timeTbc=false;event.startTimeTbc=false;event.dateOnly=false;
+      }
       reconcileObservation(base,event);
       if(base && !event.enrichmentOnly){
         const reviewedAt = record => Date.parse(record?.editorialNarrative?.researchedAt || record?.lastReviewedAt || '') || 0;

@@ -336,7 +336,7 @@
       ],
       "sourceName": "Accor Stadium official Grand Final programme",
       "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-      "sourceCheckedAt": "2026-09-27T13:39:49.102Z",
+      "sourceCheckedAt": "2026-09-30T22:37:31.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueName": "Accor Stadium",
@@ -372,7 +372,10 @@
           "linkScope": "sport",
           "replayVerified": false
         }
-      ]
+      ],
+      "timeTbc": false,
+      "startTimeTbc": false,
+      "dateOnly": false
     }
   ],
   "sourceUrls": [

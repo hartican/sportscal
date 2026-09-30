@@ -1855,13 +1855,17 @@
     {
       "id": "evt_84",
       "title": "Roosters v Knights — NRL Grand Final",
-      "hook": "Roosters and Knights meet for the premiership at Accor Stadium.",
-      "synopsis": "The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
+      "synopsis": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
       "sources": [
         "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-        "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
+        "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+        "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+        "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
+        "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/"
       ],
-      "researchedAt": "2026-09-27T13:39:49.102Z",
+      "researchedAt": "2026-09-30T22:37:31.000Z",
       "researchDepth": 3,
       "editorialPhase": "preview",
       "refreshAfter": "2026-10-04T08:30:00.000Z",
@@ -1893,8 +1897,46 @@
           "sourceIndexes": [
             1
           ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
+          "sourceIndexes": [
+            3,
+            4
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
+          "sourceIndexes": [
+            5
+          ]
         }
-      ]
+      ],
+      "formCopy": "The Roosters beat the Dolphins 36–20 in their preliminary final, with Mark Nawaqanitawase running for 329 metres and Sam Walker scoring on his return from injury. Newcastle overcame Penrith 22–14 despite playing with 12 men after Phoenix Crossland’s dismissal. They conceded no second-half points; Sandon Smith’s two breakaway tries decided the match.",
+      "closingCopy": "Sandon Smith was squeezed out when the Roosters signed Daly Cherry-Evans. Now his first season at Newcastle ends against the club he left, with a chance to deny Cherry-Evans a premiership in his final NRL match. Mark Nawaqanitawase also has one game left before returning to rugby union. The Knights’ improbable revival meets a Roosters side with two farewells to finish."
     },
     {
       "id": "rugby-australia-south-africa-2026-09-27",

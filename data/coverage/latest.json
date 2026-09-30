@@ -1,8 +1,8 @@
 {
   "schemaVersion": "coverage-report.v1",
-  "reportId": "coverage-report:2026-09-30",
-  "referenceDate": "2026-09-30",
-  "generatedAt": "2026-09-21T20:20:19.813Z",
+  "reportId": "coverage-report:2026-10-01",
+  "referenceDate": "2026-10-01",
+  "generatedAt": "2026-09-30T22:37:31.000Z",
   "refreshPolicy": {
     "weeklyBreadth": true,
     "dailyWindowDays": 7,
@@ -146,12 +146,12 @@
       "territory": "AU",
       "status": "loaded",
       "sourceMode": "reviewed_export",
-      "observedAt": "2026-09-21T20:20:19.813Z",
-      "ageDays": 9,
-      "windowStart": "2026-09-22",
-      "windowEnd": "2026-09-28",
-      "itemCount": 16,
-      "fixturePath": "feeds/provider-exports/broadcasters/stan-sport-2026-09-22.json",
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "ageDays": 1,
+      "windowStart": "2026-10-01",
+      "windowEnd": "2026-10-07",
+      "itemCount": 11,
+      "fixturePath": "feeds/provider-exports/broadcasters/stan-sport-2026-10-01.json",
       "reason": null
     },
     {
@@ -306,219 +306,33 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 1064,
+    "canonicalEventsCompared": 1063,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
-    "sourceListingsLoaded": 16,
-    "liveOrDelayedListingsEvaluated": 16,
+    "sourceListingsLoaded": 11,
+    "liveOrDelayedListingsEvaluated": 11,
     "nonEventProgrammesExcluded": 0,
     "matched": 0,
-    "newCatalogueGaps": 16,
+    "newCatalogueGaps": 11,
     "ambiguous": 0,
     "publish": 0,
-    "review": 16,
+    "review": 11,
     "ignore": 0,
-    "highPriorityRecommendations": 16,
+    "highPriorityRecommendations": 10,
     "auAvailabilityChanges": 0
   },
   "candidates": [
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:3uvi2g",
-      "candidateId": "coverage:3uvi2g",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "UCI Road World Championships",
-      "eventTitle": "UCI Road World Championships",
-      "source": "stan_sport",
-      "sport": "sport:cycling",
-      "competition": "UCI Road World Championships",
-      "startsAt": "2026-09-22T12:30:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:cycling",
-        "sportId": "sport:cycling",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Cycling",
-        "rawCompetition": "UCI Road World Championships"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-22",
-        "eventStartsAtUtc": "2026-09-22T12:30:00.000Z",
-        "programmeStartsAtUtc": "2026-09-22T12:20:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-002",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "UCI Road World Championships"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:3uvi2g",
-        "title": "UCI Road World Championships",
-        "sportId": "sport:cycling",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "UCI Road World Championships",
-        "startTimeUtc": "2026-09-22T12:30:00.000Z",
-        "sourceLocalDate": "2026-09-22",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:152j0p7",
-      "candidateId": "coverage:152j0p7",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "WTA 500",
-      "eventTitle": "WTA 500",
-      "source": "stan_sport",
-      "sport": "sport:tennis",
-      "competition": "WTA 500",
-      "startsAt": "2026-09-22T05:00:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:tennis",
-        "sportId": "sport:tennis",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Tennis",
-        "rawCompetition": "WTA 500"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-22",
-        "eventStartsAtUtc": "2026-09-22T05:00:00.000Z",
-        "programmeStartsAtUtc": "2026-09-22T03:00:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-001",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "WTA 500"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:152j0p7",
-        "title": "WTA 500",
-        "sportId": "sport:tennis",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "WTA 500",
-        "startTimeUtc": "2026-09-22T05:00:00.000Z",
-        "sourceLocalDate": "2026-09-22",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:xlgehn",
-      "candidateId": "coverage:xlgehn",
-      "reportId": "coverage-report:2026-09-30",
+      "id": "coverage:2x8qtt",
+      "candidateId": "coverage:2x8qtt",
+      "reportId": "coverage-report:2026-10-01",
       "title": "NPC",
       "eventTitle": "NPC",
       "source": "stan_sport",
       "sport": "sport:rugby-union",
       "competition": "NPC",
-      "startsAt": "2026-09-24T07:15:00.000Z",
+      "startsAt": "2026-10-01T06:05:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -537,9 +351,9 @@
         "rawCompetition": "NPC"
       },
       "eventTiming": {
-        "localDate": "2026-09-24",
-        "eventStartsAtUtc": "2026-09-24T07:15:00.000Z",
-        "programmeStartsAtUtc": "2026-09-24T07:00:00.000Z",
+        "localDate": "2026-10-01",
+        "eventStartsAtUtc": "2026-10-01T06:05:00.000Z",
+        "programmeStartsAtUtc": "2026-10-01T06:00:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
@@ -560,32 +374,32 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-003",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-001",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
           "rawTitle": "NPC"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:xlgehn",
+        "id": "provisional:2x8qtt",
         "title": "NPC",
         "sportId": "sport:rugby-union",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
         "rawCompetition": "NPC",
-        "startTimeUtc": "2026-09-24T07:15:00.000Z",
-        "sourceLocalDate": "2026-09-24",
+        "startTimeUtc": "2026-10-01T06:05:00.000Z",
+        "sourceLocalDate": "2026-10-01",
         "status": "provisional"
       },
       "availabilityChange": null,
@@ -599,49 +413,65 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1v04al8",
-      "candidateId": "coverage:1v04al8",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "Australian Schoolboys/U18s",
-      "eventTitle": "Australian Schoolboys/U18s",
+      "id": "coverage:1rakehv",
+      "candidateId": "coverage:1rakehv",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "WRC",
+      "eventTitle": "WRC",
       "source": "stan_sport",
-      "sport": "sport:rugby-union",
-      "competition": "Australian Schoolboys/U18s",
-      "startsAt": "2026-09-25T04:05:00.000Z",
+      "sport": "sport:motorsport",
+      "competition": "competition:world-rally-championship",
+      "startsAt": "2026-10-01T14:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.45,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:rugby-union",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:world-rally-championship",
+        "sportId": "sport:motorsport",
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
-        "rawSport": "Rugby",
-        "rawCompetition": "Australian Schoolboys/U18s"
+        "rawSport": "Motorsport",
+        "rawCompetition": "WRC"
       },
       "eventTiming": {
-        "localDate": "2026-09-25",
-        "eventStartsAtUtc": "2026-09-25T04:05:00.000Z",
-        "programmeStartsAtUtc": "2026-09-25T04:00:00.000Z",
+        "localDate": "2026-10-02",
+        "eventStartsAtUtc": "2026-10-01T14:00:00.000Z",
+        "programmeStartsAtUtc": "2026-10-01T14:00:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.45,
         "reasonCodes": [
-          "no_catalogue_match"
+          "competition_match"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "event-wrc-2026-round-13",
+            "title": "WRC Rally Italia Sardegna",
+            "confidence": 0.45
+          },
+          {
+            "canonicalEventId": "evt_f1_2026_bahrain_practice_1",
+            "title": "Bahrain GP (Malaysia) · Practice 1",
+            "confidence": 0
+          },
+          {
+            "canonicalEventId": "evt_f1_2026_bahrain_practice_2",
+            "title": "Bahrain GP (Malaysia) · Practice 2",
+            "confidence": 0
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -653,37 +483,36 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-007",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-002",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
-          "rawTitle": "Australian Schoolboys/U18s"
+          "rawTitle": "WRC"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1v04al8",
-        "title": "Australian Schoolboys/U18s",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
+        "id": "provisional:1rakehv",
+        "title": "WRC",
+        "sportId": "sport:motorsport",
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
-        "rawCompetition": "Australian Schoolboys/U18s",
-        "startTimeUtc": "2026-09-25T04:05:00.000Z",
-        "sourceLocalDate": "2026-09-25",
+        "rawCompetition": "WRC",
+        "startTimeUtc": "2026-10-01T14:00:00.000Z",
+        "sourceLocalDate": "2026-10-02",
         "status": "provisional"
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -692,112 +521,19 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1kui4db",
-      "candidateId": "coverage:1kui4db",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "Farah Palmer Cup",
-      "eventTitle": "Farah Palmer Cup",
-      "source": "stan_sport",
-      "sport": "sport:rugby-union",
-      "competition": "Farah Palmer Cup",
-      "startsAt": "2026-09-25T04:35:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:rugby-union",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Rugby",
-        "rawCompetition": "Farah Palmer Cup"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-25",
-        "eventStartsAtUtc": "2026-09-25T04:35:00.000Z",
-        "programmeStartsAtUtc": "2026-09-25T04:30:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-008",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "Farah Palmer Cup"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1kui4db",
-        "title": "Farah Palmer Cup",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "Farah Palmer Cup",
-        "startTimeUtc": "2026-09-25T04:35:00.000Z",
-        "sourceLocalDate": "2026-09-25",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:16ro9xa",
-      "candidateId": "coverage:16ro9xa",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "Laver Cup",
-      "eventTitle": "Laver Cup",
+      "id": "coverage:z1pbu",
+      "candidateId": "coverage:z1pbu",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "WTA 1000",
+      "eventTitle": "WTA 1000",
       "source": "stan_sport",
       "sport": "sport:tennis",
-      "competition": "Laver Cup",
-      "startsAt": "2026-09-24T18:00:00.000Z",
+      "competition": "WTA 1000",
+      "startsAt": "2026-10-02T03:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -813,12 +549,12 @@
         "competitionId": null,
         "eventSeriesId": null,
         "rawSport": "Tennis",
-        "rawCompetition": "Laver Cup"
+        "rawCompetition": "WTA 1000"
       },
       "eventTiming": {
-        "localDate": "2026-09-25",
-        "eventStartsAtUtc": "2026-09-24T18:00:00.000Z",
-        "programmeStartsAtUtc": "2026-09-24T18:00:00.000Z",
+        "localDate": "2026-10-02",
+        "eventStartsAtUtc": "2026-10-02T03:00:00.000Z",
+        "programmeStartsAtUtc": "2026-10-02T03:00:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
@@ -839,32 +575,32 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-005",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-003",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
-          "rawTitle": "Laver Cup"
+          "rawTitle": "WTA 1000"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:16ro9xa",
-        "title": "Laver Cup",
+        "id": "provisional:z1pbu",
+        "title": "WTA 1000",
         "sportId": "sport:tennis",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
-        "rawCompetition": "Laver Cup",
-        "startTimeUtc": "2026-09-24T18:00:00.000Z",
-        "sourceLocalDate": "2026-09-25",
+        "rawCompetition": "WTA 1000",
+        "startTimeUtc": "2026-10-02T03:00:00.000Z",
+        "sourceLocalDate": "2026-10-02",
         "status": "provisional"
       },
       "availabilityChange": null,
@@ -878,205 +614,19 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:y48rp7",
-      "candidateId": "coverage:y48rp7",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "Ultimate Sevens",
-      "eventTitle": "Ultimate Sevens",
-      "source": "stan_sport",
-      "sport": "sport:rugby-union",
-      "competition": "Ultimate Sevens",
-      "startsAt": "2026-09-24T16:30:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:rugby-union",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Rugby",
-        "rawCompetition": "Ultimate Sevens"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-25",
-        "eventStartsAtUtc": "2026-09-24T16:30:00.000Z",
-        "programmeStartsAtUtc": "2026-09-24T16:30:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-004",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "Ultimate Sevens"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:y48rp7",
-        "title": "Ultimate Sevens",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "Ultimate Sevens",
-        "startTimeUtc": "2026-09-24T16:30:00.000Z",
-        "sourceLocalDate": "2026-09-25",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1nd3f8x",
-      "candidateId": "coverage:1nd3f8x",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "WTA 250",
-      "eventTitle": "WTA 250",
-      "source": "stan_sport",
-      "sport": "sport:tennis",
-      "competition": "WTA 250",
-      "startsAt": "2026-09-25T03:00:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:tennis",
-        "sportId": "sport:tennis",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Tennis",
-        "rawCompetition": "WTA 250"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-25",
-        "eventStartsAtUtc": "2026-09-25T03:00:00.000Z",
-        "programmeStartsAtUtc": "2026-09-25T03:00:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-006",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "WTA 250"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1nd3f8x",
-        "title": "WTA 250",
-        "sportId": "sport:tennis",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "WTA 250",
-        "startTimeUtc": "2026-09-25T03:00:00.000Z",
-        "sourceLocalDate": "2026-09-25",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1dq81bl",
-      "candidateId": "coverage:1dq81bl",
-      "reportId": "coverage-report:2026-09-30",
+      "id": "coverage:l93a7g",
+      "candidateId": "coverage:l93a7g",
+      "reportId": "coverage-report:2026-10-01",
       "title": "NWSL",
       "eventTitle": "NWSL",
       "source": "stan_sport",
       "sport": "sport:football",
       "competition": "NWSL",
-      "startsAt": "2026-09-25T22:35:00.000Z",
+      "startsAt": "2026-10-03T02:05:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -1095,22 +645,18 @@
         "rawCompetition": "NWSL"
       },
       "eventTiming": {
-        "localDate": "2026-09-26",
-        "eventStartsAtUtc": "2026-09-25T22:35:00.000Z",
-        "programmeStartsAtUtc": "2026-09-25T22:30:00.000Z",
+        "localDate": "2026-10-03",
+        "eventStartsAtUtc": "2026-10-03T02:05:00.000Z",
+        "programmeStartsAtUtc": "2026-10-03T02:00:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
         "canonicalEventId": null,
         "confidence": 0,
-        "reasonCodes": [],
-        "alternatives": [
-          {
-            "canonicalEventId": "football-australia-brazil-2026-09-25",
-            "title": "Socceroos v Brazil",
-            "confidence": 0
-          }
-        ]
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
       },
       "broadcastsAu": [
         {
@@ -1122,32 +668,32 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-010",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-006",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
           "rawTitle": "NWSL"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1dq81bl",
+        "id": "provisional:l93a7g",
         "title": "NWSL",
         "sportId": "sport:football",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
         "rawCompetition": "NWSL",
-        "startTimeUtc": "2026-09-25T22:35:00.000Z",
-        "sourceLocalDate": "2026-09-26",
+        "startTimeUtc": "2026-10-03T02:05:00.000Z",
+        "sourceLocalDate": "2026-10-03",
         "status": "provisional"
       },
       "availabilityChange": null,
@@ -1161,19 +707,19 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:m8hr67",
-      "candidateId": "coverage:m8hr67",
-      "reportId": "coverage-report:2026-09-30",
+      "id": "coverage:jip4t3",
+      "candidateId": "coverage:jip4t3",
+      "reportId": "coverage-report:2026-10-01",
       "title": "Premiership Rugby",
       "eventTitle": "Premiership Rugby",
       "source": "stan_sport",
       "sport": "sport:rugby-union",
       "competition": "Premiership Rugby",
-      "startsAt": "2026-09-25T18:45:00.000Z",
+      "startsAt": "2026-10-02T18:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -1192,212 +738,9 @@
         "rawCompetition": "Premiership Rugby"
       },
       "eventTiming": {
-        "localDate": "2026-09-26",
-        "eventStartsAtUtc": "2026-09-25T18:45:00.000Z",
-        "programmeStartsAtUtc": "2026-09-25T18:40:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [],
-        "alternatives": [
-          {
-            "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
-            "title": "Australia v South Africa",
-            "confidence": 0
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-009",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "Premiership Rugby"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:m8hr67",
-        "title": "Premiership Rugby",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "Premiership Rugby",
-        "startTimeUtc": "2026-09-25T18:45:00.000Z",
-        "sourceLocalDate": "2026-09-26",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1dw2zw4",
-      "candidateId": "coverage:1dw2zw4",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "WEC",
-      "eventTitle": "WEC",
-      "source": "stan_sport",
-      "sport": "sport:motorsport",
-      "competition": "competition:world-endurance-championship",
-      "startsAt": "2026-09-26T00:30:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "resolved",
-        "taxonomyNodeId": "competition:world-endurance-championship",
-        "sportId": "sport:motorsport",
-        "disciplineId": "discipline:motorsport:endurance",
-        "competitionId": "competition:world-endurance-championship",
-        "eventSeriesId": null,
-        "rawSport": "Motorsport",
-        "rawCompetition": "WEC"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-26",
-        "eventStartsAtUtc": "2026-09-26T00:30:00.000Z",
-        "programmeStartsAtUtc": "2026-09-26T00:20:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [],
-        "alternatives": [
-          {
-            "canonicalEventId": "evt_30",
-            "title": "Azerbaijan GP · Qualifying",
-            "confidence": 0
-          },
-          {
-            "canonicalEventId": "evt_31",
-            "title": "Azerbaijan GP · Race",
-            "confidence": 0
-          },
-          {
-            "canonicalEventId": "evt_f1_2026_azerbaijan_practice_3",
-            "title": "Azerbaijan GP · Practice 3",
-            "confidence": 0
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-011",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "WEC"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1dw2zw4",
-        "title": "WEC",
-        "sportId": "sport:motorsport",
-        "disciplineId": "discipline:motorsport:endurance",
-        "competitionId": "competition:world-endurance-championship",
-        "eventSeriesId": null,
-        "rawCompetition": "WEC",
-        "startTimeUtc": "2026-09-26T00:30:00.000Z",
-        "sourceLocalDate": "2026-09-26",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:14czvuv",
-      "candidateId": "coverage:14czvuv",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "WSL",
-      "eventTitle": "WSL",
-      "source": "stan_sport",
-      "sport": "sport:surfing",
-      "competition": "competition:world-surf-league",
-      "startsAt": "2026-09-26T12:30:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "resolved",
-        "taxonomyNodeId": "competition:world-surf-league",
-        "sportId": "sport:surfing",
-        "disciplineId": "discipline:surfing:professional",
-        "competitionId": "competition:world-surf-league",
-        "eventSeriesId": null,
-        "rawSport": "Football",
-        "rawCompetition": "WSL"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-26",
-        "eventStartsAtUtc": "2026-09-26T12:30:00.000Z",
-        "programmeStartsAtUtc": "2026-09-26T12:20:00.000Z",
+        "localDate": "2026-10-03",
+        "eventStartsAtUtc": "2026-10-02T18:45:00.000Z",
+        "programmeStartsAtUtc": "2026-10-02T18:40:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
@@ -1418,128 +761,32 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-012",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-005",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
-          "rawTitle": "WSL"
+          "rawTitle": "Premiership Rugby"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:14czvuv",
-        "title": "WSL",
-        "sportId": "sport:surfing",
-        "disciplineId": "discipline:surfing:professional",
-        "competitionId": "competition:world-surf-league",
-        "eventSeriesId": null,
-        "rawCompetition": "WSL",
-        "startTimeUtc": "2026-09-26T12:30:00.000Z",
-        "sourceLocalDate": "2026-09-26",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1q83nl6",
-      "candidateId": "coverage:1q83nl6",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "WXV",
-      "eventTitle": "WXV",
-      "source": "stan_sport",
-      "sport": "sport:rugby-union",
-      "competition": "WXV",
-      "startsAt": "2026-09-26T12:30:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:rugby-union",
+        "id": "provisional:jip4t3",
+        "title": "Premiership Rugby",
         "sportId": "sport:rugby-union",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
-        "rawSport": "Rugby",
-        "rawCompetition": "WXV"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-26",
-        "eventStartsAtUtc": "2026-09-26T12:30:00.000Z",
-        "programmeStartsAtUtc": "2026-09-26T12:20:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [],
-        "alternatives": [
-          {
-            "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
-            "title": "Australia v South Africa",
-            "confidence": 0
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-013",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "WXV"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1q83nl6",
-        "title": "WXV",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "WXV",
-        "startTimeUtc": "2026-09-26T12:30:00.000Z",
-        "sourceLocalDate": "2026-09-26",
+        "rawCompetition": "Premiership Rugby",
+        "startTimeUtc": "2026-10-02T18:45:00.000Z",
+        "sourceLocalDate": "2026-10-03",
         "status": "provisional"
       },
       "availabilityChange": null,
@@ -1553,118 +800,19 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:w0owfv",
-      "candidateId": "coverage:w0owfv",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "Flight Centre Series",
-      "eventTitle": "Flight Centre Series",
-      "source": "stan_sport",
-      "sport": "sport:rugby-union",
-      "competition": "Flight Centre Series",
-      "startsAt": "2026-09-27T09:45:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0.15,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:rugby-union",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Rugby",
-        "rawCompetition": "Flight Centre Series"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-27",
-        "eventStartsAtUtc": "2026-09-27T09:45:00.000Z",
-        "programmeStartsAtUtc": "2026-09-27T08:30:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0.15,
-        "reasonCodes": [
-          "start_within_15_minutes"
-        ],
-        "alternatives": [
-          {
-            "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
-            "title": "Australia v South Africa",
-            "confidence": 0.15
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-015",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "Flight Centre Series"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:w0owfv",
-        "title": "Flight Centre Series",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "Flight Centre Series",
-        "startTimeUtc": "2026-09-27T09:45:00.000Z",
-        "sourceLocalDate": "2026-09-27",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1s3owc2",
-      "candidateId": "coverage:1s3owc2",
-      "reportId": "coverage-report:2026-09-30",
+      "id": "coverage:2vjyxl",
+      "candidateId": "coverage:2vjyxl",
+      "reportId": "coverage-report:2026-10-01",
       "title": "Super Rugby AUS",
       "eventTitle": "Super Rugby AUS",
       "source": "stan_sport",
       "sport": "sport:rugby-union",
       "competition": "Super Rugby AUS",
-      "startsAt": "2026-09-27T02:45:00.000Z",
+      "startsAt": "2026-10-03T06:35:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -1683,106 +831,9 @@
         "rawCompetition": "Super Rugby AUS"
       },
       "eventTiming": {
-        "localDate": "2026-09-27",
-        "eventStartsAtUtc": "2026-09-27T02:45:00.000Z",
-        "programmeStartsAtUtc": "2026-09-27T02:40:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [],
-        "alternatives": [
-          {
-            "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
-            "title": "Australia v South Africa",
-            "confidence": 0
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:stan-reviewed-20260922-014",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
-          "territory": "AU",
-          "rawTitle": "Super Rugby AUS"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1s3owc2",
-        "title": "Super Rugby AUS",
-        "sportId": "sport:rugby-union",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "Super Rugby AUS",
-        "startTimeUtc": "2026-09-27T02:45:00.000Z",
-        "sourceLocalDate": "2026-09-27",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:br31kl",
-      "candidateId": "coverage:br31kl",
-      "reportId": "coverage-report:2026-09-30",
-      "title": "UCI Mountain Bike World Series",
-      "eventTitle": "UCI Mountain Bike World Series",
-      "source": "stan_sport",
-      "sport": "sport:cycling",
-      "competition": "UCI Mountain Bike World Series",
-      "startsAt": "2026-09-27T19:45:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:cycling",
-        "sportId": "sport:cycling",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Cycling",
-        "rawCompetition": "UCI Mountain Bike World Series"
-      },
-      "eventTiming": {
-        "localDate": "2026-09-28",
-        "eventStartsAtUtc": "2026-09-27T19:45:00.000Z",
-        "programmeStartsAtUtc": "2026-09-27T19:45:00.000Z",
+        "localDate": "2026-10-03",
+        "eventStartsAtUtc": "2026-10-03T06:35:00.000Z",
+        "programmeStartsAtUtc": "2026-10-03T06:30:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
@@ -1803,32 +854,32 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z"
+          "observedAt": "2026-09-30T22:37:31.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:stan-reviewed-20260922-016",
-          "snapshotId": "stan-sport-au-reviewed-20260922",
+          "listingId": "stan_sport:stan-reviewed-20261001-007",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-09-21T20:20:19.813Z",
+          "observedAt": "2026-09-30T22:37:31.000Z",
           "territory": "AU",
-          "rawTitle": "UCI Mountain Bike World Series"
+          "rawTitle": "Super Rugby AUS"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:br31kl",
-        "title": "UCI Mountain Bike World Series",
-        "sportId": "sport:cycling",
+        "id": "provisional:2vjyxl",
+        "title": "Super Rugby AUS",
+        "sportId": "sport:rugby-union",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
-        "rawCompetition": "UCI Mountain Bike World Series",
-        "startTimeUtc": "2026-09-27T19:45:00.000Z",
-        "sourceLocalDate": "2026-09-28",
+        "rawCompetition": "Super Rugby AUS",
+        "startTimeUtc": "2026-10-03T06:35:00.000Z",
+        "sourceLocalDate": "2026-10-03",
         "status": "provisional"
       },
       "availabilityChange": null,
@@ -1842,7 +893,493 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:n5ye2a",
+      "candidateId": "coverage:n5ye2a",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "UCI Mountain Bike World Series",
+      "eventTitle": "UCI Mountain Bike World Series",
+      "source": "stan_sport",
+      "sport": "sport:cycling",
+      "competition": "UCI Mountain Bike World Series",
+      "startsAt": "2026-10-02T15:45:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:cycling",
+        "sportId": "sport:cycling",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Cycling",
+        "rawCompetition": "UCI Mountain Bike World Series"
+      },
+      "eventTiming": {
+        "localDate": "2026-10-03",
+        "eventStartsAtUtc": "2026-10-02T15:45:00.000Z",
+        "programmeStartsAtUtc": "2026-10-02T15:30:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:stan-reviewed-20261001-004",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z",
+          "territory": "AU",
+          "rawTitle": "UCI Mountain Bike World Series"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:n5ye2a",
+        "title": "UCI Mountain Bike World Series",
+        "sportId": "sport:cycling",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "UCI Mountain Bike World Series",
+        "startTimeUtc": "2026-10-02T15:45:00.000Z",
+        "sourceLocalDate": "2026-10-03",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:kb3ey6",
+      "candidateId": "coverage:kb3ey6",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "WSL",
+      "eventTitle": "WSL",
+      "source": "stan_sport",
+      "sport": "sport:surfing",
+      "competition": "competition:world-surf-league",
+      "startsAt": "2026-10-03T12:30:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0.45,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:world-surf-league",
+        "sportId": "sport:surfing",
+        "disciplineId": "discipline:surfing:professional",
+        "competitionId": "competition:world-surf-league",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "WSL"
+      },
+      "eventTiming": {
+        "localDate": "2026-10-03",
+        "eventStartsAtUtc": "2026-10-03T12:30:00.000Z",
+        "programmeStartsAtUtc": "2026-10-03T12:20:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0.45,
+        "reasonCodes": [
+          "competition_match"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
+            "title": "WSL Margaret River Pro",
+            "confidence": 0.45
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:stan-reviewed-20261001-008",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z",
+          "territory": "AU",
+          "rawTitle": "WSL"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:kb3ey6",
+        "title": "WSL",
+        "sportId": "sport:surfing",
+        "disciplineId": "discipline:surfing:professional",
+        "competitionId": "competition:world-surf-league",
+        "eventSeriesId": null,
+        "rawCompetition": "WSL",
+        "startTimeUtc": "2026-10-03T12:30:00.000Z",
+        "sourceLocalDate": "2026-10-03",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:1dt3qeq",
+      "candidateId": "coverage:1dt3qeq",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "Australian Schoolboys/U18s",
+      "eventTitle": "Australian Schoolboys/U18s",
+      "source": "stan_sport",
+      "sport": "sport:rugby-union",
+      "competition": "Australian Schoolboys/U18s",
+      "startsAt": "2026-10-03T23:30:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:rugby-union",
+        "sportId": "sport:rugby-union",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Rugby",
+        "rawCompetition": "Australian Schoolboys/U18s"
+      },
+      "eventTiming": {
+        "localDate": "2026-10-04",
+        "eventStartsAtUtc": "2026-10-03T23:30:00.000Z",
+        "programmeStartsAtUtc": "2026-10-03T23:25:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:stan-reviewed-20261001-009",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z",
+          "territory": "AU",
+          "rawTitle": "Australian Schoolboys/U18s"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:1dt3qeq",
+        "title": "Australian Schoolboys/U18s",
+        "sportId": "sport:rugby-union",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "Australian Schoolboys/U18s",
+        "startTimeUtc": "2026-10-03T23:30:00.000Z",
+        "sourceLocalDate": "2026-10-04",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:1vg2ed",
+      "candidateId": "coverage:1vg2ed",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "Motocross Of Nations",
+      "eventTitle": "Motocross Of Nations",
+      "source": "stan_sport",
+      "sport": "sport:motorsport",
+      "competition": "Motocross Of Nations",
+      "startsAt": "2026-10-04T11:00:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0.08,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "normal",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:motorsport",
+        "sportId": "sport:motorsport",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Motorsport",
+        "rawCompetition": "Motocross Of Nations"
+      },
+      "eventTiming": {
+        "localDate": "2026-10-04",
+        "eventStartsAtUtc": null,
+        "programmeStartsAtUtc": "2026-10-04T11:00:00.000Z",
+        "timeConfidence": "unknown"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0.08,
+        "reasonCodes": [
+          "same_calendar_date"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "evt_motogp_2026_japan",
+            "title": "MotoGP Japanese Grand Prix",
+            "confidence": 0.08
+          },
+          {
+            "canonicalEventId": "evt_f1_2026_bahrain_practice_3",
+            "title": "Bahrain GP (Malaysia) · Practice 3",
+            "confidence": 0
+          },
+          {
+            "canonicalEventId": "evt_f1_2026_bahrain_qualifying",
+            "title": "Bahrain GP (Malaysia) · Qualifying",
+            "confidence": 0
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:stan-reviewed-20261001-011",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z",
+          "territory": "AU",
+          "rawTitle": "Motocross Of Nations"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:1vg2ed",
+        "title": "Motocross Of Nations",
+        "sportId": "sport:motorsport",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "Motocross Of Nations",
+        "startTimeUtc": "2026-10-04T11:00:00.000Z",
+        "sourceLocalDate": "2026-10-04",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:hc272w",
+      "candidateId": "coverage:hc272w",
+      "reportId": "coverage-report:2026-10-01",
+      "title": "WXV",
+      "eventTitle": "WXV",
+      "source": "stan_sport",
+      "sport": "sport:rugby-union",
+      "competition": "WXV",
+      "startsAt": "2026-10-04T10:00:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:rugby-union",
+        "sportId": "sport:rugby-union",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Rugby",
+        "rawCompetition": "WXV"
+      },
+      "eventTiming": {
+        "localDate": "2026-10-04",
+        "eventStartsAtUtc": "2026-10-04T10:00:00.000Z",
+        "programmeStartsAtUtc": "2026-10-04T09:50:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:stan-reviewed-20261001-010",
+          "snapshotId": "stan-sport-au-reviewed-20261001",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-09-30T22:37:31.000Z",
+          "territory": "AU",
+          "rawTitle": "WXV"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:hc272w",
+        "title": "WXV",
+        "sportId": "sport:rugby-union",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "WXV",
+        "startTimeUtc": "2026-10-04T10:00:00.000Z",
+        "sourceLocalDate": "2026-10-04",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
     }
   ]
 }

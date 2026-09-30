@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="339">
+<meta name="app-shell-version" content="340">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=339" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=340" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2529,6 +2529,7 @@ main{
 }
 .editorial-l0-consequence,
 .editorial-l0-supplement{ padding-top:6px; border-top:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 18%, var(--border)); }
+.editorial-form,.editorial-storyline{ margin-top:10px; }
 .independent-context{ margin-top:12px; }
 
 .major-event-identity .editorial-l0-hook{
@@ -6875,7 +6876,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=339">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=340">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=327">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7171,7 +7172,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=339"></script>
+<script src="assets/js/app-shell-runtime.js?v=340"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8734,8 +8735,8 @@ function loadMatchCentre(){
   panel.innerHTML='<div class="match-centre-heading"><h2>Match Centre</h2></div><p role="status">Loading Match Centre…</p>';
   panel.setAttribute('aria-busy','true');
   if(loadMatchCentre.pending)return loadMatchCentre.pending;
-  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/surface-category-ui.js?v=339'),loadDeferredScript('config/match-centre.js?v=339'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
-    .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=339'))
+  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/surface-category-ui.js?v=340'),loadDeferredScript('config/match-centre.js?v=340'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
+    .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=340'))
     .then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();})
     .catch(()=>{
       if(activeTab!=='match-centre')return;
@@ -12921,7 +12922,7 @@ function selectedSentenceForDisplay(ev){
   return storylineCopyForDisplay(ev).hook;
 }
 
-function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it matters", className = "", supplementalCopy = "" } = {}){
+function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it matters", className = "", supplementalCopy = "", formCopy = "", closingCopy = "" } = {}){
   const value = String(copy || "").trim();
   if (!value) return null;
   const hook = document.createElement("aside");
@@ -12942,12 +12943,27 @@ function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it 
     hook.appendChild(second);
   }
   const supplemental = String(supplementalCopy || "").trim();
+  const form = String(formCopy || "").trim();
+  if(form){
+    const section=document.createElement('section');section.className='editorial-form';section.setAttribute('aria-label','Form');
+    const heading=document.createElement('span');heading.className='editorial-l0-hook-label';heading.textContent='Form';
+    const paragraph=document.createElement('p');paragraph.className='editorial-l0-supplement';paragraph.textContent=form;
+    section.append(heading,paragraph);hook.append(section);
+  }
   if (supplemental && supplemental !== value && supplemental !== consequence){
+    if(form){const heading=document.createElement('span');heading.className='editorial-l0-hook-label';heading.textContent='Match context';hook.append(heading);}
     const third = document.createElement("p");
     third.className = "editorial-l0-supplement";
     third.textContent = supplemental;
     hook.appendChild(third);
   }
+  if(closingCopy){
+    const section=document.createElement('section');section.className='editorial-storyline';section.setAttribute('aria-label','Storyline');
+    const heading=document.createElement('span');heading.className='editorial-l0-hook-label';heading.textContent='Storyline';
+    const paragraph=document.createElement('p');paragraph.className='editorial-l0-supplement';paragraph.textContent=closingCopy;
+    section.append(heading,paragraph);hook.append(section);
+  }
+
   return hook;
 }
 
@@ -16825,6 +16841,8 @@ function buildEventWhyItMatters(ev){
   const supplemental = opened ? uniqueCopy(editorialNarrativeSynopsisForDisplay(ev)) : "";
   return buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence) ? consequence : "", {
     labelText:"Why it matters",
+    formCopy:opened && !helper.completed(ev) && ev.editorialNarrative?.dimensions?.includes('form') ? uniqueCopy(ev.editorialNarrative.formCopy) : '',
+    closingCopy:opened && !helper.completed(ev) ? uniqueCopy(ev.editorialNarrative?.closingCopy) : '',
     supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",
   });
 }
@@ -19669,7 +19687,7 @@ const followBulkSelection=new Set();
 function renderFollowView(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.textContent='Loading Follow…';
-    void loadDeferredScript('assets/js/follow-navigation.js?v=339').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=340').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -19811,7 +19829,7 @@ function renderStandingsContext(options = {}){
   }
   if (!embedded && activeTab !== "standings") return;
   if(!globalThis.chooseStandingsCategory){
-    container.textContent="Loading rankings…";loadDeferredScript("config/surface-category-ui.js?v=339").then(()=>renderStandingsContext(options)).catch(()=>{container.textContent="Rankings could not load.";});return;
+    container.textContent="Loading rankings…";loadDeferredScript("config/surface-category-ui.js?v=340").then(()=>renderStandingsContext(options)).catch(()=>{container.textContent="Rankings could not load.";});return;
   }
   const competitions = chooseStandingsCategory(options.competitions || activeStandingsCompetitions(),container,options);
   const sectionLabel = options.sectionLabel || "Standings";
@@ -20700,7 +20718,7 @@ function buildDismissedEventStub(record){
 }
 
 async function renderEventOverviews(container){
- try{await loadDeferredScript('config/surface-category-ui.js?v=339');await loadDeferredScript('config/event-overviews-ui.js?v=339');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=340');
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(container);
  }catch{const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';container.append(notice);}
 }
