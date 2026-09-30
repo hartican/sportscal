@@ -1,0 +1,25 @@
+// Emits a transaction that asserts the migration and then ROLLBACKs. Never publishes data.
+const fs=require('node:fs'),root=require('node:path').resolve(__dirname,'..');
+const sql=fs.readFileSync(root+'/supabase/migrations/20260930100449_cricket_coverage_v1.sql','utf8');
+const scope=require(root+'/config/cricket-coverage');
+const base={key:'cricket',format:'Test',participantIds:['team:cricket:australia','team:cricket:england']};
+const cases=[base,...['Test','ODI','T20I','First class','BBL'].map(format=>({...base,format})),{...base,format:'BBL',participantIds:['team:cricket:perth-scorchers','team:cricket:sydney-sixers']},{...base,participantIds:['team:cricket:ca-50','team:cricket:ca-40']},...['Test','ODI','T20I','First class',''].flatMap(format=>['Bilateral series','Women’s Ashes','ICC Women’s World Cup'].map(competitionName=>({...base,format,competitionName,gender:'women',participantIds:['team:cricket:australia-women','team:cricket:england-women']}))),{...base,name:'CSA Invitation XI v Australia warm-up',participantIds:['team:cricket:australia','team:cricket:espn-1075499']},...require(root+'/data/follow-sources/coverage.v1.json').events.filter(e=>/^cricket/.test(e.key)).slice(0,20)];
+cases.push({...base,participantIds:undefined,participants:base.participantIds.map(id=>({id}))},{...base,participantIds:undefined,participantSlots:base.participantIds.map(participantId=>({participantId}))},{...base,participantIds:undefined,homeParticipantId:base.participantIds[0],awayParticipantId:base.participantIds[1]},{...base,key:undefined,sportDomainId:'sport:cricket'},{...base,format:undefined,seriesName:'Test series'});
+const literal=s=>"'"+s.replace(/'/g,"''")+"'";
+const parity=cases.map(e=>'('+literal(JSON.stringify(e))+'::jsonb,'+scope.allowed(e)+')').join(',');
+const before=`BEGIN; set local statement_timeout='90s'; create temporary table repair_before as select (select coalesce(sum(points),0) from public.nothingsports_nsc_points) credits,(select count(*) from public.nothingsports_nsc_rating_history) history,(select count(*) from public.nothingsports_chat_rooms) rooms;`;
+const check=`DO $checks$ BEGIN
+if (select credits from repair_before)<>(select coalesce(sum(points),0) from public.nothingsports_nsc_points) then raise exception 'Credits changed'; end if;
+if (select history from repair_before)<>(select count(*) from public.nothingsports_nsc_rating_history) then raise exception 'Rating history changed'; end if;
+if (select rooms from repair_before)<>(select count(*) from public.nothingsports_chat_rooms) then raise exception 'Chat rooms changed'; end if;
+if exists(select 1 from public.nothingsports_user_state where preferences is distinct from nothingsports_recovery.cricket_preferences_v1(preferences)) then raise exception 'Preferences not converged'; end if;
+if exists(select 1 from public.nothingsports_fixture_current c where not nothingsports_recovery.cricket_allowed_v1(fixture) and not exists(select 1 from nothingsports_recovery.cricket_protected_fixtures p where p.fixture_id=c.fixture_id or p.fixture_id=any(c.identity_keys))) then raise exception 'Retired current coverage remains'; end if;
+if exists(select 1 from public.nothingsports_fixture_sources s cross join lateral jsonb_array_elements(s.fixtures) e where source_id like '%cricket%' and not nothingsports_recovery.cricket_allowed_v1(e) and not exists(select 1 from nothingsports_recovery.cricket_protected_fixtures p where p.fixture_id=e->>'id' or p.fixture_id=e->>'eventId' or p.fixture_id=e->>'canonicalEventId')) then raise exception 'Retired source coverage remains'; end if;
+if exists(select 1 from pg_trigger where tgrelid='public.nothingsports_nsc_contributions'::regclass and not tgisinternal and tgenabled='D') then raise exception 'Contribution trigger disabled'; end if;
+if exists(select 1 from (values ${parity}) x(e,expected) where nothingsports_recovery.cricket_allowed_v1(e) is distinct from expected) then raise exception 'SQL/JS coverage boundary diverged'; end if;
+if exists(select 1 from public.nothingsports_prediction_rules r join public.nothingsports_score_fixtures f using(event_id) join coverage_repair_cutoff_offsets o using(event_id) where r.settled_at is null and f.starts_at-r.cutoff is distinct from o.cutoff_lead) then raise exception 'Prediction cutoff lead changed'; end if;
+END $checks$;
+create temporary table repair_once as select md5(string_agg(to_jsonb(s)::text,'' order by user_id)) prefs from public.nothingsports_user_state s;`;
+const after=`DO $repeat$ BEGIN if (select prefs from repair_once)<>(select md5(string_agg(to_jsonb(s)::text,'' order by user_id)) from public.nothingsports_user_state s) then raise exception 'Repeat changed account state'; end if; END $repeat$;
+SELECT inventory,(select count(*) from nothingsports_recovery.coverage_repair_rows) recovery_rows,(select count(*) from public.nothingsports_fixture_current where fixture->>'key' like 'cricket%') cricket_after FROM nothingsports_recovery.coverage_repair_versions; ROLLBACK;`;
+process.stdout.write(before+sql+check+sql+after);

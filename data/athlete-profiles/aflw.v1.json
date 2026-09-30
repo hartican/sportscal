@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "aflw",
-  "generatedAt": "2026-09-27T13:44:57.555Z",
+  "generatedAt": "2026-09-30T12:09:08.511Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -220,7 +220,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -439,7 +439,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -658,7 +658,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -877,7 +877,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1096,7 +1096,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1269,7 +1269,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1355,6 +1355,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Fremantle",
+          "result": "L 35-60",
+          "stats": [
+            {
+              "label": "D",
+              "value": 22
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 7
+            },
+            {
+              "label": "C",
+              "value": 8
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Brisbane Lions",
@@ -1446,29 +1469,6 @@
               "value": 5
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Carlton",
-          "result": "L 23-50",
-          "stats": [
-            {
-              "label": "D",
-              "value": 30
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 6
-            },
-            {
-              "label": "C",
-              "value": 4
-            }
-          ]
         }
       ],
       "selection": {
@@ -1488,7 +1488,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1707,7 +1707,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1793,6 +1793,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Brisbane Lions",
+          "result": "W 37-23",
+          "stats": [
+            {
+              "label": "D",
+              "value": 16
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 2
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Port Adelaide",
@@ -1884,29 +1907,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Essendon",
-          "result": "W 66-42",
-          "stats": [
-            {
-              "label": "D",
-              "value": 17
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -1926,7 +1926,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2145,7 +2145,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2231,6 +2231,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 6
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 5
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -2322,29 +2345,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 14
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -2356,7 +2356,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1693/alicia-eva"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2442,6 +2442,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 24
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 8
+            },
+            {
+              "label": "C",
+              "value": 4
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -2533,29 +2556,6 @@
               "value": 5
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 26
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 4
-            },
-            {
-              "label": "C",
-              "value": 7
-            }
-          ]
         }
       ],
       "selection": {
@@ -2567,7 +2567,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2062/alyce-parker"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2755,7 +2755,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4264/brodee-mowbray"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2841,6 +2841,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 5
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -2932,29 +2955,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 2
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -2966,7 +2966,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12279/caitlin-fletcher"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3052,6 +3052,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 16
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -3143,29 +3166,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 19
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -3177,7 +3177,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/8540/cambridge-mccormick"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3263,6 +3263,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 13
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -3365,7 +3388,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/3609/daisy-walker"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3451,6 +3474,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 3
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -3542,29 +3588,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 18
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 1
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -3576,7 +3599,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12278/eilish-odowd"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3671,7 +3694,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2024/eleanor-brown"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3757,6 +3780,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 6
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -3859,7 +3905,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4015/emily-pease"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3954,7 +4000,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/6158/fleur-davies"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4041,6 +4087,29 @@
       ],
       "recentFive": [
         {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 7
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
+        {
           "label": "Round 6",
           "opponent": "Richmond",
           "result": "L 61-68",
@@ -4119,7 +4188,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4134/georgia-clark"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4205,6 +4274,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 9
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 4
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -4296,29 +4388,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 7
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 1
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -4330,7 +4399,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2145/georgia-garnett"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4416,6 +4485,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 4
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -4507,29 +4599,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 7
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -4541,7 +4610,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15571/grace-kos"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4752,7 +4821,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13753/grace-martin"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4838,6 +4907,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 7
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -4929,29 +5021,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 5
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -4963,7 +5032,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1921/isabel-huntington"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5049,6 +5118,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 4
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -5140,29 +5232,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 6
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -5174,7 +5243,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4310/jessica-doyle"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5269,7 +5338,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12273/kaitlyn-srhoj"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5356,6 +5425,29 @@
       ],
       "recentFive": [
         {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 5
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
+        {
           "label": "Round 3",
           "opponent": "Port Adelaide",
           "result": "L 48-52",
@@ -5434,7 +5526,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13519/kiera-yerbury"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5520,6 +5612,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 16
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 7
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -5611,29 +5726,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 21
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -5645,7 +5737,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4191/madison-brazendale"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5736,7 +5828,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/17551/maisy-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5822,6 +5914,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 8
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -5913,29 +6028,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 12
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -5947,7 +6039,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4231/mikayla-pauga"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6033,6 +6125,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 2
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 0
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -6124,29 +6239,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 8
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -6158,7 +6250,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11804/poppy-boltz"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6244,6 +6336,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 25
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 4
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -6335,29 +6450,6 @@
               "value": 5
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 14
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 4
-            },
-            {
-              "label": "C",
-              "value": 3
-            }
-          ]
         }
       ],
       "selection": {
@@ -6369,7 +6461,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1629/rebecca-beeson"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6455,6 +6547,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -6546,29 +6661,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 10
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -6580,7 +6672,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4671/sara-howley"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6671,7 +6763,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11274/scarlett-johnson"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6762,7 +6854,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15399/sophia-gaukrodger"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6852,6 +6944,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 2
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -6943,29 +7058,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 13
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -6977,7 +7069,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7072,7 +7164,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11803/taylah-levy"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7158,6 +7250,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 25
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 7
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -7249,29 +7364,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 16
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 4
-            },
-            {
-              "label": "C",
-              "value": 4
-            }
-          ]
         }
       ],
       "selection": {
@@ -7283,7 +7375,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1420/tilly-lucas-rodd"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7369,6 +7461,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 7",
+          "opponent": "Collingwood",
+          "result": "L 25-34",
+          "stats": [
+            {
+              "label": "D",
+              "value": 5
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 6",
           "opponent": "Richmond",
@@ -7460,29 +7575,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 8
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -7494,7 +7586,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13525/yasmeen-janschek"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7589,7 +7681,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/5862/zarlie-goldsworthy"
         }
       ],
-      "sourceCheckedAt": "2026-09-27T13:44:57.555Z"
+      "sourceCheckedAt": "2026-09-30T12:09:08.511Z"
     }
   ]
 }

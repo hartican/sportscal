@@ -41,26 +41,10 @@ function officialEvidence(context){
 }
 
 function factualFallback(event, context, generatedAt){
-  const driverTable = (context.ladderSnapshots || []).find(snapshot => snapshot.competitionId === "competition:f1-drivers-2026");
-  const leader = (context.participants || []).find(participant => participant.id === driverTable?.entries?.[0]?.participantId)?.displayName || "the championship leader";
-  const session = /qualifying/i.test(event.name) ? "Qualifying sets the grid" : /sprint/i.test(event.name) ? "The sprint brings points and grid pressure" : "The race is the weekend's points-paying session";
-  const place = event.venue && !/tbc/i.test(event.venue) ? ` at ${event.venue}` : "";
-  const relocation = require("../lib/f1-bahrain-relocation");
-  const relocated = relocation.applies(event);
-  const evidenceReferences = [...(relocated ? relocation.sources.map(s=>({title:s.name,url:s.url,sourceType:s.sourceType,checkedAt:s.checkedAt})) : []), ...officialEvidence(context)];
-  return {
-    eventId:eventId(event),
-    selectedSentence:`${session}${place}, with ${leader} carrying the current title lead into ${event.name}.`,
-    fullSpiel:`${relocated?relocation.synopsis+" ":""}${event.name} is scheduled for ${event.date || "date TBC"} at ${event.time || "time TBC"}. ${session}${place}; ${leader} leads the official 2026 driver standings at this refresh.`,
-    angle:"The next published session viewed through current championship position and its direct sporting consequence.",
-    contextSignals:["fixture-specific", "current-championship-standings", /qualifying/i.test(event.name) ? "grid-setting" : "points-paying-session"],
-    evidenceReferences,
-    sourceName:evidenceReferences[0]?.title || "Formula 1 official championship context",
-    sourceUrl:evidenceReferences[0]?.url || "https://www.formula1.com/en/results/2026/drivers",
-    sourceType:"official",
-    sourceCheckedAt:generatedAt,
-    generationMode:"factual-fallback",
-  };
+  const relocation=require('../lib/f1-bahrain-relocation');
+  const lock=require('../config/editorial-locks').activeFor(event);
+  const worthwhile=lock || (relocation.applies(event)?{hook:relocation.hook,synopsis:relocation.synopsis,sourceUrls:relocation.sources.map(s=>s.url)}:null);
+  return {eventId:eventId(event),selectedSentence:worthwhile?.hook||'',fullSpiel:worthwhile?.synopsis||'',angle:worthwhile?'Researched event-specific context':'',contextSignals:worthwhile?['fixture-specific','researched']:[],evidenceReferences:(worthwhile?.sourceUrls||[]).map(url=>({title:'Official fixture context',url,sourceType:'official'})),sourceName:worthwhile?'Official fixture context':'',sourceUrl:worthwhile?.sourceUrls?.[0]||'',sourceType:'official',sourceCheckedAt:generatedAt,generationMode:worthwhile?'researched':'withheld'};
 }
 
 function responseText(payload){
@@ -158,7 +142,7 @@ async function main(){
   const events = eligibleEvents(feed);
   let entries = null;
   try{ entries = await generateWithResponses(events, context, generatedAt); }
-  catch(error){ console.warn(`F1 editorial generation failed; publishing factual fallbacks: ${error.message}`); }
+  catch(error){ console.warn(`F1 editorial generation failed; retaining researched context or withholding copy: ${error.message}`); }
   if (!entries) entries = events.map(event => factualFallback(event, context, generatedAt));
   const digest = {
     schemaVersion:"nothingsport.f1-editorial-digest.v1",
@@ -178,7 +162,7 @@ async function main(){
       sourceCheckedAt:entry.sourceCheckedAt,
       sourceType:entry.sourceType,
       editorialPreview:{
-        status:"journalistic",
+        status:entry.selectedSentence?"journalistic":"withheld",
         angle:entry.angle,
         contextSignals:entry.contextSignals,
         evidenceReferences:entry.evidenceReferences,

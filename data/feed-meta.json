@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20260930083557778",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260930131805999",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-30T08:35:57.778Z",
+  "publishedAt": "2026-09-30T13:18:05.999Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -25,7 +25,6 @@
     "fiba-women",
     "nrlw",
     "motogp",
-    "basketball",
     "football",
     "wsl",
     "supercars",
@@ -65,9 +64,9 @@
         "lastEventDate": "2026-04-12"
       },
       "nba": {
-        "count": 7,
+        "count": 172,
         "firstEventDate": "2026-06-04",
-        "lastEventDate": "2026-06-23"
+        "lastEventDate": "2027-02-14"
       },
       "lemans": {
         "count": 2,
@@ -95,7 +94,7 @@
         "lastEventDate": "2026-07-27"
       },
       "f1": {
-        "count": 62,
+        "count": 61,
         "firstEventDate": "2026-07-05",
         "lastEventDate": "2027-03-07"
       },
@@ -130,9 +129,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 17,
+        "count": 18,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-09-27"
+        "lastEventDate": "2026-09-30"
       },
       "sailgp": {
         "count": 7,
@@ -153,11 +152,6 @@
         "count": 9,
         "firstEventDate": "2026-09-13",
         "lastEventDate": "2026-11-29"
-      },
-      "basketball": {
-        "count": 165,
-        "firstEventDate": "2026-09-19",
-        "lastEventDate": "2027-02-14"
       },
       "football": {
         "count": 2,

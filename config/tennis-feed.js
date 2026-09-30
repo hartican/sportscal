@@ -9,8 +9,9 @@
   const isRubber=e=>Boolean(e?.parentTieId||e?.tieId&&e?.contestUnit!=='tie'||e?.contestUnit==='rubber');
   function isFinal(e){
     if(isParent(e)||isRubber(e)||['MD','WD','XD'].includes(e.eventCode)||/doubles/i.test([e.eventType,e.matchType,e.drawType,e.discipline,e.name].join(' ')))return false;
+    if(e.contestUnit==='tie' && (e.isKnockout===true||e.knockout===true||e.isFinals===true))return true;
     // Round labels take precedence over the name of a "Finals" tournament.
-    return /^(?:(?:men.s|women.s|singles|championship|grand)\s+)*final$/i.test(String(e.roundLabel||e.round||e.stage||'').trim());
+    return /^(?:(?:men.s|women.s|singles|championship|grand)\s+)*(?:quarter[ -]?final|semi[ -]?final|final|QF|SF)$/i.test(String(e.roundLabel||e.round||e.stage||'').trim());
   }
   function parentKey(t){
     // Dates and locations are facts, not identity. Distinct stages use source IDs.
@@ -19,7 +20,7 @@
   }
   function matches(parent,e){
     if(!e||isParent(e)||String(e.id||'').startsWith('tennis-tournament-')||api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').aggregateEvent(e)||isRubber(e))return false;
-    if(api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').sportKey(e)!=='tennis')return false;
+    if(!api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').sportKey(e).startsWith('tennis'))return false;
     const ids=[e.tennisTournamentId,e.tournamentId,e.editionId].filter(Boolean);
     if(ids.some(value=>parent.tournamentIds.includes(value)))return true;
     if(ids.length)return false;

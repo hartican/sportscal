@@ -51,5 +51,5 @@ assert(fs.readFileSync('assets/providers/bein-sports-connect.svg','utf8').includ
 const all=catalogue();assert(all.length>3000);const chosen=all.find(e=>calendar.knownDate(e));
 assert(subscriptionEvents({preferences:{}},{includedIds:[calendar.idFor(chosen)]}).some(e=>calendar.idFor(e)===calendar.idFor(chosen)));
 const html=fs.readFileSync('index.html','utf8');new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow','Match Centre']);
 console.log('Calendar and timeline rework: identity, DST, midnight, overnight, completion, bulk selection, follow restrictions, Tickets and provider checks passed.');

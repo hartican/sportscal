@@ -381,3 +381,11 @@ header.top .vector-glyph{width:20px;height:20px;}
 
 .f1-location-race{text-transform:none;}
 .f1-chequered-flag{font-size:1.1rem;line-height:1;}
+/* All fixture layouts stack the local date above the clock. */
+.fixture-timing-badge,
+#listView .feed-fixture .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;width:100%;}
+.fixture-timing-day,.fixture-timing-clock{display:block;font-size:inherit;font-weight:inherit;line-height:inherit;max-width:100%;}
+.fixture-timing-badge>small{font-size:.65rem;font-weight:650;letter-spacing:.025em;line-height:1.4;}
+#listView .feed-fixture.is-compact-row .compact-matchup-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);}
+#listView .feed-fixture.is-compact-row .compact-matchup-side{overflow:visible;justify-content:center;align-items:center;}
+#listView .feed-fixture.is-compact-row .fixture-timing-badge{font-size:clamp(.95rem,2.8vw,1.4rem);}

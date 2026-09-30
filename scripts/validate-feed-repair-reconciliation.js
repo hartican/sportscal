@@ -31,7 +31,7 @@ for(const id of ['evt_26','evt_27']){
  assert(e.participantIds.includes('competitor:f1:yuki-tsunoda'));assert(!e.participantIds.includes('competitor:f1:isack-hadjar'));
  assert.equal(e.participantsConfirmed,true);assert.deepEqual(require('../config/sport-context').applyEventContext(e,require('../data/canonical/f1-context-2026.json')).participantIds,e.participantIds);
 }
-for(const session of require('../data/canonical/f1-published-sessions-2026.json').sessions){const e=events.find(e=>e.id===session.id);assert.equal(e.startTimeUtc,session.startTimeUtc);assert.equal(e.date,session.date);assert.equal(e.time,session.time);}
+for(const session of require('../data/canonical/f1-published-sessions-2026.json').sessions){const e=events.find(e=>e.id===session.id);assert.equal(Date.parse(e.startTimeUtc),Date.parse(session.startTimeUtc));assert.equal(e.date,session.date);assert.equal(e.time,session.time);}
 const standings=require('../data/code-inspector/f1.json').standings;assert.equal(standings.filter(e=>e.competitionId.includes('drivers')).length,23);assert.equal(standings.filter(e=>e.competitionId.includes('constructors')).length,11);
 const browserSource=fs.readFileSync('index.html','utf8'),vm=require('node:vm');
 const inline=browserSource.slice(browserSource.indexOf('function fxAliases('),browserSource.indexOf('const COMPETITION_CLASSIFICATION'));

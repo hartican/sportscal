@@ -385,7 +385,8 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
     const normalizedSemantic = semanticFixtureKey(normalized);
     if (normalizedSemantic) semanticIds.set(normalizedSemantic, retainedId);
   });
-  return Array.from(fixtures.values()).sort((first, second) => (
+  const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
+  return Array.from(fixtures.values()).filter(e=>require('../config/cricket-coverage').allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id))).sort((first, second) => (
     String(first.date || first.schedulingWindow?.startsOn || "9999-12-31")
       .localeCompare(String(second.date || second.schedulingWindow?.startsOn || "9999-12-31"))
     || String(first.time || "23:59").localeCompare(String(second.time || "23:59"))
@@ -541,6 +542,8 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const expected = new Set(codes.map(code => `${code.slug}.json`));
   fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
     .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
+  const overviewFixtures=[...new Map(codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]).map(f=>[f.id,f])).values()];
+  fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
   require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });

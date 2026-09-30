@@ -13,4 +13,5 @@ assert.equal(pauses.apply({...sample,format:'ODI'}).venue,'Sydney','Women ODI un
 assert.equal(pauses.apply({...sample,gender:'men',name:'Australia v NZ',participantIds:[]}).venue,'Sydney','Men T20 unchanged');
 for(const event of require('../lib/calendar-catalogue').catalogue().filter(pauses.womensT20))for(const field of pauses.fields)assert(!Object.hasOwn(event,field),`${event.id}: ${field}`);
 for(const event of require('../data/follow-schedule/cricket.json').fixtures.filter(pauses.womensT20))for(const field of pauses.fields)assert(!Object.hasOwn(event,field),`${event.id}: ${field}`);
-console.log("Women's T20 detail pause verified; fixture identity, women's ODIs and men's T20 unaffected.");
+const retained={...sample,competitionName:"Women's T20 World Cup"}; assert.equal(pauses.womensT20(retained),false); assert.equal(identity.normalizeCore(retained).venue,'Sydney'); assert.equal(pauses.apply({...sample,competitionName:"Women's Ashes"}).scoreDisplay,'100-99');
+console.log("Women's T20 scope verified: Australia World Cup and Ashes restored; unrelated detail remains paused.");

@@ -293,6 +293,7 @@
     domainIds = [],
     broadcasterIds = [],
     legacySelectedBroadcasterIds,
+    preserveMutes = false,
   } = {}){
     if (!raw || typeof raw !== "object"){
       return createPreferenceGraph({ profileId, domainIds, broadcasterIds, legacySelectedBroadcasterIds });
@@ -329,7 +330,7 @@
       });
     const entityFollows = (Array.isArray(raw.entityFollows) ? raw.entityFollows : [])
       .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "unfollow", "mute"].includes(preference.followLevel))
-      .map(preference => ({ ...preference, followLevel:preference.followLevel === "mute" ? "unfollow" : preference.followLevel, profileId: safeProfileId }));
+      .map(preference => ({ ...preference, followLevel:preference.followLevel === "mute" && !preserveMutes ? "unfollow" : preference.followLevel, profileId: safeProfileId }));
 
     return {
       ...raw,

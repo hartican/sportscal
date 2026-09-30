@@ -113,6 +113,8 @@
   function editorialNarrativeReadyForCard(narrative){
     if (!narrative || !/^editorial-narrative\.v(?:1|2|3)$/.test(String(narrative.schemaVersion || ""))) return false;
     if (!String(narrative.hook || "").trim() || !String(narrative.synopsis || "").trim()) return false;
+    // Unresearched structural fallback is withheld; fixture admission is independent.
+    if(narrative.generationMode === "source-derived-fallback")return false;
     if (narrative.generationMode !== "researched") return true;
     return Array.isArray(narrative.factIds)
       && narrative.factIds.length > 0

@@ -15773,7 +15773,62 @@
         "competitor:tennis:wta:karolina-muchova",
         "competitor:tennis:wta:katerina-siniakova"
       ],
-      "contestCount": 7
+      "contestCount": 7,
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22",
+        "researchTier": "marquee",
+        "hook": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+        "synopsis": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+        "threadIds": [
+          "thread:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22"
+        ],
+        "factIds": [
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:1",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:2",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:3"
+        ],
+        "sourceIds": [
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:1",
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:2"
+        ],
+        "dimensions": [
+          "path",
+          "format",
+          "venue",
+          "history"
+        ],
+        "researchedAt": "2026-09-22T00:00:00.000Z",
+        "refreshAfter": "2026-09-27T23:59:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Billie Jean King Cup Finals 2026",
+        "contextSignals": [
+          "event-specific",
+          "narrative:path",
+          "narrative:format",
+          "narrative:venue",
+          "narrative:history"
+        ],
+        "sourceName": "Billie Jean King Cup Finals 2026 — official research 1",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/more/format",
+        "sourceCheckedAt": "2026-09-22T00:00:00.000Z",
+        "needsPreviewRefresh": false
+      },
+      "storyline": {
+        "researchDepth": 5,
+        "arcStage": "preview",
+        "hookSpoilerOff": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+        "hookSpoilerOn": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+        "synopsisSpoilerOff": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+        "synopsisSpoilerOn": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+        "lastReviewedAt": "2026-09-22T00:00:00.000Z"
+      }
     },
     {
       "id": "tennis-parent:united-cup:2026:tournament:tennis:united-cup-2026",
@@ -15915,174 +15970,6 @@
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
       "contestCount": 0
-    },
-    {
-      "id": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
-      "eventId": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
-      "canonicalEventId": "tennis-parent:laver-cup:2026:tournament:tennis:laver-cup-2026",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "cardType": "tennis_parent",
-      "tournamentParent": true,
-      "name": "Laver Cup",
-      "tournamentName": "Laver Cup",
-      "season": 2026,
-      "tournamentId": "tournament:tennis:laver-cup-2026",
-      "tennisTournamentId": "tournament:tennis:laver-cup-2026",
-      "tournamentIds": [
-        "tournament:tennis:laver-cup-2026"
-      ],
-      "eventFamilyId": "laver-cup",
-      "competitionId": "competition:laver-cup",
-      "phaseId": null,
-      "tour": "TEAM",
-      "representedTours": [
-        "ATP"
-      ],
-      "date": "2026-09-25",
-      "endDate": "2026-09-27",
-      "dateOnly": true,
-      "timePrecision": "date-only",
-      "timeTbc": true,
-      "schedulingWindow": {},
-      "timingProvisional": false,
-      "dateLabel": null,
-      "status": "upcoming",
-      "venue": "London, GBR",
-      "sourceUrl": "https://lavercup.com/scores-results-2026",
-      "sourceName": "Tournament calendar",
-      "sourceType": "published",
-      "participationEvidence": [],
-      "excludedParticipantIds": [],
-      "participantIds": [
-        "competitor:tennis:atp:casper-ruud",
-        "competitor:tennis:atp:francisco-cerundolo",
-        "competitor:tennis:atp:jakub-mensik",
-        "competitor:tennis:atp:brandon-nakashima",
-        "competitor:tennis:atp:rafael-jodar",
-        "competitor:tennis:atp:alexander-bublik",
-        "competitor:tennis:atp:flavio-cobolli",
-        "competitor:tennis:atp:learner-tien",
-        "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:taylor-fritz",
-        "competitor:tennis:atp:alexander-zverev",
-        "competitor:tennis:atp:alex-de-minaur"
-      ],
-      "expected": 5,
-      "sourceParticipation": [
-        {
-          "participantId": "competitor:tennis:atp:casper-ruud",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:francisco-cerundolo",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:jakub-mensik",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:brandon-nakashima",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:rafael-jodar",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alexander-bublik",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:flavio-cobolli",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:learner-tien",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:carlos-alcaraz",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:jakub-mensik",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alexander-bublik",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:taylor-fritz",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alexander-zverev",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alex-de-minaur",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:carlos-alcaraz",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:taylor-fritz",
-          "draw": "singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:casper-ruud",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alexander-zverev",
-          "draw": "doubles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:brandon-nakashima",
-          "draw": "doubles",
-          "active": true
-        }
-      ],
-      "participantsConfirmed": true,
-      "sourceParticipantIds": [
-        "competitor:tennis:atp:casper-ruud",
-        "competitor:tennis:atp:francisco-cerundolo",
-        "competitor:tennis:atp:jakub-mensik",
-        "competitor:tennis:atp:brandon-nakashima",
-        "competitor:tennis:atp:rafael-jodar",
-        "competitor:tennis:atp:alexander-bublik",
-        "competitor:tennis:atp:flavio-cobolli",
-        "competitor:tennis:atp:learner-tien",
-        "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:taylor-fritz",
-        "competitor:tennis:atp:alexander-zverev",
-        "competitor:tennis:atp:alex-de-minaur"
-      ],
-      "contestCount": 8
     }
   ]
 }

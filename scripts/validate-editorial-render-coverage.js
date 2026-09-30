@@ -15,7 +15,7 @@ function readJson(filePath){
 }
 
 function identities(record){
-  return [record?.id, record?.eventId, record?.canonicalEventId].map(String).filter(Boolean);
+  return [record?.id, record?.eventId, record?.canonicalEventId].filter(Boolean).flatMap(id=>require("../config/fixture-identity").fixtureAliases(id));
 }
 
 function byIdentity(records){
@@ -35,7 +35,7 @@ assert.equal(typeof editorialConsequenceReadyForCard, "function", "the browser-l
 const incomingById = byIdentity(incoming.events || []);
 const publishedById = byIdentity(published.events || []);
 const majorById = byIdentity(majorEvents.events || []);
-const catalogue=require("../lib/calendar-catalogue").catalogue();
+const catalogue=[...require("../lib/calendar-catalogue").catalogue(),...require("../data/tennis-feed-parents.v1.json").parents];
 const catalogueById=byIdentity(catalogue);
 const resolved = [];
 
@@ -46,7 +46,9 @@ for (const projection of knowledge.eventProjections || []){
   ) continue;
   const catalogueOnly=projection.targetIds.every(id=>!incomingById.has(id)&&!publishedById.has(id));
   const candidates = projection.targetType === "major-event" ? [majorById] : catalogueOnly ? [catalogueById] : [incomingById, publishedById];
-  for (const records of candidates){
+  const available=candidates.filter(records=>projection.targetIds.some(id=>records.has(id)));
+  assert(available.length,`${projection.id} must resolve to a published record`);
+  for (const records of available){
     const record = projection.targetIds.map(id => records.get(id)).find(Boolean);
     assert(record, `${projection.id} must resolve to its published ${projection.targetType} record`);
     assert(

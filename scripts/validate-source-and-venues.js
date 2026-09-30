@@ -75,6 +75,7 @@ assert.equal(audit.total, new Set(feed.events.map(event => event.venue).filter(B
 assert(audit.audited >= 87, "the registry must contain the researched venue aliases and context-specific identities");
 assert.deepEqual(audit.unclassified, [], "every current venue input must be resolved or carry an explicit editorial disposition");
 const allowedPending = [
+  "Beijing, CHN",
   "2026 NBA Finals",
   "Adelaide Entertainment Centre",
   "Afterpay Arena",

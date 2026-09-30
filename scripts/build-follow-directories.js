@@ -120,6 +120,7 @@ function normalizeRecord(record, additions = {}){
   if (record.competitionNumberKind) normalized.competitionNumberKind = record.competitionNumberKind;
   if (record.competitionNumberSeason) normalized.competitionNumberSeason = record.competitionNumberSeason;
   if (record.profileRef) normalized.profileRef = record.profileRef;
+  if (record.profileOnly) Object.assign(normalized,{profileOnly:true,biography:record.biography,profileRef:record.id});
   return normalized;
 }
 
@@ -334,6 +335,18 @@ function main(){
     }, { countryCode:team.countryCode, genderCategory:team.gender, sourceRefs:[team.sourceUrl] }));
   });
 
+  const cricketCoverage=require('../config/cricket-coverage');
+  const cricketRecords=cricketCoverage.directory([...chunks.get('cricket').values()]);
+  for(const country of cricketCoverage.policy.nationalTeams)if(!cricketRecords.some(r=>r.id==='team:cricket:'+country))cricketRecords.push(normalizeRecord({id:'team:cricket:'+country,displayName:country.split('-').map(x=>x[0].toUpperCase()+x.slice(1)).join(' '),type:'team',teamKind:'national',genderCategory:'male',sourceRefs:['https://www.icc-cricket.com/about/members']}));
+  chunks.get('cricket').clear();for(const record of cricketRecords)chunks.get('cricket').set(record.id,record);
+  // Separate browsable coverage; opponent records remain in source data for scores.
+  for(const [base,target] of [['nrl','nrlw'],['afl','aflw']])for(const [id,record] of [...chunks.get(base)])if(record.genderCategory==='female'){chunks.get(target).set(id,record);chunks.get(base).delete(id);}
+  for(const sport of exposedSports.filter(s=>s.key.endsWith('-women'))){
+    const base=sport.key.replace(/-women$/,'');if(!chunks.has(base))continue;
+    for(const [id,record] of [...chunks.get(base)])if(record.genderCategory==='female'){
+      chunks.get(sport.key).set(id,record);chunks.get(base).delete(id);
+    }
+  }
   const curation = readJson("data/canonical/follow-directory-curation.v1.json");
   for (const [id,displayName,countryCode] of [["team:rugby:fijian-drua","Fijian Drua","FJ"],["team:rugby:moana-pasifika","Moana Pasifika",null]]){
     if (!chunks.get("rugby").has(id)) chunks.get("rugby").set(id,normalizeRecord({id,displayName,type:"team",teamKind:"club",genderCategory:"male",countryCode,leagueId:"competition:super-rugby-pacific",sourceRefs:[curation.sources[3]]}));
@@ -386,7 +399,7 @@ function main(){
       sortBasis:records.some(record => Number.isFinite(record.ranking) || Number.isFinite(record.ladderPosition)) ? "ranking-or-ladder-then-alphabetical" : "alphabetical-fallback",
       records,
       ...(curation.sports[sport.key] ? {browseGroups:curation.sports[sport.key].groups} : {}),
-      ...(sport.key === "tennis" ? { collections:tennisCollections } : {}),
+      ...(sport.key.startsWith("tennis") ? { collections:tennisCollections.map(collection=>({...collection,memberIds:collection.memberIds.filter(id=>records.some(record=>record.id===id))})).filter(collection=>collection.memberIds.length) } : {}),
     };
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`, checkOnly) || changed;
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;

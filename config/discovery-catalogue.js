@@ -289,7 +289,7 @@
     );
     const next = {
       ...saved,
-      version: PREFERENCE_VERSION,
+      version: Math.max(PREFERENCE_VERSION,Number(saved.version)||0),
       discoveryCatalogueVersion: SCHEMA_VERSION,
       selectedSelectorEntityIds: migration.sportIds.slice(),
       followedSports: migration.followedSportKeys.slice(),
@@ -421,6 +421,9 @@
   }
 
   function eventNodeId(event){
+    const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);
+    const category=policy?.sportKey(event);
+    if(category?.endsWith('-women')&&sportById.has('sport:'+category))return 'sport:'+category;
     for (const field of ["discoverySportId", "catalogueSportId", "sportCatalogueNodeId"]){
       const explicit = String(event?.[field] || "").trim();
       if (sportById.has(explicit)) return explicit;

@@ -17,7 +17,7 @@ for(const width of [320,390,768,1280])for(const theme of ['day','night']){
   for(const {image:i,frame:f} of result.logos)assert(i.top>=f.top-.5&&i.left>=f.left-.5&&i.right<=f.right+.5&&i.bottom<=f.bottom+.5,'contained, uncropped logo element');
   assert(result.backgrounds.every(x=>x==='rgba(0, 0, 0, 0)'),'no decorative provider backplates');
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal scrolling');
-  if(ev.key==='afl')assert(/Dockers/.test(result.text)&&/Lions/.test(result.text),'club nicknames');
+  if(ev.key==='afl')assert(/Dockers/.test(result.text)&&/Lions/.test(result.text),'club nicknames: '+ev.id+' '+compact+' '+result.text);
   if(ev.key==='football')assert(/Socceroos/.test(result.text),'national nickname');
   if(ev.competitionId?.startsWith('competition:tennis:us-open')){assert(result.tournamentLogo?.includes('us-open-wordmark'),'real tournament mark on singles');assert(/US Open/.test(result.header)&&/singles/i.test(result.header),'tournament and sporting format label');}
   if(ev.key==='football')assert(!result.header.includes(' · '),'no repeated competition label');

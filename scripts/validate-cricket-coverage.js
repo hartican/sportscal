@@ -1,0 +1,32 @@
+'use strict';
+const assert=require('node:assert/strict'),scope=require('../config/cricket-coverage'),identity=require('../config/fixture-identity'),follow=require('../config/follow-first');
+assert.deepEqual(scope.policy,require('../data/canonical/cricket-coverage-policy.v1.json'),'embedded browser policy matches authoritative source');
+const match=(extra={})=>({id:'qa',key:'cricket',format:'Test',participantIds:['team:cricket:australia','team:cricket:england'],...extra});
+for(const format of ['Test','ODI','T20I'])assert(scope.allowed(match({format})));
+assert(scope.allowed(match({format:'BBL',participantIds:['team:cricket:perth-scorchers','team:cricket:sydney-sixers']})));
+assert(!scope.allowed(match({participantIds:['team:cricket:ca-50','team:cricket:ca-40']})));
+const women={gender:'women',participantIds:['team:cricket:australia-women','team:cricket:england-women']};assert(scope.allowed(match(women)));assert(scope.allowed(match({...women,format:'T20',competitionName:'Women’s Ashes'})));assert(scope.allowed(match({...women,format:'ODI',competitionName:'ICC Women’s World Cup'})));assert(!scope.allowed(match({...women,format:'T20',competitionName:'Bilateral series'})));assert(!scope.allowed(match({gender:'women',round:'Final',format:'T20',competitionName:'World Cup',participantIds:['team:cricket:england-women','team:cricket:india-women']})));
+for(const account of [{preferenceGraph:{entityFollows:[{participantId:'team:cricket:ca-50',followLevel:'follow'},{participantId:'team:cricket:australia',followLevel:'follow'},{participantId:'team:rugby:brumbies',followLevel:'follow'}]}},{preferenceGraph:{entityFollows:[{participantId:'competitor:cricket:test',followLevel:'follow'}]}}]){const next=scope.preferences(account);assert.deepEqual(scope.preferences(next),next);assert.deepEqual(follow.migratePreferences(follow.migratePreferences(account)),follow.migratePreferences(account));assert(next.preferenceGraph.entityFollows.every(x=>scope.followable(x.participantId)));}
+assert(!follow.reasonForEvent(match({participantIds:['team:cricket:ca-50','team:cricket:ca-40']}),{preferenceGraph:{entityFollows:[{participantId:'team:cricket:ca-50',followLevel:'follow'}]}}));
+const p=require('../config/feed-card-presentation'),m=require('../config/match-centre');
+const multi=match({date:'2026-10-09',endDate:'2026-10-11',startTimeUtc:'2026-10-09T08:00:00Z',status:'stumps'});
+assert(!p.cricketCompact(multi,new Date('2026-10-09T12:00:00Z')));assert(p.cricketCompact(multi,new Date('2026-10-10T12:00:00Z')));assert(!p.cricketCompact({...multi,status:'completed'},new Date('2026-10-10T12:00:00Z')));assert(m.eligible(multi,Date.parse('2026-10-10T12:00:00Z')));assert(m.eligible({...multi,status:'scheduled'},Date.parse('2026-10-10T12:00:00Z')));
+const dates=require('../config/australian-dates');assert.equal(dates.numeric('2026-10-22'),'22/10/2026');assert.equal(dates.date('2026-10-05',{reference:new Date('2026-09-30')}),'MON 5 OCT');
+const final={status:'completed',checkedAt:'2026-10-10T12:00:00Z',score:{home:20,away:12}};assert.deepEqual(m.observation(final,{status:'live',checkedAt:'2026-10-10T13:00:00Z',score:{home:10,away:12}}),{...final,stale:true});
+console.log('Cricket boundaries, repeated migrations, retired follows, multi-day progression and terminal observations passed.');
+
+const {buildServerFeed}=require('../lib/server-feed-pipeline');
+let scoped=scope.setFormatFollow({},'team:cricket:australia','Tests',true);
+for(const [format,expected] of [['Test',true],['ODI',false],['T20I',false]]){const e=match({format,date:'2026-10-10',startTimeUtc:'2026-10-10T08:00:00Z',name:'Australia v England'});assert.equal(Boolean(follow.reasonForEvent(e,scoped)),expected);assert.equal(buildServerFeed({events:[e],userState:{preferences:scoped},userId:'qa',now:new Date('2026-10-01')}).events.length>0,expected);}
+scoped=scope.setFormatFollow(scoped,'team:cricket:australia','T20Is',true);assert(follow.reasonForEvent(match({format:'T20I'}),scoped));scoped=scope.setFormatFollow(scoped,'team:cricket:australia','Tests',false);assert(!follow.reasonForEvent(match(),scoped));assert(follow.reasonForEvent(match({format:'T20I'}),scoped));
+const retained=scope.preferences({preferenceGraph:{competitionPreferences:[{competitionId:scope.policy.retiredCompetitionIds[0],enabled:true},{competitionId:'competition:rugby:test',enabled:true}],entityFollows:[{participantId:'competitor:motogp:andrea-dovizioso',followLevel:'follow'}]}});assert.equal(retained.preferenceGraph.competitionPreferences.length,1);assert.equal(retained.preferenceGraph.entityFollows.length,0);
+assert(m.eligible({...multi,date:'2026-10-03',endDate:'2026-10-04',startTimeUtc:'2026-10-03T08:00:00Z',status:'scheduled'},Date.parse('2026-10-04T12:59:00Z')));assert(!m.eligible({...multi,date:'2026-10-03',endDate:'2026-10-04',startTimeUtc:'2026-10-03T08:00:00Z',status:'scheduled'},Date.parse('2026-10-04T13:01:00Z')));
+console.log('Format follows preserve independent choices with server parity, offline pruning and Sydney midnight boundaries.');
+
+const seededWomen=follow.applyMetaSeed({}, {sports:['cricket-women','tennis-women']}).preferences;assert(seededWomen.selectedSelectorEntityIds.includes('sport:cricket-women'));assert(seededWomen.selectedSelectorEntityIds.includes('sport:tennis-women'));assert(!seededWomen.selectedSelectorEntityIds.includes('sport:cricket'));assert.equal(new Set(follow.STARTUP_SPORTS.map(s=>s.id)).size,follow.STARTUP_SPORTS.length,'startup categories have unique identities');
+
+assert(!m.eligible({...multi,status:'scheduled',timePrecision:'estimated',estimatedStartTimeUtc:multi.startTimeUtc},Date.parse(multi.startTimeUtc)),'estimated sporting starts cannot establish Match Centre membership');assert(m.eligible({...multi,key:'cricket-women'},Date.parse('2026-10-10T12:00:00Z')));assert.equal(m.sport({key:'cricket-women'}),'cricket');
+
+const migration=require('node:fs').readFileSync(require('node:path').join(__dirname,'../supabase/migrations/20260930100449_cricket_coverage_v1.sql'),'utf8');
+assert(migration.includes('where nothingsports_recovery.cricket_allowed_v1(e) or exists'),'source retention admits in-scope fixtures and protected history');
+assert(!migration.includes('where not nothingsports_recovery.cricket_allowed_v1(e) or exists'),'migration cannot invert source retention');

@@ -10,8 +10,8 @@ const cardCss=fs.readFileSync("styles/follow-feed-rework.css","utf8");
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] || "";
 assert.doesNotThrow(() => new Function(inlineScript), "the Events and Fixtures browser script must parse");
 
-assert(html.includes('let eventsViewTab = "major-events"'), "fresh visits must default Events to Major Events");
-assert(html.includes('[["major-events", "Major Events"], ["ticket-alerts", "Tickets"]]'), "Events tabs must place Major Events before Ticket alerts");
+assert(html.includes('let eventsViewTab = "overviews"'), "fresh visits default to followed tournament and series overviews");
+assert(html.includes('[["overviews", "Events"], ["major-events", "Major Events"], ["ticket-alerts", "Tickets"]]'), "Events tabs must place Major Events before Ticket alerts");
 assert(html.includes('tabs.setAttribute("role", "tablist")') && html.includes('tab.setAttribute("role", "tab")') && html.includes('panel.setAttribute("role", "tabpanel")'), "Events tabs must expose the accessible tab pattern");
 assert(html.includes('eventsDeepLinkHash("major"') && html.includes('eventsDeepLinkHash("alert"') && html.includes('/^#events\\/(major|alert)\\/(.+)$/'), "Major Events and Ticket alerts must support deterministic deep links");
 assert(html.includes("pendingMajorEventFocusId") && html.includes("pendingTicketAlertFocusId") && html.includes("focusTicketAlertCard"), "deep links must select and focus either card collection");

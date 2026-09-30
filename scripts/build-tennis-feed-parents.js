@@ -8,7 +8,8 @@ function build(){
   const raw=require('./refresh-us-open-events').fixturesFromSnapshot(JSON.parse(fs.readFileSync('feeds/provider-exports/tennis/us-open-2026-official-schedule.json','utf8')));
   const elimination=new Map(raw.filter(e=>e.eliminatedParticipantIds?.length).map(e=>[e.id,e.eliminatedParticipantIds]));
   fixtures=fixtures.map(e=>elimination.has(e.id)?{...e,eliminatedParticipantIds:elimination.get(e.id)}:e);
-  return {schemaVersion:'tennis-feed-parents.v1',contests:require('../data/canonical/tennis-team-contests.v1.json').fixtures,parents:model.buildParents(catalogue,fixtures).map(({childContests,...parent})=>({...parent,sourceParticipantIds:parent.participantIds,contestCount:childContests.length}))};
+  const enrich=require('../lib/fixture-editorial').createResolver(JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json','utf8')),fixtures);
+  return {schemaVersion:'tennis-feed-parents.v1',contests:require('../data/canonical/tennis-team-contests.v1.json').fixtures,parents:model.buildParents(catalogue,fixtures).map(({childContests,...parent})=>({...parent,sourceParticipantIds:parent.participantIds,contestCount:childContests.length})).map(enrich)};
 }
 if(require.main===module){
   const content=JSON.stringify(build(),null,2)+'\n',path='data/tennis-feed-parents.v1.json';

@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v10";
+  const SCHEMA_VERSION = "follow-feed-policy.v11";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
@@ -45,14 +45,14 @@
 
   function presidentsCup(event){return sportKey(event)==='golf'&&event.eventFamilyId==='presidents-cup'&&['competition:presidents-cup'].includes(event.competitionId)&&!/^Live From/i.test(event.name||'');}
   function golfMajor(event){
-    if(!['golf','masters'].includes(sportKey(event)))return false;
+    if(!['golf','golf-women','masters'].includes(sportKey(event)))return false;
     return sportKey(event)==='masters' || event.isMajor===true || event.major===true || event.stage==='Major' || /^(?:\d{4} )?(?:Masters Tournament|The Masters|PGA Championship|U\.?S\.? Open|The Open(?: Championship)?|U\.?S\.? Women['’]?s Open|AIG Women['’]?s Open|The Chevron Championship|KPMG Women['’]?s PGA Championship|The Amundi Evian Championship)(?: \d{4})?$/i.test(event.tournamentName||event.name||'');
   }
   function tennisModel(){return globalThis.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);}
 
   function aggregateEvent(event){
     if (!event) return true;
-    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
+    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
     if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
     // Legacy published summaries have no typed kind. Do not confuse a dated
     // championship match with the programme for a whole week or round.
@@ -63,7 +63,7 @@
     const key = sportKey(event);
     if(golfMajor(event))return false;
     if (["aflw", "nrlw"].includes(key)) return true;
-    if (key === "tennis") return false;
+    if (key.startsWith("tennis")) return false;
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
   }
 
@@ -99,13 +99,14 @@
   function explicitlyExcluded(event, preferences){
     const graph = preferences?.preferenceGraph || {};
     const key = sportKey(event);
-    return (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id))
+    return Number(preferences?.version||0)>=24 && (graph.entityFollows||[]).some(f=>f.followLevel==='mute'&&participantIds(event).includes(f.participantId))
+      || (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id))
       || (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
       || effectiveDomainPreferences(event,preferences).some(p => [event.sportDomainId, `sport:${key}`, premiershipDomainId(event)].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
   }
 
   function sportingFixture(event){
-    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event);
+    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event);
     return hasPublishedFixture(event) && !aggregateEvent(event) && !event.majorEventMarker && !event.tournamentParent
       && event.cardKind !== "event" && !["tournament", "major_event", "ticket_sale"].includes(event.kind);
   }
@@ -115,7 +116,9 @@
     if (/^competition:(formula-one|f1)(?:[:-]|$)/.test(competition)) return "f1";
     if (/^competition:wrc(?:[:-]|$)/.test(competition)) return "wrc";
     const key = String(event?.key || event?.sportKey || event?.representativeSportKey || event?.sportId || event?.sportDomainId || "").replace(/^sport:/, "");
-    return ({"rugby-union":"rugby",wimbledon:"tennis",fifa:"football","premier-league":"football",rally:"wrc",basketball:"nba"})[key] || key;
+    const family=({"rugby-union":"rugby",wimbledon:"tennis",fifa:"football","premier-league":"football",rally:"wrc",basketball:"nba"})[key] || key;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS||(typeof require==='function'?require('./fixture-labels'):null);
+    return labels?.gender(event)==='women'&&!['aflw','nrlw','wnba','fiba-women','netball'].includes(family)&&!family.endsWith('-women')?family+'-women':family;
   }
 
   function australiansFilterUseful(event){
@@ -147,7 +150,7 @@
     if (isChampionshipMarquee(event)) return true;
     const key = sportKey(event);
     const round = [event?.stage,event?.round,event?.roundLabel].filter(Boolean).join(" ");
-    if (key === "tennis"){
+    if (key.startsWith("tennis")){
       const doubles = /doubles/i.test([event.eventType,event.matchType,event.discipline,event.drawType,event.stage,event.name].filter(Boolean).join(" "));
       const final = /^(?:women.s |men.s |mixed |singles |doubles )*(?:grand )?finals?$/i.test(round.trim()) || /\bfinal\b/i.test(round) && !/quarter|semi|round|qualif/i.test(round);
       return (doubles ? final : final || /quarter[- ]?final|semi[- ]?final|\b[qQsS][fF]\b|\b(?:QF|SF)\b/i.test(round));
@@ -198,20 +201,25 @@
   }
 
   function isFinalsOrKnockout(event){
+    const key=sportKey(event);
+    if (['golf','golf-women','masters'].includes(key) || aggregateEvent(event)) return false;
+    if(key.startsWith('tennis'))return tennisModel().isFinal(event);
     if(event?.isFinals===true || event?.isKnockout===true || event?.knockout===true)return true;
-    const text=[event?.stage,event?.round,event?.roundLabel,event?.competitionName,event?.name].filter(Boolean).join(" ").toLowerCase();
-    return /\b(finals?|semi[- ]?finals?|quarter[- ]?finals?|eliminat(?:ion|or)|qualifying final|knockout|play[- ]?offs?|grand final)\b/.test(text);
+    // A competition name such as ATP Finals is not evidence of a knockout stage.
+    const stage=[event?.stage,event?.round,event?.roundLabel].filter(Boolean).join(' ');
+    return /\b(finals?|semi[- ]?finals?|quarter[- ]?finals?|preliminary final|eliminat(?:ion|or)|qualifying final|knockout|play[- ]?offs?|grand final)\b/i.test(stage);
   }
 
-  function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
+  function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,sportFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','masters'].includes(sportKey(event)))return participantFollow&&event.participantsConfirmed===true&&event.cardType!=='golf_session'||(event.cardType!=='golf_session'&&competitionFollow&&australiansOnly&&event.participantsConfirmed===true&&hasAustralianParticipant(event))||(presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event)));
+    if(['golf','golf-women','masters'].includes(sportKey(event)))return participantFollow&&event.participantsConfirmed===true&&event.cardType!=='golf_session'||(event.cardType!=='golf_session'&&competitionFollow&&australiansOnly&&event.participantsConfirmed===true&&hasAustralianParticipant(event))||(presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event)));
     if(participantFollow)return true;
+    if(sportFollow && isFinalsOrKnockout(event))return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
-    if(sportKey(event)==="tennis")return competitionFollow && tennisModel().isFinal(event);
+    if(sportKey(event).startsWith("tennis"))return competitionFollow && tennisModel().isFinal(event);
     if(explicitEventFollow)return isMarquee(event);
     if(["cricket","rugby"].includes(sportKey(event)))return false;
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);

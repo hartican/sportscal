@@ -10,6 +10,8 @@
       if(start && today>=start && today<=event.endDate)return 'live';
       if(today>event.endDate)return 'past';
     }
+    const today=calendar.sydneyDay(now);
+    if(event.key==='cricket'&&event.endDate>event.date&&today>=event.date&&today<=event.endDate && (today>event.date || +(calendar.eventStart(event)||Infinity)<=+now))return 'ongoing';
     const timing=controls.timingState(event,now)?.key;
     if(timing==='awaiting-update')return 'unknown';
     if(timing==='live-now')return 'live';
@@ -21,14 +23,14 @@
     // Keep authoritative states across repeated browser normalisation. In
     // particular, completed follows-time matches have no exact start to infer.
     const raw=String(event.status||'').toLowerCase();
-    return ['completed','finished','final','cancelled','canceled','postponed','suspended','abandoned'].includes(raw)?raw:status(event,now);
+    return ['completed','finished','final','cancelled','canceled','postponed','suspended','stumps','interrupted','rain-delay','break','abandoned'].includes(raw)?raw:status(event,now);
   }
   function groups(events,now=new Date()){
     const today=calendar.sydneyDay(now),result={retainedPast:[],today:[],future:[],unknown:[]};
     for(const event of events){
       const date=event.date || event.startDate;
       if(!/^\d{4}-\d{2}-\d{2}$/.test(date || ''))result.unknown.push(event);
-      else if(date===today || date<today && status(event,now)==='live')result.today.push(event);
+      else if(date===today || date<today && ['live','ongoing'].includes(status(event,now)))result.today.push(event);
       else if(date<today)result.retainedPast.push(event);
       else if(date>today)result.future.push(event);
     }

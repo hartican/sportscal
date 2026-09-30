@@ -17,7 +17,7 @@ assert.throws(()=>apply(structuredClone(knowledge),{events:[]},{events:[]},{entr
 assert.deepEqual(weekend(new Date('2026-09-18T01:00:00Z')),{from:'2026-09-18',to:'2026-09-21'});
 assert.equal(selected([fixture,{...fixture,id:'monday',date:'2026-09-21'},{...fixture,id:'low',stakesScore:3},{...fixture,id:'tuesday',date:'2026-09-22'}],{from:'2026-09-18',to:'2026-09-21'}).length,2);
 // Exercise the actual full-refresh call without writing any output.
-apply(structuredClone(knowledge),read('feeds/incoming/events.json'),read('data/major-events.v1.json'),read('data/editorial-fixture-research.v1.json'),read('data/follow-sources/coverage.v1.json').events);
+apply(structuredClone(knowledge),read('feeds/incoming/events.json'),read('data/major-events.v1.json'),read('data/editorial-fixture-research.v1.json'),[...read('data/follow-sources/coverage.v1.json').events,...read('data/events.json').events,...read('data/tennis-feed-parents.v1.json').parents]);
 console.log('Catalogue editorial valid: catalogue-only targets supported, unknown IDs rejected, Feed admission preserved, Friday-Monday scope enforced.');
 
 const preview=require('./lib/editorial-preview-quality');

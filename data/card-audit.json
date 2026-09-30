@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-27T14:16:08.166Z",
+  "generatedAt": "2026-09-30T13:18:31.810Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,8 +12,8 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 271,
-    "completed": 207,
+    "totalMajorCards": 272,
+    "completed": 208,
     "upcoming": 64,
     "stale": 0,
     "needsRecap": 0,
@@ -3386,6 +3386,22 @@
       "name": "Socceroos v Brazil",
       "sport": "Football",
       "date": "2026-09-29",
+      "status": "completed",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-wta-beijing-2026-2026-09-30",
+      "name": "China Open — WTA 1000",
+      "sport": "Tennis",
+      "date": "2026-09-30",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -3431,7 +3447,7 @@
     },
     {
       "id": "evt_f1_2026_bahrain_qualifying",
-      "name": "Bahrain GP · Qualifying",
+      "name": "Bahrain GP (Malaysia) · Qualifying",
       "sport": "Formula 1",
       "date": "2026-10-03",
       "status": "upcoming",
@@ -3479,7 +3495,7 @@
     },
     {
       "id": "evt_f1_2026_bahrain_race",
-      "name": "Bahrain GP · Race",
+      "name": "Bahrain GP (Malaysia) · Race",
       "sport": "Formula 1",
       "date": "2026-10-04",
       "status": "upcoming",
@@ -3510,7 +3526,7 @@
       "issues": []
     },
     {
-      "id": "evt_87",
+      "id": "fixture:cricket:espn:1525659",
       "name": "South Africa v Australia — First Test",
       "sport": "Cricket",
       "date": "2026-10-09",
@@ -3543,7 +3559,7 @@
     },
     {
       "id": "rugby-new-zealand-australia-2026-10-10",
-      "name": "New Zealand v Australia",
+      "name": "All Blacks v Wallabies",
       "sport": "Rugby Union",
       "date": "2026-10-10",
       "status": "upcoming",
@@ -3670,7 +3686,7 @@
       "issues": []
     },
     {
-      "id": "evt_88",
+      "id": "fixture:cricket:espn:1525660",
       "name": "South Africa v Australia — Second Test",
       "sport": "Cricket",
       "date": "2026-10-18",
@@ -3750,7 +3766,7 @@
       "issues": []
     },
     {
-      "id": "evt_89",
+      "id": "fixture:cricket:espn:1525661",
       "name": "South Africa v Australia — Third Test",
       "sport": "Cricket",
       "date": "2026-10-27",

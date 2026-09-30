@@ -1,0 +1,1088 @@
+[
+  {
+    "id": "fixture:cricket:CA:40955",
+    "eventId": "fixture:cricket:CA:40955",
+    "canonicalEventId": "fixture:cricket:CA:40955",
+    "sourceFixtureId": "CA:40955",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "competitionId": "competition:cricket:4711",
+    "competitionName": "Namibia v South Africa ODIs 2026 - Men",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "name": "Namibia Men v South Africa Men",
+    "roundLabel": "1st ODI",
+    "startTimeUtc": "2026-09-09T07:30:00.000Z",
+    "endTimeUtc": "2026-09-09T16:00:00Z",
+    "timePrecision": "exact",
+    "venue": "FNB Namibia Cricket Ground, Windhoek",
+    "participantIds": [
+      "team:cricket:namibia",
+      "team:cricket:south-africa"
+    ],
+    "participants": [
+      {
+        "id": "team:cricket:namibia",
+        "name": "Namibia Men",
+        "countryCode": "NA",
+        "teamKind": "national",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:south-africa",
+        "name": "South Africa Men",
+        "countryCode": "ZA",
+        "teamKind": "national",
+        "genderCategory": "male"
+      }
+    ],
+    "participantCountryCodes": [
+      "NA",
+      "ZA"
+    ],
+    "homeParticipantId": "team:cricket:namibia",
+    "awayParticipantId": "team:cricket:south-africa",
+    "status": "scheduled",
+    "scoreDisplay": null,
+    "innings": [],
+    "format": "ODI",
+    "numberOfDays": 1,
+    "sourceName": "Cricket Australia",
+    "sourceType": "official",
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "displayTitleCompact": "Namibia Men v South Africa Men",
+    "date": "2026-09-09",
+    "time": "17:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture:cricket:CA:24494",
+    "eventId": "fixture:cricket:CA:24494",
+    "canonicalEventId": "fixture:cricket:CA:24494",
+    "sourceFixtureId": "CA:24494",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "competitionId": "competition:cricket:3206",
+    "competitionName": "England v Pakistan Tests 2026 - Men",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "name": "England Men v Pakistan Men",
+    "roundLabel": "3rd Test",
+    "startTimeUtc": "2026-09-09T10:00:00.000Z",
+    "endTimeUtc": "2026-09-13T11:00:00Z",
+    "timePrecision": "exact",
+    "venue": "Edgbaston, Birmingham",
+    "participantIds": [
+      "team:cricket:england",
+      "team:cricket:pakistan"
+    ],
+    "participants": [
+      {
+        "id": "team:cricket:england",
+        "name": "England Men",
+        "countryCode": "GB",
+        "teamKind": "national",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:pakistan",
+        "name": "Pakistan Men",
+        "countryCode": "PK",
+        "teamKind": "national",
+        "genderCategory": "male"
+      }
+    ],
+    "participantCountryCodes": [
+      "GB",
+      "PK"
+    ],
+    "homeParticipantId": "team:cricket:england",
+    "awayParticipantId": "team:cricket:pakistan",
+    "status": "scheduled",
+    "scoreDisplay": null,
+    "innings": [],
+    "format": "Test",
+    "numberOfDays": 5,
+    "sourceName": "Cricket Australia",
+    "sourceType": "official",
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "displayTitleCompact": "England Men v Pakistan Men",
+    "date": "2026-09-09",
+    "time": "20:00",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture:cricket:espn:1535536",
+    "eventId": "fixture:cricket:espn:1535536",
+    "canonicalEventId": "fixture:cricket:espn:1535536",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Tamil Union Cricket and Athletic Club v Panadura Sports Club",
+    "competitionId": "competition:cricket:espn:18851",
+    "competitionName": "SLC T20 League",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T04:15:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "1st quarter final",
+    "venue": "Nondescripts Cricket Club Ground, Colombo",
+    "participants": [
+      {
+        "id": "team:cricket:espn-3636",
+        "name": "Tamil Union Cricket and Athletic Club",
+        "displayName": "Tamil Union Cricket and Athletic Club",
+        "aliases": [
+          "Tamil"
+        ],
+        "sourceIds": {
+          "espn": "3636"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:espn-3565",
+        "name": "Panadura Sports Club",
+        "displayName": "Panadura Sports Club",
+        "aliases": [
+          "PAN"
+        ],
+        "sourceIds": {
+          "espn": "3565"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-3636",
+      "team:cricket:espn-3565"
+    ],
+    "participantCountryCodes": [
+      "LK",
+      "LK"
+    ],
+    "homeParticipantId": "team:cricket:espn-3636",
+    "awayParticipantId": "team:cricket:espn-3565",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1535536",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535536/tamil-union-cricket-and-athletic-club-vs-panadura-sports-club-1st-quarter-final-major-clubs-t20-tournament-2026",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535536/tamil-union-cricket-and-athletic-club-vs-panadura-sports-club-1st-quarter-final-major-clubs-t20-tournament-2026",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Tamil Union Cricket and Athletic Club v Panadura Sports Club",
+    "time": "14:15",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.in/cricket/series/18851/game/1535536/tamil-union-cricket-and-athletic-club-vs-panadura-sports-club-1st-quarter-final-major-clubs-t20-tournament-2026"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1535538",
+    "eventId": "fixture:cricket:espn:1535538",
+    "canonicalEventId": "fixture:cricket:espn:1535538",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Moors Sports Club v Nondescripts Cricket Club",
+    "competitionId": "competition:cricket:espn:18851",
+    "competitionName": "SLC T20 League",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T04:15:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "3rd quarter final",
+    "venue": "Sinhalese Sports Club Ground, Colombo",
+    "participants": [
+      {
+        "id": "team:cricket:espn-3549",
+        "name": "Moors Sports Club",
+        "displayName": "Moors Sports Club",
+        "aliases": [
+          "MOORS"
+        ],
+        "sourceIds": {
+          "espn": "3549"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:espn-3554",
+        "name": "Nondescripts Cricket Club",
+        "displayName": "Nondescripts Cricket Club",
+        "aliases": [
+          "NCC"
+        ],
+        "sourceIds": {
+          "espn": "3554"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-3549",
+      "team:cricket:espn-3554"
+    ],
+    "participantCountryCodes": [
+      "LK",
+      "LK"
+    ],
+    "homeParticipantId": "team:cricket:espn-3549",
+    "awayParticipantId": "team:cricket:espn-3554",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1535538",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535538/moors-sports-club-vs-nondescripts-cricket-club-3rd-quarter-final-major-clubs-t20-tournament-2026",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535538/moors-sports-club-vs-nondescripts-cricket-club-3rd-quarter-final-major-clubs-t20-tournament-2026",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Moors Sports Club v Nondescripts Cricket Club",
+    "time": "14:15",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.in/cricket/series/18851/game/1535538/moors-sports-club-vs-nondescripts-cricket-club-3rd-quarter-final-major-clubs-t20-tournament-2026"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1552908",
+    "eventId": "fixture:cricket:espn:1552908",
+    "canonicalEventId": "fixture:cricket:espn:1552908",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Sierra Leone v Uganda",
+    "competitionId": "competition:cricket:espn:1552900",
+    "competitionName": "ILT20 Africa Continent cup 2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T07:30:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "3rd Match",
+    "venue": "Gahanga B Ground, Rwanda",
+    "participants": [
+      {
+        "id": "team:cricket:sierra-leone",
+        "name": "Sierra Leone",
+        "displayName": "Sierra Leone",
+        "aliases": [
+          "SLE"
+        ],
+        "sourceIds": {
+          "espn": "145"
+        },
+        "countryCode": "SL",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:uganda",
+        "name": "Uganda",
+        "displayName": "Uganda",
+        "aliases": [
+          "UGA"
+        ],
+        "sourceIds": {
+          "espn": "35"
+        },
+        "countryCode": "UG",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:sierra-leone",
+      "team:cricket:uganda"
+    ],
+    "participantCountryCodes": [
+      "SL",
+      "UG"
+    ],
+    "homeParticipantId": "team:cricket:sierra-leone",
+    "awayParticipantId": "team:cricket:uganda",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1552908",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/1552900/game/1552908/sierra-leone-vs-uganda-3rd-match-",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/1552900/game/1552908/sierra-leone-vs-uganda-3rd-match-",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Sierra Leone v Uganda",
+    "time": "17:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1535537",
+    "eventId": "fixture:cricket:espn:1535537",
+    "canonicalEventId": "fixture:cricket:espn:1535537",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Sinhalese Sports Club v Police Sports Club",
+    "competitionId": "competition:cricket:espn:18851",
+    "competitionName": "SLC T20 League",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T08:30:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "2nd quarter final",
+    "venue": "Nondescripts Cricket Club Ground, Colombo",
+    "participants": [
+      {
+        "id": "team:cricket:espn-3630",
+        "name": "Sinhalese Sports Club",
+        "displayName": "Sinhalese Sports Club",
+        "aliases": [
+          "SSC"
+        ],
+        "sourceIds": {
+          "espn": "3630"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:espn-3566",
+        "name": "Police Sports Club",
+        "displayName": "Police Sports Club",
+        "aliases": [
+          "PSC"
+        ],
+        "sourceIds": {
+          "espn": "3566"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-3630",
+      "team:cricket:espn-3566"
+    ],
+    "participantCountryCodes": [
+      "LK",
+      "LK"
+    ],
+    "homeParticipantId": "team:cricket:espn-3630",
+    "awayParticipantId": "team:cricket:espn-3566",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1535537",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535537/sinhalese-sports-club-vs-police-sports-club-2nd-quarter-final-major-clubs-t20-tournament-2026",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535537/sinhalese-sports-club-vs-police-sports-club-2nd-quarter-final-major-clubs-t20-tournament-2026",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Sinhalese Sports Club v Police Sports Club",
+    "time": "18:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.in/cricket/series/18851/game/1535537/sinhalese-sports-club-vs-police-sports-club-2nd-quarter-final-major-clubs-t20-tournament-2026"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1535539",
+    "eventId": "fixture:cricket:espn:1535539",
+    "canonicalEventId": "fixture:cricket:espn:1535539",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Ace Capital Cricket Club v Colombo Cricket Club",
+    "competitionId": "competition:cricket:espn:18851",
+    "competitionName": "SLC T20 League",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T08:30:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "4th quarter final",
+    "venue": "Sinhalese Sports Club Ground, Colombo",
+    "participants": [
+      {
+        "id": "team:cricket:espn-3629",
+        "name": "Ace Capital Cricket Club",
+        "displayName": "Ace Capital Cricket Club",
+        "aliases": [
+          "ACCC"
+        ],
+        "sourceIds": {
+          "espn": "3629"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:espn-3506",
+        "name": "Colombo Cricket Club",
+        "displayName": "Colombo Cricket Club",
+        "aliases": [
+          "CCC"
+        ],
+        "sourceIds": {
+          "espn": "3506"
+        },
+        "countryCode": "LK",
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-3629",
+      "team:cricket:espn-3506"
+    ],
+    "participantCountryCodes": [
+      "LK",
+      "LK"
+    ],
+    "homeParticipantId": "team:cricket:espn-3629",
+    "awayParticipantId": "team:cricket:espn-3506",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1535539",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535539/ace-capital-cricket-club-vs-colombo-cricket-club-4th-quarter-final-major-clubs-t20-tournament-2026",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/18851/game/1535539/ace-capital-cricket-club-vs-colombo-cricket-club-4th-quarter-final-major-clubs-t20-tournament-2026",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Ace Capital Cricket Club v Colombo Cricket Club",
+    "time": "18:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.in/cricket/series/18851/game/1535539/ace-capital-cricket-club-vs-colombo-cricket-club-4th-quarter-final-major-clubs-t20-tournament-2026"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1552909",
+    "eventId": "fixture:cricket:espn:1552909",
+    "canonicalEventId": "fixture:cricket:espn:1552909",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Rwanda v Kenya",
+    "competitionId": "competition:cricket:espn:1552900",
+    "competitionName": "ILT20 Africa Continent cup 2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-09T11:30:00.000Z",
+    "date": "2026-09-09",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "scheduled",
+    "format": "T20",
+    "roundLabel": "4th Match",
+    "venue": "Gahanga B Ground, Rwanda",
+    "participants": [
+      {
+        "id": "team:cricket:rwanda",
+        "name": "Rwanda",
+        "displayName": "Rwanda",
+        "aliases": [
+          "RWN"
+        ],
+        "sourceIds": {
+          "espn": "140"
+        },
+        "countryCode": "RW",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:kenya",
+        "name": "Kenya",
+        "displayName": "Kenya",
+        "aliases": [
+          "KENYA"
+        ],
+        "sourceIds": {
+          "espn": "26"
+        },
+        "countryCode": "KE",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:rwanda",
+      "team:cricket:kenya"
+    ],
+    "participantCountryCodes": [
+      "RW",
+      "KE"
+    ],
+    "homeParticipantId": "team:cricket:rwanda",
+    "awayParticipantId": "team:cricket:kenya",
+    "scoreDisplay": null,
+    "sourceFixtureId": "1552909",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/1552900/game/1552909/rwanda-vs-kenya-4th-match-",
+    "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/1552900/game/1552909/rwanda-vs-kenya-4th-match-",
+      "checkedAt": "2026-09-08T12:27:59.331Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Rwanda v Kenya",
+    "time": "21:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "numberOfDays": 1,
+    "endDate": "2026-09-09"
+  },
+  {
+    "id": "fixture:cricket:espn:1552915",
+    "eventId": "fixture:cricket:espn:1552915",
+    "canonicalEventId": "fixture:cricket:espn:1552915",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Botswana v Sierra Leone",
+    "competitionId": "competition:cricket:espn:21470",
+    "competitionName": "Africa Continental Cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-12T11:30:00.000Z",
+    "date": "2026-09-12",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "completed",
+    "format": "T20",
+    "roundLabel": "10th Match",
+    "venue": "Gahanga B Ground, Rwanda",
+    "participants": [
+      {
+        "id": "team:cricket:botswana",
+        "name": "Botswana",
+        "displayName": "Botswana",
+        "aliases": [
+          "BOT"
+        ],
+        "sourceIds": {
+          "espn": "65"
+        },
+        "countryCode": "BW",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:sierra-leone",
+        "name": "Sierra Leone",
+        "displayName": "Sierra Leone",
+        "aliases": [
+          "SLE"
+        ],
+        "sourceIds": {
+          "espn": "145"
+        },
+        "countryCode": "SL",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:botswana",
+      "team:cricket:sierra-leone"
+    ],
+    "participantCountryCodes": [
+      "BW",
+      "SL"
+    ],
+    "homeParticipantId": "team:cricket:botswana",
+    "awayParticipantId": "team:cricket:sierra-leone",
+    "scoreDisplay": "Botswana won by 23 runs",
+    "sourceFixtureId": "1552915",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/21470/scorecard/1552915/botswana-vs-sierra-leone-10th-match-africa-continental-cup-2026",
+    "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/21470/scorecard/1552915/botswana-vs-sierra-leone-10th-match-africa-continental-cup-2026",
+      "checkedAt": "2026-09-15T04:25:51.960Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Botswana v Sierra Leone",
+    "time": "21:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "numberOfDays": 1,
+    "endDate": "2026-09-12",
+    "endTimeUtc": "2026-09-12T14:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "fixture:cricket:espn:1552021",
+    "eventId": "fixture:cricket:espn:1552021",
+    "canonicalEventId": "fixture:cricket:espn:1552021",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "India A Women v Australia A Women",
+    "competitionId": "competition:cricket:espn:24725",
+    "competitionName": "Australia A Women tour of India 2026/27",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "women",
+    "startTimeUtc": "2026-09-12T12:30:00.000Z",
+    "date": "2026-09-12",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "completed",
+    "format": "T20",
+    "roundLabel": "1st unofficial T20I (N)",
+    "participants": [
+      {
+        "id": "team:cricket:espn-1813-women",
+        "name": "India A Women",
+        "displayName": "India A Women",
+        "aliases": [
+          "IN-AW"
+        ],
+        "sourceIds": {
+          "espn": "1813"
+        },
+        "countryCode": "IN",
+        "teamKind": "club",
+        "genderCategory": "female",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:espn-217-women",
+        "name": "Australia A Women",
+        "displayName": "Australia A Women",
+        "aliases": [
+          "AUA-W"
+        ],
+        "sourceIds": {
+          "espn": "217"
+        },
+        "countryCode": "AU",
+        "teamKind": "club",
+        "genderCategory": "female",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-1813-women",
+      "team:cricket:espn-217-women"
+    ],
+    "participantCountryCodes": [
+      "IN",
+      "AU"
+    ],
+    "homeParticipantId": "team:cricket:espn-1813-women",
+    "awayParticipantId": "team:cricket:espn-217-women",
+    "sourceFixtureId": "1552021",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/24725/scorecard/1552021/india-a-women-vs-australia-a-women-1st-unofficial-t20i-24725",
+    "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "sourceUrl": "https://www.espn.in/cricket/series/24725/scorecard/1552021/india-a-women-vs-australia-a-women-1st-unofficial-t20i-24725",
+      "checkedAt": "2026-09-15T04:25:51.960Z"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "India A Women v Australia A Women",
+    "time": "22:30",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "consensusTags": [],
+    "numberOfDays": 1,
+    "endDate": "2026-09-12",
+    "endTimeUtc": "2026-09-12T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "fixture:rugby:wr:5147ecd2-57bc-4d17-af31-4b30c53fee9c",
+    "eventId": "fixture:rugby:wr:5147ecd2-57bc-4d17-af31-4b30c53fee9c",
+    "canonicalEventId": "fixture:rugby:wr:5147ecd2-57bc-4d17-af31-4b30c53fee9c",
+    "key": "rugby",
+    "sport": "Rugby Union",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Japan v USA",
+    "competitionId": "competition:rugby:wr:b7511d98-7be1-4ac3-9470-90c98e84c5f3",
+    "competitionName": "Pacific Nations Cup 2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "discipline": "rugby-union",
+    "startTimeUtc": "2026-09-12T10:05:00.000Z",
+    "date": "2026-09-12",
+    "timePrecision": "exact",
+    "dateOnly": false,
+    "status": "completed",
+    "roundLabel": "Semi-Finals",
+    "venue": "Hanazono Rugby Stadium, Osaka Prefecture, Higashiosaka City",
+    "participants": [
+      {
+        "id": "team:rugby:japan",
+        "name": "Japan",
+        "displayName": "Japan",
+        "sourceIds": {
+          "worldRugby": "49"
+        },
+        "countryCode": "JP",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:rugby:usa",
+        "name": "USA",
+        "displayName": "USA",
+        "sourceIds": {
+          "worldRugby": "51"
+        },
+        "countryCode": "US",
+        "teamKind": "national",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:rugby:japan",
+      "team:rugby:usa"
+    ],
+    "participantCountryCodes": [
+      "JP",
+      "US"
+    ],
+    "homeParticipantId": "team:rugby:japan",
+    "awayParticipantId": "team:rugby:usa",
+    "sourceFixtureId": "5147ecd2-57bc-4d17-af31-4b30c53fee9c",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+      "checkedAt": "2026-09-15T04:25:51.960Z"
+    },
+    "discoverySourceId": "rugby-wr-mru",
+    "displayTitleCompact": "Japan v USA",
+    "time": "20:05",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceStatus": "C",
+    "sourceTime": {
+      "millis": 1789207500000,
+      "gmtOffset": 9,
+      "label": "2026-09-12"
+    },
+    "homeScore": 63,
+    "awayScore": 14,
+    "scoreDisplay": "63\u201314",
+    "endTimeUtc": "2026-09-12T13:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "fixture:rugby:wr:c6694a4f-ec95-4f16-94b4-c6509721151d",
+    "eventId": "fixture:rugby:wr:c6694a4f-ec95-4f16-94b4-c6509721151d",
+    "canonicalEventId": "fixture:rugby:wr:c6694a4f-ec95-4f16-94b4-c6509721151d",
+    "key": "rugby",
+    "sport": "Rugby Union",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Griquas v Pumas",
+    "competitionId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+    "competitionName": "Currie Cup 2026",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "discipline": "rugby-union",
+    "startTimeUtc": "2026-09-12T13:00:00.000Z",
+    "date": "2026-09-12",
+    "timePrecision": "exact",
+    "dateOnly": false,
+    "status": "completed",
+    "roundLabel": "Final",
+    "venue": "Suzuki Stadium, Kimberley",
+    "participants": [
+      {
+        "id": "team:rugby:wr-3647",
+        "name": "Griquas",
+        "displayName": "Griquas",
+        "sourceIds": {
+          "worldRugby": "3647"
+        },
+        "countryCode": null,
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "home"
+      },
+      {
+        "id": "team:rugby:wr-2400",
+        "name": "Pumas",
+        "displayName": "Pumas",
+        "sourceIds": {
+          "worldRugby": "2400"
+        },
+        "countryCode": null,
+        "teamKind": "club",
+        "genderCategory": "male",
+        "role": "away"
+      }
+    ],
+    "participantIds": [
+      "team:rugby:wr-3647",
+      "team:rugby:wr-2400"
+    ],
+    "participantCountryCodes": [],
+    "homeParticipantId": "team:rugby:wr-3647",
+    "awayParticipantId": "team:rugby:wr-2400",
+    "sourceFixtureId": "c6694a4f-ec95-4f16-94b4-c6509721151d",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+      "checkedAt": "2026-09-15T04:25:51.960Z"
+    },
+    "discoverySourceId": "rugby-wr-mru",
+    "displayTitleCompact": "Griquas v Pumas",
+    "time": "23:00",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [
+      {
+        "label": "Final",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceStatus": "C",
+    "sourceTime": {
+      "millis": 1789218000000,
+      "gmtOffset": 2,
+      "label": "2026-09-12"
+    },
+    "homeScore": 23,
+    "awayScore": 16,
+    "scoreDisplay": "23\u201316",
+    "endTimeUtc": "2026-09-12T16:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  }
+]

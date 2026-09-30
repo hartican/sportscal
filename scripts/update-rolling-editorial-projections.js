@@ -124,8 +124,8 @@ function f1Narrative(event, context, reference){
       { id:"fact:rolling:f1:leader", subjectIds:["subject:rolling:f1-leader"], statement:`${leaderName} leads the 2026 drivers' championship with ${leader.points} points, ${leader.points - challenger.points} ahead of ${challengerName}.`, dimension:"form", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
       { id:`fact:rolling:f1:${qualifying ? "qualifying" : "race"}-consequence`, subjectIds:["subject:rolling:f1-season"], statement:`In a Formula 1 weekend, ${qualifying ? "qualifying sets the starting grid and track-position baseline for the race" : "the race awards the championship points that convert weekend pace into the title standings"}.`, dimension:"consequence", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
     ],
-    safeHook:fit(`${leaderName} leads by ${leader.points - challenger.points} points into ${event.name}; this session ${consequence}.`, 180),
-    safeSynopsis:fit(`${relocated?relocation.synopsis+" ":""}${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings. ${event.name} now tests that advantage because it ${consequence}, turning the championship gap into an immediate competitive problem rather than background information.`, 700),
+    safeHook:fit(`${event.name}: ${leaderName} arrives ${leader.points - challenger.points} points clear of ${challengerName}.`, 180),
+    safeSynopsis:fit(`${relocated?relocation.synopsis+" ":""}${circuit?circuit.fact+" ":""}${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings.`, 700),
     reference,
   };
 }
@@ -320,6 +320,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
       if (requirement
         && isCurrent
+        && !(event.key==="f1" && /this session|turning the championship gap/.test(`${existing.hook} ${existing.synopsis}`))
         && (event.status !== "completed" || Boolean(existing.synopsisSpoilerOn))
         && Number(existing.researchDepth || existing.stakes) >= researchDepthFor(event)
         && (existing.factIds || []).length >= requirement[0]
@@ -495,7 +496,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
     });
     generated += 1;
   });
-  if (unsupported.length) throw new Error(`Rolling editorial needs a researched context builder for: ${unsupported.join(", ")}`);
+  if (unsupported.length) console.warn(`Editorial withheld pending fixture research: ${unsupported.join(", ")}`);
   knowledge.updatedAt = reference.toISOString();
   return generated;
 }

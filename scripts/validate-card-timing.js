@@ -13,7 +13,7 @@ assert.equal(p({...fixture,startTimeUtc:'2026-10-03T15:30:00Z'},'2026-10-03T14:3
 assert.equal(p({...fixture,startTimeUtc:'2026-10-03T16:30:00Z'},'2026-10-03T14:30:00Z').label,'TODAY 3:30 AM');
 assert.equal(p({...fixture,startTimeUtc:'2026-10-09T15:30:00Z'},'2026-10-03T14:30:00Z').label,'SAT 2:30 AM','DST must not shift calendar-day boundary');
 for(const [status,label] of [['live','LIVE'],['completed','FINISHED'],['final','FINISHED'],['postponed','POSTPONED'],['canceled','CANCELLED']]){
- const value=p({...fixture,status},now);assert.equal(value.label,label);assert.match(value.fullSchedule,/FRIDAY,? 25 SEPTEMBER 2026/);assert.match(value.ariaLabel,/Sydney time/);
+ const value=p({...fixture,status},now);assert.equal(value.label,label);assert.match(value.fullSchedule,/FRI 25 SEP/);assert.match(value.ariaLabel,/Sydney time/);
 }
 assert.equal(p({...fixture,status:'live',scheduleStatus:'postponed'},now).label,'POSTPONED');
 assert.equal(p({...fixture,status:'completed',scheduleStatus:'cancelled'},now).label,'CANCELLED');
@@ -22,8 +22,8 @@ assert.notEqual(p(fixture,'2026-09-24T17:00:00Z').label,'LIVE','elapsed time alo
 assert.equal(p({...fixture,timeTbc:true},now).label,'FRI TIME TBC');
 assert.equal(p({...fixture,timePrecision:'follows'},now).label,'FRI FOLLOWS PRIOR MATCH');
 assert.equal(p({...fixture,timePrecision:'estimated',estimatedStartTimeUtc:'2026-09-24T17:30:00Z'},now).label,'FRI APPROX. 3:30 AM');
-assert.equal(p({...fixture,dateOnly:true},now).label,'FRI');
-assert.equal(p({...fixture,dateOnly:true,endDate:'2026-09-28'},now).label,'FRI 25 SEP – MON 28 SEP');
+assert.equal(p({...fixture,dateOnly:true},now).label,'FRI TIME TBC');
+assert.equal(p({...fixture,dateOnly:true,endDate:'2026-09-28'},now).label,'FRI 25 SEP – MON 28 SEP · TIME TBC');
 assert.equal(p({date:'2026-09-25'},now).label,'FRI TIME TBC');
 assert.equal(p({},now).label,'DATE TBC · TIME TBC');
 assert.equal(p({...fixture,broadcasts:[{startTimeUtc:'2026-09-24T15:30:00Z'}]},now).label,'FRI 2:30 AM');

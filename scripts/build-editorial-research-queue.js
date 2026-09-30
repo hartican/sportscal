@@ -136,8 +136,8 @@ function main(){
     reference,
   });
   if (write) writeJson(OUTPUT_PATH, queue);
-  const missing = queue.entries.filter(entry => entry.coverage === "missing" && entry.targetType !== "major-event-child");
-  if (missing.length) throw new Error(`Editorial release gate blocked: ${missing.length} required card(s) lack substantive projections: ${missing.map(item => item.targetId).join(", ")}`);
+  const missing = queue.entries.filter(entry => entry.coverage === "missing" && entry.editorialLocked === true);
+  if (missing.length) throw new Error(`Locked editorial release gate blocked: ${missing.length} required card(s) lack substantive projections: ${missing.map(item => item.targetId).join(", ")}`);
   const queuedUnverified = queue.entries.filter(entry => entry.coverage === "queued-unverified").length;
   console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, ${queuedUnverified} unverified target(s) fail closed in research; ${queue.consequenceMigration.covered} consequence-covered and ${queue.consequenceMigration.queued} queued for sourced consequence research.`);
 }

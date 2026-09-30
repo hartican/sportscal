@@ -59,7 +59,7 @@ assert.deepEqual(selector.byId["sport:motorsport"].childIds, ["sport:f1", "sport
 
 for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const directory = readJson(`data/follow-directory/${sportKey}.v1.json`);
-  assert.equal(directory.records.length, expected.participantCount, `${sportKey}: generated Follow chunk is incomplete`);
+  assert.equal(directory.records.filter(r=>!r.profileOnly&&(sportKey!=="nrlw"||r.id.startsWith("team:nrlw:"))).length, expected.participantCount, `${sportKey}: generated Follow chunk is incomplete`);
 }
 
 for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
