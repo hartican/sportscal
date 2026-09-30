@@ -1,0 +1,40 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {build}=require('./refresh-nbl-schedule');
+const {nblStandingsChanged,nblProjectionSteps}=require('./quick-results');
+const schedule=require('../data/canonical/nbl-2026-27.json');
+const counts=new Map(schedule.participants.map((p,i)=>[p.id,{name:p.displayName,position:i+1,wins:0,losses:0}]));
+for(const f of schedule.events.filter(f=>f.status==='completed'))for(let i=0;i<2;i++)counts.get(f.participantIds[i])[f.result.homeScore>f.result.awayScore?i===0?'wins':'losses':i===1?'wins':'losses']++;
+const source={leaguePath:'nbl',year:2026,fallback:false,offset:0,total:165,seasons_meta:[{id:'season-test',name:'NBL27',season_type:'regular',match_count:165}],matches:schedule.events.map(f=>({id:f.providerId,season_id:'season-test',season_type:'regular',starts_at_ms:Date.parse(f.startTimeUtc),round_label:String(f.roundNumber),phase:f.status==='completed'?'complete':f.status==='live'?'live':'upcoming',home:{...counts.get(f.participantIds[0])},away:{...counts.get(f.participantIds[1])},home_score:f.result?.homeScore,away_score:f.result?.awayScore}))};
+const now=schedule.generatedAt;
+const valid=build(source,now);assert.equal(valid.standings.length,10);assert.equal(valid.standingsStatus,'current');
+assert(valid.standings.every(r=>r.played===r.won+r.lost&&r.competitionId==='competition:nbl'&&r.season==='2026-27'&&!Object.hasOwn(r,'drawn')&&!Object.hasOwn(r,'pointsDifference')));
+assert.deepEqual(build({...source,matches:[...source.matches].reverse()},now).standings,valid.standings,'displayed official ranks, not provider match order or invented tie-breaks');
+const changedTable=edit=>{const p=structuredClone(source);edit(p);const empty=build(p,now);assert.equal(empty.standingsStatus,'unavailable');assert.equal(empty.events.length,165);assert.deepEqual(empty.standings,[]);const kept=build(p,now,valid.standings);assert.equal(kept.standingsStatus,'retained');assert.deepEqual(kept.standings.map(({tableNote,...r})=>r),valid.standings.map(({tableNote,...r})=>r));assert(kept.standings[0].tableNote.includes('out of date'));};
+const changed=edit=>{const p=structuredClone(source);edit(p);assert.throws(()=>build(p,now),/NBL/);};
+for(const key of ['position','wins','losses'])for(const value of [null,'1',-1,1.5])changedTable(p=>{p.matches[0].home[key]=value;});
+changedTable(p=>p.matches[0].home.position=11);
+changedTable(p=>p.matches[0].home.wins++);
+changedTable(p=>p.matches.forEach(m=>{m.home.position=1;m.away.position=1;}));
+changedTable(p=>p.matches.forEach(m=>{if(m.home.name===source.matches[0].home.name)m.home.wins++;if(m.away.name===source.matches[0].home.name)m.away.wins++;}));
+changed(p=>p.matches[1].id=p.matches[0].id);
+changed(p=>p.matches[0].season_id='wrong');
+changed(p=>p.matches[0].phase='postponed');
+changed(p=>p.matches[0].starts_at_ms=null);
+changed(p=>p.matches[0].away={...p.matches[0].home});
+changed(p=>p.matches.find(m=>m.phase==='complete').home_score=null);
+changed(p=>{const m=p.matches.find(m=>m.phase==='complete');m.away_score=m.home_score;});
+changed(p=>p.matches.find(m=>m.phase==='complete').starts_at_ms=Date.parse(now)+86400000);
+for(const edit of [p=>p.fallback=true,p=>p.year=2025,p=>p.leaguePath='wnbl',p=>p.offset=1,p=>p.total++,p=>p.seasons_meta=[]])changed(edit);
+assert.equal(nblStandingsChanged(valid.standings,valid.standings.map(r=>({...r,asOf:'2027-01-01T00:00:00Z'}))),false,'observation-only check does not churn projections');
+assert(nblStandingsChanged(undefined,valid.standings));
+assert.deepEqual(nblProjectionSteps(['NBL standings']),[['scripts/build-code-inspector.js','--codes=nbl']],'standings-only change avoids unrelated Feed republishing');
+assert(nblStandingsChanged(valid.standings,valid.standings.map((r,i)=>({...r,rank:i===0?2:i===1?1:r.rank}))),'rank-only correction rebuilds standings even when fixtures are unchanged');
+const broken=structuredClone(source);broken.matches[0].home.position=null;assert.deepEqual(build(broken,now,[{rank:1}]).standings,[],'malformed retained table cannot become trusted');
+if(process.argv.includes('--published')){
+ assert.equal(schedule.standings.length,10);
+ const actual=new Map(schedule.standings.map(r=>[r.participantId,r]));
+ for(const [id,c] of counts){assert.equal(actual.get(id).won,c.wins);assert.equal(actual.get(id).lost,c.losses);}
+ assert.deepEqual(require('../data/code-inspector/nbl.json').standings,schedule.standings);
+}
+console.log('NBL standings: ten published ranks, regular-season result reconciliation, source/identity/status guards, rank-only changes and no observation churn passed.');

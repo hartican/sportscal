@@ -204,7 +204,7 @@
       "slug": "nbl",
       "label": "NBL",
       "fixtureCount": 165,
-      "hasStandings": false,
+      "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
       "freshAt": "2026-09-30T00:16:42.523Z",

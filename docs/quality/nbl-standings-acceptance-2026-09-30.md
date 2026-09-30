@@ -1,0 +1,11 @@
+# NBL current standings — 30 September 2026
+
+The [official NBL schedule](https://schedule.nbl.com.au/nbl) returns current `position`, `wins` and `losses` alongside its club identities. The existing schedule request, scoped to league=nbl/year=2026, returns 165 NBL27 regular-season fixtures and ten consistent club records. The canonical adapter now publishes those official positions directly. It does not infer percentage ordering from incomplete rules or use previous-game win/loss context as a current table.
+
+All 20 current W/L values agree with totals recomputed from completed regular-season fixtures. Repeated provider club records must agree, every rank 1–10 must occur once, and identity/season/date/result validation precedes publication. Preseason and other competitions remain excluded. This is reconciliation within one official publication, not an independent second source or verified final-season tie-break algorithm.
+
+Invalid optional table metadata cannot prevent valid fixture updates. The previous verified table retains its own observation timestamp and a visible out-of-date note; without such a table, standings stay unavailable. The adapter does not assign missing ranks or turn absent counts into zero. Rank-only corrections rebuild NBL standings without republishing unrelated Feed pages, and observation-only updates do not churn the published data.
+
+Deterministic tests cover current ranks, arithmetic, conflicting repeated metadata, malformed/null counts, inconsistent aggregate records, invalid retained tables, source scope/completeness, fixture identity/time/status/result defects and narrow refresh behavior. Browser tests use public static data with unavailable API stubs, exercise explicit standings reveal, all ten records and four viewport widths, and require unchanged global Results/account preferences. They do not prove authenticated service behavior, physical installed-device rendering, commercial permission or full-family quality.
+
+Additional provider requests per refresh: zero. Additional subscription cost: zero. Owner routine work: none. No ranking formula, qualification claim, points percentage or Ignite Cup ladder is invented. Production acceptance and exact-SHA proof are recorded in the delivery artifact after release.

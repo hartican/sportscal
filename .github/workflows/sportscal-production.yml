@@ -85,6 +85,7 @@ jobs:
           node scripts/validate-ucl-qualifier-results.js
           node scripts/validate-nbl-viewing.js --published
           node scripts/validate-nbl-match-context.js --published
+          node scripts/validate-nbl-standings.js --published
           node scripts/validate-openligadb-football.js
           node scripts/validate-european-football-standings.js
           node scripts/validate-coverage-quality.js

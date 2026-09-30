@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-// Invoked by update-cards --quick. Uses canonical adapters; never loads ladders.
+// Invoked by update-cards --quick. Canonical adapters own source facts and any accompanying current standings.
 const fs=require('node:fs'),{spawnSync}=require('node:child_process');
 const tennis=require('./refresh-us-open-events');
 const pl=require('./refresh-premier-league-cards');
@@ -76,7 +76,12 @@ function projectionSteps(changes,{rebuild=false}={}){
 // A targeted source update starts from each surface's current facts. Rebuilding
 // published data from older unrelated incoming records can regress other sports.
 function nblProjectionSteps(changes){
+ if(changes.length&&changes.every(change=>change==='NBL standings'))return [['scripts/build-code-inspector.js','--codes=nbl']];
  return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2)]:args);
+}
+function nblStandingsChanged(before,after){
+ const facts=rows=>rows?.map(({asOf,...row})=>row);
+ return JSON.stringify(facts(before))!==JSON.stringify(facts(after));
 }
 function refreshNbl(changes,{published=false}={}){
    const nblPath='data/canonical/nbl-2026-27.json',previous=read(nblPath);
@@ -89,6 +94,7 @@ function refreshNbl(changes,{published=false}={}){
     if(patched.count)write(file,{...doc,events:patched.events});
    }
    if(count||semantic(previous.events)!==semantic(schedule.events))changes.push(`NBL ${count}`);
+   else if(nblStandingsChanged(previous.standings,schedule.standings)||previous.standingsStatus!==schedule.standingsStatus)changes.push('NBL standings');
    else write(nblPath,previous);
 }
 async function refresh({now=new Date(),offline=false,source=null}={}){
@@ -156,4 +162,4 @@ async function atomicRefresh(options){
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={patchKnown,refresh,projectionSteps,nblProjectionSteps,KEYS};
+module.exports={nblStandingsChanged,patchKnown,refresh,projectionSteps,nblProjectionSteps,KEYS};

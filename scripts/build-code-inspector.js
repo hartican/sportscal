@@ -14,6 +14,7 @@ const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
 const canonicalF1=require("../data/canonical/f1-context-2026.json");
+const canonicalNbl=require("../data/canonical/nbl-2026-27.json");
 const canonicalTennis=require("../data/canonical/tennis-context-2026.json");
 const canonicalWrc = require("../data/canonical/wrc-context-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
@@ -434,7 +435,7 @@ function codeStandings(code){
     if(canonicalDocument===canonicalAflNrl && code.id!=='sport:football' && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
     const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
   }
-  const source = canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
+  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
     ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
     : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []
