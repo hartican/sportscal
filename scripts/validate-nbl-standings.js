@@ -32,9 +32,15 @@ assert.deepEqual(nblProjectionSteps(['NBL standings']),[['scripts/build-code-ins
 assert(nblStandingsChanged(valid.standings,valid.standings.map((r,i)=>({...r,rank:i===0?2:i===1?1:r.rank}))),'rank-only correction rebuilds standings even when fixtures are unchanged');
 const broken=structuredClone(source);broken.matches[0].home.position=null;assert.deepEqual(build(broken,now,[{rank:1}]).standings,[],'malformed retained table cannot become trusted');
 if(process.argv.includes('--published')){
- assert.equal(schedule.standings.length,10);
- const actual=new Map(schedule.standings.map(r=>[r.participantId,r]));
- for(const [id,c] of counts){assert.equal(actual.get(id).won,c.wins);assert.equal(actual.get(id).lost,c.losses);}
+ assert(['current','retained','unavailable'].includes(schedule.standingsStatus));
+ assert.equal(schedule.standings.length,schedule.standingsStatus==='unavailable'?0:10);
+ if(schedule.standings.length){assert.equal(new Set(schedule.standings.map(r=>r.participantId)).size,10);assert.equal(new Set(schedule.standings.map(r=>r.rank)).size,10);assert(schedule.standings.every(r=>counts.has(r.participantId)&&Number.isInteger(r.rank)&&r.rank>=1&&r.rank<=10&&[r.played,r.won,r.lost].every(n=>Number.isSafeInteger(n)&&n>=0)&&r.played===r.won+r.lost));}
+ if(schedule.standingsStatus==='current'){
+  const actual=new Map(schedule.standings.map(r=>[r.participantId,r]));
+  for(const [id,c] of counts){assert.equal(actual.get(id).won,c.wins);assert.equal(actual.get(id).lost,c.losses);}
+ }else if(schedule.standingsStatus==='retained'){
+  assert(schedule.standings.every(r=>r.tableNote.includes('out of date')&&Number.isFinite(Date.parse(r.asOf))&&Date.parse(r.asOf)<=Date.parse(schedule.generatedAt)),'retained table must disclose its age; cannot require its old records to equal newer scores');
+ }
  assert.deepEqual(require('../data/code-inspector/nbl.json').standings,schedule.standings);
 }
 console.log('NBL standings: ten published ranks, regular-season result reconciliation, source/identity/status guards, rank-only changes and no observation churn passed.');
