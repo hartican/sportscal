@@ -62,6 +62,12 @@
       const parts=Object.fromEntries(SYDNEY_PARTS.formatToParts(exact).map(part=>[part.type,part.value]));
       normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision=value.timePrecision==="not-before"?"not-before":"exact";
     }
+    // Persisted live snapshots can retain date-only metadata after the provider
+    // has explicitly confirmed an exact sporting start. Reconcile that group
+    // together; an explicit uncertain flag or provisional schedule still wins.
+    if((value.dateOnly===true || value.schedulePrecision==='date-only') && Number.isFinite(+exact) && value.timePrecision==='exact' && value.scheduleStatus==='confirmed' && value.timeTbc===false && value.startTimeTbc===false){
+      normalized.dateOnly=false;normalized.schedulePrecision='exact';
+    }
     normalized.venue = text(value.venue) || text(value.venueName) || null;
     normalized.broadcaster = text(value.broadcaster);
     for (const key of ["participantIds", "participantSlots", "participants", "participantCountryCodes", "representativeCountryCodes", "broadcastOptions", "broadcasterIds", "broadcasts", "viewingOptions"]){

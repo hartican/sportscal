@@ -23,6 +23,14 @@ assert.equal(timing.presentation(reconciled,new Date('2026-10-01T00:00:00Z')).ti
 assert.equal(reconciled.id,confirmed.id,'timing repair keeps saved-action identity');
 
 if(process.argv.includes('--published'))for(const file of ['feeds/incoming/events.json','data/events.json','data/follow-schedule/nrl.json']){const d=require('../'+file);check(d.events||d.fixtures,file);}
+// Reproduce the public API's contradictory observation: the provider updated
+// the exact start but retained the old date-only metadata in its saved snapshot.
+const liveObservation={...confirmed,dateOnly:true,schedulePrecision:'date-only',timeTbc:false,startTimeTbc:false};
+const liveMerged=identity.mergeOverlays([confirmed],[liveObservation])[0];
+assert.equal(timing.presentation(liveMerged,'2026-10-01T00:00:00Z').time,'7:30 PM','a live API observation cannot restore stale date-only metadata over confirmed exact timing');
+assert.equal(identity.normalizeCore(liveObservation).dateOnly,false,'normalise contradictory persisted observations even without a prior card');
+for(const update of [{...liveObservation,timeTbc:true},{...liveObservation,startTimeTbc:true},{...liveObservation,timePrecision:'date-only'},{...liveObservation,scheduleStatus:'provisional'},{...liveObservation,startTimeUtc:null}])assert.equal(timing.presentation(identity.normalizeCore(update),'2026-10-01T00:00:00Z').time,'TIME TBC','new uncertainty, provisional dates and absent sporting times remain conservative');
+
 const start=new Date('2026-10-04T08:30:00Z');
 for(const [zone,time] of [['Australia/Sydney','19:30'],['Australia/Brisbane','18:30']])assert.equal(new Intl.DateTimeFormat('en-GB',{timeZone:zone,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(start),time);
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
