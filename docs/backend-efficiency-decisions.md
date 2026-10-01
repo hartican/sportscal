@@ -309,3 +309,7 @@ One invocation-scoped coordinator shares responses across full/quick/scoped path
 A resolved validated backup can keep an existing competition usable while primary health remains degraded in the dated exception artifact/readout. Unresolved failures retain the existing failure path and last-good facts; no release gate is bypassed. Backup evidence does not establish sporting independence, commercial permission for other sources or complete Football certification.
 
 Validators use disposable source/overlay outputs and do not receive the real backup credential, invocation cache or health-report destination. A canonical invocation ends with an actual provider-request count, including zero when healthy primaries suffice. Fake outage rehearsals cannot consume the production backup budget, clear retained backup results or overwrite owner-facing source health.
+
+## OpenLigaDB client identification — 1 October 2026
+
+The rendered API terms, dated 28 August 2026, ask for an identifiable app/contact route. The existing two central season requests now identify Nothing Sport and its public application/owner URLs in User-Agent. The once-daily canonical cadence, deadlines, continuity, fallback, last-good timestamps and failure reporting are unchanged; there is no retry, extra request or scheduler. Last-change polling remains a separate unimplemented optimisation, not a claimed pass. Current source-to-screen and commercial-rights gates remain open.

@@ -1,14 +1,14 @@
 # EPL source permission enquiry — prepared, unsent
 
-Prepared 1 October 2026. Use the league's published direction to Football DataCo, after confirming the current contact destination. This is the one recommended enquiry; it has not been sent and does not approve a subscription, purchase or source migration.
+Prepared 1 October 2026. The current Football DataCo contact form and content-use FAQ were verified today: https://www.football-dataco.com/contact and https://www.football-dataco.com/faqs. Use the content/data enquiry route, not media accreditation. This is the one recommended enquiry; it has not been sent and does not approve a subscription, purchase or source migration.
 
-Subject: Permission for limited Australian sports discovery trial — fixtures and standings
+Subject: Limited Australian sports discovery trial — match data and API permission
 
 Hello,
 
 I run Nothing Sport, an Australia-focused sports discovery product preparing a small invited trial. It helps people find sporting fixtures and Australian viewing destinations, with optional follows and spoiler controls.
 
-Could you confirm the appropriate permission or licensed access for displaying Premier League club identities, fixtures, kickoff times, match status, final scores and standings? Our prototype currently references the league's public fixture and table endpoints. We have not established permission for commercial use and want to resolve that before monetisation.
+Your current FAQ distinguishes fixture-list reproduction from other match data. Could you confirm the appropriate permission for using the league's public fixture/table API responses in our Australian product, including club identity, kickoff times, match status, final scores and standings? We have not established commercial API-use permission and want to resolve that before monetisation.
 
 The proposed use is a shared cache for the 2026/27 season, fixture cards and team context, a short user-facing recent-results window, retained factual history for saved activity, and calendar exports. We would also like to understand whether a later clearly labelled sponsorship placement is permitted. We are not requesting video, streaming access or rights to reproduce articles or photography. Club marks and other branded assets would need their own permission.
 

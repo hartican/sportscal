@@ -1,6 +1,6 @@
 # Football source operations and commercial readiness — 1 October 2026
 
-Recommendation: continue the existing three-competition trial without a paid provider. Close the reproduced continuity defect and retain the existing daily source owner. Hold commercial launch until source permission, branding/content rights and the remaining quality evidence are complete. This review adds no vendor, purchase, outreach or account.
+Recommendation: continue the existing three-competition trial without a paid provider. Retain the shipped continuity/backup protection and existing daily source owner. Hold commercial launch until source permission, branding/content rights and the remaining quality evidence are complete. This review adds no vendor, purchase, outreach or account.
 
 ## Verified provider and publication evidence
 
@@ -10,13 +10,13 @@ The licence explicitly permits commercial database use subject to its conditions
 
 A current public read returned HTTP 200 for `/data/providers/openligadb/football-2026-27.json`: 288 fixtures, 72 standings rows and 72 explicit identity mappings, with licence URI and attribution. Its JSON matched the retained released dataset before this phase's new source observation. Cards and calendar exports link the provider/dataset/licence. The export contains provider facts and reviewed transformations, not account preferences or editorial. Provider logo URLs are excluded by the adapter. This verifies those implementation pieces; the combined-data legal boundary and every separately sourced image remain unverified.
 
-The service-specific licence and terms pages rendered only a cookie message through the text fetcher. Their complete contents were not reviewed. Do not silently mark the full source-rights gate passed from the homepage/schema statement.
+The rendered provider pages were subsequently reviewed in the browser: terms dated 28 August and licence dated 31 August 2026. They request central caching, last-change checks, low-frequency inactive reads, staggered calls, failure backoff and identifiable app/contact details. They disclaim availability and data accuracy. Commercial ODbL use remains conditional; logos/images stay separate. NS uses two central daily season requests with no immediate retries. App/contact identification is now added; last-change optimisation remains unimplemented. [API terms](https://www.openligadb.de/nutzungsbedingungen), [provider data licence](https://www.openligadb.de/lizenz).
 
 ## EPL permission remains open
 
 Current Premier League website terms restrict commercial reuse/redistribution and database creation without written approval; trademarks have separate permission requirements. These website terms are not a commercial licence for the configured Pulse fixtures/table endpoints. No NS-specific API permission or contract was found. [Current terms](https://www.premierleague.com/en/terms-and-conditions).
 
-The league's currently available FAQ directs match-data and fixture-feed permission enquiries to Football DataCo. That FAQ was published in September 2016; reading it today does not establish a current offer or pricing. Prepare one request covering low-volume Australian discovery, caching, retained history, public fixture display and future labelled sponsorship. Keep it unsent until messaging is authorised; no payment or source migration follows merely from preparation. [Owner FAQ](https://www.premierleague.com/en/news/102426).
+Football DataCo's current FAQ says fixture lists need no reproduction licence under UK/EU law, directs other match-data enquiries to it, and separates logo rights. This does not clear NS's endpoint terms or Australian commercial scope. Its current contact form is verified; the single [prepared enquiry](epl-permission-enquiry-draft.md) remains unsent pending messaging authorisation. No licence price or offer is inferred. [Current FAQ](https://www.football-dataco.com/faqs), [contact form](https://www.football-dataco.com/contact).
 
 ## Table rules and quality limits
 
@@ -26,4 +26,4 @@ The current season refresh has 144 fixtures and 18 completed results in each Eur
 
 ## One next path
 
-Ship continuity protection, then finish the remaining source-to-screen Football checks and isolated recovery. Obtain the single prepared physical-device session when ready. Keep rights enquiries and sponsor preparation bounded; no sale or invitation precedes the existing gates. Estimated remaining Football engineering: 2–5 focused days plus external permission wait, with A$0 new service spend. Owner administration remains one exception-based review; no separate rights tracker, provider dashboard routine or new league pipeline.
+The continuity and free delayed backup modules are shipped. Finish the remaining source-to-screen Football and independent recovery/device checks. Obtain the single prepared physical-device session when ready. Keep rights enquiries and sponsor preparation bounded; no sale or invitation precedes the existing gates. Estimated remaining Football engineering: 2–5 focused days plus external permission wait, with A$0 new service spend. Owner administration remains one exception-based review; no separate rights tracker, provider dashboard routine or new league pipeline.

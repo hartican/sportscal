@@ -28,7 +28,7 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
   const retained=new Map((previous?.leagues||[]).map(f=>[f.competitionId,f]));const failures=[],primaryFailures=[];let backupChanged=false;
   for(const [league,definition] of Object.entries(COMPETITIONS)){
     try{
-      const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{signal:AbortSignal.timeout(15000)});
+      const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{headers:{'User-Agent':'NothingSport-canonical-refresh/1.0 (+https://nothingsport.vercel.app/; contact: https://github.com/hartican)'},signal:AbortSignal.timeout(15000)});
       if(!response.ok)throw new Error(`HTTP ${response.status}`);
       const facts=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
       assertSnapshotContinuity(retained.get(definition.competitionId), facts);
