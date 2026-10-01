@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
         "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/epl-shared-places-2026-10-02.md",
@@ -74,6 +75,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
         "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",
@@ -116,6 +118,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
         "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",

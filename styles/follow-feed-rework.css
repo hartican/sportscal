@@ -303,7 +303,14 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .compact-card-time{white-space:normal;overflow:visible;text-align:center;font-size:.7rem;margin-bottom:6px;}
 #listView .feed-fixture.is-compact-row{--fixture-logo-size:48px;padding:48px 12px 8px;}
 #listView .feed-fixture.is-compact-row .compact-card-name{width:100%;font-size:.9rem;white-space:normal;overflow:visible;}
-#listView .feed-fixture.is-compact-row .compact-participant-mark{width:48px;height:48px;object-fit:contain;}
+#listView .feed-fixture.is-compact-row :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex:0 0 48px;object-fit:contain;}
+#listView .feed-fixture.is-compact-row .compact-participant-fallback{font-size:1rem;}
+/* Bound each Schedule identity to its grid track, including unavailable artwork. */
+.mode-schedule .matchup-identity-row{grid-template-columns:minmax(0,1fr) minmax(54px,.85fr) minmax(0,1fr);gap:6px;}
+.mode-schedule .matchup-stage-slot{min-width:0;max-width:100%;flex-wrap:wrap;}
+.mode-schedule .matchup-team-logo-slot{width:100%;max-width:120px;padding:0;grid-template-columns:minmax(0,1fr);}
+.mode-schedule .team-logo-monogram{height:auto;aspect-ratio:1;}
+.mode-schedule .fixture-timing-clock{white-space:normal;}
 #listView .feed-fixture.is-compact-row .compact-matchup-side{display:flex;flex-direction:column;gap:3px;}
 #listView .feed-fixture.is-compact-row .nsc-summary{padding:7px 0;margin:0;}
 #listView .feed-fixture.is-compact-row .editorial-l0-hook-copy{font-size:.8rem;}

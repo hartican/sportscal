@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v352";
-const SHELL_VERSION = "352";
+const CACHE_NAME = "nothingsport-shell-v353";
+const SHELL_VERSION = "353";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
@@ -17,7 +17,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=352",
+  "/assets/js/app-shell-runtime.js?v=353",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=318",
   "/assets/js/nsc-rankings-ui.js?v=293",
@@ -31,7 +31,7 @@ const APP_SHELL = [
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=340",
+  "/styles/follow-feed-rework.css?v=353",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
