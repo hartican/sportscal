@@ -37,6 +37,12 @@ assert(european.some(step=>step[0]==='scripts/build-code-inspector.js'&&step.inc
 assert(european.some(step=>step[0]==='scripts/build-follow-directories.js'&&step.includes('--codes=football')));
 assert(european.some(step=>step[0]==='scripts/validate-european-football-standings.js'));
 assert(!european.some(step=>step[0]==='scripts/publish-feed.js'),'European-only data refresh does not republish unrelated core Feed');
+const eplTable=projectionSteps(['EPL standings source check']);
+assert(eplTable.some(step=>step[0]==='scripts/build-code-inspector.js'&&step.includes('--codes=football')),'EPL table observations rebuild their actual displayed partition');
+assert(eplTable.some(step=>step[0]==='scripts/build-canonical-context-bundle.js'),'original table observations reach offline canonical contexts');
+assert(eplTable.some(step=>step[0]==='scripts/build-app-shell-runtime.js'),'table observations reach packed Feed ranks');
+assert(eplTable.some(step=>step[0]==='scripts/validate-premier-league-context.js'),'daily table observations retain the complete-table gate');
+assert(!eplTable.some(step=>step[0]==='scripts/publish-feed.js'||step[0]==='scripts/sync-canonical-fixtures-to-feed.js'),'table-only observations do not republish unrelated fixture/editorial facts');
 
 for(const change of ['Current card evidence','Official results 1']){
  const step=projectionSteps([change]).find(step=>step[0]==='scripts/build-code-inspector.js');

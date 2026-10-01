@@ -66,6 +66,8 @@ jobs:
           node scripts/validate-shared-chat-ui.js
           node scripts/validate-private-fixture-chat.js
           node scripts/validate-app-update-version.js
+          node scripts/validate-generated-shell-version.js
+          node scripts/validate-football-quick-refresh.js
           node scripts/validate-empty-startup-meta.js
           node scripts/validate-hobby-feed-cache.js
           node scripts/validate-hobby-feed-client.js

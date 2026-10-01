@@ -92,6 +92,9 @@ const server=http.createServer((req,res)=>{
     catch(error){console.error('Pending requests', [...pending]);console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
 
     assert.equal(new URL(upgraded.url()).searchParams.get('installed-pwa-upgrade'),'1');
+    const expectedStandings=JSON.parse(JSON.stringify(require('./build-app-shell-runtime').cardStandings().map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))));
+    await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
+    assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'cached old runtime cannot conceal current source observations and shared/pending ranks');
     let profileCacheVerified=false;
     if(candidateProfilePath){
       const profile=await upgraded.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Candidate profile module unavailable');return response.text();},candidateProfilePath);
@@ -128,6 +131,8 @@ const server=http.createServer((req,res)=>{
     await context.setOffline(false);networkFailure=true;
     await upgraded.reload({waitUntil:'domcontentloaded'});
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
+    await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
+    assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');
     await upgraded.evaluate(()=>sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'})));
@@ -151,6 +156,6 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

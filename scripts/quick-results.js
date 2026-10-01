@@ -12,7 +12,7 @@ const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatu
 function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
- const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(update.key==='premier-league'&&update.status==='completed'&&!update.delayedResultSource&&ev.delayedResultSource){delete next.delayedResultSource;if(next.sourceAttribution?.provider==='Football-Data.org')delete next.sourceAttribution;}if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
+ const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(update.key==='premier-league'&&update.status==='completed'&&!update.delayedResultSource&&ev.delayedResultSource){delete next.delayedResultSource;if(next.sourceAttribution?.provider==='Football-Data.org')delete next.sourceAttribution;}if(semantic(next)!==semantic(ev)){const resultChanged=['status','score','scoreDisplay','result','homeScore','awayScore','outcomeText','fixtureResults'].some(key=>JSON.stringify(next[key])!==JSON.stringify(ev[key]));if(next.status==='completed'&&next.storyline&&resultChanged){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
  return {events:result,count};
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
@@ -52,6 +52,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
+ if(changes.some(change=>change.startsWith('EPL standings')))codes.add('football');
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
@@ -63,11 +64,11 @@ function projectionSteps(changes,{rebuild=false}={}){
  const steps=[];
  if(changes.some(change=>change.startsWith('US Open')))steps.push(['scripts/apply-editorial-narratives.js','--write','--major-events-only']);
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
- if(changes.some(change=>change.startsWith('Premier League')))steps.push(['scripts/build-canonical-context-bundle.js']);
+ if(changes.some(change=>/^(Premier League|EPL standings)/.test(change)))steps.push(['scripts/build-canonical-context-bundle.js'],['scripts/validate-premier-league-context.js']);
  if(feedChanged){steps.push(
   ['scripts/enrich-storyline-cards.js','--write'],
   ['scripts/select-result-editorial.js'],
-  ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace'],
+  ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
   ['scripts/qa-storyline-spoilers.js','feeds/incoming/events.json'],
   ['scripts/qa-storyline-spoilers.js','data/events.json'],
  );}
@@ -80,11 +81,34 @@ function projectionSteps(changes,{rebuild=false}={}){
 // published data from older unrelated incoming records can regress other sports.
 function nblProjectionSteps(changes){
  if(changes.length&&changes.every(change=>change==='NBL standings'))return [['scripts/build-code-inspector.js','--codes=nbl']];
+ return retainedFeedProjectionSteps(changes);
+}
+function retainedFeedProjectionSteps(changes){
  return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2)]:args);
 }
 function nblStandingsChanged(before,after){
  const facts=rows=>rows?.map(({asOf,...row})=>row);
  return JSON.stringify(facts(before))!==JSON.stringify(facts(after));
+}
+async function refreshPremierLeagueTable(changes,{now=new Date(),bundlePath='data/canonical/afl-nrl-2026.json',...options}={}){
+ const table=document=>document.ladderSnapshots.find(row=>row.competitionId==='competition:premier-league-2026-27');
+ const before=table(read(bundlePath));
+ await require('./refresh-premier-league-context').refresh({...options,bundlePath,now:()=>now});
+ const after=table(read(bundlePath));
+ if(JSON.stringify(before)!==JSON.stringify(after))changes.push('EPL standings source check');
+ return {state:'primary',checkedAt:after.source.checkedAt,rows:after.entries.length};
+}
+async function refreshFootball({now=new Date()}={}){
+ const changes=[],failures=[];
+ try{const result=await require('./refresh-openligadb-football').refresh({now});if(result.wrote)changes.push('European Football source check');failures.push(...result.failures.map(f=>`European Football ${f.league}: ${f.message}`));}catch(error){failures.push(`European Football: ${error.message}`);}
+ try{await refreshPremierLeagueTable(changes,{now});}catch(error){failures.push(`EPL standings: ${error.message}`);}
+ try{const doc=read('feeds/incoming/events.json'),cards=await pl.loadCards(doc.events.filter(e=>e.key==='premier-league'),{checkedAt:now.toISOString()});let count=0;for(const file of ['feeds/incoming/events.json','data/events.json']){const current=read(file),result=patchKnown(current.events,cards);count+=result.count;if(result.count)write(file,{...current,events:result.events});}if(count)changes.push(`Premier League ${count}`);}catch(error){failures.push(`Premier League: ${error.message}`);}
+ for(const [file,...args] of retainedFeedProjectionSteps(changes))run(file,...args);
+ const report={mode:'quick',source:'football',checkedAt:now.toISOString(),changed:changes,failures,aiCalls:0};
+ if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+ console.log(JSON.stringify(report));
+ if(failures.length)throw new Error('Football source checks failed; retained last-good facts. See source report.');
+ return report;
 }
 function refreshNbl(changes,{published=false}={}){
    const nblPath='data/canonical/nbl-2026-27.json',previous=read(nblPath);
@@ -102,6 +126,7 @@ function refreshNbl(changes,{published=false}={}){
 }
 async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
+  if(source==='football'&&!offline)return refreshFootball({now});
   if(source!=='nbl'||offline)throw new Error('Scoped quick refresh supports --source=nbl with live source access only');
   const changes=[];refreshNbl(changes,{published:true});
   for(const args of nblProjectionSteps(changes))run(...args);
@@ -146,6 +171,9 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    if(clean(next)!==clean(major)){write(majorPath,next);write('feeds/provider-exports/tennis/us-open-2026-official-schedule.json',snapshot);changes.push('US Open schedule/results');}
  }catch(error){failures.push(`tennis: ${error.message}`);}
  if(!offline)try{
+   await refreshPremierLeagueTable(changes,{now});
+ }catch(error){failures.push(`EPL standings: ${error.message}`);}
+ if(!offline)try{
    const doc=read('feeds/incoming/events.json'),known=doc.events.filter(e=>e.key==='premier-league'&&near(e));
    if(known.length){const cards=await pl.loadCards(doc.events.filter(e=>e.key==='premier-league'),{checkedAt:now.toISOString()});const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
  }catch(error){failures.push(`Premier League: ${error.message}`);}
@@ -171,4 +199,4 @@ async function atomicRefresh(options){
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={nblStandingsChanged,patchKnown,refresh,projectionSteps,nblProjectionSteps,KEYS};
+module.exports={nblStandingsChanged,patchKnown,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,KEYS};

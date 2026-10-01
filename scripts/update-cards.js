@@ -378,7 +378,7 @@ async function runMain() {
   }
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
-    if(sources.length!==1||sources[0]!=='--source=nbl'||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick --source=nbl and live source access');
+    if(sources.length!==1||!['--source=nbl','--source=football'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football source and live source access');
     runStep(['scripts/quick-results.js',sources[0]]);
     return;
   }
