@@ -1,0 +1,42 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const {summary, collect, markdown, safe} = require('./lib/canonical-source-readout');
+const now = new Date('2026-10-01T03:00:00Z');
+const quick = {mode:'quick', checkedAt:'2026-09-30T21:12:21.075Z', failures:['LPGA fixture:golf:lpga:2026063: LPGA results HTTP 404'], aiCalls:0};
+const gap = {tournamentId:'tournament:tennis:wta-beijing-2026', name:'China Open', code:'tennis', fixtureCount:0, status:'partial', issues:['No supported fixture adapter','No published child fixtures hydrated']};
+const hydration = {schemaVersion:'tournament-hydration-report.v1', checkedAt:quick.checkedAt, offline:false, tournaments:[gap]};
+const run = {databaseId:36777788726, status:'completed', conclusion:'success', createdAt:'2026-09-30T21:10:00Z', headSha:'a'.repeat(40), url:'https://github.com/hartican/sportscal/actions/runs/36777788726'};
+const report = summary({quick, hydration, now});
+assert.equal(report.quick.failureCount,1, 'successful workflow must not mask retained LPGA failure');
+assert.equal(report.hydration.partialCount,1);
+assert.equal(report.hydration.completeCount,0, 'calendar row cannot certify match coverage');
+assert.equal(report.quick.aiCalls,0);
+assert.equal(report.quick.stale,false);
+assert.equal(summary({quick,now:new Date('2026-10-03T03:00:00Z')}).quick.stale,true);
+assert.equal(summary({hydration,now}).quick.state,'unavailable', 'missing full-run quick report does not mean zero failures');
+for (const invalid of [{...quick,failures:null},{...quick,failures:[{}]},{...quick,checkedAt:'invalid'},{...quick,checkedAt:'2026-10-02T00:00:00Z'}]) assert.equal(summary({quick:invalid,now}).quick.state,'unavailable');
+for (const invalid of [{...hydration,offline:true},{...hydration,tournaments:[gap,gap]},{...hydration,tournaments:[{...gap,status:'complete'}]},{...hydration,tournaments:[{...gap,fixtureCount:-1}]}]) assert.equal(summary({hydration:invalid,now}).hydration.state,'unavailable');
+assert.equal(safe('HTTP https://example.test/data?api_key=secret#token Bearer secret password=private\n|next'), 'HTTP https://example.test/data Bearer [redacted] [redacted]  next');
+const many = summary({quick:{...quick,failures:Array(12).fill('failure')},hydration:{...hydration,tournaments:Array.from({length:11},(_,i)=>({...gap,tournamentId:'test:'+i,name:'Gap '+i}))},now});
+const compact = markdown({state:'observed',run,reports:many,limitations:[]});
+assert(compact.includes('2 further failures') && compact.includes('3 further tournament gaps'));
+assert(!compact.includes('Gap 10 ('), 'owner-facing readout is bounded while JSON retains full gaps');
+
+(async()=>{
+  const calls=[];let downloaded;
+  const read=async args=>{
+    calls.push(args);
+    if(args[0]==='run'&&args[1]==='list')return JSON.stringify([{...run,databaseId:36777788727,status:'in_progress',conclusion:null,createdAt:'2026-10-01T02:30:00Z'},run]);
+    if(args[0]==='api')return JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:false}]});
+    assert.deepEqual(args.slice(0,3),['run','download',String(run.databaseId)]);
+    downloaded=args.at(-1);fs.writeFileSync(path.join(downloaded,'quick-results-report.json'),JSON.stringify(quick));fs.writeFileSync(path.join(downloaded,'tournament-hydration-report.json'),JSON.stringify(hydration));return '';
+  };
+  const actual=await collect({now,read});assert.equal(actual.state,'observed');assert.equal(actual.run.databaseId,run.databaseId);assert.equal(actual.latestRun.status,'in_progress');assert.equal(actual.reports.quick.failureCount,1);assert.equal(calls.length,3);assert(!fs.existsSync(downloaded),'temporary artifacts are removed');assert(calls.every(c=>!c.includes('--method')),'only read/download requests');assert(markdown(actual).includes('LPGA results HTTP 404'));assert(markdown(actual).includes('newer run'));assert(markdown(actual).includes('China Open'));
+  const unavailable=await collect({now,read:async()=>{throw Error('unavailable');}});assert.equal(unavailable.state,'unavailable');assert(markdown(unavailable).includes('unknown'));
+  let requests=0;
+  const expired=await collect({now,read:async args=>{requests++;return args[0]==='run'?JSON.stringify([run]):JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:true}]});}});assert.equal(expired.state,'unavailable');assert.equal(requests,2,'expired artifact never downloaded');
+  const broken=await collect({now,read:async args=>{if(args[1]==='download')throw Error('download failed');return args[0]==='run'?JSON.stringify([run]):JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:false}]});}});assert.equal(broken.state,'unavailable');assert(markdown(broken).includes('download failed'));
+  console.log('Canonical source readout: green-workflow source failure, dated gaps, missing/stale/malformed reports, bounded read-only collection, redaction and unavailable evidence passed.');
+})().catch(e=>{console.error(e);process.exitCode=1});

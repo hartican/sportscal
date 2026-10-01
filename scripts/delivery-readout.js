@@ -2,6 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),{execFile}=require('node:child_process'),{promisify}=require('node:util');
 const exec=promisify(execFile),REPO='hartican/sportscal',WORKFLOW='sportscal-production.yml';
+const sourceReadout=require('./lib/canonical-source-readout');
 const FAILED=new Set(['failure','timed_out','action_required','startup_failure']);
 const seconds=(a,b)=>{const x=Date.parse(a),y=Date.parse(b);return Number.isFinite(x)&&Number.isFinite(y)&&y>=x?(y-x)/1000:null;};
 function stats(values){const a=values.filter(Number.isFinite).sort((x,y)=>x-y);return {count:a.length,median:a.length?(a[Math.floor((a.length-1)/2)]+a[Math.ceil((a.length-1)/2)])/2:null,p90:a.length?a[Math.ceil(a.length*.9)-1]:null};}
@@ -64,9 +65,10 @@ function markdown(r){
 async function main(){
  const args=process.argv.slice(2),options={};let output;
  while(args.length){const key=args.shift(),value=args.shift();if(key==='--output-dir'&&value)output=path.resolve(value);else if(['--days','--limit','--sample'].includes(key)&&value)options[key.slice(2)]=Number(value);else throw Error('Usage: delivery-readout.js [--days 7] [--limit 100] [--sample 10] [--output-dir PATH]');}
- const report=await collect(options);
- if(output){fs.mkdirSync(output,{recursive:true});const stem=path.join(output,'delivery-readout-'+report.generatedAt.slice(0,10));fs.writeFileSync(stem+'.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync(stem+'.md',markdown(report));}
- console.log(JSON.stringify({window:report.window,observedRuns:report.observedRuns,counts:report.counts,successfulJobSeconds:report.successfulJobSeconds,unavailableJobEvidence:report.jobEvidence.filter(j=>j.error).length,costs:report.costs}));
+ const [report,sources]=await Promise.all([collect(options),sourceReadout.collect()]);
+ report.canonicalSources=sources;
+ if(output){fs.mkdirSync(output,{recursive:true});const stem=path.join(output,'delivery-readout-'+report.generatedAt.slice(0,10));fs.writeFileSync(stem+'.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync(stem+'.md',markdown(report)+ '\n'+sourceReadout.markdown(sources));}
+ console.log(JSON.stringify({window:report.window,observedRuns:report.observedRuns,counts:report.counts,successfulJobSeconds:report.successfulJobSeconds,unavailableJobEvidence:report.jobEvidence.filter(j=>j.error).length,canonicalSources:{state:sources.state,runId:sources.run?.databaseId,error:sources.error,quick:sources.reports?.quick.state,sourceFailures:sources.reports?.quick.failureCount,hydrationGaps:sources.reports?.hydration.partialCount},costs:report.costs}));
 }
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports={stats,seconds,summarize,collect,markdown};

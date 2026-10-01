@@ -37,6 +37,14 @@ Model/tool choice should follow the work: use deterministic scripts for inventor
 
 The daily canonical workflow is the refresh owner; weekday quick and Sunday full modes are routes inside it. Keep failed-source reports in its retained artifact, preserving old source timestamps. Do not create another cron to compensate for a broken route.
 
+### Source exceptions in the same readout — 1 October 2026
+
+`delivery-readout.js` now also reads the latest completed canonical workflow's retained reports. It lists source failures even when that workflow succeeds, and separates incomplete tournament hydration from deployment success. A newer running job is identified; absent, expired, malformed, offline or more-than-36-hour-old evidence cannot silently become a healthy source. Full runs may legitimately omit the quick report, which remains unknown rather than zero failures.
+
+Collection adds one latest-ten run inventory, one artifact lookup and at most one download of the existing report artifact, capped at 5 MB. It adds no refresh, scheduler, service, customer read or production write. The Markdown displays at most ten source failures and eight tournament gaps; remaining detail stays in structured JSON. Query strings and common secret forms are redacted. Regression: `node scripts/validate-canonical-source-readout.js` and the existing delivery readout validator.
+
+Live proof at 02:55 UTC: canonical run 36777788726 succeeded but its 30 September 21:12 UTC report contained one LPGA HTTP 404 and eight partial tournament windows. The readout exposes both. LPGA's separately verified 1 October fix does not retroactively alter that historical report; a later natural check is needed to establish unattended success. The same window contains 97 production workflow runs: 91 success, four failure and two cancelled. Ten latest successful jobs have median 155.5 seconds and p90 171 seconds. This rolling window differs from earlier samples; no causal saving or per-feature token/cash amount is inferred.
+
 Canonical refresh retries: `--resume-from script.js` now rejects duplicate step names before any work. Use the explicit one-based `--resume-occurrence N` after inspecting the step list. This prevents an intended late validation retry from silently selecting an earlier asset-only check and repeating source refreshes. Snapshot setup remains attached to the selected suffix.
 
 ### Bounded NBL source refresh
