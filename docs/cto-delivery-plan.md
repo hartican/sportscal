@@ -4,9 +4,9 @@ Updated 1 October 2026. Objective: prove repeat use in a small invited Australia
 
 ## Latest verified checkpoint
 
-Runtime release `a28101857eb008d9ab613d6253139c987362a8d9`, shell 343: workflow 36801481204, READY `dpl_3tLgwzXJBrRV9NzoXYnM2fQCTw9W`, exact-SHA/alias/public artifacts and real filtered Feed/Results browser journeys passed. Both desktop browser upgrade suites passed. Detailed proof is retained in the 1 October programme/category delivery reports under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`.
+Runtime release `d9045e4a52f7adbff2cdc7f979b7cb9cfe86f085`, shell 343: workflow 36802847524, READY `dpl_9NNCk9esqHPqs1MhvppQWJLuVe9C`, exact-SHA/alias/public artifacts passed. The prior category release's real filtered Feed/Results and both desktop browser upgrade suites passed; its UI is unchanged. Detailed proof is retained in the 1 October programme/category/BJK delivery reports under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`.
 
-The follow-on BJK live-result catch-up is locally checked at this checkpoint. Its deployment and natural scheduled-source proof must be recorded separately before calling it shipped. Keep local code, main publication, READY deployment, public behaviour and physical-device acceptance distinct.
+The BJK live-result catch-up is shipped: a natural scheduled check at 01:52 UTC published seven completed ties, zero failures and the 30-minute next-due interval. A follow-on European Football continuity repair passes local regression and a fresh canonical source check at this checkpoint; publication/deployment proof is recorded separately. Keep local code, main publication, READY deployment, public behaviour and physical-device acceptance distinct.
 
 ## Programme acceptance ledger
 
@@ -24,7 +24,7 @@ The follow-on BJK live-result catch-up is locally checked at this checkpoint. It
 | M5 efficient delivery | Seven-day checkpoint: 100 observed releases, 93 successful, five failed and two cancelled; latest three successful jobs median 156s, p90 171s | Only three failed jobs sampled, so failure analysis is incomplete. Batch coherent outcomes, reuse retained proof and retain safety gates; no CI rewrite justified by this sample |
 | M6 cohort/monetisation | Existing first-party measurement and a labelled sponsor experiment are planned; no extra analytics service required | Three Football pilots must pass before invitations. Real useful-return evidence, source rights and sponsor prerequisites precede sale/outreach/billing |
 
-Source health checkpoint: 34 configured sources all have persisted rows; zero failure counts and no next-due breach over five minutes at 01:33 UTC. One stored Asia Cup source is retired by the later cricket policy. This is scheduler health, not fixture truth: BJK still had three completed/one live/three upcoming in that checkpoint despite seven reviewed results. The catch-up repair addresses that specific discrepancy without adding a scheduler or provider request.
+Source health checkpoint: 34 configured sources all have persisted rows; zero failure counts and no next-due breach over five minutes at 01:33 UTC. One stored Asia Cup source is retired by the later cricket policy. This is scheduler health, not fixture truth: BJK had three completed/one live/three upcoming despite seven reviewed results. The shipped catch-up and natural 01:52 check close that discrepancy without adding a scheduler or provider request. The [1 October Football source/rights review](quality/football-commercial-readiness-2026-10-01.md) verifies the existing public dataset/licence pieces and both current UEFA ranking rule pages; EPL API permission, separate image rights and full quality acceptance remain open.
 
 ## Single remaining queue
 

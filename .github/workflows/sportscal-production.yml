@@ -91,6 +91,7 @@ jobs:
           node scripts/validate-nbl-match-context.js --published
           node scripts/validate-nbl-standings.js --published
           node scripts/validate-openligadb-football.js
+          node scripts/validate-european-football-continuity.js
           node scripts/validate-european-football-standings.js
           node scripts/validate-coverage-quality.js
           node scripts/audit-coverage-quality.js "$NS_DEPLOY_REPORT_DIR/coverage-quality.json"

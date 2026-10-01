@@ -73,4 +73,20 @@ function resolveLeagueIdentities(facts, registry){
   };
   return {...facts,teams:facts.teams.map(resolve),fixtures:facts.fixtures.map(fixture=>({...fixture,participants:fixture.participants.map(resolve)}))};
 }
-module.exports={normalizeLeague,resolveLeagueIdentities,COMPETITIONS,LICENCE};
+function assertSnapshotContinuity(previous, next) {
+  if (!previous) return;
+  if (previous.competitionId !== next.competitionId || previous.season !== next.season) fail('snapshot scope changed');
+  if (Date.parse(next.checkedAt) < Date.parse(previous.checkedAt)) fail('observation predates last-good snapshot');
+  const incoming = new Map(next.fixtures.map(fixture => [fixture.providerFixtureId, fixture]));
+  for (const known of previous.fixtures) {
+    const fixture = incoming.get(known.providerFixtureId);
+    if (!fixture) fail(`fixture ${known.providerFixtureId}: identity disappeared; reviewed migration required`);
+    // A changed kickoff is allowed. A reused ID must not move saved follows,
+    // ratings or reminders onto a different home/away pairing.
+    if (JSON.stringify(known.participants.map(p => [p.participantId, p.role])) !== JSON.stringify(fixture.participants.map(p => [p.participantId, p.role]))) {
+      fail(`fixture ${known.providerFixtureId}: participant identity changed; reviewed migration required`);
+    }
+    if (known.status === 'completed' && fixture.status !== 'completed') fail(`fixture ${known.providerFixtureId}: confirmed result regressed`);
+  }
+}
+module.exports={normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,COMPETITIONS,LICENCE};

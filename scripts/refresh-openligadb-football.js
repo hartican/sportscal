@@ -1,7 +1,7 @@
 'use strict';
 // Refresh entry point is scripts/update-cards.js; no separate scheduler.
 const fs=require('node:fs'),path=require('node:path');
-const {normalizeLeague,resolveLeagueIdentities,COMPETITIONS}=require('./lib/openligadb-football');
+const {normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,COMPETITIONS}=require('./lib/openligadb-football');
 const registry=require('../config/football-openligadb-identities.json');
 const identity=require('../config/fixture-identity');
 const DEFAULT_OUTPUT=path.resolve(__dirname,'../data/providers/openligadb/football-2026-27.json');
@@ -30,6 +30,7 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
       const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{signal:AbortSignal.timeout(15000)});
       if(!response.ok)throw new Error(`HTTP ${response.status}`);
       const facts=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
+      assertSnapshotContinuity(retained.get(definition.competitionId), facts);
       retained.set(definition.competitionId,facts);
     }catch(error){failures.push({league,message:error.message});}
   }

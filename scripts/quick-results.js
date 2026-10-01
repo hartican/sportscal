@@ -72,7 +72,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  );}
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
  steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/build-app-shell-runtime.js'],['scripts/apply-current-card-evidence.js','--check'],['scripts/validate-current-card-coverage.js'],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
- if(changes.some(change=>change.startsWith('European Football')))steps.push(['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-standings.js']);
+ if(changes.some(change=>change.startsWith('European Football')))steps.push(['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-continuity.js'],['scripts/validate-european-football-standings.js']);
  return steps;
 }
 // A targeted source update starts from each surface's current facts. Rebuilding
