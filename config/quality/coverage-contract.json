@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/epl-shared-places-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",
@@ -54,6 +55,7 @@
         "Routine source freshness, recovery and commercial permission"
       ],
       "verifiedSnapshotProgress": [
+        "2 October read-only artwork inventory: 20 club crests resolve and 0 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
         "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
         "2 October: EPL C.7 shared/pending source-to-screen module and mobile table layout shipped at 7ff25fe with normal cloud gates, exact READY/alias/13-file proof and twelve live profile plus four-width Schedule journeys. Six controlled tie/boundary cases pass real temporary persistence and browser projection; current facts/dates are preserved. Actual decisive final adjudication remains unverified.",
         "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
@@ -72,6 +74,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",
         "scripts/validate-european-football-continuity.js",
@@ -93,13 +96,14 @@
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "2 October read-only artwork inventory: 21 club crests resolve and 15 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
         "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
         "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
         "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for UCL; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
         "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
-        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches" ,
+        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches",
         "18 completed outcomes agree; 126 upcoming local times agree",
         "Source-derived earlier-match records and Results privacy deployed with browser proof",
         "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"
@@ -112,6 +116,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/football-artwork-rights-2026-10-02.md",
         "docs/quality/football-freshness-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",
         "scripts/validate-european-football-continuity.js",
@@ -133,13 +138,14 @@
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "2 October read-only artwork inventory: 12 club crests resolve and 24 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
         "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
         "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
         "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for Europa; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
         "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
-        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches" ,
+        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches",
         "18 completed outcomes agree; 126 upcoming local times agree",
         "Source-derived earlier-match records and Results privacy deployed with browser proof",
         "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"

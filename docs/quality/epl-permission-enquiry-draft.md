@@ -10,7 +10,7 @@ I run Nothing Sport, an Australia-focused sports discovery product preparing a s
 
 Your current FAQ distinguishes fixture-list reproduction from other match data. Could you confirm the appropriate permission for using the league's public fixture/table API responses in our Australian product, including club identity, kickoff times, match status, final scores and standings? We have not established commercial API-use permission and want to resolve that before monetisation.
 
-The proposed use is a shared cache for the 2026/27 season, fixture cards and team context, a short user-facing recent-results window, retained factual history for saved activity, and calendar exports. We would also like to understand whether a later clearly labelled sponsorship placement is permitted. We are not requesting video, streaming access or rights to reproduce articles or photography. Club marks and other branded assets would need their own permission.
+The proposed use is a shared cache for the 2026/27 season, fixture cards and team context, a short user-facing recent-results window, retained factual history for saved activity, and calendar exports. We would also like to understand whether a later clearly labelled sponsorship placement is permitted. We are not requesting video, streaming access or rights to reproduce articles or photography. Club marks and other branded assets would need their own permission. Our reviewed pilot currently resolves 20 club crests from the league badge CDN and 25 other club crests through ESPN references; those source URLs do not establish our permission. Please identify the appropriate club-mark licensing route and whether any proposed feed agreement includes that scope. We are not assuming you can sublicense ESPN content or every club mark.
 
 Please clarify whether a limited no-cost trial is permitted; which documented API or feed should be used; permitted caching, redistribution/calendar exports and retained history; required attribution; request limits; and any separate trademark conditions. We are not committing to a paid service through this enquiry.
 
@@ -22,3 +22,6 @@ Jack
 Keep any answer with the exact product, data, territory, publication and commercial scope it covers. A general reply, endpoint access, attribution or a free trial alone does not clear commercial reuse. No answer means the EPL operations/rights gate remains open. A paid offer is an owner spending decision and is deferred under the current no-subscription instruction.
 
 Reference: [Premier League permission FAQ](https://www.premierleague.com/en/news/102426), a currently accessible page published in September 2016; [current website terms](https://www.premierleague.com/en/terms-and-conditions). The dated [source review](football-commercial-readiness-2026-10-01.md) separates those findings from an NS-specific permission.
+
+
+Prepared-scope update, 2 October: exact artwork groups were added following the read-only inventory. The enquiry remains unsent; no messaging authorisation, payment or branding permission is inferred.

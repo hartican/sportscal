@@ -34,3 +34,8 @@ Business value: prevent premature invitations or revenue promises, while avoidin
 ## Later reliability release
 
 Published and deployed at `12501f4a1ca8516d1dec114900eda87c6ad51b6e`, shell 352: [normal workflow 36936947914](https://github.com/hartican/sportscal/actions/runs/36936947914) completed in 165 seconds, READY `dpl_H2fL928SjaCmVNc38jGWC7rYDjn4`. Production target, all three aliases and thirteen package/served hashes agree at 2026-10-01T22:49:15.419Z. Fresh anonymous live Chromium with the real worker verifies shell/worker 352, exact packed standings, no horizontal overflow at 320/390 and offline restart. The screenshot shows anonymous onboarding, not authenticated fixture journeys. All sporting data, generated runtime and profile bytes remain unchanged; retained earlier Football presentation evidence is not counted as a new physical or authenticated test. Critical requests remain eight, gzip growth 1.17% under the unchanged 1.25% cap. No bypass or new service spend.
+
+
+## Specific artwork gap
+
+[The read-only artwork inventory](football-artwork-rights-2026-10-02.md) resolves 45 crests across 84 pilot clubs; 39 currently use named monogram fallback. EPL's 20 clubs all resolve; UCL has 15 and Europa 24 unresolved crests. The specific EPL Wikimedia logo is non-free; official/ESPN source labels are not recorded commercial permissions. This supplies a bounded polish/rights remediation scope and does not certify the generic fallback against NRL/AFL quality. No image collection, new league, provider call or deployment was added.

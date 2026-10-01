@@ -53,6 +53,8 @@ Source health checkpoint: 34 configured sources all have persisted rows; zero fa
 
 ## Current acceptance and recovery boundary
 
+Artwork scope is now explicit in [the single dated evidence record](quality/football-artwork-rights-2026-10-02.md): 668 pilot fixtures, 84 unique clubs, 45 resolved crests and 39 unresolved identities (15 UCL, 24 Europa). Twenty source badges are from Premier League and 25 from ESPN; source/official-reference metadata is not commercial clearance. The exact EPL Wikimedia logo is non-free. The existing permission draft asks for the appropriate club-mark route and stays unsent; avoid collecting more crests or making 84 owner decisions while that route is unresolved. This is an audit-tool/report change, not a runtime deployment. No source check is due from a newly played pilot fixture: the next current published pilot kickoff is 10 October.
+
 [The six-gate checkpoint](quality/football-acceptance-checkpoint-2026-10-02.md) reconciles the existing evidence and provider access limits. The clean cloud release already proves app reconstruction with existing accounts/projects, while 13 production Secrets are write-only and independent configuration/key continuity remains unverified. Three bounded connected-mailbox searches found no provider permission correspondence; enquiries stay unsent. A controlled local cached-response body stall now reproduces successor activation blocking. The shell 352 deadline repair is now exact-production verified with full Chromium/WebKit and fresh live installed/offline checks; the earlier intermittent full-app timeout stays unattributed. This supporting record does not change certification, authorise outreach or add a backlog.
 
 ## Single remaining queue
