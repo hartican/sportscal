@@ -95,6 +95,7 @@ jobs:
           node scripts/validate-coverage-quality.js
           node scripts/audit-coverage-quality.js "$NS_DEPLOY_REPORT_DIR/coverage-quality.json"
           node scripts/validate-dispatch-bundle.js
+          node scripts/validate-programme-reconciliation.js --published
           node scripts/validate-shell-script-cache.js
           node scripts/validate-lpga-results.js
           node scripts/validate-f1-session-results.js

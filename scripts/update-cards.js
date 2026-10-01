@@ -386,6 +386,17 @@ async function main() {
     console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
     return;
   }
+  if(process.argv.includes('--programme-reconciliation')){
+    for(const args of [
+      ['scripts/build-code-inspector.js','--codes=nrl,tennis'],
+      ['scripts/build-tennis-feed-parents.js'],
+      ['scripts/build-tournament-horizon.js'],
+      ['scripts/validate-programme-reconciliation.js','--published'],
+      ['scripts/validate-tennis-feed-normalisation.js'],
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--lpga-results')){
     runStep(['scripts/validate-lpga-results.js']);
     runStep(['scripts/refresh-lpga-results.js']);

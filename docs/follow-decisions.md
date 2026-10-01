@@ -289,3 +289,11 @@ Regression contracts: scripts/validate-coverage-repair.js, scripts/validate-cric
 ## 1 October 2026 — approval to deploy the coverage repair candidate
 
 After reviewing the candidate and the explicit notice that physical installed-PWA acceptance remained outstanding, the owner instructed: “Look good. Deploy it”. Release PR #23 with its passing automated/browser gates. This is fresh approval for this candidate, not a historical waiver or evidence that physical-device testing passed. Keep physical installed-PWA acceptance recorded as unverified; all database recovery, GitHub SHA, READY deployment, production alias and live-render verification requirements remain in force.
+
+## Programme reconciliation — 1 October 2026
+
+Implementation clarification, with no new follow rule: NRL finals-week summaries no longer appear as individual Schedule fixtures; their historical source records and saved-action identities remain untouched. Actual matches, including both preliminary finals and the Grand Final alias, remain. Legacy daily tennis overviews are omitted from Schedule when the sourced catalogue can generate their stable parent, preventing an obsolete daily summary beside the real ties. The newer independent Events projection retains those programme records as overview metadata.
+
+The stable Final 8 tennis parent is completed only when its entire seven-tie bracket is present with official sourced results, unique slots/identities and known winners. No clock-only completion or parent winner text is added. Parent identity, source details, all ties/rubbers, explicit follows/exclusions and the ordinary seven-day completed retention remain unchanged. Unsupported or partial formats stay unconfirmed. Source evidence is retained on the parent; no account or scheduler work is added.
+
+Regressions: `validate-programme-reconciliation.js --published`, `validate-tennis-feed-normalisation.js` and `validate-programme-browser.js`. The browser check exercises the actual Results confirmation control rather than overwriting a legacy preference field.

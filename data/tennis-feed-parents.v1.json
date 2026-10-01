@@ -15539,8 +15539,8 @@
       "timeTbc": true,
       "schedulingWindow": {},
       "timingProvisional": false,
-      "dateLabel": null,
-      "status": "upcoming",
+      "dateLabel": "2026-09-22 – 2026-09-27 · Completed",
+      "status": "completed",
       "venue": "Shenzhen, CHN",
       "sourceUrl": "https://www.billiejeankingcup.com/en/tickets",
       "sourceName": "Tournament calendar",
@@ -15766,6 +15766,28 @@
         }
       ],
       "participantsConfirmed": true,
+      "statusEvidence": {
+        "kind": "completed-final-eight",
+        "fixtureIds": [
+          "fixture:tennis:bjk-cup:2026:finals:qf1",
+          "fixture:tennis:bjk-cup:2026:finals:qf2",
+          "fixture:tennis:bjk-cup:2026:finals:qf3",
+          "fixture:tennis:bjk-cup:2026:finals:qf4",
+          "fixture:tennis:bjk-cup:2026:finals:sf1",
+          "fixture:tennis:bjk-cup:2026:finals:sf2",
+          "fixture:tennis:bjk-cup:2026:finals:final"
+        ],
+        "sourceUrls": [
+          "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+          "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+          "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+          "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+          "https://www.billiejeankingcup.com/en/news/live-cze-v-esp-2026-billie-jean-king-cup-finals-quarter-final",
+          "https://www.billiejeankingcup.com/en/news/live-ita-v-ukr-2026-billie-jean-king-cup-finals-semi-final",
+          "https://www.billiejeankingcup.com/en/news/live-ukr-v-cze-2026-billie-jean-king-cup-final"
+        ],
+        "checkedAt": "2026-09-27T13:45:28.138Z"
+      },
       "sourceParticipantIds": [
         "team:tennis:bjk-cup:czechia",
         "competitor:tennis:wta:marie-bouzkova",
@@ -15803,7 +15825,11 @@
         "researchedAt": "2026-09-22T00:00:00.000Z",
         "refreshAfter": "2026-09-27T23:59:00.000Z",
         "generationMode": "researched",
-        "phase": "preview"
+        "resultResearchRequired": false,
+        "phase": "preview",
+        "resultSignature": "[\"completed\",\"\",\"\",\"\"]",
+        "hookSpoilerOn": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+        "synopsisSpoilerOn": ""
       },
       "editorialPreview": {
         "status": "journalistic",
@@ -15822,11 +15848,11 @@
       },
       "storyline": {
         "researchDepth": 5,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Billie Jean King Cup Finals is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
-        "synopsisSpoilerOff": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
-        "synopsisSpoilerOn": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+        "synopsisSpoilerOff": "Billie Jean King Cup Finals is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
         "lastReviewedAt": "2026-09-22T00:00:00.000Z"
       }
     },

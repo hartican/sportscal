@@ -394,12 +394,16 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
   ));
 }
 
+function obsoleteProgramme(event){
+  if(event.key==='nrl'&&require('../config/follow-feed-policy').aggregateEvent(event))return true;
+  return event.cardType==='tournament_overview'&&require('../data/canonical/tennis-catalogue-2026.json').tournaments.some(t=>t.tournamentId===event.tennisTournamentId&&t.season&&t.sourceUrl);
+}
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
   const golf = code.id === "sport:golf" ? require("./refresh-pga-schedule").fixtures(require("../data/canonical/pga-tour-schedule.json")) : [];
   const teamTennis=code.id==='sport:tennis'?require('../data/canonical/tennis-team-contests.v1.json').fixtures:[];
   const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
-  const published = [...teamTennis,...feed.events].filter(event => eventMatchesCode(event, code));
+  const published = [...teamTennis,...feed.events].filter(event => eventMatchesCode(event, code)&&!obsoleteProgramme(event));
   const tournamentName = name => String(name||'').toLowerCase().replace(/the \d+(?:st|nd|rd|th) open/,'the open championship').replace(/\b20\d\d\b/g,'').replace(/[^a-z0-9]/g,'');
   for(const fixture of golf){
     const existing=[...published,...programme].find(e=>e.date===fixture.date && tournamentName(e.name)===tournamentName(fixture.name));
@@ -542,7 +546,9 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const expected = new Set(codes.map(code => `${code.slug}.json`));
   fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
     .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
-  const overviewFixtures=[...new Map(codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]).map(f=>[f.id,f])).values()];
+  // Programme summaries remain Events metadata even when excluded from individual Schedule fixtures.
+  const legacyOverviews=feed.events.filter(event=>event.cardType==='tournament_overview'&&obsoleteProgramme(event)).map(event=>normalizeFixture(event,'sport:tennis'));
+  const overviewFixtures=[...new Map([...codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]),...legacyOverviews].map(f=>[f.id,f])).values()];
   fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
@@ -556,4 +562,4 @@ if (require.main === module){
   console.log(`Code Inspector built: ${manifest.codes.length} codes, ${manifest.codes.reduce((total, code) => total + code.fixtureCount, 0)} fixtures.`);
 }
 
-module.exports = { build, codeFixtures, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
+module.exports = { obsoleteProgramme, build, codeFixtures, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
