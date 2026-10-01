@@ -45,14 +45,27 @@ async function invoke(request){
   return response;
 }
 
+function upcomingCanonicalFixtureId(events, fixtures, now){
+  // Match the actual API registry, with headroom so wall-clock progression
+  // cannot expire the positive authorisation fixture during the test.
+  for(const event of events){
+    const id=event.canonicalEventId || event.eventId || event.id;
+    const canonical=fixtures.get(id);
+    if(canonical && chatHandler._test.fixtureIsUpcomingOrLive(canonical,now)
+      && Date.parse(canonical.startTimeUtc)>now.getTime()+3600000)return id;
+  }
+  return null;
+}
+
 function firstEligibleFixtureId(){
+  const now=new Date(), fixtures=chatHandler._test.loadFixtureMap();
   const manifest = JSON.parse(fs.readFileSync("data/feed/manifest.json", "utf8"));
   for (const page of manifest.pages){
     const document = JSON.parse(fs.readFileSync(page.path, "utf8"));
-    const event = document.events.find(item => chatHandler._test.fixtureIsUpcomingOrLive(item));
-    if (event) return event.canonicalEventId || event.eventId || event.id;
+    const id=upcomingCanonicalFixtureId(document.events,fixtures,now);
+    if(id)return id;
   }
-  throw new Error("The published feed needs at least one upcoming or live canonical fixture for chat validation.");
+  throw new Error("The published feed needs a canonical upcoming fixture with clock headroom for chat validation.");
 }
 
 async function run(){
@@ -176,6 +189,16 @@ async function run(){
   assert.equal(chatFixtureRegistry.fixtureCount, chatFixtureRegistry.fixtures.length);
   assert(chatFixtureRegistry.fixtureCount > feedManifest.eventCount, "chat eligibility must cover canonical Follow schedules beyond the personalised Feed projection");
   assert.match(codeInspectorBuilder, /build-chat-fixture-registry[^\n]+writeRegistry/, "every Code Inspector schedule rebuild must refresh the compact chat registry");
+  const selectionNow=new Date("2026-10-01T23:40:00Z");
+  const rawLive={id:"test-live",status:"upcoming",startTimeUtc:"2026-10-01T20:00:00Z",liveWindow:5};
+  const upcoming={id:"test-upcoming",status:"upcoming",startTimeUtc:"2026-10-03T20:00:00Z"};
+  const selectionFixtures=new Map([[rawLive.id,{...rawLive,liveWindow:3}],[upcoming.id,upcoming]]);
+  assert(chatHandler._test.fixtureIsUpcomingOrLive(rawLive,selectionNow),"Feed-only window reproduces the mismatched test input");
+  assert(!chatHandler._test.fixtureIsUpcomingOrLive(selectionFixtures.get(rawLive.id),selectionNow),"canonical chat cutoff remains enforced");
+  assert.equal(upcomingCanonicalFixtureId([rawLive,upcoming],selectionFixtures,selectionNow),upcoming.id,"positive account tests must choose the actual API's eligible canonical fixture");
+  assert.equal(upcomingCanonicalFixtureId([rawLive],selectionFixtures,selectionNow),null,"a Feed-only live record cannot bypass canonical chat eligibility");
+  const boundary={...upcoming,startTimeUtc:"2026-10-02T00:00:00Z"};
+  assert.equal(upcomingCanonicalFixtureId([boundary],new Map([[boundary.id,boundary]]),selectionNow),null,"positive fixture needs clock headroom");
   const eligibilityNow = new Date("2026-09-16T00:00:00.000Z");
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"confirmed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), true, "future confirmed fixtures must remain eligible");
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"completed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), false, "completed fixtures must remain ineligible even when their scheduled time is in the future");
