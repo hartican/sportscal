@@ -40,3 +40,8 @@ assert(!compact.includes('Gap 10 ('), 'owner-facing readout is bounded while JSO
   const broken=await collect({now,read:async args=>{if(args[1]==='download')throw Error('download failed');return args[0]==='run'?JSON.stringify([run]):JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:false}]});}});assert.equal(broken.state,'unavailable');assert(markdown(broken).includes('download failed'));
   console.log('Canonical source readout: green-workflow source failure, dated gaps, missing/stale/malformed reports, bounded read-only collection, redaction and unavailable evidence passed.');
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+const football=summary({football:{schemaVersion:'football-data-backup-report.v1',checkedAt:'2026-10-01T01:00:00Z',checks:[{code:'PL',state:'backup',newFinals:1,primaryFailure:'HTTP 503',table:{state:'unavailable'}}]},now:new Date('2026-10-01T02:00:00Z')});
+assert.equal(football.football.state,'observed');assert.equal(football.football.checks[0].newFinals,1);assert.equal(football.football.checks[0].primaryFailure,'HTTP 503');
+assert(markdown({state:'observed',run:{databaseId:1,url:'https://example.test',conclusion:'success'},reports:football,limitations:[]}).includes('primary failed: HTTP 503'));
+assert.equal(summary({football:{schemaVersion:'wrong',checkedAt:'2026-10-01T01:00:00Z',checks:[]},now:new Date('2026-10-01T02:00:00Z')}).football.state,'unavailable');

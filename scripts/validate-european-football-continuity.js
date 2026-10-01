@@ -3,7 +3,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { refresh } = require('./refresh-openligadb-football');
+const { refresh: sourceRefresh } = require('./refresh-openligadb-football');
+const refresh=options=>sourceRefresh({...options,backupOptions:{directory:path.dirname(options.outputPath),outputPath:options.outputPath+'.overlay',coordinator:async()=>{throw Error('Backup disabled in primary continuity rehearsal');}}});
 const { COMPETITIONS } = require('./lib/openligadb-football');
 const published = require('../data/providers/openligadb/football-2026-27.json');
 

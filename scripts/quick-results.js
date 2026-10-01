@@ -8,15 +8,15 @@ const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
-const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
+const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','delayedResultSource','sourceAttribution'];
 function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
- const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
+ const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(update.key==='premier-league'&&update.status==='completed'&&!update.delayedResultSource&&ev.delayedResultSource){delete next.delayedResultSource;if(next.sourceAttribution?.provider==='Football-Data.org')delete next.sourceAttribution;}if(semantic(next)!==semantic(ev)){if(next.status==='completed'&&next.storyline){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
  return {events:result,count};
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
-function run(file,...args){const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit'});if(result.status!==0)throw new Error(`${file} failed`);}
+function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
 async function refreshNflResults(now){
  const path='data/canonical/american-football-directory.v1.json',directory=read(path);
  const response=await json(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${now.getFullYear()}&limit=1000`);
@@ -63,6 +63,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  const steps=[];
  if(changes.some(change=>change.startsWith('US Open')))steps.push(['scripts/apply-editorial-narratives.js','--write','--major-events-only']);
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
+ if(changes.some(change=>change.startsWith('Premier League')))steps.push(['scripts/build-canonical-context-bundle.js']);
  if(feedChanged){steps.push(
   ['scripts/enrich-storyline-cards.js','--write'],
   ['scripts/select-result-editorial.js'],
@@ -146,7 +147,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  }catch(error){failures.push(`tennis: ${error.message}`);}
  if(!offline)try{
    const doc=read('feeds/incoming/events.json'),known=doc.events.filter(e=>e.key==='premier-league'&&near(e));
-   if(known.length){const fixtures=await pl.loadFixtures();const cards=fixtures.map(f=>pl.cardForFixture(f,now.toISOString()));const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
+   if(known.length){const cards=await pl.loadCards(doc.events.filter(e=>e.key==='premier-league'),{checkedAt:now.toISOString()});const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
  if(!offline)try{const path='data/canonical/pga-tour-schedule.json',result=await require('../lib/lpga-results').refresh(read(path),{now});if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.message}`));}catch(error){failures.push(`LPGA: ${error.message}`);}

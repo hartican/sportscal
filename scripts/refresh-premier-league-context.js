@@ -210,13 +210,20 @@ function isTransientSourceFailure(error){
   return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
 }
 
-async function refresh({ fetcher = fetchJson, bundlePath = BUNDLE_PATH, directoryPath = DIRECTORY_PATH, now = () => new Date() } = {}){
+async function refresh({ fetcher = fetchJson, bundlePath = BUNDLE_PATH, directoryPath = DIRECTORY_PATH, now = () => new Date(), backupOptions={} } = {}){
+  if(path.resolve(bundlePath)!==BUNDLE_PATH&&!Object.keys(backupOptions).length)backupOptions={directory:path.dirname(bundlePath),coordinator:async()=>{throw Error('Backup disabled for disposable primary-table validation');}};
   const checkedAt = now().toISOString();
   const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
   const directory = JSON.parse(fs.readFileSync(directoryPath, "utf8"));
-  const payload = await fetcher(STANDINGS_URL);
+  let payload;
+  try{payload=await fetcher(STANDINGS_URL);}catch(error){
+    const snapshot=validatePublishedContext(bundle);
+    await require("./lib/football-data-backup").compareTable({code:"PL",entries:snapshot.entries,primaryError:error,now:now(),...backupOptions});
+    throw error;
+  }
   const context = buildSnapshot(payload, directory, checkedAt);
   const next = updateBundle(bundle, context, checkedAt);
+  if(require("./lib/football-data-backup").readOverlay().results.some(r=>r.competitionId===COMPETITION_ID))context.snapshot.metadata.stale=true;
   validatePublishedContext(next);
   const temporaryPath = `${bundlePath}.premier-league.tmp`;
   fs.writeFileSync(temporaryPath, `${JSON.stringify(next, null, 2)}\n`);

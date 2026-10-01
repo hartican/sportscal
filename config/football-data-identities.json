@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "football-data-reviewed-identities.v1",
+  "reviewedAt": "2026-10-01",
+  "scope": "2026/27 EPL and UEFA Champions League league phase; comparison trial only",
+  "teams": {
+    "4": {
+      "sourceName": "Borussia Dortmund",
+      "participantId": "team:football:club:borussia-dortmund"
+    },
+    "5": {
+      "sourceName": "FC Bayern M\u00fcnchen",
+      "participantId": "team:football:club:bayern-munich"
+    },
+    "10": {
+      "sourceName": "VfB Stuttgart",
+      "participantId": "team:football:club:vfb-stuttgart"
+    },
+    "57": {
+      "sourceName": "Arsenal FC",
+      "participantId": "team:football:epl:1"
+    },
+    "58": {
+      "sourceName": "Aston Villa FC",
+      "participantId": "team:football:epl:2"
+    },
+    "61": {
+      "sourceName": "Chelsea FC",
+      "participantId": "team:football:epl:4"
+    },
+    "62": {
+      "sourceName": "Everton FC",
+      "participantId": "team:football:epl:7"
+    },
+    "63": {
+      "sourceName": "Fulham FC",
+      "participantId": "team:football:epl:34"
+    },
+    "64": {
+      "sourceName": "Liverpool FC",
+      "participantId": "team:football:epl:10"
+    },
+    "65": {
+      "sourceName": "Manchester City FC",
+      "participantId": "team:football:epl:11"
+    },
+    "66": {
+      "sourceName": "Manchester United FC",
+      "participantId": "team:football:epl:12"
+    },
+    "67": {
+      "sourceName": "Newcastle United FC",
+      "participantId": "team:football:epl:23"
+    },
+    "71": {
+      "sourceName": "Sunderland AFC",
+      "participantId": "team:football:epl:29"
+    },
+    "73": {
+      "sourceName": "Tottenham Hotspur FC",
+      "participantId": "team:football:epl:21"
+    },
+    "78": {
+      "sourceName": "Club Atl\u00e9tico de Madrid",
+      "participantId": "team:football:club:atletico-madrid"
+    },
+    "81": {
+      "sourceName": "FC Barcelona",
+      "participantId": "team:football:club:barcelona"
+    },
+    "86": {
+      "sourceName": "Real Madrid CF",
+      "participantId": "team:football:club:real-madrid"
+    },
+    "90": {
+      "sourceName": "Real Betis Balompi\u00e9",
+      "participantId": "team:football:club:real-betis"
+    },
+    "94": {
+      "sourceName": "Villarreal CF",
+      "participantId": "team:football:club:villarreal"
+    },
+    "100": {
+      "sourceName": "AS Roma",
+      "participantId": "team:football:club:as-roma"
+    },
+    "108": {
+      "sourceName": "FC Internazionale Milano",
+      "participantId": "team:football:club:internazionale"
+    },
+    "113": {
+      "sourceName": "SSC Napoli",
+      "participantId": "team:football:club:napoli"
+    },
+    "322": {
+      "sourceName": "Hull City AFC",
+      "participantId": "team:football:epl:41"
+    },
+    "341": {
+      "sourceName": "Leeds United FC",
+      "participantId": "team:football:epl:9"
+    },
+    "349": {
+      "sourceName": "Ipswich Town FC",
+      "participantId": "team:football:epl:8"
+    },
+    "351": {
+      "sourceName": "Nottingham Forest FC",
+      "participantId": "team:football:epl:15"
+    },
+    "354": {
+      "sourceName": "Crystal Palace FC",
+      "participantId": "team:football:epl:6"
+    },
+    "397": {
+      "sourceName": "Brighton & Hove Albion FC",
+      "participantId": "team:football:epl:131"
+    },
+    "402": {
+      "sourceName": "Brentford FC",
+      "participantId": "team:football:epl:130"
+    },
+    "498": {
+      "sourceName": "Sporting Clube de Portugal",
+      "participantId": "team:football:club:sporting-cp"
+    },
+    "503": {
+      "sourceName": "FC Porto",
+      "participantId": "team:football:club:porto"
+    },
+    "521": {
+      "sourceName": "Lille OSC",
+      "participantId": "team:football:club:lille"
+    },
+    "524": {
+      "sourceName": "Paris Saint-Germain FC",
+      "participantId": "team:football:club:paris-saint-germain"
+    },
+    "546": {
+      "sourceName": "Racing Club de Lens",
+      "participantId": "team:football:club:lens"
+    },
+    "610": {
+      "sourceName": "Galatasaray SK",
+      "participantId": "team:football:club:galatasaray"
+    },
+    "613": {
+      "sourceName": "Fenerbah\u00e7e SK",
+      "participantId": "team:football:club:fenerbahce"
+    },
+    "674": {
+      "sourceName": "PSV",
+      "participantId": "team:football:club:psv-eindhoven"
+    },
+    "675": {
+      "sourceName": "Feyenoord Rotterdam",
+      "participantId": "team:football:club:feyenoord"
+    },
+    "721": {
+      "sourceName": "RB Leipzig",
+      "participantId": "team:football:club:rb-leipzig"
+    },
+    "851": {
+      "sourceName": "Club Brugge KV",
+      "participantId": "team:football:club:club-brugge"
+    },
+    "930": {
+      "sourceName": "SK Slavia Praha",
+      "participantId": "team:football:club:slavia-praha"
+    },
+    "1044": {
+      "sourceName": "AFC Bournemouth",
+      "participantId": "team:football:epl:127"
+    },
+    "1076": {
+      "sourceName": "Coventry City FC",
+      "participantId": "team:football:epl:5"
+    },
+    "1887": {
+      "sourceName": "FK Shakhtar Donetsk",
+      "participantId": "team:football:club:shakhtar-donetsk"
+    },
+    "1899": {
+      "sourceName": "PAE AEK",
+      "participantId": "team:football:club:aek-athens"
+    },
+    "2016": {
+      "sourceName": "LASK Linz",
+      "participantId": "team:football:club:lask"
+    },
+    "5720": {
+      "sourceName": "Viking FK",
+      "participantId": "team:football:club:viking"
+    },
+    "5721": {
+      "sourceName": "FK Bod\u00f8/Glimt",
+      "participantId": "team:football:club:bod-glimt"
+    },
+    "7397": {
+      "sourceName": "Como 1907",
+      "participantId": "team:football:club:como"
+    },
+    "7509": {
+      "sourceName": "\u0160K Slovan Bratislava",
+      "participantId": "team:football:club:slovan-bratislava"
+    },
+    "10233": {
+      "sourceName": "Sabah FK",
+      "participantId": "team:football:club:sabah"
+    }
+  }
+}

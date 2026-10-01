@@ -22,9 +22,10 @@ function eventsForLeague(facts){
     });
   });
 }
-async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date(),identityRegistry=registry}={}){
+async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date(),identityRegistry=registry,backupOptions={}}={}){
+  if(path.resolve(outputPath)!==DEFAULT_OUTPUT&&!Object.keys(backupOptions).length)backupOptions={outputPath:outputPath+'.delayed-results',directory:path.dirname(outputPath),coordinator:async()=>{throw Error('Backup disabled for disposable primary-source validation');}};
   const previous=fs.existsSync(outputPath)?JSON.parse(fs.readFileSync(outputPath,'utf8')):null;
-  const retained=new Map((previous?.leagues||[]).map(f=>[f.competitionId,f]));const failures=[];
+  const retained=new Map((previous?.leagues||[]).map(f=>[f.competitionId,f]));const failures=[],primaryFailures=[];let backupChanged=false;
   for(const [league,definition] of Object.entries(COMPETITIONS)){
     try{
       const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{signal:AbortSignal.timeout(15000)});
@@ -32,7 +33,15 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
       const facts=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
       assertSnapshotContinuity(retained.get(definition.competitionId), facts);
       retained.set(definition.competitionId,facts);
-    }catch(error){failures.push({league,message:error.message});}
+      require('./lib/football-data-backup').primary(eventsForLeague(facts),backupOptions);
+      if(league==='ucl')require('./lib/football-data-backup').record({code:'CL',state:'primary',newFinals:0},{...backupOptions,now});
+    }catch(error){
+      primaryFailures.push({league,message:error.message});
+      const saved=retained.get(definition.competitionId);
+      const recovery=league==='ucl'&&saved?await require('./lib/football-data-backup').recover({code:'CL',events:eventsForLeague(saved),primaryError:error,...backupOptions}):null;
+      if(recovery?.recovered)backupChanged ||= recovery.row.newFinals>0;
+      else failures.push({league,message:error.message});
+    }
   }
   // Never publish an empty/incomplete first import or erase a last-good season.
   if(retained.size!==2)throw new Error(`OpenLigaDB first import incomplete: ${failures.map(f=>f.league).join(', ')}`);
@@ -40,10 +49,10 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
     attribution:'Contains information from OpenLigaDB, made available under the Open Database License (ODbL). NS normalized fixture facts and identity mappings are provided with this dataset under ODbL.',
     identityMapping:registry.teams,
     scope:'2026/27 league phases only; community-maintained, not an official UEFA feed',leagues,standings:leagues.flatMap(require('./lib/european-football-standings').deriveStandings),events:leagues.flatMap(eventsForLeague)};
-  if(failures.length===2&&previous)return {payload:previous,failures,wrote:false};
+  if(primaryFailures.length===2&&previous)return {payload:previous,failures,primaryFailures,wrote:backupChanged};
   fs.mkdirSync(path.dirname(outputPath),{recursive:true});const temp=`${outputPath}.tmp-${process.pid}`;fs.writeFileSync(temp,JSON.stringify(payload)+'\n');fs.renameSync(temp,outputPath);
-  return {payload,failures,wrote:true};
+  return {payload,failures,primaryFailures,wrote:true};
 }
 module.exports={refresh,eventsForLeague};
 
-if(require.main===module)refresh().then(result=>{console.log(JSON.stringify({fixtures:result.payload.events.length,failures:result.failures}));if(result.failures.length)process.exitCode=1;}).catch(error=>{console.error(error.message);process.exitCode=1;});
+if(require.main===module)refresh().then(result=>{console.log(JSON.stringify({fixtures:result.payload.events.length,failures:result.failures,primaryFailures:result.primaryFailures}));if(result.failures.length)process.exitCode=1;}).catch(error=>{console.error(error.message);process.exitCode=1;});

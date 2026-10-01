@@ -16,10 +16,13 @@ const SOURCES = Object.freeze([
 ]);
 
 function readContexts(){
-  return Object.fromEntries(SOURCES.map(([key, relativePath]) => [
+  const contexts=Object.fromEntries(SOURCES.map(([key, relativePath]) => [
     key,
     JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8")),
   ]));
+  const results=require('./lib/football-data-backup').readOverlay().results;
+  for(const snapshot of contexts.leagueSports.ladderSnapshots||[])if(results.some(r=>r.competitionId===snapshot.competitionId)){snapshot.metadata={...snapshot.metadata,stale:true};snapshot.roundLabel=[snapshot.roundLabel,'Table awaits primary-source confirmation'].filter(Boolean).join(' · ');}
+  return contexts;
 }
 
 function renderBundle(contexts = readContexts()){

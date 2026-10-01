@@ -71,9 +71,9 @@ function teamFromEntry(entry){
 
 function resultScoreline(fixture, home, away){
   const [homeEntry, awayEntry] = fixture.teams || [];
-  const homeGoals = Number(homeEntry?.score);
-  const awayGoals = Number(awayEntry?.score);
-  if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) return null;
+  const homeGoals = homeEntry?.score;
+  const awayGoals = awayEntry?.score;
+  if (!Number.isSafeInteger(homeGoals) || !Number.isSafeInteger(awayGoals) || homeGoals<0 || awayGoals<0) return null;
   const outcomeText = homeGoals === awayGoals
     ? `${home.name} drew ${away.name} ${homeGoals}-${awayGoals}.`
     : homeGoals > awayGoals
@@ -98,6 +98,7 @@ function cardForFixture(fixture, checkedAt){
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
   const completed = fixture.status === "C";
   const result = completed ? resultScoreline(fixture, home, away) : null;
+  if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
   const name = `${home.name} v ${away.name}`;
   return {
@@ -169,16 +170,33 @@ function cardForFixture(fixture, checkedAt){
     ...(result ? {
       ...result,
       canonicalResultScoreline: result.score,
+      resultSourceUrl:OFFICIAL_MATCHES_URL,resultSourceCheckedAt:checkedAt,scoreCheckedAt:checkedAt,
       resultLabels: [`Premier League Matchweek ${gameweek}`, result.outcomeText],
     } : {}),
   };
 }
 
-async function refreshPremierLeagueCards(inputPath = "feeds/incoming/events.json", outputPath = inputPath){
+async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={}}={}){
+  const backup=require('./lib/football-data-backup');
+  try{
+    const cards=(await loader()).map(f=>cardForFixture(f,checkedAt));
+    const next=require('../lib/football-delayed-results').apply(cards,backup.readOverlay(backupOptions.outputPath)),byId=new Map(next.map(e=>[e.id,e]));
+    for(const old of known){const card=byId.get(old.id);if(!card||old.homeParticipantId!==card.homeParticipantId||old.awayParticipantId!==card.awayParticipantId||old.status==='completed'&&card.status!=='completed')throw Error('Premier League identity/result continuity failed');}
+    const result=backup.primary(cards,backupOptions);
+    backup.record({code:'PL',state:'primary',newFinals:0},backupOptions);
+    return result;
+  }catch(error){
+    const recovery=await backup.recover({code:'PL',events:known,primaryError:error,...backupOptions});
+    if(!recovery.recovered)throw error;
+    console.warn('Premier League primary degraded; validated delayed backup retained existing facts and identities.');
+    return recovery.events;
+  }
+}
+
+async function refreshPremierLeagueCards(inputPath = "feeds/incoming/events.json", outputPath = inputPath, options={}){
   const checkedAt = new Date().toISOString();
-  const fixtures = await loadFixtures();
-  const cards = fixtures.map(fixture => cardForFixture(fixture, checkedAt));
   const feed = readJson(inputPath);
+  const cards = await loadCards((feed.events||[]).filter(e=>e.key==="premier-league"),{checkedAt,...options});
   const retained = (feed.events || []).filter(event => event.key !== "premier-league");
   const next = { ...feed, events: [...retained, ...cards].sort((left, right) => String(left.startTimeUtc || "").localeCompare(String(right.startTimeUtc || ""))) };
   const errors = validateFeed(next);
@@ -195,4 +213,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime };
+module.exports = { loadCards, cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime };

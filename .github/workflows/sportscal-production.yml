@@ -90,6 +90,8 @@ jobs:
           node scripts/validate-nbl-viewing.js --published
           node scripts/validate-nbl-match-context.js --published
           node scripts/validate-nbl-standings.js --published
+          node scripts/validate-football-data-trial.js
+          node scripts/validate-football-data-backup.js
           node scripts/validate-openligadb-football.js
           node scripts/validate-european-football-continuity.js
           node scripts/validate-european-football-standings.js

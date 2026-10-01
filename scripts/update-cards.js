@@ -58,7 +58,8 @@ function runStep(args) {
   const display = commandLabel || command;
 
   console.log(`\n> ${display}`);
-  const result = spawnSync(runner, commandArgs, { stdio: "inherit" });
+  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT"])delete env[key];
+  const result = spawnSync(runner, commandArgs, { stdio: "inherit",env });
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
     error.exitCode = result.status || 1;
@@ -85,6 +86,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-source-coverage.js"],
   ["scripts/refresh-openligadb-football.js"],
   ["scripts/validate-european-football-continuity.js"],
+  ["scripts/validate-football-data-backup.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
@@ -164,6 +166,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/sync-official-card-results.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/build-canonical-context-bundle.js"],
   ["scripts/enrich-legacy-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/apply-representative-metadata.js", "feeds/incoming/events.json"],
   ["scripts/apply-national-team-identities.js", "feeds/incoming/events.json"],
@@ -362,11 +365,11 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function main() {
+async function runMain() {
   const options = parseOptions();
   if(process.argv.includes('--european-football')){
     const result=await require('./refresh-openligadb-football').refresh();
-    console.log(JSON.stringify({source:'OpenLigaDB',fixtures:result.payload.events.length,failures:result.failures}));
+    console.log(JSON.stringify({source:'OpenLigaDB',fixtures:result.payload.events.length,failures:result.failures,primaryFailures:result.primaryFailures}));
     for(const args of [['scripts/build-code-inspector.js','--codes=football,champions-league'],['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-openligadb-football.js'],['scripts/validate-european-football-continuity.js'],['scripts/validate-european-football-standings.js']])runStep(args);
     if(result.failures.length)process.exitCode=1;
     return;
@@ -518,6 +521,14 @@ async function main() {
     delete process.env.FOLLOW_SNAPSHOT_KEY;
     if (snapshotDirectory) fs.rmSync(snapshotDirectory, { recursive:true, force:true });
   }
+}
+
+async function main(){
+  const prior=process.env.FOOTBALL_DATA_RUN_DIR;
+  const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
+  process.env.FOOTBALL_DATA_RUN_DIR=directory;
+  if(!process.argv.includes('--offline'))require('./lib/football-data-backup').record({state:'invocation',mode:process.argv.includes('--quick')?'quick':process.argv.includes('--european-football')?'european-football':'full'},{directory});
+  try{return await runMain();}finally{if(!process.argv.includes('--offline')){const file=path.join(directory,'budget.json');require('./lib/football-data-backup').record({state:'budget',calls:fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).calls:0},{directory});}if(!prior){fs.rmSync(directory,{recursive:true,force:true});delete process.env.FOOTBALL_DATA_RUN_DIR;}}
 }
 
 if (require.main === module) {

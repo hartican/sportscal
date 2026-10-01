@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="343">
+<meta name="app-shell-version" content="344">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=343" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=344" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1883,7 +1883,7 @@ main{
   box-shadow:none;
 }
 
-/* Keep placeholders in the logo cell. */
+
 .matchup-team-logo-slot>*{grid-area:1/1;}
 
 .matchup-logo-surface-light,
@@ -6960,7 +6960,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 <footer class="app-footer">
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" loading="lazy" decoding="async">
   <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
-  <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
+  <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above<br>Football data provided by the Football-Data.org API</div>
   <div class="footer-copyright" data-brand-copy="copyright">Copyright ©&nbsp;2026&nbsp;Nothing Sport. All Rights Reserved.</div>
   <div class="footer-socials" aria-label="Follow Nothing Sport">
     <a class="footer-social-link" href="https://www.instagram.com/_nothingsport/" target="_blank" rel="noopener noreferrer external" aria-label="Follow Nothing Sport on Instagram at @_nothingsport"><span data-vector-glyph="social:instagram"></span><span>@_nothingsport</span></a>
@@ -7175,7 +7175,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=343"></script>
+<script src="assets/js/app-shell-runtime.js?v=344"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16974,11 +16974,11 @@ function buildOngoingTournamentParent(ev){
 }
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
-  if(kind==='attribution'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
-  loadDeferredScript('assets/js/football-card-context.js?v=333').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
+  if(kind==='attribution'){const link=document.createElement('a');link.href=ev.delayedResultSource?.sourceUrl||'/data/providers/openligadb/football-2026-27.json';link.textContent=ev.delayedResultSource?.provider||'OpenLigaDB data · ODbL';node.append(link);}
+  loadDeferredScript('assets/js/football-card-context.js?v=344').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
   return node;
 }
-function buildFixtureDataAttribution(ev){return ev.sourceAttribution?.provider==='OpenLigaDB'?buildEuropeanDetail(ev,'attribution'):null;}
+function buildFixtureDataAttribution(ev){return ev.sourceAttribution?buildEuropeanDetail(ev,'attribution'):null;}
 
 const multiDayCricketExpanded=new Set();
 function buildEventCard(ev, options = {}){

@@ -16,7 +16,7 @@ function context(ev,showResults){
   note.textContent=nbl?'Confirmed earlier regular-season games only. Excludes this game, preseason and finals; not a ladder or prediction. Source checked '+new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Australia/Sydney',timeZoneName:'short'}).format(new Date(context.checkedAt))+'.':'Confirmed earlier matches only, as of the source check below. Excludes other competitions; not a prediction.';section.append(list,note);return section;
 }
 
-function attribution(ev){
+function primaryAttribution(ev){
   if(ev.sourceAttribution?.provider!=='OpenLigaDB')return null;
   const note=document.createElement('div');note.className='fixture-source-attribution';
   const context=document.createElement('p');context.className='fixture-source-context';
@@ -37,6 +37,14 @@ function attribution(ev){
     const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener';link.addEventListener('click',event=>event.stopPropagation());links.append(link);
   }
   note.append(links);return note;
+}
+function attribution(ev){
+  const primary=primaryAttribution(ev);if(!ev.delayedResultSource)return primary;
+  const wrapper=document.createElement('div');wrapper.className='fixture-source-attribution';if(primary)wrapper.append(primary);
+  const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';link.target='_blank';link.rel='noopener';link.onclick=e=>e.stopPropagation();
+  note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));
+  const checked=new Date(ev.delayedResultSource.updatedAt);if(Number.isFinite(checked.getTime()))note.append(document.createTextNode(' Result source updated '+new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(checked)+'.'));
+  wrapper.append(note);return wrapper;
 }
 globalThis.NOTHINGSPORTS_FOOTBALL_CONTEXT={context,attribution};
 })();

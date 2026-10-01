@@ -10,10 +10,12 @@ const taxonomy = require("../config/canonical-sports-taxonomy.js");
 const {
   COMPETITION_ID,
   EXPECTED_TEAM_COUNT,
-  refresh,
+  refresh:sourceRefresh,
   standingsEntries,
   validatePublishedContext,
 } = require("./refresh-premier-league-context.js");
+
+const refresh=options=>sourceRefresh({...options,backupOptions:{directory:path.dirname(options.bundlePath),coordinator:async()=>{throw Error("Backup disabled in primary table rehearsal");}}});
 
 const ROOT = path.resolve(__dirname, "..");
 const bundlePath = path.join(ROOT, "data/canonical/afl-nrl-2026.json");

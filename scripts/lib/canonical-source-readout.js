@@ -25,8 +25,8 @@ function observation(doc, now) {
   const ageHours = (now.getTime() - stamp) / 3600000;
   return {checkedAt: new Date(stamp).toISOString(), ageHours, stale: ageHours > MAX_AGE_HOURS};
 }
-function summary({quick = null, hydration = null, now = new Date()} = {}) {
-  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}};
+function summary({quick = null, hydration = null, football = null, now = new Date()} = {}) {
+  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}, football: {state: 'unavailable'}};
   if (quick) {
     try {
       const observed = observation(quick, now);
@@ -47,6 +47,11 @@ function summary({quick = null, hydration = null, now = new Date()} = {}) {
       result.hydration = {...observed, state: 'observed', tournamentCount: tournaments.length, completeCount: tournaments.filter(t => t.status === 'complete').length, partialCount: tournaments.filter(t => t.status === 'partial').length, gaps: tournaments.filter(t => t.status === 'partial')};
     } catch (e) { result.hydration.error = safe(e.message); }
   }
+  if(football){try{
+    const observed=observation(football,now);
+    if(football.schemaVersion!=='football-data-backup-report.v1'||!Array.isArray(football.checks)||football.checks.length>20)throw Error('invalid_football_report');
+    result.football={...observed,state:'observed',checks:football.checks.map(row=>({code:safe(row.code||row.mode||'invocation'),state:safe(row.state),newFinals:row.newFinals||0,calls:Number.isSafeInteger(row.calls)?row.calls:null,primaryFailure:row.primaryFailure?safe(row.primaryFailure):null,backupFailure:row.backupFailure?safe(row.backupFailure):null,table:row.table}))};
+  }catch(error){result.football.error=safe(error.message);}}
   return result;
 }
 async function gh(args) {
@@ -77,7 +82,7 @@ async function collect({now = new Date(), read = gh} = {}) {
     if (artifacts.length !== 1 || artifacts[0].expired || !Number.isSafeInteger(artifacts[0].size_in_bytes) || artifacts[0].size_in_bytes > MAX_BYTES) throw Error('report_artifact_missing_expired_or_oversized');
     directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ns-canonical-readout-'));
     await read(['run', 'download', String(run.databaseId), '--repo', REPO, '--name', ARTIFACT, '--dir', directory]);
-    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), now});
+    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), football: readReport(directory,'football-data-backup-report.json'), now});
     result.state = 'observed';
   } catch (e) { result.error = safe(e.message); }
   finally { if (directory) fs.rmSync(directory, {recursive: true, force: true}); }
@@ -100,6 +105,9 @@ function markdown(result) {
       if (row.partialCount > 8) lines.push(`${row.partialCount - 8} further tournament gaps retained in the JSON readout.`);
     }
   }
+  const football=result.reports.football;
+  if(football?.state==='observed'){lines.push(`Delayed Football backup: ${football.checkedAt}${football.stale?' — STALE':''}.`,...football.checks.map(row=>`${row.code}: ${row.state}, ${row.newFinals} new finals${row.calls!==null?'; '+row.calls+' provider requests':''}${row.primaryFailure?'; primary failed: '+row.primaryFailure:''}${row.backupFailure?'; backup: '+row.backupFailure:''}${row.table?.state==='unavailable'?'; table comparison unavailable':''}.`));}
+  else lines.push('Delayed Football backup evidence unavailable; not a zero-failure observation.');
   return heading + lines.join('\n\n') + '\n\n' + result.limitations.join(' ') + '\n';
 }
 module.exports = {summary, collect, markdown, safe};

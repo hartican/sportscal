@@ -62,7 +62,7 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
    return preferences===JSON.stringify(userPreferences);
   },mode);
   assert(unchanged,'degraded timing must not change Follow or Results settings');
-  const chip=page.locator(mode==='feed'?'#listView .fixture-timing-badge':'#listView .event-timing-state.awaiting-update');
+  const chip=page.locator(mode==='feed'?'#listView .fixture-timing-badge > small':'#listView .event-timing-state.awaiting-update');
   if(!await chip.count())throw new Error(mode+': missing update label: '+await page.locator('#listView').innerText());
   await chip.scrollIntoViewIfNeeded();assert(await chip.isVisible(),mode+': visible unconfirmed status');
   assert.equal(await chip.textContent(),'Awaiting match update');
@@ -80,6 +80,14 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
   assert(!text.includes("LASK producing the stage"),'parent recap must not leak into other matches');
  }
  if(process.env.QA_SCREENSHOT){await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{applyThemePreference('day');const f=codeInspectorChunk.fixtures.find(f=>f.competitionId==='competition:uefa-europa-league'&&f.status==='upcoming');userPreferences.showSpoilers=true;renderHomeSpoilerToggle();setCardState(f,'opened');document.getElementById('listView').replaceChildren(buildEventCard({...f,eventId:f.id}));document.activeElement?.blur();window.scrollTo(0,0);});await page.screenshot({path:process.env.QA_SCREENSHOT,fullPage:true});}
+ const raw=require('../feeds/incoming/events.json').events.find(e=>e.key==='premier-league'&&e.status!=='completed');
+ const delayed=require('../lib/football-delayed-results').apply([raw],{results:[{fixtureId:raw.id,competitionId:raw.competitionId,homeParticipantId:raw.homeParticipantId,awayParticipantId:raw.awayParticipantId,roundNumber:raw.roundNumber,homeScore:0,awayScore:2,sourceUrl:'https://www.football-data.org/',sourceCheckedAt:'2026-11-01T12:00:00Z',sourceUpdatedAt:'2026-11-01T12:00:00Z'}]})[0];
+ for(const mode of ['feed','schedule'])for(const show of [false,true]){
+  await page.evaluate(({delayed,mode,show})=>{userPreferences.showSpoilers=show;activeTab=mode==='feed'?'feed':'follow';setCardState(delayed,'opened');const base=codeInspectorChunk.fixtures.find(f=>f.competitionId===delayed.competitionId&&f.homeParticipantId===delayed.homeParticipantId&&f.awayParticipantId===delayed.awayParticipantId&&f.roundNumber===delayed.roundNumber);document.getElementById('listView').replaceChildren(mode==='feed'?buildEventCard(delayed):buildCodeInspectorFixture({...base,...delayed}));},{delayed,mode,show});
+  const source=page.locator('#listView .fixture-source-attribution');await source.getByRole('link',{name:'Football data provided by the Football-Data.org API',exact:true}).waitFor();assert((await source.innerText()).includes('Delayed final result'));
+  const text=await page.locator('#listView').innerText();if(!show)assert(!/0[-–]2/.test(text),'Backup finals retain Results privacy');
+  for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Backup result has no mobile overflow');}
+ }
  const failurePage=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
  await failurePage.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await failurePage.route('**/assets/js/football-card-context.js*',r=>r.abort());
