@@ -1,0 +1,32 @@
+# Football acceptance and recovery checkpoint — 2 October 2026
+
+Recommendation: finish the existing reliability module and collect the remaining independent evidence; keep the EPL, Champions League and Europa League scope fixed. No paid provider, invitation, sale or outreach is authorised by this checkpoint. Certification remains 0/3 Football pilots and 0/16 carried sport families; the existing monetisable-MVP target is at least 13/16 families, without concealed material gaps.
+
+## Evidence against the six agreed gates
+
+| Gate | Verified snapshot or regression | Evidence still required |
+|---|---|---|
+| Fixture truth | EPL 380 and both UEFA league phases 144 each: 668 identities/pairs/core facts retained; dated official fixture comparisons and continuity/backup persistence checks | Later published knockout fixtures through the existing owner; actual source corrections must remain validated. Catalogue entries are not working coverage |
+| Timing and results | Explicit UEFA UTC/Sydney comparisons; reviewed EPL results; bounded primary checks preserve true observation times and last-good finals; delayed backup is labelled | Sustained ordinary refresh after the repaired wrapper; real decisive final ties and missing UEFA discipline/coefficient inputs. Controlled cases are not real final-season proof |
+| Australian viewing | Correct Stan competition destinations and 82 sampled fixture-specific forthcoming listings; cautious replay labels | Further date-specific reconciliation as listings change; actual playback/replay availability remains unverified, with no purchase approved |
+| Context and editorial | Current 92 Football table rows, shared/Pending places, source-backed result context and reviewed unchanged recap retention | Missing decisive sporting inputs; editorial samples do not certify every future event or invent qualification |
+| Presentation and behaviour | Twelve live profile journeys and four widths/two themes; Results privacy; full Chromium/WebKit upgrades and cached standings at shell 351 | Physical iPhone installed/restart/offline/update/navigation and accessibility session; shell 352 repair needs its own release proof |
+| Operations and rights | One refresh owner, bounded calls, attribution/export separation, encrypted local database/Auth/Storage rehearsal and normal clean cloud deployment | Independent bundle/key retrieval; full configuration/issuer/account-lifecycle acceptance; EPL endpoint permission, free-backup commercial/alias/retention scope and separate asset rights |
+
+The latest natural run [36929379034](https://github.com/hartican/sportscal/actions/runs/36929379034) published 336031a/shell 350 with no reported source failures, backup calls or AI calls. Its child deployed successfully, but the parent failed the obsolete-hash comparison. [The repair at 6e2e382](football-freshness-2026-10-02.md) passed normal production gates and exact READY/alias/13-file/live proof. No later ordinary invocation of that repaired wrapper was visible in the bounded read; do not replace this missing evidence with an extra manual refresh or new scheduler.
+
+## Recovery: loss of this Mac versus replacement of a provider
+
+The existing successful [clean cloud deployment 36933165351](https://github.com/hartican/sportscal/actions/runs/36933165351) checked out the exact published source on Ubuntu, installed dependencies, rebuilt the release package, rebound the existing project and deployed it. This verifies that app materialisation/deployment can run without this Mac's checkout or local project file, while the existing GitHub/Vercel accounts, projects and stored credentials remain accessible. Independent owner account access and loss of a provider/project are different, unverified recovery boundaries.
+
+The retained inventory lists 16 production environment names: 13 legacy sensitive values and three encrypted values. Vercel's current official documentation says Secret values are write-only after saving; existing Sensitive values are treated as Secrets. Names and continuing deployments do not prove recoverable copies of the originals. Do not rotate keys, weaken their classification or extract them through a build to manufacture recovery evidence. Preserve independently known originals through the already-approved protected process where available; mark unavailable signing/push continuity as a real limitation. [Vercel configuration documentation](https://vercel.com/docs/environment-variables/sensitive-environment-variables).
+
+The encrypted database/object bundle does not capture all hosted service configuration. Supabase explicitly separates manual Storage/settings, Auth settings/API keys, Edge Functions and other service configuration from database restoration. The existing local rehearsal remains valid within its recorded scope; it is not whole-provider replacement proof. No new project, paid clone or production scheduler activation is proposed. [Supabase restoration scope](https://supabase.com/docs/guides/platform/clone-project), [existing recovery record](recovery-rehearsal-2026-10-01.md).
+
+## Permissions and owner involvement
+
+Three bounded searches of the connected Gmail provider/domain correspondence returned no matching messages. This checks only that connected mailbox/search scope; it does not prove that no permission exists in another account or private agreement. Both prepared enquiries remain unsent. Messaging authorisation and a reply email are still required; the earlier question remains pending and is not repeated here. No emails, payment, new accounts or provider settings were changed.
+
+Keep one owner session for independent iCloud/Passwords retrieval and physical-phone checks using the existing key-free helper and device brief. Never send the key through chat. If automation fails, continue independent engineering as directed. Commercial-source evidence can be collected in parallel once outreach is authorised. Keep one existing backlog; this supporting evidence ledger is not a new decision queue.
+
+Business value: prevent premature invitations or revenue promises, while avoiding repeated exports, deployments and dashboard chores. Service cost A$0. Further engineering estimates remain the existing 2–5 focused days plus external evidence waits, not a fresh promise that unresolved provider/device checks can be coded away. Acceptance changes only when the existing six gates receive the required dated evidence.

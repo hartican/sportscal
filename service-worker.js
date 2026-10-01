@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v351";
-const SHELL_VERSION = "351";
+const CACHE_NAME = "nothingsport-shell-v352";
+const SHELL_VERSION = "352";
 const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
@@ -17,7 +17,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=351",
+  "/assets/js/app-shell-runtime.js?v=352",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=318",
   "/assets/js/nsc-rankings-ui.js?v=293",
@@ -226,10 +226,17 @@ self.addEventListener("activate", event => {
 async function staleWhileRevalidate(request, event, cacheKey = request){
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(cacheKey);
-  const network = fetch(request).then(async response => {
-    if (response.ok) await cache.put(cacheKey, response.clone());
-    return response;
-  }).catch(() => null);
+  const controller = new AbortController();
+  // Include cache.put's body read in the deadline. Receiving headers alone
+  // must not keep this worker alive and its successor waiting indefinitely.
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  const network = fetch(request, { signal:controller.signal }).then(async response => {
+    if (response.ok) await cache.put(cacheKey, cached ? response : response.clone());
+    else if (cached) controller.abort();
+    // A cached response already served the page. Consume the network response
+    // directly above rather than leaving an unused tee branch behind.
+    return cached ? null : response;
+  }).catch(() => null).finally(() => clearTimeout(timeout));
   // Register the lifetime before returning a cached response. Registering it
   // only after fetch resolves can leave an installed app stuck on its old shell.
   event.waitUntil(network.then(() => undefined));

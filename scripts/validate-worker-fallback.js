@@ -9,5 +9,15 @@ const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
  let response=await context.networkFirst({url:'https://test.invalid/',mode:'navigate'},event);assert.equal(response.status,200,'HTTP 503 must recover the verified cached shell');
  mode='hang';response=await Promise.race([context.networkFirst({url:'https://test.invalid/',mode:'navigate'},event),new Promise((_,reject)=>setTimeout(()=>reject(Error('Navigation stalled instead of falling back')),100))]);assert.equal(timeoutMs,8000);assert((await response.text()).includes('app-shell-version'));
  mode='missing';response=await context.networkFirst({url:'https://test.invalid/data/feed/page.json',mode:'cors'},event);assert.equal(response.status,503,'missing JSON must not return HTML');
- console.log('Worker recovers HTTP failure and stalled navigation; JSON never becomes cached HTML.');
+ // A successful HTTP header is not a completed cache observation. The body
+ // can stall while the page has already received a last-good cached response.
+ const retained=new Response('{"lastGood":true}');let bodyAborted=false,writes=0;
+ context.caches.open=async()=>({match:async()=>retained.clone(),put:async(_key,value)=>{await value.text();writes++;}});
+ context.fetch=(_request,options)=>Promise.resolve(new Response(new ReadableStream({start(stream){stream.enqueue(new TextEncoder().encode('{"partial":'));options.signal.addEventListener('abort',()=>{bodyAborted=true;stream.error(Error('deadline'));});}})));
+ let lifetime;
+ response=await context.staleWhileRevalidate(new Request('https://test.invalid/data/canonical/probe.json'),{waitUntil(value){lifetime=value;}});
+ assert.equal(await response.text(),'{"lastGood":true}');assert(lifetime,'Lifetime must be registered before returning cached data');
+ await Promise.race([lifetime,new Promise((_,reject)=>setTimeout(()=>reject(Error('Body kept the old worker alive')),100))]);
+ assert.equal(timeoutMs,8000);assert(bodyAborted);assert.equal(writes,0,'Partial bodies must not overwrite the retained cache');
+ console.log('Worker recovers HTTP/stalled navigation and bounds cached body refresh; partial JSON never replaces last-good data.');
 })().catch(e=>{console.error(e);process.exitCode=1});
