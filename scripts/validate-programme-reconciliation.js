@@ -3,7 +3,13 @@
 const assert=require('node:assert/strict'),model=require('../config/tennis-feed'),{completeFinalEight}=require('../lib/tennis-parent-completion');
 const catalogue=require('../data/canonical/tennis-catalogue-2026.json'),ties=require('../data/canonical/tennis-team-contests.v1.json').fixtures;
 const parent=model.buildParents(catalogue,ties).find(p=>p.tournamentId==='tournament:tennis:bjk-cup-finals-2026');
-const completed=completeFinalEight(parent);assert.equal(completed.status,'completed');assert.equal(completed.id,parent.id);assert.equal(completed.childContests.length,7);assert.match(completed.dateLabel,/Completed/);assert.equal(completed.statusEvidence.fixtureIds.length,7);assert(!completed.outcomeText&&!completed.score,'Completion does not reveal the winner');
+const {teamParentCategory}=require('../lib/tennis-parent-category'),policy=require('../config/follow-feed-policy');
+const categoryParent=teamParentCategory(parent);
+assert.equal(categoryParent.id,parent.id);assert.equal(policy.sportKey(categoryParent),'tennis-women');
+assert.equal(policy.sportKey(teamParentCategory(model.buildParents(catalogue,ties).find(p=>p.eventFamilyId==='davis-cup'))),'tennis');
+for(const mutate of [p=>p.childContests=[],p=>delete p.childContests[0].gender,p=>p.childContests[0].gender='men',p=>p.tour='BOTH']){const next=structuredClone(parent);mutate(next);assert.equal(teamParentCategory(next),next,'No complete uniform team evidence means no inferred category');}
+assert.equal(teamParentCategory({...parent,gender:'mixed'}).gender,'mixed','Explicit source category remains authoritative');
+const completed=completeFinalEight(categoryParent);assert.equal(completed.status,'completed');assert.equal(completed.id,parent.id);assert.equal(completed.childContests.length,7);assert.match(completed.dateLabel,/Completed/);assert.equal(completed.statusEvidence.fixtureIds.length,7);assert(!completed.outcomeText&&!completed.score,'Completion does not reveal the winner');
 for(const mutate of [p=>p.childContests.pop(),p=>p.childContests[0].status='upcoming',p=>delete p.childContests[0].result,p=>p.childContests[0].result.sourceUrl='',p=>p.childContests[0].winnerParticipantId='unknown',p=>p.childContests[0].bracketSlot='final',p=>p.tour='ATP']){const next=structuredClone(parent);mutate(next);assert.equal(completeFinalEight(next).status,'upcoming');}
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const visible=(date,preferences)=>buildServerFeed({events:[completed],userId:'test',userState:{preferences},now:new Date(date+'T02:00:00Z'),limit:1000}).events.some(e=>e.id===completed.id);
@@ -28,5 +34,6 @@ if(process.argv.includes('--published')){
  for(const overview of legacyOverviews)assert(!tennis.some(f=>f.id===overview.id),'Known sourced parents replace legacy daily overviews');
  for(const overview of legacyOverviews)assert(require('../data/event-overviews.v1.json').events.some(e=>e.fixtureIds.includes(overview.id)),'Events metadata survives individual Schedule reconciliation');
  assert.equal(require('../data/tennis-feed-parents.v1.json').parents.find(p=>p.id===parent.id).status,'completed');
+ assert.equal(require('../config/follow-feed-policy').sportKey(require('../data/tennis-feed-parents.v1.json').parents.find(p=>p.id===parent.id)),'tennis-women','BJK parent has the same women’s category as its seven ties');
 }
 console.log('Programme reconciliation: complete bracket evidence, stable parent identity, retained ties and exclusion of replaced summary rows passed.');

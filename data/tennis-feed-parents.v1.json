@@ -15766,6 +15766,7 @@
         }
       ],
       "participantsConfirmed": true,
+      "gender": "women",
       "statusEvidence": {
         "kind": "completed-final-eight",
         "fixtureIds": [
