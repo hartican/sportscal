@@ -6,7 +6,7 @@ Use `nothingSport-recovery`, project `mkghopnkhcxtmfrcjdbc`. Read-only SQL and t
 
 The 14 September incident instructions below concern the former project `jljgtodyviwpslprxaao`. They are retained as history, not current operational steps. Do not apply their restart, pause, cleanup, support request or fixed migration list to a healthy current project. For a new incident, first establish the affected project, current error, backup availability and precise recovery action. A repository copy does not back up database rows or Storage objects.
 
-Account lifecycle preflight and outstanding erasure gates are in [account-erasure-runbook.md](account-erasure-runbook.md). Full database-plus-Storage restore proof remains outstanding.
+Account lifecycle preflight and outstanding erasure gates are in [account-erasure-runbook.md](account-erasure-runbook.md). The [1–2 October recovery rehearsal](quality/recovery-rehearsal-2026-10-01.md) now proves the isolated database restore, local NS Auth route and sampled access to all 13 stored files. Independent key/data retrieval, full application/Auth configuration and physical-device proof remain outstanding. The historical incident steps below are not current recovery commands.
 
 ## Historical incident — 14 September 2026
 
