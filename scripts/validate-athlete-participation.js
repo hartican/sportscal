@@ -18,8 +18,11 @@ const forthcomingFixture=materializeParticipation(forthcoming).find(event=>event
 assert(follow.reasonForEvent(forthcomingFixture,preferences),'a source-confirmed later entry surfaces outside F1');
 forthcoming.entries.push({...forthcoming.entries.at(-1),participationStatus:'withdrawn'});
 assert.equal(follow.reasonForEvent(materializeParticipation(forthcoming).find(event=>event.id==='fixture:nls:2026:8'),preferences),null,'a withdrawal supersedes the earlier entry');
-const other={schemaVersion:document.schemaVersion,athletes:[{id:'competitor:cricket:qa',displayName:'QA athlete',countryCode:'AU'}],fixtures:[{id:'other-code',key:'rugby',date:'2026-09-09'}],entries:[{participantId:'competitor:cricket:qa',eventId:'other-code',participationStatus:'confirmed',sourceUrl:'https://example.com/official-test-entry',checkedAt:'2026-09-08'}]};
-assert(follow.reasonForEvent(materializeParticipation(other)[0],{preferenceGraph:{entityFollows:[{participantId:'competitor:cricket:qa',followLevel:'follow'}]}}),'the participation contract is not hard-coded to motorsport');
+// The 30 September Cricket contract intentionally removes player follows. Use
+// a permitted athlete for this synthetic, sport-independent library assertion.
+const other={schemaVersion:document.schemaVersion,athletes:[{id:'competitor:tennis:qa',displayName:'QA athlete',countryCode:'AU'}],fixtures:[{id:'other-code',key:'rugby',date:'2026-09-09'}],entries:[{participantId:'competitor:tennis:qa',eventId:'other-code',participationStatus:'confirmed',sourceUrl:'https://example.com/official-test-entry',checkedAt:'2026-09-08'}]};
+assert(follow.reasonForEvent(materializeParticipation(other)[0],{preferenceGraph:{entityFollows:[{participantId:'competitor:tennis:qa',followLevel:'follow'}]}}),'the participation contract is not hard-coded to motorsport');
+assert.equal(follow.migratePreferences({preferenceGraph:{entityFollows:[{participantId:'competitor:cricket:qa',followLevel:'follow'}]}}).preferenceGraph.entityFollows.some(f=>f.participantId==='competitor:cricket:qa'),false,'legacy Cricket player follows cannot return through a cross-code test');
 const schedule=require('../data/code-inspector/motorsport.json');
 assert(schedule.fixtures.some(event=>event.id==='fixture:nls:2026:8'));
 assert(schedule.fixtures.find(event=>event.id==='fixture:nls:2025:9').participantIds.includes('competitor:f1:max-verstappen'));

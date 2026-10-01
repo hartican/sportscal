@@ -1,6 +1,6 @@
 {
   "version": "2026-09-27",
-  "evidenceUpdatedAt": "2026-09-30",
+  "evidenceUpdatedAt": "2026-10-01",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
         "scripts/validate-football-schedule.js",
         "scripts/validate-football-schedule-browser.js",
         "docs/quality/football-reference-reconciliation-2026-09-28.md",
@@ -63,6 +64,8 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "scripts/validate-european-football-continuity.js",
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
@@ -79,6 +82,7 @@
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
         "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches" ,
@@ -94,6 +98,8 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "scripts/validate-european-football-continuity.js",
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
@@ -110,6 +116,7 @@
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
         "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches" ,
