@@ -87,6 +87,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-openligadb-football.js"],
   ["scripts/validate-european-football-continuity.js"],
   ["scripts/validate-football-data-backup.js"],
+  ["scripts/validate-feed-card-presentation.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],

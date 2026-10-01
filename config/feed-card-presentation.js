@@ -1,6 +1,13 @@
 (function(root,factory){const api=factory();if(typeof module!=='undefined'&&module.exports)module.exports=api;root.NOTHINGSPORTS_FEED_CARD_PRESENTATION=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const ordinal=n=>`${n}${n%100>=11&&n%100<=13?'TH':({1:'ST',2:'ND',3:'RD'}[n%10]||'TH')}`;
+  function standingPosition(entry){
+    if(entry?.rankPending===true)return 'Pending';
+    if(entry?.rank==null||entry.rank===''||!['number','string'].includes(typeof entry.rank))return '—';
+    const rank=Number(entry.rank);
+    if(!Number.isSafeInteger(rank)||rank<1)return '—';
+    return `${entry.sharedRank===true?'Joint ':''}${rank}`;
+  }
   function dateBanner(value,now=new Date()){
     if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return 'DATE UNCONFIRMED';
     const dates=globalThis.NOTHINGSPORTS_AUSTRALIAN_DATES||(typeof require==='function'?require('./australian-dates'):null);
@@ -22,8 +29,9 @@
     const snapshot=snapshots.filter(s=>s.competitionId===event.competitionId&&Number.isFinite(Date.parse(s.snapshotTimeUtc))&&Date.parse(s.snapshotTimeUtc)<=start)
       .sort((a,b)=>Date.parse(b.snapshotTimeUtc)-Date.parse(a.snapshotTimeUtc))[0];
     const entry=snapshot?.entries?.find(e=>e.participantId===participantId),rank=Number(entry?.rank);
-    if(!Number.isInteger(rank)||rank<1)return null;
-    return {label:ordinal(rank),description:`${ordinal(rank)} in ${snapshot.seasonLabel||''} ${snapshot.roundLabel||'competition standings'}`.trim(),asOf:snapshot.snapshotTimeUtc};
+    if(entry?.rankPending===true||standingPosition(entry)==='—')return null;
+    const label=`${entry.sharedRank===true?'JOINT ':''}${ordinal(rank)}`;
+    return {label,description:`${label} in ${snapshot.seasonLabel||''} ${snapshot.roundLabel||'competition standings'}`.trim(),asOf:snapshot.snapshotTimeUtc};
   }
   // Reviewed display-only nicknames and muted sporting palettes. Never change identity.
   const clubs={
@@ -93,5 +101,5 @@
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     const id=circuits.find(([namePart])=>name.includes(namePart))?.[1];return id?`assets/identities/f1/circuits/${id}.svg`:null;
   }
-  return Object.freeze({dateBanner,venue,ranking,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption});
+  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption});
 });

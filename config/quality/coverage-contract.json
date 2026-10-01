@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/football-position-semantics-2026-10-02.md",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
         "docs/quality/football-ranking-acceptance-2026-10-02.md",
         "scripts/validate-football-schedule.js",
@@ -66,6 +67,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/football-position-semantics-2026-10-02.md",
         "scripts/validate-european-football-continuity.js",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
         "docs/quality/football-ranking-acceptance-2026-10-02.md",
@@ -102,6 +104,7 @@
       "season": "2026/27",
       "state": "partial",
       "evidence": [
+        "docs/quality/football-position-semantics-2026-10-02.md",
         "scripts/validate-european-football-continuity.js",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
         "docs/quality/football-ranking-acceptance-2026-10-02.md",

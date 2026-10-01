@@ -1,10 +1,13 @@
 'use strict';
 const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const inspector=require('../data/code-inspector/football.json');
+if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.standings){if(entry.competitionId==='competition:uefa-champions-league'){entry.rank=null;entry.rankPending=true;entry.sharedRank=false;}}
 (async()=>{
  const browser=await chromium.launch({channel:'chrome'});
  try{
   const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+  if(process.env.POSITION_PENDING_REHEARSAL==='1')await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
   // Seed an existing local profile before startup; otherwise the scheduled
   // first-run wizard can reopen after the test starts clicking schedule tabs.
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true})));
@@ -26,6 +29,9 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
   await page.locator('#confirmStandingsRevealBtn').click();
   await page.locator('.code-inspector-standing-row').first().waitFor();
   assert.equal(await page.locator('.code-inspector-standing-row').count(),92);
+  const expectedPositions=inspector.standings.map(e=>`${e.rankPending?'Pending ·':`${e.sharedRank?'Joint ':''}${e.rank}.`} ${e.displayName}`).sort();
+  const displayedPositions=await page.locator('.code-inspector-standing-row strong').allTextContents();
+  assert.deepEqual(displayedPositions.sort(),expectedPositions,'Schedule preserves every shared/pending position beside its sourced team');
   assert.equal(await page.locator('.standings-source-note').count(),2);
   assert.match(await page.locator('.standings-source-note').first().innerText(),/Provisional.*community/);
   await page.locator('.code-inspector-standing-row').first().scrollIntoViewIfNeeded();

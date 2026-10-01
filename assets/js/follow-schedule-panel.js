@@ -101,7 +101,8 @@ function renderCodeInspectorStandings(panel, code){
         const row = document.createElement("article");
         row.className = "code-inspector-fixture code-inspector-standing-row";
         const label = document.createElement("strong");
-        label.textContent = `${entry.rankPending?"—":(entry.sharedRank?"=":"")+entry.rank+"."} ${entry.displayName}`;
+        const position = NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(entry);
+        label.textContent = `${position}${position==='Pending'||position==='—'?' ·':'.'} ${entry.displayName}`;
         const facts = document.createElement("span");
         const played = entry.played ?? entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
         const wins = entry.won ?? entry.wins ?? entry.stats?.wins;

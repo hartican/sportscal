@@ -1,6 +1,8 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const inspector=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/code-inspector/football.json'),'utf8'));
+if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.standings){if(entry.competitionId==='competition:uefa-champions-league'){entry.rank=null;entry.rankPending=true;entry.sharedRank=false;}}
 (async()=>{
  const server=process.env.QA_BASE_URL?null:http.createServer((req,res)=>{const file=path.join(__dirname,'..',new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(error,bytes)=>{res.writeHead(error?404:200,{'Content-Type':file.endsWith('.js')?'application/javascript':file.endsWith('.json')?'application/json':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':'text/html'});res.end(error?'':bytes);});});
  if(server)await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -11,6 +13,7 @@ try{
   if(process.env.PROFILE_CASE_ONLY&&(!compact||!competition.includes(process.env.PROFILE_CASE_ONLY==='1'?'premier':process.env.PROFILE_CASE_ONLY)||mode!=='feed'))continue;console.log('Case',compact,competition,mode);const page=await browser.newPage({viewport:{width:compact?320:390,height:844},serviceWorkers:'block'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+  if(process.env.POSITION_PENDING_REHEARSAL==='1')await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:['sport:football']})));
   await page.goto(base,{waitUntil:'commit'});
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
@@ -57,6 +60,10 @@ try{
   assert(await standingsHeading.evaluate(n=>n===document.activeElement),'asynchronous arrival must not send focus to the page or steal it');
   assert(await drawer.getByRole('table').getAttribute('aria-label'),'table has a competition/source-date name');
   assert(await drawer.locator('.profile-context-table th').evaluateAll(headers=>headers.every(h=>h.scope==='col')),'columns have explicit header associations');
+  const expectedPositions=inspector.standings.filter(e=>e.competitionId===competition).map(e=>[e.rankPending?'Pending':`${e.sharedRank?'Joint ':''}${e.rank}`,e.displayName]);
+  const displayedPositions=await drawer.locator('.profile-context-table tr').evaluateAll(rows=>rows.filter(r=>r.querySelector('td')).map(r=>[r.cells[0].textContent,r.cells[1].textContent]));
+  if(process.env.PROFILE_CAPTURE_PATH)await drawer.screenshot({path:process.env.PROFILE_CAPTURE_PATH});
+  assert.deepEqual(displayedPositions,expectedPositions,'profile positions preserve actual shared/pending source meaning');
   if(rows===36)assert.match(await drawer.innerText(),/Provisional table derived from community results/);
   assert.equal(await page.evaluate(()=>userPreferences.showSpoilers),false,'local reveal preserves global Results');
   assert(await drawer.getByRole('button',{name:'Show fixture results',exact:true}).isVisible(),'standings reveal does not reveal fixture results');
