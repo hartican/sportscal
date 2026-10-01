@@ -205,6 +205,9 @@
       "properties": {
         "participantId": { "$ref": "#/$defs/id" },
         "rank": { "type": "integer", "minimum": 1 },
+        "sortOrder": { "type": "integer", "minimum": 1 },
+        "sharedRank": { "type": "boolean" },
+        "rankPending": { "type": "boolean" },
         "points": { "type": "number", "minimum": 0 },
         "played": { "type": "integer", "minimum": 0 },
         "won": { "type": "integer", "minimum": 0 },

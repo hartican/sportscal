@@ -48,8 +48,22 @@ function officialSource(checkedAt){
   };
 }
 
-// Validate facts independently of the provider's displayed order. Equal primary
-// statistics retain the published rank; end-of-season head-to-head is not inferred.
+// Provider row order is separate from sporting place (Handbook C.4-C.7).
+// C.17 adjudication is never inferred from ordinal rows or elapsed time.
+function sharedPlaces(entries){
+  const rows=[...entries].sort((a,b)=>a.rank-b.rank);
+  const equal=(a,b)=>a&&b&&a.ladderPoints===b.ladderPoints&&a.pointsDifference===b.pointsDifference&&a.pointsFor===b.pointsFor;
+  const atSeasonBoundary=rows.every(row=>row.played===2*(EXPECTED_TEAM_COUNT-1));
+  let place=1;
+  return rows.map((entry,index)=>{
+    if(!index||!equal(entry,rows[index-1]))place=index+1;
+    const {sharedRank,rankPending,sortOrder,...facts}=entry;
+    return equal(entry,rows[index-1])||equal(entry,rows[index+1])
+      ? {...facts,rank:place,sortOrder:index+1,sharedRank:true,...(atSeasonBoundary?{rankPending:true}:{})}
+      : facts;
+  });
+}
+
 function validateTableFacts(entries){
   const counts = ["played", "won", "drawn", "lost", "pointsFor", "pointsAgainst"];
   for (const entry of entries){
@@ -62,7 +76,7 @@ function validateTableFacts(entries){
     }
     // Points may include an official disciplinary adjustment, including a negative total.
   }
-  const ranked = [...entries].sort((a, b) => a.rank - b.rank);
+  const ranked = [...entries].sort((a, b) => (a.sortOrder??a.rank) - (b.sortOrder??b.rank));
   for (let index = 1; index < ranked.length; index++){
     const higher = ranked[index - 1], lower = ranked[index];
     const difference = higher.ladderPoints - lower.ladderPoints
@@ -110,11 +124,16 @@ function standingsEntries(payload){
   const expectedRanks = Array.from({ length: EXPECTED_TEAM_COUNT }, (_, index) => index + 1);
   const ranks = normalized.map(entry => entry.rank).sort((a, b) => a - b);
   const participantIds = new Set(normalized.map(entry => entry.participantId));
-  if (normalized.length !== EXPECTED_TEAM_COUNT || participantIds.size !== EXPECTED_TEAM_COUNT || ranks.some((rank, index) => rank !== expectedRanks[index])){
-    throw new Error(`Premier League standings refresh failed closed: expected ${EXPECTED_TEAM_COUNT} unique clubs ranked 1-${EXPECTED_TEAM_COUNT}.`);
+  if (normalized.length !== EXPECTED_TEAM_COUNT || participantIds.size !== EXPECTED_TEAM_COUNT || ranks.some(rank=>rank<1||rank>EXPECTED_TEAM_COUNT)){
+    throw new Error(`Premier League standings refresh failed closed: expected ${EXPECTED_TEAM_COUNT} unique clubs with valid table positions.`);
   }
   validateTableFacts(normalized);
-  return normalized.sort((first, second) => first.rank - second.rank);
+  const places=sharedPlaces(normalized);
+  const ordered=[...normalized].sort((a,b)=>a.rank-b.rank);
+  if(ranks.some((rank,index)=>rank!==expectedRanks[index])&&ordered.some((row,index)=>row.rank!==places[index].rank)){
+    throw new Error("Premier League standings contain inconsistent ordinal or shared-place positions.");
+  }
+  return places;
 }
 
 function canonicalParticipants(entries, directory){
@@ -154,6 +173,9 @@ function buildSnapshot(payload, directory, checkedAt){
         clubCount: EXPECTED_TEAM_COUNT,
         dynamicallyGenerated: payload.dynamicallyGenerated === true,
         roundStatus: payload.live === true ? "in-progress" : "complete",
+        ...(entries.some(entry=>entry.sharedRank)?{tableNote:entries.some(entry=>entry.rankPending)
+          ? "Equal records at the 38-match boundary require official sporting-decision verification under Premier League C.17. Their positions are pending; no title, relegation or qualification is inferred."
+          : "Equal points, goal difference and goals scored share a place under Premier League C.7. Row order follows the official table; no qualification is inferred."}:{}),
       },
     },
   };
@@ -200,13 +222,22 @@ function validatePublishedContext(bundle){
     throw new Error("Premier League canonical standings must contain exactly 20 unique clubs.");
   }
   const expectedRanks = Array.from({ length: EXPECTED_TEAM_COUNT }, (_, index) => index + 1);
-  const ranks = entries.map(entry => entry.rank).sort((first, second) => first - second);
+  const ranks = entries.map(entry => entry.sortOrder??entry.rank).sort((first, second) => first - second);
   const requiredNumericFields = ["played", "won", "drawn", "lost", "pointsFor", "pointsAgainst", "pointsDifference", "ladderPoints"];
   if (ranks.some((rank, index) => rank !== expectedRanks[index])
     || entries.some(entry => requiredNumericFields.some(field => !Number.isFinite(entry[field])))){
     throw new Error("Premier League canonical standings contain invalid ranks or league-table statistics.");
   }
   validateTableFacts(entries);
+  const expected=sharedPlaces(entries.map(entry=>({...entry,rank:entry.sortOrder??entry.rank})));
+  const byId=new Map(expected.map(entry=>[entry.participantId,entry]));
+  if(entries.some(entry=>{
+    const wanted=byId.get(entry.participantId);
+    return entry.rank!==wanted.rank||(entry.sharedRank===true)!==(wanted.sharedRank===true)
+      ||(entry.rankPending===true)!==(wanted.rankPending===true)
+      ||['sharedRank','rankPending'].some(field=>entry[field]!==undefined&&typeof entry[field]!=='boolean')
+      ||(wanted.sharedRank&&entry.sortOrder!==wanted.sortOrder);
+  }))throw new Error("Premier League canonical shared-place metadata contradicts its table facts or official row order.");
   const participants = new Set((bundle.participants || []).map(item => item.id));
   if (entries.some(entry => !participants.has(entry.participantId))){
     throw new Error("Premier League canonical standings contain an unresolved participant.");

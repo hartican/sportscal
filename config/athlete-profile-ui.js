@@ -13,6 +13,7 @@
   const style = document.createElement("style");
   style.textContent = `
 .profile-context-table{width:100%;border-collapse:collapse;font-size:.75rem;}.profile-context-table th,.profile-context-table td{padding:7px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+.profile-standings-table{table-layout:fixed}.profile-standings-table th,.profile-standings-table td{white-space:normal;overflow-wrap:anywhere;padding:7px 4px}.profile-standings-table th:not(:nth-child(2)){width:18%}
 
 .athlete-profile-trigger{border:0;background:transparent;color:inherit;padding:0;text-align:left;cursor:pointer}.athlete-profile-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}.athlete-headshot{width:38px;height:38px;flex:0 0 38px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--panel);box-shadow:0 0 0 1px var(--border)}.athlete-number{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 6px;border-radius:999px;background:color-mix(in srgb,var(--sport-color,var(--accent)) 17%,var(--panel));color:var(--text);font-size:.66rem;font-weight:900}
 .athlete-profile-backdrop{position:fixed;inset:0;z-index:10040;display:flex;justify-content:flex-end;background:rgba(0,0,0,.54)}
@@ -159,7 +160,8 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       for(const competition of new Set(standings.map(e=>e.competitionId))){
         const rows=standings.filter(e=>e.competitionId===competition),first=rows[0];
         const label=document.createElement('p');label.textContent=[first.competitionName||competition?.replace(/^competition:/,'').replaceAll('-',' '),first.roundLabel,first.asOf?'As of '+new Date(first.asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');
-        section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[root.NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(e),e.displayName,e.points??e.ladderPoints,e.played]),label.textContent));
+        const standingsTable=table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[root.NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(e),e.displayName,e.points??e.ladderPoints,e.played]),label.textContent);
+        standingsTable.firstChild.classList.add('profile-standings-table');section.append(label,standingsTable);
         if(first.tableNote){const note=document.createElement('p');note.textContent=first.tableNote;section.append(note);}
         if(/^https:\/\//i.test(first.sourceUrl||'')){const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);}
       }

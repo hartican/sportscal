@@ -41,6 +41,7 @@ function buildStandingsIndex(canonicalDir = path.resolve("data/canonical")) {
       standings.set(snapshot.competitionId, {
         snapshot,
         ranks: new Map(snapshot.entries.map(entry => [entry.participantId, entry.rank])),
+        positions: new Map(snapshot.entries.map(entry => [entry.participantId, entry])),
       });
     });
   });
@@ -74,15 +75,17 @@ function resolveStandingsAwareOverride(event, override, standingsIndex) {
   if (!standings) throw new Error(`${event.id} has no ladder snapshot for ${event.competitionId}.`);
   const homeRank = standings.ranks.get(event.homeParticipantId);
   const awayRank = standings.ranks.get(event.awayParticipantId);
+  const homePosition=standings.positions?.get(event.homeParticipantId),awayPosition=standings.positions?.get(event.awayParticipantId);
+  if(homePosition?.rankPending||awayPosition?.rankPending)throw new Error(`${event.id} has pending standings; current-position editorial requires source review.`);
   if (!Number.isInteger(homeRank) || !Number.isInteger(awayRank)) {
     throw new Error(`${event.id} cannot resolve both participants in ${standings.snapshot.id}.`);
   }
 
   return interpolate(override, {
-    homeRank,
-    awayRank,
-    homeRankOrdinal: ordinal(homeRank),
-    awayRankOrdinal: ordinal(awayRank),
+    homeRank: `${homePosition?.sharedRank?'joint ':''}${homeRank}`,
+    awayRank: `${awayPosition?.sharedRank?'joint ':''}${awayRank}`,
+    homeRankOrdinal: `${homePosition?.sharedRank?'joint ':''}${ordinal(homeRank)}`,
+    awayRankOrdinal: `${awayPosition?.sharedRank?'joint ':''}${ordinal(awayRank)}`,
     ladderSourceCheckedAt: standings.snapshot.source?.checkedAt || standings.snapshot.updatedAt,
   });
 }

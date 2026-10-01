@@ -1,17 +1,22 @@
 'use strict';
-const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const inspector=require('../data/code-inspector/football.json');
+const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const inspector=process.env.POSITION_REHEARSAL_FILE?JSON.parse(require('node:fs').readFileSync(process.env.POSITION_REHEARSAL_FILE,'utf8')):require('../data/code-inspector/football.json');
 if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.standings){if(entry.competitionId==='competition:uefa-champions-league'){entry.rank=null;entry.rankPending=true;entry.sharedRank=false;}}
 (async()=>{
+ const server=process.env.QA_BASE_URL?null:http.createServer((req,res)=>{
+  const file=path.join(__dirname,'..',new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));
+  fs.readFile(file,(error,bytes)=>{res.writeHead(error?404:200,{'Content-Type':({'.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'})[path.extname(file)]||'text/html'});res.end(error?'':bytes);});
+ });
+ if(server)await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const browser=await chromium.launch({channel:'chrome'});
  try{
   const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
-  if(process.env.POSITION_PENDING_REHEARSAL==='1')await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
+  if(process.env.POSITION_PENDING_REHEARSAL==='1'||process.env.POSITION_REHEARSAL_FILE)await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
   // Seed an existing local profile before startup; otherwise the scheduled
   // first-run wizard can reopen after the test starts clicking schedule tabs.
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true})));
-  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
+  await page.goto(process.env.QA_BASE_URL||`http://127.0.0.1:${server.address().port}`);
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&typeof FOLLOW_FIRST!=='undefined');
   await page.waitForFunction(()=>startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
   await page.evaluate(()=>{
@@ -32,8 +37,9 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
   const expectedPositions=inspector.standings.map(e=>`${e.rankPending?'Pending ·':`${e.sharedRank?'Joint ':''}${e.rank}.`} ${e.displayName}`).sort();
   const displayedPositions=await page.locator('.code-inspector-standing-row strong').allTextContents();
   assert.deepEqual(displayedPositions.sort(),expectedPositions,'Schedule preserves every shared/pending position beside its sourced team');
-  assert.equal(await page.locator('.standings-source-note').count(),2);
-  assert.match(await page.locator('.standings-source-note').first().innerText(),/Provisional.*community/);
+  const expectedNotes=[...new Map(inspector.standings.map(e=>[e.competitionId,e.tableNote])).values()].filter(Boolean);
+  assert.deepEqual((await page.locator('.standings-source-note').allTextContents()).sort(),expectedNotes.sort(),'all source explanations remain visible, including shared/pending EPL rules');
+  assert((await page.locator('.standings-source-note').allTextContents()).some(note=>/Provisional.*community/.test(note)));
   await page.locator('.code-inspector-standing-row').first().scrollIntoViewIfNeeded();
   assert.match(await page.locator('.code-inspector-standing-row').first().innerText(),/played.*wins.*draws.*pts/);
   assert.match(await page.locator('.follow-schedule-panel').innerText(),/Table checked/);
@@ -62,5 +68,5 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
    assert.equal(await link.getAttribute('href'),`https://www.stan.com.au/watch/sport/football/${slug}`);
   }
   console.log('Football browser: matchweek navigation, Results-off protection, dated 20-club EPL and two 36-club European tables, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
- }finally{await browser.close();}
+ }finally{await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}
 })().catch(e=>{console.error(e);process.exitCode=1;});

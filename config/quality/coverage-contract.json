@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/epl-shared-places-2026-10-02.md",
         "docs/quality/football-position-semantics-2026-10-02.md",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
         "docs/quality/football-ranking-acceptance-2026-10-02.md",
@@ -46,7 +47,7 @@
         "docs/quality/football-viewing-acceptance-2026-09-30.md"
       ],
       "remaining": [
-        "Exact-tie/shared-place presentation and final sporting adjudication beyond official displayed order; current handbook rules reviewed",
+        "Actual decisive final-tie adjudication requires explicit official evidence; shared-place and pending source-to-screen contracts are implemented, not real final-season certification",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial permission"

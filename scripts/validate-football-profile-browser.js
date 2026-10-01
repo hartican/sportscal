@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const inspector=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/code-inspector/football.json'),'utf8'));
+const inspector=JSON.parse(fs.readFileSync(process.env.POSITION_REHEARSAL_FILE||path.join(__dirname,'../data/code-inspector/football.json'),'utf8'));
 if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.standings){if(entry.competitionId==='competition:uefa-champions-league'){entry.rank=null;entry.rankPending=true;entry.sharedRank=false;}}
 (async()=>{
  const server=process.env.QA_BASE_URL?null:http.createServer((req,res)=>{const file=path.join(__dirname,'..',new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(error,bytes)=>{res.writeHead(error?404:200,{'Content-Type':file.endsWith('.js')?'application/javascript':file.endsWith('.json')?'application/json':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':'text/html'});res.end(error?'':bytes);});});
@@ -13,7 +13,8 @@ try{
   if(process.env.PROFILE_CASE_ONLY&&(!compact||!competition.includes(process.env.PROFILE_CASE_ONLY==='1'?'premier':process.env.PROFILE_CASE_ONLY)||mode!=='feed'))continue;console.log('Case',compact,competition,mode);const page=await browser.newPage({viewport:{width:compact?320:390,height:844},serviceWorkers:'block'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
-  if(process.env.POSITION_PENDING_REHEARSAL==='1')await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
+  if(process.env.POSITION_PENDING_REHEARSAL==='1'||process.env.POSITION_REHEARSAL_FILE)await page.route('**/data/code-inspector/football.json',r=>r.fulfill({json:inspector}));
+  if(inspector.positionRehearsalSnapshot)await page.route('**/assets/js/app-shell-runtime.js?*',r=>r.fulfill({contentType:'application/javascript',body:fs.readFileSync(path.join(__dirname,'../assets/js/app-shell-runtime.js'),'utf8')+require('./build-app-shell-runtime').standingsSource([inspector.positionRehearsalSnapshot])}));
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:['sport:football']})));
   await page.goto(base,{waitUntil:'commit'});
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
@@ -40,6 +41,13 @@ try{
   },{competition,mode,compact});
   if(mode==='feed'){const slot=page.locator(`[data-feed-event-id="${slotId}"]`).first();await slot.waitFor({state:'attached'});await slot.scrollIntoViewIfNeeded();}
   const card=page.locator(`[data-event-id="${target}"]`).first();await card.waitFor();
+  if(inspector.positionRehearsalSnapshot){
+    const positions=inspector.positionRehearsalSnapshot.entries;
+    const ids=await page.evaluate(target=>{const e=activeEvents.find(e=>(e.eventId||e.id)===target);return e?.participantIds||[e?.homeParticipantId,e?.awayParticipantId];},target);
+    assert.equal(ids.length,2);assert(ids.every(id=>positions.some(e=>e.participantId===id)),'both actual fixture participants resolve to the persisted rehearsal table');
+    const expectedRanks=ids.map(id=>positions.find(e=>e.participantId===id)).filter(Boolean).filter(e=>!e.rankPending).map(e=>`JOINT ${require('../config/feed-card-presentation').ordinal(e.rank)}`);
+    assert.deepEqual(await card.locator('.fixture-standing').allTextContents(),expectedRanks,'actual compact Feed badges preserve shared ranks and suppress pending positions');
+  }
   if(!await card.locator('.fixture-profile-link:visible').count())await card.locator('[data-card-control="disclosure"]').click();
   const link=card.locator('.fixture-profile-link:visible').first();for(let attempt=0;;attempt++){try{await link.scrollIntoViewIfNeeded();await link.focus();break;}catch(error){if(attempt>=2||!/not attached to the DOM/.test(error.message))throw error;}}
   const label=await link.getAttribute('aria-label');
@@ -59,7 +67,9 @@ try{
   assert.equal(await status.innerText(),'Standings loaded.','loading completion has meaningful live feedback');
   assert(await standingsHeading.evaluate(n=>n===document.activeElement),'asynchronous arrival must not send focus to the page or steal it');
   assert(await drawer.getByRole('table').getAttribute('aria-label'),'table has a competition/source-date name');
+  if(competition==='competition:premier-league-2026-27')assert.match(await drawer.getByRole('table').getAttribute('aria-label'),/2026\/27 Premier League/,'the visible/accessible title uses the authoritative competition name');
   assert(await drawer.locator('.profile-context-table th').evaluateAll(headers=>headers.every(h=>h.scope==='col')),'columns have explicit header associations');
+  assert(await drawer.locator('.profile-context-table').evaluate(table=>table.parentElement.scrollWidth<=table.parentElement.clientWidth+1),'four-column standings fit the mobile drawer without hiding the Played column');
   const expectedPositions=inspector.standings.filter(e=>e.competitionId===competition).map(e=>[e.rankPending?'Pending':`${e.sharedRank?'Joint ':''}${e.rank}`,e.displayName]);
   const displayedPositions=await drawer.locator('.profile-context-table tr').evaluateAll(rows=>rows.filter(r=>r.querySelector('td')).map(r=>[r.cells[0].textContent,r.cells[1].textContent]));
   if(process.env.PROFILE_CAPTURE_PATH)await drawer.screenshot({path:process.env.PROFILE_CAPTURE_PATH});
@@ -78,5 +88,5 @@ try{
   await page.evaluate(()=>renderAll());await page.waitForFunction(({target,label})=>document.activeElement?.closest('[data-event-id]')?.dataset.eventId===target&&document.activeElement?.getAttribute('aria-label')===label,{target,label});await page.keyboard.press('Tab');assert.notEqual(await page.evaluate(()=>document.activeElement?.getAttribute('aria-label')),label,'next user input releases return focus');if(checks===0&&!process.env.PROFILE_CASE_ONLY){await page.locator("#homeSpoilerToggle").click();await page.locator("dialog[open] [data-confirm]").click();await link.click();await drawer.waitFor();await page.waitForFunction(rows=>document.querySelectorAll('.athlete-profile-drawer .profile-context-table tr').length===rows+1,rows).catch(async e=>{console.log(await drawer.innerText());throw e;});assert.equal(await drawer.getByRole('button',{name:'Show profile standings',exact:true}).count(),0);await page.keyboard.press('Escape');await drawer.waitFor({state:'detached'});}
   assert.deepEqual(errors,[]);checks++;await page.close();
  }
- console.log(`Football profiles: ${checks} real Feed/Schedule journeys preserve focus, scroll, filters and preferences; scoped standings require local reveal; compact/full cards and all three close paths passed.`);
+ console.log(`Football profiles: ${checks} tested Feed/Schedule journeys preserve focus, scroll, filters and preferences; scoped standings require local reveal. ${process.env.POSITION_REHEARSAL_FILE||process.env.POSITION_PENDING_REHEARSAL==='1'?'Intercepted standings rehearsal; no real final-season evidence.':'Actual published standings; tested card modes and close paths passed.'}`);
 }finally{await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e);process.exitCode=1});
