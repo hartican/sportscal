@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{execFileSync}=require('node:child_process');
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{execFileSync,spawnSync}=require('node:child_process');
 const {ensureGeneratedShellVersion}=require('./version-generated-shell');
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-shell-version-'));
 const git=args=>execFileSync('git',args,{cwd:root,stdio:['ignore','pipe','pipe']});
@@ -39,5 +39,29 @@ try{
  assert(main.includes('if ! git diff --quiet HEAD -- assets/js/app-shell-runtime.js; then\n  CARD_OUTPUT_FILES+='),'unchanged runtimes cannot stage unrelated shell edits');
  assert(main.indexOf('node scripts/version-generated-shell.js')<main.indexOf('git add "${CARD_OUTPUT_FILES[@]}"'),'versioning precedes the release commit');
  assert(main.indexOf('node scripts/validate-shell-script-cache.js')<main.indexOf('git add "${CARD_OUTPUT_FILES[@]}"'),'cache validation precedes publication');
+ // Exercise the real scheduled wrapper against a local Git remote and a fake
+ // served deployment. The release advances cache files after refresh hashes
+ // have been captured: the verifier must compare with the published commit.
+ const fixture=path.join(root,'scheduled'),remote=path.join(root,'remote.git');
+ fs.mkdirSync(path.join(fixture,'scripts'),{recursive:true});fs.mkdirSync(path.join(fixture,'data'));fs.mkdirSync(path.join(fixture,'bin'));
+ const runGit=args=>execFileSync('git',args,{cwd:fixture,stdio:['ignore','pipe','pipe']});
+ execFileSync('git',['init','--bare','--quiet',remote]);runGit(['init','--quiet','-b','main']);
+ runGit(['config','user.name','QA']);runGit(['config','user.email','qa@example.invalid']);runGit(['remote','add','origin',remote]);
+ fs.writeFileSync(path.join(fixture,'index.html'),'<meta name="app-shell-version" content="1">');
+ fs.writeFileSync(path.join(fixture,'service-worker.js'),'shell 1');
+ fs.writeFileSync(path.join(fixture,'data/events.json'),'[]');fs.writeFileSync(path.join(fixture,'data/feed-meta.json'),'{"version":"old"}');
+ fs.copyFileSync(path.join(__dirname,'update-sportscal-cards-and-release.sh'),path.join(fixture,'scripts/update-sportscal-cards-and-release.sh'));
+ fs.writeFileSync(path.join(fixture,'scripts/update-cards.js'),"require('fs').writeFileSync('data/events.json','[{\"id\":\"new\"}]');require('fs').writeFileSync('data/feed-meta.json','{\"version\":\"new\"}');\n");
+ fs.writeFileSync(path.join(fixture,'scripts/redeploy-and-release.sh'),'#!/usr/bin/env bash\nset -euo pipefail\nprintf \'<meta name="app-shell-version" content="2">\' > index.html\nprintf "shell 2" > service-worker.js\ngit add data index.html service-worker.js\ngit commit --quiet -m "Simulated generated cache release"\ngit push --quiet origin HEAD:main\ngit fetch --quiet origin main\n',{mode:0o755});
+ const curl=path.join(fixture,'bin/curl');
+ fs.writeFileSync(curl,'#!'+process.execPath+'\n'+`const fs=require('fs'),path=require('path'),a=process.argv.slice(2),url=new URL(a.at(-1));let file=url.pathname==='/'?'index.html':url.pathname.slice(1);let bytes=fs.readFileSync(file);if(process.env.QA_MISMATCH===file)bytes=Buffer.from('incorrect deployment bytes');fs.writeFileSync(a[a.indexOf('-o')+1],bytes);fs.writeFileSync(a[a.indexOf('-D')+1],'HTTP/2 200\\r\\nETag: qa\\r\\n\\r\\n');\n`,{mode:0o755});
+ runGit(['add','.']);runGit(['commit','--quiet','-m','Synthetic scheduled baseline']);const baseline=runGit(['rev-parse','HEAD']).toString().trim();runGit(['push','--quiet','origin','main']);
+ const invoke=mismatch=>spawnSync('bash',['scripts/update-sportscal-cards-and-release.sh'],{cwd:fixture,encoding:'utf8',env:{...process.env,PATH:path.join(fixture,'bin')+path.delimiter+process.env.PATH,NODE_BIN:process.execPath,WEBSITE_URL:'https://qa.invalid',SKIP_RELEASE:'0',QUICK_RESULTS:'1',QA_MISMATCH:mismatch||''}});
+ const good=invoke();assert.equal(good.status,0,'an actual published cache-version advance must pass the scheduled wrapper:\n'+good.stdout+'\n'+good.stderr);
+ assert.match(good.stdout,/app-shell-version=2/,'the shell version must be parsed from actual served HTML');assert.match(good.stdout,/Immutable live-content match: YES/);
+ for(const mismatch of ['index.html','service-worker.js']){
+  runGit(['reset','--hard',baseline]);runGit(['push','--quiet','--force','origin','main']);runGit(['fetch','--quiet','origin','main']);
+  const bad=invoke(mismatch);assert.notEqual(bad.status,0,'a mismatched '+mismatch+' must still reject the release');assert.match(bad.stderr,/live shell, feed metadata, events or service worker/);
+ }
  console.log('Generated shell: no-op, forward keys/worker, idempotence, inconsistent-input retention and release integration passed.');
 }finally{fs.rmSync(root,{recursive:true,force:true});}

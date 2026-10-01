@@ -2,7 +2,7 @@
   "schemaVersion": "canonical-sports.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-10-01T21:33:36.975Z",
+  "generatedAt": "2026-10-01T21:56:19.487Z",
   "sources": [
     {
       "provider": "AFL",
@@ -32,7 +32,7 @@
       "provider": "Premier League",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T21:33:36.975Z"
+      "checkedAt": "2026-10-01T21:56:19.487Z"
     }
   ],
   "sportDomains": [
@@ -40788,7 +40788,7 @@
       "competitionId": "competition:premier-league-2026-27",
       "seasonLabel": "2026/27",
       "roundLabel": "After Matchweek 5",
-      "snapshotTimeUtc": "2026-10-01T21:33:36.975Z",
+      "snapshotTimeUtc": "2026-10-01T21:56:19.487Z",
       "entries": [
         {
           "participantId": "team:football:epl:11",
@@ -41035,7 +41035,7 @@
         "provider": "Premier League",
         "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
         "sourceType": "official",
-        "checkedAt": "2026-10-01T21:33:36.975Z"
+        "checkedAt": "2026-10-01T21:56:19.487Z"
       },
       "metadata": {
         "coverageStatus": "complete",

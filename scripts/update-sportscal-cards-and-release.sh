@@ -34,6 +34,22 @@ read_file_sha256() {
   ' "$file_path"
 }
 
+read_published_file_sha256() {
+  git show "$RELEASE_SHA:$1" | "$NODE_BIN" -e '
+    const fs = require("fs");
+    const crypto = require("crypto");
+    process.stdout.write(crypto.createHash("sha256").update(fs.readFileSync(0)).digest("hex"));
+  '
+}
+
+read_shell_version() {
+  "$NODE_BIN" -e '
+    const fs = require("fs");
+    const html = fs.readFileSync(process.argv[1], "utf8");
+    process.stdout.write(html.match(/name="app-shell-version" content="(\d+)"/)?.[1] || "");
+  ' "$1"
+}
+
 load_token_file() {
   local token_file="$1"
   local token_value=""
@@ -138,7 +154,10 @@ check_browser_deployment() {
   if curl -fsS -o "$remote_home" -D "$remote_headers_home" --max-time 45 "$WEBSITE_URL/" >/tmp/curl_home.log 2>&1; then
     status_home="$(head -n 1 "$remote_headers_home" | awk "{print \$2}")"
     BROWSER_HOME_STATUS="${status_home:-unavailable}"
-    BROWSER_HOME_APP_SHELL="$(grep -o 'name=\"app-shell-version\" content=\"[^\"]\\+\"' "$remote_home" | head -n 1 | sed 's/.*content=\"\\(.*\\)\"/\\1/' || true)"
+    BROWSER_HOME_APP_SHELL="$(read_shell_version "$remote_home")"
+    if [[ -z "$BROWSER_HOME_APP_SHELL" ]]; then
+      BROWSER_CHECK_OK=0
+    fi
     REMOTE_HOME_HASH="$(read_file_sha256 "$remote_home")"
   else
     BROWSER_CHECK_OK=0
@@ -226,6 +245,19 @@ else
   fi
   ./scripts/redeploy-and-release.sh "${RELEASE_COMMIT_MESSAGE:-Automated card refresh and redeploy}"
 
+  # The release may advance generated cache keys after refresh. Pin the exact
+  # published commit rather than comparing production with pre-release bytes.
+  RELEASE_SHA="$(git rev-parse origin/main)"
+  if [[ "$(git rev-parse HEAD)" != "$RELEASE_SHA" ]]; then
+    echo "Error: release checkout no longer matches published origin/main $RELEASE_SHA." >&2
+    exit 1
+  fi
+  LOCAL_HOME_HASH_AFTER="$(read_published_file_sha256 index.html)"
+  LOCAL_META_HASH_AFTER="$(read_published_file_sha256 data/feed-meta.json)"
+  LOCAL_EVENTS_HASH_AFTER="$(read_published_file_sha256 data/events.json)"
+  LOCAL_SERVICE_WORKER_HASH_AFTER="$(read_published_file_sha256 service-worker.js)"
+  LOCAL_HOME_APP_SHELL_AFTER="$(git show "$RELEASE_SHA:index.html" | "$NODE_BIN" -e 'const fs=require("fs");const version=fs.readFileSync(0,"utf8").match(/name="app-shell-version" content="(\d+)"/)?.[1];if(!version)throw new Error("Published shell version is missing");process.stdout.write(version);')"
+
   check_browser_deployment
 
   DATA_UPDATED_ON_WEBSITE="NO"
@@ -245,6 +277,7 @@ else
 
   RELEASE_CONTENT_MATCH="NO"
   if [[ "$BROWSER_CHECK_OK" == "1" ]] && \
+     [[ "$BROWSER_HOME_APP_SHELL" == "$LOCAL_HOME_APP_SHELL_AFTER" ]] && \
      [[ "$REMOTE_HOME_HASH" == "$LOCAL_HOME_HASH_AFTER" ]] && \
      [[ "$REMOTE_META_HASH" == "$LOCAL_META_HASH_AFTER" ]] && \
      [[ "$REMOTE_EVENTS_HASH" == "$LOCAL_EVENTS_HASH_AFTER" ]] && \
@@ -256,6 +289,7 @@ fi
 echo
 echo "=== Update + release summary ==="
 echo "Website URL: ${WEBSITE_URL}"
+echo "Published snapshot: ${RELEASE_SHA:-skipped}"
 echo "Local data changed by scripts: ${LOCAL_DATA_CHANGED}"
 echo "Local events hash before: ${LOCAL_EVENTS_HASH_BEFORE}"
 echo "Local events hash after:  ${LOCAL_EVENTS_HASH_AFTER}"

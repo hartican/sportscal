@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-01T21:34:29.963Z",
+  "generatedAt": "2026-10-01T21:56:28.099Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -159,7 +159,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T21:34:29.963Z",
+      "freshAt": "2026-10-01T21:56:28.099Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

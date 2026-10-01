@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Football quick refresh publication — 2 October 2026
+
+Weekday EPL standings use the existing complete primary table adapter: one bounded request per invocation, original observations and last-good retention; no second scheduler. Generated standings receive a matching shell/script/worker epoch in the same release commit. The scheduled wrapper reads expected hashes from that published commit after automatic versioning, and still rejects wrong served bytes or a missing/wrong shell version.
+
+Ordinary quick publication retains source-backed, spoiler-safe completed editorial only when fixture identities, participants, scheduling and results match its own pre-refresh surface. Changed finals, participants or kickoff invalidate retention; fresh computed stakes/intensity remain current. This replaces repeated manual editorial restoration without any source call, AI request, storage table or owner decision. Exceptions and partial tournament hydration remain in the existing readout. One successful data publication is not sustained unattended-operation certification. See [the dated source/cache record](quality/football-freshness-2026-10-02.md).
+
 ## LPGA completed classifications — 30 September 2026
 
 The existing full golf owner and weekday quick refresh reconcile up to four already-known LPGA tournaments ending within the past 14 days, after a conservative 36-hour allowance from the end-date midnight UTC for the final local day to finish. Each uses one official leaderboard request with a 15-second deadline; there is no new scheduler, subscription or per-user request. Only Golf projections rebuild when facts change. Repeated identical results preserve bytes. This bounded recent window is not historical or worldwide LPGA coverage.

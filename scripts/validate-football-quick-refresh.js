@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
-const {refreshPremierLeagueTable,projectionSteps,retainedFeedProjectionSteps,patchKnown}=require('./quick-results');
+const {refreshPremierLeagueTable,projectionSteps,retainedFeedProjectionSteps,patchKnown,retainReviewedResultEditorial}=require('./quick-results');
 const root=path.resolve(__dirname,'..'),directory=fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-quick-'));
 (async()=>{try{
  const bundlePath=path.join(directory,'context.json');fs.copyFileSync(path.join(root,'data/canonical/afl-nrl-2026.json'),bundlePath);
@@ -46,5 +46,27 @@ const root=path.resolve(__dirname,'..'),directory=fs.mkdtempSync(path.join(os.tm
  assert(owner.includes("'--source=football'"),'a scoped source-to-screen verification remains inside the canonical owner');
  assert(quick.includes('await refreshPremierLeagueTable(changes,{now});'),'the weekday path checks EPL standings');
  assert(!quick.includes("run('scripts/refresh-premier-league-context.js')"),'the reusable validated owner handles failure and timestamps directly');
+ // Real enrichment is the ordinary refresh stage that caused the 44-card
+ // downgrade. Retention is conditional on unchanged sporting/schedule facts.
+ const reviewed=structuredClone(completed);
+ reviewed.selectedSentence='Two contrasting attacks met in a test of their season plans, with the result protected until you reveal it.';
+ reviewed.fullSpiel='This completed match tested two contrasting season plans. The result and its consequences remain protected until you choose to reveal them.';
+ reviewed.storyline={...reviewed.storyline,hookSpoilerOff:reviewed.selectedSentence,synopsisSpoilerOff:reviewed.fullSpiel,arcStage:'recap'};
+ reviewed.editorialPreview={status:'journalistic',angle:'Two contrasting attacks tested',contextSignals:['event-specific','narrative:matchup'],sourceName:'Premier League table',sourceUrl:'https://www.premierleague.com/en/tables/premier-league/2026-27',sourceCheckedAt:table.source.checkedAt};
+ for(const name of ['feeds/incoming/events.json','data/events.json']){fs.mkdirSync(path.dirname(path.join(directory,name)),{recursive:true});fs.writeFileSync(path.join(directory,name),JSON.stringify({events:[reviewed]}));}
+ const cp=require('node:child_process');const enrichedRun=cp.spawnSync(process.execPath,[path.join(root,'scripts/enrich-storyline-cards.js'),'--write'],{cwd:directory,encoding:'utf8'});assert.equal(enrichedRun.status,0,enrichedRun.stderr);
+ const generic=JSON.parse(fs.readFileSync(path.join(directory,'feeds/incoming/events.json'))).events[0];assert.notEqual(generic.selectedSentence,reviewed.selectedSentence,'rehearsal must actually reproduce the ordinary enrichment downgrade');
+ const kept=retainReviewedResultEditorial([generic],[reviewed])[0];for(const key of ['selectedSentence','fullSpiel','storyline','editorialPreview'])assert.deepEqual(kept[key],reviewed[key]);
+ const computed=retainReviewedResultEditorial([{...generic,storyline:{...generic.storyline,stakes:5,intensity:4}}],[reviewed])[0];assert.equal(computed.storyline.stakes,5);assert.equal(computed.storyline.intensity,4);assert.equal(computed.storyline.hookSpoilerOff,reviewed.storyline.hookSpoilerOff,'fresh computed metrics survive retained reviewed text');
+ for(const changed of [{score:'0-0',homeScore:0,awayScore:0},{status:'upcoming'},{startTimeUtc:new Date(Date.parse(generic.startTimeUtc)+3600000).toISOString()},{participantIds:['different-home','different-away']}])assert.deepEqual(retainReviewedResultEditorial([{...generic,...changed}],[reviewed])[0],{...generic,...changed},'changed results/participants/schedule cannot resurrect old copy');
+ const unsafe={...reviewed,selectedSentence:'The home side defeated its opponent 4-0.'};assert.deepEqual(retainReviewedResultEditorial([generic],[unsafe])[0],generic,'unsafe old root copy is not restored');
+ const document=JSON.parse(fs.readFileSync(path.join(root,'data/events.json')));document.events=document.events.map(event=>event.id===reviewed.id?reviewed:event);
+ for(const name of ['feeds/incoming/events.json','data/events.json'])fs.writeFileSync(path.join(directory,name),JSON.stringify(document));
+ fs.symlinkSync(path.join(root,'scripts'),path.join(directory,'scripts'),'dir');
+ const projected=cp.spawnSync(process.execPath,['-e',`const q=require(${JSON.stringify(path.join(root,'scripts/quick-results'))});q.runProjectionSteps([['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known']],{editorialBaseline:new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,JSON.parse(require('fs').readFileSync(file)).events]))});`],{cwd:directory,encoding:'utf8'});
+ assert.equal(projected.status,0,projected.stdout+'\n'+projected.stderr);
+ const persistedCopy=JSON.parse(fs.readFileSync(path.join(directory,'data/events.json'))).events.find(event=>event.id===reviewed.id);
+ for(const key of ['selectedSentence','fullSpiel','storyline','editorialPreview'])assert.deepEqual(persistedCopy[key],reviewed[key],'ordinary enrichment/select/publication must persist unchanged reviewed result copy');
+ assert(quick.includes('runProjectionSteps(projectionSteps(changes,')&&quick.includes("if(file==='scripts/publish-feed.js'&&editorialBaseline)"),'the ordinary publication boundary must execute retention after enrichment');
  console.log('Football daily table: one request, genuine observation, fixture/other-sport retention, idempotence, failure/date retention and scoped projections passed.');
 }finally{fs.rmSync(directory,{recursive:true,force:true});}})().catch(error=>{console.error(error);process.exitCode=1;});

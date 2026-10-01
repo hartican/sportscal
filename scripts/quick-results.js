@@ -7,9 +7,31 @@ const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
-const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
+const {storylineFor,spoilerSafeRootCopy,spoilerContractIssues}=require('./lib/storyline-card-rules');
 const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','delayedResultSource','sourceAttribution'];
 function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
+function retainReviewedResultEditorial(events,previous){
+ const byId=new Map(previous.map(event=>[event.id,event]));
+ const facts=['id','name','competitionId','participantIds','participants','participantsConfirmed','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','roundNumber','roundLabel','scheduleStatus','status','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];
+ const copy=['selectedSentence','fullSpiel','storyline','editorialPreview'];
+ return events.map(event=>{
+  const old=byId.get(event.id);
+  if(event.status!=='completed'||old?.storyline?.arcStage!=='recap'||old.editorialPreview?.status!=='journalistic'||!old.editorialPreview.sourceUrl||!Number.isFinite(Date.parse(old.editorialPreview.sourceCheckedAt))||spoilerContractIssues(old).length||facts.some(key=>JSON.stringify(old[key])!==JSON.stringify(event[key])))return event;
+  const retained={...event,...Object.fromEntries(copy.filter(key=>Object.hasOwn(old,key)).map(key=>[key,old[key]]))};
+  // Keep fresh computed stakes/intensity; retain only reviewed narrative fields.
+  retained.storyline={...event.storyline,...Object.fromEntries(['hookSpoilerOff','synopsisSpoilerOff','hookSpoilerOn','synopsisSpoilerOn','researchDepth','lastReviewedAt'].filter(key=>Object.hasOwn(old.storyline,key)).map(key=>[key,old.storyline[key]]))};
+  return retained;
+ });
+}
+function runProjectionSteps(steps,{editorialBaseline}={}){
+ for(const [file,...args] of steps){
+  if(file==='scripts/publish-feed.js'&&editorialBaseline)for(const [name,previous] of editorialBaseline){
+   const document=read(name),events=retainReviewedResultEditorial(document.events,previous);
+   if(JSON.stringify(events)!==JSON.stringify(document.events))write(name,{...document,events});
+  }
+  run(file,...args);
+ }
+}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
  const result=events.map(ev=>{const update=byId.get(ev.id || ev.eventId);if(!update)return ev;const next={...ev};for(const key of [...KEYS,...(update.key==='f1'?['fixtureResults','participantIds','participants','participantsConfirmed']:[])])if(Object.hasOwn(update,key))next[key]=update[key];if(update.key==='premier-league'&&update.status==='completed'&&!update.delayedResultSource&&ev.delayedResultSource){delete next.delayedResultSource;if(next.sourceAttribution?.provider==='Football-Data.org')delete next.sourceAttribution;}if(semantic(next)!==semantic(ev)){const resultChanged=['status','score','scoreDisplay','result','homeScore','awayScore','outcomeText','fixtureResults'].some(key=>JSON.stringify(next[key])!==JSON.stringify(ev[key]));if(next.status==='completed'&&next.storyline&&resultChanged){next.storyline=storylineFor(next);const safe=spoilerSafeRootCopy(next,next.storyline);next.selectedSentence=safe.hook;next.fullSpiel=safe.synopsis;delete next.editorialPreview;}count++;return next;}return ev;});
@@ -133,6 +155,9 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   return {mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:[],aiCalls:0};
  }
  let liveCoverage=null;
+ // Only restore reviewed result copy when the source facts still match the
+ // pre-refresh surface. New finals/corrections must keep regenerated recaps.
+ const editorialBaseline=new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,read(file).events]));
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
@@ -179,7 +204,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
  if(!offline)try{const path='data/canonical/pga-tour-schedule.json',result=await require('../lib/lpga-results').refresh(read(path),{now});if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.message}`));}catch(error){failures.push(`LPGA: ${error.message}`);}
- for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
+ runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
  run('scripts/verify-result-completeness.js','data/events.json');
@@ -199,4 +224,4 @@ async function atomicRefresh(options){
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={nblStandingsChanged,patchKnown,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,KEYS};
+module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,KEYS};
