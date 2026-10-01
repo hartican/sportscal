@@ -37,12 +37,22 @@ try{
   await page.keyboard.press('Shift+Tab');assert(await drawer.evaluate(n=>n.contains(document.activeElement)),'reverse Tab remains in modal');
   await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement?.getAttribute('aria-label')),'Close athlete profile');
   await drawer.getByRole('button',{name:'Show profile standings',exact:true}).click();
-  if(failStandings){await drawer.getByRole('button',{name:'Retry standings',exact:true}).waitFor();assert.equal(await drawer.locator('.profile-context-table').count(),0);failStandings=false;await drawer.getByRole('button',{name:'Retry standings',exact:true}).click();}
+  const standingsHeading=drawer.getByRole('heading',{name:'Ladder / standings',exact:true});
+  assert(await standingsHeading.evaluate(n=>n===document.activeElement),'reveal keeps keyboard focus inside the dialog at its standings heading');
+  const status=drawer.getByRole('status');assert.equal(await status.getAttribute('aria-live'),'polite');assert.equal(await status.getAttribute('aria-atomic'),'true');
+  if(failStandings){await drawer.getByRole('button',{name:'Retry standings',exact:true}).waitFor();assert.equal(await drawer.locator('.profile-context-table').count(),0);assert.match(await status.innerText(),/Standings unavailable/);failStandings=false;await drawer.getByRole('button',{name:'Retry standings',exact:true}).click();assert(await standingsHeading.evaluate(n=>n===document.activeElement),'retry retains focus within the dialog');}
   await page.waitForFunction(rows=>document.querySelectorAll('.athlete-profile-drawer .profile-context-table tr').length===rows+1,rows);
   assert.equal(await drawer.locator('.profile-context-table').count(),1,'only fixture competition');
+  assert.equal(await status.innerText(),'Standings loaded.','loading completion has meaningful live feedback');
+  assert(await standingsHeading.evaluate(n=>n===document.activeElement),'asynchronous arrival must not send focus to the page or steal it');
+  assert(await drawer.getByRole('table').getAttribute('aria-label'),'table has a competition/source-date name');
+  assert(await drawer.locator('.profile-context-table th').evaluateAll(headers=>headers.every(h=>h.scope==='col')),'columns have explicit header associations');
   if(rows===36)assert.match(await drawer.innerText(),/Provisional table derived from community results/);
   assert.equal(await page.evaluate(()=>userPreferences.showSpoilers),false,'local reveal preserves global Results');
   assert(await drawer.getByRole('button',{name:'Show fixture results',exact:true}).isVisible(),'standings reveal does not reveal fixture results');
+  await drawer.getByRole('button',{name:'Show fixture results',exact:true}).click();
+  assert(await drawer.getByRole('heading',{name:/^Fixture results ·/}).evaluate(n=>n===document.activeElement),'fixture result reveal keeps focus at the results heading');
+  assert.equal(await page.evaluate(()=>userPreferences.showSpoilers),false,'fixture-only reveal preserves global Results');
   const close=process.env.PROFILE_CLOSE_METHOD?Number(process.env.PROFILE_CLOSE_METHOD):checks%3;if(close===0)await drawer.getByRole('button',{name:'Close athlete profile',exact:true}).click();else if(close===1)await page.keyboard.press('Escape');else await page.goBack();
   await drawer.waitFor({state:'detached'});
   await page.waitForFunction(({target,label})=>document.activeElement?.closest('[data-event-id]')?.dataset.eventId===target&&document.activeElement?.getAttribute('aria-label')===label,{target,label}).catch(async e=>{console.log(await page.evaluate(({target,label})=>({target,label,tab:activeTab,inspector:activeInspectorCodeId,activeTarget:activeEvents.find(e=>(e.eventId||e.id)===target),followIds:userPreferences.preferenceGraph.entityFollows.map(f=>({id:f.participantId,level:f.followLevel})),activeCount:activeEvents.length,slotIds:[...feedCardSlots.values()].map(i=>i.event.eventId||i.event.id),focus:document.activeElement?.outerHTML.slice(0,300),cards:[...document.querySelectorAll('[data-event-id]')].map(n=>n.dataset.eventId).slice(0,20),text:document.getElementById('listView').innerText.slice(0,200)}),{target,label}));throw e;});

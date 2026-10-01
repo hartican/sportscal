@@ -31,6 +31,9 @@ function baselineFile(name){
   historical.set(name,bytes);return bytes;
 }
 const baselineVersion=baselineFile('index.html').toString().match(/name="app-shell-version" content="(\d+)"/)[1];
+const profilePath=html=>html.match(/loadDeferredScript\(["'](config\/athlete-profile-ui\.js\?v=\d+)["']\)/)?.[1];
+const baselineProfilePath=profilePath(baselineFile('index.html').toString());
+const candidateProfilePath=profilePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
 const launchOptions=process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{};
 let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0;
 function candidateFile(name){
@@ -73,6 +76,7 @@ const server=http.createServer((req,res)=>{
       return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds};
     });
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
+    if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
@@ -88,6 +92,12 @@ const server=http.createServer((req,res)=>{
     catch(error){console.error('Pending requests', [...pending]);console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
 
     assert.equal(new URL(upgraded.url()).searchParams.get('installed-pwa-upgrade'),'1');
+    let profileCacheVerified=false;
+    if(candidateProfilePath){
+      const profile=await upgraded.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Candidate profile module unavailable');return response.text();},candidateProfilePath);
+      assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
+      profileCacheVerified=true;
+    }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
     assert.equal(await upgraded.evaluate(()=>userPreferences.theme),'day','Saved appearance must survive migration');
@@ -141,6 +151,6 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

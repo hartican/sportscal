@@ -135,15 +135,16 @@
 
 const profileStandingsChunks=new Map();
 async function appendProfileFixtureContext(container,record,sportKey,fixture){
-  const table=(columns,rows)=>{const wrap=document.createElement('div');wrap.style.overflowX='auto';const t=document.createElement('table');t.className='profile-context-table';const head=document.createElement('tr');columns.forEach(label=>{const th=document.createElement('th');th.textContent=label;head.append(th);});t.append(head);rows.forEach(row=>{const tr=document.createElement('tr');row.forEach(value=>{const td=document.createElement('td');td.textContent=String(value??'—');tr.append(td);});t.append(tr);});wrap.append(t);return wrap;};
+  const table=(columns,rows,label)=>{const wrap=document.createElement('div');wrap.style.overflowX='auto';const t=document.createElement('table');t.className='profile-context-table';if(label)t.setAttribute('aria-label',label);const head=document.createElement('tr');columns.forEach(label=>{const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);});const thead=document.createElement('thead');thead.append(head);t.append(thead);rows.forEach(row=>{const tr=document.createElement('tr');row.forEach(value=>{const td=document.createElement('td');td.textContent=String(value??'—');tr.append(td);});t.append(tr);});wrap.append(t);return wrap;};
+  const retainSectionFocus=(section,heading,hadFocus=section.contains(document.activeElement))=>{if(hadFocus){heading.tabIndex=-1;heading.focus({preventScroll:true});}};
   if(fixture){
     const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent=`Fixture results · ${spoilerSafeDisplayTitle(fixture)||fixture.name}`;section.append(heading);
-    const show=()=>{const result=fixture.fixtureResults;if(result?.rows?.length)section.append(table(result.columns,result.rows));else{const p=document.createElement('p');p.textContent=[fixture.scoreDisplay,fixture.result?.scorelineText,fixture.result,fixture.outcomeText,fixture.score?.display,fixture.score].find(value=>typeof value==='string'&&value.trim())||'Full results are not published yet.';section.append(p);}if(fixture.fixtureResults?.sourceUrl){const a=document.createElement('a');a.href=fixture.fixtureResults.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official full results';section.append(a);}};
-    if(userPreferences.showSpoilers)show();else{const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show fixture results';reveal.onclick=()=>{reveal.remove();show();};section.append(reveal);}container.append(section);
+    const show=()=>{const result=fixture.fixtureResults;if(result?.rows?.length)section.append(table(result.columns,result.rows,heading.textContent));else{const p=document.createElement('p');p.textContent=[fixture.scoreDisplay,fixture.result?.scorelineText,fixture.result,fixture.outcomeText,fixture.score?.display,fixture.score].find(value=>typeof value==='string'&&value.trim())||'Full results are not published yet.';section.append(p);}if(fixture.fixtureResults?.sourceUrl){const a=document.createElement('a');a.href=fixture.fixtureResults.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official full results';section.append(a);}};
+    if(userPreferences.showSpoilers)show();else{const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show fixture results';reveal.onclick=()=>{retainSectionFocus(section,heading);reveal.remove();show();};section.append(reveal);}container.append(section);
   }
-  const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent='Ladder / standings';section.append(heading);container.append(section);
+  const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent='Ladder / standings';const status=document.createElement('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.setAttribute('aria-atomic','true');section.append(heading,status);container.append(section);
   const showStandings=async()=>{
-    const status=document.createElement('p');status.textContent='Loading standings…';section.replaceChildren(heading,status);
+    const hadFocus=section.contains(document.activeElement);status.textContent='Loading standings…';section.replaceChildren(heading,status);retainSectionFocus(section,heading,hadFocus);
     try{
       const manifest=await loadCodeInspectorManifest();
       const codeId=fixture&&typeof root.codeIdForEvent==='function'?root.codeIdForEvent(fixture):`sport:${sportKey}`;
@@ -154,11 +155,11 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       const all=chunk.standings||[];
       const relevant=new Set(fixture?.competitionId?[fixture.competitionId]:all.filter(row=>[record.id,record.currentTeamId].includes(row.participantId)).map(row=>row.competitionId));
       const standings=all.filter(row=>relevant.has(row.competitionId));
-      status.textContent=standings.length?'':'Standings are not published for this competition yet.';
+      status.textContent=standings.length?'Standings loaded.':'Standings are not published for this competition yet.';
       for(const competition of new Set(standings.map(e=>e.competitionId))){
         const rows=standings.filter(e=>e.competitionId===competition),first=rows[0];
         const label=document.createElement('p');label.textContent=[first.competitionName||competition?.replace(/^competition:/,'').replaceAll('-',' '),first.roundLabel,first.asOf?'As of '+new Date(first.asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');
-        section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[e.rank,e.displayName,e.points??e.ladderPoints,e.played])));
+        section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[e.rank,e.displayName,e.points??e.ladderPoints,e.played]),label.textContent));
         if(first.tableNote){const note=document.createElement('p');note.textContent=first.tableNote;section.append(note);}
         if(/^https:\/\//i.test(first.sourceUrl||'')){const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);}
       }
@@ -166,9 +167,9 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
   };
   if(userPreferences.showSpoilers)void showStandings();
   else{
-    const note=document.createElement('p');note.textContent='Standings hidden while Results is off.';
+    status.textContent='Standings hidden while Results is off.';
     const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show profile standings';
-    reveal.onclick=()=>void showStandings();section.append(note,reveal);
+    reveal.onclick=()=>void showStandings();section.append(reveal);
   }
 }
 
