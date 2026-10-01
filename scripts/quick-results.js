@@ -135,7 +135,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;
- if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,publishedAt:officialSnapshot.checkedAt,events:official.events});changes.push(`Official results ${official.count}`);}
+ if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,events:official.events});changes.push(`Official results ${official.count}`);}
  const majorPath='data/major-events.v1.json',major=read(majorPath),us=major.events.find(e=>e.id==='major:us-open-2026'||/US Open 2026/.test(e.name));
  const usRetentionEnd=us?.endDate?new Date(`${us.endDate}T23:59:59.999Z`):null;if(usRetentionEnd)usRetentionEnd.setUTCDate(usRetentionEnd.getUTCDate()+14);
  if(!offline&&us&&us.startDate<=now.toISOString().slice(0,10)&&now<=usRetentionEnd)try{

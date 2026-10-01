@@ -1,6 +1,6 @@
 {
   "schemaVersion": "aflw-follow-index.v1",
-  "generatedAt": "2026-09-30T12:09:00.981Z",
+  "generatedAt": "2026-10-01T17:37:32.698Z",
   "teams": [
     {
       "id": "team:aflw:cd_t8098",
@@ -137,6 +137,11 @@
       "leagueId": "competition:aflw-2026"
     },
     {
+      "id": "competitor:aflw:alana-barba",
+      "currentTeamId": "team:aflw:cd_t8788",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
       "id": "competitor:aflw:alana-gee",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026"
@@ -264,6 +269,11 @@
     {
       "id": "competitor:aflw:amelia-martin",
       "currentTeamId": "team:aflw:cd_t9408",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
+      "id": "competitor:aflw:amelia-peck",
+      "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026"
     },
     {
@@ -579,6 +589,11 @@
     {
       "id": "competitor:aflw:caitlin-reid",
       "currentTeamId": "team:aflw:cd_t9408",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
+      "id": "competitor:aflw:caitlin-thorne",
+      "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026"
     },
     {
@@ -1909,6 +1924,11 @@
     {
       "id": "competitor:aflw:lily-quigley",
       "currentTeamId": "team:aflw:cd_t8786",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
+      "id": "competitor:aflw:lily-skinner",
+      "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026"
     },
     {

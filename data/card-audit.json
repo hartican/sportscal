@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-30T22:52:13.583Z",
+  "generatedAt": "2026-10-01T17:45:12.358Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,9 +12,9 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 272,
+    "totalMajorCards": 273,
     "completed": 208,
-    "upcoming": 64,
+    "upcoming": 65,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -3433,6 +3433,22 @@
       "id": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
       "name": "WSL Margaret River Pro",
       "sport": "Surfing",
+      "date": "2026-10-02",
+      "status": "upcoming",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "name": "China Open — WTA 1000",
+      "sport": "Tennis",
       "date": "2026-10-02",
       "status": "upcoming",
       "stakes": 4,

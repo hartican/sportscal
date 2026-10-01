@@ -219,6 +219,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-editorial-consequences.js"],
   ["scripts/validate-editorial-render-coverage.js"],
   ["scripts/validate-editorial-sport-depth.js"],
+  ["scripts/validate-editorial-provenance.js"],
   ["scripts/validate-editorial-interactions.js"],
   ["scripts/validate-editorial-audience-memory.js"],
   ["scripts/validate-nsc-demo-panel.js"],

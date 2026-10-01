@@ -316,8 +316,15 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
             : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
       const currentSnapshotAt = Date.parse(currentSnapshot?.snapshotTimeUtc || currentSnapshot?.source?.checkedAt || "");
       const existingResearchedAt = Date.parse(existing.researchedAt || "");
+      // The EPL depth owner can reobserve an unchanged table without rewriting
+      // its researched copy. Compare the actual table observation as well;
+      // otherwise the final identity pass replaces rich copy with a template.
+      const depthTableAt = (existing.factIds || []).some(id => id.startsWith("fact:depth:epl:"))
+        ? Date.parse(knowledge.sources.find(source => source.id === "source:depth:epl:table")?.checkedAt || "")
+        : NaN;
       const isCurrent = !Number.isFinite(currentSnapshotAt)
-        || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
+        || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt)
+        || (Number.isFinite(depthTableAt) && depthTableAt >= currentSnapshotAt);
       if (requirement
         && isCurrent
         && !(event.key==="f1" && /this session|turning the championship gap/.test(`${existing.hook} ${existing.synopsis}`))

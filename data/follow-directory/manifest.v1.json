@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-30T12:09:34.4921142Z",
+  "generatedAt": "2026-10-01T17:37:45Z",
   "sports": [
     {
       "key": "afl",
@@ -14,7 +14,7 @@
       "key": "aflw",
       "label": "AFLW",
       "status": "available",
-      "recordCount": 620,
+      "recordCount": 624,
       "jsonUrl": "data/follow-directory/aflw.v1.json",
       "scriptUrl": "data/follow-directory/aflw.v1.js"
     },
@@ -214,7 +214,7 @@
       "key": "tennis-women",
       "label": "Tennis Women",
       "status": "available",
-      "recordCount": 120,
+      "recordCount": 118,
       "jsonUrl": "data/follow-directory/tennis-women.v1.json",
       "scriptUrl": "data/follow-directory/tennis-women.v1.js"
     },
@@ -310,7 +310,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 2545,
+      "recordCount": 2570,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },

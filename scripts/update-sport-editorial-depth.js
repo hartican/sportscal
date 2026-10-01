@@ -28,13 +28,35 @@ function upsert(collection, record){
   if (index >= 0) collection[index] = record;
   else collection.push(record);
 }
-function addSource(knowledge, id, name, url){
-  upsert(knowledge.sources, { id, name, url, sourceType:"official", checkedAt:CHECKED_AT });
+function observationTime(values, label){
+  const isValid = value => typeof value === "string"
+    && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value)
+    && Number.isFinite(Date.parse(value))
+    && new Date(value).toISOString().slice(0, 19) === value.slice(0, 19)
+    && Date.parse(value) <= Date.parse(CHECKED_AT);
+  if (!values.length || !values.every(isValid)) {
+    throw new Error(`${label} requires a dated source observation, not a generation time`);
+  }
+  return new Date(Math.max(...values.map(value => Date.parse(value)))).toISOString();
+}
+function addSource(knowledge, id, name, url, checkedAt){
+  const existing = knowledge.sources.find(source => source.id === id && source.url === url)
+    || knowledge.sources.find(source => source.url === url);
+  // This assembler does not fetch a page. Only an actual retained observation
+  // supplied by the source owner may advance its check time.
+  const observed = observationTime([checkedAt ?? existing?.checkedAt], id);
+  upsert(knowledge.sources, { id, name, url, sourceType:"official", checkedAt:observed });
   return id;
 }
 function addSubject(knowledge, id, kind, name){ upsert(knowledge.subjects, { id, kind, name }); return id; }
 function addFact(knowledge, { id, subjectIds, statement, dimension, sourceIds, expiresAt = null }){
-  upsert(knowledge.narrativeFacts, { id, subjectIds, statement:fit(statement, 320), dimension, sourceIds, observedAt:CHECKED_AT, expiresAt });
+  const fact = { id, subjectIds, statement:fit(statement, 320), dimension, sourceIds, expiresAt };
+  const previous = knowledge.narrativeFacts.find(record => record.id === id);
+  const same = previous && Object.entries(fact).every(([key, value]) =>
+    JSON.stringify(previous[key] ?? null) === JSON.stringify(value));
+  const observedAt = same ? previous.observedAt : observationTime(
+    sourceIds.map(sourceId => knowledge.sources.find(source => source.id === sourceId)?.checkedAt), id);
+  upsert(knowledge.narrativeFacts, { ...fact, observedAt });
   return id;
 }
 function addThread(knowledge, { id, subjectIds, title, summary, factIds, status = "active" }){
@@ -43,23 +65,18 @@ function addThread(knowledge, { id, subjectIds, title, summary, factIds, status 
 }
 function replaceProjection(knowledge, projection){
   const targets = new Set(projection.targetIds.flatMap(id=>require("../config/fixture-identity").fixtureAliases(id)));
+  const previous = knowledge.eventProjections.find(item => item.id === projection.id);
+  const fields = ['targetType', 'targetIds', 'hook', 'synopsis', 'hookSpoilerOn', 'synopsisSpoilerOn', 'threadIds', 'factIds', 'sourceIds', 'generationMode'];
+  const same = previous && fields.every(key =>
+    JSON.stringify(previous[key] ?? null) === JSON.stringify(projection[key] ?? null));
+  projection.researchedAt = same ? previous.researchedAt : observationTime(
+    projection.factIds.map(id => knowledge.narrativeFacts.find(fact => fact.id === id)?.observedAt), projection.id);
+  projection.originalityReview = previous?.originalityReview
+    || { ...projection.originalityReview, reviewedAt:projection.researchedAt };
   knowledge.eventProjections = knowledge.eventProjections.filter(item => item.id !== projection.id && (item.targetType !== projection.targetType || !item.targetIds.some(id => targets.has(id))));
   knowledge.eventProjections.push(projection);
 }
 
-function clampFutureProvenance(knowledge, reference){
-  const checkedAt = reference.toISOString();
-  const clamp = (record, field) => {
-    if (new Date(record?.[field] || 0).getTime() > reference.getTime()) record[field] = checkedAt;
-  };
-  knowledge.sources.forEach(record => clamp(record, "checkedAt"));
-  knowledge.narrativeFacts.forEach(record => clamp(record, "observedAt"));
-  knowledge.narrativeThreads.forEach(record => clamp(record, "updatedAt"));
-  knowledge.eventProjections.forEach(record => {
-    clamp(record, "researchedAt");
-    if (record.originalityReview) clamp(record.originalityReview, "reviewedAt");
-  });
-}
 function resultForTeam(event, participantId){
   if (event.status !== "completed" || !event.outcomeText) return null;
   if (/\bdrew\b|shared the points/i.test(event.outcomeText)) return "D";
@@ -124,7 +141,7 @@ function buildEpl(knowledge, events, context, reference){
   const ladder = context.ladderSnapshots.find(item => item.competitionId === "competition:premier-league-2026-27");
   const entries = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry]));
   const participants = new Map(context.participants.map(item => [item.id, item.displayName || item.canonicalName]));
-  const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27");
+  const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27",ladder?.source?.checkedAt||ladder?.snapshotTimeUtc);
   const sourceGuide = addSource(knowledge, "source:depth:epl:season-guide", "Premier League 2026/27 club guide", "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627");
   const sourceFixtures = addSource(knowledge, "source:depth:epl:fixtures", "Premier League 2026/27 fixture list", "https://www.premierleague.com/en/news/4675097");
   const targetEvents = events.filter(event => event.key === "premier-league" && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + 30 * DAY_MS);
@@ -135,7 +152,7 @@ function buildEpl(knowledge, events, context, reference){
     const home = { id:homeId, name:participants.get(homeId), ...EPL_PROFILES[homeId] };
     const away = { id:awayId, name:participants.get(awayId), ...EPL_PROFILES[awayId] };
     if (!home.lead || !away.lead) throw new Error(`Missing researched Premier League profile for ${event.name}`);
-    const eventSource = addSource(knowledge, `source:depth:epl:match:${slug(idFor(event))}`, `Premier League match record for ${event.name}`, event.sourceUrl || "https://www.premierleague.com/en/matches/premier-league/2026-27");
+    const eventSource = addSource(knowledge, `source:depth:epl:match:${slug(idFor(event))}`, `Premier League match record for ${event.name}`, event.canonicalSourceUrl || "https://www.premierleague.com/en/matches/premier-league/2026-27",event.canonicalSourceCheckedAt);
     const homeSubject = addSubject(knowledge, `subject:depth:epl:${slug(homeId)}`, "team", home.name);
     const awaySubject = addSubject(knowledge, `subject:depth:epl:${slug(awayId)}`, "team", away.name);
     const before = eventTime(event);
@@ -232,7 +249,7 @@ function reconcileCricket(document){
       ...event, ...correction,...require("../config/reviewed-fixture-repairs").facts(require("../config/fixture-identity").canonicalFixtureId(idFor(event))),
       sourceName:"Cricket Australia 2026/27 official series schedule",
       sourceUrl:opponent === "South Africa" ? "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg" : event.sourceUrl,
-      sourceCheckedAt:CHECKED_AT,
+      sourceCheckedAt:observationTime([event.sourceCheckedAt], idFor(event)),
       sourceType:"official", sourceTrust:"verified", competitionScope:"international", isInternational:true,
       ...(opponent ? { participants:[{ id:opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", name:opponent === "South Africa" ? "South Africa" : "Australia", role:"home" }, { id:opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand", name:opponent === "South Africa" ? "Australia" : "New Zealand", role:"away" }], participantIds:[opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand"], representativeCountryCodes:["AUS"], representativeSportKey:"cricket" } : {}),
     };
@@ -308,7 +325,6 @@ function main(){
   if (Number.isNaN(reference.getTime())) throw new Error("NS_EDITORIAL_REFERENCE must be valid");
   CHECKED_AT = reference.toISOString();
   const knowledge = readJson(KNOWLEDGE_PATH);
-  clampFutureProvenance(knowledge, reference);
   const feed = readJson(FEED_PATH);
   const published = readJson(PUBLISHED_FEED_PATH);
   const publishedFeedIds = new Set(feed.events.flatMap(event => [event?.id, event?.eventId, event?.canonicalEventId]).filter(Boolean).map(String));
@@ -344,4 +360,4 @@ function main(){
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
 
-module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket };
+module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection };

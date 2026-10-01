@@ -1,8 +1,8 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-10-01
+Reference date: 2026-10-02
 
-Compared 11 live/delayed listings with 1063 canonical events. Found 11 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 10 high-priority recommendations.
+Compared 11 live/delayed listings with 1064 canonical events. Found 11 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 10 high-priority recommendations.
 
 ## Australian source health
 
@@ -10,7 +10,7 @@ Compared 11 live/delayed listings with 1063 canonical events. Found 11 catalogue
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 11 listings; 1d old |
+| Stan Sport | loaded | reviewed_export; 11 listings; 2d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
@@ -25,7 +25,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 |---|---|---|---:|---|---|---|---|
 | 2026-10-01 | NPC | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-02 | WRC | new | 0.45 | high | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-10-02 | WTA 1000 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-02 | WTA 1000 | new | 0.13 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-03 | NWSL | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-03 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-03 | Super Rugby AUS | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |

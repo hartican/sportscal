@@ -86,6 +86,7 @@ jobs:
           node scripts/validate-premier-league-context.js
           node scripts/validate-football-schedule.js
           node scripts/validate-football-viewing.js
+          node scripts/validate-editorial-provenance.js
           node scripts/validate-ucl-qualifier-results.js
           node scripts/validate-nbl-viewing.js --published
           node scripts/validate-nbl-match-context.js --published

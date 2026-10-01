@@ -1,8 +1,8 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-09-30T12:54:17.477Z",
+  "generatedAt": "2026-10-01T17:38:38.928Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "c913c7c917861f9c8b3934e45d17d4010306b08793fb240e665a2244f08df444",
+  "fingerprint": "0e3ec1611e9dbd51612828cb4a4b6a8c98cde6e2bf385ae376585da3d928b5fe",
   "entries": [
     {
       "eventId": "evt_f1_2026_bahrain_qualifying",
@@ -28,7 +28,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -55,7 +55,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -77,7 +77,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -99,7 +99,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -121,7 +121,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -143,7 +143,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "researched"
     },
     {
@@ -156,7 +156,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     },
     {
@@ -169,7 +169,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     },
     {
@@ -182,7 +182,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     },
     {
@@ -195,7 +195,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     },
     {
@@ -208,7 +208,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     },
     {
@@ -221,7 +221,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-30T12:54:17.477Z",
+      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
       "generationMode": "withheld"
     }
   ]

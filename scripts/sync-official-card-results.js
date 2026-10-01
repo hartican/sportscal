@@ -54,7 +54,8 @@ function main(){
   const output = applied.count ? {
     ...document,
     version:snapshot.feedVersion,
-    publishedAt:snapshot.checkedAt,
+    // Result observation dates belong on the result, not the assembled Feed.
+    // Backdating this clock makes retention validation use an obsolete window.
     events:applied.events,
   } : { ...document, events:applied.events };
   fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);

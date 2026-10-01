@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-30T22:52:13.409Z",
+  "generatedAt": "2026-10-01T17:45:12.199Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -10,20 +10,19 @@
   },
   "cards": [
     {
-      "id": "event-wrc-2026-round-13",
-      "name": "WRC Rally Italia Sardegna",
-      "sport": "WRC",
-      "date": "2026-10-01",
+      "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "name": "China Open — WTA 1000",
+      "sport": "Tennis",
+      "date": "2026-10-02",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:form",
-        "narrative:path",
-        "narrative:format"
+        "wta-tour",
+        "wta_1000",
+        "active-tournament-window",
+        "hard-surface"
       ],
-      "sourceUrl": "https://www.wrc.com/en/calendar",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
       "issues": []
     },
     {
