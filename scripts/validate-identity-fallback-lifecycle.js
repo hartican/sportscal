@@ -91,6 +91,15 @@ async function runLifecycleRegression(){
   context.finalizeAll({ querySelectorAll(){ return [loaded.image]; } });
   assert.equal(reintroducedFallback.removed, true, "keyed patching must remove a freshly reintroduced fallback beside a retained decoded logo");
 
+  const detached = imageHarness({ complete:true });
+  detached.image.isConnected = false;
+  const detachedFallback = detached.addFallback();
+  context.install(detached.image);
+  await Promise.resolve();
+  await Promise.resolve();
+  assert.equal(detachedFallback.removed, true, "a cached logo decoded off-DOM must be ready before the card is mounted again");
+  assert.equal(detached.image.hidden, false);
+
   const cached = imageHarness({ complete:true });
   const cachedFallback = cached.addFallback();
   context.install(cached.image);
