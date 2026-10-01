@@ -43,6 +43,35 @@ function validateEditorialFocus(cards,research){
     fingerprints.add(fingerprint);
   }
 }
+function partitionResearch(cards,research,validateEntry=()=>{}){
+  const scope=new Set(cards.map(card=>card.id)),accepted=[],deferred=new Map();
+  assert(Array.isArray(research.entries),'Research entries must be an array.');
+  for(const item of [...research.entries,...(research.deferred||[])])assert(scope.has(item.id),'Out-of-scope research: '+item.id);
+  for(const item of research.deferred||[]){
+    assert(item.reason&&item.nextAction,'Deferred cards require a reason and nextAction.');
+    deferred.set(item.id,item);
+  }
+  for(const card of cards){
+    if(deferred.has(card.id))continue;
+    try{
+      const entries=research.entries.filter(entry=>entry.id===card.id);
+      assert.equal(entries.length,1,'Missing or duplicate research entry.');
+      const entry=entries[0];
+      assert(entry.title&&entry.hook&&entry.synopsis,'Title, hook and synopsis required.');
+      assert(new Set(entry.sources).size>=3&&entry.facts?.length>=4,'Three sources and four supported facts required.');
+      assert(entry.sources.every(url=>/^https:\/\//.test(url)),'HTTPS sources required.');
+      assert(entry.facts.every(fact=>fact.statement&&fact.dimension&&fact.sourceIndexes?.length&&fact.sourceIndexes.every(i=>Number.isInteger(i)&&i>=0&&i<entry.sources.length)),'Invalid fact/source references.');
+      assert(Date.now()-Date.parse(entry.researchedAt)<72*3600000&&Date.parse(entry.researchedAt)<=Date.now()+60000,'Research must be fresh.');
+      assert((entry.dependsOn||[]).every(id=>scope.has(id)),'Unknown dependency.');
+      validateEditorialFocus(cards,{entries:[...accepted,entry]});
+      validateEntry(entry);
+      accepted.push(entry);
+    }catch(error){deferred.set(card.id,{id:card.id,reason:error.message,nextAction:'Repair this card research and retry through the canonical weekend mode.'});}
+  }
+  let changed=true;
+  while(changed){changed=false;for(const entry of accepted){if(deferred.has(entry.id))continue;const blockers=(entry.dependsOn||[]).filter(id=>deferred.has(id));if(blockers.length){deferred.set(entry.id,{id:entry.id,reason:'Direct research dependency unavailable.',dependsOn:blockers,nextAction:'Resolve the listed dependency before retrying this card.'});changed=true;}}}
+  return {entries:accepted.filter(entry=>!deferred.has(entry.id)),deferred:[...deferred.values()]};
+}
 function main(args){
   const range=weekend(),published=read('data/events.json');
   const catalogue=require('../config/fixture-identity').mergeOverlays(read('data/follow-sources/coverage.v1.json').events,read('data/discovery/enrichment.v1.json').events);
@@ -53,18 +82,24 @@ function main(args){
     const projection=[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].map(id=>projections.get(id)).find(Boolean);
     return projection?{...event,editorialNarrative:narrative.editorialNarrativeFor(projection,indexes)}:event;
   });
-  const cards=selected(candidates,range).filter(event=>!locks.activeFor(event));
+  let cards=selected(candidates,range).filter(event=>!locks.activeFor(event));
   if(args.includes('--list')){console.log(JSON.stringify({weekend:range,cards:cards.map(e=>({id:e.id,name:e.name,date:e.date,stakes:e.storyline?.stakes??e.stakesScore,hook:e.editorialNarrative?.hook||e.selectedSentence}))},null,2));return;}
   if(!cards.length){console.log('No qualifying weekend cards; no changes.');return;}
   const index=args.indexOf('--research');assert(index>=0&&args[index+1],'Provide --research <dated JSON file>, or --list first.');
   const research=read(args[index+1]);assert.deepEqual(research.weekend,range,'Research must cover the current Sydney Friday-Monday only.');
-  const ids=new Set(cards.map(e=>e.id));
-  assert.equal(research.entries.length,ids.size,'Research must cover every qualifying card exactly once.');
-  assert.equal(new Set(research.entries.map(e=>e.id)).size,ids.size,'Duplicate research IDs.');
-  for(const entry of research.entries){assert(ids.has(entry.id),'Out-of-scope research: '+entry.id);assert(entry.sources?.length&&entry.facts?.length>=3,'Source-backed research facts required.');assert(Date.now()-Date.parse(entry.researchedAt)<72*3600000&&Date.parse(entry.researchedAt)<=Date.now()+60000,'Research must be fresh.');}
-  validateEditorialFocus(cards,research);
+  const baselineIssues=narrative.validateKnowledge(knowledge);
+  assert.equal(baselineIssues.length,0,'Shared knowledge integrity failure: '+baselineIssues.join('; '));
+  const major=read('data/major-events.v1.json');
+  const partition=partitionResearch(cards,research,entry=>apply(structuredClone(knowledge),{...published,events:structuredClone(candidates)},structuredClone(major),{entries:[entry]}));
+  research.entries=partition.entries;
+  const ids=new Set(research.entries.map(entry=>entry.id));
+  const report={weekend:range,acceptedIds:[...ids],deferred:partition.deferred};
+  write(`data/editorial-weekend-report-${range.from}.json`,report);
+  for(const item of partition.deferred)console.warn(`Deferred ${item.id}: ${item.reason} Next: ${item.nextAction}`);
+  cards=cards.filter(card=>ids.has(card.id));
+  if(!cards.length){console.log('No independently valid research; deferred report saved. No feed changes.');return;}
   if(/^[a-z0-9-]+$/.test(published.version)&&cards.every(e=>{const r=research.entries.find(r=>r.id===e.id);return e.editorialNarrative?.hook===r.hook&&e.editorialNarrative?.synopsis===r.synopsis;})){console.log('Weekend editorial unchanged; no release required.');return;}
-  const incoming=read('feeds/incoming/events.json'),major=read('data/major-events.v1.json');
+  const incoming=read('feeds/incoming/events.json');
   const result=apply(knowledge,{...published,events:structuredClone(candidates)},major,research);
   const updated=new Map(result.feed.events.filter(e=>ids.has(e.id)).map(e=>[e.id,e]));
   const fields=['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline'];
@@ -82,6 +117,6 @@ function main(args){
   for(const command of [['scripts/build-paged-feed.js'],['scripts/build-code-inspector.js','--codes='+codes.join(',')],['scripts/qa-storyline-spoilers.js','data/events.json'],['scripts/validate-feed.js','data/events.json']]){
     const run=spawnSync(process.execPath,command,{stdio:'inherit'});assert.equal(run.status,0,command[0]+' failed; do not release.');
   }
-  console.log(`Weekend editorial complete: ${cards.length} cards, ${range.from} through ${range.to}. Non-editorial card fields preserved.`);
+  console.log(`Weekend editorial complete: ${cards.length} cards, ${partition.deferred.length} deferred, ${range.from} through ${range.to}. Non-editorial card fields preserved.`);
 }
-module.exports={main,weekend,selected};
+module.exports={main,weekend,selected,partitionResearch};

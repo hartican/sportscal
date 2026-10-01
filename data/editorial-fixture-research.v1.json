@@ -1853,92 +1853,6 @@
       "refreshAfter": "2026-09-29T10:00:00.000Z"
     },
     {
-      "id": "evt_84",
-      "title": "Roosters v Knights — NRL Grand Final",
-      "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
-      "synopsis": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
-      "sources": [
-        "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-        "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
-        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
-        "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
-        "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
-        "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/"
-      ],
-      "researchedAt": "2026-09-30T22:37:31.000Z",
-      "researchDepth": 3,
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-04T08:30:00.000Z",
-      "facts": [
-        {
-          "dimension": "matchup",
-          "statement": "Roosters face Knights in the 2026 NRL Grand Final.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "venue",
-          "statement": "Accor Stadium hosts the Grand Final on 4 October at 7:30pm local time.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "schedule",
-          "statement": "The stadium programme schedules the NRLW Grand Final at 4pm.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "schedule",
-          "statement": "Nine and 9Now hold exclusive live coverage of the NRL Grand Final.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
-          "sourceIndexes": [
-            3,
-            4
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
-          "sourceIndexes": [
-            4
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
-          "sourceIndexes": [
-            5
-          ]
-        }
-      ],
-      "formCopy": "The Roosters beat the Dolphins 36–20 in their preliminary final, with Mark Nawaqanitawase running for 329 metres and Sam Walker scoring on his return from injury. Newcastle overcame Penrith 22–14 despite playing with 12 men after Phoenix Crossland’s dismissal. They conceded no second-half points; Sandon Smith’s two breakaway tries decided the match.",
-      "closingCopy": "Sandon Smith was squeezed out when the Roosters signed Daly Cherry-Evans. Now his first season at Newcastle ends against the club he left, with a chance to deny Cherry-Evans a premiership in his final NRL match. Mark Nawaqanitawase also has one game left before returning to rugby union. The Knights’ improbable revival meets a Roosters side with two farewells to finish."
-    },
-    {
       "id": "rugby-australia-south-africa-2026-09-27",
       "title": "Australia v South Africa — Perth Test",
       "hook": "Australia and South Africa contested the Perth Test at Optus Stadium.",
@@ -1970,28 +1884,266 @@
       ]
     },
     {
-      "id": "evt_nrlw_2026_grand_final",
-      "title": "2026 NRLW Grand Final — Roosters v Broncos",
-      "researchedAt": "2026-09-27T13:57:48.000Z",
-      "researchDepth": 3,
+      "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "title": "China Open - WTA 1000",
+      "hook": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+      "synopsis": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
       "sources": [
-        "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        "https://www.wtatennis.com/tournaments/china-open",
+        "https://www.wtatennis.com/news/4582857/beijing-draw-past-champions-iga-swiatek-coco-gauff-could-meet-in-china-open-quarters",
+        "https://www.chinaopen.com/en/contents/353/669.html"
       ],
-      "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
-      "synopsis": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
       "facts": [
         {
-          "statement": "Roosters face Broncos in the NRLW Grand Final at Accor Stadium on 4 October 2026.",
-          "dimension": "matchup",
+          "dimension": "format",
+          "statement": "The singles draw contains 96 players.",
           "sourceIndexes": [
             0
           ]
         },
         {
-          "statement": "The stadium programme lists the NRLW final at 4 pm local Sydney time, before the NRL final.",
+          "dimension": "matchup",
+          "statement": "The draw places Gauff and Swiatek in the same quarter.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Andreeva and Noskova are potential quarterfinal opponents, not a confirmed match.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
           "dimension": "schedule",
+          "statement": "Main-draw play began September 30 at the National Tennis Center in Beijing.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_f1_2026_bahrain_qualifying",
+      "title": "Bahrain GP (Malaysia) - Qualifying",
+      "hook": "Sepang qualifying gives Antonelli a chance to interrupt Russell's momentum before Sunday.",
+      "synopsis": "Antonelli has acknowledged the challenge from his Mercedes team-mate. Saturday is the first direct contest for starting position at the Malaysian venue hosting this Bahrain round. Watch which driver finds a repeatable qualifying rhythm: a strong grid slot is valuable, but it is only the opening move before the 56-lap race.",
+      "sources": [
+        "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+        "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+        "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Bahrain round is hosted at Sepang International Circuit in Malaysia.",
           "sourceIndexes": [
             0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The event runs October 2-4, with the race on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Antonelli says Russell has momentum and expects a tough challenge.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "Sunday is scheduled for 56 laps of the 5.543-kilometre circuit.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_motogp_2026_japan",
+      "title": "MotoGP Japanese Grand Prix",
+      "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
+      "synopsis": "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed.",
+      "sources": [
+        "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
+        "https://www.motogp.com/en/news/2026/09/28/jadwal-motogp-jepang-2026/1092197",
+        "https://tickets.motogp.com/en/21091-japan/p-1299-information/"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin enters Japan 12 points ahead of Marc Marquez.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Bezzecchi is 42 points behind Martin entering the weekend.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The flyaway stretch includes five Grands Prix in six weeks.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Japanese Grand Prix is at Mobility Resort Motegi.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Saturday Sprint is scheduled for 12 laps before Sunday's Grand Prix.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_nrlw_2026_grand_final",
+      "title": "Roosters v Broncos",
+      "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
+      "synopsis": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
+      "sources": [
+        "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/nrlw-team-lists-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Roosters and Broncos meet in a second consecutive NRLW Grand Final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The Roosters enter undefeated.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The Broncos are pursuing back-to-back premierships.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Belinda Sharpe is appointed to her fifth grand final.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_f1_2026_bahrain_race",
+      "title": "Bahrain GP (Malaysia) - Race",
+      "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
+      "synopsis": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
+      "sources": [
+        "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+        "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+        "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "Malaysia hosts the Bahrain Grand Prix at Sepang.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The race is scheduled over 56 laps.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The Grand Prix takes place on October 4.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Antonelli identifies Russell as a tough challenge carrying momentum.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_84",
+      "title": "Roosters v Knights",
+      "hook": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
+      "synopsis": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
+        "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "James Tedesco and Kalyn Ponga are named as the respective starting fullbacks.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The Roosters seek their first premiership in seven years.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Roosters v Knights is scheduled October 4 at 7.30pm AEDT at Accor Stadium.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Adam Gee is appointed to the NRL Grand Final.",
+          "sourceIndexes": [
+            2
           ]
         }
       ]

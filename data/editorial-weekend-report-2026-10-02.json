@@ -1,0 +1,26 @@
+{
+  "weekend": {
+    "from": "2026-10-02",
+    "to": "2026-10-05"
+  },
+  "acceptedIds": [
+    "tennis-tournament-wta-beijing-2026-2026-10-02",
+    "evt_f1_2026_bahrain_qualifying",
+    "evt_motogp_2026_japan",
+    "evt_nrlw_2026_grand_final",
+    "evt_f1_2026_bahrain_race",
+    "evt_84"
+  ],
+  "deferred": [
+    {
+      "id": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
+      "reason": "Selected as October 2, but WSL event coverage confirms April 16-26, 2026. Canonical fixture date conflict; not safe to write a current-weekend preview.",
+      "sources": [
+        "https://www.youtube.com/watch?v=qY0dJR13jR8",
+        "https://www.margaretriver.com/things-to-do/attractions/surfing/doing-the-margaret-river-pro/"
+      ],
+      "nextAction": "Review the manual calendar seed against the official WSL schedule and repair its canonical date through update-cards; then reassess editorial eligibility.",
+      "dependsOn": []
+    }
+  ]
+}

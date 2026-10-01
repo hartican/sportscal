@@ -47,6 +47,7 @@ Before changing live fixture refresh, Supabase persistence, chat polling, notifi
 
 Update and deployment convention
 --------------------------------
+- Card-local source, research or validation failures must not block independent valid card updates. Preserve and report failed cards with evidence and a next repair action; defer directly dependent cards only. Shared integrity, spoiler, build and release gates remain mandatory. Weekend editorial records deferrals in its dated research/report files.
 - A request to "update" cards includes applying the change, publishing it to GitHub main, and deploying the exact published snapshot to Vercel production. Do not ask for separate deployment confirmation unless the user explicitly requests local-only work.
 - Keep normal release safeguards. If a required gate fails, report the blocker rather than claiming deployment or bypassing it. Distinguish local changes, GitHub publication, and production deployment in the final status.
 

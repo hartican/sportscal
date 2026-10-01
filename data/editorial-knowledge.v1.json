@@ -960,7 +960,7 @@
     {
       "id": "subject:fixture-research:evt_84",
       "kind": "event",
-      "name": "Roosters v Knights — NRL Grand Final"
+      "name": "Roosters v Knights"
     },
     {
       "id": "subject:fixture-research:rugby-australia-south-africa-2026-09-27",
@@ -970,7 +970,27 @@
     {
       "id": "subject:fixture-research:evt_nrlw_2026_grand_final",
       "kind": "event",
-      "name": "2026 NRLW Grand Final — Roosters v Broncos"
+      "name": "Roosters v Broncos"
+    },
+    {
+      "id": "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",
+      "kind": "event",
+      "name": "China Open - WTA 1000"
+    },
+    {
+      "id": "subject:fixture-research:evt_f1_2026_bahrain_qualifying",
+      "kind": "event",
+      "name": "Bahrain GP (Malaysia) - Qualifying"
+    },
+    {
+      "id": "subject:fixture-research:evt_motogp_2026_japan",
+      "kind": "event",
+      "name": "MotoGP Japanese Grand Prix"
+    },
+    {
+      "id": "subject:fixture-research:evt_f1_2026_bahrain_race",
+      "kind": "event",
+      "name": "Bahrain GP (Malaysia) - Race"
     }
   ],
   "sources": [
@@ -4588,17 +4608,17 @@
     },
     {
       "id": "source:fixture-research:evt_84:0",
-      "name": "Roosters v Knights — NRL Grand Final — official research 1",
-      "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "name": "Roosters v Knights — official research 1",
+      "url": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:21:33.194Z"
     },
     {
       "id": "source:fixture-research:evt_84:1",
-      "name": "Roosters v Knights — NRL Grand Final — official research 2",
-      "url": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+      "name": "Roosters v Knights — official research 2",
+      "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:21:33.194Z"
     },
     {
       "id": "source:fixture-research:rugby-australia-south-africa-2026-09-27:0",
@@ -4609,10 +4629,10 @@
     },
     {
       "id": "source:fixture-research:evt_nrlw_2026_grand_final:0",
-      "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
-      "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "name": "Roosters v Broncos — official research 1",
+      "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
       "sourceType": "official",
-      "checkedAt": "2026-09-27T13:57:48.000Z"
+      "checkedAt": "2026-10-01T23:21:33.194Z"
     },
     {
       "id": "source:f1:bahrain-relocation-2026",
@@ -4637,10 +4657,10 @@
     },
     {
       "id": "source:fixture-research:evt_84:2",
-      "name": "Roosters v Knights — NRL Grand Final — official research 3",
-      "url": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+      "name": "Roosters v Knights — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:21:33.194Z"
     },
     {
       "id": "source:fixture-research:evt_84:3",
@@ -4809,6 +4829,104 @@
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
       "checkedAt": "2026-10-01T17:38:32.704Z"
+    },
+    {
+      "id": "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+      "name": "China Open - WTA 1000 — official research 1",
+      "url": "https://www.wtatennis.com/tournaments/china-open",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+      "name": "China Open - WTA 1000 — official research 2",
+      "url": "https://www.wtatennis.com/news/4582857/beijing-draw-past-champions-iga-swiatek-coco-gauff-could-meet-in-china-open-quarters",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
+      "name": "China Open - WTA 1000 — official research 3",
+      "url": "https://www.chinaopen.com/en/contents/353/669.html",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_qualifying:0",
+      "name": "Bahrain GP (Malaysia) - Qualifying — official research 1",
+      "url": "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_qualifying:1",
+      "name": "Bahrain GP (Malaysia) - Qualifying — official research 2",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_qualifying:2",
+      "name": "Bahrain GP (Malaysia) - Qualifying — official research 3",
+      "url": "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_japan:0",
+      "name": "MotoGP Japanese Grand Prix — official research 1",
+      "url": "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_japan:1",
+      "name": "MotoGP Japanese Grand Prix — official research 2",
+      "url": "https://www.motogp.com/en/news/2026/09/28/jadwal-motogp-jepang-2026/1092197",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_japan:2",
+      "name": "MotoGP Japanese Grand Prix — official research 3",
+      "url": "https://tickets.motogp.com/en/21091-japan/p-1299-information/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_nrlw_2026_grand_final:1",
+      "name": "Roosters v Broncos — official research 2",
+      "url": "https://www.nrl.com/news/2026/09/29/nrlw-team-lists-grand-final/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_nrlw_2026_grand_final:2",
+      "name": "Roosters v Broncos — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_race:0",
+      "name": "Bahrain GP (Malaysia) - Race — official research 1",
+      "url": "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_race:1",
+      "name": "Bahrain GP (Malaysia) - Race — official research 2",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_f1_2026_bahrain_race:2",
+      "name": "Bahrain GP (Malaysia) - Race — official research 3",
+      "url": "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:21:33.194Z"
     }
   ],
   "narrativeFacts": [
@@ -26323,12 +26441,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_84"
       ],
-      "statement": "Roosters face Knights in the 2026 NRL Grand Final.",
+      "statement": "James Tedesco and Kalyn Ponga are named as the respective starting fullbacks.",
       "dimension": "matchup",
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -26336,12 +26454,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_84"
       ],
-      "statement": "Accor Stadium hosts the Grand Final on 4 October at 7:30pm local time.",
-      "dimension": "venue",
+      "statement": "The Roosters seek their first premiership in seven years.",
+      "dimension": "consequence",
       "sourceIds": [
-        "source:fixture-research:evt_84:0"
+        "source:fixture-research:evt_84:1"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -26349,12 +26467,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_84"
       ],
-      "statement": "The stadium programme schedules the NRLW Grand Final at 4pm.",
+      "statement": "Roosters v Knights is scheduled October 4 at 7.30pm AEDT at Accor Stadium.",
       "dimension": "schedule",
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -26362,12 +26480,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_84"
       ],
-      "statement": "Nine and 9Now hold exclusive live coverage of the NRL Grand Final.",
-      "dimension": "schedule",
+      "statement": "Adam Gee is appointed to the NRL Grand Final.",
+      "dimension": "history",
       "sourceIds": [
-        "source:fixture-research:evt_84:1"
+        "source:fixture-research:evt_84:2"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -26479,12 +26597,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_nrlw_2026_grand_final"
       ],
-      "statement": "Roosters face Broncos in the NRLW Grand Final at Accor Stadium on 4 October 2026.",
+      "statement": "Roosters and Broncos meet in a second consecutive NRLW Grand Final.",
       "dimension": "matchup",
       "sourceIds": [
         "source:fixture-research:evt_nrlw_2026_grand_final:0"
       ],
-      "observedAt": "2026-09-27T13:57:48.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -26492,12 +26610,12 @@
       "subjectIds": [
         "subject:fixture-research:evt_nrlw_2026_grand_final"
       ],
-      "statement": "The stadium programme lists the NRLW final at 4 pm local Sydney time, before the NRL final.",
-      "dimension": "schedule",
+      "statement": "The Roosters enter undefeated.",
+      "dimension": "form",
       "sourceIds": [
         "source:fixture-research:evt_nrlw_2026_grand_final:0"
       ],
-      "observedAt": "2026-09-27T13:57:48.000Z",
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     },
     {
@@ -27502,6 +27620,253 @@
         "subject:rolling:nbl:2026"
       ],
       "observedAt": "2026-10-01T17:37:45.716Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+      "subjectIds": [
+        "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "statement": "The singles draw contains 96 players.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+      "subjectIds": [
+        "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "statement": "The draw places Gauff and Swiatek in the same quarter.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
+      "subjectIds": [
+        "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "statement": "Andreeva and Noskova are potential quarterfinal opponents, not a confirmed match.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:3",
+      "subjectIds": [
+        "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "statement": "Main-draw play began September 30 at the National Tennis Center in Beijing.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_qualifying:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "statement": "The Bahrain round is hosted at Sepang International Circuit in Malaysia.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_qualifying:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "statement": "The event runs October 2-4, with the race on Sunday.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_qualifying:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "statement": "Antonelli says Russell has momentum and expects a tough challenge.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:2"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_qualifying:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "statement": "Sunday is scheduled for 56 laps of the 5.543-kilometre circuit.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_japan:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "statement": "Martin enters Japan 12 points ahead of Marc Marquez.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_japan:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "statement": "Bezzecchi is 42 points behind Martin entering the weekend.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_japan:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "statement": "The flyaway stretch includes five Grands Prix in six weeks.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_japan:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "statement": "The Japanese Grand Prix is at Mobility Resort Motegi.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:2"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_japan:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "statement": "The Saturday Sprint is scheduled for 12 laps before Sunday's Grand Prix.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_nrlw_2026_grand_final:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_nrlw_2026_grand_final"
+      ],
+      "statement": "The Broncos are pursuing back-to-back premierships.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_nrlw_2026_grand_final:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_nrlw_2026_grand_final:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_nrlw_2026_grand_final"
+      ],
+      "statement": "Belinda Sharpe is appointed to her fifth grand final.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_nrlw_2026_grand_final:2"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_race:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "statement": "Malaysia hosts the Bahrain Grand Prix at Sepang.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_race:0"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_race:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "statement": "The race is scheduled over 56 laps.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_race:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_race:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "statement": "The Grand Prix takes place on October 4.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_race:1"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_f1_2026_bahrain_race:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "statement": "Antonelli identifies Russell as a tough challenge carrying momentum.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_race:2"
+      ],
+      "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
     }
   ],
@@ -30149,21 +30514,16 @@
       "subjectIds": [
         "subject:fixture-research:evt_84"
       ],
-      "title": "Roosters v Knights — NRL Grand Final",
-      "summary": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+      "title": "Roosters v Knights",
+      "summary": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
       "factIds": [
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3",
-        "fact:fixture-research:evt_84:4",
-        "fact:fixture-research:evt_84:5",
-        "fact:fixture-research:evt_84:6",
-        "fact:fixture-research:evt_84:7",
-        "fact:fixture-research:evt_84:8"
+        "fact:fixture-research:evt_84:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-30T22:37:31.000Z"
+      "updatedAt": "2026-10-01T23:21:33.194Z"
     },
     {
       "id": "thread:fixture-research:rugby-australia-south-africa-2026-09-27",
@@ -30184,14 +30544,81 @@
       "subjectIds": [
         "subject:fixture-research:evt_nrlw_2026_grand_final"
       ],
-      "title": "2026 NRLW Grand Final — Roosters v Broncos",
-      "summary": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
+      "title": "Roosters v Broncos",
+      "summary": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
       "factIds": [
         "fact:fixture-research:evt_nrlw_2026_grand_final:0",
-        "fact:fixture-research:evt_nrlw_2026_grand_final:1"
+        "fact:fixture-research:evt_nrlw_2026_grand_final:1",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:2",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:3"
       ],
       "status": "active",
-      "updatedAt": "2026-09-27T13:57:48.000Z"
+      "updatedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "thread:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",
+      "subjectIds": [
+        "subject:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "title": "China Open - WTA 1000",
+      "summary": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+      "factIds": [
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_f1_2026_bahrain_qualifying",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "title": "Bahrain GP (Malaysia) - Qualifying",
+      "summary": "Antonelli has acknowledged the challenge from his Mercedes team-mate. Saturday is the first direct contest for starting position at the Malaysian venue hosting this Bahrain round. Watch which driver finds a repeatable qualifying rhythm: a strong grid slot is valuable, but it is only the opening move before the 56-lap race.",
+      "factIds": [
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:0",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:1",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:2",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_motogp_2026_japan",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_japan"
+      ],
+      "title": "MotoGP Japanese Grand Prix",
+      "summary": "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed.",
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_japan:0",
+        "fact:fixture-research:evt_motogp_2026_japan:1",
+        "fact:fixture-research:evt_motogp_2026_japan:2",
+        "fact:fixture-research:evt_motogp_2026_japan:3",
+        "fact:fixture-research:evt_motogp_2026_japan:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_f1_2026_bahrain_race",
+      "subjectIds": [
+        "subject:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "title": "Bahrain GP (Malaysia) - Race",
+      "summary": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
+      "factIds": [
+        "fact:fixture-research:evt_f1_2026_bahrain_race:0",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:1",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:2",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-01T23:21:33.194Z"
     }
   ],
   "audienceMemories": [],
@@ -33028,37 +33455,6 @@
         "source:rolling:wrc:calendar",
         "source:rolling:wrc:driver-standings",
         "source:rolling:wrc:stan-sport"
-      ],
-      "researchedAt": "2026-10-01T17:38:41.192Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-01T17:38:41.192Z"
-      }
-    },
-    {
-      "id": "projection:rolling:evt-motogp-2026-japan",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_motogp_2026_japan"
-      ],
-      "researchDepth": 5,
-      "hook": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-      "synopsis": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure. Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-japan:schedule",
-        "fact:rolling:event-motogp-2026-japan:field",
-        "fact:rolling:event-motogp-2026-japan:viewing",
-        "fact:rolling:event-motogp-2026-japan:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
       ],
       "researchedAt": "2026-10-01T17:38:41.192Z",
       "refreshAfter": null,
@@ -36286,40 +36682,6 @@
       }
     },
     {
-      "id": "projection:rolling:evt-f1-2026-bahrain-qualifying",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_f1_2026_bahrain_qualifying"
-      ],
-      "researchDepth": 5,
-      "hook": "Bahrain GP (Malaysia) · Qualifying: Kimi Antonelli arrives 66 points clear of George Russell.",
-      "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
-      "threadIds": [
-        "thread:rolling:f1-title"
-      ],
-      "factIds": [
-        "fact:f1:bahrain-relocation-2026",
-        "fact:rolling:f1:constructors",
-        "fact:rolling:f1:session:evt-f1-2026-bahrain-qualifying",
-        "fact:rolling:f1:leader",
-        "fact:rolling:f1:qualifying-consequence"
-      ],
-      "sourceIds": [
-        "source:f1:bahrain-relocation-2026",
-        "source:f1:bahrain-safety-2026",
-        "source:rolling:f1:driver-standings",
-        "source:rolling:f1:constructors",
-        "source:rolling:f1:session:evt-f1-2026-bahrain-qualifying"
-      ],
-      "researchedAt": "2026-10-01T17:38:41.192Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-01T17:38:41.192Z"
-      }
-    },
-    {
       "id": "projection:rolling:evt-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447",
       "targetType": "feed-event",
       "targetIds": [
@@ -36397,40 +36759,6 @@
       ],
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
-      ],
-      "researchedAt": "2026-10-01T17:38:41.192Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-01T17:38:41.192Z"
-      }
-    },
-    {
-      "id": "projection:rolling:evt-f1-2026-bahrain-race",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_f1_2026_bahrain_race"
-      ],
-      "researchDepth": 5,
-      "hook": "Bahrain GP (Malaysia) · Race: Kimi Antonelli arrives 66 points clear of George Russell.",
-      "synopsis": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue. Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
-      "threadIds": [
-        "thread:rolling:f1-title"
-      ],
-      "factIds": [
-        "fact:f1:bahrain-relocation-2026",
-        "fact:rolling:f1:constructors",
-        "fact:rolling:f1:session:evt-f1-2026-bahrain-race",
-        "fact:rolling:f1:leader",
-        "fact:rolling:f1:race-consequence"
-      ],
-      "sourceIds": [
-        "source:f1:bahrain-relocation-2026",
-        "source:f1:bahrain-safety-2026",
-        "source:rolling:f1:driver-standings",
-        "source:rolling:f1:constructors",
-        "source:rolling:f1:session:evt-f1-2026-bahrain-race"
       ],
       "researchedAt": "2026-10-01T17:38:41.192Z",
       "refreshAfter": null,
@@ -43077,48 +43405,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:evt_84",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_84"
-      ],
-      "researchDepth": 3,
-      "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
-      "synopsis": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
-      "formCopy": "The Roosters beat the Dolphins 36–20 in their preliminary final, with Mark Nawaqanitawase running for 329 metres and Sam Walker scoring on his return from injury. Newcastle overcame Penrith 22–14 despite playing with 12 men after Phoenix Crossland’s dismissal. They conceded no second-half points; Sandon Smith’s two breakaway tries decided the match.",
-      "closingCopy": "Sandon Smith was squeezed out when the Roosters signed Daly Cherry-Evans. Now his first season at Newcastle ends against the club he left, with a chance to deny Cherry-Evans a premiership in his final NRL match. Mark Nawaqanitawase also has one game left before returning to rugby union. The Knights’ improbable revival meets a Roosters side with two farewells to finish.",
-      "threadIds": [
-        "thread:fixture-research:evt_84"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_84:0",
-        "fact:fixture-research:evt_84:1",
-        "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3",
-        "fact:fixture-research:evt_84:4",
-        "fact:fixture-research:evt_84:5",
-        "fact:fixture-research:evt_84:6",
-        "fact:fixture-research:evt_84:7",
-        "fact:fixture-research:evt_84:8"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_84:0",
-        "source:fixture-research:evt_84:1",
-        "source:fixture-research:evt_84:2",
-        "source:fixture-research:evt_84:3",
-        "source:fixture-research:evt_84:4",
-        "source:fixture-research:evt_84:5"
-      ],
-      "researchedAt": "2026-09-30T22:37:31.000Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-04T08:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T22:37:31.000Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:rugby-australia-south-africa-2026-09-27",
       "targetType": "feed-event",
       "targetIds": [
@@ -43147,34 +43433,6 @@
       },
       "hookSpoilerOn": "Australia defeated South Africa 42–38 in Perth.",
       "synopsisSpoilerOn": "The Wallabies finished four points ahead of South Africa at Optus Stadium on 27 September. The official match centre confirms the final score."
-    },
-    {
-      "id": "projection:fixture-research:evt_nrlw_2026_grand_final",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_nrlw_2026_grand_final"
-      ],
-      "researchDepth": 3,
-      "hook": "Roosters and Broncos meet for the NRLW premiership at Accor Stadium.",
-      "synopsis": "The NRLW Grand Final starts at 4 pm Sydney time on 4 October, before the men’s decider at the same venue. Daylight saving begins that morning in Sydney; Queensland viewers have a 3 pm start.",
-      "threadIds": [
-        "thread:fixture-research:evt_nrlw_2026_grand_final"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_nrlw_2026_grand_final:0",
-        "fact:fixture-research:evt_nrlw_2026_grand_final:1"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_nrlw_2026_grand_final:0"
-      ],
-      "researchedAt": "2026-09-27T13:57:48.000Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-04T05:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-27T13:57:48.000Z"
-      }
     },
     {
       "id": "projection:rolling:event-aflw-cd-m20262640801",
@@ -45378,6 +45636,200 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-30T22:50:31.966Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",
+      "targetType": "feed-event",
+      "targetIds": [
+        "tennis-tournament-wta-beijing-2026-2026-09-30",
+        "tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "researchDepth": 5,
+      "hook": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+      "synopsis": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+      "threadIds": [
+        "thread:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+      ],
+      "factIds": [
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
+        "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+        "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_f1_2026_bahrain_qualifying",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_f1_2026_bahrain_qualifying"
+      ],
+      "researchDepth": 5,
+      "hook": "Sepang qualifying gives Antonelli a chance to interrupt Russell's momentum before Sunday.",
+      "synopsis": "Antonelli has acknowledged the challenge from his Mercedes team-mate. Saturday is the first direct contest for starting position at the Malaysian venue hosting this Bahrain round. Watch which driver finds a repeatable qualifying rhythm: a strong grid slot is valuable, but it is only the opening move before the 56-lap race.",
+      "threadIds": [
+        "thread:fixture-research:evt_f1_2026_bahrain_qualifying"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:0",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:1",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:2",
+        "fact:fixture-research:evt_f1_2026_bahrain_qualifying:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:0",
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:1",
+        "source:fixture-research:evt_f1_2026_bahrain_qualifying:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-03T08:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_motogp_2026_japan",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_motogp_2026_japan"
+      ],
+      "researchDepth": 5,
+      "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
+      "synopsis": "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed.",
+      "threadIds": [
+        "thread:fixture-research:evt_motogp_2026_japan"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_japan:0",
+        "fact:fixture-research:evt_motogp_2026_japan:1",
+        "fact:fixture-research:evt_motogp_2026_japan:2",
+        "fact:fixture-research:evt_motogp_2026_japan:3",
+        "fact:fixture-research:evt_motogp_2026_japan:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_japan:0",
+        "source:fixture-research:evt_motogp_2026_japan:1",
+        "source:fixture-research:evt_motogp_2026_japan:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_nrlw_2026_grand_final",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_nrlw_2026_grand_final"
+      ],
+      "researchDepth": 5,
+      "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
+      "synopsis": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
+      "threadIds": [
+        "thread:fixture-research:evt_nrlw_2026_grand_final"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_nrlw_2026_grand_final:0",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:1",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:2",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_nrlw_2026_grand_final:0",
+        "source:fixture-research:evt_nrlw_2026_grand_final:1",
+        "source:fixture-research:evt_nrlw_2026_grand_final:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-04T05:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_f1_2026_bahrain_race",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_f1_2026_bahrain_race"
+      ],
+      "researchDepth": 5,
+      "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
+      "synopsis": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
+      "threadIds": [
+        "thread:fixture-research:evt_f1_2026_bahrain_race"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_f1_2026_bahrain_race:0",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:1",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:2",
+        "fact:fixture-research:evt_f1_2026_bahrain_race:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_f1_2026_bahrain_race:0",
+        "source:fixture-research:evt_f1_2026_bahrain_race:1",
+        "source:fixture-research:evt_f1_2026_bahrain_race:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-04T07:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_84",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_84"
+      ],
+      "researchDepth": 5,
+      "hook": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
+      "synopsis": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "threadIds": [
+        "thread:fixture-research:evt_84"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_84:0",
+        "fact:fixture-research:evt_84:1",
+        "fact:fixture-research:evt_84:2",
+        "fact:fixture-research:evt_84:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_84:0",
+        "source:fixture-research:evt_84:1",
+        "source:fixture-research:evt_84:2"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-04T08:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-01T23:21:33.194Z"
       }
     }
   ]

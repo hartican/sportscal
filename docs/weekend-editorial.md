@@ -9,7 +9,7 @@ Use a clean current origin/main worktree. Inventory with:
 
 Research only listed cards with current official/trusted sources and write original,
 spoiler-safe hooks and synopses. Save `data/editorial-weekend-YYYY-MM-DD.json` using
-the initial 2026-09-18 file as the schema. Cover every selected ID exactly once;
+the initial 2026-09-18 file as the schema. Account for every selected ID with an entry or deferral;
 provide fresh researchedAt, at least three sources and four supported facts per
 entry, and the exact Friday-Monday weekend range. Then run:
 `node scripts/update-cards.js --weekend-editorial --research data/editorial-weekend-YYYY-MM-DD.json`
@@ -27,3 +27,22 @@ assert the slug before writing, and do not let matching prose skip recovery when
 the previous run left an invalid feed version.
 
 Owner-approved active fixture locks in `config/editorial-locks.js` are excluded from weekend rewrites. They remain protected through live play and postponement; confirmed completion returns them to normal result-aware review. See [preview protection](editorial-preview-locks.md).
+
+## Independent-card progress - 2 October 2026
+
+Never let an isolated card failure stop independent valid cards. Put unresolved
+cards in the research JSON's `deferred` array with `id`, `reason`, `sources`
+(evidence URLs), and `nextAction`. Optional entry `dependsOn` IDs explicitly
+identify cards whose research is directly dependent on another selected card.
+Missing, duplicated, stale or malformed card research is automatically deferred;
+dependency deferrals propagate only along those declared links. Preserve deferred
+cards unchanged. The script saves accepted IDs and actionable deferrals in
+`data/editorial-weekend-report-YYYY-MM-DD.json`; retain that report for future fixes.
+An unlisted failure must never disappear silently from the run summary.
+
+Publish the independently valid subset even when other cards fail. A shared
+knowledge-integrity, feed/spoiler, build or release-gate failure still stops the
+affected publication; do not bypass or weaken those checks. Report updated and
+deferred counts separately. An unchanged valid subset needs no data deployment;
+new actionable deferrals still need reporting. No private preferences, new scheduler
+or canonical ingestion is involved.
