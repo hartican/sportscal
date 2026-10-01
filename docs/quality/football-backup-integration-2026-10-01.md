@@ -1,6 +1,6 @@
 # Delayed Football backup integration — 1 October 2026
 
-The free football-data.org backup is implemented for existing EPL 2026/27 and UCL league-phase fixtures, through the sole canonical refresh owner. Current primaries remain authoritative. During an outage, a complete reviewed backup can add an explicit FINISHED result to an exactly matched existing fixture; it cannot change kickoffs, existing finals, identities, rankings or Australian viewing. Production publication/deployment verification is pending in this checkpoint.
+The free football-data.org backup is implemented for existing EPL 2026/27 and UCL league-phase fixtures, through the sole canonical refresh owner. Current primaries remain authoritative. During an outage, a complete reviewed backup can add an explicit FINISHED result to an exactly matched existing fixture; it cannot change kickoffs, existing finals, identities, rankings or Australian viewing. Published to main and deployed at `4f07c570bf94393059e33279e180dd6d14cb8a91` (shell 344). Production workflow [36849582119](https://github.com/hartican/sportscal/actions/runs/36849582119) passed without a bypass. READY deployment `dpl_HdZ2BtKQv6NHvaqsH7SBaHiRViqY`, release metadata, public alias/served artifacts and live presentation were verified at 2026-10-01T10:33:55.485Z.
 
 ## Evidence and business effect
 
@@ -29,3 +29,11 @@ Limits: EPL whole season and UCL league phase only; no Europa backup, A-League, 
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-football-backup-integration-2026-10-01`.
 Official references: https://www.football-data.org/pricing ; https://www.football-data.org/client/register .
+
+## Release acceptance and limits
+
+All 668 EPL/UCL/Europa pilot fixture IDs and their participants, rounds, kickoff/status/score/viewing fields match the preceding main snapshot. The released delayed-result overlay contains zero entries because primaries were healthy; no production outage was forced. Live presentation tests pass at four responsive widths with backend APIs blocked and service workers disabled, separately from the pre-release dual-engine upgrade rehearsals. Physical-device and signed-in acceptance remain open.
+
+The immutable package gate passed: 1,000 files, 130,645,768 bytes. The existing package-size threshold warned against its 94,300,000-byte baseline; it did not fail or authorise an exception. The unchanged startup budget passes with little compressed-byte headroom. No speed, sustained uptime or package-cost saving is inferred.
+
+Local source/evidence: twenty trial/integration tests, eighty passing release/affected checks, real canonical European refresh with zero backup requests, authenticated four-resource comparison, actual EPL/UCL adapter persistence/recovery tests and production workflow artifact. Saved evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-football-backup-integration-2026-10-01`. Source-rights, complete pilot acceptance, restored service/off-device recovery and physical installed-device tests stay ahead of cohort invitations.
