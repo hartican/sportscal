@@ -1,0 +1,37 @@
+# Recovery rehearsal — 1 October 2026
+
+Recommendation: reuse this verified local recovery bundle for the remaining service tests. Keep the no-subscription decision. Do not call the product fully recoverable until restored Auth/Storage API behaviour, configuration and independent off-device data/key recovery have evidence.
+
+## What passed
+
+The current Sydney project, nothingSport-recovery (`mkghopnkhcxtmfrcjdbc`), exported an error-free 60,839,495-byte Postgres custom archive over its documented TLS session-pooler connection. The earlier CLI schema attempt emitted a direct-host DNS failure despite producing a completed schema; its exit code alone was not accepted. The clean export avoids that direct host. No production password or encryption key was changed.
+
+The exact production image, Postgres 17.6.1.166, restored the archive atomically into an isolated local database in 15.4 seconds. The container had no network and no published ports; cron active-job launch was disabled before restoration. The first atomic attempt failed because a platform role was missing from the local image. Production role attributes and memberships were read without password hashes and reconciled locally before the successful retry. Production application data was not modified.
+
+All 122 compared ordinary tables match their production counterparts for existence, ownership, RLS and forced-RLS flags. All 28 policy expressions, 68 public function definitions and seven extension versions match. The initial policy-text difference was caused by different search paths: `auth.uid()` versus unqualified `uid()`. Aligning the comparison context resolved all differences; the raw mismatch is retained in the evidence. Policy counts and expressions do not alone prove every effective API permission.
+
+The restored ordinary tables contain 21,261 rows. A later source observation contains 21,449: seven later cron-history rows, 180 transient `net._http_response` rows absent from the logical archive, and one later fixture-snapshot row account for the difference. The SQL inventory intentionally samples ordinary relations; the single partitioned `realtime.messages` parent has no current partitions and was not independently compared in this inventory. Its schema restoration succeeded with the archive. Allocation, exported size and restored row counts are distinct measures.
+
+A separate content comparison covers 51 populated application, Auth, Storage and private-recovery tables below 1,000 rows, excluding three actively refreshed source/notification health/lease tables. Fifty tables match exactly. All 171 reminder records remain present; only `schedule_checked_at` and `updated_at` differ against the later source observation. The other 17 reminder columns match. This is later routine bookkeeping, not a replay or a reason to overwrite production. Larger tables and the remaining service behaviours are outside this content-check sample.
+
+Both restored Vault entries decrypt locally using the original project root key. Only readable-row counts were displayed. Supabase's current [Vault guide](https://supabase.com/docs/guides/database/vault#key-portability-and-migration) explains why the key must be recovered separately from a logical database dump. The production key was only read; no rotation or PUT occurred.
+
+All 13 Storage files downloaded into protected scratch space: 1,849,011 bytes, with every byte length and simple ETag checksum matching the restored source metadata. Copied file restores preserve all 13 SHA-256 hashes. The first copy commands used abbreviated bucket labels and failed; the authoritative `nothingsports-` bucket IDs corrected the operator mistake. No production upload or deletion occurred. This proves file recoverability, not authorised retrieval through a restored Storage service.
+
+## Protected retention and limits
+
+A 61,480,996-byte local rehearsal bundle retains the database archive, root key, role metadata, files and private manifests under authenticated AES-256-GCM encryption. Its separate random key is in the Mac's login Keychain and is not synchronised. Authenticated decryption and all 19 enclosed file hashes passed. The accompanying local restore helper retrieved the Keychain key, authenticated the bundle and verified the 13 objects; a modified bundle was rejected before extraction. This small documented rehearsal format is not an ongoing backup service.
+
+Plaintext export/decryption directories, the temporary project root-key file, the restore container and its data volume were removed. The dedicated Colima runtime is stopped, with a clean image cache retained for subsequent local tests; no login service was enabled and the default Docker context remained unchanged. Host free space was about 39 GiB at the final checkpoint after the owner's additional cleanup. That is a dated observation, not space savings attributed solely to this rehearsal.
+
+The local archive/key combination is not proof of recovery after losing this Mac. Independent key access, off-device storage, restored Auth/login/issuer/session behaviour, Storage API retrieval and effective access, configuration/secrets/email/deployment reconstruction, and recovery duration for the complete service remain open. The [Supabase backup guide](https://supabase.com/docs/guides/platform/backups) also distinguishes database backups from separately stored objects. Do not add another recurring job or purchase a subscription to conceal those gaps.
+
+## Business effect and acceptance
+
+This reduces the risk of losing followed preferences, account data, conversations and uploaded files during a recovery. It does not change today's cards or prove complete service availability. Cash: A$0 additional services purchased; existing infrastructure/model cost is not newly measured. Owner time: the requested disk cleanup is complete; no further product choice was needed for this phase. The measured 15.4-second SQL import excludes exports, tool setup, file transfer and complete-service recovery.
+
+Next acceptance: recover from this encrypted bundle without another source export, test actual local Auth/Storage/API behaviour and private/public access, then prove independent data/key recovery. Keep the physical installed-device session and commercial-source gates separate. The carried-sport denominator remains 16, target 13, with 0 fully certified families and 0 of 3 fully certified Football pilots.
+
+Evidence under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`: `recovery-custom-export-20261001.json`, `recovery-local-restore-20261001-first-attempt.json`, `recovery-local-restore-20261001.json`, `recovery-database-comparison-20261001.json`, `recovery-saved-state-integrity-20261001.json`, `recovery-root-key-access-20261001.json`, `recovery-storage-files-20261001.json`, `recovery-object-integrity-20261001.json`, `recovery-encrypted-bundle-20261001.json`, `recovery-unlock-helper-check-20261001.json` and `recovery-private-cleanup-20261001.json`. Actual data, object paths and key values are absent from these reports. The encrypted bundle is retained only in the output folder and must not be committed or published.
+
+Production remains runtime `eef951fbde9860ec018a4b7c8a66c999fbff96dc`, shell 343, READY `dpl_AFUqmG7xRAvwe1AmrrL3MLD6P3Qo`. Production target metadata and the public shell version were rechecked at 04:14 UTC. This is an operator/recovery evidence phase; no new app deployment or sport certification is claimed.
