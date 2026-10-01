@@ -14,7 +14,7 @@ try{
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:['sport:football']})));
   await page.goto(base,{waitUntil:'commit'});
   await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
-  const target=await page.evaluate(async({competition,mode,compact})=>{
+  const {id:target,slotId}=await page.evaluate(async({competition,mode,compact})=>{
    const d=await(await fetch('/data/code-inspector/football.json')).json();
    const f=d.fixtures.find(f=>f.competitionId===competition&&f.status==='upcoming'&&f.date>=formatDateKey(nowAEST()));if(!f)throw Error('Missing current case '+competition);
    userPreferences.feedCompact=compact;userPreferences.showSpoilers=false;
@@ -22,10 +22,20 @@ try{
    activeTab=mode==='feed'?'feed':'follow';activeInspectorCodeId=null;
    feedViewFilters={sport:'sport:football',minimum:0};
    saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:{codeId:'sport:football',competitionId:competition}});
-   if(mode==='feed'){applyFeedEvents([f],null,{append:true});}
-   renderAll();return f.id;
+   if(mode==='feed'){
+    // The selected filter loads the remaining real pages. Finish that operation
+    // before inserting this public fixture so the journey is independent of
+    // network speed and of an earlier published alias winning reconciliation.
+    await hydrateFeedFilter();
+    applyFeedEvents([f],null,{append:true});
+   }
+   renderAll();
+   const aliases=new Set([f.id,f.eventId,f.canonicalEventId].filter(Boolean));
+   const rendered=mode==='feed'?activeEvents.find(e=>[e.id,e.eventId,e.canonicalEventId].some(id=>aliases.has(id))):f;
+   if(!rendered)throw Error('Fixture missing after real Feed reconciliation '+f.id);
+   return {id:rendered.eventId||rendered.id,slotId:rendered.canonicalEventId||rendered.eventId||rendered.id};
   },{competition,mode,compact});
-  if(mode==='feed'){const slot=page.locator(`[data-feed-event-id="${target}"]`).first();await slot.waitFor({state:'attached'});await slot.scrollIntoViewIfNeeded();}
+  if(mode==='feed'){const slot=page.locator(`[data-feed-event-id="${slotId}"]`).first();await slot.waitFor({state:'attached'});await slot.scrollIntoViewIfNeeded();}
   const card=page.locator(`[data-event-id="${target}"]`).first();await card.waitFor();
   if(!await card.locator('.fixture-profile-link:visible').count())await card.locator('[data-card-control="disclosure"]').click();
   const link=card.locator('.fixture-profile-link:visible').first();for(let attempt=0;;attempt++){try{await link.scrollIntoViewIfNeeded();await link.focus();break;}catch(error){if(attempt>=2||!/not attached to the DOM/.test(error.message))throw error;}}

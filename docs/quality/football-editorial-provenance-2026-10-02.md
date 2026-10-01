@@ -1,6 +1,6 @@
 # Football editorial provenance repair — 2 October 2026
 
-Status: local canonical/regression checks and Chromium/WebKit 345→346 upgrades pass; GitHub publication and production verification pending. This is a freshness-integrity repair, not new coverage or full Football certification.
+Status: published to GitHub main and deployed at `8b4142c51cf207a245906b713c91ea06963d3e40`, shell 346. Local canonical/regression checks, dual-engine upgrades, ordinary cloud gates and exact served-package proof pass; affected live Schedule/profile acceptance passes within the stated browser isolation limits. This is a freshness-integrity repair, not new coverage or full Football certification.
 
 ## Problem and resulting behaviour
 
@@ -30,3 +30,13 @@ Evidence under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delive
 
 
 Local source-to-projection comparison at 2026-10-01T17:45:56Z verifies all 668 pilot identities and declared fixture/result/viewing facts unchanged in both Football Schedule artefacts (380 EPL, 144 UCL, 144 Europa). The separate ODbL provider dataset is unchanged. Routine source checks additionally recover the actual official Carlton–Hawthorn 36–24 and Tasmania–Melbourne 84–82 finals. No elapsed-clock result was inferred. Cached runtime source bytes changed, so shell 346 and dual-engine upgrades are required and both rehearsals pass retained preferences, resource failure, offline/resume and previously cached profile-module checks. Browser/device and actual secret-recovery limits remain separate.
+
+
+## Immutable release — 2 October 2026
+
+[Workflow 36902433295](https://github.com/hartican/sportscal/actions/runs/36902433295) passes every ordinary production gate without bypass; the deployment job took 161 seconds. READY `dpl_HzUeJr3HRVKdGRA8re3XmLLsrFc2` serves runtime `8b4142c51cf207a245906b713c91ea06963d3e40`, shell 346. Release metadata and all three aliases are verified. Thirteen served artefacts, including core runtime, both Football Schedule surfaces, delayed overlay and separate ODbL dataset, match the immutable deployment manifest. Unauthenticated Feed returns 401. Deployment verification: 2026-10-01T17:55:18.151Z; served-check completion: 2026-10-02T03:56:01.499233+10:00.
+
+The live Schedule suite passes matchweek navigation, dated/provisional tables, Results-off protection, fixture-specific viewing and four responsive widths. The first profile run timed out looking up a UCL Feed slot; a diagnostic run then timed out on an EPL card, and a later diagnostic completed twelve journeys. Those logs are retained. The test initially selected source IDs while background Filter pagination could reconcile the already published alias. The corrected harness finishes the real Filter page load and resolves the fixture through the actual Feed reconciliation before locating its slot/card. This is a test stability correction; the inferred pagination/alias race is not counted as a repaired production defect. The corrected harness completes all twelve candidate and all twelve live EPL/UCL/Europa compact/full Feed/Schedule journeys, including failure/retry, source notes, both local reveals, close/Escape/Back and late-redraw focus. The APIs are deliberately isolated with 503 responses and service workers blocked; authenticated persistence, screen-reader and installed-device evidence remain separate. No test-only app deployment is needed.
+
+
+Final evidence: `football-editorial-provenance-release-20261002/`, `football-editorial-provenance-served-artifacts-20261002.json`, `football-editorial-provenance-production-run-20261002.json`, both `profile-*-stable-20261002.log` files and the retained earlier timeout/diagnostic logs. The last runtime module is live before continuing the remaining queue. Documentation/test-only follow-up commits require no additional app deployment. Commercial permission, actual saved-key decryption, independent recovery retrieval and the physical-device session remain open; 0/3 pilots and 0/16 families are fully certified.
