@@ -55,6 +55,7 @@ function validateTableFacts(entries){
   for (const entry of entries){
     if (counts.some(field => !Number.isSafeInteger(entry[field]) || entry[field] < 0)
       || !Number.isSafeInteger(entry.pointsDifference) || !Number.isSafeInteger(entry.ladderPoints)
+      || entry.played > 2 * (EXPECTED_TEAM_COUNT - 1)
       || entry.played !== entry.won + entry.drawn + entry.lost
       || entry.pointsDifference !== entry.pointsFor - entry.pointsAgainst){
       throw new Error(`Premier League standings contain inconsistent statistics for ${entry.participantId}.`);
@@ -67,6 +68,13 @@ function validateTableFacts(entries){
     const difference = higher.ladderPoints - lower.ladderPoints
       || higher.pointsDifference - lower.pointsDifference || higher.pointsFor - lower.pointsFor;
     if (difference < 0) throw new Error("Premier League standings rank contradicts points, goal difference or goals scored.");
+  }
+  // A coherent row is insufficient: both sides of every league match must be
+  // represented in the same complete 20-club observation (Handbook C.1-C.3).
+  const total = field => entries.reduce((sum, entry) => sum + entry[field], 0);
+  if (total("won") !== total("lost") || total("drawn") % 2 !== 0
+    || total("pointsFor") !== total("pointsAgainst")){
+    throw new Error("Premier League standings contain inconsistent league-wide match or goal totals.");
   }
 }
 

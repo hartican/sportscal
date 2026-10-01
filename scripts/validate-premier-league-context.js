@@ -67,6 +67,13 @@ const mutations = [
   ["contradictory result count", rows => { rows[0].overall.played += 1; }],
   ["contradictory goal difference", rows => { rows[0].overall.goalsDifference += 1; }],
   ["contradictory rank", rows => { rows.at(-1).overall.points = rows[0].overall.points + 1; }],
+  ["unbalanced league wins/losses", rows => {
+    for(const row of rows)row.overall={played:5,won:0,drawn:5,lost:0,goalsFor:0,goalsAgainst:0,goalsDifference:0,points:5};
+    rows[0].overall.won++;rows[0].overall.drawn--;
+  }],
+  ["odd league draw appearances", rows => { rows.at(-1).overall.drawn++; rows.at(-1).overall.played++; }],
+  ["unbalanced league goals", rows => { rows[0].overall.goalsFor++; rows[0].overall.goalsDifference++; }],
+  ["beyond the 38-match season", rows => { const row=rows[0].overall; row.drawn+=39-row.played; row.played=39; }],
 ];
 for (const [name, mutate] of mutations){
   const invalid = structuredClone(rawPayload);
@@ -80,6 +87,11 @@ for (const row of equal.tables[0].entries) for (const key of Object.keys(row.ove
 assert.deepEqual(standingsEntries(equal).map(row => row.participantId), snapshot.entries.map(row => row.participantId));
 equal.tables[0].entries.at(-1).overall.points = -3;
 assert.equal(standingsEntries(equal).at(-1).ladderPoints, -3, "official points deductions are retained");
+// A final table can still have equal primary statistics. C.17 depends on the
+// affected sporting outcome and official adjudication, not a guessed head-to-head.
+const finalEqual=structuredClone(equal);
+for(const row of finalEqual.tables[0].entries){row.overall.drawn=38;row.overall.played=38;row.overall.points=38;}
+assert.deepEqual(standingsEntries(finalEqual).map(row=>[row.participantId,row.rank]),snapshot.entries.map(row=>[row.participantId,row.rank]),"final exact ties retain the official displayed order without invented sporting decisions");
 for (const field of ["goalsDifference", "goalsFor"]){
   const invalid = structuredClone(equal);
   const last = invalid.tables[0].entries.at(-1).overall;
@@ -96,6 +108,7 @@ assert.throws(() => validatePublishedContext(invalidPublished), /inconsistent/, 
 async function validateFailurePreservation(){
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-epl-"));
   const temporaryBundle = path.join(temporaryDirectory, "context.json");
+  try {
   fs.copyFileSync(bundlePath, temporaryBundle);
   const before = fs.readFileSync(temporaryBundle, "utf8");
   await assert.rejects(
@@ -114,8 +127,20 @@ async function validateFailurePreservation(){
     await assert.rejects(refresh({ bundlePath: temporaryBundle, directoryPath, fetcher: async () => invalid }), /incomplete|inconsistent|contradicts/);
     assert.equal(fs.readFileSync(temporaryBundle, "utf8"), before, "malformed source data must preserve last good bytes");
   }
-  fs.rmSync(temporaryDirectory, { recursive: true });
-
+  const corrupted=structuredClone(bundle);
+  const table=corrupted.ladderSnapshots.find(row=>row.competitionId===COMPETITION_ID);
+  for(const row of table.entries)Object.assign(row,{played:5,won:0,drawn:5,lost:0,pointsFor:0,pointsAgainst:0,pointsDifference:0,ladderPoints:5});
+  const row=table.entries[0];
+  row.won++;row.drawn--;
+  assert.throws(()=>validatePublishedContext(corrupted),/league-wide/,"persisted snapshots receive the same whole-table check");
+  const checkedAt=new Date(snapshot.snapshotTimeUtc);
+  const accepted=await refresh({bundlePath:temporaryBundle,directoryPath,fetcher:async()=>finalEqual,now:()=>checkedAt});
+  const persisted=JSON.parse(fs.readFileSync(temporaryBundle,"utf8"));
+  assert.deepEqual(persisted,accepted,"a coherent final observation persists through the real writer");
+  assert.equal(validatePublishedContext(persisted).source.checkedAt,checkedAt.toISOString(),"only the actual supplied observation date is recorded");
+  } finally {
+    fs.rmSync(temporaryDirectory, { recursive: true, force:true });
+  }
 }
 
 validateFailurePreservation()

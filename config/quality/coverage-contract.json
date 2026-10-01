@@ -1,6 +1,6 @@
 {
   "version": "2026-09-27",
-  "evidenceUpdatedAt": "2026-10-01",
+  "evidenceUpdatedAt": "2026-10-02",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
@@ -37,6 +37,7 @@
       "state": "partial",
       "evidence": [
         "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
         "scripts/validate-football-schedule.js",
         "scripts/validate-football-schedule-browser.js",
         "docs/quality/football-reference-reconciliation-2026-09-28.md",
@@ -44,12 +45,13 @@
         "docs/quality/football-viewing-acceptance-2026-09-30.md"
       ],
       "remaining": [
-        "Final-season tie-break and exact-tie acceptance beyond official displayed rank",
+        "Exact-tie/shared-place presentation and final sporting adjudication beyond official displayed order; current handbook rules reviewed",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial permission"
       ],
       "verifiedSnapshotProgress": [
+        "2 October: official 2026/27 handbook C.1-C.7/C.17 reviewed; current table coherent with no exact primary-statistic ties. Reproduced whole-league validation gap repaired locally with real temporary-writer retention; publication/production pending. No shared-place or final-outcome inference added.",
         "30 September: 10 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "380 fixture pair/date/kickoff comparisons against separate league publication; shared ownership",
         "380 matchweeks and 50 completed results checked with official Fantasy API",
@@ -66,6 +68,7 @@
       "evidence": [
         "scripts/validate-european-football-continuity.js",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
@@ -75,13 +78,14 @@
         "docs/quality/football-viewing-acceptance-2026-09-30.md"
       ],
       "remaining": [
-        "Final-round disciplinary/coefficient evidence and tie-break acceptance; ingest knockout fixtures when actually published",
+        "Final-round disciplinary/coefficient inputs and source-to-screen acceptance; supported ordering has synthetic regression evidence; ingest knockouts when published",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial source permission"
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for UCL; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
         "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
@@ -100,6 +104,7 @@
       "evidence": [
         "scripts/validate-european-football-continuity.js",
         "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
         "scripts/validate-openligadb-football.js",
         "scripts/validate-european-football-browser.js",
         "docs/quality/football-source-feasibility.md",
@@ -109,13 +114,14 @@
         "docs/quality/football-viewing-acceptance-2026-09-30.md"
       ],
       "remaining": [
-        "Final-round disciplinary/coefficient evidence and tie-break acceptance; ingest knockout fixtures when actually published",
+        "Final-round disciplinary/coefficient inputs and source-to-screen acceptance; supported ordering has synthetic regression evidence; ingest knockouts when published",
         "Fixture-specific viewing/replay evidence beyond competition rights",
         "Full presentation and physical installed-device acceptance",
         "Routine source freshness, recovery and commercial source permission"
       ],
       "expectedLeaguePhaseFixtures": 144,
       "verifiedSnapshotProgress": [
+        "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for Europa; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
         "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
         "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
         "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
