@@ -42,6 +42,8 @@
     let status = "";
     if (statuses.some(value => ["cancelled","canceled"].includes(value))) status = "CANCELLED";
     else if (statuses.includes("postponed")) status = "POSTPONED";
+    else if (statuses.includes("abandoned")) status = "ABANDONED";
+    else if (statuses.includes("suspended")) status = "SUSPENDED";
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
     else if(statuses.includes("ongoing"))status="ONGOING";
     else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";

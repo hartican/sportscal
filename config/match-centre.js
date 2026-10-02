@@ -37,7 +37,8 @@
  function observation(prior,next){
   if(!prior)return next;
   const stamp=x=>Date.parse(x.observationCheckedAt||x.statusCheckedAt||x.scoreCheckedAt||x.checkedAt||'');
-  if(final(prior)&&!final(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return {...prior,stale:true};
+  const settled=e=>final(e)||e.status==='abandoned';
+  if(settled(prior)&&!settled(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return {...prior,stale:true};
   return {...next};
  }
  function compact(e,{checkedAt=null,stale=false,rubbers=false}={}){return {format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||checkedAt||e.sourceCheckedAt||null,statusCheckedAt:e.statusCheckedAt||checkedAt||e.sourceCheckedAt||null,checkedAt:e.scoreCheckedAt||checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt||null,stale,score:score(e),officialUrl:officialUrl(e),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}

@@ -146,7 +146,7 @@
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
   const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
   const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
-  const completed=status=>/^(completed|finished|final)$/i.test(status||'');
+  const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
   function inningsAdvanced(base,event){
     if(sportKey(event)!=='cricket'||!Array.isArray(base?.innings)||!Array.isArray(event.innings))return false;
     return event.innings.some((next,index)=>{
@@ -162,7 +162,7 @@
     if(event.enrichmentOnly)return;
     // Snapshot retrieval time cannot reopen a confirmed result. Preserve final
     // scores and provenance too; otherwise a stale live score could replace them.
-    if(completed(base?.status)&&!completed(event.status)){
+    if(settled(base?.status)&&!settled(event.status)){
       for(const key of [...SCORE_OBSERVATION_FIELDS,'homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
         if(base[key]!==undefined)event[key]=base[key];else delete event[key];
       }

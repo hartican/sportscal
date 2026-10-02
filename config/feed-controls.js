@@ -133,7 +133,7 @@
     const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
     if(odi?.awaiting(event,now))return Object.freeze({key:'awaiting-result',label:odi.label,ariaLabel:odi.label});
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
-    if(["cancelled","canceled","postponed"].includes(status))return null;
+    if(["cancelled","canceled","postponed","abandoned","suspended"].includes(status))return null;
     const start = eventStart(event);
     if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);

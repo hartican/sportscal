@@ -9,6 +9,7 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
 async function assertCachedFootballStatus(page){
+  await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
   const status=await page.evaluate(fixture=>{
     const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
@@ -16,6 +17,15 @@ async function assertCachedFootballStatus(page){
   assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
   const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
   assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
+  const abandoned=await page.evaluate(()=>{
+    const event={key:'cricket',status:'abandoned',startTimeUtc:'2026-09-28T04:30:00Z',endTimeUtc:'2026-09-28T09:00:00Z'};
+    const now=new Date('2026-09-28T05:00:00Z');
+    const prior={...event,status:'completed',statusCheckedAt:'2026-09-30T00:00:00Z'};
+    const next={...event,statusCheckedAt:'2026-10-02T00:00:00Z'};
+    return {status:NOTHINGSPORTS_CARD_TIMING.presentation(event,now).status,timing:NOTHINGSPORTS_FEED_CONTROLS.timingState(event,now),observation:NOTHINGSPORTS_MATCH_CENTRE.observation(prior,next).status};
+  });
+  assert.equal(abandoned.status,'ABANDONED');assert.equal(abandoned.timing,null,'upgraded/offline runtime never calls an abandoned match live');
+  assert.equal(abandoned.observation,'abandoned','upgraded/offline deferred Match Centre accepts the official abandonment correction');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
@@ -45,6 +55,9 @@ const baselineVersion=baselineFile('index.html').toString().match(/name="app-she
 const profilePath=html=>html.match(/loadDeferredScript\(["'](config\/athlete-profile-ui\.js\?v=\d+)["']\)/)?.[1];
 const baselineProfilePath=profilePath(baselineFile('index.html').toString());
 const candidateProfilePath=profilePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
+const matchCentrePath=html=>html.match(/loadDeferredScript\(["'](config\/match-centre\.js\?v=\d+)["']\)/)?.[1];
+const baselineMatchCentrePath=matchCentrePath(baselineFile('index.html').toString());
+const candidateMatchCentrePath=matchCentrePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
 const launchOptions=process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{};
 let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0;
 function candidateFile(name){
@@ -88,6 +101,7 @@ const server=http.createServer((req,res)=>{
     });
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
+    if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
@@ -169,6 +183,6 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

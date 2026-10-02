@@ -71053,15 +71053,15 @@
         {
           "id": "team:cricket:india",
           "name": "India Men",
-          "teamKind": "national",
           "countryCode": "IN",
+          "teamKind": "national",
           "genderCategory": "male"
         },
         {
           "id": "team:cricket:afghanistan",
           "name": "Afghanistan Men",
-          "teamKind": "national",
           "countryCode": "AF",
+          "teamKind": "national",
           "genderCategory": "male"
         }
       ],
@@ -71071,19 +71071,19 @@
       ],
       "homeParticipantId": "team:cricket:india",
       "awayParticipantId": "team:cricket:afghanistan",
-      "status": "completed",
+      "status": "abandoned",
       "scoreDisplay": "Match Abandoned without a ball bowled",
       "innings": [],
       "format": "T20 International",
       "numberOfDays": 1,
       "sourceName": "Cricket Australia",
       "sourceType": "official",
-      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?competitionId=4718&isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-10-02T01:43:16.001Z",
       "timingProvenance": {
         "kind": "official",
-        "checkedAt": "2026-09-30T03:36:03.593Z",
-        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?competitionId=4718&isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+        "checkedAt": "2026-10-02T01:43:16.001Z"
       },
       "displayTitleCompact": "India Men v Afghanistan Men",
       "date": "2026-09-28",
@@ -71100,14 +71100,14 @@
           "label": "Knockout",
           "confidence": 0.9,
           "sourceUrls": [
-            "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+            "https://apiv2.cricket.com.au/web/fixtures/yearfilter?competitionId=4718&isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
           ],
           "method": "published-schedule.v1"
         }
       ],
       "firstConfirmedCompleteAt": "2026-09-30T03:36:10.215383+00:00",
-      "scoreCheckedAt": "2026-09-30T03:36:03.593Z",
-      "statusCheckedAt": "2026-09-30T03:36:03.593Z",
+      "scoreCheckedAt": "2026-10-02T01:43:16.001Z",
+      "statusCheckedAt": "2026-10-02T01:43:16.001Z",
       "sourceEventIds": [
         "fixture:cricket:CA:40996"
       ]

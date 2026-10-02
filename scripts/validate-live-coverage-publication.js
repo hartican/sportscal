@@ -20,6 +20,22 @@ const prior={events:[base],sources:[{id:'discovery-rugby-mru',checkedAt:base.sou
  await assert.rejects(()=>readRows(async()=>Array.from({length:PAGE_SIZE},()=>row(result))),/overlapping/);
  let n=0;await assert.rejects(()=>readRows(async()=>Array.from({length:PAGE_SIZE},()=>row({...result,id:'fixture:'+n++}))),/budget/);assert.equal(n,PAGE_SIZE*MAX_PAGES);
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-live-coverage-'));try{const file=path.join(dir,'coverage.json');fs.writeFileSync(file,JSON.stringify(prior));const before=fs.readFileSync(file);await assert.rejects(()=>sync({file,now,request:async()=>{throw Error('unavailable')}}));assert(fs.readFileSync(file).equals(before));await sync({file,now,rows:[row(result)]});const changed=fs.readFileSync(file);await sync({file,now,rows:[row({...result,sourceCheckedAt:'2026-09-30T03:00:00Z'})]});assert(fs.readFileSync(file).equals(changed));}finally{fs.rmSync(dir,{recursive:true,force:true});}
+ const sample=require('./fixtures/source-coverage/cricket-australia-abandoned.json');
+ const [abandoned]=require('../lib/source-coverage').parseCricketFixtures([sample.fixture],sample);
+ const cricketNow=new Date('2026-10-02T02:00:00Z');
+ const cricketPrior={...prior,events:[{...abandoned,status:'completed',sourceCheckedAt:'2026-09-30T03:36:03.593Z',viewingOptions:[{providerId:'reviewed-test'}]}]};
+ const cricketRows=[row(abandoned,'cricket-ca-current')];
+ const corrected=project(cricketPrior,cricketRows,{now:cricketNow});
+ assert.equal(corrected.report.changed,1);assert.deepEqual(corrected.report.codes,['cricket']);
+ assert.equal(corrected.document.events[0].id,cricketPrior.events[0].id);assert.equal(corrected.document.events[0].status,'abandoned');
+ assert.equal(corrected.document.events[0].statusCheckedAt,sample.checkedAt);assert.equal(corrected.document.events[0].viewingOptions[0].providerId,'reviewed-test');
+ const cricketDir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-abandoned-publication-'));try{
+  const file=path.join(cricketDir,'coverage.json');fs.writeFileSync(file,JSON.stringify(cricketPrior));
+  await sync({file,now:cricketNow,rows:cricketRows});
+  const published=fs.readFileSync(file);assert.equal(JSON.parse(published).events[0].status,'abandoned');
+  await sync({file,now:cricketNow,rows:[row({...abandoned,sourceCheckedAt:'2026-10-02T01:50:00Z'},'cricket-ca-current')]});
+  assert(fs.readFileSync(file).equals(published),'rechecking the same abandoned facts preserves published bytes and observation');
+ }finally{fs.rmSync(cricketDir,{recursive:true,force:true});}
  const {projectionSteps}=require('./quick-results');const steps=projectionSteps(['Live coverage cricket','Live coverage rugby-union']);assert(steps.some(s=>s.includes('--codes=cricket,rugby-union')));assert(!steps.some(s=>s[0]==='scripts/publish-feed.js'));assert(fs.readFileSync(path.join(__dirname,'quick-results.js'),'utf8').includes("require('./sync-live-coverage').sync({now})"));
  if(process.argv.includes('--live-read')){
   if(new URL(process.env.SUPABASE_URL).hostname!=='mkghopnkhcxtmfrcjdbc.supabase.co')throw Error('Unexpected live fixture project');

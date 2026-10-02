@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="355">
+<meta name="app-shell-version" content="356">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=355" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=356" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7175,7 +7175,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=355"></script>
+<script src="assets/js/app-shell-runtime.js?v=356"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8739,7 +8739,7 @@ function loadMatchCentre(){
   panel.innerHTML='<div class="match-centre-heading"><h2>Match Centre</h2></div><p role="status">Loading Match Centre…</p>';
   panel.setAttribute('aria-busy','true');
   if(loadMatchCentre.pending)return loadMatchCentre.pending;
-  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/surface-category-ui.js?v=340'),loadDeferredScript('config/match-centre.js?v=340'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
+  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/surface-category-ui.js?v=340'),loadDeferredScript('config/match-centre.js?v=356'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
     .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=340'))
     .then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();})
     .catch(()=>{

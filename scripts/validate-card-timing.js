@@ -12,7 +12,7 @@ assert.match(p({...fixture,startTimeUtc:'2027-01-01T15:30:00Z'},now).label,/2027
 assert.equal(p({...fixture,startTimeUtc:'2026-10-03T15:30:00Z'},'2026-10-03T14:30:00Z').label,'TODAY 1:30 AM');
 assert.equal(p({...fixture,startTimeUtc:'2026-10-03T16:30:00Z'},'2026-10-03T14:30:00Z').label,'TODAY 3:30 AM');
 assert.equal(p({...fixture,startTimeUtc:'2026-10-09T15:30:00Z'},'2026-10-03T14:30:00Z').label,'SAT 2:30 AM','DST must not shift calendar-day boundary');
-for(const [status,label] of [['live','LIVE'],['completed','FINISHED'],['final','FINISHED'],['postponed','POSTPONED'],['canceled','CANCELLED']]){
+for(const [status,label] of [['live','LIVE'],['completed','FINISHED'],['final','FINISHED'],['postponed','POSTPONED'],['canceled','CANCELLED'],['abandoned','ABANDONED'],['suspended','SUSPENDED']]){
  const value=p({...fixture,status},now);assert.equal(value.label,label);assert.match(value.fullSchedule,/FRI 25 SEP/);assert.match(value.ariaLabel,/Sydney time/);
 }
 assert.equal(p({...fixture,status:'live',scheduleStatus:'postponed'},now).label,'POSTPONED');
