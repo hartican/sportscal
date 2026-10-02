@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## WSL venue/calendar delivery — 3 October 2026
+
+The approved rollout adds eleven men’s Championship Tour event windows and preserves the existing mixed Margaret River record, including its ID, result and calendar provenance. WSL is a distinct child of Surfing and begins unfollowed. A broad Surfing follow or derived compatibility fields cannot grant WSL consent; explicit WSL/competition or participant follows are required. Legacy versioned `sport:wsl` aliases remain Surfing selections when upgraded; new WSL selections use preference version 25. Exclusions, seven-day history and twelve-month horizon remain. Published windows have date-only precision; no heats, daily times, future Raglan dates, participants or result provider is invented. Events parents have no rating controls. Regression: `validate-wsl-calendar.js --published`, Follow parity and both-engine venue/upgrade checks.
+
 ## SailGP venue/calendar delivery — 3 October 2026
 
 The approved venue rollout ingests reviewed official two-day calendars through the existing cards owner: 13 current-season events plus individually published future weekends within twelve months. Existing seven day IDs, source/result observations and Geneva timing survive; future entries are empty rather than inherited from the 2026 roster. Country panels use existing reviewed palettes or neutral colours; unverified course/venue geometry uses the sailing glyph. Calendar coverage is distinct from result/entry/timing completeness, so the partial explanation remains. Events parents receive no rating controls and no new choice is followed by default. No admission/exclusion/retention/notification rule changes. Regression: `validate-sailgp-calendar.js --published`, existing timing/Follow policy gates and both-engine venue/cache checks.

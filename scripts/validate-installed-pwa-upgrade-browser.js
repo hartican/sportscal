@@ -36,6 +36,14 @@ async function assertCachedFootballStatus(page){
   });
   assert.equal(tournamentPhase.compact,'In progress');assert.equal(tournamentPhase.chip,'In progress');assert.match(tournamentPhase.accessible,/Tournament in progress/);
   assert.equal(tournamentPhase.feed,'IN PROGRESS');assert.equal(tournamentPhase.clock,null);assert.equal(tournamentPhase.scheduled,null,'cached dates alone never invent tournament progress');
+  const wsl=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/wsl.json')).json();
+    const e=code.fixtures.find(f=>f.id.endsWith('portugal'));
+    const image=new Image();image.src='/assets/identities/wsl/wave-white.svg';await image.decode();
+    const brand=new Image();brand.src='/assets/identities/wsl/brand.png';await brand.decode();
+    return {count:code.fixtures.length,coverage:code.coverageStatus,unfollowed:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:25,selectedSelectorEntityIds:['sport:surf']}),followed:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:25,selectedSelectorEntityIds:['sport:wsl']}),precision:e.timePrecision,time:e.time,providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(e),glyph:image.naturalWidth,brand:brand.naturalWidth};
+  });
+  assert.equal(wsl.count,12);assert.equal(wsl.coverage,'partial');assert(wsl.unfollowed&&wsl.followed&&wsl.glyph>0&&wsl.brand>0);assert.equal(wsl.precision,'date-only');assert.equal(wsl.time,null);assert.deepEqual(wsl.providers,[],'cached WSL windows never invent Australian viewing');
   const sailgp=await page.evaluate(async()=>{
     const code=await(await fetch('/data/code-inspector/sailgp.json')).json();
     return {coverage:code.coverageStatus,copy:codeInspectorCoverageCopy(code.code?{...code.code,coverageStatus:code.coverageStatus}:code),geneva:code.fixtures.filter(f=>f.id.includes('geneva')).map(f=>({start:f.startTimeUtc,end:f.endTimeUtc,timingCheckedAt:f.timingProvenance?.checkedAt,resultCheckedAt:f.resultSourceCheckedAt})),future:code.fixtures.filter(f=>f.season==='2026'&&/(dubai|abu-dhabi)/.test(f.id)).map(f=>({start:f.startTimeUtc,precision:f.timePrecision})),nextSeason:code.fixtures.filter(f=>f.season==='2027').map(f=>({confirmed:f.participantsConfirmed,entries:f.participantIds||[],providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId),start:f.startTimeUtc,precision:f.timePrecision}))};

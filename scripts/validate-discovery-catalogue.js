@@ -16,7 +16,7 @@ const hierarchyExpectations = {
   "sport:nrl": [["sport:nrl-premiership", "NRL"], ["sport:nrlw", "NRLW"]],
   "sport:motorsport": [["sport:f1", "F1"], ["sport:motogp", "MotoGP"], ["sport:wrc", "WRC"], ["sport:supercars", "V8 Supercars"]],
   "sport:extreme": [["sport:downhill-mtb", "MTB"]],
-  "sport:surf": [["sport:big-wave", "Big-wave"]],
+  "sport:surf": [["sport:wsl", "WSL"], ["sport:big-wave", "Big-wave"]],
   "sport:skiing": [["sport:alpine", "Alpine"], ["sport:freestyle", "Freestyle"]],
 };
 Object.entries(hierarchyExpectations).forEach(([parentId, expectedChildren]) => {

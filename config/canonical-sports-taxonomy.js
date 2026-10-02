@@ -372,6 +372,7 @@
   ].map(domain => Object.freeze({ ...domain, kind: "specialEvent" }));
 
   const competitionFamilies = [
+    {id:"family:world-surf-league",sportDomainId:"sport:surf",slug:"world-surf-league",name:"World Surf League",familyType:"championship",sortOrder:34,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {
       id: "family:afl-premiership",
       sportDomainId: "sport:afl",
@@ -529,6 +530,7 @@
   ];
 
   const competitions = [
+    {id:"competition:wsl-championship-tour",sportDomainId:"sport:surf",preferenceDomainId:"sport:wsl",competitionFamilyId:"family:world-surf-league",slug:"wsl-championship-tour",name:"WSL Championship Tour",competitionType:"seasonChampionship",seasonLabel:"2026",region:"global",gender:"mixed",supportsLadder:false,supportsTeams:false,supportsCompetitors:true,isSpecialEvent:false,surfaceClassification:"code",classificationReason:"recurring-single-code-competition",source:{provider:"World Surf League",sourceUrl:"https://www.worldsurfleague.com/events/2026/ct?all=1"}},
     {
       id: "competition:afl-premiership-2026",
       sportDomainId: "sport:afl",

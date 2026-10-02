@@ -66,7 +66,7 @@
   function palette(event,sides=[]){
     // SailGP's venue panel follows its host country, including retained cards
     // with confirmed team entries. Team colours do not identify the waterway.
-    if(event.key==='sailgp')return hosts[event.venueCountryCode]||['#7c8797','#7c8797'];
+    if(['sailgp','wsl'].includes(event.key))return hosts[event.venueCountryCode]||['#7c8797','#7c8797'];
     if(sides.some(side=>/^(?:winner|loser|tbc|tbd|qualifier|to be confirmed)\b/i.test(side.label||'')))return null;
     const ids=event.participantIds||[],left=identityKey(event.homeParticipantId||ids[0]||sides[0]?.participant?.id||sides[0]?.mark?.id),right=identityKey(event.awayParticipantId||ids[1]||sides[1]?.participant?.id||sides[1]?.mark?.id);
     const country=(id,i)=>{const p=(event.participants||[]).find(p=>identityKey(p.id||p.participantId)===id)||sides[i]?.participant||sides[i]?.mark;return p?.countryCode||p?.nationalityCode||p?.metadata?.countryCode||sides[i]?.participant?.countryCode||sides[i]?.participant?.nationalityCode||sides[i]?.mark?.countryCode;};
@@ -77,7 +77,7 @@
     const key=String(event.competitionId||'').replace('competition:golf:','competition:');
     const brand=Object.entries(tournaments).find(([id])=>key===id||key.startsWith(id+'-')||key.startsWith(id+':'))?.[1];
     if(brand)return [brand,brand];
-    if(['f1','motogp','wrc','sailgp','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||(['motogp','wrc','sailgp'].includes(event.key)?['#526174','#384657']:null);
+    if(['f1','motogp','wrc','sailgp','wsl','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||(['motogp','wrc','sailgp','wsl'].includes(event.key)?['#526174','#384657']:null);
     return null;
   }
   // Official current calendar, reviewed 2026-09-25: https://www.formula1.com/en/racing/2026
@@ -106,7 +106,7 @@
     return registry?.resolve(event)||null;
   }
   function circuitAsset(event){
-    if(['motogp','wrc','sailgp'].includes(event.key))return venueArtwork(event)?.path||null;
+    if(['motogp','wrc','sailgp','wsl'].includes(event.key))return venueArtwork(event)?.path||null;
     if(event.key!=='f1')return null;
     const circuits=[['silverstone','gb-1948'],['spa-francorchamps','be-1925'],['albert park','au-1953'],['hungaroring','hu-1986'],['zandvoort','nl-1948'],['monza','it-1922'],['madring','es-2026'],['baku','az-2016'],['sepang','my-1999'],['marina bay','sg-2008'],['americas','us-2012'],['hermanos','mx-1962'],['jose carlos','br-1940'],['las vegas','us-2023'],['lusail','qa-2004'],['yas marina','ae-2009'],['bahrain','bh-2002'],['shanghai','cn-2004'],['suzuka','jp-1962'],['monaco','mc-1929'],['gilles','ca-1978'],['red bull ring','at-1969'],['jeddah','sa-2021'],['miami','us-2022']];
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();

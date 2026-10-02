@@ -56,6 +56,7 @@ const CODE_KEYS = Object.freeze({
   "sport:nbl": ["nbl"],
   "competition:motogp": ["motogp"],
   "competition:sailgp": ["sailgp"],
+  "competition:wsl-championship-tour": ["wsl"],
   "competition:fiba-womens-world-cup": ["fiba-women"],
   "sport:extreme": ["extreme"],
   "sport:surf": ["surf", "surfing"],
@@ -127,6 +128,7 @@ const CHILD_CODE_IDS = new Set([
   "sport:nbl",
   "competition:motogp",
   "competition:sailgp",
+  "competition:wsl-championship-tour",
   "competition:fiba-womens-world-cup",
 ]);
 
@@ -236,6 +238,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.published === false ? {published:false} : {}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
+    ...(event.key==='wsl'&&event.calendarProvenance?{calendarProvenance:event.calendarProvenance}:{}),
     ...(event.format ? {format:event.format} : {}),
     ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
     name: event.name || event.displayName || "TBC",
@@ -487,6 +490,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
   const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
   const requestedCompetitionCodes = [
+    {id:"competition:wsl-championship-tour",slug:"wsl",name:"WSL",parentSportId:"sport:surf"},
     { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
     { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },
     { id:"competition:fiba-womens-world-cup", slug:"fiba-women", name:"FIBA Women", parentSportId:"sport:basketball" },

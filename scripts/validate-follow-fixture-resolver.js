@@ -150,7 +150,8 @@ const semanticWorldCupOpener = resolveUserFollowFixtures({ events:[publishedWorl
 const worldCupOpeners = semanticWorldCupOpener.events.filter(event => event.startTimeUtc && Date.parse(event.startTimeUtc) === Date.parse(publishedWorldCupOpener.startTimeUtc) && eventParticipantIds(event).includes("team:nrl:kangaroos") && eventParticipantIds(event).includes("team:nrl:kiwis"));
 assert.equal(worldCupOpeners.length, 1, "Major Events and Feed aliases of the World Cup opener must collapse to one fixture across competition ids and equivalent ISO timestamps");
 assert.equal(worldCupOpeners[0].id, publishedWorldCupOpener.id, "semantic deduplication must retain the curated World Cup identity");
-assert.equal(worldCupOpeners[0].editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the central World Cup card must retain its researched L0 editorial projection");
+assert(publishedWorldCupOpener.editorialNarrative?.projectionId && publishedWorldCupOpener.editorialNarrative?.sourceIds?.length, "published World Cup research must have identity and sources");
+assert.deepEqual(worldCupOpeners[0].editorialNarrative, publishedWorldCupOpener.editorialNarrative, "the central World Cup card must retain its current complete researched L0 projection");
 
 const nbaGame = {
   gameId:"0022600088",

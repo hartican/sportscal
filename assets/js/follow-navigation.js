@@ -33,13 +33,13 @@
   for(const [label,action]of [['Clear filters',()=>{filters[code]={};persist();windows.delete(code);dialog.close();renderFollowView();}],['Apply',()=>{filters[code]=draft;persist();windows.delete(code);dialog.close();renderFollowView();}],['Cancel',()=>dialog.close()]]){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.onclick=action;actions.append(b);}dialog.append(actions);dialog.onclose=()=>dialog.remove();document.body.append(dialog);dialog.showModal();
  }
  function mount(container,entity,state){
-  if(['sport:motogp','sport:wrc','sport:sailgp'].includes(entity.id)){
+  if(['sport:motogp','sport:wrc','sport:sailgp','sport:wsl'].includes(entity.id)){
    const key=entity.id.slice(6);
    const heading=container.querySelector(':scope > h2');
    if(heading){
     heading.style.cssText='display:flex;align-items:center;gap:8px';
     const mark=document.createElement('span');mark.className='follow-sport-mark identity-frame';mark.setAttribute('aria-hidden','true');
-    renderEventIdentityMark(mark,{key},{...sportMetaForEvent({key}),glyph:key==='motogp'?'sport:motorcycle':key==='sailgp'?'sport:sailing':'sport:motorsport'});heading.prepend(mark);
+    renderEventIdentityMark(mark,{key},{...sportMetaForEvent({key}),glyph:key==='motogp'?'sport:motorcycle':key==='sailgp'?'sport:sailing':key==='wsl'?'sport:surf':'sport:motorsport'});heading.prepend(mark);
    }
   }
   const nav=document.createElement('div');nav.className='follow-navigation';const spacer=document.createElement('div');spacer.className='follow-navigation-spacer';spacer.setAttribute('aria-hidden','true');

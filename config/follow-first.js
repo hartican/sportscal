@@ -297,7 +297,9 @@
   function migratePreferences(input){
     const raw = input && typeof input === "object" && !Array.isArray(input) ? input : {};
     const cricket=root.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==="function"?require("./cricket-coverage"):null);
-    const source=cricket?cricket.preferences(raw):raw;
+    const initial=cricket?cricket.preferences(raw):raw;
+    const legacyWslAlias=Number(initial.version||0)>0&&Number(initial.version)<25;
+    const source=legacyWslAlias?{...initial,selectedSelectorEntityIds:(initial.selectedSelectorEntityIds||[]).map(id=>id==='sport:wsl'?'sport:surf':id)}:initial;
     const prior = source.followFirst && typeof source.followFirst === "object" ? source.followFirst : {};
     const defaults = defaultFollowFirst();
     const rawStartupMeta = prior.startupMeta || source.startupMeta || {};
@@ -344,7 +346,7 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(24, Number(source.version) || 0),
+      version:Math.max(25, Number(source.version) || 0),
       ...(source.preferenceGraph ? {preferenceGraph:{...source.preferenceGraph, entityFollows:(source.preferenceGraph.entityFollows || []).map(item=>item.followLevel === "mute" && Number(source.version||0)<24 ? {...item,followLevel:"unfollow"} : item)}} : {}),
       followedSports,
       selectedSelectorEntityIds,
@@ -588,7 +590,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T18:50:30.072Z",
+  "generatedAt": "2026-10-02T19:14:39.205Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -331,6 +331,19 @@
       "freshAt": "2026-08-29T23:56:41.761Z",
       "parentSportId": "sport:football",
       "chunkPath": "data/code-inspector/champions-league.json"
+    },
+    {
+      "followSchedulePath": "data/follow-schedule/wsl.json",
+      "id": "competition:wsl-championship-tour",
+      "slug": "wsl",
+      "label": "WSL",
+      "fixtureCount": 12,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-02T19:14:39.205Z",
+      "parentSportId": "sport:surf",
+      "chunkPath": "data/code-inspector/wsl.json"
     },
     {
       "followSchedulePath": "data/follow-schedule/motogp.json",

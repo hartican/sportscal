@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 21;
+  const PREFERENCE_VERSION = 25;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -263,14 +263,16 @@
     const saved = savedPreferences && typeof savedPreferences === "object" && !Array.isArray(savedPreferences)
       ? savedPreferences
       : {};
-    const legacyAflFollow = Number(saved.version || 0) < PREFERENCE_VERSION && (
+    const legacyAflFollow = Number(saved.version || 0) < 21 && (
       (saved.selectedSelectorEntityIds || []).includes("sport:afl") || (saved.followedSports || []).includes("afl")
     );
     const inheritedAflw = Number(saved.version || 0)>0 && Number(saved.version)<20
       && (saved.selectedSelectorEntityIds || []).some(id=>["sport:afl","sport:afl-premiership"].includes(id))
       && !(saved.preferenceGraph?.entityFollows || []).some(f=>String(f.participantId).includes(":aflw:") && ["follow","priority"].includes(f.followLevel))
       && !(saved.preferenceGraph?.competitionPreferences || []).some(p=>String(p.competitionId).includes("aflw") && p.enabled===true);
+    const legacyWslAlias = Number(saved.version || 0)>0 && Number(saved.version)<25;
     const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
+      .map(id=>legacyWslAlias && id==="sport:wsl"?"sport:surf":id)
       .filter(id=>!(inheritedAflw && id==="sport:aflw"))
       .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
     const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])
@@ -284,12 +286,15 @@
     // descendant of a selected parent, so unioning it here would silently turn a
     // Motorsport parent follow into separate F1 and WRC follows.
     const migration = migrateEventBrandFollows(
-      Array.isArray(saved.selectedSelectorEntityIds) ? selectedSelectorEntityIds : Number(saved.version)>0 && Number(saved.version)<PREFERENCE_VERSION ? [] : followedSports,
+      Array.isArray(saved.selectedSelectorEntityIds) ? selectedSelectorEntityIds : Number(saved.version)>0 && Number(saved.version)<21 ? [] : followedSports,
       { commonwealthDisciplineIds }
     );
     const next = {
       ...saved,
       version: Math.max(PREFERENCE_VERSION,Number(saved.version)||0),
+      // Preserve the existing pre-v24 neutral-Unfollow migration before raising
+      // the shared preference version for the new explicit WSL choice.
+      ...(saved.preferenceGraph ? {preferenceGraph:{...saved.preferenceGraph,entityFollows:(saved.preferenceGraph.entityFollows||[]).map(item=>item.followLevel==='mute'&&Number(saved.version||0)<24?{...item,followLevel:'unfollow'}:item)}}:{}),
       discoveryCatalogueVersion: SCHEMA_VERSION,
       selectedSelectorEntityIds: migration.sportIds.slice(),
       followedSports: migration.followedSportKeys.slice(),
@@ -311,7 +316,7 @@
     };
     if (saved.preferenceGraph && typeof saved.preferenceGraph === "object"){
       next.preferenceGraph = {
-        ...saved.preferenceGraph,
+        ...next.preferenceGraph,
         domainPreferences: migrateDomainPreferences(saved.preferenceGraph.domainPreferences, { commonwealthDisciplineIds }),
       };
     }

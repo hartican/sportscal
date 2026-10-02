@@ -12,6 +12,7 @@ const {
 
 const ROOT = path.resolve(__dirname, "..");
 const SCHEDULE_PATHS = [
+  path.join(ROOT, "data/canonical/wsl-calendar.v1.json"),
   path.join(ROOT, "data/canonical/fiba-women-sailgp-motogp-2026.json"),
   path.join(ROOT, "data/canonical/golf-majors-2027.json"),
   path.join(ROOT, "data/canonical/nbl-2026-27.json"),
@@ -43,7 +44,7 @@ function broadcasterFor(sportKey){
   }
   if (sportKey === "fiba-women") return { label:"ESPN via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
   if (sportKey === "nbl") return { label:"ESPN via Disney+ / Kayo / Foxtel", options:["Disney+", "Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
-  if (sportKey === "golf") return { label:"Broadcast TBC", options:[], ids:[] };
+  if (["golf","wsl"].includes(sportKey)) return { label:"Broadcast TBC", options:[], ids:[] };
   return { label:"Fox Sports via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
 }
 
@@ -52,6 +53,7 @@ function sportLabel(sportKey){
     nrlw:"NRLW",
     "fiba-women":"FIBA Women",
     sailgp:"SailGP",
+    wsl:"Surfing",
     motogp:"MotoGP",
     f1:"Formula 1",
     nbl:"NBL",
@@ -87,7 +89,7 @@ function cardForEvent(event, schedule, participantsById){
   const representativeCountryCodes = eventParticipantIds
     .map(participantId => participantsById.get(participantId)?.countryCode)
     .filter(Boolean);
-  const id = stableCardId(event.id);
+  const id = event.legacyCardId || stableCardId(event.id);
   const stakes = event.round === "final" ? 5 : event.round === "semifinal" || event.round === "quarterfinal" ? 4 : Math.max(2, Math.ceil(Number(event.expected) / 2));
   const completed = Boolean(result) || event.status === "completed";
   const sourceCheckedAt = event.sourceCheckedAt || source.checkedAt || schedule.generatedAt || SOURCE_CHECKED_AT;
@@ -107,6 +109,8 @@ function cardForEvent(event, schedule, participantsById){
     date:event.date,
     ...(event.endDate ? {endDate:event.endDate} : {}),
     time:event.time,
+    ...(event.dateOnly?{dateOnly:true}:{}),
+    ...(event.gender?{gender:event.gender}:{}),
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
     ...(event.endTimeUtc ? { endTimeUtc:event.endTimeUtc } : {}),
     ...(event.endTimeBasis ? {endTimeBasis:event.endTimeBasis} : {}),
@@ -150,7 +154,8 @@ function cardForEvent(event, schedule, participantsById){
         consensusResult:{ winner:participantsById.get(result.winnerParticipantId)?.displayName || null, summary:result.outcomeText },
       } : {}),
     } : {}),
-    sportDomainId:event.sportKey === "golf" ? "sport:golf"
+    sportDomainId:event.sportKey === "wsl" ? "sport:surf"
+      : event.sportKey === "golf" ? "sport:golf"
       : event.sportKey === "sailgp" ? "sport:sailing"
       : event.sportKey === "fiba-women" ? "sport:basketball"
         : event.sportKey === "nbl" ? "sport:basketball"
@@ -208,7 +213,7 @@ function main(){
   const schedules=SCHEDULE_PATHS.map(readJson);
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-    return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')).map(event => cardForEvent(event, schedule, participantsById));
+    return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')).map(event => cardForEvent(event, schedule, participantsById));
   });
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
@@ -218,7 +223,7 @@ function main(){
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
   cards.forEach((card,index)=>{
-    if(card.key==='sailgp'&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
+    if(['sailgp','wsl'].includes(card.key)&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
   });
   // Published MotoGP race IDs retain ratings, chat, reminders and results.
   cards.forEach((card,index)=>{
@@ -238,7 +243,7 @@ function main(){
   });
   const next = normalizeFeed({
     ...feed,
-    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],
+    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>c.key==='wsl'&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],
   });
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);
@@ -258,7 +263,7 @@ if (require.main === module){
 function mergeSailgpCard(card,existing){
   // Calendar/venue presentation cannot overwrite a newer result, observation,
   // researched editorial or saved identity. Unknown future entries stay empty.
-  const fields=['venue','venueOfficialName','venueVerified','venueCity','venueCountryCode','venueSourceUrl','venueCaption','courseGeometryVerified','calendarProvenance','season','weekendId','tournamentName','roundNumber','sessionType'];
+  const fields=[...(card.key==='wsl'?['canonicalEventId','codeId','taxonomyNodeId','competitionId','sportDomainId','discoverySportId']:[]),'venue','venueOfficialName','venueVerified','venueCity','venueCountryCode','venueSourceUrl','venueCaption','courseGeometryVerified','calendarProvenance','season','weekendId','tournamentName','roundNumber','sessionType'];
   const pending=existing.resultCoverage==='calendar-only'&&existing.status==='completed'&&!existing.resultStatus&&!existing.score&&card.resultStatus==='pending'
     ?Object.fromEntries(['resultStatus','resultSourceName','resultSourceUrl','resultSourceCheckedAt'].map(key=>[key,card[key]])):{};
   return {...existing,...Object.fromEntries(fields.filter(key=>card[key]!=null).map(key=>[key,card[key]])),...pending};

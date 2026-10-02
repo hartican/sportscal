@@ -146,6 +146,7 @@
     "cricket-australia": officialMark("organisation:cricket-australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", {
       logo: { backgroundLight: "dark", backgroundDark: "dark" },
     }),
+    wsl: officialMark("competition:wsl-championship-tour", "World Surf League", "assets/identities/wsl/brand.png", "https://www.worldsurfleague.com/", {logo:{backgroundLight:"dark",backgroundDark:"dark"}}),
     sailgp: officialMark("competition:sailgp", "SailGP", "assets/identities/sailgp/brand-light.png", "https://sailgp.com/", {
       logo: {
         dark: "assets/identities/sailgp/brand-dark.png",
@@ -542,6 +543,7 @@
     "competition:motogp":eventMarks.motogp,
     "competition:supercars":eventMarks.supercars,
     "competition:sailgp":eventMarks.sailgp,
+    "competition:wsl-championship-tour":eventMarks.wsl,
     "competition:nfl":eventMarks.nfl,
     "competition:wrc":sportMarks.wrc,
     "competition:premier-league": eventMarks["premier-league"],
@@ -580,6 +582,7 @@
     if (/^competition:wrc(?:[-:]|$)/.test(id)) return sportMarks.wrc;
     if (/^competition:formula-one(?:[-:]|$)/.test(id)) return eventMarks.f1;
     if (/^competition:motogp(?:[-:]|$)/.test(id)) return eventMarks.motogp;
+    if (id === "competition:wsl-championship-tour") return eventMarks.wsl;
     if (/^competition:sailgp(?:[-:]|$)/.test(id)) return eventMarks.sailgp;
     if (/^competition:nfl(?:[-:]|$)/.test(id)) return eventMarks.nfl;
     const versionlessId = id.replace(/:(?:19|20)\d{2}(?:-\d{2})?(?::.*)?$/, "");
