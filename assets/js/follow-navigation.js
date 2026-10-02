@@ -37,7 +37,7 @@
    const heading=container.querySelector(':scope > h2');
    if(heading){
     heading.style.cssText='display:flex;align-items:center;gap:8px';
-    const mark=document.createElement('span');mark.className='follow-sport-mark';mark.setAttribute('aria-hidden','true');
+    const mark=document.createElement('span');mark.className='follow-sport-mark identity-frame';mark.setAttribute('aria-hidden','true');
     renderEventIdentityMark(mark,{key:'motogp'},{...sportMetaForEvent({key:'motogp'}),glyph:'sport:motorcycle'});heading.prepend(mark);
    }
   }

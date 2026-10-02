@@ -36,6 +36,7 @@ const events=require('../data/events.json').events;const samples=['italy','austr
    await page.getByRole('button',{name:/^Motorsport/}).click();await page.getByRole('button',{name:'MotoGP',exact:true}).click();
    const expand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await expand.count())await expand.click();
    const mark=page.locator('#follow-navigation-controls h2 .follow-sport-mark img.event-brand-logo');await mark.waitFor();await mark.evaluate(image=>image.decode());assert.equal(await mark.getAttribute('src'),'assets/identities/motogp/badge.svg');assert(await mark.isVisible());
+   await page.waitForFunction(()=>{const image=document.querySelector('#follow-navigation-controls h2 .follow-sport-mark img.event-brand-logo');return image&&getComputedStyle(image).opacity==='1'&&!image.parentElement.querySelector('.identity-image-placeholder');});
    assert(await page.locator('footer .venue-attribution').isVisible());
    await page.close();
   }}finally{await browser.close();}
