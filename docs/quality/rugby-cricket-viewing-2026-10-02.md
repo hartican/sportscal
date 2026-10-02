@@ -1,6 +1,6 @@
 # Australian Rugby/Cricket viewing — 2 October 2026
 
-Release status: local implementation and checks complete; GitHub publication and production acceptance pending. This bounded delivery advances the existing cross-sport programme. It does not certify a sport or add demand, competitions, subscriptions or source polling.
+Release status: shipped and production-verified at `eef4ffcf3d10c7d53e855f52d6686af2a0a5813e`, shell 364. This bounded delivery advances the existing cross-sport programme. It does not certify a sport or add demand, competitions, subscriptions or source polling.
 
 ## Material user benefit
 
@@ -72,4 +72,10 @@ Next: complete the separate host-clock/duplicate Rugby gaps and retain them in t
 
 ## Evidence folder
 
-`/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`: viewing inventory, rights quality matrix, original/final preservation comparison, canonical logs, local/rebased contract reports, both browser reports, cached-upgrade logs and public-destination probes. Production workflow, immutable package, alias/hash, live browser/API and worker proof will be appended only after verification.
+`/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`: viewing inventory, rights quality matrix, original/final preservation comparison, canonical logs, local/rebased contract reports, both browser reports, cached-upgrade logs and public-destination probes. Verified production evidence is saved in `viewing-release-eef4ffc-20261002/`, `viewing-served-artifacts-20261002.json`, `viewing-final-cloud-20261002.json`, `viewing-live-api-20261002.json`, both `viewing-live-*-20261002.json` browser reports and `viewing-live-worker-20261002.json`.
+
+## Production acceptance
+
+Normal workflow [36982237964](https://github.com/hartican/sportscal/actions/runs/36982237964) passed without bypass in 202 seconds. Exact published/deployed snapshot `eef4ffcf3d10c7d53e855f52d6686af2a0a5813e`; READY `dpl_4tkuzAnyg41cczqVWXgMCfixQ26U`. Production target, all three aliases and eighteen package/served hashes agree at `2026-10-02T08:12:07.030Z`. The package’s normal five core checks and thirteen affected artefacts are verified separately from local implementation. Fresh anonymous live API verification passes four selected cases with `stale: false` at 08:13:04.380 UTC. Both live engines pass 128 actual-component/ordinary-route cases. A genuine fresh production worker executes the new rules and preserves current Rugby/Cricket destinations after an offline restart.
+
+Startup remains eight critical requests, 429455 gzip bytes, 0.91% above the existing baseline and below its unchanged 1.25% cap. Sixteen initial affected contracts and thirteen rebased checks (after the documented dependency repair), meaningful selected-result/API contracts, both cached upgrades and the normal cloud release suite pass. Earlier failures and limits above remain part of the evidence. Current GitHub main is later allowed to contain documentation-only acceptance updates; those do not alter the proven app snapshot. Added service cost remains A$0; no recurring owner routine, source poll, scheduler, database change or reminder replay was added by this module.
