@@ -746,7 +746,13 @@
     const explicit = String(record?.sectionLabel || "").trim();
     if (explicit) return explicit;
     const kind = String(record?.entityType || record?.type || "").toLowerCase();
-    if (["athlete", "competitor", "player"].includes(kind)) return "Player";
+    if (["athlete", "competitor", "player"].includes(kind)){
+      const sport=String(record.sportKey||String(record.sportDomainId||record.id||'').split(':')[1]||'').replace(/-women$/,'');
+      if(['f1','wrc','motorsport','supercars'].includes(sport))return 'Driver';
+      if(sport==='motogp')return 'Rider';
+      if(sport==='golf')return 'Golfer';
+      return ['tennis','football','soccer','afl','aflw','nrl','nrlw','rugby','rugby-union','nba','nbl','nfl','nhl','cricket','basketball','netball','hockey','fiba','ice-hockey'].includes(sport)?'Player':'Athlete';
+    }
     if (["nationalside", "national-side"].includes(kind)) return "National team";
     return "Team";
   }

@@ -11,10 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="376">
-<meta name="match-centre-enabled" content="true">
+<meta name="app-shell-version" content="377">
+<meta name="athletes-enabled" content="true">
+
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=376" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=377" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6930,6 +6931,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <div class="tabs">
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
+    <button class="tab-btn" data-tab="athletes"><span class="tab-label">Athletes</span></button>
     <button class="tab-btn" data-tab="follow"><span class="tab-label">Follow</span><span class="tab-count" id="followTabCount">0</span></button>
 
   </div>
@@ -7175,7 +7177,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=376"></script>
+<script src="assets/js/app-shell-runtime.js?v=377"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7886,7 +7888,7 @@ function matchupIdentityMatches(ev, displayTitle){
 const profileFixtureEvents=new Map();
 async function openFeedParticipantProfile(id,label,sportKey,trigger){
   const origin={y:scrollY,top:trigger?.closest('[data-event-id]')?.getBoundingClientRect().top};
-  try{const ui=await ensureAthleteProfileUi();await ui.openFromFixture(id,label,sportKey,trigger,origin);}
+  try{if(/^(athlete|competitor|player):/.test(id)){await openAthleteProfile(id,label,sportKey,trigger);return;}const ui=await ensureAthleteProfileUi();await ui.openFromFixture(id,label,sportKey,trigger,origin);}
   catch(error){showToast('Profile unavailable. Please try again.');}
 }
 function participantProfileLink(id,label,key){
@@ -7895,7 +7897,7 @@ function participantProfileLink(id,label,key){
     const text=document.createElement('span');text.textContent=label;return text;
   }
   const link=document.createElement('button');link.type='button';link.className='fixture-profile-link';link.textContent=label;
-  link.setAttribute('aria-label',`Open ${label} profile in Follow`);
+  link.setAttribute('aria-label',`Open ${label} profile in ${/^(athlete|competitor|player):/.test(id)?'Athletes':'Follow'}`);
   link.onclick=event=>{event.stopPropagation();void openFeedParticipantProfile(id,label,key,link);};return link;
 }
 
@@ -8724,27 +8726,19 @@ let committedFeedPresentationFingerprint = null;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
-// Independently gated preview; production activation also requires MATCH_CENTRE_ENABLED.
-const matchCentreEnabled = globalThis.NOTHINGSPORTS_MATCH_CENTRE_ENABLED === true || document.querySelector('meta[name="match-centre-enabled"]')?.content==='true';
-if(matchCentreEnabled){const tab=document.createElement('button');tab.className='tab-btn';tab.dataset.tab='match-centre';tab.innerHTML='<span class="tab-label">Match Centre</span>';document.querySelector('[data-tab="events"]').after(tab);}
-function loadMatchCentre(){
-  if(activeTab!=='match-centre')return Promise.resolve();
-  if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return Promise.resolve();}
-  const panel=document.getElementById('listView');
-  panel.className='match-centre';panel.style.display='grid';
-  panel.innerHTML='<div class="match-centre-heading"><h2>Match Centre</h2></div><p role="status">Loading Match Centre…</p>';
-  panel.setAttribute('aria-busy','true');
-  if(loadMatchCentre.pending)return loadMatchCentre.pending;
-  loadMatchCentre.pending=Promise.all([loadDeferredScript('config/surface-category-ui.js?v=340'),loadDeferredScript('config/match-centre.js?v=356'),loadDeferredScript('assets/js/match-centre-refresh.js?v=303')])
-    .then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=340'))
-    .then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();})
-    .catch(()=>{
-      if(activeTab!=='match-centre')return;
-      panel.innerHTML='<div class="match-centre-heading"><h2>Match Centre</h2></div><p role="status">Match Centre could not load. Your saved choices are safe.</p>';
-      panel.setAttribute('aria-busy','false');
-      const retry=document.createElement('button');retry.type='button';retry.className='btn';retry.textContent='Retry';retry.onclick=()=>void loadMatchCentre();panel.append(retry);
-    }).finally(()=>{loadMatchCentre.pending=null;});
-  return loadMatchCentre.pending;
+async function loadAthletes(){
+  if(activeTab!=='athletes')return;
+  if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
+  const panel=document.getElementById('listView');panel.className='athletes-hub';panel.textContent='Loading Athletes…';
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=356'),loadDeferredScript('config/athletes.js?v=375'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=375')).then(()=>{if(activeTab==='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if(activeTab==='athletes'){panel.textContent='Athletes could not load.';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
+  return loadAthletes.pending;
+}
+async function openAthleteProfile(id,label,sportKey,trigger){
+  const owner=serverSyncClient?.sessionSubject()||'public';
+  await loadDeferredScript('config/athletes.js?v=375');
+  await loadDeferredScript('config/tennis-journeys.js?v=368');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=375');
+  if(owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
 if (startupReloadRestoreState){
@@ -8752,7 +8746,7 @@ if (startupReloadRestoreState){
   // Saved Month View sessions retain their route, filter and scroll/card anchor,
   // but the retired view itself always resumes in the list timeline.
   activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
-  activeTab = ["feed","events","follow",...(matchCentreEnabled?['match-centre']:[])].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
+  activeTab = ["feed","events","follow","athletes"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["overviews","major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
 }
 let sportHubState = {
@@ -10764,7 +10758,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=339").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=375").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 
 async function loadFootballDirectoryData(){
@@ -10916,13 +10910,14 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=374').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=375').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
   void ensureFeedScoreUi().then(()=>{if(card.isConnected&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);}).catch(()=>{});
 }
-async function refreshLiveFixtureSnapshot(){if(document.hidden||!['feed','events','athletes'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
+async function refreshLiveFixtureSnapshot(){
+  if(activeTab==='athletes'){return globalThis.NOTHINGSPORTS_ATHLETES_UI?.refresh();}if(document.hidden||!['feed','events','athletes'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
 
 function queueLiveFixtureSnapshot(){
   if(liveFixtureMountTimer!==null)return;
@@ -13931,6 +13926,9 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
+  if(location.hash.startsWith('#athletes')){activeTab='athletes';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
+  if(globalThis.NOTHINGSPORTS_ATHLETES_UI?.route())return;
+  if(location.hash==='#match-centre'){history.replaceState(null,'',location.pathname+location.search);activeTab='feed';renderAll();return;}
   if(syncNscPageFromHistory())return;
   const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
   if (inspectorRoute){
@@ -13980,7 +13978,7 @@ async function syncAppRouteFromLocation(){
 }
 
 let notificationFixtureLoading=false;
-function openMatchCentreFeedFixture(event){
+function openMatchCentreFeedFixture(event,{temporary=false}={}){
   const action=getEventAction(event);
   if(action.archived||action.dismissed){showToast('This fixture has been removed from your Feed.');return;}
   const id=String(event.eventId||event.id);
@@ -13988,12 +13986,11 @@ function openMatchCentreFeedFixture(event){
   // Seed only that record, not all pages or a new saved-follow/pin decision.
   activeEvents=mergeCanonicalEventPages(activeEvents,[event]);
   if(!matchesFeedViewFilters(event)){
-    feedViewFilters={sport:'all',minimum:0};localStorage.removeItem('ns-feed-view-filter-v1');
-    showToast('Feed filters cleared to show this fixture.');
+    feedViewFilters={sport:'all',minimum:0};if(!temporary){localStorage.removeItem('ns-feed-view-filter-v1');showToast('Feed filters cleared to show this fixture.');}
   }
   activeView='list';calendarChoice.active=false;setCardState(event,'opened');
   pendingNotificationEventId=id;
-  activateTopLevelTab('feed',{resetViewport:false});
+  activateTopLevelTab('feed',{resetViewport:false,athleteMatch:temporary});
   calendarInitialJumpPending=false;
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     if(activeTab!=='feed')return;
@@ -16926,7 +16923,7 @@ function buildTennisFeedParent(parent){
         function more(){
           for(const fixture of fixtures.slice(count,count+20)){
             const ev=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(fixture,'tennis'),row=document.createElement('div');row.className='tennis-contest-row';
-            const copy=document.createElement('span');copy.textContent=`${spoilerSafeDisplayTitle(ev)} · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+(ev.timePrecision==='not-before'?'Not before ':'')+ev.time:''}`;row.append(copy);
+            row.dataset.eventId=String(ev.eventId||ev.id);const copy=document.createElement('span');renderEventTitleIdentity(copy,ev,spoilerSafeDisplayTitle(ev));copy.append(document.createTextNode(` · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+(ev.timePrecision==='not-before'?'Not before ':'')+ev.time:''}`));row.append(copy);
             const excluded=FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences);
             const action=getEventAction(ev),automatic=!excluded&&Boolean(automaticEventFollowReason(ev)),visible=!excluded&&!action.dismissed&&!action.archived&&(automatic||action.addedToFixtures);
             const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=visible?'In Feed':excluded?'Excluded':'Add to Feed';button.disabled=excluded;
@@ -20157,7 +20154,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         person.className = "major-event-matchup-player";
         const countryCode = player.nationalityCode || player.countryCode;
         const fullName=player.name || player.displayName || "Player TBC";
-        const name = compact ? participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis') : document.createElement("span");
+        const name = participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis');
         name.textContent = compact ? fullName.trim().split(/\s+/).slice(-1)[0] : fullName;
         if(compact)name.title=fullName;
         if (countryCode){
@@ -20842,13 +20839,15 @@ function renderEventsView(){
   window.requestAnimationFrame(syncContextualJumpButton);
 }
 
-function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
-  if(nextTab!=='match-centre')globalThis.stopMatchCentre?.();
+function activateTopLevelTab(nextTab, { resetViewport = true, athleteMatch = false } = {}){
+  if(nextTab!=='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
   calendarBulkController?.abort();
   if (activeInspectorCodeId){
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     closeCodeInspector({ restoreViewport: false });
   }
+  if(nextTab==='match-centre')nextTab='feed';
+  if(!athleteMatch){globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate(nextTab);if(nextTab==='athletes')history.pushState({athletes:true},'','#athletes');else if(location.hash.startsWith('#athletes')||history.state?.athleteMatchReturn)history.pushState(null,'',location.pathname+location.search);}
   activeTab = nextTab;
   if (activeTab === "feed"){
     activeFilter = "all";
@@ -20931,7 +20930,7 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 }
 
 function renderCurrentSection(){
-  if(activeTab==='match-centre'){void loadMatchCentre();return;}
+  if(activeTab==='athletes'){void loadAthletes();return;}
   if (activeInspectorCodeId){
     renderCodeInspector();
   } else if (startupCoordinator.isHydrating()){
@@ -20967,7 +20966,7 @@ function renderTabCounts(){
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   if(userPreferences.fantasyDeadlines.enabled)void ensureFantasyUi().then(()=>globalThis.fantasyDeadlineController.sync()).catch(()=>{});
   globalThis.fantasyDeadlineController?.sync();
-  if(activeTab!=='match-centre')globalThis.stopMatchCentre?.();
+  if(activeTab!=='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
   if(calendarChoice.busy)return;
   document.querySelector("footer.app-footer").style.visibility=startupCoordinator.isHydrating()?"hidden":"";
   if (preserveViewport || viewportAnchor){
@@ -20998,9 +20997,9 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
 
   listView.style.display = "none";
   calControls.style.display = "flex";
-  if (activeTab === 'match-centre'){
+  if (activeTab === 'athletes'){
     calControls.style.display='none';preferenceSummary.style.display='none';jumpTodayBtn.hidden=true;
-    listView.style.display='grid';void loadMatchCentre();
+    listView.style.display='grid';void loadAthletes();
   } else if (activeInspectorCodeId){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
@@ -21023,6 +21022,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     } else {
       listView.style.display = "block";
       renderListView();
+      if(history.state?.athleteMatchReturn&&!listView.querySelector('[data-athlete-match-back]')){const back=document.createElement('button');back.className='btn ghost';back.dataset.athleteMatchBack='';back.textContent='Back to athlete';back.onclick=()=>history.back();listView.prepend(back);}
       window.requestAnimationFrame(syncContextualJumpButton);
     }
   } else if (activeTab === "events"){
@@ -21031,9 +21031,9 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = false;
     listView.style.display = "flex";
     renderEventsView();
-  } else if (activeTab === "match-centre"){
+  } else if (activeTab === "athletes"){
     calControls.style.display="none";preferenceSummary.style.display="none";jumpTodayBtn.hidden=true;listView.style.display="grid";
-    void loadMatchCentre();
+    void loadAthletes();
   } else if (activeTab === "follow"){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
@@ -21777,7 +21777,7 @@ function renderAccountSettings(body){
         <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
         <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
       </div>
-      <p class="preference-help">Preferences, followed teams and players, saved Archive cards, results, standings, subscriptions and notification choices follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable Feed cards stay local and rebuild from source data.</p>
+      <p class="preference-help">Preferences, followed teams and athletes, saved Archive cards, results, standings, subscriptions and notification choices follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable Feed cards stay local and rebuild from source data.</p>
       <div id="accountSyncControls"></div>
     </div>
   </div>`;

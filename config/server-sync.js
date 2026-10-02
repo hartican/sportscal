@@ -680,13 +680,13 @@
       invalidateFeed,
       async loadFeed({ cursor = 0, limit = 20, scope = '' } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
-        if(scope==='match-centre')params.set('scope',scope);
+        if(['match-centre','athletes'].includes(scope))params.set('scope',scope);
         const owner=sessionSubject(session || restoreStoredSession()),epoch=feedEpoch;
         const key=`${owner}:${epoch}:${params}`;
         if(feedRequests.has(key))return feedRequests.get(key);
         const cached=feedResponses.get(key);
         const pending=authenticatedRequest(`/api/feed?${params.toString()}`,{
-          ...(scope==='match-centre'?{timeoutMs:10000}:{}),
+          ...(['match-centre','athletes'].includes(scope)?{timeoutMs:10000}:{}),
           headers:cached?.etag?{'If-None-Match':cached.etag}:{},
           cachedPayload:cached?.payload,
           onResponse(response,payload){

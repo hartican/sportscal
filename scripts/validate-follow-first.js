@@ -131,13 +131,13 @@ assert.match(html, />Follow</);
 assert.match(html, /Back to Feed/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
 const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
-assert.deepEqual(navLabels, ["Feed", "Events", "Follow", "Match Centre"]);
+assert.deepEqual(navLabels, ["Feed", "Events", "Athletes", "Follow"]);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "All Followed", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
+  ["Account", "All Followed", "About", "Fantasy deadlines", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));
@@ -169,8 +169,9 @@ assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
 assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));
 
-assert(html.includes("startupSportsGrid") && html.includes("startupEventsGrid") && html.includes("startupOffersGrid"));
-assert(html.includes("personalisedOffersConsent") && html.includes("startupLocationQuery"));
+const onboardingSource=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+assert(onboardingSource.includes("startupSportsGrid") && onboardingSource.includes("startupEventsGrid") && onboardingSource.includes("startupOffersGrid"));
+assert(onboardingSource.includes("personalisedOffersConsent") && onboardingSource.includes("startupLocationQuery"));
 assert(!/startup[^\n]{0,80}(gender|age bracket)/i.test(html), "signup must not ask for gender or age bracket");
 assert(html.includes("shouldPromptRefinement") && html.includes("firstSwipeAt"));
 assert(serverSync.includes("async loadMeta()") && serverSync.includes("async saveMeta(meta)"));
@@ -184,8 +185,13 @@ assert(packageDocument.dependencies["web-push"]);
 const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
 assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSource.includes("removeWebPushReminder"), "reminders must be confirmed through Web Push before local state changes");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
-assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"));
-assert(notificationApi.includes("remind_at") && notificationApi.includes('deliveryMode === "session-start" ? 0 : 15') && notificationApi.includes("leadMinutes * 60 * 1000"), "follow-only session reminders must fire at session start while exact and broadcast starts retain the 15-minute lead");
+const notificationUi=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+assert((html+notificationUi).includes("Background notifications") && (html+notificationUi).includes("even when Nothing Sport is closed"));
+const reminderPolicy=require("../config/fixture-reminder-policy");
+assert(notificationApi.includes("remind_at"));
+const reminderClock=Date.parse('2026-10-02T00:00:00Z'),reminderFixture={status:'scheduled',scheduleStatus:'confirmed',timePrecision:'exact',startTimeUtc:'2026-10-02T01:00:00Z',sourceCheckedAt:'2026-10-02T00:00:00Z',sourceUrl:'https://example.org/official'};
+assert.equal(Date.parse(reminderPolicy.timing(reminderFixture,reminderClock).startsAt)-Date.parse(reminderPolicy.timing(reminderFixture,reminderClock).remindAt),15*60*1000);
+assert.equal(reminderPolicy.timing({...reminderFixture,timePrecision:'session-only'},reminderClock),null,'session starts cannot create fixture reminders');
 assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("guardedSend") && dispatchApi.includes("claimed_at"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
 assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole reminder dispatcher");

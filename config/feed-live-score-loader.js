@@ -11,7 +11,7 @@ function installFeedLiveScore(card,event){
 };
 
 async function refreshLiveFixtureSnapshot(){
-  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow' || activeTab==='match-centre')return;
+  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow' || activeTab==='athletes')return;
   if(liveFixtureRefresh){liveFixtureRefreshQueued=true;return liveFixtureRefresh;}
   const refreshOwner=JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions]);
   const mountedIds=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent)')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);

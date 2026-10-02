@@ -10,8 +10,8 @@ for(const event of require('../data/events.json').events.filter(e=>e.key==='f1'&
 assert(!presentation.circuitAsset({key:'f1',venue:'Unknown circuit'}));
 // Drive the real routing branch while its deferred scripts are unavailable.
 const html=fs.readFileSync('index.html','utf8'),start=html.indexOf('function renderCurrentSection(){'),end=html.indexOf('\nfunction renderTabCounts()',start);
-let calls=0;const context={activeTab:'match-centre',loadMatchCentre:()=>{calls++;}};vm.createContext(context);vm.runInContext(html.slice(start,end),context);context.renderCurrentSection();assert.equal(calls,1);
-assert(html.indexOf("if (activeTab === 'match-centre'){",html.indexOf('function renderAll('))<html.indexOf('} else if (startupCoordinator.isHydrating())',html.indexOf('function renderAll(')));
+let calls=0;const context={activeTab:'athletes',loadAthletes:()=>{calls++;}};vm.createContext(context);vm.runInContext(html.slice(start,end),context);context.renderCurrentSection();assert.equal(calls,1);
+assert(html.indexOf("if (activeTab === 'athletes'){",html.indexOf('function renderAll('))<html.indexOf('} else if (startupCoordinator.isHydrating())',html.indexOf('function renderAll(')));
 console.log('Participation admission, timezone conversion, published F1 outlines and route ownership passed.');
 const first=require('../config/follow-first'),{buildServerFeed}=require('../lib/server-feed-pipeline');
 const preferences={selectedSelectorEntityIds:['sport:golf'],followFirst:{australiansOnlySportIds:['sport:golf']}};

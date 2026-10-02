@@ -130,8 +130,8 @@
     if (target.dataset.athleteProfileBound === record.profileRef) return;
     target.dataset.athleteProfileBound = record.profileRef;
     target.classList.add("athlete-profile-trigger"); target.tabIndex = 0; target.setAttribute("role", "button"); target.setAttribute("aria-label", `Open ${record.displayName} profile`);
-    target.addEventListener("click", () => void open(record, sportKey, target));
-    target.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " "){ event.preventDefault(); void open(record, sportKey, target); } });
+    target.addEventListener("click", event => {event.stopPropagation();void open(record, sportKey, target);});
+    target.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " "){ event.preventDefault();event.stopPropagation(); void open(record, sportKey, target); } });
   }
 
 const profileStandingsChunks=new Map();
@@ -176,6 +176,7 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
 }
 
   async function open(record, sportKey, trigger, options={}){
+    if(!options.teamProfile && /^(athlete|competitor|player):/.test(record.id) && globalThis.openAthleteProfile)return globalThis.openAthleteProfile(record.id,record.displayName,sportKey,trigger);
     document.querySelector(".athlete-profile-backdrop")?.remove();
     const backdrop = document.createElement("div"); backdrop.className = "athlete-profile-backdrop";
     const drawer = document.createElement("aside"); drawer.className = "athlete-profile-drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("aria-label", `${record.displayName} athlete profile`);
@@ -199,6 +200,10 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       else if(!event.shiftKey&&(!drawer.contains(document.activeElement)||document.activeElement===last)){event.preventDefault();first.focus();}
     };
     close.addEventListener("click", dismiss); backdrop.addEventListener("click", event => { if (event.target === backdrop) dismiss(); }); document.addEventListener("keydown", onKey); close.focus();
+    await populateProfile(body,record,sportKey,()=>backdrop.isConnected);
+  }
+
+  async function populateProfile(body,record,sportKey,valid=()=>body.isConnected){
     try{
       let profile = record.profileOnly ? {...record,sourceUrl:record.sourceRefs?.[0]} : await loadProfile(record.profileRef, sportKey);
       let cross;
@@ -211,18 +216,20 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
         if(live.schemaVersion==='athlete-participation-live.v1'&&live.history?.length)cross={...record,...cross,history:[...new Map([...(cross?.history||[]),...live.history].map(item=>[item.eventId||`${item.date}|${item.sourceUrl}`,item])).values()]};
       }catch(_error){/* Retain published history when live discovery is unavailable. */}
       if(!profile&&cross)profile={...record,biography:'Source-backed athlete history. Current season statistics are not published for this profile.'};
+      if(!valid())return;
       if (!profile){
-        body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Follow this participant to include their published fixtures. Detailed statistics will appear when available.</p></div></div>`;
+        body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Detailed profile information is not currently available. Published fixtures appear below when verified.</p></div></div>`;
         body.querySelector("h2").textContent = record.displayName;
         return;
       }
+      if(!valid())return;
       body.replaceChildren();
       const hero = document.createElement("div"); hero.className = "athlete-profile-hero";
       const image = document.createElement("img"); image.className = "athlete-headshot"; image.alt = `${profile.displayName} portrait`; image.src = profile.headshotUrl || record.headshotUrl || ""; image.addEventListener("error", () => image.remove(), { once:true });
-      const titleWrap = document.createElement("div"), title = document.createElement("h2"), sub = document.createElement("p"); title.textContent = profile.displayName; sub.textContent = `${profile.teamName || "Athlete"}${profile.competitionNumber ? ` · No. ${profile.competitionNumber}` : ""}${profile.selection?.topTen ? ` · Top 10 #${profile.selection.rank}` : ""}`;
+      const titleWrap = document.createElement("div"), title = document.createElement("h2"), sub = document.createElement("p"); title.textContent = profile.displayName; sub.textContent = `${profile.teamName || "Athlete"}${profile.competitionNumber ? ` · No. ${profile.competitionNumber}` : ""}${userPreferences.showSpoilers&&profile.selection?.topTen ? ` · Top 10 #${profile.selection.rank}` : ""}`;
       titleWrap.append(title, sub); hero.append(image, titleWrap); body.appendChild(hero);
-      const bio = document.createElement("section"); bio.className = "athlete-profile-section"; bio.innerHTML = "<h3>Biography</h3>"; const bioText = document.createElement("p"); bioText.textContent = profile.biography; bio.appendChild(bioText); body.appendChild(bio);
-      if(cross?.history.length){
+      const bio = document.createElement("section"); bio.className = "athlete-profile-section"; bio.innerHTML = "<h3>Biography</h3>"; const bioText = document.createElement("p"); bioText.textContent = profile.biography; bio.appendChild(bioText); if(userPreferences.showSpoilers||profile.biographySpoilerSafe===true)body.appendChild(bio);
+      if(userPreferences.showSpoilers&&cross?.history.length){
         const section=document.createElement('section');section.className='athlete-profile-section';
         const heading=document.createElement('h3');heading.textContent='Other disciplines & experience';section.appendChild(heading);
         for(const item of cross.history){
@@ -231,10 +238,10 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
         }
         body.appendChild(section);
       }
-      [["Key facts", profile.keyFacts], ["2026 season", profile.seasonStats], ["Career", profile.careerStats]].forEach(([heading, rows]) => {
+      (userPreferences.showSpoilers ? [["Key facts", profile.keyFacts], ["2026 season", profile.seasonStats], ["Career", profile.careerStats]] : []).forEach(([heading, rows]) => {
         if (!rows?.length) return; const section = document.createElement("section"); section.className = "athlete-profile-section"; const h = document.createElement("h3"); h.textContent = heading; section.append(h, statGrid(rows)); body.appendChild(section);
       });
-      if (profile.recentFive?.length){
+      if (userPreferences.showSpoilers && profile.recentFive?.length){
         const section = document.createElement("section"); section.className = "athlete-profile-section"; section.innerHTML = "<h3>Recent form</h3>"; const list = document.createElement("div"); list.className = "athlete-recent";
         profile.recentFive.forEach(item => { const row = document.createElement("div"); row.className = "athlete-recent-row"; row.textContent = `${item.label || "Match"}${item.opponent ? ` · v ${item.opponent}` : ""}${item.result ? ` · ${item.result}` : ""}${item.stats?.length ? ` · ${item.stats.map(stat => `${stat.label} ${stat.value}`).join(" · ")}` : ""}`; list.appendChild(row); });
         section.appendChild(list); body.appendChild(section);
@@ -244,12 +251,14 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
         profile.sourceLinks.forEach(source => { const link = document.createElement("a"); link.href = source.url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = source.label; links.appendChild(link); }); section.appendChild(links); body.appendChild(section);
       }
     }catch(error){
-      body.innerHTML = "<p>The detailed profile is temporarily unavailable. The athlete can still be followed directly from the directory.</p>";
+      if(!valid())return;
+      body.replaceChildren();const heading=document.createElement("h2");heading.textContent=record.displayName;const gap=document.createElement("p");gap.textContent="Detailed profile information is temporarily unavailable.";body.append(heading,gap);
       const retry = document.createElement("button"); retry.type = "button"; retry.className = "btn ghost"; retry.textContent = "Retry profile";
-      retry.addEventListener("click", () => { dismiss(); void open(record,sportKey,trigger); }); body.appendChild(retry);
+      retry.addEventListener("click", () => { if(valid())void populateProfile(body,record,sportKey,valid); }); body.appendChild(retry);
       console.warn("Athlete profile failed", error);
     }
   }
+
 
 async function openFromFixture(id,label,sportKey,trigger,origin={}){
   if(!id)return;
@@ -289,5 +298,12 @@ async function openFromFixture(id,label,sportKey,trigger,origin={}){
   }catch(error){restore();showToast('Profile unavailable. Please try again.');}
 }
 
-  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, decorateIdentity, makeTrigger });
+  async function renderInto(host,record,sportKey,{valid=()=>host.isConnected,fixture=null}={}){
+    host.replaceChildren();
+    if(!record.profileOnly)host.append(buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
+    const body=document.createElement('div');body.className='athlete-profile-body';body.textContent='Loading profile…';host.append(body);
+    if(fixture){const context=document.createElement('div');host.append(context);void appendProfileFixtureContext(context,record,sportKey,fixture);}
+    await populateProfile(body,record,sportKey,valid);
+  }
+  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, renderInto, decorateIdentity, makeTrigger });
 })(typeof globalThis !== "undefined" ? globalThis : window);

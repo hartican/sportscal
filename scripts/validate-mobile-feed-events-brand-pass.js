@@ -96,7 +96,7 @@ assert.equal(pinnedEpl.majorEventId, "major-event:epl-test");
 assert.equal(followFirst.normalizeDirectoryRank(null), null);
 assert.equal(followFirst.normalizeDirectoryRank(""), null);
 assert.equal(followFirst.normalizeDirectoryRank(1), 1);
-assert.equal(followFirst.directoryEntityLabel({ entityType:"athlete", sectionLabel:"" }), "Player");
+assert.equal(followFirst.directoryEntityLabel({ entityType:"athlete", sectionLabel:"" }), "Athlete");
 assert.equal(followFirst.directoryEntityLabel({ entityType:"team", sectionLabel:"" }), "Team");
 
 const eplEvents = (published.events || []).filter(event => (

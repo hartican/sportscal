@@ -33,12 +33,22 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "eventId", "date", "time"]
+        "required": [
+          "id",
+          "eventId",
+          "date",
+          "time"
+        ]
       }
     },
     "derivedCardCache": {
       "type": "object",
-      "required": ["schemaVersion", "generatedAt", "buildOrigin", "derivedCards"],
+      "required": [
+        "schemaVersion",
+        "generatedAt",
+        "buildOrigin",
+        "derivedCards"
+      ],
       "properties": {
         "schemaVersion": {
           "const": "derived-card-cache.v1"
@@ -60,12 +70,32 @@
     },
     "pagination": {
       "type": "object",
-      "required": ["cursor", "limit", "nextCursor", "total"],
+      "required": [
+        "cursor",
+        "limit",
+        "nextCursor",
+        "total"
+      ],
       "properties": {
-        "cursor": { "type": "integer", "minimum": 0 },
-        "limit": { "type": "integer", "minimum": 1 },
-        "nextCursor": { "type": ["integer", "null"], "minimum": 0 },
-        "total": { "type": "integer", "minimum": 0 }
+        "cursor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "nextCursor": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     },
     "retention": {
@@ -82,6 +112,42 @@
         "saved",
         "expired"
       ]
+    },
+    "athletes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "displayName",
+          "sportKey",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "sportKey": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "profileRef": {
+            "type": [
+              "string",
+              "object"
+            ]
+          },
+          "headshotUrl": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
