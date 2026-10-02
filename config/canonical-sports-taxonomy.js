@@ -372,6 +372,8 @@
   ].map(domain => Object.freeze({ ...domain, kind: "specialEvent" }));
 
   const competitionFamilies = [
+    {id:"family:giro-ditalia",sportDomainId:"sport:cycling",slug:"giro-ditalia",name:"Giro d’Italia",familyType:"stageRace",sortOrder:101,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
+    {id:"family:vuelta-a-espana",sportDomainId:"sport:cycling",slug:"vuelta-a-espana",name:"La Vuelta",familyType:"stageRace",sortOrder:102,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {id:"family:world-surf-league",sportDomainId:"sport:surf",slug:"world-surf-league",name:"World Surf League",familyType:"championship",sortOrder:34,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {
       id: "family:afl-premiership",
@@ -530,6 +532,7 @@
   ];
 
   const competitions = [
+    ...[['tour-de-france','tdf','Tour de France','https://www.letour.fr/en/overall-route'],['giro-ditalia','giro','Giro d’Italia','https://www.giroditalia.it/en/the-route/'],['vuelta-a-espana','vuelta','La Vuelta','https://www.lavuelta.es/en/overall-route']].map(([slug,key,name,sourceUrl])=>({id:'competition:'+slug,sportDomainId:'sport:cycling',preferenceDomainId:'sport:'+key,competitionFamilyId:'family:'+slug,slug,name,competitionType:'stageRace',seasonLabel:'2026/2027',region:'global',gender:'mens',supportsLadder:false,supportsTeams:false,supportsCompetitors:true,isSpecialEvent:false,surfaceClassification:'code',classificationReason:'recurring-single-code-competition',source:{provider:key==='giro'?'RCS Sport':'ASO',sourceUrl}})),
     {id:"competition:wsl-championship-tour",sportDomainId:"sport:surf",preferenceDomainId:"sport:wsl",competitionFamilyId:"family:world-surf-league",slug:"wsl-championship-tour",name:"WSL Championship Tour",competitionType:"seasonChampionship",seasonLabel:"2026",region:"global",gender:"mixed",supportsLadder:false,supportsTeams:false,supportsCompetitors:true,isSpecialEvent:false,surfaceClassification:"code",classificationReason:"recurring-single-code-competition",source:{provider:"World Surf League",sourceUrl:"https://www.worldsurfleague.com/events/2026/ct?all=1"}},
     {
       id: "competition:afl-premiership-2026",

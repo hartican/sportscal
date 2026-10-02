@@ -91,6 +91,7 @@ const canonicalCodes = [
   { id: "sport:nrlw" },
   { id: "sport:nbl" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
+  ...["competition:tour-de-france","competition:giro-ditalia","competition:vuelta-a-espana","competition:wsl-championship-tour"].map(id=>taxonomy.competitions.find(code=>code.id===id)),
   taxonomy.competitions.find(code => code.id === "competition:motogp"),
   taxonomy.competitions.find(code => code.id === "competition:sailgp"),
   taxonomy.competitions.find(code => code.id === "competition:fiba-womens-world-cup"),

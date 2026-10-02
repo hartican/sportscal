@@ -4,6 +4,14 @@
 // the verified artwork ID; older cached projections safely use the fallback.
 const motogp=typeof module!=="undefined"&&module.exports?Object.freeze(Object.fromEntries(require('../assets/identities/motogp/asset-manifest.json').assets.filter(a=>a.mappingStatus==='verified-venue').map(a=>[a.venueConfigurationId,a.id]))):null;
 function resolve(event){
+ if(['tdf','giro','vuelta'].includes(event.key)){
+  const season=String(event.season||event.date?.slice(0,4)||'');
+  const id=event.courseGeometryVerified===true&&event.courseArtworkId===`${event.key}-${season}-stage-${event.roundNumber}`&&event.courseArtworkId;
+  const edition=event.isEditionOverview===true&&event.editionGeometryVerified===true&&event.editionArtworkId;
+  const asset=id||edition;
+  const valid=asset&&new RegExp(`^${event.key}-${season}-(?:stage-[1-9][0-9]?|edition)$`).test(asset);
+  return valid?{path:`assets/identities/cycling/routes/${encodeURIComponent(asset)}.svg`,kind:id?'course':'edition',label:`${event.venue||event.tournamentName||'Edition'} • ${season} • verified ${id?'stage':'edition'} route`}:{path:'assets/identities/cycling/bicycle-white.svg',kind:'fallback',label:'Bicycle glyph; verified edition-specific route unavailable'};
+ }
  if(event.key==='wsl')return {path:'assets/identities/wsl/wave-white.svg',kind:'fallback',label:'Wave glyph; verified break or coastline geometry unavailable'};
  if(event.key==='sailgp')return {path:'assets/identities/sailgp/sailing-white.svg',kind:'fallback',label:'Sailing glyph; verified race-day course and venue geometry unavailable'};
  if(event.key==='wrc'){

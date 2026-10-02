@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T21:11:19.158Z",
+  "generatedAt": "2026-10-02T21:21:02.256Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -167,11 +167,11 @@
       "id": "sport:cycling",
       "slug": "cycling",
       "label": "Cycling",
-      "fixtureCount": 21,
+      "fixtureCount": 66,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T17:44:40.377Z",
+      "freshAt": "2026-10-02T21:21:02.256Z",
       "chunkPath": "data/code-inspector/cycling.json"
     },
     {
@@ -331,6 +331,45 @@
       "freshAt": "2026-08-29T23:56:41.761Z",
       "parentSportId": "sport:football",
       "chunkPath": "data/code-inspector/champions-league.json"
+    },
+    {
+      "followSchedulePath": "data/follow-schedule/tour-de-france.json",
+      "id": "competition:tour-de-france",
+      "slug": "tour-de-france",
+      "label": "Tour de France",
+      "fixtureCount": 24,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-02T21:21:02.256Z",
+      "parentSportId": "sport:cycling",
+      "chunkPath": "data/code-inspector/tour-de-france.json"
+    },
+    {
+      "followSchedulePath": "data/follow-schedule/giro-ditalia.json",
+      "id": "competition:giro-ditalia",
+      "slug": "giro-ditalia",
+      "label": "Giro d’Italia",
+      "fixtureCount": 21,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-02T21:21:02.256Z",
+      "parentSportId": "sport:cycling",
+      "chunkPath": "data/code-inspector/giro-ditalia.json"
+    },
+    {
+      "followSchedulePath": "data/follow-schedule/vuelta-a-espana.json",
+      "id": "competition:vuelta-a-espana",
+      "slug": "vuelta-a-espana",
+      "label": "La Vuelta",
+      "fixtureCount": 21,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-02T21:21:02.256Z",
+      "parentSportId": "sport:cycling",
+      "chunkPath": "data/code-inspector/vuelta-a-espana.json"
     },
     {
       "followSchedulePath": "data/follow-schedule/wsl.json",

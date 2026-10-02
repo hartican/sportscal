@@ -1,7 +1,7 @@
 {
-  "version": "editorial-identity-20261002211119158",
+  "version": "editorial-identity-20261002211119158-20261002212102256",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-02T21:11:19.158Z",
+  "publishedAt": "2026-10-02T21:21:02.256Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -13,7 +13,6 @@
     "fifa",
     "wimbledon",
     "rugby",
-    "tdf",
     "f1",
     "nrl",
     "afl",
@@ -32,7 +31,10 @@
     "golf",
     "goodwood",
     "sailgp",
-    "wsl"
+    "wsl",
+    "tdf",
+    "giro",
+    "vuelta"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -92,11 +94,6 @@
         "count": 15,
         "firstEventDate": "2026-07-04",
         "lastEventDate": "2026-11-28"
-      },
-      "tdf": {
-        "count": 21,
-        "firstEventDate": "2026-07-05",
-        "lastEventDate": "2026-07-27"
       },
       "f1": {
         "count": 61,
@@ -192,6 +189,21 @@
         "count": 12,
         "firstEventDate": "2026-04-01",
         "lastEventDate": "2026-12-08"
+      },
+      "tdf": {
+        "count": 24,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2027-07-04"
+      },
+      "giro": {
+        "count": 21,
+        "firstEventDate": "2026-05-08",
+        "lastEventDate": "2026-05-31"
+      },
+      "vuelta": {
+        "count": 21,
+        "firstEventDate": "2026-08-22",
+        "lastEventDate": "2026-09-13"
       }
     }
   }

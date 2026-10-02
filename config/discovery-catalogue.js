@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 25;
+  const PREFERENCE_VERSION = 26;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -271,8 +271,10 @@
       && !(saved.preferenceGraph?.entityFollows || []).some(f=>String(f.participantId).includes(":aflw:") && ["follow","priority"].includes(f.followLevel))
       && !(saved.preferenceGraph?.competitionPreferences || []).some(p=>String(p.competitionId).includes("aflw") && p.enabled===true);
     const legacyWslAlias = Number(saved.version || 0)>0 && Number(saved.version)<25;
+    const legacyTourAlias = Number(saved.version || 0)>0 && Number(saved.version)<26;
     const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
       .map(id=>legacyWslAlias && id==="sport:wsl"?"sport:surf":id)
+      .map(id=>legacyTourAlias && id==="sport:tdf"?"sport:cycling":id)
       .filter(id=>!(inheritedAflw && id==="sport:aflw"))
       .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
     const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])

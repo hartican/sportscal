@@ -125,6 +125,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-motogp-sessions.js"],
   ["scripts/refresh-sailgp-calendar.js"],
   ["scripts/refresh-wsl-calendar.js"],
+  ["scripts/refresh-grand-tour-calendars.js"],
   ["scripts/refresh-nbl-schedule.js"],
   ["scripts/refresh-athlete-profiles.js"],
   ["scripts/refresh-athlete-profiles.js", "--check"],
@@ -272,6 +273,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-sailgp-quality.js", "--published"],
   ["scripts/validate-sailgp-calendar.js", "--published"],
   ["scripts/validate-wsl-calendar.js", "--published"],
+  ["scripts/validate-grand-tour-calendars.js", "--published"],
   ["scripts/validate-adaptive-follow-grid.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -444,6 +446,11 @@ async function runMain() {
       ['scripts/validate-golf-source-observations.js']
     ])runStep(step);
     console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
+  }
+  if(process.argv.includes('--grand-tours-venues')){
+    for(const step of [["scripts/refresh-grand-tour-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--grand-tours-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--grand-tours-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=tour-de-france,giro-ditalia,vuelta-a-espana,cycling"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-grand-tour-calendars.js", "--published"], ["scripts/validate-cycling-context.js"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Grand Tour calendar and route publication complete through canonical owner.');return;
   }
   if(process.argv.includes('--wsl-venues')){
     for(const step of [["scripts/refresh-wsl-calendar.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--wsl-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--wsl-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=wsl"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-wsl-calendar.js", "--published"], ["scripts/validate-seeded-surf-correction.js"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);

@@ -146,6 +146,9 @@
     "cricket-australia": officialMark("organisation:cricket-australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", {
       logo: { backgroundLight: "dark", backgroundDark: "dark" },
     }),
+    tdf: officialMark("competition:tour-de-france", "Tour de France", "assets/identities/cycling/tdf-brand.png", "https://www.letour.fr/", {logo:{backgroundLight:"light",backgroundDark:"light"}}),
+    giro: officialMark("competition:giro-ditalia", "Giro d’Italia", "assets/identities/cycling/giro-brand.svg", "https://www.giroditalia.it/", {logo:{backgroundLight:"light",backgroundDark:"light"}}),
+    vuelta: officialMark("competition:vuelta-a-espana", "La Vuelta", "assets/identities/cycling/vuelta-brand.png", "https://www.lavuelta.es/", {logo:{backgroundLight:"light",backgroundDark:"light"}}),
     wsl: officialMark("competition:wsl-championship-tour", "World Surf League", "assets/identities/wsl/brand.png", "https://www.worldsurfleague.com/", {logo:{backgroundLight:"dark",backgroundDark:"dark"}}),
     sailgp: officialMark("competition:sailgp", "SailGP", "assets/identities/sailgp/brand-light.png", "https://sailgp.com/", {
       logo: {
@@ -544,6 +547,9 @@
     "competition:supercars":eventMarks.supercars,
     "competition:sailgp":eventMarks.sailgp,
     "competition:wsl-championship-tour":eventMarks.wsl,
+    "competition:tour-de-france":eventMarks.tdf,
+    "competition:giro-ditalia":eventMarks.giro,
+    "competition:vuelta-a-espana":eventMarks.vuelta,
     "competition:nfl":eventMarks.nfl,
     "competition:wrc":sportMarks.wrc,
     "competition:premier-league": eventMarks["premier-league"],

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "editorial-identity-20261002211119158",
-  "sourcePublishedAt": "2026-10-02T21:11:19.158Z",
+  "sourceVersion": "editorial-identity-20261002211119158-20261002212102256",
+  "sourcePublishedAt": "2026-10-02T21:21:02.256Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 1311,
-  "eventCount": 801,
+  "inputEventCount": 1356,
+  "eventCount": 804,
   "pages": [
     {
       "index": 0,
@@ -250,48 +250,48 @@
       "path": "data/feed/page-035.json",
       "eventCount": 20,
       "firstEventId": "event:premier-league:129299",
-      "lastEventId": "event:motogp:2027:czechia:race"
+      "lastEventId": "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027"
     },
     {
       "index": 35,
       "path": "data/feed/page-036.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2027:czechia:sprint",
-      "lastEventId": "event:motogp:2027:aragon:race"
+      "firstEventId": "event:golf:the-open-2027",
+      "lastEventId": "event:sailgp:2027:rome-day-1"
     },
     {
       "index": 36,
       "path": "data/feed/page-037.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2027:aragon:sprint",
-      "lastEventId": "event:aflw:cd_m20262640706"
+      "firstEventId": "event:sailgp:2027:rome-day-2",
+      "lastEventId": "event:nbl:2026-27:36f8c608-58ad-11f1-aa0e-2bbb920071b5"
     },
     {
       "index": 37,
       "path": "data/feed/page-038.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262640707",
-      "lastEventId": "event:f1:2026:azerbaijan:qualifying"
+      "firstEventId": "event:nbl:2026-27:3718a994-58ad-11f1-add9-d98e318e0a1e",
+      "lastEventId": "event:nbl:2026-27:36f361e7-58ad-11f1-a449-59142d8bd7d5"
     },
     {
       "index": 38,
       "path": "data/feed/page-039.json",
       "eventCount": 20,
-      "firstEventId": "event:f1:2026:azerbaijan:practice-1",
-      "lastEventId": "event:aflw:cd_m20262640609"
+      "firstEventId": "major-match:nrl-finals-2026:preliminary-final-2",
+      "lastEventId": "event:aflw:cd_m20262640608"
     },
     {
       "index": 39,
       "path": "data/feed/page-040.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2026:austria:warmup",
-      "lastEventId": "event:motogp:2026:austria:sprint"
+      "firstEventId": "major-match:nrl-finals-2026:semi-final-2",
+      "lastEventId": "major-match:nrl-finals-2026:semi-final-1"
     },
     {
       "index": 40,
       "path": "data/feed/page-041.json",
-      "eventCount": 1,
-      "firstEventId": "event:sailgp:2026:geneva-day-1",
+      "eventCount": 4,
+      "firstEventId": "event:nbl:2026-27:36e0e11c-58ad-11f1-93d0-e78395b5c13c",
       "lastEventId": "event:sailgp:2026:geneva-day-1"
     }
   ]

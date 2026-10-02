@@ -74,6 +74,21 @@ async function assertCachedFootballStatus(page){
   assert(motoOffline.every(Boolean),'every MotoGP and WRC vector must remain available in the installed/offline shell');
   const sailgpIdentity=await page.evaluate(async()=>Promise.all(['light','dark'].map(async theme=>{const image=new Image();image.src='/assets/identities/sailgp/brand-'+theme+'.png';await image.decode();return image.naturalWidth===1670&&image.naturalHeight===335;})));
   assert(sailgpIdentity.every(Boolean),'both complete local SailGP marks decode after upgrade and remain cached offline');
+  const tours=await page.evaluate(async()=>Promise.all(['tour-de-france','giro-ditalia','vuelta-a-espana'].map(async slug=>{
+    const code=await(await fetch('/data/code-inspector/'+slug+'.json')).json();
+    const schedule=await(await fetch('/data/follow-schedule/'+slug+'.json')).json();
+    const event=code.fixtures.find(f=>f.season==='2027')||code.fixtures[0],key=event.key;
+    const prefs={version:26,selectedSelectorEntityIds:['sport:cycling'],followedSports:['cycling',key]};
+    return {slug,count:code.fixtures.length,scheduleCount:schedule.fixtures?.length||schedule.events?.length,coverage:code.coverageStatus,unfollowed:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(event,prefs),followed:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(event,{...prefs,selectedSelectorEntityIds:['sport:'+key]})};
+  })));
+  assert.deepEqual(tours.map(t=>t.count),[24,21,21]);assert(tours.every(t=>t.coverage==='partial'&&t.unfollowed&&t.followed),'cached Grand Tours require explicit competition consent');
+  const tourAssets=require('../assets/identities/cycling/asset-manifest.json').assets;
+  const decodedTours=await page.evaluate(async assets=>Promise.all(assets.map(async a=>{
+    const r=await fetch('/'+a.path);if(!r.ok)return false;
+    if(a.path.endsWith('.svg')){const source=await r.text();if(!source.includes('<svg')||source.includes('<image'))return false;}
+    const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;
+  })),tourAssets);
+  assert(decodedTours.every(Boolean),'all 39 verified routes, bicycle fallback and complete Grand Tour marks decode offline');
   const viewing=await page.evaluate(async()=>{
     const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
     const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf');

@@ -299,7 +299,8 @@
     const cricket=root.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==="function"?require("./cricket-coverage"):null);
     const initial=cricket?cricket.preferences(raw):raw;
     const legacyWslAlias=Number(initial.version||0)>0&&Number(initial.version)<25;
-    const source=legacyWslAlias?{...initial,selectedSelectorEntityIds:(initial.selectedSelectorEntityIds||[]).map(id=>id==='sport:wsl'?'sport:surf':id)}:initial;
+    const legacyTourAlias=Number(initial.version||0)>0&&Number(initial.version)<26;
+    const source=legacyWslAlias||legacyTourAlias?{...initial,selectedSelectorEntityIds:(initial.selectedSelectorEntityIds||[]).map(id=>legacyWslAlias&&id==='sport:wsl'?'sport:surf':legacyTourAlias&&id==='sport:tdf'?'sport:cycling':id)}:initial;
     const prior = source.followFirst && typeof source.followFirst === "object" ? source.followFirst : {};
     const defaults = defaultFollowFirst();
     const rawStartupMeta = prior.startupMeta || source.startupMeta || {};
@@ -346,7 +347,7 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(25, Number(source.version) || 0),
+      version:Math.max(26, Number(source.version) || 0),
       ...(source.preferenceGraph ? {preferenceGraph:{...source.preferenceGraph, entityFollows:(source.preferenceGraph.entityFollows || []).map(item=>item.followLevel === "mute" && Number(source.version||0)<24 ? {...item,followLevel:"unfollow"} : item)}} : {}),
       followedSports,
       selectedSelectorEntityIds,
@@ -561,7 +562,7 @@
     const sportAliases = {
       "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
       fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",
-      wimbledon:"tennis", tdf:"cycling", masters:"golf", nfl:"american-football",
+      wimbledon:"tennis", tdf:"cycling", giro:"cycling", vuelta:"cycling", masters:"golf", nfl:"american-football",
       nhl:"ice-hockey", chl:"ice-hockey",
       ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",
       skateboard:"extreme", wsl:"surf", "big-wave":"surf",
@@ -590,7 +591,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl","tdf","giro","vuelta"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
@@ -806,6 +807,7 @@
   }
 
   function viewingOptions(event, selectedProviderIds = []){
+    if(event?.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
     // Official draw lists these as separate broadcast and streaming services.
     // Match stable fixture identities, never every match in the competition.

@@ -14,7 +14,7 @@
     {"id":"rugby-union","codes":["rugby-union"],"carried":true},
     {"id":"tennis","codes":["tennis"],"carried":true},
     {"id":"football","codes":["football","champions-league"],"carried":true},
-    {"id":"cycling","codes":["cycling"],"carried":true},
+    {"id":"cycling","codes":["cycling","tour-de-france","giro-ditalia","vuelta-a-espana"],"carried":true},
     {"id":"cricket","codes":["cricket"],"carried":true},
     {"id":"basketball","codes":["basketball","nbl","fiba-women"],"carried":true},
     {"id":"golf","codes":["golf"],"carried":true},

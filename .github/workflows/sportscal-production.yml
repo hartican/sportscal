@@ -99,6 +99,7 @@ jobs:
           node scripts/validate-sailgp-quality.js --published
           node scripts/validate-sailgp-calendar.js --published
           node scripts/validate-wsl-calendar.js --published
+          node scripts/validate-grand-tour-calendars.js --published
           node scripts/validate-card-identities.js
           node scripts/validate-refresh-resume.js
           node scripts/validate-marquee-candidates.js

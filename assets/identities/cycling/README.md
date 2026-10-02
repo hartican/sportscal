@@ -1,0 +1,9 @@
+# Grand Tour identities and route artwork
+
+The bicycle is a genuine transparent SVG traced from Baianat’s licensed Flaticon icon. Individual source, author, licence, input/output hashes and modifications are recorded in asset-manifest.json. Visible credits appear in the footer and About. Complete organiser marks are retained. Giro uses the undated native SVG from RCS Sports & Events; its current dated 2027 website PNG wrapper is withheld so 2026 cards are not mislabelled. Tour and Vuelta retain their complete PNG marks.
+
+Nineteen 2026 Tour routes use native geometry from the official stage page’s ASO ArcGIS map. Twenty 2026 Vuelta routes use the official stage pages’ organiser-owned Komoot routes. They retain geographic proportions under uniform projection/scaling; stage SVGs rotate onto their principal axis and simplify at 45m tolerance. No basemap, enclosed region or transfer connection is filled. Route outlines are schematic editorial artwork, not navigation guidance.
+
+Tour stages 9 and 21 are withheld: the GIS files still describe 185.5 and 133km, while the latest organiser table says 154.6 and 88.7km. Vuelta stage 3 is withheld: 166.7km map versus 174km current stage. Giro maps and the three published Tour 2027 maps were obtained from official sources, but raster separation fragmented the route and retained label edges. Those unverified prototypes remain outside this repository. These stages use the bicycle fallback. No complete edition geometry has passed verification, so Events parents also use the fallback, never the first stage or a route from another edition.
+
+All 63 current-season stages and three published future Tour stages are covered by the canonical owner. Giro/Vuelta 2027 have edition windows only; no sporting stages are invented. Australian viewing, exact clocks, entries and new results remain unconfirmed. Existing Tour IDs, local dates/clocks and rider/jersey/results context are retained.

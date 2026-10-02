@@ -61,7 +61,7 @@
 
   function explicitCompetitionRequired(event){
     const key = sportKey(event);
-    if(event.competitionId==='competition:wsl-championship-tour')return true;
+    if(event.competitionId==='competition:wsl-championship-tour'||event.grandTourCalendar===true)return true;
     if(golfMajor(event))return false;
     if (["aflw", "nrlw"].includes(key)) return true;
     if (key.startsWith("tennis")) return false;
@@ -190,6 +190,7 @@
     if(key==='motogp')return !isPractice(event)&&/race|sprint|qualifying|grand prix/i.test([event.sessionType,event.name].join(' '));
     if(key==='sailgp')return !isPractice(event);
     if(key==='wsl'&&event.competitionId==='competition:wsl-championship-tour')return event.sessionType==='event-window'&&Boolean(event.calendarProvenance?.sourceUrl);
+    if(['tdf','giro','vuelta'].includes(key)&&event.grandTourCalendar===true)return event.sessionType==='stage'&&Boolean(event.calendarProvenance?.sourceUrl);
     const f1 = /^competition:(?:formula-one|f1)(?:[:-]\d{4})?$/.test(competition) || key === "f1";
     return f1 && !isPractice(event);
   }

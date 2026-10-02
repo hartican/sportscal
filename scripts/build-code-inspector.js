@@ -65,6 +65,9 @@ const CODE_KEYS = Object.freeze({
   "sport:football": ["football", "soccer", "fifa", "premier-league"],
   "competition:uefa-champions-league": ["champions-league", "uefa-champions-league"],
   "sport:cycling": ["cycling", "tour-de-france"],
+  "competition:tour-de-france":["tdf"],
+  "competition:giro-ditalia":["giro"],
+  "competition:vuelta-a-espana":["vuelta"],
   "sport:cricket": ["cricket"],
   "sport:basketball": ["basketball", "nba"],
   "sport:golf": ["golf"],
@@ -238,7 +241,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.published === false ? {published:false} : {}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
-    ...(event.key==='wsl'&&event.calendarProvenance?{calendarProvenance:event.calendarProvenance}:{}),
+    ...(event.calendarProvenance&&['wsl','tdf','giro','vuelta'].includes(event.key)?Object.fromEntries(['calendarProvenance','grandTourCalendar','sessionType','resultCoverage'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     ...(event.format ? {format:event.format} : {}),
     ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
     name: event.name || event.displayName || "TBC",
@@ -252,7 +255,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -490,6 +493,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
   const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
   const requestedCompetitionCodes = [
+    ...["tour-de-france","giro-ditalia","vuelta-a-espana"].map(slug=>({...taxonomy.competitions.find(c=>c.id==="competition:"+slug),parentSportId:"sport:cycling"})),
     {id:"competition:wsl-championship-tour",slug:"wsl",name:"WSL",parentSportId:"sport:surf"},
     { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
     { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },

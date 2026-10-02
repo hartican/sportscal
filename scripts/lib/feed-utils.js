@@ -14,6 +14,8 @@ const LEGACY_SPORT_KEYS = new Set([
   "goodwood",
   "cycling",
   "tdf",
+  "giro",
+  "vuelta",
   "skateboard",
   "downhill-mtb",
   "wsl",
