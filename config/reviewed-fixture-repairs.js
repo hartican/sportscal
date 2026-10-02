@@ -2,6 +2,8 @@
  'use strict';
  // Dated official evidence: docs/quality/coverage-repair-20260930.md.
  const records={
+  // Same RA949625 / WR match, checked 2 October; keep schedule and score dates separate.
+  'rugby-australia-south-africa-2026-09-27':{startTimeUtc:'2026-09-27T09:45:00.000Z',endTimeUtc:'2026-09-27T12:45:00.000Z',timingProvenance:{kind:'official',checkedAt:'2026-10-02T01:36:47.809Z',sourceUrl:'https://www.rugby.com.au/match-centre/3/2026/949625'},participantIds:['team:rugby:wallabies','team:rugby:springboks']},
   'fixture:cricket:espn:1525659':{name:'South Africa v Australia — First Test',displayTitleCompact:'South Africa v Australia — First Test',format:'Test',matchFormat:'Test',endDate:'2026-10-13',numberOfDays:5,startTimeUtc:'2026-10-09T07:30:00.000Z',venue:'Kingsmead, Durban',sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},
   'fixture:cricket:espn:1525660':{name:'South Africa v Australia — Second Test',displayTitleCompact:'South Africa v Australia — Second Test',format:'Test',matchFormat:'Test',endDate:'2026-10-22',numberOfDays:5,startTimeUtc:'2026-10-18T08:00:00.000Z',venue:"St George's Park, Gqeberha",sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},
   'fixture:cricket:espn:1525661':{name:'South Africa v Australia — Third Test',displayTitleCompact:'South Africa v Australia — Third Test',format:'Test',matchFormat:'Test',endDate:'2026-10-31',numberOfDays:5,startTimeUtc:'2026-10-27T08:30:00.000Z',venue:'Newlands, Cape Town',sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},

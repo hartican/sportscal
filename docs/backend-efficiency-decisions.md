@@ -1,5 +1,10 @@
 # Backend efficiency decisions
 
+## Reviewed past Rugby identity — 2 October 2026
+
+One exact AU–South Africa fixture retains its curated ID and four reviewed RA/WR aliases. Read snapshots span both historical IDs in existing bounded queries; legacy requested response keys survive. A service-only readiness RPC gates mutations for this one past match until atomic ledger/rating reconciliation completes; other fixtures add no check. No provider refresh, polling, scheduler or reminder replay is added. Preserve each original credit row/day/category and all history; private rooms and saved state are not merged. Operator undo refuses newer activity or erased preimages. Deployment precedes reconciliation with a temporary per-fixture write hold. Evidence, migration, acceptance and regressions: [reviewed Rugby reconciliation](quality/rugby-identity-reconciliation-2026-10-02.md). This does not certify Rugby or increase MVP budgets.
+
+
 ## Explicit Cricket abandonment and settled observations — 2 October 2026
 
 Cricket Australia's `isCompleted` closes abandoned records as well as played results. Accept explicit Abandoned result types only on a completed provider record; never infer this from prose or elapsed time. The shared identity/compact Match Centre observation permits a newer settled abandonment correction and protects it against later schedule/live overlays; older observations retain the prior facts. Abandoned fixtures stay outside Match Centre. Cards show Abandoned/Suspended, with accessible original Sydney scheduling, and neither state gains clock-derived Starts Soon/Live/Just Finished.

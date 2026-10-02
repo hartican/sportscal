@@ -203,6 +203,7 @@ async function handlerContracts(){
   const supabaseCache = require.cache[supabasePath];
   const serverCache = require.cache[serverPath];
   const rewardsCache = require.cache[rewardsPath];
+  let identityReady=true;
   let pilotCalls=0,profileWrites=0,submitMode="success",profileVisibility="visible",eventPhase="heat",existingSubmission=null;
   const submitCalls=[];
   supabaseCache.exports={
@@ -224,6 +225,7 @@ async function handlerContracts(){
     async profileFor(){return{profile_id:"profile-one",display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
     async snapshots(){return[];},
     async refreshEventSnapshots(){},
+    async reviewedIdentityReady(){return identityReady;},
     ownerProfile:actualServer.ownerProfile,
     async personaFor(){return{persona:"general",moderation_flag:false};},
   };
@@ -245,6 +247,12 @@ async function handlerContracts(){
     assert.equal(profileWrites,1);
     assert.equal(pilotCalls,0,"creating a Public Profile must not require NSC pilot access");
 
+    identityReady=false;
+    const heldResponse=responseCapture();
+    await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"submit",eventId:"rugby-australia-south-africa-2026-09-27",phase:"heat",rating:4}},heldResponse);
+    assert.equal(heldResponse.statusCode,503);assert.equal(heldResponse.body.code,"rating_temporarily_unavailable");
+    assert.equal(submitCalls.length,0,"unreconciled fixture cannot write or award");
+    identityReady=true;
     const submitResponse=responseCapture();
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"submit",eventId:"fixture-one",phase:"heat",rating:4,tags:[]}},submitResponse);
     assert.equal(submitResponse.statusCode,200);

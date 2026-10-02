@@ -23020,9 +23020,9 @@
       ]
     },
     {
-      "id": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
-      "eventId": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
-      "canonicalEventId": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+      "id": "rugby-australia-south-africa-2026-09-27",
+      "eventId": "rugby-australia-south-africa-2026-09-27",
+      "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
       "key": "rugby",
       "sport": "Rugby Union",
       "sportDomainId": "sport:rugby-union",
@@ -23034,7 +23034,7 @@
       "isSenior": true,
       "gender": "men",
       "discipline": "rugby-union",
-      "startTimeUtc": "2026-09-27T09:30:00.000Z",
+      "startTimeUtc": "2026-09-27T09:45:00.000Z",
       "date": "2026-09-27",
       "timePrecision": "exact",
       "dateOnly": false,
@@ -23044,27 +23044,15 @@
       "participants": [
         {
           "id": "team:rugby:wallabies",
-          "name": "Australia",
-          "role": "home",
-          "teamKind": "national",
-          "sourceIds": {
-            "worldRugby": "38"
-          },
+          "name": "Wallabies",
           "countryCode": "AU",
-          "displayName": "Australia",
-          "genderCategory": "male"
+          "role": "home"
         },
         {
           "id": "team:rugby:springboks",
           "name": "South Africa",
-          "role": "away",
-          "teamKind": "national",
-          "sourceIds": {
-            "worldRugby": "39"
-          },
           "countryCode": "ZA",
-          "displayName": "South Africa",
-          "genderCategory": "male"
+          "role": "away"
         }
       ],
       "participantIds": [
@@ -23084,12 +23072,12 @@
       "sourceCheckedAt": "2026-10-01T18:30:00.656Z",
       "timingProvenance": {
         "kind": "official",
-        "checkedAt": "2026-10-01T18:30:00.656Z",
-        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "checkedAt": "2026-10-02T01:36:47.809Z",
+        "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625"
       },
       "discoverySourceId": "rugby-wr-mru",
       "displayTitleCompact": "Australia v South Africa",
-      "time": "19:30",
+      "time": "19:45",
       "broadcaster": "",
       "participantSlots": [],
       "representativeCountryCodes": [],
@@ -23110,10 +23098,14 @@
       "firstConfirmedCompleteAt": "2026-09-27T11:56:12.509671+00:00",
       "scoreCheckedAt": "2026-10-01T18:30:00.656Z",
       "statusCheckedAt": "2026-10-01T18:30:00.656Z",
-      "endTimeUtc": "2026-09-27T12:30:00.000Z",
+      "endTimeUtc": "2026-09-27T12:45:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceEventIds": [
-        "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945"
+        "rugby-australia-south-africa-2026-09-27",
+        "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+        "fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945",
+        "fixture:rugby:ra:949625",
+        "fixture-rugby-ra-949625"
       ]
     },
     {

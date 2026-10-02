@@ -94,6 +94,9 @@ jobs:
           node scripts/validate-ucl-qualifier-results.js
           node scripts/validate-nbl-viewing.js --published
           node scripts/validate-nbl-match-context.js --published
+          node scripts/validate-rugby-reviewed-identity.js --published
+          node scripts/validate-rugby-identity-api.js
+          node scripts/validate-rugby-identity-database.js
           node scripts/validate-nbl-standings.js --published
           node scripts/validate-football-data-trial.js
           node scripts/validate-football-data-backup.js

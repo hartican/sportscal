@@ -1,0 +1,232 @@
+{
+  "capturedAt": "2026-10-02",
+  "curated": {
+    "id": "rugby-australia-south-africa-2026-09-27",
+    "eventId": "rugby-australia-south-africa-2026-09-27",
+    "sport": "Rugby Union",
+    "key": "rugby",
+    "name": "Australia v South Africa",
+    "displayTitleCompact": "Australia v South Africa",
+    "date": "2026-09-27",
+    "time": "19:45",
+    "startTimeUtc": "2026-09-27T09:45:00.000Z",
+    "broadcaster": "Stan Sport",
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "expected": 9,
+    "venue": "Optus Stadium, Perth",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "test",
+    "selectedSentence": "Australia v South Africa is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Australia v South Africa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Rugby Australia official match centre",
+    "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625",
+    "sourceCheckedAt": "2026-09-27T13:41:55.158384Z",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "completed",
+    "participants": [
+      {
+        "name": "Wallabies",
+        "role": "home",
+        "id": ""
+      },
+      {
+        "name": "South Africa",
+        "role": "away",
+        "id": ""
+      }
+    ],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "recap",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Australia v South Africa is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Australia defeated South Africa 42-38.",
+      "synopsisSpoilerOff": "Australia v South Africa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Australia defeated South Africa 42-38 at Optus Stadium, Perth.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-09-27T13:41:55.158384Z",
+      "researchDepth": 3
+    },
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
+    "sourceTrust": "verified",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "rugby",
+    "participantIds": [
+      "team:rugby:wallabies",
+      "team:rugby:springboks"
+    ],
+    "sourceType": "official",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:rugby-australia-south-africa-2026-09-27",
+      "researchTier": "standard",
+      "hook": "Australia and South Africa contested the Perth Test at Optus Stadium.",
+      "synopsis": "The Wallabies and Springboks met at Optus Stadium on 27 September, bringing international rugby to Perth. The result remains hidden until you choose to reveal it.",
+      "hookSpoilerOn": "Australia defeated South Africa 42-38.",
+      "synopsisSpoilerOn": "The Wallabies finished four points ahead of South Africa at Optus Stadium on 27 September. The official match centre confirms the final score.",
+      "threadIds": [
+        "thread:fixture-research:rugby-australia-south-africa-2026-09-27"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-australia-south-africa-2026-09-27:0",
+        "fact:fixture-research:rugby-australia-south-africa-2026-09-27:1"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-south-africa-2026-09-27:0"
+      ],
+      "dimensions": [
+        "matchup",
+        "venue"
+      ],
+      "researchedAt": "2026-09-27T13:41:55.158384Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "recap",
+      "resultSignature": "[\"completed\",\"Australia defeated South Africa 42-38.\",\"Australia 42-38 South Africa\",\"Australia defeated South Africa 42-38 at Optus Stadium, Perth.\"]"
+    },
+    "score": "Australia 42-38 South Africa",
+    "homeScore": 42,
+    "awayScore": 38,
+    "outcomeText": "Australia defeated South Africa 42-38.",
+    "recapText": "Australia defeated South Africa 42-38 at Optus Stadium, Perth.",
+    "resultPublishedAt": "2026-09-27T12:34:38.105Z",
+    "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
+    "sourceRefs": [
+      "https://www.rugby.com.au/match-centre/3/2026/949625",
+      "https://www.rugby.com.au/news/wallabies-squad-springboks-perth-test-jordan-petaia-rugby-union-2026914"
+    ],
+    "scheduleStatus": "confirmed",
+    "timePrecision": "exact",
+    "stakesScore": 5,
+    "endTimeUtc": "2026-09-27T12:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Result",
+      "Australia 42-38 South Africa",
+      "Official result"
+    ],
+    "scoreCheckedAt": "2026-09-27T13:41:55.158384Z",
+    "statusCheckedAt": "2026-09-27T13:41:55.158384Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "rugby-australia-south-africa-2026-09-27"
+    ],
+    "consensusTags": [],
+    "timeTbc": false,
+    "startTimeTbc": false,
+    "dateOnly": false
+  },
+  "worldRugby": {
+    "id": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+    "eventId": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+    "canonicalEventId": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+    "key": "rugby",
+    "sport": "Rugby Union",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Australia v South Africa",
+    "competitionId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
+    "competitionName": "Men's Internationals 2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "men",
+    "discipline": "rugby-union",
+    "startTimeUtc": "2026-09-27T09:30:00.000Z",
+    "date": "2026-09-27",
+    "timePrecision": "exact",
+    "dateOnly": false,
+    "status": "completed",
+    "roundLabel": null,
+    "venue": "Perth Stadium, Perth | Boorloo",
+    "participants": [
+      {
+        "id": "team:rugby:wallabies",
+        "name": "Australia",
+        "role": "home",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "38"
+        },
+        "countryCode": "AU",
+        "displayName": "Australia",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:rugby:springboks",
+        "name": "South Africa",
+        "role": "away",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "39"
+        },
+        "countryCode": "ZA",
+        "displayName": "South Africa",
+        "genderCategory": "male"
+      }
+    ],
+    "participantIds": [
+      "team:rugby:wallabies",
+      "team:rugby:springboks"
+    ],
+    "participantCountryCodes": [
+      "AU",
+      "ZA"
+    ],
+    "homeParticipantId": "team:rugby:wallabies",
+    "awayParticipantId": "team:rugby:springboks",
+    "sourceFixtureId": "e826488f-b2e2-42f0-8649-1bafd6567945",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-10-01T18:30:00.656Z",
+    "timingProvenance": {
+      "kind": "official",
+      "checkedAt": "2026-10-01T18:30:00.656Z",
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+    },
+    "discoverySourceId": "rugby-wr-mru",
+    "displayTitleCompact": "Australia v South Africa",
+    "time": "19:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "sourceStatus": "C",
+    "sourceTime": {
+      "label": "2026-09-27",
+      "millis": 1790501400000,
+      "gmtOffset": 8
+    },
+    "awayScore": 38,
+    "homeScore": 42,
+    "scoreDisplay": "42–38",
+    "firstConfirmedCompleteAt": "2026-09-27T11:56:12.509671+00:00",
+    "scoreCheckedAt": "2026-10-01T18:30:00.656Z",
+    "statusCheckedAt": "2026-10-01T18:30:00.656Z",
+    "endTimeUtc": "2026-09-27T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "sourceEventIds": [
+      "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945"
+    ]
+  }
+}

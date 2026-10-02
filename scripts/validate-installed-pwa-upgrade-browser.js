@@ -26,6 +26,9 @@ async function assertCachedFootballStatus(page){
   });
   assert.equal(abandoned.status,'ABANDONED');assert.equal(abandoned.timing,null,'upgraded/offline runtime never calls an abandoned match live');
   assert.equal(abandoned.observation,'abandoned','upgraded/offline deferred Match Centre accepts the official abandonment correction');
+  const rugby=await page.evaluate(f=>{const normalized=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(f);const oldRatings=ratings;try{ratings={[f.id]:5};return {id:normalized.id,start:normalized.startTimeUtc,scoreCheckedAt:normalized.scoreCheckedAt,rating:getActual('rugby-australia-south-africa-2026-09-27')};}finally{ratings=oldRatings;}},require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby);
+  assert.equal(rugby.id,'rugby-australia-south-africa-2026-09-27');assert.equal(rugby.start,'2026-09-27T09:45:00.000Z');assert.equal(rugby.rating,5,'cached runtime reads the old saved Rugby rating');assert.equal(rugby.scoreCheckedAt,require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby.scoreCheckedAt,'cached host timing never refreshes score facts');
+
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
