@@ -338,3 +338,7 @@ Only effective followed players appear; later unfollows and tournament/competiti
 ### 2026-10-02 — MotoGP venue pilot
 
 An explicit MotoGP follow admits one combined Q1/Q2 card, Sprint and Grand Prix per published weekend. Practice and warm-up remain in Schedule and cannot enter Feed, including through a participant follow or pin. Existing exclusions and seven-day Feed history remain authoritative. Published future weekends without a session timetable retain their full date window and an unconfirmed session day/time; no start is inferred. The current rider field is not carried into an unconfirmed future season. New competition choices never imply consent. Events parents have venue artwork and no rating controls. Regression: `scripts/validate-motogp-venue-pilot.js` and `scripts/validate-follow-policy-parity.js`.
+
+## Live scores on Feed — 2 October 2026
+
+The approved Athletes repair moves shared source-oriented live scores onto collapsed and expanded Feed fixture cards with Results ON. Results OFF removes score content and accessible score labels. Existing final results are not duplicated; freshness and terminal observations remain authoritative. Match Centre stays until Athletes is delivered. Sporting refresh operates independently of Fantasy Deadlines, whose enrichment remains opt-in. Regression: validate-feed-live-scores.js and validate-feed-live-scores-browser.js.

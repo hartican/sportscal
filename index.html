@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="373">
+<meta name="app-shell-version" content="374">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=373" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=374" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7174,7 +7174,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=373"></script>
+<script src="assets/js/app-shell-runtime.js?v=374"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10923,56 +10923,18 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
   return identity.mergeOverlays(fixtures || [],matching.map(event=>({...event,codeId:code?.id}))).sort((a,b)=>String(a.date||"9999").localeCompare(String(b.date||"9999"))||String(a.time||"23:59").localeCompare(String(b.time||"23:59")));
 }
 
-function queueLiveFixtureSnapshot(){
-  if(!userPreferences.fantasyDeadlines.enabled || liveFixtureMountTimer!==null)return;
-  liveFixtureMountTimer=setTimeout(()=>{liveFixtureMountTimer=null;if(userPreferences.fantasyDeadlines.enabled)void refreshLiveFixtureSnapshot();},250);
+let feedScoreUiLoading=null;
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=374').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function installFeedLiveScore(card,event){
+  if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
+  const owner=serverSyncClient?.sessionSubject()||'public';
+  void ensureFeedScoreUi().then(()=>{if(card.isConnected&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);}).catch(()=>{});
 }
-async function refreshLiveFixtureSnapshot(){
-  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow' || activeTab==='match-centre')return;
-  if(liveFixtureRefresh){liveFixtureRefreshQueued=true;return liveFixtureRefresh;}
-  const mountedIds=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent)')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
-  const recent=Date.now()-liveFixtureLastRequestedAt<30_000;
-  const ids=recent?mountedIds.filter(id=>!liveFixtureRequestedIds.has(id)):mountedIds;
-  if(!ids.length)return;
-  liveFixtureRequestedIds=new Set([...ids,...(recent?liveFixtureRequestedIds:[])].slice(0,120));
-  liveFixtureRefresh=(async()=>{
-    try{
-      liveFixtureLastRequestedAt=Date.now();
-      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}${userPreferences.fantasyDeadlines.enabled?"&fantasy=1":""}`,{cache:'default',signal:AbortSignal.timeout(5000)});
-      if(response.status===304)return;
-      if(!response.ok)throw new Error('Live source unavailable');
-      const snapshot=await response.json();
-      if(snapshot.schemaVersion!=='live-fixtures.v1'||!Array.isArray(snapshot.sources)||!snapshot.revision)throw new Error('Invalid live snapshot');
-      fantasySourceState=snapshot.fantasySources||{};
-      globalThis.fantasyDeadlineController?.sync();
-      if(snapshot.revision===liveFixtureRevision)return;
-      if(snapshot.sources.some(source=>!Array.isArray(source.fixtures)))throw new Error('Invalid source fixtures');
-      const updates=snapshot.sources.slice().sort((a,b)=>String(a.checked_at||'').localeCompare(String(b.checked_at||''))).flatMap(source=>source.fixtures);
-      const nextLive=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays(liveFixtureEvents,updates).filter(event=>eventMeetsDerivedRetention(event));
-      const nextEvents=normalizeEvents(mergeFootballFixtureEvents(activeEvents,nextLive));
-      liveFixtureEvents=nextLive;
-      liveFixtureRevision=snapshot.revision;
-      activeEvents=nextEvents;
-      disposableStore?.set('live-fixtures:v2',{events:nextLive,revision:liveFixtureRevision,fantasySources:fantasySourceState});
-      if(codeInspectorChunk)codeInspectorChunk={...codeInspectorChunk,fixtures:liveScheduleFixtures(codeInspectorChunk.fixtures)};
-      rebuildDerivedCardCache(activeEvents);
-      // Optional deadline changes need not rebuild the fixture layout.
-      for(const event of nextEvents){
-        for(const id of new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])])){
-          const mounted=profileFixtureEvents.get(String(id));
-          if(mounted)profileFixtureEvents.set(String(id),{...mounted,fantasyDeadlines:event.fantasyDeadlines});
-        }
-      }
-      for(const item of feedCardSlots.values()){
-        const known=profileFixtureEvents.get(String(item.event.eventId||item.event.id));
-        if(known)item.event={...item.event,fantasyDeadlines:known.fantasyDeadlines};
-      }
-      globalThis.fantasyDeadlineController?.sync();
-      queueScrollIdleMutation(()=>renderFeedIfPresentationChanged({preserveViewport:true}));
-    }catch(error){/* Keep static and last-good fixtures; a network failure is not an empty calendar. */}
-    finally{liveFixtureRefresh=null;if(liveFixtureRefreshQueued){liveFixtureRefreshQueued=false;queueLiveFixtureSnapshot();}}
-  })();
-  return liveFixtureRefresh;
+async function refreshLiveFixtureSnapshot(){if(document.hidden||!['feed','events','athletes'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
+
+function queueLiveFixtureSnapshot(){
+  if(liveFixtureMountTimer!==null)return;
+  liveFixtureMountTimer=setTimeout(()=>{liveFixtureMountTimer=null;void refreshLiveFixtureSnapshot();},250);
 }
 
 async function loadFollowedScheduleFixtures(preferences = userPreferences){
@@ -17030,6 +16992,7 @@ function buildEventCard(ev, options = {}){
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    installFeedLiveScore(card,ev);
     installFantasyCard(card,ev,options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
     const scheduleLink=buildFeedScheduleLink(ev);

@@ -52,6 +52,7 @@ jobs:
           node scripts/validate-fantasy-deadline-api.js
           node scripts/validate-fantasy-rollout.js
           node scripts/build-app-shell-runtime.js --check
+          node scripts/validate-feed-live-scores.js
           node scripts/validate-tennis-journey-migration.js
           node scripts/validate-tennis-journeys.js
           node scripts/validate-security-headers.js

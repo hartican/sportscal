@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict'),view=require('../config/feed-live-scores').presentation;
+const now=Date.now(),base={key:'tennis',status:'live',homeParticipantId:'a',awayParticipantId:'b',participants:[{id:'a',displayName:'First'},{id:'b',displayName:'Second'}],scoreCheckedAt:new Date(now).toISOString(),sets:[{home:6,away:4}],games:{home:2,away:1}};
+assert.equal(view(base),null,'Results OFF has no score presentation');
+assert.equal(view(base,{resultsOn:true,now}).text,'First / Second: 6–4 · Games 2–1');
+assert.equal(view(base,{resultsOn:true,now}).status,'Live');
+assert.equal(view({...base,scoreCheckedAt:new Date(now+1000).toISOString()},{resultsOn:true,now}).status,'Last available score','future observations cannot claim live');
+assert.equal(view({...base,scoreCheckedAt:new Date(now-600000).toISOString()},{resultsOn:true,now}).stale,true);
+assert.equal(view({...base,status:'completed'},{resultsOn:true,now}).status,'Finished');
+assert.equal(view({...base,cardType:'tennis_parent'},{resultsOn:true,now}),null);
+assert.equal(view({key:'nrl',homeScore:0,awayScore:4},{resultsOn:true}).text,'Home 0 · Away 4');
+assert.equal(view({key:'cricket',innings:[{team:'Australia',runs:102,wickets:2,overs:18}]},{resultsOn:true}).text,'Australia 102/2 (18 overs)');
+assert.equal(view({key:'tennis',name:'Player wins 6-4',status:'live'},{resultsOn:true}),null,'never parse editorial scores');
+console.log('Feed score privacy, source orientation, freshness and sport formats passed.');

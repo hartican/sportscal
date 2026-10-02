@@ -398,3 +398,7 @@ Phase 2 rebase preserves the concurrently shipped owner content/post-reminder pa
 ### Phase 3 calendar ownership — 2 October 2026
 
 Reviewed calendar/participation input is a local provenance register at feeds/provider-exports/tennis/journeys-reviewed.v1.json, projected by build-tennis-journeys.js through the existing update-cards.js owner. This adds no source request, scheduler, database writer or per-user ingestion. Tennis Schedule fetches one shared static document only after its journey disclosure is opened and reuses it during preference changes. The current date moves the twelve-month view; unpublished later calendars remain explicitly pending. Calendar-only input is absent from reminder and live fixture catalogues.
+
+## Feed live-score presentation — 2 October 2026
+
+Reuse the existing live-fixture snapshot reader and shared compact score model on mounted Feed cards, with the existing sixty-ID bound, request coalescing, source owner and last-good failure behaviour. Mount refresh no longer depends on fantasy consent. Reject late updates after account/preference changes or hidden navigation. No new scheduler, provider request per user, database writer or reminder category.

@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v373";
-const SHELL_VERSION = "373";
+const CACHE_NAME = "nothingsport-shell-v374";
+const SHELL_VERSION = "374";
 const APP_SHELL = [
   "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
@@ -49,7 +49,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=373",
+  "/assets/js/app-shell-runtime.js?v=374",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=368",
   "/config/tennis-journeys.js?v=368",
@@ -79,6 +79,9 @@ const APP_SHELL = [
   "/config/event-overviews-ui.js?v=370",
   "/config/surface-category-ui.js?v=340",
   "/assets/styles/match-centre.css?v=340",
+  "/config/match-centre.js?v=356",
+  "/config/feed-live-scores.js?v=374",
+  "/config/feed-live-score-loader.js?v=374",
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",
   "/data/feed/manifest.json",

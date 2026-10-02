@@ -36,7 +36,7 @@ async function main(){
   assert.match(handler,/s-maxage=30, stale-while-revalidate=300/);
   assert.match(handler,/snapshot=\{sources:\[\],revision:'published-fallback'/,"the static library must remain available without Supabase");
   assert.match(html,/setInterval\(\(\)=>void refreshLiveFixtureSnapshot\(\),120000\)/);
-  assert.match(html,/Date\.now\(\)-liveFixtureLastRequestedAt<30_000/);
+  assert.match(read("config/feed-live-score-loader.js"),/Date\.now\(\)-liveFixtureLastRequestedAt<30_000/,"the deferred Feed reader retains request coalescing");
   assert.deepEqual(require("../config/chat-contract").POLLING,{roomMs:1000,quietMs:30000,quietAfterMs:60000,activeMs:30000,failureMs:30000});
   assert.equal(require("../config/nothingscore").PRESENCE_TTL_MS,10*60*1000);
   assert.match(html,/scheduleNothingscoreHeartbeat\(60_000\)/,"the first confirmation must remain one minute after entry");
