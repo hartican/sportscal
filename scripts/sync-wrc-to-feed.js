@@ -174,4 +174,4 @@ function main(){
 
 if (require.main === module) main();
 
-module.exports = { WRC_SOURCE_NOTE, eventToCard, migrateLegacyRallyCard, resultFields, syncWrcToFeed };
+module.exports = { WRC_SOURCE_NOTE, wrcCardId, eventToCard, migrateLegacyRallyCard, resultFields, syncWrcToFeed };

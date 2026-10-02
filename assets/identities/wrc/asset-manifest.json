@@ -1,23 +1,23 @@
 {
   "schemaVersion": "venue-assets.v1",
   "sport": "wrc",
-  "reviewedAt": "2026-10-02",
+  "reviewedAt": "2026-10-03",
   "assets": [
     {
-      "id": "sardegna-2026",
-      "path": "assets/identities/wrc/routes/sardegna-2026.svg",
+      "id": "sardegna-lerno-2026",
+      "path": "assets/identities/wrc/routes/sardegna-lerno-2026.svg",
       "kind": "course",
       "mappingStatus": "verified-edition",
       "canonicalEventId": "event:wrc:2026:round-13",
       "season": "2026",
-      "author": "Rally Italia Sardegna / Automobile Club d\u2019Italia",
-      "sourceUrl": "https://webassets.redbull.com/media/r8TgPyrsRmdqyJWdNYQiE8/WRC/WRC%20events%202026/RIS26_Overmap.pdf",
-      "sourceSha256": "3f9bfe49313151df31d71dd1b0537cc6a4f827865a01cfeb4b0286b3ece693bf",
-      "referenceUrl": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026/",
+      "author": "Rally Italia Sardegna / Automobile Club d’Italia",
+      "sourceUrl": "https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf",
+      "sourceSha256": "b4cc85a2dd5acf12ffeb9b6cbba0c3d991ddf6c58abf7824e633535c47ad0bec",
+      "referenceUrl": "https://rallyitaliasardegna.com/guida_alle_ps/ss8-11-lerno-sa-conchedda-monti-di-ala/?lang=en",
       "rightsStatus": "official-reference",
       "license": "Editorial reference to factual course geometry; original map media rights remain with Rally Italia Sardegna. No open licence asserted.",
       "licenseUrl": "https://rallyitaliasardegna.com/",
-      "modifications": "Only the 805 segments in the official competitive-stage path retained, forming 12 geographic subpaths. Transfer roads, shakedown, labels, logos and basemap removed. White 5-unit stroke, no fill, cropped transparent viewBox; coordinates retained to 0.01 PDF units. Stage arrangement and proportions unchanged."
+      "modifications": "Only the 2026 Lerno–Sa Conchedda–Monti di Alà special-stage path retained from the organiser’s individual SS8/11 map. 2,048 original segments simplified to 152 with maximum 0.55 PDF-unit deviation, rotated 18 degrees and uniformly scaled. Transparent exterior and enclosed regions; white 4-unit stroke. Start circle and chequered finish added at the source-verified endpoints. Transfers, satellite imagery, labels and logos removed. This is one prominent stage, not an edition overview."
     },
     {
       "id": "helmet-white",

@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Followed drivers on fixture cards — 3 October 2026
+
+F1 and WRC followed participants use one horizontal scrolling row beneath the fixture title. Every name remains reachable by touch and keyboard with a minimum 44px target height; names retain their existing profile action and Follow identity. This changes presentation only, with no pagination, new admission or preference change. Regression: `validate-mobile-presentation-browser.js` in Chromium and WebKit at four widths and both themes.
+
 ## SailGP coverage wording — 3 October 2026
 
 Published SailGP race days are a partial window, not complete season coverage. The existing coverage explanation states that season teams may be listed while event-specific entries and future session times may be unconfirmed. Two source-proven Geneva clock corrections keep every fixture/canonical ID, participant reference, follow, exclusion and saved-action key. Results retain their original observation and spoiler policy. No admission, reminder eligibility, retention or opt-in rule changes. Regression: `validate-sailgp-quality.js --published`, Follow policy parity and both-engine source-card/cache checks.

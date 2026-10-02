@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T17:58:13.510Z",
+  "generatedAt": "2026-10-02T18:06:05.455Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T15:24:03.623Z",
+      "freshAt": "2026-10-02T18:06:05.455Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {

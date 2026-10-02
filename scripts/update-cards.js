@@ -456,6 +456,20 @@ async function runMain() {
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     console.log('Reviewed SailGP timing and partial-window publication complete through canonical owner; no source refresh.');return;
   }
+  if(process.argv.includes('--wrc-artwork')){
+    for(const step of [
+      ['scripts/apply-wrc-venue-artwork.js'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=wrc,motorsport'],
+      ['scripts/build-canonical-context-bundle.js'],['scripts/build-canonical-context-bundle.js','--check'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/validate-wrc-venue-coverage.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed-card-presentation.js'],
+      ['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json']
+    ])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--wrc')){
     const refresh=['scripts/refresh-wrc-context.js','--calendar-only'];
     for(const flag of ['--calendar-file','--revision-file','--future-file','--checked-at']){const i=process.argv.indexOf(flag);if(i>=0)refresh.push(flag,process.argv[i+1]);}

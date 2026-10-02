@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wrc-venues.v1",
-  "reviewedAt": "2026-10-02",
+  "reviewedAt": "2026-10-03",
   "events": {
     "event:wrc:2026:round-01": {
       "venueName": "Gap / Monaco",
@@ -8,7 +8,7 @@
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rallye-monte-carlo-2026/"
     },
     "event:wrc:2026:round-02": {
-      "venueName": "Ume\u00e5",
+      "venueName": "Umeå",
       "venueVerified": true,
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-sweden-2026/"
     },
@@ -45,7 +45,7 @@
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-delfi-rally-estonia-2026/"
     },
     "event:wrc:2026:round-12": {
-      "venueName": "Concepci\u00f3n",
+      "venueName": "Concepción",
       "venueVerified": true,
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-chile-bio-bio-2026/"
     },
@@ -54,10 +54,10 @@
       "venueCity": "Alghero, Sardinia",
       "venueVerified": true,
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026/",
-      "courseArtworkId": "sardegna-2026",
+      "courseArtworkId": "sardegna-lerno-2026",
       "courseGeometryVerified": true,
-      "courseGeometrySourceUrl": "https://webassets.redbull.com/media/r8TgPyrsRmdqyJWdNYQiE8/WRC/WRC%20events%202026/RIS26_Overmap.pdf",
-      "venueCaption": "17 stages \u2022 307.0km \u2022 2026 competitive-stage overview"
+      "courseGeometrySourceUrl": "https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf",
+      "venueCaption": "Stage highlight: Lerno–Sa Conchedda–Monti di Alà • SS8/11 • 24.14 km • 2026"
     },
     "event:wrc:2026:round-07": {
       "venueName": "Toyota Stadium service park",
@@ -66,12 +66,12 @@
       "venueSourceUrl": "https://rally-japan.jp/en/area/toyota-stadium-service-park-admission-ticket-set/"
     },
     "event:wrc:2026:round-10": {
-      "venueName": "Jyv\u00e4skyl\u00e4",
+      "venueName": "Jyväskylä",
       "venueVerified": true,
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-secto-rally-finland-2026/"
     },
     "event:wrc:2026:round-11": {
-      "venueName": "Encarnaci\u00f3n",
+      "venueName": "Encarnación",
       "venueVerified": true,
       "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-del-paraguay-2026/"
     }
