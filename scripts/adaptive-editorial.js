@@ -24,19 +24,30 @@ async function main(args){
   if(process.env.NS_EDITORIAL_ENV_FILE)process.loadEnvFile(process.env.NS_EDITORIAL_ENV_FILE);
   if(args.includes('--record-release')){
     const sha=args[args.indexOf('--record-release')+1];assert(/^[a-f0-9]{40}$/.test(sha),'Full verified release SHA required.');
+    const proofPath=args[args.indexOf('--release-proof')+1];assert(args.includes('--release-proof')&&proofPath,'Provide --release-proof <pipeline production-verification.json>.');
+    const proof=read(proofPath);assert.equal(proof.sha,sha);assert.equal(proof.deployment?.sha,sha);assert.equal(proof.deployment?.state,'READY');assert.equal(proof.deployment?.target,'production');
+    const head=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8'});assert.equal(head.status,0);assert.equal(head.stdout.trim(),sha,'Record publication from the exact released checkout.');
     const response=await fetch('https://nothingsport.vercel.app/data/editorial-maintenance-sources.v1.json?release='+sha,{cache:'no-store'});assert(response.ok,'Published editorial artifact unavailable.');
     const live=await response.json(),local=store.sources();assert.equal(live.sourceRevision,local.sourceRevision,'Wrong production editorial revision.');
     const app=await fetch('https://nothingsport.vercel.app/app-version.json?release='+sha,{cache:'no-store'});assert(app.ok,'Production release metadata unavailable.');
-    // The serialized pipeline supplies the READY/SHA proof; this step verifies exact served editorial bytes.
+    assert.deepEqual(await app.json(),read('app-version.json'),'Wrong production shell revision.');
+    const servedResponse=await fetch('https://nothingsport.vercel.app/data/events.json?release='+sha,{cache:'no-store'});assert(servedResponse.ok,'Served cards unavailable.');
+    const served=await servedResponse.json();assert.equal(served.version,read('data/events.json').version,'Wrong production feed revision.');
+    // The artifact is research, not proof of visible copy. Verify the served
+    // fixture without enriching it from knowledge and isolate card-local gaps.
     const request=process.env.NS_EDITORIAL_CONTROL_SNAPSHOT?require('../lib/editorial-control-snapshot').request:require('../lib/supabase-server').supabaseServiceRequest,rows=await request(store.query({select:'*',limit:'1000'}));
-    for(const row of rows){const event=local.events.find(e=>policy.ids(e).includes(row.event_id));if(event&&row.staged_copy&&policy.equalCopy(row.staged_copy,policy.copy(event)))await store.patch(row.event_id,row.revision,{published_copy:row.staged_copy,published_git_sha:sha,staged_copy:null});}
-    console.log('Verified editorial publication recorded for '+sha);return;
+    assert(rows.length<1000,'Refusing a partial publication control snapshot.');
+    const plan=require('./lib/editorial-publication').publicationPlan(rows,local.events,served.events);
+    for(const row of plan.published)await store.patch(row.event_id,row.revision,{published_copy:row.staged_copy,published_git_sha:sha,staged_copy:null,last_error:null});
+    for(const {row,reason} of plan.deferred)await store.patch(row.event_id,row.revision,{last_error:reason});
+    console.log(JSON.stringify({sha,published:plan.published.map(row=>row.event_id),deferred:plan.deferred.map(({row,reason})=>({id:row.event_id,reason})),controlWrites:process.env.NS_EDITORIAL_CONTROL_SNAPSHOT?'prepared-CAS':'confirmed'}));return plan;
   }
   const mode=args.includes('--list')?'list':'research';
   const readout=require('./lib/editorial-run-readout').begin({mode});
   let failure;
   try{
-  const inventory=await store.inventory(),cards=inventory.cards.filter(c=>c.selected&&c.schedule.due);
+  const inventory=await store.inventory(),published=read('data/events.json'),publication=require('./lib/editorial-publication');
+  const cards=inventory.cards.filter(c=>c.selected&&!c.schedule.held&&!c.schedule.protected&&(c.schedule.due||publication.publicationMismatch(c.event,published.events)));
   readout.inventory(inventory,cards);
   if(args.includes('--list')){readout.stage('complete');console.log(JSON.stringify({...inventory,cards:cards.map(c=>({id:c.event.id,name:c.event.name,date:c.schedule.date,eligibility:c.eligibility,schedule:c.schedule,copy:c.state.pending_copy||policy.copy(c.event),sources:c.event.editorialSources||[],pendingEdit:!!c.state.pending_copy,revision:c.state.revision}))},null,2));return;}
   if(!cards.length){readout.stage('complete');console.log('No due qualifying 5/5 editorial; no changes or release.');return {updatedIds:[],deferred:[]};}

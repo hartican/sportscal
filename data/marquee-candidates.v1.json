@@ -1,7 +1,7 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5",
-  "generatedAt": "2026-10-02T21:11:21.069Z",
+  "sourceRevision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4",
+  "generatedAt": "2026-10-02T22:00:48.208Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 46,
@@ -65,7 +65,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Japan Grand Prix",
@@ -330,7 +330,7 @@
         "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-27T13:57:48.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Roosters v Broncos",
@@ -620,7 +620,7 @@
         "name": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
         "checkedAt": "2026-09-29T23:38:21.617Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Bahrain GP (Malaysia) · Race",
@@ -886,7 +886,7 @@
         "name": "Accor Stadium official Grand Final programme",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-30T22:37:31.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "NRL Grand Final: Roosters v Knights",
@@ -1183,7 +1183,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1448,7 +1448,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -1716,7 +1716,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -1981,7 +1981,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2247,7 +2247,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -2516,7 +2516,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -2782,7 +2782,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3048,7 +3048,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -3342,7 +3342,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -3638,7 +3638,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3905,7 +3905,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -4200,7 +4200,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -4493,7 +4493,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -4758,7 +4758,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -5022,7 +5022,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5287,7 +5287,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5551,7 +5551,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -5816,7 +5816,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -6082,7 +6082,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -6348,7 +6348,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -6612,7 +6612,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -6879,7 +6879,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -7146,7 +7146,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -7411,7 +7411,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -7677,7 +7677,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -7945,7 +7945,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -8211,7 +8211,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -8475,7 +8475,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -8739,7 +8739,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -9003,7 +9003,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -9272,7 +9272,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -9539,7 +9539,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -9804,7 +9804,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -10069,7 +10069,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -10332,7 +10332,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10601,7 +10601,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10869,7 +10869,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11131,7 +11131,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -11399,7 +11399,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11662,7 +11662,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -11929,7 +11929,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12192,7 +12192,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12454,7 +12454,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12717,7 +12717,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12979,7 +12979,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -13242,7 +13242,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -13505,7 +13505,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -13769,7 +13769,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -14031,7 +14031,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -14294,7 +14294,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -14556,7 +14556,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14819,7 +14819,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -15081,7 +15081,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15344,7 +15344,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15606,7 +15606,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -15870,7 +15870,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -16133,7 +16133,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -16396,7 +16396,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -16658,7 +16658,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -16921,7 +16921,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -17183,7 +17183,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -17447,7 +17447,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -17710,7 +17710,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -17973,7 +17973,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -18235,7 +18235,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -18498,7 +18498,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -18760,7 +18760,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "The 155th Open",
@@ -19023,7 +19023,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -19286,7 +19286,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "The 155th Open",
@@ -19550,7 +19550,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -19812,7 +19812,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -20075,7 +20075,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -20337,7 +20337,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -20600,7 +20600,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -20862,7 +20862,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -21125,7 +21125,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -21387,7 +21387,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -21650,7 +21650,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -21912,7 +21912,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -22175,7 +22175,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -22435,7 +22435,7 @@
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
+        "revision": "editorial-publication-20261002220046047@2026-10-02T22:00:46.047Z:52a6d48ddfb4"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",

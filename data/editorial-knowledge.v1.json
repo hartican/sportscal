@@ -46397,43 +46397,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "supercars-bathurst-1000-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-      "synopsis": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
-      "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-      "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
-      "threadIds": [
-        "thread:fixture-research:supercars-bathurst-1000-2026"
-      ],
-      "factIds": [
-        "fact:fixture-research:supercars-bathurst-1000-2026:0",
-        "fact:fixture-research:supercars-bathurst-1000-2026:1",
-        "fact:fixture-research:supercars-bathurst-1000-2026:2",
-        "fact:fixture-research:supercars-bathurst-1000-2026:3",
-        "fact:fixture-research:supercars-bathurst-1000-2026:4",
-        "fact:fixture-research:supercars-bathurst-1000-2026:5",
-        "fact:fixture-research:supercars-bathurst-1000-2026:6"
-      ],
-      "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:0",
-        "source:fixture-research:supercars-bathurst-1000-2026:1",
-        "source:fixture-research:supercars-bathurst-1000-2026:2"
-      ],
-      "researchedAt": "2026-10-02T13:35:19.426Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T13:35:19.426Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:epl-2026-27-128980",
       "targetType": "feed-event",
       "targetIds": [
@@ -46541,6 +46504,43 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-02T17:57:04.283Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "supercars-bathurst-1000-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+      "synopsis": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+      "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
+      "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+      "threadIds": [
+        "thread:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:5",
+        "fact:fixture-research:supercars-bathurst-1000-2026:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
+      ],
+      "researchedAt": "2026-10-02T13:35:19.426Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-02T13:35:19.426Z"
       }
     }
   ]

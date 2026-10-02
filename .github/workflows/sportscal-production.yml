@@ -107,6 +107,7 @@ jobs:
           node scripts/validate-adaptive-editorial.js
           node scripts/validate-editorial-run-readout.js
           node scripts/validate-editorial-projection-identity.js
+          node scripts/validate-editorial-publication.js
           node scripts/validate-current-evidence-editorial-retention.js
           node scripts/validate-editorial-api.js
           node scripts/validate-editorial-signals-database.js

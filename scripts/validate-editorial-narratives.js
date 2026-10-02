@@ -53,6 +53,7 @@ function assertProjected(record, projection, label){
   assert.equal(record.editorialNarrative?.projectionId, projection.id, `${label} must publish its projection id`);
   assert.equal(record.editorialNarrative?.hook, projection.hook, `${label} must publish the researched hook`);
   assert.equal(record.editorialNarrative?.synopsis, projection.synopsis, `${label} must publish the researched L1/L2 synopsis`);
+  for(const field of ['formCopy','closingCopy'])if(projection[field])assert.equal(record.editorialNarrative?.[field],projection[field],`${label} must publish the researched ${field}`);
   const requirement = TIER_REQUIREMENTS[projection.researchDepth || projection.stakes];
   const expectedTier = (projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard";
   const expectedSchema = projection.consequence ? "editorial-narrative.v3" : "editorial-narrative.v2";

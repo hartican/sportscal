@@ -26,7 +26,7 @@ function retainReviewedResultEditorial(events,previous){
 function runProjectionSteps(steps,{editorialBaseline}={}){
  for(const [file,...args] of steps){
   if(file==='scripts/publish-feed.js'&&editorialBaseline)for(const [name,previous] of editorialBaseline){
-   const document=read(name),events=retainReviewedResultEditorial(document.events,previous);
+   const document=read(name),events=require('./lib/editorial-publication').reconcileFullPreviews(retainReviewedResultEditorial(document.events,previous),read('data/editorial-knowledge.v1.json'));
    if(JSON.stringify(events)!==JSON.stringify(document.events))write(name,{...document,events});
   }
   run(file,...args);

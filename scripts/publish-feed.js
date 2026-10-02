@@ -111,6 +111,9 @@ const nextMeta = {
 };
 
 publishedFeed.events=publishedFeed.events.map(require("../config/coverage-pauses").apply);
+// Canonical fixture/evidence assemblers cannot downgrade a researched full
+// preview to a retained two-section seed. Keep scores and source clocks intact.
+publishedFeed.events=require('./lib/editorial-publication').reconcileFullPreviews(publishedFeed.events,readJson('data/editorial-knowledge.v1.json'));
 writeJson(eventsOutPath, publishedFeed);
 writeJson(metaOutPath, nextMeta);
 fs.mkdirSync(path.dirname(bundleOutPath), { recursive: true });

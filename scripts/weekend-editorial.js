@@ -102,8 +102,9 @@ function main(args,options={}){
   for(const item of partition.deferred)console.warn(`Deferred ${item.id}: ${item.reason} Next: ${item.nextAction}`);
   cards=cards.filter(card=>ids.has(card.id));
   if(!cards.length){console.log('No independently valid research; deferred report saved. No feed changes.');return {updatedIds:[],deferred:partition.deferred};}
-  if(/^[a-z0-9-]+$/.test(published.version)&&cards.every(e=>maintenance.equalCopy(maintenance.copy(e),research.entries.find(r=>r.id===e.id)))){console.log('Editorial unchanged; no release required.');return {updatedIds:[],deferred:partition.deferred};}
   const incoming=read('feeds/incoming/events.json');
+  const publication=require('./lib/editorial-publication');
+  if(/^[a-z0-9-]+$/.test(published.version)&&cards.every(e=>maintenance.equalCopy(maintenance.copy(e),research.entries.find(r=>r.id===e.id))&&!publication.publicationMismatch(e,published.events)&&!publication.publicationMismatch(e,incoming.events))){console.log('Editorial unchanged; no release required.');return {updatedIds:[],deferred:partition.deferred};}
   const result=apply(knowledge,{...published,events:structuredClone(candidates)},major,research);
   const updated=new Map(result.feed.events.filter(e=>ids.has(e.id)).map(e=>[e.id,e]));
   const fields=['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline'];
