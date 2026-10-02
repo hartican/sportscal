@@ -12,6 +12,8 @@ const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+assert(localSteps.findIndex(step=>step[0]==="scripts/refresh-source-coverage.js") < localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js"), "reviewed host clocks must follow the canonical source observation");
+assert(localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js") < localSteps.findIndex(step=>step[0]==="scripts/build-code-inspector.js"), "reviewed timing must persist before shared projections");
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
 assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
 const quickResultProjection = quickProjectionSteps(["AFL/NRL 1"]);
@@ -311,7 +313,7 @@ try{
   fs.writeFileSync(path.join(quickFixtureRoot,'scripts/verify-result-completeness.js'),"console.error('Injected final completeness failure');process.exit(1);\n");
   const rejected=spawnSync(process.execPath,['scripts/update-cards.js','--quick','--offline','--rebuild','--local-only'],{cwd:quickFixtureRoot,env:quickEnvironment,encoding:'utf8'});
   assert.notEqual(rejected.status,0);
-  assert.match(rejected.stdout,/App shell runtime:/,'test must reach runtime generation before failure');
+  assert.match(rejected.stdout,/App shell runtime:/,'test must reach runtime generation before failure: '+rejected.stderr);
   assert.match(rejected.stderr,/Injected final completeness failure/);
   assert(fs.readFileSync(runtimePath).equals(oldRuntime),'failed refresh must restore the runtime');
   assert(fs.readFileSync(canonicalPath).equals(oldCanonical),'failed refresh must restore canonical data');

@@ -21,6 +21,6 @@ if(process.argv.includes('--published')){
   const d=JSON.parse(fs.readFileSync(file)),matches=(d.fixtures||d.events||[]).filter(f=>[canonical,...aliases].includes(f.id));assert.equal(matches.length,1,file);assert.equal(matches[0].id,canonical);assert.equal(matches[0].startTimeUtc,'2026-10-17T05:00:00.000Z');assert.equal(matches[0].timingProvenance.checkedAt,'2026-10-02T08:24:46.814Z');
  }
  const f=require('../data/events.json').events.find(f=>f.id===canonical);assert.equal(f.startTimeUtc,'2026-10-17T05:00:00.000Z');assert.equal(f.sourceCheckedAt,curated.sourceCheckedAt,'the reviewed host clock does not redate primary facts');
- const raw=require('../data/follow-sources/coverage.v1.json').events.find(f=>f.id===worldRugby.id);assert(raw,'original provider source identity retained');assert.equal(raw.startTimeUtc,'2026-10-17T05:00:00.000Z');assert.equal(raw.sourceCheckedAt,worldRugby.sourceCheckedAt);
+ const raw=require('../data/follow-sources/coverage.v1.json').events.find(f=>f.id===worldRugby.id);assert(raw,'original provider source identity retained');assert.equal(raw.startTimeUtc,'2026-10-17T05:00:00.000Z');assert(Date.parse(raw.sourceCheckedAt)>=Date.parse(worldRugby.sourceCheckedAt)&&Date.parse(raw.sourceCheckedAt)<=Date.now(),'genuine later primary observations are allowed, never stale/future dates');
 }
 console.log('Bledisloe identity: one reviewed fixture, five keys, host/DST time, original source observations, viewing/consent/actions and confirmed-end/zero-score continuity passed.');

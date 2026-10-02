@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-10-01T17:37:44Z",
+  "generatedAt": "2026-10-02T12:47:05.739Z",
   "season": 2026,
   "competitions": [
     {
@@ -63084,7 +63084,7 @@
       "time": "10:15",
       "startTimeUtc": "2026-10-02T00:15Z",
       "venue": "Huntington Bank Field",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 4",
       "roundNumber": 4,
@@ -63093,14 +63093,14 @@
           "participantId": "team:nfl:cle",
           "label": "Cleveland Browns",
           "homeAway": "home",
-          "score": "0",
+          "score": "27",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png"
         },
         {
           "participantId": "team:nfl:pit",
           "label": "Pittsburgh Steelers",
           "homeAway": "away",
-          "score": "0",
+          "score": "24",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png"
         }
       ],

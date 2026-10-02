@@ -87,7 +87,7 @@ const APP_SHELL = [
   "/data/feed/manifest.json",
   "/data/feed/page-001.json",
   "/data/feed-meta.json",
-  "/data/marquee-candidates.v1.json",
+  // Owner candidate data uses the existing cache-after-read path.
   "/data/follow-directory/manifest.v1.json",
   "/data/follow-directory/manifest.v1.js",
   // The generated script is retained only for no-network/direct-file recovery.

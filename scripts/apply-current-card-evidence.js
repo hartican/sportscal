@@ -58,7 +58,7 @@ function normalizeCompletedTiming(record){
   if(record.status === "completed" && record.storyline && record.storyline.arcStage !== "recap"){
     const safe = `${record.name || record.displayName || 'This event'} is complete. Reveal results for the outcome.`;
     const result = record.outcomeText || record.scoreDisplay || record.score;
-    if(result) record = {...record,storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
+    if(result) record = {...record,selectedSentence:safe,fullSpiel:safe,storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
   }
   if(record.status !== "completed" || record.endTimeUtc || !record.startTimeUtc) return record;
   const start = Date.parse(record.startTimeUtc);
@@ -106,7 +106,7 @@ function applyEvidence({ check=false } = {}){
       const record = feed.events.find(item => matches(item, override));
       assert(record, `${override.name} must exist in the incoming Feed`);
       for(const key of ["date", "time", "startTimeUtc", "venue", "broadcaster"]) assert.equal(record[key], override[key], `${override.name} ${key}`);
-      assert.deepEqual(record.participantIds, override.participantIds, `${override.name} participants`);
+      if(Array.isArray(override.participantIds))assert.deepEqual(record.participantIds, override.participantIds, `${override.name} participants`);
     }
     for(const override of evidence.resultOverrides){
       const record = feed.events.find(item => matches(item, override))

@@ -168,6 +168,8 @@ const server=http.createServer((req,res)=>{
     const before=versionRequests;
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
+    const ownerCandidates=await upgraded.evaluate(async()=>{const r=await fetch('/data/marquee-candidates.v1.json');if(!r.ok)throw Error('Owner candidates unavailable after use');return r.text();});
+    await upgraded.waitForFunction(async()=>Boolean(await caches.match('/data/marquee-candidates.v1.json')));
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -179,6 +181,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
+    assert.equal(await upgraded.evaluate(async()=>await(await fetch('/data/marquee-candidates.v1.json')).text()),ownerCandidates,'owner candidates remain available offline after use');
     await assertCachedFootballStatus(upgraded);
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');

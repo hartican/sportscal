@@ -23066,10 +23066,10 @@
       "homeParticipantId": "team:rugby:wallabies",
       "awayParticipantId": "team:rugby:springboks",
       "sourceFixtureId": "e826488f-b2e2-42f0-8649-1bafd6567945",
-      "sourceName": "World Rugby",
+      "sourceName": "Rugby Australia official match centre",
       "sourceType": "official",
-      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
-      "sourceCheckedAt": "2026-10-01T18:30:00.656Z",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625",
+      "sourceCheckedAt": "2026-09-27T12:34:38.105Z",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-10-02T01:36:47.809Z",
@@ -23106,7 +23106,18 @@
         "fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945",
         "fixture:rugby:ra:949625",
         "fixture-rugby-ra-949625"
-      ]
+      ],
+      "score": "Australia 42-38 South Africa",
+      "outcomeText": "Australia defeated South Africa 42-38.",
+      "recapText": "Australia defeated South Africa 42-38 at Optus Stadium, Perth.",
+      "resultPublishedAt": "2026-09-27T12:34:38.105Z",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949625",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+      ],
+      "scheduleStatus": "confirmed",
+      "stakesScore": 5
     },
     {
       "id": "fixture:rugby:wr:38083fcc-edc6-4f15-bc8c-6c4aa14656a9",

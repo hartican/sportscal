@@ -84,6 +84,7 @@ function buildSteps({ localOnly = false } = {}) {
     : []),
   ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
+  ["scripts/apply-reviewed-fixture-timing.js", "--ids=rugby-australia-new-zealand-2026-10-17"],
   ["scripts/refresh-openligadb-football.js"],
   ["scripts/validate-european-football-continuity.js"],
   ["scripts/validate-football-data-backup.js"],
@@ -544,6 +545,7 @@ async function runMain() {
       return;
     }
     await require("./refresh-source-coverage").refreshCoverage();
+    runStep(["scripts/apply-reviewed-fixture-timing.js", "--ids=rugby-australia-new-zealand-2026-10-17"]);
     runStep(["scripts/refresh-us-open-events.js"]);
     runStep(["scripts/refresh-us-open-events.js","--check"]);
     runStep(["scripts/build-athlete-participation.js"]);

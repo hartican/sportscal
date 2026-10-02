@@ -15,6 +15,17 @@ const tennis = read("data/follow-schedule/tennis.json").fixtures || [];
 const identity = record => record?.id || record?.eventId || record?.canonicalEventId;
 const matches = (record, expected) => [record?.id, record?.eventId, record?.canonicalEventId, ...(record?.sourceEventIds || [])]
   .filter(Boolean).some(id => [expected.id, expected.canonicalId].includes(id));
+// Reapplying reviewed pre-race copy must not leak its standings into completed
+// session defaults or erase valid participant identities supplied later.
+const {mergeRecord,normalizeCompletedTiming}=require('./apply-current-card-evidence');
+const {spoilerContractIssues}=require('./lib/storyline-card-rules');
+for(const override of evidence.fixtureOverrides.filter(row=>row.id?.startsWith('evt_f1_2026_bahrain_'))){
+  const completed={...published.find(row=>row.id===override.id),status:'completed',score:'Verified classification',outcomeText:'Verified final classification',participantIds:['competitor:f1:retained-identity']};
+  const retained=normalizeCompletedTiming(mergeRecord(completed,override,evidence.checkedAt));
+  assert.equal(retained.status,'completed');assert.equal(retained.score,completed.score);
+  assert.deepEqual(retained.participantIds,completed.participantIds);
+  assert.deepEqual(spoilerContractIssues(retained),[],`${override.id}: completed defaults must remain spoiler-safe after reviewed preview replay`);
+}
 
 for(const expected of evidence.fixtureOverrides){
   const record = published.find(item => matches(item, expected));
@@ -22,7 +33,7 @@ for(const expected of evidence.fixtureOverrides){
   assert.equal(record.startTimeUtc, expected.startTimeUtc, `${expected.name} start time drifted`);
   assert.equal(record.venue, expected.venue, `${expected.name} venue drifted`);
   assert.equal(record.broadcaster, expected.broadcaster, `${expected.name} broadcaster drifted`);
-  assert.deepEqual(record.participantIds || [], expected.participantIds || [], `${expected.name} participants drifted`);
+  if(Array.isArray(expected.participantIds))assert.deepEqual(record.participantIds || [], expected.participantIds, `${expected.name} participants drifted`);
 }
 for(const expected of evidence.resultOverrides){
   const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected)) || cricket.find(item => matches(item, expected));

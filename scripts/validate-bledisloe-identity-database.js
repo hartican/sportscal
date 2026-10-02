@@ -5,7 +5,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),{PGlite}=requir
 const schema=require('./fixtures/bledisloe-identity-schema.json');
 const canonical='rugby-australia-new-zealand-2026-10-17',old='fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8',ra='fixture:rugby:ra:949627';
 const user='11111111-1111-4111-8111-111111111111',peer='22222222-2222-4222-8222-222222222222',install='33333333-3333-4333-8333-333333333333';
-const migration=fs.readFileSync('supabase/migrations/'+fs.readdirSync('supabase/migrations').find(x=>x.endsWith('_bledisloe_future_identity_reconciliation.sql')),'utf8');
+const migrationSource=fs.readFileSync('supabase/migrations/'+fs.readdirSync('supabase/migrations').find(x=>x.endsWith('_bledisloe_future_identity_reconciliation.sql')),'utf8');
+// Freeze only the disposable fixture's cutover guard; the deployed migration
+// always uses the real clock. Also exercise its closing boundary below.
+const guard="if clock_timestamp()>='2026-10-17T05:00:00Z'::timestamptz";
+assert(migrationSource.includes(guard));
+const migration=migrationSource.replace(guard,"if '2026-10-02T12:00:00Z'::timestamptz>='2026-10-17T05:00:00Z'::timestamptz");
 const tables=[...new Set(schema.columns.map(x=>x.table_name))];
 async function bootstrap(db){
  await db.exec("create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key);create schema nothingsports_recovery;create table nothingsports_recovery.coverage_repair_versions(version text primary key,completed_at timestamptz,inventory jsonb not null default '{}');create table nothingsports_recovery.coverage_repair_rows(version text,table_name text,row_key text,payload jsonb,primary key(version,table_name,row_key));create table nothingsports_push_installations(installation_id uuid primary key,user_id uuid,permission text default 'granted',sporting_reminders_enabled boolean default true);create table nothingsports_reminder_account_checks(user_id uuid primary key references auth.users(id) on delete cascade,checked_at timestamptz not null);create table nothingsports_account_erasure_blocks(user_id uuid primary key);create function auth.uid() returns uuid language sql as $$select null::uuid$$;");
@@ -52,6 +57,7 @@ async function snapshot(db){const data={};for(const table of tables)data[table]=
 async function rejectScenario(db,sql,params,pattern,before){await db.exec('begin');await db.query(sql,params);await assert.rejects(db.exec(migration),pattern);await db.exec('rollback');assert.deepEqual(await snapshot(db),before,'rejected cutover leaves data intact');}
 (async()=>{const db=new PGlite();try{
  await bootstrap(db);const before=await snapshot(db);
+ await db.exec('begin');await assert.rejects(db.exec(migrationSource.replace(guard,"if '2026-10-17T05:00:00Z'::timestamptz>='2026-10-17T05:00:00Z'::timestamptz")),/cutover window has closed/);await db.exec('rollback');assert.deepEqual(await snapshot(db),before);
  await rejectScenario(db,'update nothingsports_predictions set resolved_at=now() where event_id=$1',[old],/Settled Bledisloe/,before);
  await rejectScenario(db,"update nothingsports_prediction_rules set version='consensus.v1' where event_id=$1",[old],/rules disagree/,before);
  await rejectScenario(db,'update nothingsports_reminders set claimed_at=now() where event_id=$1',[old],/reminder claim/,before);
