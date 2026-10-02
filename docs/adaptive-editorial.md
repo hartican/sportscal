@@ -24,3 +24,45 @@ Canonical publication rebuilds public editorial projections and existing communi
 Publish scoped changes to GitHub main and dispatch `sportscal-production.yml` with that exact SHA; require all existing gates, READY production releaseGitSha, alias and exact served bytes. Then run `node scripts/update-cards.js --adaptive-editorial --record-release <verified-sha>` to record matching served editorial as published. Report GitHub, deployment and desktop/mobile/PWA evidence separately. No-change runs stay quiet unless a new actionable failure appears.
 
 Local scheduled runs need the existing service-role environment. `NS_EDITORIAL_ENV_FILE` may point to an access-restricted production environment file outside Git; never print or commit it. If unavailable, fail explicitly rather than reading preferences or guessing rating signals.
+
+### Credential-free scheduled execution
+
+Vercel sensitive environment exports may contain masked placeholders, not usable
+service credentials. Never ask for, print or copy private tokens to work around
+this. When a local service environment is unavailable, use the authorised
+Supabase connector for `nothingSport-recovery` (`mkghopnkhcxtmfrcjdbc`):
+
+1. Run `node scripts/update-cards.js --adaptive-editorial --prepare-control`.
+2. Obtain `private.nothingsports_editorial_signals(target_groups)` for those exact
+   alias groups (batches of at most 100), plus every maintenance row. Save only
+   the aggregate/control snapshot outside Git, with mode 600. Include
+   `capturedAt`, matching `sourceRevision`, `complete: true`, `groups`, `signals`
+   and `states`; do not export accounts, raw votes or preferences.
+3. Set `NS_EDITORIAL_CONTROL_SNAPSHOT` to that absolute snapshot path and
+   `NS_EDITORIAL_CHECK_REPORT` to a fresh private, out-of-checkout report path.
+   Then use the same canonical `--adaptive-editorial --list` / `--research`
+   commands. Refresh snapshots older than 15 minutes before invoking them.
+4. Use `node scripts/editorial-control-sql.js <check-report>` to prepare atomic
+   connector writes. Apply them through the authorised connector before
+   publication. A revision conflict or explicit hold stops the affected run;
+   do not publish a stale Owner edit. Do not treat a local check report as a
+   successful database write.
+5. After the established pipeline proves READY, alias and exact release SHA,
+   obtain a fresh snapshot matching the served source revision. Run canonical
+   `--adaptive-editorial --record-release <verified-full-sha>` with a separate
+   private report path and apply its CAS writes through the connector.
+6. Remove temporary environment, snapshot and check-report files after use.
+   Successful unchanged checks still record check cadence, without a deployment.
+
+The local snapshot is an authorised control-plane adapter, not another scheduler
+or sports ingestion path. Production APIs retain their normal service access.
+A source unavailable for one card defers that card and its direct dependants;
+shared integrity, spoiler and release failures remain mandatory stop conditions.
+
+### 2 October 2026 initial maintenance
+
+The real-rating inventory selected All Blacks v Wallabies, Bathurst 1000 and
+Liverpool v Manchester City. The Owner explicitly authorised replacing the
+older Bledisloe copy lock. The men's NRL Grand Final remains protected. City's
+financial case concerns reporting and spending rules, not a salary cap; distinguish
+Commission findings, the club's appeal and still-undecided sanctions.

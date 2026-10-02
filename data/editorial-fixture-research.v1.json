@@ -2189,6 +2189,198 @@
       ],
       "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
       "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "title": "All Blacks v Wallabies",
+      "hook": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+      "formCopy": "The All Blacks arrive from a demanding four-Test series against South Africa. Australia come off a confidence-building meeting with the same opposition. That contrast makes this a test of recovery and composure, not just reputation: New Zealand need to settle quickly after a long spell away, while the Wallabies must carry their recent momentum into a much less forgiving setting.",
+      "closingCopy": "For Australian supporters, Eden Park turns optimism into a familiar question: can this group make belief survive the difficult moments? For New Zealand, protecting home ground is bound up with protecting the Bledisloe itself. Codie Taylor takes the captaincy while Ardie Savea recovers from shoulder surgery; Scott Barrett returns after back surgery. Those changes add a leadership test to the rivalry, without settling the starting team before it is announced.",
+      "synopsis": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+      "sources": [
+        "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+        "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
+        "https://www.rugby.com.au/news/all-blacks-lock-in-eden-park-bledisloe-for-2026-series-2025128"
+      ],
+      "researchedAt": "2026-10-02T13:35:19.426Z",
+      "researchDepth": 5,
+      "changeReason": "New captain, injury absences and recalled leaders materially change the preview; replace incomplete two-section context.",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The first Test is on 10 October and the second on 17 October.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The first Test is at Eden Park and the second at Accor Stadium.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "New Zealand seek a 25th consecutive Test win over Australia at Eden Park.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The two Tests contest the Bledisloe Cup, held by New Zealand since 2003.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The All Blacks completed a four-Test South Africa series; Australia meet them after their own South Africa fixture.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Taylor replaces injured Savea as captain and Scott Barrett returns after back surgery; the squad is not a named starting XV.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "title": "Bathurst 1000",
+      "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+      "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
+      "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+      "synopsis": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+      "sources": [
+        "https://www.supercars.com/events/2026-bathurst-1000",
+        "https://www.supercars.com/news/supercars-2026-calendar-announcement-release-date-rounds-printable-ticket-information-news",
+        "https://www.supercars.com/news/supercars-news-2026-enduro-cup-co-driver-moves-timeline-signings-craig-lowndes-will-davison-nick-percat"
+      ],
+      "researchedAt": "2026-10-02T13:35:19.426Z",
+      "researchDepth": 5,
+      "changeReason": "Current driver partnerships, Toyota entry and Finals qualification consequences justify complete four-section endurance preview.",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "Race 30 starts 11:30am Sunday 11 October in Sydney time.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "Mount Panorama is 6.213km; the event runs 161 laps over approximately 1000km.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Bathurst ends the Enduro Cup; its winner and the post-enduro championship top ten qualify for the Finals.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Finals begin at the Gold Coast following Bathurst.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Only six endurance combinations remained unchanged from 2025.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Toyota joins Ford and Chevrolet in 2026; Mostert/Coulthard, Wood/Evans, Payne/Davison and Feeney/Percat are confirmed endurance pairings.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Garry Rogers Motorsport returns to Bathurst through a Herne/Moffat wildcard.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epl-2026-27-128980",
+      "title": "Liverpool v Manchester City",
+      "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+      "formCopy": "Andoni Iraola is reshaping Liverpool around aggressive pressing and quicker counter-attacks. Enzo Maresca's City retain a possession-led approach, with central overloads intended to release their wide players. At Anfield, the sporting test is whether Liverpool can turn City's attempts at control into opportunities to break, rather than simply chase the ball.",
+      "closingCopy": "For Liverpool supporters, the case puts fairness alongside the familiar desire to beat a rival. For City fans, pride in their club meets scrutiny of how its success was financed. That is the emotional tension, not a claim that supporters or today's players are responsible for accounting decisions. Management face reputational and regulatory uncertainty; the players still have a match to win. City's appeal and the pending sanction process mean neither a final punishment nor a rewritten honours list should be treated as settled.",
+      "synopsis": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc",
+        "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+        "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+        "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627"
+      ],
+      "researchedAt": "2026-10-02T12:08:59.501Z",
+      "researchDepth": 5,
+      "changeReason": "Published Commission findings and newly lodged appeal change the rivalry context; complete all four distinct preview sections.",
+      "facts": [
+        {
+          "dimension": "consequence",
+          "statement": "The independent Commission found serious financial reporting and spending-rule breaches across 2009/10 to 2017/18; sanctions await a separate hearing.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Manchester City says it lodged an appeal on 1 October 2026 and disputes the findings.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Liverpool host Manchester City on 11 October at 16:30 BST, corresponding to 12 October at 02:30 Sydney time.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The fixture is at Anfield.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Liverpool changed manager to Andoni Iraola, whose approach emphasises pressing and counter-attacking.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Enzo Maresca's Manchester City approach uses possession and central overloads to create wide attacking opportunities.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ]
     }
   ]
 }

@@ -11,11 +11,15 @@ function buildSources(){
     return {...event,editorialSources:[...new Set(urls)]};
   });
   const sourceRevision=crypto.createHash('sha256').update(JSON.stringify(events)).digest('hex');
-  write('data/editorial-maintenance-sources.v1.json',{schemaVersion:'editorial-maintenance-sources.v1',sourceRevision,events});
+  fs.writeFileSync('data/editorial-maintenance-sources.v1.json',JSON.stringify({schemaVersion:'editorial-maintenance-sources.v1',sourceRevision,events})+'\n');
   return {events:events.length,sourceRevision};
 }
 async function main(args){
   if(args.includes('--build-sources')){console.log(JSON.stringify(buildSources()));return;}
+  if(args.includes('--prepare-control')){
+    const source=store.sources(),now=new Date();
+    console.log(JSON.stringify({sourceRevision:source.sourceRevision,groups:source.events.filter(e=>policy.schedule(e,{},now).inWindow).map(e=>({event_id:e.id,aliases:policy.ids(e)}))}));return;
+  }
   // Local operators may load a private environment file without printing secrets.
   if(process.env.NS_EDITORIAL_ENV_FILE)process.loadEnvFile(process.env.NS_EDITORIAL_ENV_FILE);
   if(args.includes('--record-release')){
@@ -24,7 +28,7 @@ async function main(args){
     const live=await response.json(),local=store.sources();assert.equal(live.sourceRevision,local.sourceRevision,'Wrong production editorial revision.');
     const app=await fetch('https://nothingsport.vercel.app/app-version.json?release='+sha,{cache:'no-store'});assert(app.ok,'Production release metadata unavailable.');
     // The serialized pipeline supplies the READY/SHA proof; this step verifies exact served editorial bytes.
-    const request=require('../lib/supabase-server').supabaseServiceRequest,rows=await request(store.query({select:'*',limit:'1000'}));
+    const request=process.env.NS_EDITORIAL_CONTROL_SNAPSHOT?require('../lib/editorial-control-snapshot').request:require('../lib/supabase-server').supabaseServiceRequest,rows=await request(store.query({select:'*',limit:'1000'}));
     for(const row of rows){const event=local.events.find(e=>policy.ids(e).includes(row.event_id));if(event&&row.staged_copy&&policy.equalCopy(row.staged_copy,policy.copy(event)))await store.patch(row.event_id,row.revision,{published_copy:row.staged_copy,published_git_sha:sha,staged_copy:null});}
     console.log('Verified editorial publication recorded for '+sha);return;
   }

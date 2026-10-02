@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261002152403623-20261002163004732-20261002163139278",
-  "publishedAt": "2026-10-02T16:31:39.278Z",
+  "version": "adaptive-editorial-20261002174853306",
+  "publishedAt": "2026-10-02T17:48:53.306Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -91257,8 +91257,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "test",
-      "selectedSentence": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
-      "fullSpiel": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
+      "selectedSentence": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+      "fullSpiel": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
       "sourceName": "Eden Park",
       "sourceUrl": "https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/",
       "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
@@ -91284,19 +91284,32 @@
         "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
-        "hookSpoilerOn": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
-        "synopsisSpoilerOff": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
-        "synopsisSpoilerOn": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
+        "hookSpoilerOff": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+        "hookSpoilerOn": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+        "synopsisSpoilerOff": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+        "synopsisSpoilerOn": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
         "intensitySource": "computed",
-        "archetype": "international test"
+        "archetype": "international test",
+        "researchDepth": 5,
+        "lastReviewedAt": "2026-10-02T13:35:19.426Z"
       },
-      "lastReviewedAt": "2026-09-30T12:22:21.110Z",
+      "lastReviewedAt": "2026-10-02T13:35:19.426Z",
       "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+        "status": "journalistic",
+        "angle": "All Blacks v Wallabies",
+        "contextSignals": [
+          "event-specific",
+          "narrative:schedule",
+          "narrative:venue",
+          "narrative:history",
+          "narrative:consequence",
+          "narrative:form",
+          "narrative:matchup"
+        ],
+        "sourceName": "All Blacks v Wallabies — official research 1",
+        "sourceUrl": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+        "sourceCheckedAt": "2026-10-02T13:35:19.426Z",
+        "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
       "competitionScope": "international",
@@ -91357,7 +91370,44 @@
         "fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6"
       ],
       "consensusTags": [],
-      "statusCheckedAt": "2026-07-15T13:30:00+10:00"
+      "statusCheckedAt": "2026-07-15T13:30:00+10:00",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
+        "researchTier": "marquee",
+        "hook": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+        "synopsis": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+        "formCopy": "The All Blacks arrive from a demanding four-Test series against South Africa. Australia come off a confidence-building meeting with the same opposition. That contrast makes this a test of recovery and composure, not just reputation: New Zealand need to settle quickly after a long spell away, while the Wallabies must carry their recent momentum into a much less forgiving setting.",
+        "closingCopy": "For Australian supporters, Eden Park turns optimism into a familiar question: can this group make belief survive the difficult moments? For New Zealand, protecting home ground is bound up with protecting the Bledisloe itself. Codie Taylor takes the captaincy while Ardie Savea recovers from shoulder surgery; Scott Barrett returns after back surgery. Those changes add a leadership test to the rivalry, without settling the starting team before it is announced.",
+        "threadIds": [
+          "thread:fixture-research:rugby-new-zealand-australia-2026-10-10"
+        ],
+        "factIds": [
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5"
+        ],
+        "sourceIds": [
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+        ],
+        "dimensions": [
+          "schedule",
+          "venue",
+          "history",
+          "consequence",
+          "form",
+          "matchup"
+        ],
+        "researchedAt": "2026-10-02T13:35:19.426Z",
+        "refreshAfter": "2026-10-10T06:10:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      }
     },
     {
       "id": "evt_motogp_2026_indonesia_sprint",
@@ -93416,12 +93466,14 @@
         "stakes": 5,
         "intensity": 5,
         "arcStage": "preview",
-        "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-        "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-        "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-        "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+        "hookSpoilerOff": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hookSpoilerOn": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "synopsisSpoilerOff": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+        "synopsisSpoilerOn": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
         "expectedSpectacle": 10,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 5,
+        "lastReviewedAt": "2026-10-02T13:35:19.426Z"
       },
       "name": "Bathurst 1000",
       "displayTitleCompact": "Bathurst 1000",
@@ -93503,48 +93555,63 @@
         ],
         "reason": "Bathurst 1000 and Enduro Cup finale"
       },
-      "selectedSentence": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "fullSpiel": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "selectedSentence": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+      "fullSpiel": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:supercars-bathurst-1000-2026",
+        "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
         "researchTier": "marquee",
-        "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-        "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "synopsis": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+        "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
+        "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
         "threadIds": [
-          "thread:bathurst2026:enduro"
+          "thread:fixture-research:supercars-bathurst-1000-2026"
         ],
         "factIds": [
-          "fact:bathurst2026:0",
-          "fact:bathurst2026:1",
-          "fact:bathurst2026:2",
-          "fact:bathurst2026:3"
+          "fact:fixture-research:supercars-bathurst-1000-2026:0",
+          "fact:fixture-research:supercars-bathurst-1000-2026:1",
+          "fact:fixture-research:supercars-bathurst-1000-2026:2",
+          "fact:fixture-research:supercars-bathurst-1000-2026:3",
+          "fact:fixture-research:supercars-bathurst-1000-2026:4",
+          "fact:fixture-research:supercars-bathurst-1000-2026:5",
+          "fact:fixture-research:supercars-bathurst-1000-2026:6"
         ],
         "sourceIds": [
-          "source:bathurst2026:0",
-          "source:bathurst2026:1",
-          "source:bathurst2026:2"
+          "source:fixture-research:supercars-bathurst-1000-2026:0",
+          "source:fixture-research:supercars-bathurst-1000-2026:1",
+          "source:fixture-research:supercars-bathurst-1000-2026:2"
         ],
         "dimensions": [
-          "format",
+          "schedule",
+          "venue",
           "consequence",
-          "venue"
+          "path",
+          "form",
+          "matchup",
+          "history"
         ],
-        "researchedAt": "2026-09-24T01:50:44.155Z",
+        "researchedAt": "2026-10-02T13:35:19.426Z",
         "refreshAfter": "2026-10-11T00:30:00.000Z",
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "phase": "preview"
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Enduro Cup finale at Mount Panorama",
+        "angle": "Bathurst 1000",
         "contextSignals": [
           "event-specific",
+          "narrative:schedule",
+          "narrative:venue",
           "narrative:consequence",
-          "narrative:format"
+          "narrative:path",
+          "narrative:form",
+          "narrative:matchup",
+          "narrative:history"
         ],
-        "sourceName": "Supercars",
+        "sourceName": "Bathurst 1000 — official research 1",
         "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
-        "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+        "sourceCheckedAt": "2026-10-02T13:35:19.426Z",
         "needsPreviewRefresh": false
       },
       "replayEligible": true,
@@ -93554,7 +93621,7 @@
       "timePrecision": "exact",
       "narrativeType": "all",
       "briefingEligible": true,
-      "lastReviewedAt": "2026-10-02T15:24:02.660Z",
+      "lastReviewedAt": "2026-10-02T13:35:19.426Z",
       "statusCheckedAt": "2026-09-24T01:50:44.155Z",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -95192,14 +95259,14 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "selectedSentence": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+      "fullSpiel": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-01T21:07:36.882Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "lastReviewedAt": "2026-10-02T12:08:59.501Z",
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
@@ -95209,59 +95276,67 @@
       ],
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:epl-2026-27-128980",
-        "researchTier": "standard",
-        "hook": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-        "synopsis": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+        "projectionId": "projection:fixture-research:epl-2026-27-128980",
+        "researchTier": "marquee",
+        "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+        "synopsis": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+        "formCopy": "Andoni Iraola is reshaping Liverpool around aggressive pressing and quicker counter-attacks. Enzo Maresca's City retain a possession-led approach, with central overloads intended to release their wide players. At Anfield, the sporting test is whether Liverpool can turn City's attempts at control into opportunities to break, rather than simply chase the ball.",
+        "closingCopy": "For Liverpool supporters, the case puts fairness alongside the familiar desire to beat a rival. For City fans, pride in their club meets scrutiny of how its success was financed. That is the emotional tension, not a claim that supporters or today's players are responsible for accounting decisions. Management face reputational and regulatory uncertainty; the players still have a match to win. City's appeal and the pending sanction process mean neither a final punishment nor a rewritten honours list should be treated as settled.",
         "threadIds": [
-          "thread:depth:epl:team-football-epl-10:2026-27",
-          "thread:depth:epl:team-football-epl-11:2026-27"
+          "thread:fixture-research:epl-2026-27-128980"
         ],
         "factIds": [
-          "fact:depth:epl:team-football-epl-10:season-arc",
-          "fact:depth:epl:team-football-epl-11:season-arc",
-          "fact:depth:epl:epl-2026-27-128980:team-football-epl-10:entry-form",
-          "fact:depth:epl:epl-2026-27-128980:team-football-epl-11:entry-form",
-          "fact:depth:epl:epl-2026-27-128980:matchup"
+          "fact:fixture-research:epl-2026-27-128980:0",
+          "fact:fixture-research:epl-2026-27-128980:1",
+          "fact:fixture-research:epl-2026-27-128980:2",
+          "fact:fixture-research:epl-2026-27-128980:3",
+          "fact:fixture-research:epl-2026-27-128980:4",
+          "fact:fixture-research:epl-2026-27-128980:5"
         ],
         "sourceIds": [
-          "source:depth:epl:table",
-          "source:depth:epl:season-guide",
-          "source:depth:epl:fixtures",
-          "source:depth:epl:match:epl-2026-27-128980"
+          "source:fixture-research:epl-2026-27-128980:0",
+          "source:fixture-research:epl-2026-27-128980:1",
+          "source:fixture-research:epl-2026-27-128980:2",
+          "source:fixture-research:epl-2026-27-128980:3"
         ],
         "dimensions": [
-          "history",
+          "consequence",
+          "path",
+          "schedule",
+          "venue",
           "form",
           "matchup"
         ],
-        "researchedAt": "2026-09-30T22:50:31.966Z",
+        "researchedAt": "2026-10-02T12:08:59.501Z",
         "refreshAfter": "2026-10-11T15:30:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Liverpool — 2026/27 identity under pressure",
+        "angle": "Liverpool v Manchester City",
         "contextSignals": [
           "event-specific",
-          "narrative:history",
+          "narrative:consequence",
+          "narrative:path",
+          "narrative:schedule",
+          "narrative:venue",
           "narrative:form",
           "narrative:matchup"
         ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-01T17:37:06.897Z",
+        "sourceName": "Liverpool v Manchester City — official research 1",
+        "sourceUrl": "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc",
+        "sourceCheckedAt": "2026-10-02T12:08:59.501Z",
         "needsPreviewRefresh": false
       },
       "storyline": {
-        "researchDepth": 2,
+        "researchDepth": 5,
         "arcStage": "preview",
-        "hookSpoilerOff": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-        "hookSpoilerOn": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-        "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-        "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-        "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+        "hookSpoilerOff": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+        "hookSpoilerOn": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+        "synopsisSpoilerOff": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+        "synopsisSpoilerOn": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+        "lastReviewedAt": "2026-10-02T12:08:59.501Z"
       },
       "statusCheckedAt": "2026-09-30T13:17:48.846Z",
       "timePrecision": "exact",

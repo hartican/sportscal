@@ -991,6 +991,21 @@
       "id": "subject:fixture-research:evt_f1_2026_bahrain_race",
       "kind": "event",
       "name": "Bahrain GP (Malaysia) - Race"
+    },
+    {
+      "id": "subject:fixture-research:rugby-new-zealand-australia-2026-10-10",
+      "kind": "event",
+      "name": "All Blacks v Wallabies"
+    },
+    {
+      "id": "subject:fixture-research:supercars-bathurst-1000-2026",
+      "kind": "event",
+      "name": "Bathurst 1000"
+    },
+    {
+      "id": "subject:fixture-research:epl-2026-27-128980",
+      "kind": "event",
+      "name": "Liverpool v Manchester City"
     }
   ],
   "sources": [
@@ -4934,6 +4949,76 @@
       "url": "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/",
       "sourceType": "official",
       "checkedAt": "2026-10-01T23:58:25.032Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+      "name": "All Blacks v Wallabies — official research 1",
+      "url": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+      "name": "All Blacks v Wallabies — official research 2",
+      "url": "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+      "name": "All Blacks v Wallabies — official research 3",
+      "url": "https://www.rugby.com.au/news/all-blacks-lock-in-eden-park-bledisloe-for-2026-series-2025128",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:0",
+      "name": "Bathurst 1000 — official research 1",
+      "url": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:1",
+      "name": "Bathurst 1000 — official research 2",
+      "url": "https://www.supercars.com/news/supercars-2026-calendar-announcement-release-date-rounds-printable-ticket-information-news",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:2",
+      "name": "Bathurst 1000 — official research 3",
+      "url": "https://www.supercars.com/news/supercars-news-2026-enduro-cup-co-driver-moves-timeline-signings-craig-lowndes-will-davison-nick-percat",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:0",
+      "name": "Liverpool v Manchester City — official research 1",
+      "url": "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T12:08:59.501Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:1",
+      "name": "Liverpool v Manchester City — official research 2",
+      "url": "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T12:08:59.501Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:2",
+      "name": "Liverpool v Manchester City — official research 3",
+      "url": "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T12:08:59.501Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:3",
+      "name": "Liverpool v Manchester City — official research 4",
+      "url": "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T12:08:59.501Z"
     }
   ],
   "narrativeFacts": [
@@ -27875,6 +27960,257 @@
       ],
       "observedAt": "2026-10-01T23:21:33.194Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "The first Test is on 10 October and the second on 17 October.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "The first Test is at Eden Park and the second at Accor Stadium.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "New Zealand seek a 25th consecutive Test win over Australia at Eden Park.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "The two Tests contest the Bledisloe Cup, held by New Zealand since 2003.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "The All Blacks completed a four-Test South Africa series; Australia meet them after their own South Africa fixture.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "statement": "Taylor replaces injured Savea as captain and Scott Barrett returns after back surgery; the squad is not a named starting XV.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:0",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Race 30 starts 11:30am Sunday 11 October in Sydney time.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:1",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Mount Panorama is 6.213km; the event runs 161 laps over approximately 1000km.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:2",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Bathurst ends the Enduro Cup; its winner and the post-enduro championship top ten qualify for the Finals.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:1"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:3",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "The Finals begin at the Gold Coast following Bathurst.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:1"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:4",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Only six endurance combinations remained unchanged from 2025.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:5",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Toyota joins Ford and Chevrolet in 2026; Mostert/Coulthard, Wood/Evans, Payne/Davison and Feeney/Percat are confirmed endurance pairings.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:6",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "statement": "Garry Rogers Motorsport returns to Bathurst through a Herne/Moffat wildcard.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
+      ],
+      "observedAt": "2026-10-02T13:35:19.426Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:0",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "The independent Commission found serious financial reporting and spending-rule breaches across 2009/10 to 2017/18; sanctions await a separate hearing.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:0"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:1",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "Manchester City says it lodged an appeal on 1 October 2026 and disputes the findings.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:1"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:2",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "Liverpool host Manchester City on 11 October at 16:30 BST, corresponding to 12 October at 02:30 Sydney time.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:2"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:3",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "The fixture is at Anfield.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:2"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:4",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "Liverpool changed manager to Andoni Iraola, whose approach emphasises pressing and counter-attacking.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:3"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:5",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "statement": "Enzo Maresca's Manchester City approach uses possession and central overloads to create wide attacking opportunities.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:3"
+      ],
+      "observedAt": "2026-10-02T12:08:59.501Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -30631,6 +30967,61 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "thread:fixture-research:rugby-new-zealand-australia-2026-10-10",
+      "subjectIds": [
+        "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "title": "All Blacks v Wallabies",
+      "summary": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+      "factIds": [
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "thread:fixture-research:supercars-bathurst-1000-2026",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "title": "Bathurst 1000",
+      "summary": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:5",
+        "fact:fixture-research:supercars-bathurst-1000-2026:6"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-02T13:35:19.426Z"
+    },
+    {
+      "id": "thread:fixture-research:epl-2026-27-128980",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980"
+      ],
+      "title": "Liverpool v Manchester City",
+      "summary": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+      "factIds": [
+        "fact:fixture-research:epl-2026-27-128980:0",
+        "fact:fixture-research:epl-2026-27-128980:1",
+        "fact:fixture-research:epl-2026-27-128980:2",
+        "fact:fixture-research:epl-2026-27-128980:3",
+        "fact:fixture-research:epl-2026-27-128980:4",
+        "fact:fixture-research:epl-2026-27-128980:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-02T12:08:59.501Z"
     }
   ],
   "audienceMemories": [],
@@ -40618,45 +41009,6 @@
       }
     },
     {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:supercars-bathurst-1000-2026",
-      "researchTier": "marquee",
-      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
-      "threadIds": [
-        "thread:bathurst2026:enduro"
-      ],
-      "factIds": [
-        "fact:bathurst2026:0",
-        "fact:bathurst2026:1",
-        "fact:bathurst2026:2",
-        "fact:bathurst2026:3"
-      ],
-      "sourceIds": [
-        "source:bathurst2026:0",
-        "source:bathurst2026:1",
-        "source:bathurst2026:2"
-      ],
-      "dimensions": [
-        "format",
-        "consequence",
-        "venue"
-      ],
-      "researchedAt": "2026-09-24T01:50:44.155Z",
-      "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched",
-      "id": "projection:supercars-bathurst-1000-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "supercars-bathurst-1000-2026"
-      ],
-      "stakes": 5,
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-25T03:21:11.009Z"
-      }
-    },
-    {
       "id": "projection:rolling:event-aflw-cd-m20262641101",
       "targetType": "feed-event",
       "targetIds": [
@@ -43751,40 +44103,6 @@
       }
     },
     {
-      "id": "projection:rolling:epl-2026-27-128980",
-      "targetType": "feed-event",
-      "targetIds": [
-        "epl-2026-27-128980"
-      ],
-      "researchDepth": 2,
-      "hook": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "synopsis": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "threadIds": [
-        "thread:depth:epl:team-football-epl-10:2026-27",
-        "thread:depth:epl:team-football-epl-11:2026-27"
-      ],
-      "factIds": [
-        "fact:depth:epl:team-football-epl-10:season-arc",
-        "fact:depth:epl:team-football-epl-11:season-arc",
-        "fact:depth:epl:epl-2026-27-128980:team-football-epl-10:entry-form",
-        "fact:depth:epl:epl-2026-27-128980:team-football-epl-11:entry-form",
-        "fact:depth:epl:epl-2026-27-128980:matchup"
-      ],
-      "sourceIds": [
-        "source:depth:epl:table",
-        "source:depth:epl:season-guide",
-        "source:depth:epl:fixtures",
-        "source:depth:epl:match:epl-2026-27-128980"
-      ],
-      "researchedAt": "2026-09-30T22:50:31.966Z",
-      "refreshAfter": "2026-10-11T15:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-01T17:38:50.920Z"
-      }
-    },
-    {
       "id": "projection:rolling:epl-2026-27-128976",
       "targetType": "feed-event",
       "targetIds": [
@@ -45853,6 +46171,116 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-01T23:58:25.032Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-new-zealand-australia-2026-10-10"
+      ],
+      "researchDepth": 5,
+      "hook": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
+      "synopsis": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+      "formCopy": "The All Blacks arrive from a demanding four-Test series against South Africa. Australia come off a confidence-building meeting with the same opposition. That contrast makes this a test of recovery and composure, not just reputation: New Zealand need to settle quickly after a long spell away, while the Wallabies must carry their recent momentum into a much less forgiving setting.",
+      "closingCopy": "For Australian supporters, Eden Park turns optimism into a familiar question: can this group make belief survive the difficult moments? For New Zealand, protecting home ground is bound up with protecting the Bledisloe itself. Codie Taylor takes the captaincy while Ardie Savea recovers from shoulder surgery; Scott Barrett returns after back surgery. Those changes add a leadership test to the rivalry, without settling the starting team before it is announced.",
+      "threadIds": [
+        "thread:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+      ],
+      "researchedAt": "2026-10-02T13:35:19.426Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-10T06:10:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-02T13:35:19.426Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "supercars-bathurst-1000-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+      "synopsis": "The Bathurst 1000 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps cover roughly 1000 kilometres around a 6.213km circuit, ending the Ryco Enduro Cup before the championship Finals Series. That makes the day about more than one trophy: the endurance title guarantees a Finals berth, with the post-enduro top ten also advancing. Toyota's GR Supra now contests the season alongside Ford and Chevrolet; reliability, driver changes and pit work must hold up over the full distance.",
+      "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
+      "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+      "threadIds": [
+        "thread:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:5",
+        "fact:fixture-research:supercars-bathurst-1000-2026:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
+      ],
+      "researchedAt": "2026-10-02T13:35:19.426Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-02T13:35:19.426Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:epl-2026-27-128980",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128980"
+      ],
+      "researchDepth": 5,
+      "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+      "synopsis": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+      "formCopy": "Andoni Iraola is reshaping Liverpool around aggressive pressing and quicker counter-attacks. Enzo Maresca's City retain a possession-led approach, with central overloads intended to release their wide players. At Anfield, the sporting test is whether Liverpool can turn City's attempts at control into opportunities to break, rather than simply chase the ball.",
+      "closingCopy": "For Liverpool supporters, the case puts fairness alongside the familiar desire to beat a rival. For City fans, pride in their club meets scrutiny of how its success was financed. That is the emotional tension, not a claim that supporters or today's players are responsible for accounting decisions. Management face reputational and regulatory uncertainty; the players still have a match to win. City's appeal and the pending sanction process mean neither a final punishment nor a rewritten honours list should be treated as settled.",
+      "threadIds": [
+        "thread:fixture-research:epl-2026-27-128980"
+      ],
+      "factIds": [
+        "fact:fixture-research:epl-2026-27-128980:0",
+        "fact:fixture-research:epl-2026-27-128980:1",
+        "fact:fixture-research:epl-2026-27-128980:2",
+        "fact:fixture-research:epl-2026-27-128980:3",
+        "fact:fixture-research:epl-2026-27-128980:4",
+        "fact:fixture-research:epl-2026-27-128980:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:0",
+        "source:fixture-research:epl-2026-27-128980:1",
+        "source:fixture-research:epl-2026-27-128980:2",
+        "source:fixture-research:epl-2026-27-128980:3"
+      ],
+      "researchedAt": "2026-10-02T12:08:59.501Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T15:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-02T12:08:59.501Z"
       }
     }
   ]
