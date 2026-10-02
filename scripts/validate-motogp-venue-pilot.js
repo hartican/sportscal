@@ -75,6 +75,10 @@ for(const file of ['feeds/incoming/events.json','data/events.json']){
   const result=await ingestion.refresh({schedulePath,sourceDirectory,now,fetchImpl:async()=>{throw Error('test source unavailable');}});
   assert.equal(result.complete,false);assert.equal(result.failures.length,2);
   assert.deepEqual(JSON.parse(fs.readFileSync(schedulePath)).events,schedule.events,'source failure must preserve verified schedule data');
+  const currentRaw=raw.map((w,i)=>({...w,broadcasts:calendars[0].weekends[i].sessions.map(s=>({...s,type:'SESSION',category:{acronym:'MGP'}}))}));
+  await ingestion.refresh({schedulePath,sourceDirectory,now,fetchImpl:async url=>{if(url.endsWith(String(year+1)))throw Error('future edition unavailable');return {ok:true,json:async()=>currentRaw};}});
+  const partial=JSON.parse(fs.readFileSync(schedulePath));
+  assert.deepEqual(partial.events.filter(e=>e.sportKey!=='motogp'||e.season===String(year+1)),schedule.events.filter(e=>e.sportKey!=='motogp'||e.season===String(year+1)),'partial source failure preserves the failed edition and every other sport exactly');
   console.log(`MotoGP pilot: ${records.length} official session/window records, ${manifest.assets.length} SVGs, stable IDs, practice exclusion, timetable uncertainty and failed-source preservation passed.`);
  }finally{fs.rmSync(tmp,{recursive:true,force:true});}
 })().catch(e=>{console.error(e);process.exitCode=1;});

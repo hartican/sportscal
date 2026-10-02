@@ -72,7 +72,10 @@ async function refresh({fetchImpl=fetch,now=new Date(),sourceDirectory=path.join
  for(const season of [year,year+1]){
   const file=path.join(sourceDirectory,`calendar-${season}.v1.json`);
   try{const r=await fetchImpl(API(season),{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(`HTTP ${r.status}`);const doc=snapshot(await r.json(),season,now.toISOString());if(fs.existsSync(file)){const priorDocument=read(file);const names=new Set(doc.weekends.map(w=>w.shortname));if(priorDocument.weekends.some(w=>!names.has(w.shortname)))throw Error('Calendar withdrawal requires a verified correction; retained last verified season');}write(file,doc);documents.push(doc);}
-  catch(error){failures.push({season,error:error.message});if(fs.existsSync(file))documents.push(read(file));}
+  // Retain failed editions in the canonical document exactly as verified.
+  // Rebuilding a failed edition from cache can reorder other sports and renew
+  // the apparent schedule observation despite no successful source request.
+  catch(error){failures.push({season,error:error.message});}
  }
  const participants=prior.participants.filter(p=>p.sportKey==='motogp');
  const fresh=documents.flatMap(d=>eventsFor(d,participants,now));

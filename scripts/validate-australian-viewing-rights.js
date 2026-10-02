@@ -50,7 +50,9 @@ const scenarios = [
   ["Rugby League World Cup", { key:"nrl", majorEventId:"rugby-league-world-cup", name:"Australia v New Zealand — Rugby League World Cup" }, ["seven"]],
   ["Formula 1", { key:"f1", name:"Australian Grand Prix" }, ["kayo", "foxtel"]],
   ["MotoGP", { key:"motogp", competitionId:"competition:motogp", name:"Australian Motorcycle Grand Prix" }, ["kayo", "foxtel"]],
-  ["SailGP", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, ["kayo", "foxtel"]],
+  ["SailGP 2026", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix", date:"2026-01-17" }, ["kayo", "foxtel"]],
+  ["SailGP 2027", { key:"sailgp", competitionId:"competition:sailgp", name:"Hong Kong Sail Grand Prix", date:"2027-01-23" }, []],
+  ["SailGP without an edition date", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, []],
   ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
   ["Premier League", { sportDomainId:"sport:football", competitionId:"competition:premier-league-2026-27", key:"premier-league" }, ["stan"]],
   ["Champions League", { sportDomainId:"sport:football", competitionId:"competition:uefa-champions-league-2026-27" }, ["stan"]],
@@ -111,7 +113,8 @@ const permittedViewingTbcNames = new Set([
   "Shahdag — Moguls World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
-assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed')), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
+const unconfirmedSailgpRights=event=>event.key==='sailgp'&&event.season==='2027'&&event.date?.startsWith('2027-')&&event.broadcaster==='Broadcast TBC'&&event.calendarProvenance?.sourceUrl==='https://sailgp.com/general/2027/calendar/';
+assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
 const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
 if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
