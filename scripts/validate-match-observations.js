@@ -26,6 +26,13 @@ for(const status of ['stumps','suspended','completed','cancelled','postponed']){
  assert.equal(e.status,status);assert.equal(e.innings[0].runs,235);assert.equal(e.scoreCheckedAt,scoreTime);
  assert.equal(e.statusCheckedAt,'2026-09-24T11:46:00Z');
 }
+const marker='fixture-observations.v1';
+const markedUnknown={...live,fixtureObservationSchema:marker,sourceCheckedAt:scheduleTime,scoreCheckedAt:null,statusCheckedAt:null};
+const unknownCompact=contract.compact(markedUnknown,{checkedAt:scheduleTime});assert.equal(unknownCompact.scoreCheckedAt,null);assert.equal(unknownCompact.checkedAt,null);assert.equal(unknownCompact.stale,true);
+const staleScore={...markedUnknown,statusCheckedAt:scheduleTime};
+const scorePresentation=require('../config/feed-live-scores').presentation(staleScore,{resultsOn:true,now:Date.parse(scheduleTime)});assert.equal(scorePresentation.status,'Last available score');assert.equal(scorePresentation.checkedAt,null);assert.equal(scorePresentation.stale,true);
+const protectedLive={...live,scoreCheckedAt:scoreTime,statusCheckedAt:scoreTime};
+const unknownMerge=overlaySnapshots([protectedLive],[{checked_at:scheduleTime,fixtures:[{...markedUnknown,innings:[{team:'South Africa Men',runs:999}]}]}])[0];assert.equal(unknownMerge.innings[0].runs,235);assert.equal(unknownMerge.scoreCheckedAt,scoreTime);
 (async()=>{let output;
  const abandonmentHandler=createMatchCentreHandler({enabled:()=>true,published:()=>[abandoned],request:async()=>[{checked_at:'2026-10-02T01:48:04.105848Z',fixture:oldProviderFinal}]});
  await abandonmentHandler({url:'/api/match-centre?ids='+abandoned.id},{setHeader(){},status(){return this;},json(d){output=d.fixtures[0];}});

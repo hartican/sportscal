@@ -145,6 +145,7 @@
 
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
   const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
+  const factTime=(e,kind)=>e?.[kind+'CheckedAt']||(e?.fixtureObservationSchema?null:observationTime(e));
   const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
   const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
   function inningsAdvanced(base,event){
@@ -166,29 +167,29 @@
       for(const key of [...SCORE_OBSERVATION_FIELDS,'homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
         if(base[key]!==undefined)event[key]=base[key];else delete event[key];
       }
-      event.status=base.status;event.statusCheckedAt=base.statusCheckedAt||observationTime(base);
-      event.scoreCheckedAt=base.scoreCheckedAt||observationTime(base);
+      event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+      event.scoreCheckedAt=factTime(base,'score');
       event.livePlayObservedAt=null;
       return;
     }
     // Only a changed score observed from a live source establishes continuing play.
     // A source check timestamp alone cannot extend the ODI display window.
-    const nextTime=Date.parse(event.scoreCheckedAt||observationTime(event)||'');
-    const priorTime=Date.parse(base?.scoreCheckedAt||observationTime(base)||'');
+    const nextTime=Date.parse(event.scoreFactObservedAt||factTime(event,'score')||'');
+    const priorTime=Date.parse(base?.scoreFactObservedAt||factTime(base,'score')||'');
     if(base&&/^(live|in_progress|in-progress|ongoing)$/.test(event.status||'')&&Number.isFinite(nextTime)&&Number.isFinite(priorTime)&&nextTime>priorTime&&inningsAdvanced(base,event))event.livePlayObservedAt=new Date(nextTime).toISOString();
     else if(base?.livePlayObservedAt)event.livePlayObservedAt=base.livePlayObservedAt;
-    const scoreTime=event.scoreCheckedAt||observationTime(event),statusTime=event.statusCheckedAt||observationTime(event);
-    const older=(next,prior)=>Number.isFinite(Date.parse(next))&&Number.isFinite(Date.parse(prior))&&Date.parse(next)<Date.parse(prior);
-    if(hasScore(event)&&!older(scoreTime,base?.scoreCheckedAt||observationTime(base))){event.scoreCheckedAt=scoreTime;}
+    const scoreTime=factTime(event,'score'),statusTime=factTime(event,'status');
+    const older=(next,prior)=>Number.isFinite(Date.parse(prior))&&(!Number.isFinite(Date.parse(next))&&Boolean(event.fixtureObservationSchema)||Date.parse(next)<Date.parse(prior));
+    if(hasScore(event)&&!older(scoreTime,factTime(base,'score'))){event.scoreCheckedAt=scoreTime;}
     else if(hasScore(base)){
       for(const key of SCORE_OBSERVATION_FIELDS)delete event[key];
-      event.scoreCheckedAt=base.scoreCheckedAt||observationTime(base);
+      event.scoreCheckedAt=factTime(base,'score');
       // Retained home/away scores must retain their participant association.
       for(const key of ['homeParticipantId','awayParticipantId'])if(base[key])event[key]=base[key];
     }
     const passive=status=>!status||/^(scheduled|upcoming|not.started|pending)$/i.test(status);
-    if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,base.statusCheckedAt||observationTime(base)))){
-      event.status=base.status;event.statusCheckedAt=base.statusCheckedAt||observationTime(base);
+    if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,factTime(base,'status')))){
+      event.status=base.status;event.statusCheckedAt=factTime(base,'status');
       for(const key of ['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'])if(base[key])event[key]=base[key];
     }else if(event.status)event.statusCheckedAt=statusTime;
   }

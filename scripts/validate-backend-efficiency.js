@@ -11,7 +11,7 @@ async function main(){
   const calls=[];
   const store=createSnapshotStore({request:async(path,options={})=>{
     calls.push({path,options});
-    if(path.includes("select=source_id,revision,checked_at"))return [{source_id:"f1",revision:9,checked_at:"2026-09-14T00:00:00Z"}];
+    if(path.endsWith("/rpc/nothingsports_read_fixture_source_health"))return [{source_id:"f1",revision:9,checked_at:"2026-09-14T00:00:00Z"}];
     if(path.endsWith("/rpc/nothingsports_read_current_fixtures"))return [
       {source_id:"f1",fixture_id:"race",identity_keys:["race"],fixture:{id:"race",status:"live"}},
     ];
@@ -20,7 +20,11 @@ async function main(){
   const rows=await store.read({ids:["race"]});
   assert.deepEqual(rows[0].fixtures,[{id:"race",status:"live"}]);
   assert(calls.some(call=>call.path.endsWith("/rpc/nothingsports_read_current_fixtures")&&call.options.timeoutMs===3000));
+  assert.equal(calls.length,2,"visible-card reads retain exactly two bounded database requests");
   assert(!calls.some(call=>call.path.includes("revision,fixtures")),"normal visible-card reads must not fetch full source JSON");
+
+  const legacyStore=createSnapshotStore({request:async path=>{if(path.includes('/rpc/'))throw Object.assign(new Error('not migrated'),{status:404});return [{source_id:'test',fixtures:[{id:'race'}],discovery_report:{status:'partial',_fixtureObservations:{race:{s:'private'}}}}];}});
+  const legacyRows=await legacyStore.read({ids:['race']});assert.equal(legacyRows[0].discovery_report.status,'partial');assert(!JSON.stringify(legacyRows).includes('_fixtureObservations'),'compatibility fallback also hides verification receipts');
 
   const source=read("lib/live-fixtures.js");
   const handler=read("lib/live-fixture-handler.js");

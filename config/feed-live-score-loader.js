@@ -6,7 +6,7 @@ function installFeedLiveScore(card,event){
   const render=()=>globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(card,event,{resultsOn:userPreferences.showSpoilers,label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null});
   if(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES){render();return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
-  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=356').then(()=>loadDeferredScript('config/feed-live-scores.js?v=374')).catch(error=>{feedLiveScoreLoading=null;throw error;});
+  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=384').then(()=>loadDeferredScript('config/feed-live-scores.js?v=384')).catch(error=>{feedLiveScoreLoading=null;throw error;});
   void feedLiveScoreLoading.then(()=>{if(card.isConnected&&activeTab==='feed'&&owner===(serverSyncClient?.sessionSubject()||'public'))render();}).catch(()=>{});
 };
 

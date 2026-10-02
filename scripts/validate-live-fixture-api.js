@@ -40,6 +40,12 @@ async function main(){
   res=response();await athleteHandler({url:'/api/fixtures?athlete=competitor%3Af1%3Ageorge-russell',headers:{}},res);
   assert.equal(res.body.schemaVersion,'athlete-participation-live.v1');assert.deepEqual(res.body.history,[],'retired AI athlete entries must not surface in profiles');
   assert(!res.body.sources,'profile lookup does not download every fixture');
+  // Representation validators include genuine fixture verification, not collection polls.
+  let verified='2026-09-24T12:00:00Z',collection='2026-09-24T12:00:00Z';
+  const observedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],clock:()=>new Date('2026-09-24T12:00:00Z'),read:async()=>({revision:'unchanged-facts',stale:false,sources:[{source_id:'test',checked_at:collection,fixtures:[{id:'observed',key:'nrl',status:'live',fixtureObservationSchema:'fixture-observations.v1',scoreCheckedAt:verified,statusCheckedAt:verified,homeScore:0,awayScore:0}]}]})});
+  res=response();await observedHandler({url:'/api/fixtures?ids=observed',headers:{}},res);const original=res.body.revision;
+  collection='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,304,'collection-only check does not manufacture a new fixture observation');
+  verified='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,200,'new genuine verification must reach clients despite unchanged fact revision');assert.notEqual(res.body.revision,original);
   console.log("Live fixture API: public read, revision validator, protected POST and safe failure passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

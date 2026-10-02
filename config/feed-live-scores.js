@@ -9,7 +9,7 @@
   else if(score.sets?.length||score.games){const sides=[snapshot.homeParticipantId,snapshot.awayParticipantId].map(id=>id&&name(id));text=(sides.every(Boolean)?sides.join(' / ')+': ':'')+(score.sets||[]).map(s=>`${s.home??'—'}–${s.away??'—'}`).join('  ')+(score.games?` · Games ${score.games.home??'—'}–${score.games.away??'—'}`:'');}
   else if(score.home!=null&&score.away!=null)text=`${snapshot.homeParticipantId&&name(snapshot.homeParticipantId)||'Home'} ${score.home} · ${snapshot.awayParticipantId&&name(snapshot.awayParticipantId)||'Away'} ${score.away}`;
   if(!text)return null;
-  const stamp=Date.parse(snapshot.scoreCheckedAt||snapshot.checkedAt||''),fresh=Number.isFinite(stamp)&&stamp<=now&&now-stamp<=model.interval(event,now)*2&&!event.stale;
+  const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),fresh=Number.isFinite(stamp)&&stamp<=now&&now-stamp<=model.interval(event,now)*2&&!event.stale;
   const status=model.final(event)?'Finished':fresh&&/^(live|in-progress)$/.test(event.status)?'Live':model.interrupted(event)?String(event.status).replace(/-/g,' '):'Last available score';
   return {text,status,stale:!fresh,checkedAt:Number.isFinite(stamp)?new Date(stamp).toISOString():null};
  }

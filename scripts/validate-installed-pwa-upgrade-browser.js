@@ -15,6 +15,13 @@ async function assertCachedFootballStatus(page){
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
   },footballStatusFixture);
   assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
+  const compactObservation=await page.evaluate(()=>{
+    const marker='fixture-observations.v1',prior={id:'offline-correction',key:'nrl',status:'completed',homeScore:1,awayScore:0,sourceCheckedAt:'2026-09-24T13:00:00Z'};
+    const corrected=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays([prior],[{...prior,homeScore:2,fixtureObservationSchema:marker,scoreCheckedAt:'2026-09-24T14:00:00Z',statusCheckedAt:'2026-09-24T14:00:00Z'}])[0];
+    const unknown=NOTHINGSPORTS_MATCH_CENTRE.compact({...corrected,status:'live',scoreCheckedAt:null,statusCheckedAt:'2026-09-24T15:00:00Z'});
+    return {home:corrected.homeScore,away:corrected.awayScore,unknownClock:unknown.checkedAt,unknownStale:unknown.stale};
+  });
+  assert.deepEqual(compactObservation,{home:2,away:0,unknownClock:null,unknownStale:true},'upgraded/offline shared and deferred modules preserve corrected finals and unknown score freshness');
   const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
   assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
   const tournamentPhase=await page.evaluate(()=>{

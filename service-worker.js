@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v383";
-const SHELL_VERSION = "383";
+const CACHE_NAME = "nothingsport-shell-v384";
+const SHELL_VERSION = "384";
 const APP_SHELL = [
   "/assets/js/follow-presentation-ui.js?v=380",
   "/assets/identities/wrc/routes/sardegna-2026.svg",
@@ -52,7 +52,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=383",
+  "/assets/js/app-shell-runtime.js?v=384",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
@@ -82,8 +82,8 @@ const APP_SHELL = [
   "/config/event-overviews-ui.js?v=376",
   "/config/surface-category-ui.js?v=340",
   "/assets/styles/match-centre.css?v=340",
-  "/config/match-centre.js?v=356",
-  "/config/feed-live-scores.js?v=374",
+  "/config/match-centre.js?v=384",
+  "/config/feed-live-scores.js?v=384",
   "/config/feed-live-score-loader.js?v=375",
   "/config/athletes.js?v=379",
   "/assets/js/athletes-ui.js?v=379",
