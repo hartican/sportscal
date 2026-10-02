@@ -116,7 +116,14 @@ const unresolvedPublishedCards = events.filter(event => !require("../config/cove
 const unconfirmedGrandTourRights=event=>['tdf','giro','vuelta'].includes(event.key)&&event.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&/^https:\/\/(?:www\.)?(?:letour.fr|giroditalia.it|lavuelta.es)\//.test(event.calendarProvenance?.sourceUrl||'');
 const unconfirmedWslRights=event=>event.key==='wsl'&&event.competitionId==='competition:wsl-championship-tour'&&event.broadcaster==='Broadcast TBC'&&event.calendarProvenance?.sourceUrl==='https://www.worldsurfleague.com/events/2026/ct?all=1';
 const unconfirmedSailgpRights=event=>event.key==='sailgp'&&event.season==='2027'&&event.date?.startsWith('2027-')&&event.broadcaster==='Broadcast TBC'&&event.calendarProvenance?.sourceUrl==='https://sailgp.com/general/2027/calendar/';
-assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
+const reviewedMajorRounds=new Map(require('../data/canonical/golf-major-rounds.v1.json').events.map(event=>[event.id,event]));
+const unconfirmedMajorRights=event=>{
+  const reviewed=reviewedMajorRounds.get(event.canonicalEventId);
+  return event.key==='golf'&&event.golfMajorCalendar===true&&event.cardType==='golf_session'&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&reviewed
+    &&event.date===reviewed.date&&event.name===reviewed.name&&event.venueConfigurationId===reviewed.venueConfigurationId
+    &&event.calendarProvenance?.sourceUrl===reviewed.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===reviewed.calendarProvenance.checkedAt;
+};
+assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
 const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
 if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
