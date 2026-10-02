@@ -14,6 +14,7 @@ const html=fs.readFileSync('admin.html','utf8'),styles=[...html.matchAll(/<style
  window.editorialCommands=[];
  await NOTHINGSPORTS_ADMIN_EDITORIAL_UI.mount(document.querySelector('main'),{commsRequest:async command=>{
  if(command.action==='editorial-list')return {horizon:{from:'2026-10-02',to:'2026-10-16'},cards};
+ if(window.editorialFailure)throw Error(window.editorialFailure);
  window.editorialCommands.push(command);const card=cards.find(c=>c.id===command.eventId);return {state:{...card.state,revision:card.state.revision+1,held:command.held??false,pending_copy:command.copy??null}};
  }});
  },cards);
@@ -21,6 +22,12 @@ const html=fs.readFileSync('admin.html','utf8'),styles=[...html.matchAll(/<style
  assert.equal(await city.locator('textarea').count(),4);await city.locator('[data-editorial-field="hook"]').fill('A queued owner Hook');await city.locator('[data-editorial-save]').click();
  await page.waitForFunction(()=>window.editorialCommands.length===1);assert.equal((await page.evaluate(()=>editorialCommands[0])).expectedRevision,0);
  await city.locator('[data-editorial-hold]').click();await page.waitForFunction(()=>window.editorialCommands.length===2);const hold=await page.evaluate(()=>editorialCommands[1]);assert.equal(hold.expectedRevision,1);assert.equal(hold.held,true);
+ await city.locator('[data-editorial-field="hook"]').fill('Unsaved copy survives the conflict');
+ await page.evaluate(()=>{window.editorialFailure='Editorial revision conflict; reload before saving.';});
+ await city.locator('[data-editorial-save]').click();
+ await page.waitForFunction(()=>document.querySelector('[data-editorial-id="epl-2026-27-128980"] [data-editorial-status]').textContent.includes('reload before saving'));
+ assert.equal(await city.locator('[data-editorial-field="hook"]').inputValue(),'Unsaved copy survives the conflict');
+ assert.equal(await page.evaluate(()=>window.editorialCommands.length),2,'failed save cannot claim a queued edit or advance the revision');
  const nrl=page.locator('[data-editorial-id="evt_84"]');assert.equal(await nrl.locator('textarea:disabled').count(),4);assert(await nrl.locator('[data-editorial-save]').isDisabled());
  console.log(engine+' '+width+'px: full Owner copy, queued save, revision-aware hold and protected NRL passed.');await page.close();
  }

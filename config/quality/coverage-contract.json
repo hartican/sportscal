@@ -10,7 +10,7 @@
     {"id":"rugby-league","codes":["nrl","nrlw"],"carried":true},
     {"id":"motorsport","codes":["motorsport","supercars","wrc","f1","motogp"],"carried":true},
     {"id":"extreme","codes":["extreme"],"carried":false},
-    {"id":"surfing","codes":["surf"],"carried":true},
+    {"id":"surfing","codes":["surf","wsl"],"carried":true,"note":"Reviewed WSL child belongs to the existing Surfing family; calendar coverage does not certify heats, results, viewing or rights."},
     {"id":"rugby-union","codes":["rugby-union"],"carried":true},
     {"id":"tennis","codes":["tennis"],"carried":true},
     {"id":"football","codes":["football","champions-league"],"carried":true},
