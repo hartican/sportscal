@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T18:41:55.145Z",
+  "generatedAt": "2026-10-02T18:50:30.072Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -354,7 +354,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T18:41:55.145Z",
+      "freshAt": "2026-10-02T18:50:30.072Z",
       "parentSportId": "sport:sailing",
       "chunkPath": "data/code-inspector/sailgp.json"
     },

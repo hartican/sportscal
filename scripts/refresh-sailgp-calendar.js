@@ -31,11 +31,11 @@ function eventsFor(document,now=new Date()){
   if(!raceDays.length){const first=r.startDateTime.slice(0,10),last=r.endDateTime.slice(0,10);if(!DATE.test(first)||new Date(last+'T00:00Z')-new Date(first+'T00:00Z')!==86400000)throw Error('Unverified two-day weekend');raceDays.push({date:first,day:1},{date:last,day:2});}
   return raceDays.sort((a,b)=>a.day-b.day).map(d=>{
    const timed=Boolean(d.start),start=timed?new Date(d.start).toISOString():null,timing=timed?local(start):{date:d.date,time:'00:00'};
-   const name=`${r.locationName} Sail Grand Prix`,sourceUrl=d.sourceUrl||doc.sourceUrl;
+   const name=`${r.locationName} Sail Grand Prix`,sourceUrl=d.sourceUrl||doc.sourceUrl,sourceId=`sailgp-calendar-${doc.year}-${v.slug}-day-${d.day}`;
    return {id:`event:sailgp:${doc.year}:${v.slug}-day-${d.day}`,sportKey:'sailgp',codeId:'competition:sailgp',competitionId:'competition:sailgp',season:String(doc.year),name:`${name} — race day ${d.day}`,tournamentName:name,weekendId:`sailgp:${doc.year}:${v.slug}`,roundNumber:Number(String(r.eventLabel||'').match(/\d+/)?.[0])||doc.races.indexOf(r)+1,roundLabel:r.eventLabel||`Event ${doc.races.indexOf(r)+1}`,round:'all',stage:'fleet racing',sessionType:`race-day-${d.day}`,
     ...timing,...(start?{startTimeUtc:start,endTimeUtc:new Date(d.end).toISOString(),endTimeBasis:'official-session-window'}:{}),timeTbc:!timed,timePrecision:timed?'exact':'tbc',status:d.finished?'completed':'upcoming',resultCoverage:'calendar-only',participantIds:[],participantsConfirmed:false,expected:8,liveWindow:2,
     venue:venueVerified?v.name:r.locationName,venueOfficialName:venueVerified?v.name:null,venueVerified,venueCity:v.city,venueCountryCode:v.countryCode,venueSourceUrl:venueVerified?v.sourceUrl:r.ctaLink.replace(/^http:/,'https:'),venueCaption:`Race day ${d.day} • ${doc.year} • Course unverified`,courseGeometryVerified:false,
-    sourceId:`sailgp-calendar-${doc.year}-${v.slug}`,sourceUrl,sourceCheckedAt:doc.checkedAt,scheduleNote:d.note||(!timed?'Published race day; start time and event-specific entries are unconfirmed.':null),calendarProvenance:{sourceUrl:doc.sourceUrl,checkedAt:doc.checkedAt},hook:`Race day ${d.day} at ${r.locationName} in the ${doc.year} SailGP season.`,context:'Published SailGP race-day coverage. Course geometry and event-specific entries remain unverified.'};
+    sourceId,sourceUrl,sourceCheckedAt:doc.checkedAt,...(d.finished?{result:{status:'pending',sourceId,checkedAt:doc.checkedAt}}:{}),scheduleNote:d.note||(!timed?'Published race day; start time and event-specific entries are unconfirmed.':null),calendarProvenance:{sourceUrl:doc.sourceUrl,checkedAt:doc.checkedAt},hook:`Race day ${d.day} at ${r.locationName} in the ${doc.year} SailGP season.`,context:'Published SailGP race-day coverage. Course geometry and event-specific entries remain unverified.'};
   });
  });
 }
@@ -50,7 +50,7 @@ function apply(prior,documents,now=new Date()){
   // Reviewed dates/clocks/results/actions remain authoritative. A changed
   // retained date needs explicit review; do not quietly move user actions.
   if(known.date!==e.date)throw Error('SailGP source date correction requires identity review: '+e.id);
-  return {...known,...Object.fromEntries(fields.filter(k=>e[k]!=null).map(k=>[k,e[k]])),venue:e.venue};
+  return {...known,...Object.fromEntries(fields.filter(k=>e[k]!=null).map(k=>[k,e[k]])),venue:e.venue,...(!known.result&&known.resultCoverage==='calendar-only'&&known.status==='completed'&&e.result?{result:e.result}:{})};
  });
  const ids=new Set(fresh.map(e=>e.id));
  const retained=prior.events.map(e=>ids.has(e.id)?merged.find(n=>n.id===e.id):e);

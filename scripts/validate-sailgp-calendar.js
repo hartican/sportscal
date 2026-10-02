@@ -13,7 +13,7 @@ assert.equal(future.length,20);assert(future.every(e=>e.timeTbc&&!e.startTimeUtc
 assert(!future.some(e=>/grand-final|rio|dubai/.test(e.weekendId)),'outside horizon and unconfirmed finale are not expanded');
 assert.equal(current.find(e=>e.id==='event:sailgp:2026:new-york-day-1').timeTbc,true,'missing historical clock is not inferred from an envelope');
 const next=apply(old,docs,now);assert.deepEqual(next.events.filter(e=>e.sportKey!=='sailgp'),old.events.filter(e=>e.sportKey!=='sailgp'));
-for(const e of old.events.filter(e=>e.sportKey==='sailgp')){const n=next.events.find(n=>n.id===e.id);for(const k of ['id','date','time','timeTbc','startTimeUtc','endTimeUtc','timingProvenance','result','sourceId','sourceCheckedAt','hook','context','participantIds'])assert.deepEqual(n[k],e[k],'retained '+e.id+' '+k);}
+for(const e of old.events.filter(e=>e.sportKey==='sailgp')){const n=next.events.find(n=>n.id===e.id);for(const k of ['id','date','time','timeTbc','startTimeUtc','endTimeUtc','timingProvenance','sourceId','sourceCheckedAt','hook','context','participantIds',...(e.result?['result']:[])])assert.deepEqual(n[k],e[k],'retained '+e.id+' '+k);}
 assert.deepEqual(apply(next,docs,now),next,'identical reviewed rerun does not renew observations');
 const drift=clone(docs);drift[0].races.find(r=>r.locationName==='Dubai').startDateTime='2026-11-20T13:00+04:00';assert.throws(()=>apply(old,drift,now));
 const fresh=cardForEvent(future[0],next,new Map(next.participants.map(p=>[p.id,p])));assert.equal(fresh.participantsConfirmed,false);assert(!fresh.participantIds?.length);
@@ -26,4 +26,11 @@ if(process.argv.includes('--published')){
  for(const file of ['../feeds/incoming/events.json','../data/events.json']){const cards=require(file).events.filter(e=>e.key==='sailgp');assert.equal(cards.length,old.sailgpCalendarCoverage.raceDayCount);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert(cards.every(c=>c.venueCountryCode&&c.venueCaption.includes('Course unverified')));assert(cards.filter(c=>c.season==='2027').every(c=>c.participantsConfirmed===false&&!c.participantIds?.length&&c.timeTbc&&!c.startTimeUtc));}
  const parents=require('../lib/event-overviews').build(require('../data/events.json').events).filter(e=>e.sportKey==='sailgp');assert.equal(parents.length,new Set(old.events.filter(e=>e.sportKey==='sailgp').map(e=>e.weekendId)).size);assert(parents.every(e=>e.fixtureIds.length===2));
 }
+// Use the existing pending-result provenance contract, as MotoGP does. Calendar
+// evidence establishes completion and the unavailable-result notice, no winner.
+const completed=current.filter(e=>e.status==='completed').map(e=>cardForEvent(e,next,new Map()));
+assert(completed.every(e=>e.resultStatus==='pending'&&e.resultSourceUrl&&e.resultSourceCheckedAt&&!e.score&&!e.outcomeText));
+assert(completed.every(e=>e.storyline.hookSpoilerOn==='Result coverage is unavailable for this session.'));
+const checkDir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-sailgp-results-'));
+try{const input=path.join(checkDir,'events.json');fs.writeFileSync(input,JSON.stringify({events:completed}));const run=()=>require('node:child_process').spawnSync(process.execPath,[path.join(__dirname,'verify-result-completeness.js'),input],{encoding:'utf8'});assert.equal(run().status,0,'calendar-only completed days have explicit unavailable-result provenance');delete completed[0].resultSourceUrl;fs.writeFileSync(input,JSON.stringify({events:completed}));assert.equal(run().status,1,'missing provenance still fails the unchanged release gate');}finally{fs.rmSync(checkDir,{recursive:true,force:true});}
 console.log('SailGP: 13 current events / 26 days, 10 future weekends / 20 days, edition/TBC/horizon, stable identities/facts, no future roster inference, fail-before-write and unchanged replay passed.');

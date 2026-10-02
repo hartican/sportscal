@@ -259,6 +259,8 @@ function mergeSailgpCard(card,existing){
   // Calendar/venue presentation cannot overwrite a newer result, observation,
   // researched editorial or saved identity. Unknown future entries stay empty.
   const fields=['venue','venueOfficialName','venueVerified','venueCity','venueCountryCode','venueSourceUrl','venueCaption','courseGeometryVerified','calendarProvenance','season','weekendId','tournamentName','roundNumber','sessionType'];
-  return {...existing,...Object.fromEntries(fields.filter(key=>card[key]!=null).map(key=>[key,card[key]]))};
+  const pending=existing.resultCoverage==='calendar-only'&&existing.status==='completed'&&!existing.resultStatus&&!existing.score&&card.resultStatus==='pending'
+    ?Object.fromEntries(['resultStatus','resultSourceName','resultSourceUrl','resultSourceCheckedAt'].map(key=>[key,card[key]])):{};
+  return {...existing,...Object.fromEntries(fields.filter(key=>card[key]!=null).map(key=>[key,card[key]])),...pending};
 }
 module.exports = { cardForEvent, stableCardId, mergeSailgpCard };

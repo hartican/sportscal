@@ -178779,7 +178779,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_perth_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/perth-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_perth_day_2",
@@ -178887,7 +178890,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_perth_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/perth-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_auckland_day_1",
@@ -178994,7 +179000,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_auckland_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/new-zealand-sail-grand-prix-auckland/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_auckland_day_2",
@@ -179101,7 +179110,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_auckland_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/new-zealand-sail-grand-prix-auckland/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_sydney_day_1",
@@ -179208,7 +179220,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_sydney_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/sydney-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_sydney_day_2",
@@ -179315,7 +179330,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_sydney_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/sydney-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_rio_day_1",
@@ -179422,7 +179440,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_rio_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/rio-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_rio_day_2",
@@ -179529,7 +179550,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_rio_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/rio-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_bermuda_day_1",
@@ -179636,7 +179660,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_bermuda_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/bermuda-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_bermuda_day_2",
@@ -179743,7 +179770,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_bermuda_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/bermuda-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_new_york_day_1",
@@ -179848,7 +179878,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_new_york_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://mediahub.sailgp.com/news/26/havoc-hudson-new-york-delivers-wild-opening-day/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_new_york_day_2",
@@ -179955,7 +179988,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_new_york_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/new-york-sail-grand-prix/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_halifax_day_1",
@@ -180062,7 +180098,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_halifax_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/canada-sail-grand-prix-halifax/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_halifax_day_2",
@@ -180169,7 +180208,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_halifax_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/canada-sail-grand-prix-halifax/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_portsmouth_day_1",
@@ -180276,7 +180318,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_portsmouth_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/great-britain-sail-grand-prix-portsmouth/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_portsmouth_day_2",
@@ -180383,7 +180428,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_portsmouth_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/great-britain-sail-grand-prix-portsmouth/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_sassnitz_day_1",
@@ -180490,7 +180538,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_sassnitz_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/germany-sail-grand-prix-sassnitz/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_sassnitz_day_2",
@@ -180597,7 +180648,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_sassnitz_day_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/germany-sail-grand-prix-sassnitz/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2026_valencia_day_1",
@@ -180704,7 +180758,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_sailgp_2026_valencia_day_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/races/2026/spain-sail-grand-prix-valencia/overview/",
+    "resultSourceCheckedAt": "2026-10-02T18:24:00.000Z"
   },
   {
     "id": "evt_sailgp_2027_hong_kong_day_1",
