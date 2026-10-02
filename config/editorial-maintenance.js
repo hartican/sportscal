@@ -23,7 +23,7 @@
     const checked=state.last_checked_at&&Number.isFinite(Date.parse(state.last_checked_at))?day(state.last_checked_at):null;
     const nextDueDate=checked?plus(checked,cadenceDays):today;
     const pending=Boolean(state.pending_copy);
-    return {date,daysUntil:days,cadenceDays,inWindow,stopped,held:state.held===true,protected:protectedFixture(event),nextDueDate,due:inWindow&&!protectedFixture(event)&&(!state.held||pending)&&(pending||!checked||today>=nextDueDate)};
+    return {date,daysUntil:days,cadenceDays,inWindow,stopped,held:state.held===true,protected:protectedFixture(event),nextDueDate,due:inWindow&&!protectedFixture(event)&&state.held!==true&&(pending||!checked||today>=nextDueDate)};
   }
   return Object.freeze({DAY,fields,day,plus,ids,protectedFixture,eligibility,copy,equalCopy,schedule});
 });
