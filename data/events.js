@@ -71068,8 +71068,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v New Zealand",
     "displayTitleCompact": "Australia v New Zealand",
     "date": "2026-10-17",
-    "time": "15:45",
-    "startTimeUtc": "2026-10-17T04:45:00.000Z",
+    "time": "16:00",
+    "startTimeUtc": "2026-10-17T05:00:00.000Z",
     "broadcaster": "Nine / 9Now / Stan Sport",
     "broadcastOptions": [],
     "expected": 10,
@@ -71091,12 +71091,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       {
         "name": "Wallabies",
         "role": "home",
-        "id": ""
+        "id": "team:rugby:wallabies"
       },
       {
         "name": "New Zealand",
         "role": "away",
-        "id": ""
+        "id": "team:rugby:all-blacks"
       }
     ],
     "storyline": {
@@ -71213,9 +71213,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "canonicalEventId": "rugby-australia-new-zealand-2026-10-17",
     "sourceEventIds": [
-      "rugby-australia-new-zealand-2026-10-17"
+      "rugby-australia-new-zealand-2026-10-17",
+      "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+      "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+      "fixture:rugby:ra:949627",
+      "fixture-rugby-ra-949627"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "timingProvenance": {
+      "kind": "official",
+      "checkedAt": "2026-10-02T08:24:46.814Z",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949627"
+    }
   },
   {
     "id": "event-aflw-cd_m20262641004",

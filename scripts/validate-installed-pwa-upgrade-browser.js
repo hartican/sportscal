@@ -28,6 +28,12 @@ async function assertCachedFootballStatus(page){
   assert.equal(abandoned.observation,'abandoned','upgraded/offline deferred Match Centre accepts the official abandonment correction');
   const rugby=await page.evaluate(f=>{const normalized=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(f);const oldRatings=ratings;try{ratings={[f.id]:5};return {id:normalized.id,start:normalized.startTimeUtc,scoreCheckedAt:normalized.scoreCheckedAt,rating:getActual('rugby-australia-south-africa-2026-09-27')};}finally{ratings=oldRatings;}},require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby);
   assert.equal(rugby.id,'rugby-australia-south-africa-2026-09-27');assert.equal(rugby.start,'2026-09-27T09:45:00.000Z');assert.equal(rugby.rating,5,'cached runtime reads the old saved Rugby rating');assert.equal(rugby.scoreCheckedAt,require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby.scoreCheckedAt,'cached host timing never refreshes score facts');
+  const futureRugby=await page.evaluate(async()=>{
+    const d=await(await fetch('/data/code-inspector/rugby-union.json')).json();const id='rugby-australia-new-zealand-2026-10-17',old='fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8';
+    const fixtures=d.fixtures.filter(f=>NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(f.id)===id);const f=fixtures[0];
+    return {count:fixtures.length,id:f.id,start:f.startTimeUtc,time:f.time,checkedAt:f.timingProvenance?.checkedAt,legacy:NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(old),providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId)};
+  });
+  assert.deepEqual(futureRugby,{count:1,id:'rugby-australia-new-zealand-2026-10-17',start:'2026-10-17T05:00:00.000Z',time:'16:00',checkedAt:'2026-10-02T08:24:46.814Z',legacy:'rugby-australia-new-zealand-2026-10-17',providers:['nine-tv','nine','stan']},'upgraded/offline cached future Bledisloe uses one reviewed identity and original host observation');
   const motoAssets=require('../assets/identities/motogp/asset-manifest.json').assets.map(a=>a.path).concat('assets/identities/motogp/motorcycle-white.svg');
   const motoOffline=await page.evaluate(async paths=>Promise.all(paths.map(async path=>{const r=await fetch('/'+path);const source=await r.text();return r.ok&&source.includes('<svg')&&!source.includes('<image');})),motoAssets);
   assert(motoOffline.every(Boolean),'every MotoGP vector must remain available in the installed/offline shell');

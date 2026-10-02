@@ -62693,8 +62693,8 @@
       "name": "Australia v New Zealand",
       "displayTitleCompact": "Australia v New Zealand",
       "date": "2026-10-17",
-      "time": "15:45",
-      "startTimeUtc": "2026-10-17T04:45:00Z",
+      "time": "16:00",
+      "startTimeUtc": "2026-10-17T05:00:00.000Z",
       "broadcaster": "Stan Sport",
       "broadcastOptions": [
         "Stan Sport"
@@ -62794,6 +62794,12 @@
         "refreshAfter": "2026-10-10T12:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
+      },
+      "timePrecision": "exact",
+      "timingProvenance": {
+        "kind": "official",
+        "checkedAt": "2026-10-02T08:24:46.814Z",
+        "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949627"
       }
     },
     {

@@ -1,0 +1,2424 @@
+{
+  "columns": [
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "canonical_fixture_id",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "fixture_snapshot",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "room_name",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "created_by",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "status",
+      "default_value": "'open'::text"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "closed_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "closed_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "purge_at",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "guest_share_enabled",
+      "default_value": "false"
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "guest_share_version",
+      "default_value": "0"
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "guest_share_nonce",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "guest_share_enabled_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "guest_share_disabled_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_chat_rooms",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "version",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "cutoff",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "mean",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": false,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "benchmark",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "voter_count",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_receipts",
+      "column_name": "result",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_votes",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_votes",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_votes",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_votes",
+      "column_name": "recorded_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "device_hash",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "campaign_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "joined_at",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": false,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "rated_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_fixture_participation",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "recipient_user_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "rater_user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "created_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "alert_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "recipient_user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "kind",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "source_key",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "actor_user_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "room_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "points",
+      "default_value": "0"
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "message_count",
+      "default_value": "0"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "group_open",
+      "default_value": "false"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "created_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "activity_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_inbox",
+      "column_name": "version",
+      "default_value": "1"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "read_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "surfaced_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "title",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_inbox",
+      "column_name": "detail",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "recipient_user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "ready_at",
+      "default_value": "(now() + '00:05:00'::interval)"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "completed_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "campaign_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "source_revision",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "campaign_revision",
+      "default_value": "1"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "content_hash",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "state",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "candidate",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "draft_copy",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "approved_copy",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "proposed_send_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "approved_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "approved_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "exported_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "exported_at",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "export_snapshot",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "export_format",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "export_stale",
+      "default_value": "false"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "scheduled_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "published_at",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "correction_required",
+      "default_value": "false"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "late",
+      "default_value": "false"
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "live_published_snapshot",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "live_published_revision",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "live_published_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "live_published_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "posted_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_marquee_campaigns",
+      "column_name": "snoozed_until",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_completed_fixtures",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_completed_fixtures",
+      "column_name": "confirmed_end",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "contribution_id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "bucket_start",
+      "default_value": "'1970-01-01 00:00:00+00'::timestamp with time zone"
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "text[]",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "tags",
+      "default_value": "'{}'::text[]"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "submitted_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "scoring_version",
+      "default_value": "'votes.v1'::text"
+    },
+    {
+      "type": "smallint",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_contributions",
+      "column_name": "maximum_points",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "bigint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "revision_id",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "prediction",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "outcome",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "outcome_count",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "benchmark",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "error",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "improvement",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "bonus",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "result",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_foresight_settlements",
+      "column_name": "settled_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "active",
+      "default_value": "true"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_likes",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "status",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "effective_start_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "effective_end_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "activated_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "activated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "stopped_at",
+      "default_value": null
+    },
+    {
+      "type": "numeric(3,2)",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "frozen_pulse_mean",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "frozen_pulse_contributors",
+      "default_value": null
+    },
+    {
+      "type": "numeric(3,2)",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "impact_seed",
+      "default_value": null
+    },
+    {
+      "type": "numeric(4,2)",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "impact_seed_weight",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "pulse_frozen_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_marquee_sessions",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "ledger_id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "action_key",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "points",
+      "default_value": null
+    },
+    {
+      "type": "date",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "sydney_day",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "awarded_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "sport",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_points",
+      "column_name": "identity_reconciled_into",
+      "default_value": null
+    },
+    {
+      "type": "bigint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "recorded_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "starts_at",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "crowd_average",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "crowd_count",
+      "default_value": "0"
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "forecast",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "forecast_version",
+      "default_value": null
+    },
+    {
+      "type": "numeric",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_prediction_revisions",
+      "column_name": "benchmark",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_presence",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_presence",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_presence",
+      "column_name": "watching_started_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_presence",
+      "column_name": "last_heartbeat_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_presence",
+      "column_name": "heartbeat_count",
+      "default_value": "1"
+    },
+    {
+      "type": "bigint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "recorded_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_prediction_rules",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_prediction_rules",
+      "column_name": "version",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_prediction_rules",
+      "column_name": "completed_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_prediction_rules",
+      "column_name": "cutoff",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_prediction_rules",
+      "column_name": "settled_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "created_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "updated_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_predictions",
+      "column_name": "result",
+      "default_value": "'pending'::text"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_predictions",
+      "column_name": "matched_user_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_predictions",
+      "column_name": "resolved_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "fixture_id",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "aliases",
+      "default_value": "'[]'::jsonb"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "choice",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "enabled",
+      "default_value": "false"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "state_revision",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "chosen_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminder_intents",
+      "column_name": "checked_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "installation_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "title",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "starts_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "remind_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "viewing_url",
+      "default_value": null
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "fallback_to_broadcast",
+      "default_value": "false"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "dispatched_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "claimed_at",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "attempts",
+      "default_value": "0"
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "last_error",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "delivery_mode",
+      "default_value": "'match-15'::text"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "schedule_checked_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "schedule_state",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "schedule_starts_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "reminder_origin",
+      "default_value": "'manual'::text"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_reminders",
+      "column_name": "timing_precision",
+      "default_value": "'exact'::text"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "late_published_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_reminders",
+      "column_name": "delivery_started_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "saved_media_id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "owner_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "source_attachment_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "room_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "file_name",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "content_type",
+      "default_value": null
+    },
+    {
+      "type": "bigint",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "byte_size",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "storage_bucket",
+      "default_value": "'nothingsports-saved-game-media'::text"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "object_path",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "source_metadata",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_saved_game_media",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "sport",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "gender",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "starts_at",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "ends_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_score_fixtures",
+      "column_name": "status",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_score_votes",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_score_votes",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_score_votes",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_score_votes",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_score_votes",
+      "column_name": "recorded_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "user_id",
+      "default_value": "auth.uid()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "schema_version",
+      "default_value": "'user-state.v2'::text"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "profile",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "preferences",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "event_user_state",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "event_spoiler_state",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "archived_events",
+      "default_value": "'[]'::jsonb"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "ratings",
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_user_state",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    }
+  ],
+  "checkedAt": "2026-10-02T10:39:43.931014+00:00",
+  "functions": [
+    {
+      "args": "",
+      "schema": "nothingsports_recovery",
+      "proname": "alias_guard_v1",
+      "definition": "CREATE OR REPLACE FUNCTION nothingsports_recovery.alias_guard_v1()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$ begin new.event_id := nothingsports_recovery.fixture_alias_v1(new.event_id); if tg_table_name='nothingsports_nsc_points' and tg_op='INSERT' then if exists(select 1 from public.nothingsports_nsc_points p where p.user_id=new.user_id and nothingsports_recovery.fixture_alias_v1(p.event_id)=new.event_id and p.action_key=new.action_key) then return null; end if; end if; return new; end $function$\n"
+    },
+    {
+      "args": "value text",
+      "schema": "nothingsports_recovery",
+      "proname": "fixture_alias_v1",
+      "definition": "CREATE OR REPLACE FUNCTION nothingsports_recovery.fixture_alias_v1(value text)\n RETURNS text\n LANGUAGE sql\n IMMUTABLE\n SET search_path TO ''\nAS $function$\n select coalesce($aliases${\"fixture:cricket:CA:40593\":\"fixture:cricket:espn:1525658\",\"fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6\":\"rugby-new-zealand-australia-2026-10-10\",\"evt_87\":\"fixture:cricket:espn:1525659\",\"evt_88\":\"fixture:cricket:espn:1525660\",\"evt_89\":\"fixture:cricket:espn:1525661\",\"fixture-cricket-espn-1525658\":\"fixture:cricket:espn:1525658\",\"fixture-cricket-espn-1525659\":\"fixture:cricket:espn:1525659\",\"fixture-cricket-espn-1525660\":\"fixture:cricket:espn:1525660\",\"fixture-cricket-espn-1525661\":\"fixture:cricket:espn:1525661\",\"fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945\":\"rugby-australia-south-africa-2026-09-27\",\"fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945\":\"rugby-australia-south-africa-2026-09-27\",\"fixture:rugby:ra:949625\":\"rugby-australia-south-africa-2026-09-27\",\"fixture-rugby-ra-949625\":\"rugby-australia-south-africa-2026-09-27\"}$aliases$::jsonb->>value,value);\n$function$\n"
+    },
+    {
+      "args": "target_user_id uuid, target_event_id text, target_action_key text, requested_points integer, awarded_time timestamp with time zone DEFAULT now()",
+      "schema": "public",
+      "proname": "nothingsports_nsc_award_points",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_nsc_award_points(target_user_id uuid, target_event_id text, target_action_key text, requested_points integer, awarded_time timestamp with time zone DEFAULT now())\n RETURNS integer\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare award integer;fixture_total integer;day_total integer;begin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n\n perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));\n if requested_points<1 or requested_points>25 or target_event_id='' then return 0;end if;\n if awarded_time<(select started_at from public.nothingsports_score_epoch limit 1) then return 0;end if;\n perform pg_advisory_xact_lock(hashtextextended(target_user_id::text,0));\n if target_action_key in('heat_rating','foresight_bonus') and not exists(select 1 from public.nothingsports_predictions where user_id=target_user_id and event_id=target_event_id) then return 0;end if;\n award:=case target_action_key when 'heat_rating' then 1 when 'foresight_bonus' then 19 else requested_points end;\n if target_action_key not in('heat_rating','foresight_bonus','follow_person','followed_by_person') then\n select coalesce(sum(points),0) into fixture_total from public.nothingsports_nsc_points where user_id=target_user_id and event_id=target_event_id and action_key not in('foresight_bonus','picks_copied','follow_person','followed_by_person');\n select coalesce(sum(points),0) into day_total from public.nothingsports_nsc_points where user_id=target_user_id and sydney_day=(awarded_time at time zone 'Australia/Sydney')::date and action_key not in('foresight_bonus','picks_copied','follow_person','followed_by_person');\n award:=greatest(0,least(award,10-fixture_total,25-day_total));if award=0 then return 0;end if;\n end if;\n insert into public.nothingsports_nsc_points(user_id,event_id,action_key,points,sydney_day,awarded_at,sport)\n values(target_user_id,target_event_id,target_action_key,award,(awarded_time at time zone 'Australia/Sydney')::date,awarded_time,(select sport from public.nothingsports_score_fixtures where event_id=target_event_id)) on conflict do nothing;\n if not found then return 0;end if;return award;\nend $function$\n"
+    },
+    {
+      "args": "target_user_id uuid, target_event_id text, target_rating integer, submitted_time timestamp with time zone DEFAULT now()",
+      "schema": "public",
+      "proname": "nothingsports_nsc_record_unconfirmed_opinion",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_nsc_record_unconfirmed_opinion(target_user_id uuid, target_event_id text, target_rating integer, submitted_time timestamp with time zone DEFAULT now())\n RETURNS jsonb\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare existing public.nothingsports_nsc_contributions%rowtype;\nbegin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n\n  if target_user_id is null or coalesce(target_event_id,'')='' or target_rating not between 1 and 5 then\n    raise exception 'invalid_rating';\n  end if;\n  perform pg_advisory_xact_lock(hashtextextended(target_user_id::text,0));\n  select * into existing from public.nothingsports_nsc_contributions\n    where event_id=target_event_id and user_id=target_user_id and phase='heat'\n      and bucket_start='1970-01-01T00:00:00Z'::timestamptz for update;\n  if found then\n    if existing.rating<>target_rating then raise exception 'nsc_already_submitted'; end if;\n    return jsonb_build_object('eventId',target_event_id,'phase','heat','rating',existing.rating,\n      'submitted',true,'submittedAt',existing.submitted_at,'pointsAwarded',0,'replayed',true,\n      'foresightEligible',false,'timingUnconfirmed',true);\n  end if;\n  insert into public.nothingsports_nsc_contributions(\n    event_id,user_id,phase,bucket_start,rating,tags,submitted_at,created_at,updated_at\n  ) values(target_event_id,target_user_id,'heat','1970-01-01T00:00:00Z',target_rating,'{}',\n    coalesce(submitted_time,now()),coalesce(submitted_time,now()),coalesce(submitted_time,now()));\n  return jsonb_build_object('eventId',target_event_id,'phase','heat','rating',target_rating,\n    'submitted',true,'submittedAt',coalesce(submitted_time,now()),'pointsAwarded',0,'replayed',false,\n    'foresightEligible',false,'timingUnconfirmed',true);\nend $function$\n"
+    },
+    {
+      "args": "target_user_id uuid, target_event_id text, target_phase text, target_rating integer, target_tags text[] DEFAULT '{}'::text[], submitted_time timestamp with time zone DEFAULT now()",
+      "schema": "public",
+      "proname": "nothingsports_nsc_submit_rating",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_nsc_submit_rating(target_user_id uuid, target_event_id text, target_phase text, target_rating integer, target_tags text[] DEFAULT '{}'::text[], submitted_time timestamp with time zone DEFAULT now())\n RETURNS TABLE(event_id text, phase text, rating smallint, tags text[], submitted_at timestamp with time zone, points_awarded integer, replayed boolean)\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare\n  existing public.nothingsports_nsc_contributions%rowtype;\n  normalized_tags text[];\n  rating_points integer:=0;\n  tag_points integer:=0;\n  effective_time timestamptz:=coalesce(submitted_time,now());\nbegin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n\n  if target_user_id is null or coalesce(target_event_id,'')='' or target_phase is null or target_phase not in ('heat','impact') or target_rating is null or target_rating not between 1 and 5 then\n    raise exception using errcode='22023',message='invalid_nsc_submission';\n  end if;\n\n  select coalesce(array_agg(item order by item),'{}'::text[])\n  into normalized_tags\n  from (\n    select distinct item\n    from unnest(coalesce(target_tags,'{}'::text[])) as expanded(item)\n    where item is not null and item<>''\n  ) distinct_tags;\n\n  if cardinality(normalized_tags)>3\n    or (target_rating<4 and cardinality(normalized_tags)>0)\n    or (target_phase='heat' and not (normalized_tags <@ array['Box office','Big stakes','Rivalry','Star power','National interest','Great storyline']::text[]))\n    or (target_phase='impact' and not (normalized_tags <@ array['Thrilling','Eye-popping','Mind-blowing','Emotional','Electric atmosphere','Pure chaos']::text[]))\n  then\n    raise exception using errcode='22023',message='invalid_nsc_submission';\n  end if;\n\n  perform pg_advisory_xact_lock(hashtextextended(target_user_id::text,0));\n  select contribution.* into existing\n  from public.nothingsports_nsc_contributions contribution\n  where contribution.event_id=target_event_id\n    and contribution.user_id=target_user_id\n    and contribution.phase=target_phase\n    and contribution.bucket_start='1970-01-01T00:00:00Z'::timestamptz\n  for update;\n\n  if found then\n    if existing.rating<>target_rating\n      or not (coalesce(existing.tags,'{}'::text[]) <@ normalized_tags)\n      or not (normalized_tags <@ coalesce(existing.tags,'{}'::text[]))\n    then\n      raise exception using errcode='P0001',message='nsc_already_submitted';\n    end if;\n    select coalesce(sum(point.points),0)::integer into points_awarded\n    from public.nothingsports_nsc_points point\n    where point.user_id=target_user_id\n      and point.event_id=target_event_id\n      and point.action_key in (target_phase||'_rating',target_phase||'_valid_tags');\n    return query select existing.event_id,existing.phase,existing.rating,existing.tags,existing.submitted_at,points_awarded,true;\n    return;\n  end if;\n\n  insert into public.nothingsports_nsc_contributions(\n    event_id,user_id,phase,bucket_start,rating,tags,submitted_at,created_at,updated_at\n  ) values(\n    target_event_id,target_user_id,target_phase,'1970-01-01T00:00:00Z',target_rating,normalized_tags,effective_time,effective_time,effective_time\n  ) returning * into existing;\n\n  rating_points:=public.nothingsports_nsc_award_points(\n    target_user_id,target_event_id,target_phase||'_rating',case when target_phase='heat' then 2 else 3 end,effective_time\n  );\n  if cardinality(normalized_tags)>0 then\n    tag_points:=public.nothingsports_nsc_award_points(\n      target_user_id,target_event_id,target_phase||'_valid_tags',1,effective_time\n    );\n  end if;\n  points_awarded:=rating_points+tag_points;\n  return query select existing.event_id,existing.phase,existing.rating,existing.tags,existing.submitted_at,points_awarded,false;\nend;\n$function$\n"
+    },
+    {
+      "args": "target_user_id uuid, target_event_id text, target_phase text, target_rating integer, fixture_start timestamp with time zone, fixture_end timestamp with time zone, fixture_status text, fixture_sport text, fixture_gender text DEFAULT NULL::text",
+      "schema": "public",
+      "proname": "nothingsports_rate_v2",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_rate_v2(target_user_id uuid, target_event_id text, target_phase text, target_rating integer, fixture_start timestamp with time zone, fixture_end timestamp with time zone, fixture_status text, fixture_sport text, fixture_gender text DEFAULT NULL::text)\n RETURNS jsonb\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare ts timestamptz:=clock_timestamp();expected text;award integer:=0;prior integer;begin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n if target_event_id='rugby-australia-south-africa-2026-09-27' then fixture_start:='2026-09-27T09:45:00Z'::timestamptz;end if;\n\n if target_rating not between 1 and 5 or target_phase not in('heat','pulse','impact') or target_user_id is null then raise exception 'invalid_rating';end if;\n if exists(select 1 from public.nothingsports_nsc_personas where user_id=target_user_id and moderation_flag) then raise exception 'profile_moderated';end if;\n expected:=case when fixture_status in('cancelled','canceled','abandoned','postponed') then null when fixture_status in('completed','finished','final') then 'impact' when fixture_status in('live','inprogress','in_progress','in-progress') then 'pulse' when fixture_start is null or ts<fixture_start then 'heat' when ts<fixture_end then 'pulse' else 'impact' end;\n if expected is null or expected<>target_phase then raise exception 'phase_action_mismatch';end if;\n\n perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));\n perform pg_advisory_xact_lock(hashtextextended('fixture:'||target_event_id,0));\n insert into public.nothingsports_score_fixtures values(target_event_id,fixture_sport,fixture_gender,fixture_start,fixture_end,fixture_status)\n on conflict(event_id) do update set sport=excluded.sport,gender=excluded.gender,starts_at=excluded.starts_at,ends_at=excluded.ends_at,status=excluded.status;\n select rating into prior from public.nothingsports_nsc_contributions where user_id=target_user_id and event_id=target_event_id and phase=target_phase order by updated_at desc limit 1;\n if prior=target_rating and not exists(select 1 from public.nothingsports_score_votes where user_id=target_user_id and event_id=target_event_id and phase=target_phase) then\n return jsonb_build_object('eventId',target_event_id,'phase',target_phase,'rating',target_rating,'submitted',true,'pointsAwarded',0,'replayed',true);end if;\n if target_phase='heat' then\n insert into public.nothingsports_predictions(user_id,event_id,rating,created_at,updated_at,result) values(target_user_id,target_event_id,target_rating,ts,ts,case when fixture_start is null then 'unscored' else 'pending' end)\n on conflict(user_id,event_id) do update set rating=excluded.rating,updated_at=excluded.updated_at,result=excluded.result where nothingsports_predictions.result in('pending','unscored');end if;\n insert into public.nothingsports_score_votes values(target_user_id,target_event_id,target_phase,target_rating,ts) on conflict do nothing;\n insert into public.nothingsports_nsc_contributions(event_id,user_id,phase,bucket_start,rating,tags,submitted_at,updated_at,scoring_version,maximum_points)\n values(target_event_id,target_user_id,target_phase,'1970-01-01',target_rating,'{}',ts,ts,'anticipation.v2',case when target_phase='heat' then 20 else 2 end) on conflict(event_id,user_id,phase,bucket_start) do update set rating=excluded.rating,updated_at=excluded.updated_at,scoring_version=excluded.scoring_version,maximum_points=excluded.maximum_points;\n award:=public.nothingsports_nsc_award_points(target_user_id,target_event_id,case when target_phase='pulse' then 'pulse_participation' else target_phase||'_rating' end,case when target_phase='heat' then 1 else 2 end,ts);\n if target_phase<>'heat' then perform public.nothingsports_resolve_predictions(target_event_id);end if;\n return jsonb_build_object('eventId',target_event_id,'phase',target_phase,'rating',target_rating,'submitted',true,'submittedAt',ts,'pointsAwarded',award,'basePointsAwarded',award,'foresightEligible',target_phase='heat' and fixture_start is not null);\nend $function$\n"
+    },
+    {
+      "args": "target_event_id text, confirmed_end timestamp with time zone DEFAULT NULL::timestamp with time zone, final_status text DEFAULT NULL::text",
+      "schema": "public",
+      "proname": "nothingsports_resolve_predictions",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_resolve_predictions(target_event_id text, confirmed_end timestamp with time zone DEFAULT NULL::timestamp with time zone, final_status text DEFAULT NULL::text)\n RETURNS integer\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare r public.nothingsports_prediction_rules;p record;n integer;avg_rating numeric;answer integer;outcome text;total integer:=0;begin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n\n perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));\n perform pg_advisory_xact_lock(hashtextextended('fixture:'||target_event_id,0));\n select * into r from public.nothingsports_prediction_rules where event_id=target_event_id;\n if r.version is distinct from 'consensus.v1' then return public.nothingsports_resolve_predictions_legacy(target_event_id,confirmed_end,final_status);end if;\n if final_status in('completed','finished','final','cancelled','canceled','abandoned') then\n  update public.nothingsports_score_fixtures set status=final_status,ends_at=coalesce(r.completed_at,confirmed_end,clock_timestamp()) where event_id=target_event_id;\n  select * into r from public.nothingsports_prediction_rules where event_id=target_event_id;\n end if;\n if r.settled_at is not null then return 0;end if;\n if r.cutoff is null or clock_timestamp()<r.cutoff then return 0;end if;\n for p in select x.*,f.starts_at,f.status from public.nothingsports_predictions x join public.nothingsports_score_fixtures f using(event_id) where x.event_id=target_event_id and x.result='pending' loop\n  select count(*),avg(v.rating) into n,avg_rating from public.nothingsports_consensus_votes v where v.event_id=target_event_id and v.user_id<>p.user_id\n   and v.recorded_at between r.completed_at and r.cutoff and not exists(select 1 from public.nothingsports_nsc_personas m where m.user_id=v.user_id and m.moderation_flag);\n  answer:=round(avg_rating)::integer;\n  outcome:=case when p.status in('cancelled','canceled','abandoned') then 'cancelled' when p.starts_at is null or p.updated_at>=p.starts_at or n=0 then 'unscored' when answer=p.rating then 'success' else 'miss' end;\n  update public.nothingsports_predictions set result=outcome,resolved_at=clock_timestamp() where user_id=p.user_id and event_id=target_event_id;\n  insert into public.nothingsports_consensus_receipts values(target_event_id,p.user_id,r.version,r.cutoff,avg_rating,answer,n,outcome) on conflict do nothing;\n  -- Existing points -> inbox trigger creates the successful reward receipt atomically.\n  if outcome='success' then perform public.nothingsports_nsc_award_points(p.user_id,target_event_id,'foresight_bonus',19);total:=total+1;\n  else insert into public.nothingsports_inbox(recipient_user_id,kind,source_key,event_id,title,detail)\n   values(p.user_id,'system','consensus:'||target_event_id,target_event_id,'Anticipation rating settled','Open your rewards for the outcome. Participation points are retained.') on conflict(recipient_user_id,source_key) do nothing;\n  end if;\n end loop;\n update public.nothingsports_prediction_rules set settled_at=clock_timestamp() where event_id=target_event_id;\n return total;\nend $function$\n"
+    },
+    {
+      "args": "target_event_id text, confirmed_end timestamp with time zone DEFAULT NULL::timestamp with time zone, final_status text DEFAULT NULL::text",
+      "schema": "public",
+      "proname": "nothingsports_resolve_predictions_legacy",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_resolve_predictions_legacy(target_event_id text, confirmed_end timestamp with time zone DEFAULT NULL::timestamp with time zone, final_status text DEFAULT NULL::text)\n RETURNS integer\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare p record;peer uuid;has_peer boolean;total integer:=0;deadline timestamptz;begin\n -- reviewed-fixture-rpc-identity-v1\n target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);\n\n perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));\n perform pg_advisory_xact_lock(hashtextextended('fixture:'||target_event_id,0));\n if final_status in('completed','finished','final','cancelled','canceled','abandoned') and confirmed_end is not null then\n update public.nothingsports_score_fixtures set ends_at=confirmed_end,status=final_status where event_id=target_event_id;\n end if;\n select ends_at+interval '48 hours' into deadline from public.nothingsports_score_fixtures where event_id=target_event_id and status in('completed','finished','final','cancelled','canceled','abandoned');\n for p in select x.*,f.starts_at,f.status from public.nothingsports_predictions x join public.nothingsports_score_fixtures f using(event_id) where x.event_id=target_event_id and x.result='pending' and x.updated_at<f.starts_at loop\n if p.status in('cancelled','canceled','abandoned') then\n update public.nothingsports_predictions set result='cancelled',resolved_at=clock_timestamp() where user_id=p.user_id and event_id=target_event_id;continue;end if;\n select v.user_id into peer from public.nothingsports_score_votes v where v.event_id=target_event_id and v.user_id<>p.user_id and v.phase in('pulse','impact') and v.rating=p.rating and v.recorded_at>=p.starts_at and (deadline is null or v.recorded_at<=deadline)\n and not exists(select 1 from public.nothingsports_nsc_personas m where m.user_id=v.user_id and m.moderation_flag) order by v.recorded_at limit 1;\n if peer is not null then\n update public.nothingsports_predictions set result='success',matched_user_id=peer,resolved_at=clock_timestamp() where user_id=p.user_id and event_id=target_event_id;\n perform public.nothingsports_nsc_award_points(p.user_id,target_event_id,'foresight_bonus',19);total:=total+1;\n elsif deadline is not null and clock_timestamp()>=deadline then\n select exists(select 1 from public.nothingsports_score_votes v where v.event_id=target_event_id and v.user_id<>p.user_id and v.phase in('pulse','impact') and v.recorded_at between p.starts_at and deadline and not exists(select 1 from public.nothingsports_nsc_personas m where m.user_id=v.user_id and m.moderation_flag)) into has_peer;\n update public.nothingsports_predictions set result=case when has_peer then 'miss' else 'unscored' end,resolved_at=clock_timestamp() where user_id=p.user_id and event_id=target_event_id;\n end if;\n end loop;return total;\nend $function$\n"
+    },
+    {
+      "args": "target_user uuid, fixture_key text, fixture_aliases jsonb, enabled boolean",
+      "schema": "public",
+      "proname": "nothingsports_set_reminder_choice",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_set_reminder_choice(target_user uuid, fixture_key text, fixture_aliases jsonb, enabled boolean)\n RETURNS void\n LANGUAGE plpgsql\n SET search_path TO ''\n SET statement_timeout TO '3s'\nAS $function$\ndeclare row public.nothingsports_user_state;stamp timestamptz:=clock_timestamp();begin\n if exists(select 1 from public.nothingsports_account_erasure_blocks where user_id=target_user) then raise exception 'Account unavailable';end if;\n if length(fixture_key) not between 1 and 180 or jsonb_typeof(fixture_aliases)<>'array' or jsonb_array_length(fixture_aliases)>30 then raise exception 'Invalid fixture';end if;\n select * into row from public.nothingsports_user_state where user_id=target_user for update;\n if not found then raise exception 'Saved account state required';end if;\n stamp:=greatest(stamp,row.updated_at+interval '1 millisecond');\n insert into public.nothingsports_reminder_intents(user_id,fixture_id,aliases,choice,enabled,chosen_at)\n values(target_user,fixture_key,fixture_aliases,case when enabled then 'on' else 'off' end,enabled,stamp)\n on conflict(user_id,fixture_id) do update set aliases=excluded.aliases,choice=excluded.choice,enabled=excluded.enabled,chosen_at=excluded.chosen_at;\n update public.nothingsports_user_state set event_user_state=jsonb_set(coalesce(event_user_state,'{}'),array[fixture_key],coalesce(event_user_state->fixture_key,'{}')||jsonb_build_object('actionKey',fixture_key,'canonicalEventId',fixture_key,'reminderRequested',enabled,'reminderChoice',case when enabled then 'on' else 'off' end,'reminderChangedAt',stamp,'lastActionAt',stamp)),updated_at=stamp where user_id=target_user;\n if not enabled then update public.nothingsports_reminders set schedule_state='off',claimed_at=null,updated_at=stamp where user_id=target_user and dispatched_at is null and (event_id=fixture_key or fixture_aliases ? event_id);end if;\nend $function$\n"
+    },
+    {
+      "args": "",
+      "schema": "public",
+      "proname": "nothingsports_sync_reminder_choices",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_sync_reminder_choices()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\ndeclare a record;key text;stamp timestamptz;existing public.nothingsports_reminder_intents;begin\n if exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=new.user_id) then return new;end if;\n for a in select * from jsonb_each(coalesce(new.event_user_state,'{}')) loop\n  if a.value->>'reminderChoice' is null and a.value ? 'reminderRequested' and (tg_op='INSERT' or (old.event_user_state->a.key->>'reminderRequested') is distinct from (a.value->>'reminderRequested')) then\n   a.value:=a.value||jsonb_build_object('reminderChoice',case when a.value->>'reminderRequested'='true' then 'on' else 'off' end,'reminderChangedAt',a.value->>'lastActionAt');\n  end if;\n  if a.value->>'reminderChoice' not in('on','off') then continue;end if;\n  if (a.value->>'reminderChangedAt') is null then continue;end if;\n  begin stamp:=(a.value->>'reminderChangedAt')::timestamptz;exception when others then continue;end;\n  if stamp>clock_timestamp()+interval '5 minutes' then continue;end if;\n  select * into existing from public.nothingsports_reminder_intents i where i.user_id=new.user_id and (i.fixture_id=a.key or i.aliases ? a.key) order by i.chosen_at desc nulls last limit 1;\n  key:=coalesce(existing.fixture_id,a.value->>'canonicalEventId',a.key);\n  if existing.chosen_at is not null and stamp<existing.chosen_at then\n   new.event_user_state:=jsonb_set(new.event_user_state,array[a.key],a.value||jsonb_build_object('reminderChoice',existing.choice,'reminderRequested',existing.choice='on','reminderChangedAt',existing.chosen_at));continue;\n  end if;\n  insert into public.nothingsports_reminder_intents(user_id,fixture_id,aliases,choice,enabled,chosen_at)\n   values(new.user_id,key,coalesce(existing.aliases,jsonb_build_array(a.key)),a.value->>'reminderChoice',a.value->>'reminderChoice'='on',stamp)\n   on conflict(user_id,fixture_id) do update set choice=excluded.choice,enabled=excluded.enabled,chosen_at=excluded.chosen_at;\n  if a.value->>'reminderChoice'='off' then\n   update public.nothingsports_reminders set schedule_state='off',claimed_at=null,updated_at=clock_timestamp()\n    where user_id=new.user_id and dispatched_at is null and (event_id=key or coalesce(existing.aliases,'[]') ? event_id);\n  end if;\n end loop;return new;\nend $function$\n"
+    },
+    {
+      "schema": "public",
+      "proname": "nothingsports_reconcile_reminder_accounts",
+      "args": "packets jsonb",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_reconcile_reminder_accounts(packets jsonb)\n RETURNS integer\n LANGUAGE plpgsql\n SET search_path TO ''\n SET statement_timeout TO '3s'\nAS $function$\ndeclare p record;f record;s public.nothingsports_user_state;i public.nothingsports_reminder_intents;stamp timestamptz:=clock_timestamp();changed integer:=0;alerts boolean;begin\n if jsonb_typeof(packets)<>'array' or jsonb_array_length(packets)>20 then raise exception 'Invalid account batch';end if;\n for p in select * from jsonb_to_recordset(packets) x(user_id uuid,expected_updated timestamptz,items jsonb) loop\n  if jsonb_typeof(p.items)<>'array' or jsonb_array_length(p.items)>100 then raise exception 'Invalid fixture batch';end if;\n  select * into s from public.nothingsports_user_state where user_id=p.user_id and updated_at=p.expected_updated for update skip locked;\n  if not found or exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=p.user_id) then continue;end if;\n  alerts:=coalesce(s.preferences#>>'{followFirst,notifications,enabled}','true')<>'false' and coalesce(s.preferences#>>'{followFirst,notifications,sportingRemindersEnabled}','true')<>'false';\n  for f in select * from jsonb_to_recordset(p.items) x(fixture_id text,aliases jsonb,choice text,enabled boolean,title text,starts_at timestamptz,precision text) loop\n   if f.choice not in('automatic','on','off') or f.precision not in('exact','not-before') or length(f.fixture_id) not between 1 and 180 then raise exception 'Invalid decision';end if;\n   if exists(select 1 from public.nothingsports_reminders r where r.user_id=p.user_id and (r.event_id=f.fixture_id or f.aliases ? r.event_id) and r.claimed_at>=stamp-interval '10 minutes' and r.dispatched_at is null) then continue;end if;\n   select * into i from public.nothingsports_reminder_intents where user_id=p.user_id and fixture_id=f.fixture_id;\n   if i.choice in('on','off') and i.choice<>f.choice then continue;end if;\n   insert into public.nothingsports_reminder_intents(user_id,fixture_id,aliases,choice,enabled,state_revision,checked_at)\n   values(p.user_id,f.fixture_id,f.aliases,f.choice,f.enabled,p.expected_updated,stamp) on conflict(user_id,fixture_id) do update set aliases=excluded.aliases,choice=excluded.choice,enabled=excluded.enabled,state_revision=excluded.state_revision,checked_at=excluded.checked_at where (public.nothingsports_reminder_intents.aliases,public.nothingsports_reminder_intents.choice,public.nothingsports_reminder_intents.enabled,public.nothingsports_reminder_intents.state_revision) is distinct from (excluded.aliases,excluded.choice,excluded.enabled,excluded.state_revision);\n   if f.enabled and alerts and f.starts_at>stamp then\n    -- Old aliases carry their receipt forward. Neither rescheduling nor a second\n    -- surface may create another delivery for a fixture already dispatched.\n    update public.nothingsports_reminders r set event_id=f.fixture_id where r.user_id=p.user_id and f.aliases ? r.event_id and r.event_id<>f.fixture_id and not exists(select 1 from public.nothingsports_reminders n where n.installation_id=r.installation_id and n.event_id=f.fixture_id);\n    insert into public.nothingsports_reminders(installation_id,user_id,event_id,title,starts_at,remind_at,delivery_mode,viewing_url,reminder_origin,timing_precision,schedule_checked_at,schedule_state,schedule_starts_at,late_published_at)\n    select d.installation_id,p.user_id,f.fixture_id,left(f.title,180),f.starts_at,f.starts_at-interval '15 minutes','match-15',null,case when f.choice='automatic' then 'automatic' else 'manual' end,f.precision,stamp,'ready',f.starts_at,case when f.starts_at-interval '15 minutes'<stamp then stamp end\n    from public.nothingsports_push_installations d where d.user_id=p.user_id and d.permission='granted' and d.sporting_reminders_enabled\n    on conflict(installation_id,event_id) do update set title=excluded.title,starts_at=excluded.starts_at,remind_at=excluded.remind_at,reminder_origin=excluded.reminder_origin,timing_precision=excluded.timing_precision,schedule_checked_at=stamp,schedule_state='ready',schedule_starts_at=excluded.starts_at,late_published_at=coalesce(public.nothingsports_reminders.late_published_at,excluded.late_published_at),updated_at=stamp\n     where public.nothingsports_reminders.dispatched_at is null and public.nothingsports_reminders.delivery_started_at is null and (public.nothingsports_reminders.claimed_at is null or public.nothingsports_reminders.claimed_at<stamp-interval '10 minutes') and (public.nothingsports_reminders.starts_at,public.nothingsports_reminders.schedule_state,public.nothingsports_reminders.timing_precision,public.nothingsports_reminders.reminder_origin) is distinct from (excluded.starts_at,'ready',excluded.timing_precision,excluded.reminder_origin);\n   -- Fold receipts from any second surface before removing its delivery row.\n    update public.nothingsports_reminders r set delivery_started_at=coalesce(r.delivery_started_at,(select min(a.delivery_started_at) from public.nothingsports_reminders a where a.installation_id=r.installation_id and f.aliases ? a.event_id)),dispatched_at=coalesce(r.dispatched_at,(select min(a.dispatched_at) from public.nothingsports_reminders a where a.installation_id=r.installation_id and f.aliases ? a.event_id)) where r.user_id=p.user_id and r.event_id=f.fixture_id;\n    delete from public.nothingsports_reminders r where r.user_id=p.user_id and f.aliases ? r.event_id and r.event_id<>f.fixture_id;\n   else\n    update public.nothingsports_reminders set schedule_state='held',schedule_checked_at=stamp,schedule_starts_at=null,claimed_at=null,updated_at=stamp where user_id=p.user_id and (event_id=f.fixture_id or f.aliases ? event_id) and dispatched_at is null and schedule_state is distinct from 'held' and (claimed_at is null or claimed_at<stamp-interval '10 minutes');\n   end if;\n   changed:=changed+1;\n  end loop;\n  insert into public.nothingsports_reminder_account_checks values(p.user_id,stamp) on conflict(user_id) do update set checked_at=excluded.checked_at;\n end loop;return changed;\nend $function$\n"
+    }
+  ],
+  "constraints": [
+    {
+      "conname": "nothingsports_chat_rooms_canonical_fixture_id_check",
+      "definition": "CHECK (((char_length(canonical_fixture_id) >= 1) AND (char_length(canonical_fixture_id) <= 180)))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_closed_by_fkey",
+      "definition": "FOREIGN KEY (closed_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_created_by_fkey",
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_fixture_snapshot_check",
+      "definition": "CHECK ((jsonb_typeof(fixture_snapshot) = 'object'::text))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_guest_share_nonce_check",
+      "definition": "CHECK (((guest_share_nonce IS NULL) OR (guest_share_nonce ~ '^[A-Za-z0-9_-]{32}$'::text)))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_guest_share_state_check",
+      "definition": "CHECK (((NOT guest_share_enabled) OR ((guest_share_nonce IS NOT NULL) AND (guest_share_enabled_at IS NOT NULL))))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_guest_share_version_check",
+      "definition": "CHECK ((guest_share_version >= 0))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_lifecycle_check",
+      "definition": "CHECK ((((status = ANY (ARRAY['open'::text, 'closing'::text])) AND (closed_at IS NULL) AND (purge_at IS NULL)) OR ((status = 'closed'::text) AND (closed_at IS NOT NULL) AND (purge_at IS NOT NULL))))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_room_name_check",
+      "definition": "CHECK (((char_length(room_name) >= 1) AND (char_length(room_name) <= 80)))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_chat_rooms_status_check",
+      "definition": "CHECK ((status = ANY (ARRAY['open'::text, 'closing'::text, 'closed'::text])))",
+      "table_name": "nothingsports_chat_rooms"
+    },
+    {
+      "conname": "nothingsports_consensus_receipts_pkey",
+      "definition": "PRIMARY KEY (event_id, user_id)",
+      "table_name": "nothingsports_consensus_receipts"
+    },
+    {
+      "conname": "nothingsports_consensus_receipts_user_id_event_id_fkey",
+      "definition": "FOREIGN KEY (user_id, event_id) REFERENCES nothingsports_predictions(user_id, event_id) ON DELETE CASCADE",
+      "table_name": "nothingsports_consensus_receipts"
+    },
+    {
+      "conname": "nothingsports_consensus_votes_event_id_fkey",
+      "definition": "FOREIGN KEY (event_id) REFERENCES nothingsports_score_fixtures(event_id)",
+      "table_name": "nothingsports_consensus_votes"
+    },
+    {
+      "conname": "nothingsports_consensus_votes_pkey",
+      "definition": "PRIMARY KEY (event_id, user_id)",
+      "table_name": "nothingsports_consensus_votes"
+    },
+    {
+      "conname": "nothingsports_consensus_votes_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_consensus_votes"
+    },
+    {
+      "conname": "nothingsports_consensus_votes_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_consensus_votes"
+    },
+    {
+      "conname": "nothingsports_fixture_participation_campaign_id_fkey",
+      "definition": "FOREIGN KEY (campaign_id) REFERENCES nothingsports_marquee_campaigns(campaign_id) ON DELETE SET NULL",
+      "table_name": "nothingsports_fixture_participation"
+    },
+    {
+      "conname": "nothingsports_fixture_participation_device_hash_fkey",
+      "definition": "FOREIGN KEY (device_hash) REFERENCES nothingsports_fixture_devices(device_hash) ON DELETE CASCADE",
+      "table_name": "nothingsports_fixture_participation"
+    },
+    {
+      "conname": "nothingsports_fixture_participation_pkey",
+      "definition": "PRIMARY KEY (event_id, device_hash)",
+      "table_name": "nothingsports_fixture_participation"
+    },
+    {
+      "conname": "nothingsports_fixture_participation_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_fixture_participation"
+    },
+    {
+      "conname": "nothingsports_friend_activity_alert_id_fkey",
+      "definition": "FOREIGN KEY (alert_id) REFERENCES nothingsports_live_rating_alerts(id)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_rater_user_id_fkey",
+      "definition": "FOREIGN KEY (rater_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_recipient_user_id_fkey",
+      "definition": "FOREIGN KEY (recipient_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_recipient_user_id_rater_user__key",
+      "definition": "UNIQUE (recipient_user_id, rater_user_id, event_id, phase)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_inbox_actor_user_id_fkey",
+      "definition": "FOREIGN KEY (actor_user_id) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_inbox_kind_check",
+      "definition": "CHECK ((kind = ANY (ARRAY['chat'::text, 'invitation'::text, 'added'::text, 'profile_followed'::text, 'follows_copied'::text, 'points'::text, 'rating'::text, 'reminder'::text, 'system'::text])))",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_inbox_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_inbox_recipient_user_id_fkey",
+      "definition": "FOREIGN KEY (recipient_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_inbox_recipient_user_id_source_key_key",
+      "definition": "UNIQUE (recipient_user_id, source_key)",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_inbox_room_id_fkey",
+      "definition": "FOREIGN KEY (room_id) REFERENCES nothingsports_chat_rooms(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_inbox"
+    },
+    {
+      "conname": "nothingsports_live_rating_alerts_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_live_rating_alerts"
+    },
+    {
+      "conname": "nothingsports_live_rating_alerts_recipient_user_id_fkey",
+      "definition": "FOREIGN KEY (recipient_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_live_rating_alerts"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_approved_by_fkey",
+      "definition": "FOREIGN KEY (approved_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_campaign_id_check",
+      "definition": "CHECK ((campaign_id ~ '^marquee_[a-f0-9]{16}$'::text))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_campaign_revision_check",
+      "definition": "CHECK ((campaign_revision > 0))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_check",
+      "definition": "CHECK ((((approved_at IS NULL) AND (approved_by IS NULL) AND (approved_copy IS NULL)) OR ((approved_at IS NOT NULL) AND (approved_by IS NOT NULL) AND (approved_copy IS NOT NULL))))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_content_hash_check",
+      "definition": "CHECK ((content_hash ~ '^[a-f0-9]{64}$'::text))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_exported_by_fkey",
+      "definition": "FOREIGN KEY (exported_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_live_published_by_fkey",
+      "definition": "FOREIGN KEY (live_published_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_live_published_revision_check",
+      "definition": "CHECK (((live_published_revision IS NULL) OR (live_published_revision > 0)))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_pkey",
+      "definition": "PRIMARY KEY (campaign_id)",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_campaigns_state_check",
+      "definition": "CHECK ((state = ANY (ARRAY['watching'::text, 'draft'::text, 'needs_review'::text, 'approved'::text, 'exported'::text, 'scheduled'::text, 'connector_blocked'::text, 'partially_published'::text, 'published'::text, 'needs_reapproval'::text, 'failed'::text, 'cancelled'::text])))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_marquee_export_snapshot_check",
+      "definition": "CHECK ((((exported_at IS NULL) AND (export_snapshot IS NULL) AND (export_format IS NULL)) OR ((exported_at IS NOT NULL) AND (export_snapshot IS NOT NULL) AND (export_format = ANY (ARRAY['mailchimp-manual.v1'::text, 'manual-content-handoff.v2'::text])))))",
+      "table_name": "nothingsports_marquee_campaigns"
+    },
+    {
+      "conname": "nothingsports_nsc_completed_fixtures_pkey",
+      "definition": "PRIMARY KEY (event_id)",
+      "table_name": "nothingsports_nsc_completed_fixtures"
+    },
+    {
+      "conname": "nothingsports_nsc_contributio_event_id_user_id_phase_bucket_key",
+      "definition": "UNIQUE (event_id, user_id, phase, bucket_start)",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_maximum_points_check",
+      "definition": "CHECK (((maximum_points >= 1) AND (maximum_points <= 20)))",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_phase_check",
+      "definition": "CHECK ((phase = ANY (ARRAY['heat'::text, 'pulse'::text, 'impact'::text])))",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_pkey",
+      "definition": "PRIMARY KEY (contribution_id)",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_tags_check",
+      "definition": "CHECK ((cardinality(tags) <= 3))",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_contributions_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_submission_required",
+      "definition": "CHECK (((phase = 'pulse'::text) OR (submitted_at IS NOT NULL)))",
+      "table_name": "nothingsports_nsc_contributions"
+    },
+    {
+      "conname": "nothingsports_nsc_foresight_settlements_bonus_check",
+      "definition": "CHECK ((bonus = ANY (ARRAY[0, 2, 6])))",
+      "table_name": "nothingsports_nsc_foresight_settlements"
+    },
+    {
+      "conname": "nothingsports_nsc_foresight_settlements_pkey",
+      "definition": "PRIMARY KEY (user_id, event_id)",
+      "table_name": "nothingsports_nsc_foresight_settlements"
+    },
+    {
+      "conname": "nothingsports_nsc_foresight_settlements_result_check",
+      "definition": "CHECK ((result = ANY (ARRAY['accurate'::text, 'contrarian'::text, 'miss'::text, 'unscored'::text, 'cancelled'::text])))",
+      "table_name": "nothingsports_nsc_foresight_settlements"
+    },
+    {
+      "conname": "nothingsports_nsc_foresight_settlements_revision_id_fkey",
+      "definition": "FOREIGN KEY (revision_id) REFERENCES nothingsports_nsc_prediction_revisions(id)",
+      "table_name": "nothingsports_nsc_foresight_settlements"
+    },
+    {
+      "conname": "nothingsports_nsc_foresight_settlements_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_foresight_settlements"
+    },
+    {
+      "conname": "nothingsports_nsc_likes_phase_check",
+      "definition": "CHECK ((phase = ANY (ARRAY['heat'::text, 'pulse'::text, 'impact'::text])))",
+      "table_name": "nothingsports_nsc_likes"
+    },
+    {
+      "conname": "nothingsports_nsc_likes_pkey",
+      "definition": "PRIMARY KEY (event_id, user_id, phase)",
+      "table_name": "nothingsports_nsc_likes"
+    },
+    {
+      "conname": "nothingsports_nsc_likes_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_likes"
+    },
+    {
+      "conname": "nothingsports_nsc_marquee_sessions_activated_by_fkey",
+      "definition": "FOREIGN KEY (activated_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_nsc_marquee_sessions"
+    },
+    {
+      "conname": "nothingsports_nsc_marquee_sessions_check",
+      "definition": "CHECK ((effective_end_at > effective_start_at))",
+      "table_name": "nothingsports_nsc_marquee_sessions"
+    },
+    {
+      "conname": "nothingsports_nsc_marquee_sessions_pkey",
+      "definition": "PRIMARY KEY (event_id)",
+      "table_name": "nothingsports_nsc_marquee_sessions"
+    },
+    {
+      "conname": "nothingsports_nsc_marquee_sessions_status_check",
+      "definition": "CHECK ((status = ANY (ARRAY['active'::text, 'stopped'::text])))",
+      "table_name": "nothingsports_nsc_marquee_sessions"
+    },
+    {
+      "conname": "nothingsports_nsc_points_identity_reconciled_into_fkey",
+      "definition": "FOREIGN KEY (identity_reconciled_into) REFERENCES nothingsports_nsc_points(ledger_id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_points"
+    },
+    {
+      "conname": "nothingsports_nsc_points_pkey",
+      "definition": "PRIMARY KEY (ledger_id)",
+      "table_name": "nothingsports_nsc_points"
+    },
+    {
+      "conname": "nothingsports_nsc_points_points_check",
+      "definition": "CHECK (((points >= 1) AND (points <= 25)))",
+      "table_name": "nothingsports_nsc_points"
+    },
+    {
+      "conname": "nothingsports_nsc_points_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_points"
+    },
+    {
+      "conname": "nothingsports_nsc_prediction_revisions_benchmark_check",
+      "definition": "CHECK (((benchmark >= (1)::numeric) AND (benchmark <= (5)::numeric)))",
+      "table_name": "nothingsports_nsc_prediction_revisions"
+    },
+    {
+      "conname": "nothingsports_nsc_prediction_revisions_forecast_check",
+      "definition": "CHECK (((forecast >= (1)::numeric) AND (forecast <= (5)::numeric)))",
+      "table_name": "nothingsports_nsc_prediction_revisions"
+    },
+    {
+      "conname": "nothingsports_nsc_prediction_revisions_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_nsc_prediction_revisions"
+    },
+    {
+      "conname": "nothingsports_nsc_prediction_revisions_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_nsc_prediction_revisions"
+    },
+    {
+      "conname": "nothingsports_nsc_prediction_revisions_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_prediction_revisions"
+    },
+    {
+      "conname": "nothingsports_nsc_presence_heartbeat_count_check",
+      "definition": "CHECK ((heartbeat_count > 0))",
+      "table_name": "nothingsports_nsc_presence"
+    },
+    {
+      "conname": "nothingsports_nsc_presence_pkey",
+      "definition": "PRIMARY KEY (event_id, user_id)",
+      "table_name": "nothingsports_nsc_presence"
+    },
+    {
+      "conname": "nothingsports_nsc_presence_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_presence"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_prediction_rules_event_id_fkey",
+      "definition": "FOREIGN KEY (event_id) REFERENCES nothingsports_score_fixtures(event_id)",
+      "table_name": "nothingsports_prediction_rules"
+    },
+    {
+      "conname": "nothingsports_prediction_rules_pkey",
+      "definition": "PRIMARY KEY (event_id)",
+      "table_name": "nothingsports_prediction_rules"
+    },
+    {
+      "conname": "nothingsports_prediction_rules_version_check",
+      "definition": "CHECK ((version = ANY (ARRAY['anticipation.v2'::text, 'consensus.v1'::text])))",
+      "table_name": "nothingsports_prediction_rules"
+    },
+    {
+      "conname": "nothingsports_predictions_event_id_fkey",
+      "definition": "FOREIGN KEY (event_id) REFERENCES nothingsports_score_fixtures(event_id)",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_predictions_matched_user_id_fkey",
+      "definition": "FOREIGN KEY (matched_user_id) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_predictions_pkey",
+      "definition": "PRIMARY KEY (user_id, event_id)",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_predictions_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_predictions_result_check",
+      "definition": "CHECK ((result = ANY (ARRAY['pending'::text, 'success'::text, 'miss'::text, 'unscored'::text, 'cancelled'::text])))",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_predictions_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_predictions"
+    },
+    {
+      "conname": "nothingsports_reminder_intents_choice_check",
+      "definition": "CHECK ((choice = ANY (ARRAY['automatic'::text, 'on'::text, 'off'::text])))",
+      "table_name": "nothingsports_reminder_intents"
+    },
+    {
+      "conname": "nothingsports_reminder_intents_fixture_id_check",
+      "definition": "CHECK (((length(fixture_id) >= 1) AND (length(fixture_id) <= 180)))",
+      "table_name": "nothingsports_reminder_intents"
+    },
+    {
+      "conname": "nothingsports_reminder_intents_pkey",
+      "definition": "PRIMARY KEY (user_id, fixture_id)",
+      "table_name": "nothingsports_reminder_intents"
+    },
+    {
+      "conname": "nothingsports_reminder_intents_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_reminder_intents"
+    },
+    {
+      "conname": "nothingsports_reminders_delivery_mode_check",
+      "definition": "CHECK ((delivery_mode = ANY (ARRAY['match-15'::text, 'broadcast-15'::text, 'session-start'::text])))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_event_id_check",
+      "definition": "CHECK (((char_length(event_id) >= 1) AND (char_length(event_id) <= 180)))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_installation_id_event_id_key",
+      "definition": "UNIQUE (installation_id, event_id)",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_installation_id_fkey",
+      "definition": "FOREIGN KEY (installation_id) REFERENCES nothingsports_push_installations(installation_id) ON DELETE CASCADE",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_reminder_origin_check",
+      "definition": "CHECK ((reminder_origin = ANY (ARRAY['manual'::text, 'automatic'::text])))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_timing_precision_check",
+      "definition": "CHECK ((timing_precision = ANY (ARRAY['exact'::text, 'not-before'::text])))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_title_check",
+      "definition": "CHECK (((char_length(title) >= 1) AND (char_length(title) <= 180)))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_reminders_viewing_url_check",
+      "definition": "CHECK (((viewing_url IS NULL) OR (viewing_url ~ '^https://'::text)))",
+      "table_name": "nothingsports_reminders"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_byte_size_check",
+      "definition": "CHECK (((byte_size >= 1) AND (byte_size <= 26214400)))",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_object_path_key",
+      "definition": "UNIQUE (object_path)",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_owner_id_fkey",
+      "definition": "FOREIGN KEY (owner_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_pkey",
+      "definition": "PRIMARY KEY (saved_media_id)",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_room_id_fkey",
+      "definition": "FOREIGN KEY (room_id) REFERENCES nothingsports_chat_rooms(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_saved_game_media_source_attachment_id_fkey",
+      "definition": "FOREIGN KEY (source_attachment_id) REFERENCES nothingsports_chat_attachments(attachment_id) ON DELETE SET NULL",
+      "table_name": "nothingsports_saved_game_media"
+    },
+    {
+      "conname": "nothingsports_score_fixtures_pkey",
+      "definition": "PRIMARY KEY (event_id)",
+      "table_name": "nothingsports_score_fixtures"
+    },
+    {
+      "conname": "nothingsports_score_votes_event_id_fkey",
+      "definition": "FOREIGN KEY (event_id) REFERENCES nothingsports_score_fixtures(event_id)",
+      "table_name": "nothingsports_score_votes"
+    },
+    {
+      "conname": "nothingsports_score_votes_pkey",
+      "definition": "PRIMARY KEY (user_id, event_id, phase, rating)",
+      "table_name": "nothingsports_score_votes"
+    },
+    {
+      "conname": "nothingsports_score_votes_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_score_votes"
+    },
+    {
+      "conname": "nothingsports_score_votes_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_score_votes"
+    },
+    {
+      "conname": "nothingsports_user_state_archived_events_check",
+      "definition": "CHECK ((jsonb_typeof(archived_events) = 'array'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_event_spoiler_state_check",
+      "definition": "CHECK ((jsonb_typeof(event_spoiler_state) = 'object'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_event_user_state_check",
+      "definition": "CHECK ((jsonb_typeof(event_user_state) = 'object'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_pkey",
+      "definition": "PRIMARY KEY (user_id)",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_preferences_check",
+      "definition": "CHECK ((jsonb_typeof(preferences) = 'object'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_profile_check",
+      "definition": "CHECK ((jsonb_typeof(profile) = 'object'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_ratings_check",
+      "definition": "CHECK ((jsonb_typeof(ratings) = 'object'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_schema_version_check",
+      "definition": "CHECK ((schema_version = 'user-state.v2'::text))",
+      "table_name": "nothingsports_user_state"
+    },
+    {
+      "conname": "nothingsports_user_state_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_user_state"
+    }
+  ]
+}

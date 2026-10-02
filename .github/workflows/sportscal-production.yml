@@ -115,6 +115,9 @@ jobs:
           node scripts/validate-rugby-reviewed-identity.js --published
           node scripts/validate-rugby-identity-api.js
           node scripts/validate-rugby-identity-database.js
+          node scripts/validate-bledisloe-reviewed-identity.js --published
+          node scripts/validate-bledisloe-identity-api.js
+          node scripts/validate-bledisloe-identity-database.js
           node scripts/validate-nbl-standings.js --published
           node scripts/validate-football-data-trial.js
           node scripts/validate-football-data-backup.js

@@ -31722,7 +31722,7 @@
       "isSenior": true,
       "gender": "men",
       "discipline": "rugby-union",
-      "startTimeUtc": "2026-10-17T05:45:00.000Z",
+      "startTimeUtc": "2026-10-17T05:00:00.000Z",
       "date": "2026-10-17",
       "timePrecision": "exact",
       "dateOnly": false,
@@ -31772,12 +31772,12 @@
       "sourceCheckedAt": "2026-10-01T18:30:00.656Z",
       "timingProvenance": {
         "kind": "official",
-        "checkedAt": "2026-10-01T18:30:00.656Z",
-        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
+        "checkedAt": "2026-10-02T08:24:46.814Z",
+        "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949627"
       },
       "discoverySourceId": "rugby-wr-mru",
       "displayTitleCompact": "Australia v New Zealand",
-      "time": "16:45",
+      "time": "16:00",
       "broadcaster": "",
       "participantSlots": [],
       "representativeCountryCodes": [],
