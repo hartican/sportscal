@@ -1,5 +1,7 @@
 # Nothing Sport — bounded Sailing assessment, 3 October 2026
 
+**Dated implementation addendum — 3 October:** The following assessment describes the pre-repair snapshot. Its S1/S2 Geneva timing and coverage-honesty repair is now [production-verified](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/sailing-repair-delivery-20261003.html) at `a2fdcc258379a0a8c87dbb560463260f2dc7cf6f`, shell 383. Both session windows are 13:30–15:00 UTC, coverage is partial and four future times stay TBC. Original result observations remain. Adapter, entries, standings, rights and full certification remain open.
+
 **Recommended next action:** repair two inaccurate Geneva race-day clocks and remove the unsupported complete-coverage claim. Keep the four future Dubai/Abu Dhabi race-day times unconfirmed. Improve the existing SailGP window before expanding Sailing. No app change is included in this assessment.
 
 ## Reviewed scope and evidence
