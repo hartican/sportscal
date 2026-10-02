@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="357">
+<meta name="app-shell-version" content="358">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=357" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=358" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6879,8 +6879,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=353">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=327">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=358">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=358">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
 <body>
@@ -7175,7 +7175,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=357"></script>
+<script src="assets/js/app-shell-runtime.js?v=358"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16506,6 +16506,12 @@ function followedHomeTag(event){
   return '';
 }
 
+const FIXTURE_STAKES_LABELS=Object.freeze(['Low stakes','Mid stakes','High stakes','Huge stakes','Epic stakes']);
+function fixtureStakesLabel(value){
+  const rating=Number(value);
+  return Number.isFinite(rating)&&rating>=1&&rating<=5?FIXTURE_STAKES_LABELS[Math.round(rating)-1]:'';
+}
+
 function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=true}={}){
   const root=document.createElement('section');root.className='nsc-peer-results';
   root.dataset.cardArea='ratings';
@@ -16515,11 +16521,11 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';summary.dataset.cardArea='rating-statistics';
     const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
     const singular=peers?.count===1;
-    const verb=phase==='heat'?(singular?'expects this to be':'expect this to be'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
-    summary.textContent=!peers?(snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot||nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${Number(peers.average).toFixed(1)}/5`;
+    const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
+    summary.textContent=!peers?(snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot||nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${fixtureStakesLabel(peers.rawAverage??peers.average)} · ${Number(peers.average).toFixed(1)}/5`;
     root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
-    const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');if(peers?.count)labels.push(peers.label||['Boring','Mid','Interesting','Cooking','Epic'][Math.round(peers.average)-1]);
+    const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
     for(const tag of ev.consensusTags||[])if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
     for(const label of new Set(labels)){const tag=document.createElement('span');tag.className='fixture-tag';tag.textContent=label.toUpperCase();tags.appendChild(tag);}if(tags.childElementCount)root.appendChild(tags);
   }
@@ -16533,19 +16539,18 @@ function buildInlineCrowdRating(ev,snapshot){
   // Reserve the real control while a signed-in user's sealed state is checked.
   // Server responses remain authoritative for eligibility and phase.
   const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
-  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your rating out of five');
+  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your stakes rating out of five');
   const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
-  const tip=phase==='pulse'?"HOW'S IT GOING?":"TAP TO RATE";
-  const labels=['Boring','Mid','Interesting','Cooking','Epic'];
+  const tip=phase==='pulse'?"How’s it going? Rate stakes":"Tap to rate stakes";
   const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
   let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
   const sealed=false;
-  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?labels[value-1]:tip;prompt.dataset.rating=String(value||0);};
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?fixtureStakesLabel(value):tip;prompt.dataset.rating=String(value||0);};
   for(let value=1;value<=5;value++){
-    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${labels[value-1]}`);b.disabled=sealed||awaitingViewer;
-    b.innerHTML='<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M12 1c2 7-5 8-2 13 1-3 4-4 5-7 5 5 8 9 6 14-3 9-17 8-18 0C2 14 8 11 12 1Z"/></svg>';
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${fixtureStakesLabel(value)}`);b.disabled=sealed||awaitingViewer;
+    b.innerHTML=glyphMarkup('ui:steak');
     b.onclick=async()=>{
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
       if(inlineRatingRequests.has(id))return;
