@@ -9,7 +9,7 @@
       "maxDuration": 30
     },
     "api/comms.js": {
-      "includeFiles": "data/{comms-sources.v1.json,marquee-candidates.v1.json}",
+      "includeFiles": "data/{comms-sources.v1.json,marquee-candidates.v1.json,editorial-maintenance-sources.v1.json}",
       "maxDuration": 60
     },
     "api/chat.js": {
@@ -49,6 +49,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/admin/editorial", "destination": "/admin.html" },
     {
       "source": "/api/match-centre",
       "destination": "/api/feed?route=match-centre"

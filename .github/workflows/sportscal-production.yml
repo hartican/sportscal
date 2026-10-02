@@ -101,6 +101,8 @@ jobs:
           node scripts/validate-refresh-resume.js
           node scripts/validate-marquee-candidates.js
           node scripts/validate-marquee-communications.js
+          node scripts/validate-adaptive-editorial.js
+          node scripts/validate-editorial-signals-database.js
           node scripts/validate-admin-console.js
           node scripts/validate-admin-api.js
           node scripts/validate-owner-content-workspace.js

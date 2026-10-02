@@ -46,3 +46,6 @@ affected publication; do not bypass or weaken those checks. Report updated and
 deferred counts separately. An unchanged valid subset needs no data deployment;
 new actionable deferrals still need reporting. No private preferences, new scheduler
 or canonical ingestion is involved.
+
+## Adaptive extension - 2 October 2026
+The existing task now wakes daily at 09:00 Sydney. Fridays retain the existing 4/5 Friday-Monday path; adaptive real-user 5/5 maintenance covers every day in the next 14 days. Follow [adaptive editorial](adaptive-editorial.md) for eligibility, five/two/one-day cadence, full four-section copy, private owner edits/holds, kickoff cutoff and exact-SHA release recording. The approved men's NRL Grand Final is excluded from both editorial paths.

@@ -512,6 +512,10 @@ async function runMain() {
     console.log('Reviewed fixture publication complete; no unrelated source refresh performed.');
     return;
   }
+  if(process.argv.includes('--adaptive-editorial')){
+    await require('./adaptive-editorial').main(process.argv.slice(2));
+    return;
+  }
   if(process.argv.includes('--weekend-editorial')){
     require('./weekend-editorial').main(process.argv.slice(2));
     return;

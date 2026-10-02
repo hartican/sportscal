@@ -1,0 +1,24 @@
+'use strict';
+const assert=require('node:assert/strict'),p=require('../config/editorial-maintenance');
+assert(p.eligibility({count:1,mean:5,five_count:1}).eligible);
+assert(!p.eligibility({count:5,mean:4.8,five_count:1}).eligible);
+assert(p.eligibility({count:5,mean:4.80001}).eligible);
+assert(p.eligibility({count:5,mean:3,five_count:2}).eligible);
+assert(p.eligibility({count:5,mean:3,five_count:1,owner_five:true}).eligible);
+assert(!p.eligibility({count:0,mean:5}).eligible);
+const now=new Date('2026-10-02T00:00:00Z');
+for(const [out,cadence] of [[14,5],[7,5],[6,2],[2,2],[1,1],[0,1]]){const date=p.plus(p.day(now),out),e={id:'fixture',date};assert.equal(p.schedule(e,{},now).cadenceDays,cadence);assert(p.schedule(e,{},now).due);}
+assert(!p.schedule({id:'fixture',date:'2026-10-17'}, {},now).inWindow);
+assert(!p.schedule({id:'fixture',date:'2026-10-02',startTimeUtc:'2026-10-01T23:59:59Z'}, {},now).due);
+assert(!p.schedule({id:'fixture',date:'2026-10-04',status:'completed'}, {},now).due);
+assert(!p.schedule({id:'fixture',date:'2026-10-04'}, {held:true},now).due);
+assert(p.schedule({id:'fixture',date:'2026-10-04'}, {held:true,pending_copy:{hook:'edited'}},now).due);
+assert(!p.schedule({id:'evt_84',date:'2026-10-04'}, {},now).due);
+assert(p.protectedFixture({canonicalEventId:'major-match:nrl-finals-2026:grand-final'}));
+assert.equal(p.day('2026-10-03T14:00:00Z'),'2026-10-04');
+assert.equal(p.day('2026-10-04T13:00:00Z'),'2026-10-05');
+const a={hook:'one',formCopy:'two',closingCopy:'three',synopsis:'four'};assert(!p.equalCopy(a,{...a,formCopy:'changed'}));assert(!p.equalCopy(a,{...a,closingCopy:'changed'}));assert(p.equalCopy(a,{...a,hook:' one '}));
+const w=require('./weekend-editorial'),facts=['form','consequence','matchup','history'].map(dimension=>({dimension,statement:'Source-backed '+dimension,sourceIndexes:[0]}));
+const entry={id:'ok',title:'Fixture',hook:'Distinct hook',synopsis:'Distinct body',sources:['https://a.test','https://b.test','https://c.test'],facts,researchedAt:new Date().toISOString()};
+const result=w.partitionResearch([{id:'bad'},{id:'ok'}],{entries:[entry]},()=>{});assert.equal(result.entries.length,1);assert.equal(result.deferred.length,1);
+console.log('Adaptive editorial: real-only eligibility, strict average, one-vote exception, cadence, DST, kickoff, holds, full-copy comparison, NRL protection and isolated failure passed.');

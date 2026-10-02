@@ -213,6 +213,7 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
   const activeIds=new Set(candidates.map(c=>c.campaignId)),expiredIds=new Set(previous.filter(c=>Date.parse(c.timing?.endTimeUtc||'')<=nowMs&&!activeIds.has(c.campaignId)).map(c=>c.campaignId));
   for(const file of fs.readdirSync(IMAGE_DIRECTORY))if(/^marquee_[a-f0-9]{16}-[a-f0-9]{12}\.jpg$/.test(file)&&expiredIds.has(file.slice(0,24)))fs.unlinkSync(path.join(IMAGE_DIRECTORY,file));
   console.log(`Marquee candidates: ${artifact.summary.shown} shown, ${artifact.summary.eligible} export-ready, ${artifact.summary.watching} watching, ${artifact.summary.actionable} actionable, ${artifact.summary.late} late; ${excluded.length} excluded. Shadow mode wrote ${path.relative(ROOT, OUTPUT)}.`);
+  require('./adaptive-editorial').buildSources();
   return artifact;
 }
 

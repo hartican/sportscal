@@ -22,7 +22,7 @@
 <body>
 <main class="admin-shell">
   <header class="admin-header"><a href="/" aria-label="Nothing Sport home"><img class="admin-logo" src="/assets/brand/web/nothingsport-logo.png" alt="nothing SPORT"></a><span class="admin-title">Owner console</span><button id="signout" class="secondary hidden">Sign out</button></header>
-  <nav id="adminNav" class="admin-nav hidden" aria-label="Owner console"><a href="/admin/users" data-tab="users">Users</a><a href="/admin/reports" data-tab="reports">Reports</a><a href="/admin/comms" data-tab="comms">Communications</a></nav>
+  <nav id="adminNav" class="admin-nav hidden" aria-label="Owner console"><a href="/admin/users" data-tab="users">Users</a><a href="/admin/reports" data-tab="reports">Reports</a><a href="/admin/editorial" data-tab="editorial">Editorial</a><a href="/admin/comms" data-tab="comms">Communications</a></nav>
   <section id="adminApp"><p class="muted">Loading owner console…</p></section>
 </main>
 <script src="/config/server-sync.js"></script>
@@ -30,13 +30,14 @@
 <link rel="stylesheet" href="/styles/owner-content.css?v=358">
 <script src="/config/marquee-live-renderer.js?v=358"></script>
 <script src="/config/admin-comms-workspace.js?v=358"></script>
+<script src="/config/admin-editorial-workspace.js?v=adaptive-1"></script>
 <script>
 (()=>{
   if('serviceWorker' in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
   const app=document.getElementById("adminApp"),nav=document.getElementById("adminNav"),signout=document.getElementById("signout"),client=NOTHINGSPORTS_SERVER_SYNC.createClient();
   const esc=value=>String(value??"").replace(/[&<>"']/g,character=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[character]);
   const date=value=>value?new Intl.DateTimeFormat("en-AU",{dateStyle:"medium",timeStyle:"short"}).format(new Date(value)):"—";
-  const route=()=>location.pathname.includes("/reports")?"reports":location.pathname.includes("/comms")?"comms":"users";
+  const route=()=>location.pathname.includes("/reports")?"reports":location.pathname.includes("/editorial")?"editorial":location.pathname.includes("/comms")?"comms":"users";
   const name=identity=>identity?.handle?`${identity.displayName} (${identity.handle})`:identity?.displayName||"Public profile not set";
   function setChrome(active){nav.classList.remove("hidden");signout.classList.remove("hidden");nav.querySelectorAll("a").forEach(link=>link.classList.toggle("active",link.dataset.tab===active))}
   function login(message=""){
@@ -84,7 +85,7 @@
   let disposeComms=null;
   async function loadRoute(){
     if(disposeComms){const cleanup=disposeComms;disposeComms=null;try{await cleanup();}catch(error){alert("Save failed. Your draft is retained on this device: "+error.message);return;}}
-    try{const active=route();if(active==="users")await renderUsers();else if(active==="reports")await renderReports();else{setChrome("comms");disposeComms=await NOTHINGSPORTS_ADMIN_COMMS_UI.mount(app,client)}}catch(error){if(error.status===401||!client.getSession())login(error.message);else{setChrome(route());app.innerHTML=`<div class="admin-error"><h1>Owner console unavailable</h1><p>${esc(error.message)}</p><button id="retryAdmin">Retry</button></div>`;app.querySelector("#retryAdmin").addEventListener("click",loadRoute)}}
+    try{const active=route();if(active==="users")await renderUsers();else if(active==="reports")await renderReports();else if(active==='editorial'){setChrome('editorial');disposeComms=await NOTHINGSPORTS_ADMIN_EDITORIAL_UI.mount(app,client);}else{setChrome("comms");disposeComms=await NOTHINGSPORTS_ADMIN_COMMS_UI.mount(app,client)}}catch(error){if(error.status===401||!client.getSession())login(error.message);else{setChrome(route());app.innerHTML=`<div class="admin-error"><h1>Owner console unavailable</h1><p>${esc(error.message)}</p><button id="retryAdmin">Retry</button></div>`;app.querySelector("#retryAdmin").addEventListener("click",loadRoute)}}
   }
   nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",event=>{event.preventDefault();history.pushState({},"",link.href);loadRoute()}));window.addEventListener("popstate",loadRoute);signout.addEventListener("click",async()=>{await client.signOut();login()});client.getSession()?loadRoute():login();
 })();

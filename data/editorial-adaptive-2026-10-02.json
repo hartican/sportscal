@@ -1,0 +1,70 @@
+{
+  "horizon": {
+    "from": "2026-10-02",
+    "to": "2026-10-16"
+  },
+  "entries": [
+    {
+      "id": "epl-2026-27-128980",
+      "title": "Liverpool v Manchester City",
+      "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
+      "formCopy": "Andoni Iraola is reshaping Liverpool around aggressive pressing and quicker counter-attacks. Enzo Maresca's City retain a possession-led approach, with central overloads intended to release their wide players. At Anfield, the sporting test is whether Liverpool can turn City's attempts at control into opportunities to break, rather than simply chase the ball.",
+      "closingCopy": "For Liverpool supporters, the case puts fairness alongside the familiar desire to beat a rival. For City fans, pride in their club meets scrutiny of how its success was financed. That is the emotional tension, not a claim that supporters or today's players are responsible for accounting decisions. Management face reputational and regulatory uncertainty; the players still have a match to win. City's appeal and the pending sanction process mean neither a final punishment nor a rewritten honours list should be treated as settled.",
+      "synopsis": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc",
+        "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+        "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+        "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627"
+      ],
+      "researchedAt": "2026-10-02T12:08:59.501Z",
+      "researchDepth": 5,
+      "changeReason": "Published Commission findings and newly lodged appeal change the rivalry context; complete all four distinct preview sections.",
+      "facts": [
+        {
+          "dimension": "consequence",
+          "statement": "The independent Commission found serious financial reporting and spending-rule breaches across 2009/10 to 2017/18; sanctions await a separate hearing.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Manchester City says it lodged an appeal on 1 October 2026 and disputes the findings.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Liverpool host Manchester City on 11 October at 16:30 BST, corresponding to 12 October at 02:30 Sydney time.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The fixture is at Anfield.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Liverpool changed manager to Andoni Iraola, whose approach emphasises pressing and counter-attacking.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Enzo Maresca's Manchester City approach uses possession and central overloads to create wide attacking opportunities.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "deferred": []
+}
