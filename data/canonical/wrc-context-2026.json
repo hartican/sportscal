@@ -2,7 +2,7 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-10-01T21:33:40.877Z",
+  "generatedAt": "2026-10-02T13:06:48.940Z",
   "sources": [
     {
       "provider": "WRC",
@@ -21,6 +21,17 @@
       "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc",
       "sourceType": "broadcaster",
       "checkedAt": "2026-10-01T21:33:40.877Z"
+    },
+    {
+      "provider": "FIA",
+      "sourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+      "sourceType": "official",
+      "checkedAt": "2026-10-02T13:06:48.940Z"
+    },
+    {
+      "provider": "Automobile Club de Monaco",
+      "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+      "checkedAt": "2026-10-02T13:06:48.940Z"
     }
   ],
   "sportDomains": [
@@ -129,6 +140,25 @@
       "isSpecialEvent": false,
       "standingsOnly": true,
       "standingsType": "manufacturers",
+      "defaultStandingsVisibility": "summary"
+    },
+    {
+      "id": "competition:wrc-2027",
+      "sportDomainId": "sport:motorsport",
+      "preferenceDomainId": "sport:wrc",
+      "competitionFamilyId": "family:world-rally-championship",
+      "slug": "wrc-2027",
+      "name": "2027 FIA World Rally Championship",
+      "competitionType": "seasonChampionship",
+      "seasonLabel": "2027",
+      "region": "global",
+      "gender": "open",
+      "supportsLadder": false,
+      "supportsTeams": true,
+      "supportsCompetitors": true,
+      "isSpecialEvent": false,
+      "standingsOnly": false,
+      "standingsType": "none",
       "defaultStandingsVisibility": "summary"
     }
   ],
@@ -1244,7 +1274,7 @@
       "countryCode": "MC",
       "country": "Monaco",
       "region": "Europe",
-      "venueName": "Monaco",
+      "venueName": "Gap / Monaco",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1257,7 +1287,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1268,7 +1298,11 @@
         "totalTime": "4:24:59.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/94e-rallye-monte-carlo/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "MC",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rallye-monte-carlo-2026/"
     },
     {
       "id": "event:wrc:2026:round-02",
@@ -1287,7 +1321,7 @@
       "countryCode": "SE",
       "country": "Sweden",
       "region": "Europe",
-      "venueName": "Sweden",
+      "venueName": "Umeå",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1300,7 +1334,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1311,7 +1345,11 @@
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-sweden/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "SE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-sweden-2026/"
     },
     {
       "id": "event:wrc:2026:round-03",
@@ -1330,7 +1368,7 @@
       "countryCode": "KE",
       "country": "Kenya",
       "region": "Africa",
-      "venueName": "Kenya",
+      "venueName": "Naivasha",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1343,7 +1381,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1354,7 +1392,11 @@
         "totalTime": "3:16:05.6",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/safari-rally-kenya/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "KE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-safari-rally-kenya-2026/"
     },
     {
       "id": "event:wrc:2026:round-04",
@@ -1373,7 +1415,7 @@
       "countryCode": "HR",
       "country": "Croatia",
       "region": "Europe",
-      "venueName": "Croatia",
+      "venueName": "Grobnik Circuit service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1386,7 +1428,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1397,7 +1439,12 @@
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-croatia-rally-2026/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "HR",
+      "venueCity": "Rijeka",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-croatia-rally-2026/"
     },
     {
       "id": "event:wrc:2026:round-05",
@@ -1416,7 +1463,7 @@
       "countryCode": "ES",
       "country": "Spain",
       "region": "Europe",
-      "venueName": "Spain",
+      "venueName": "Gran Canaria Stadium service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1429,7 +1476,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1440,7 +1487,11 @@
         "totalTime": "2:43:18.9",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/50-rally-islas-canarias-rally-de-espana/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "ES",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-islas-canarias-2026/"
     },
     {
       "id": "event:wrc:2026:round-06",
@@ -1459,7 +1510,7 @@
       "countryCode": "PT",
       "country": "Portugal",
       "region": "Europe",
-      "venueName": "Portugal",
+      "venueName": "Exponor service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1472,7 +1523,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1483,7 +1534,12 @@
         "totalTime": "3:53:01.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/vodafone-rally-portugal/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "PT",
+      "venueCity": "Matosinhos",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-vodafone-rally-de-portugal-2026/"
     },
     {
       "id": "event:wrc:2026:round-07",
@@ -1502,7 +1558,7 @@
       "countryCode": "JP",
       "country": "Japan",
       "region": "Asia",
-      "venueName": "Japan",
+      "venueName": "Toyota Stadium service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1515,7 +1571,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1526,7 +1582,12 @@
         "totalTime": "3:17:08.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-japan-2026/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "JP",
+      "venueCity": "Toyota City",
+      "venueVerified": true,
+      "venueSourceUrl": "https://rally-japan.jp/en/area/toyota-stadium-service-park-admission-ticket-set/"
     },
     {
       "id": "event:wrc:2026:round-08",
@@ -1545,7 +1606,7 @@
       "countryCode": "GR",
       "country": "Greece",
       "region": "Europe",
-      "venueName": "Greece",
+      "venueName": "Loutraki",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1558,7 +1619,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1569,7 +1630,11 @@
         "totalTime": "3:36:40.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/eko-acropolis-rally-2026/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "GR",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-eko-acropolis-rally-greece-2026/"
     },
     {
       "id": "event:wrc:2026:round-09",
@@ -1588,7 +1653,7 @@
       "countryCode": "EE",
       "country": "Estonia",
       "region": "Europe",
-      "venueName": "Estonia",
+      "venueName": "Tartu",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1601,7 +1666,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1612,7 +1677,11 @@
         "totalTime": "2:31:16.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-estonia/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "EE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-delfi-rally-estonia-2026/"
     },
     {
       "id": "event:wrc:2026:round-10",
@@ -1631,7 +1700,7 @@
       "countryCode": "FI",
       "country": "Finland",
       "region": "Europe",
-      "venueName": "Finland",
+      "venueName": "Jyväskylä",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1644,7 +1713,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1655,7 +1724,11 @@
         "totalTime": "2:27:58.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/secto-rally-finland/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "FI",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-secto-rally-finland-2026/"
     },
     {
       "id": "event:wrc:2026:round-11",
@@ -1674,7 +1747,7 @@
       "countryCode": "PY",
       "country": "Paraguay",
       "region": "South America",
-      "venueName": "Paraguay",
+      "venueName": "Encarnación",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1687,7 +1760,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1698,7 +1771,11 @@
         "totalTime": "3:13:28.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-rally-del-paraguay/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "PY",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-del-paraguay-2026/"
     },
     {
       "id": "event:wrc:2026:round-12",
@@ -1717,7 +1794,7 @@
       "countryCode": "CL",
       "country": "Chile",
       "region": "South America",
-      "venueName": "Chile",
+      "venueName": "Concepción",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1730,7 +1807,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       },
       "result": {
         "status": "official",
@@ -1741,7 +1818,11 @@
         "totalTime": "2:57:08.2",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-chile-biobio/classifications",
         "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+      },
+      "season": "2026",
+      "venueCountryCode": "CL",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-chile-bio-bio-2026/"
     },
     {
       "id": "event:wrc:2026:round-13",
@@ -1760,7 +1841,7 @@
       "countryCode": "IT",
       "country": "Italy",
       "region": "Europe",
-      "venueName": "Italy",
+      "venueName": "Lungomare Barcellona service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1773,8 +1854,17 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-10-01T21:33:40.877Z"
-      }
+        "checkedAt": "2026-10-02T13:06:48.940Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "IT",
+      "venueCity": "Alghero, Sardinia",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026/",
+      "courseArtworkId": "sardegna-2026",
+      "courseGeometryVerified": true,
+      "courseGeometrySourceUrl": "https://webassets.redbull.com/media/r8TgPyrsRmdqyJWdNYQiE8/WRC/WRC%20events%202026/RIS26_Overmap.pdf",
+      "venueCaption": "17 stages • 307.0km • 2026 competitive-stage overview"
     },
     {
       "id": "event:wrc:2026:round-14",
@@ -1789,7 +1879,7 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "scheduleStatus": "date-only",
-      "status": "scheduled",
+      "status": "cancelled",
       "countryCode": "SA",
       "country": "Saudi Arabia",
       "region": "Middle East",
@@ -1807,6 +1897,43 @@
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
         "checkedAt": "2026-10-01T21:33:40.877Z"
+      },
+      "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+      "statusCheckedAt": "2026-10-02T13:06:48.940Z",
+      "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+      "season": "2026",
+      "venueCountryCode": "SA"
+    },
+    {
+      "id": "event:wrc:2027:monte-carlo",
+      "sportDomainId": "sport:motorsport",
+      "preferenceDomainId": "sport:wrc",
+      "competitionId": "competition:wrc-2027",
+      "displayName": "WRC Rallye Monte-Carlo",
+      "season": "2027",
+      "roundLabel": "2027 edition",
+      "date": "2027-01-21",
+      "endDate": "2027-01-24",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "scheduleStatus": "date-only",
+      "status": "scheduled",
+      "countryCode": "MC",
+      "country": "Monaco",
+      "region": "Europe",
+      "venueName": "Monaco / French Alps",
+      "venueCountryCode": "MC",
+      "venueCaption": "Monaco start and finish • stages in France • 2027 edition",
+      "venueSourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+      "venueVerified": true,
+      "participantsConfirmed": false,
+      "participantIds": [],
+      "broadcasters": [],
+      "scheduleNote": "Organiser-published event window; stage timetable is indicative. Shakedown is 20 January in Gap and stays in Schedule information.",
+      "source": {
+        "provider": "Automobile Club de Monaco",
+        "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+        "checkedAt": "2026-10-02T13:06:48.940Z"
       }
     }
   ],
@@ -2333,7 +2460,20 @@
         "team:wrc:hyundai-shell-mobis-world-rally-team",
         "team:wrc:toyota-gazoo-racing-wrt2",
         "team:wrc:m-sport-ford-world-rally-team"
-      ]
+      ],
+      "season": "2026"
     }
-  ]
+  ],
+  "calendarCoverage": {
+    "season": 2026,
+    "publishedRounds": 13,
+    "retainedWithdrawals": [
+      "event:wrc:2026:round-14"
+    ],
+    "complete": true,
+    "checkedAt": "2026-10-02T13:06:48.940Z",
+    "revisionSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+    "futureCalendarComplete": false,
+    "futureNote": "Only individually published future events are included; the full 2027 calendar is unconfirmed."
+  }
 }

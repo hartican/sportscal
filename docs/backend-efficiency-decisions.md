@@ -402,3 +402,9 @@ Reviewed calendar/participation input is a local provenance register at feeds/pr
 ## Feed live-score presentation — 2 October 2026
 
 Reuse the existing live-fixture snapshot reader and shared compact score model on mounted Feed cards, with the existing sixty-ID bound, request coalescing, source owner and last-good failure behaviour. Mount refresh no longer depends on fantasy consent. Reject late updates after account/preference changes or hidden navigation. No new scheduler, provider request per user, database writer or reminder category.
+
+## 2 October 2026 — WRC calendar and venue identity
+
+The canonical `update-cards.js` workflow owns WRC calendar refresh. Its scoped `--wrc` mode refreshes the single official competition calendar, the official withdrawal announcement and one published organiser itinerary while retaining championship standings and classified results. Full refresh retains the existing FIA result provider; failed or mismatched result responses preserve prior verified winning facts and their original timestamps. No new results/live provider, client source request, scheduler or database change is added. Reviewed edition geometry and venue metadata are local assets, never researched per card at runtime.
+
+A 13-round calendar is accepted only with the explicit official Saudi WRC withdrawal. Keep its established fixture ID as cancelled; do not turn the regional MERC event into WRC coverage. Future event windows retain date-only precision, unconfirmed entrants and viewing rights. Current-season roster scopes cannot imply future participation. Regressions: `validate-wrc-context.js` and `validate-wrc-venue-coverage.js`.

@@ -1,14 +1,14 @@
 function appendVenuePanel(card,main,ev){
-  if(!['f1','motogp'].includes(ev.key)||!main||main.querySelector('.venue-location-hero'))return;
+  if(!['f1','motogp','wrc'].includes(ev.key)||!main||main.querySelector('.venue-location-hero'))return;
   const p=NOTHINGSPORTS_FEED_CARD_PRESENTATION, palette=p.palette(ev);
   if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);if(palette[2])card.style.setProperty('--fixture-accent',palette[2]);}
   card.classList.add('venue-location-card');if(ev.key==='f1')card.classList.add('f1-location-card');
   const hero=document.createElement('div');hero.className='f1-location-hero venue-location-hero';hero.dataset.cardArea='artwork';
   const artwork=p.venueArtwork(ev),track=p.circuitAsset(ev);
-  if(track){const outline=document.createElement('img');outline.src=track;outline.alt=artwork?.label||`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);if(artwork?.kind==='fallback')hero.classList.add('is-venue-fallback');outline.onerror=()=>{if(ev.key==='motogp'&&!hero.classList.contains('is-venue-fallback')){hero.classList.add('is-venue-fallback');outline.src='assets/identities/motogp/motorcycle-white.svg';outline.alt='MotoGP motorcycle; circuit artwork unavailable';}};}
+  if(track){const outline=document.createElement('img');outline.src=track;outline.alt=artwork?.label||`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);if(artwork?.kind==='fallback')hero.classList.add('is-venue-fallback');outline.onerror=()=>{if(artwork&&!hero.classList.contains('is-venue-fallback')){hero.classList.add('is-venue-fallback');const fallback=p.venueArtwork({...ev,courseGeometryVerified:false,venueConfigurationVerified:false});outline.src=fallback.path;outline.alt=fallback.label;}};}
   const labels=document.createElement('div');labels.className='f1-location-labels';
   const badge=document.createElement('span');badge.className='f1-location-date';badge.textContent=ev.date?new Date(ev.date+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'}):'Date TBC';
-  if(ev.key==='motogp'&&ev.endDate&&ev.endDate!==ev.date)badge.textContent+=' – '+new Date(ev.endDate+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'});
+  if(['motogp','wrc'].includes(ev.key)&&ev.endDate&&ev.endDate!==ev.date)badge.textContent+=' – '+new Date(ev.endDate+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'});
   labels.append(badge);
   const raceLabel=p.raceLabel(ev);
   if(raceLabel){const race=document.createElement('span');race.className='f1-location-race';const flag=document.createElement('span');flag.className='f1-chequered-flag';flag.setAttribute('aria-hidden','true');flag.textContent='🏁';race.append(flag,document.createTextNode(raceLabel));labels.append(race);}

@@ -130,7 +130,7 @@ function tableCellText(cell){
   return (Array.isArray(cell) ? cell : []).map(item => item?.text || "").join("").replace(/^.*?(?=WRC\b)/u, "").trim();
 }
 
-function parseWrcCalendar(html){
+function parseWrcCalendar(html, { withdrawalVerified = false } = {}){
   const match = String(html || "").match(/<script[^>]+id="rb3-prerender-data-cache"[^>]*>([\s\S]*?)<\/script>/i);
   if (!match) throw new Error("WRC calendar prerender data was not found");
   let payload;
@@ -148,7 +148,7 @@ function parseWrcCalendar(html){
     const place = ROUND_PLACES[roundNumber];
     return { roundNumber, name, ...dates, ...place };
   });
-  if (rounds.length !== 14) throw new Error(`WRC calendar returned ${rounds.length} rounds; expected exactly 14`);
+  if (rounds.length !== 14 && !(rounds.length === 13 && withdrawalVerified)) throw new Error(`WRC calendar returned ${rounds.length} rounds; expected exactly 14 or an officially verified 13-round revision`);
   rounds.forEach((round, index) => {
     if (round.roundNumber !== index + 1) throw new Error(`WRC calendar round sequence drifted at position ${index + 1}`);
     if (!round.name.startsWith("WRC ")) throw new Error(`WRC calendar round ${round.roundNumber} has an unexpected name: ${round.name}`);
@@ -281,11 +281,11 @@ function buildWrcContext({ rounds, standings, classifications = {}, checkedAt = 
   const allParticipantIds = participants.map(participant => participant.id);
   const checkedDate = checkedAt.slice(0, 10);
   const latestCompletedRound = rounds
-    .filter(round => round.endDate < checkedDate)
+    .filter(round => round.status !== "cancelled" && round.endDate < checkedDate)
     .reduce((latest, round) => Math.max(latest, round.roundNumber), 0);
 
   const events = rounds.map(round => {
-    const isCompleted = round.endDate < checkedDate;
+    const isCompleted = round.status !== "cancelled" && round.endDate < checkedDate;
     const classification = classifications[round.roundNumber] || null;
     const result = !isCompleted ? undefined : classification ? {
       status: "official",
@@ -314,7 +314,7 @@ function buildWrcContext({ rounds, standings, classifications = {}, checkedAt = 
       dateOnly: true,
       timePrecision: "date-only",
       scheduleStatus: "date-only",
-      status: isCompleted ? "completed" : "scheduled",
+      status: round.status === "cancelled" ? "cancelled" : isCompleted ? "completed" : "scheduled",
       countryCode: round.countryCode,
       country: round.country,
       region: round.region,
@@ -395,7 +395,8 @@ function validateWrcContext(context){
   const fail = message => errors.push(message);
   if (context?.schemaVersion !== "sport-context.v1") fail("schemaVersion must be sport-context.v1");
   if (context?.season !== 2026) fail("season must be 2026");
-  const events = Array.isArray(context?.events) ? context.events : [];
+  const allEvents = Array.isArray(context?.events) ? context.events : [];
+  const events = allEvents.filter(event => String(event.date).startsWith("2026-"));
   if (events.length !== 14) fail(`expected exactly 14 WRC rounds, found ${events.length}`);
   const roundNumbers = new Set();
   events.forEach(event => {
@@ -418,6 +419,15 @@ function validateWrcContext(context){
     if (!stan || stan.live !== true || stan.replay !== true || stan.sourceUrl !== STAN_URL) fail(`${prefix} needs Stan Sport live and replay metadata`);
   });
   if (roundNumbers.size === 14 && Array.from(roundNumbers).some((round, index) => !roundNumbers.has(index + 1))) fail("WRC round numbers must cover 1 through 14");
+
+  if (new Set(allEvents.map(e=>e.id)).size!==allEvents.length) fail("WRC event IDs must be unique");
+  if(context?.calendarCoverage?.publishedRounds===13){
+    const cancelled=events.filter(e=>e.status==='cancelled');
+    if(cancelled.length!==1||cancelled[0].roundNumber!==14||cancelled[0].statusSourceUrl!==require('./wrc-venue-coverage').REVISION_URL)fail('The 13-round calendar needs the retained Saudi withdrawal and official provenance');
+  }
+  for(const event of allEvents.filter(e=>!String(e.date).startsWith('2026-'))){
+    if(event.id!=='event:wrc:2027:monte-carlo'||event.competitionId!=='competition:wrc-2027'||event.source?.sourceUrl!==require('./wrc-venue-coverage').FUTURE_URL||!/^2027-\d{2}-\d{2}$/.test(event.date)||event.endDate<event.date||event.dateOnly!==true||event.timePrecision!=='date-only'||event.participantsConfirmed!==false||event.participantIds?.length)fail('Future WRC coverage needs a verified organiser event window without inferred entrants');
+  }
 
   const participants = Array.isArray(context?.participants) ? context.participants : [];
   const participantsById = new Map(participants.map(participant => [participant?.id, participant]));

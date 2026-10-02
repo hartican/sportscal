@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+'use strict';
+const fs=require('fs'),assert=require('node:assert/strict');
+const context=require('../data/canonical/wrc-context-2026.json');
+const {parseWrcCalendar,validateWrcContext}=require('./lib/wrc-context');
+const {verifiedWithdrawal,futureMonteCarlo,applyCoverage,REVISION_URL}=require('./lib/wrc-venue-coverage');
+const {eventToCard,syncWrcToFeed}=require('./sync-wrc-to-feed');
+const art=require('../config/venue-artwork'),presentation=require('../config/feed-card-presentation'),scope=require('../config/sport-context');
+assert.deepEqual(validateWrcContext(context),[]);
+const original=fs.readFileSync('scripts/fixtures/wrc-calendar.html','utf8');
+const payload=JSON.parse(original.match(/<script[^>]*>([\s\S]*?)<\/script>/)[1]);payload.calendar.rows.pop();
+const revised='<script id="rb3-prerender-data-cache">'+JSON.stringify(payload)+'</script>';
+assert.throws(()=>parseWrcCalendar(revised),/officially verified/,'an arbitrary missing round cannot silently shrink coverage');
+const rounds=parseWrcCalendar(revised,{withdrawalVerified:true});assert.equal(rounds.length,13);
+assert(verifiedWithdrawal(fs.readFileSync('scripts/fixtures/wrc-calendar-revision.html','utf8')));
+assert(!verifiedWithdrawal('Saudi regional rally runs in November'));
+const future=futureMonteCarlo(fs.readFileSync('scripts/fixtures/wrc-monte-carlo-2027.html','utf8'),'2026-10-02T00:00:00Z');
+assert.throws(()=>futureMonteCarlo('21 - 24 January 2027','2026-10-02'),/incomplete/);
+const result=applyCoverage(context,{rounds,withdrawalVerified:true,future,checkedAt:'2026-10-02T00:00:00Z'});
+const withdrawn=result.events.find(e=>e.roundNumber===14);assert.equal(withdrawn.status,'cancelled');assert.equal(withdrawn.statusSourceUrl,REVISION_URL);assert(!withdrawn.result);
+assert.deepEqual(result.ladderSnapshots,context.ladderSnapshots,'calendar refresh preserves standings');
+for(const e of context.events.filter(e=>e.result?.status==='official'))assert.deepEqual(result.events.find(n=>n.id===e.id).result,e.result,'calendar refresh preserves exact winning facts and verification times');
+assert.throws(()=>applyCoverage(context,{rounds:rounds.slice(0,12),withdrawalVerified:true,checkedAt:'2026-10-02'}),/omitted/);
+const futureCard=eventToCard(future);assert.equal(futureCard.watchUrl,undefined);assert.equal(futureCard.timePrecision,'date-only');assert.deepEqual(scope.applyEventContext(futureCard,result).participantIds,[],'future season never inherits the current roster');
+const sourceFailed=applyCoverage(context,{rounds,withdrawalVerified:true,checkedAt:'2026-10-03'});assert.deepEqual(sourceFailed.events.filter(e=>e.season==='2027'),context.events.filter(e=>e.season==='2027'),'missing future source retains its prior exact snapshot');
+const once=syncWrcToFeed({events:[]},result);assert.deepEqual(syncWrcToFeed(once,result),once,'duplicate prevention');
+assert.equal(once.events.find(e=>e.season==='2027').participants,undefined,'unconfirmed future events have no projected season roster');
+const scopedCard=once.events.find(e=>e.roundNumber===13);assert.deepEqual(scopedCard.participantIds,result.eventParticipantScopes[0].participantIds,'fresh cards retain exactly the existing season participant scope');assert(scopedCard.participants.every(p=>p.displayName===result.participants.find(original=>original.id===p.id).displayName),'names come from the existing championship context');
+assert.equal(once.events.filter(e=>e.status!=='cancelled'&&e.season==='2026').length,13);
+assert.equal(once.events.filter(e=>e.season==='2027').length,1);
+assert.equal(art.resolve({key:'wrc',id:'event:wrc:2027:round-13',date:'2027-10-01',courseGeometryVerified:true,courseArtworkId:'sardegna-2026'}).kind,'fallback','another edition must never receive the prior route');
+const sardegna=once.events.find(e=>e.roundNumber===13);assert.equal(art.resolve(sardegna).kind,'course');assert.match(art.resolve({...sardegna,courseGeometryVerified:false}).path,/helmet/);
+assert.deepEqual(presentation.palette({key:'wrc',venueCountryCode:'IT'}),presentation.palette({key:'f1',venueCountryCode:'IT'}));assert.deepEqual(presentation.palette({key:'wrc',venueCountryCode:'XX'}),['#526174','#384657']);
+for(const asset of require('../assets/identities/wrc/asset-manifest.json').assets){const source=fs.readFileSync(asset.path,'utf8');assert.match(source,/<path\b/);assert.doesNotMatch(source,/<image\b|data:image|<script\b/i);assert(asset.author&&asset.sourceUrl&&asset.license&&asset.licenseUrl&&asset.modifications);if(asset.kind==='course'){assert.match(source,/fill="none"/);assert.equal(asset.canonicalEventId,sardegna.canonicalEventId);assert.equal(asset.season,sardegna.season);}}
+const parents=require('../lib/event-overviews').build(once.events);assert.equal(parents.filter(e=>e.sportKey==='wrc').length,14,'one rally parent per active event, no withdrawn parent');assert(parents.find(e=>e.fixtureIds.includes(sardegna.id)).courseGeometryVerified);
+const canonical=fs.readFileSync('scripts/update-cards.js','utf8');assert.match(canonical,/includes\('--wrc'\)/);assert.match(canonical,/refresh-wrc-context\.js/);
+console.log('WRC calendar correction, stable IDs, future uncertainty, venue artwork, source preservation and Events grouping passed.');

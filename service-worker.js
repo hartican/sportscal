@@ -1,12 +1,14 @@
-const CACHE_NAME = "nothingsport-shell-v375";
-const SHELL_VERSION = "375";
+const CACHE_NAME = "nothingsport-shell-v376";
+const SHELL_VERSION = "376";
 const APP_SHELL = [
+  "/assets/identities/wrc/routes/sardegna-2026.svg",
+  "/assets/identities/wrc/helmet-white.svg",
   "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=373",
-  "/assets/js/follow-navigation.js?v=372",
+  "/assets/js/settings-optional-ui.js?v=376",
+  "/assets/js/follow-navigation.js?v=376",
   "/assets/js/tournament-fixture-ui.js?v=366",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
@@ -49,7 +51,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=375",
+  "/assets/js/app-shell-runtime.js?v=376",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=368",
   "/config/tennis-journeys.js?v=368",
@@ -64,7 +66,7 @@ const APP_SHELL = [
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=370",
+  "/styles/follow-feed-rework.css?v=376",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -76,7 +78,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=293",
-  "/config/event-overviews-ui.js?v=370",
+  "/config/event-overviews-ui.js?v=376",
   "/config/surface-category-ui.js?v=340",
   "/assets/styles/match-centre.css?v=340",
   "/config/match-centre.js?v=356",

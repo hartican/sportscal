@@ -62,7 +62,8 @@ assert(html.includes('state === "selected" ? "is-selected"') && html.includes('s
 assert(html.includes("if(isMinimised || state==='compact')")&&html.includes("card.appendChild(summary);return card;"), "compact Events cards return the shared compact summary before rich content");
 assert(html.includes("--ticket-action-bg: #00677b") && html.includes("--ticket-action-text: #ffffff") && html.includes("background:var(--ticket-action-bg); color:var(--ticket-action-text)"), "day-mode Events ticket actions must use the high-contrast action palette");
 assert(html.includes("--events-text-accent: #006f85") && html.includes("color:var(--events-text-accent)"), "day-mode Events editorial links must use the dedicated high-contrast text accent");
-assert(html.includes('id="startupSportsGrid"') && html.includes("Choose at least one"), "startup sport choices must remain lightweight and require one selection");
+const settingsUi = fs.readFileSync('config/fantasy-deadline-ui.js', 'utf8');
+assert(settingsUi.includes('id="startupSportsGrid"') && settingsUi.includes("Choose at least one") && settingsUi.includes('if (!sports.size)'), "startup sport choices must remain lightweight and require one selection in their deferred UI module");
 assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, "boolean");
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 const persistedFixture = userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.find(branch => branch.type === "object");

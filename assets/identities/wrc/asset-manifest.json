@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "venue-assets.v1",
+  "sport": "wrc",
+  "reviewedAt": "2026-10-02",
+  "assets": [
+    {
+      "id": "sardegna-2026",
+      "path": "assets/identities/wrc/routes/sardegna-2026.svg",
+      "kind": "course",
+      "mappingStatus": "verified-edition",
+      "canonicalEventId": "event:wrc:2026:round-13",
+      "season": "2026",
+      "author": "Rally Italia Sardegna / Automobile Club d\u2019Italia",
+      "sourceUrl": "https://webassets.redbull.com/media/r8TgPyrsRmdqyJWdNYQiE8/WRC/WRC%20events%202026/RIS26_Overmap.pdf",
+      "sourceSha256": "3f9bfe49313151df31d71dd1b0537cc6a4f827865a01cfeb4b0286b3ece693bf",
+      "referenceUrl": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026/",
+      "rightsStatus": "official-reference",
+      "license": "Editorial reference to factual course geometry; original map media rights remain with Rally Italia Sardegna. No open licence asserted.",
+      "licenseUrl": "https://rallyitaliasardegna.com/",
+      "modifications": "Only the 805 segments in the official competitive-stage path retained, forming 12 geographic subpaths. Transfer roads, shakedown, labels, logos and basemap removed. White 5-unit stroke, no fill, cropped transparent viewBox; coordinates retained to 0.01 PDF units. Stage arrangement and proportions unchanged."
+    },
+    {
+      "id": "helmet-white",
+      "path": "assets/identities/wrc/helmet-white.svg",
+      "kind": "fallback",
+      "author": "ookami / Sporticon contributors",
+      "sourceUrl": "https://github.com/ookamiinc/sporticon",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+      "rightsStatus": "open-use",
+      "modifications": "Existing licensed motorsports.svg silhouette reused with white fill. Transparent exterior and visor retained."
+    }
+  ]
+}

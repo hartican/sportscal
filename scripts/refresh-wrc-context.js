@@ -19,6 +19,7 @@ const {
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT = path.join(ROOT, "data/canonical/wrc-context-2026.json");
+const coverage = require("./lib/wrc-venue-coverage");
 
 class SourceError extends Error {
   constructor(message, { transient = false } = {}){
@@ -107,18 +108,35 @@ async function main(){
   const checkedAt = optionValue(args, "--checked-at") || new Date().toISOString();
   try {
     const calendarHtml = calendarFile ? fs.readFileSync(calendarFile, "utf8") : await fetchText(CALENDAR_URL);
-    const standingsHtml = standingsFile ? fs.readFileSync(standingsFile, "utf8") : await fetchText(STANDINGS_URL);
-    const rounds = parseWrcCalendar(calendarHtml);
-    const standings = parseFiaStandings(standingsHtml);
-    const classifications = {};
-    for (const round of rounds){
-      const result = await loadClassification(round, { directory: classificationDirectory, checkedDate: checkedAt.slice(0, 10) });
-      if (result) classifications[round.roundNumber] = result;
+    // One competition calendar and one published organiser itinerary; no per-card map requests.
+    const revisionFile=optionValue(args,'--revision-file');
+    const revisionHtml=revisionFile?fs.readFileSync(revisionFile,'utf8'):await fetchText(coverage.REVISION_URL);
+    const withdrawalVerified=coverage.verifiedWithdrawal(revisionHtml);
+    const rounds = parseWrcCalendar(calendarHtml,{withdrawalVerified});
+    let future;
+    try{
+      const futureFile=optionValue(args,'--future-file');
+      future=coverage.futureMonteCarlo(futureFile?fs.readFileSync(futureFile,'utf8'):await fetchText(coverage.FUTURE_URL),checkedAt);
+    }catch(error){console.warn(`Future WRC source unavailable: ${error.message}; preserving existing verified future events.`);}
+    let base=existing;
+    if(!args.includes('--calendar-only')){
+      const standingsHtml = standingsFile ? fs.readFileSync(standingsFile, "utf8") : await fetchText(STANDINGS_URL);
+      const standings = parseFiaStandings(standingsHtml);
+      const classifications = {};
+      for (const round of rounds){
+        const result = await loadClassification(round, { directory: classificationDirectory, checkedDate: checkedAt.slice(0, 10) });
+        if (result) classifications[round.roundNumber] = result;
+      }
+      const retainedWithdrawal=rounds.length===13&&withdrawalVerified&&existing?.events.find(e=>e.roundNumber===14);
+      const completeRecords=retainedWithdrawal?[...rounds,{roundNumber:14,name:retainedWithdrawal.displayName,startDate:retainedWithdrawal.date,endDate:retainedWithdrawal.endDate,countryCode:'SA',country:'Saudi Arabia',region:'Middle East',status:'cancelled'}]:rounds;
+      base=buildWrcContext({rounds:completeRecords,standings,classifications,checkedAt});
+      for(const event of base.events){const prior=existing?.events.find(e=>e.id===event.id);if(event.result?.status==='pending'&&prior?.result?.status==='official')event.result=prior.result;}
     }
-    const context = buildWrcContext({ rounds, standings, classifications, checkedAt });
+    if(!base)throw Error('Calendar-only WRC refresh requires the existing validated championship context');
+    const context=coverage.applyCoverage(base,{rounds,withdrawalVerified,future,checkedAt});
     assertValid(context, "Refreshed WRC context");
     fs.writeFileSync(OUTPUT, `${JSON.stringify(context, null, 2)}\n`);
-    console.log(`Wrote ${path.relative(ROOT, OUTPUT)} with 14 rounds, ${standings.drivers.length} drivers, ${standings.coDrivers.length} co-drivers, and ${standings.manufacturers.length} manufacturers.`);
+    console.log(`Wrote ${path.relative(ROOT, OUTPUT)}: ${rounds.length} published rounds, retained withdrawals, ${context.events.length-rounds.length-1} future event windows; ${args.includes("--calendar-only") ? "existing results and standings preserved" : "senior tables refreshed"}.`);
   } catch (error){
     try {
       preservedContextAfterCoreFailure(error, existing);

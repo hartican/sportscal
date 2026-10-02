@@ -45,11 +45,15 @@ function resultFields(event){
 
 function eventToCard(event){
   const completed = event.status === "completed";
+  const cancelled = event.status === "cancelled";
+  const hasViewing = event.broadcasters?.some(b=>b.broadcasterName==='Stan Sport');
+  const season = event.season || event.date.slice(0,4);
   const sourceCheckedAt = event.source?.checkedAt;
-  return {
+  const card = {
     id: wrcCardId(event),
     eventId: wrcCardId(event),
     canonicalEventId: event.id,
+    cardKind: "fixture",
     sport: "WRC",
     key: "wrc",
     sportDomainId: "sport:wrc",
@@ -64,14 +68,16 @@ function eventToCard(event){
     timePrecision: "date-only",
     scheduleStatus: "date-only",
     displayTime: "Multiple live stages",
-    broadcaster: "Stan Sport",
-    broadcastOptions: ["Stan Sport"],
-    broadcasterIds: ["stan"],
-    watchUrl: STAN_URL,
-    replayUrl: STAN_URL,
+    broadcaster: hasViewing ? "Stan Sport" : "TBC",
+    broadcastOptions: hasViewing ? ["Stan Sport"] : [],
+    broadcasterIds: hasViewing ? ["stan"] : [],
+    watchUrl: hasViewing ? STAN_URL : undefined,
+    replayUrl: hasViewing ? STAN_URL : undefined,
     expected: 7,
     stakesScore: 4,
-    venue: event.country,
+    venue: event.venueName || event.country,
+    ...Object.fromEntries(["venueCity","venueVerified","venueCountryCode","venueSourceUrl","venueCaption","courseArtworkId","courseGeometryVerified","courseGeometrySourceUrl","participantsConfirmed","participantIds","scheduleNote","statusSourceUrl","statusCheckedAt"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    season,
     countryCode: event.countryCode,
     region: event.region,
     liveWindow: 24,
@@ -79,36 +85,39 @@ function eventToCard(event){
     roundNumber: event.roundNumber,
     roundLabel: event.roundLabel,
     narrativeType: "championship-round",
-    status: completed ? "completed" : "upcoming",
-    selectedSentence: completed
+    status: cancelled ? "cancelled" : completed ? "completed" : "upcoming",
+    selectedSentence: cancelled ? "The WRC element of Rally Saudi Arabia will not take place in 2026." : completed
       ? `${event.displayName} is complete; the winning crew and total time stay hidden until you reveal the result.`
-      : `${event.displayName} runs from ${event.date} to ${event.endDate}, with multiple live stages on Stan Sport.`,
-    fullSpiel: completed
+      : `${event.displayName} runs from ${event.date} to ${event.endDate}, with multiple competitive stages${hasViewing ? " and Stan Sport coverage" : "; Australian viewing details TBC"}.`,
+    fullSpiel: cancelled ? event.scheduleNote : completed
       ? `${event.displayName} is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.`
-      : `${event.displayName} is ${event.roundLabel} of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia.`,
+      : `${event.displayName} is ${event.roundLabel} of the ${season} FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, ${hasViewing ? "with live coverage and replays on Stan Sport in Australia" : "with Australian viewing details still to be confirmed"}.`,
     sourceName: event.source?.provider || "WRC",
     sourceUrl: event.source?.sourceUrl,
     sourceCheckedAt,
     sourceType: "official",
     sourceTrust: "verified",
     lastReviewedAt: sourceCheckedAt,
-    replayEligible: true,
-    highlightEligible: true,
-    briefingEligible: true,
-    catchupEligible: true,
+    replayEligible: !cancelled,
+    highlightEligible: !cancelled,
+    briefingEligible: !cancelled,
+    catchupEligible: !cancelled,
     storyline: {
       stakes: 4,
       intensity: 4,
       arcStage: completed ? "recap" : "preview",
-      hookSpoilerOff: completed
+      hookSpoilerOff: cancelled ? "The 2026 WRC element has been withdrawn." : completed
         ? `${event.displayName} has finished; reveal the official result when you are ready.`
         : `${event.displayName} brings the championship to ${event.country}.`,
-      hookSpoilerOn: completed
+      hookSpoilerOn: cancelled ? "The 2026 WRC element has been withdrawn." : completed
         ? `${event.displayName} has an official winning crew and time.`
         : `${event.displayName} brings the championship to ${event.country}.`,
     },
     ...resultFields(event),
   };
+  card.storyline.synopsisSpoilerOff = card.fullSpiel;
+  card.storyline.synopsisSpoilerOn = card.recapText || card.fullSpiel;
+  return card;
 }
 
 function migrateLegacyRallyCard(card){
@@ -122,7 +131,15 @@ function migrateLegacyRallyCard(card){
 function syncWrcToFeed(feed, context){
   const contextErrors = validateWrcContext(context);
   if (contextErrors.length) throw new Error(`Cannot project invalid WRC context:\n- ${contextErrors.join("\n- ")}`);
-  const cards = context.events.map(eventToCard);
+  // Project the existing season scope once, so fresh Feed loads can resolve
+  // followed names without loading the optional standings transport.
+  const participantById = new Map(context.participants.map(person => [person.id, person]));
+  const cards = context.events.map(event => {
+    const card = require('../config/sport-context').applyEventContext(eventToCard(event), context);
+    const participants=(card.participantIds || []).map(id => participantById.get(id)).filter(Boolean)
+      .map(({id, displayName, countryCode}) => ({id, name:displayName, displayName, countryCode}));
+    return { ...card, ...(participants.length ? {participants} : {}) };
+  });
   const cardIds = new Set(cards.map(card => card.id));
   const retained = (feed.events || [])
     .filter(card => !PLACEHOLDER_IDS.has(card?.id) && !PLACEHOLDER_IDS.has(card?.eventId))
@@ -152,7 +169,7 @@ function main(){
     process.exit(1);
   }
   writeJson(outputPath, output);
-  console.log(`Projected 14 WRC rally cards into ${outputPath}; legacy rally placeholders removed and non-WRC rally content retained under Motorsport.`);
+  console.log(`Projected WRC rally cards into ${outputPath}; legacy rally placeholders removed and non-WRC rally content retained under Motorsport.`);
 }
 
 if (require.main === module) main();

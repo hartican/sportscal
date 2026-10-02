@@ -26,7 +26,7 @@ const resolvedFeed=syncCanonicalFixtures({events:[]},resolved,{publishedAt:'2026
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.name,'Sydney Swans v Hawthorn','resolved clubs replace placeholder title');
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.stage,'Grand Final','resolved clubs retain stage');
 
-assert.match(html,/fixture-participant-pager/,'F1 followed participants need a one-line pager');
+assert.match(html,/row\.tabIndex=0/,'followed participants need a keyboard-scrollable single row');
 assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}/,'compact cards need an explicit sport label');
 assert.match(html,/Chat sound on/,'chat sound activation needs acknowledgement');
 assert.match(html,/chatIncomingBanner/,'incoming chat needs an exact-room banner');

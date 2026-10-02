@@ -107,6 +107,7 @@
       : { ...event };
     const scope = (context?.eventParticipantScopes || []).find(candidate => {
       if (candidate.sportKey !== event?.key) return false;
+      if (candidate.season && String(event?.date || event?.startTimeUtc || "").slice(0,4) !== String(candidate.season)) return false;
       try{
         return new RegExp(candidate.titlePattern, "i").test(title);
       }catch{

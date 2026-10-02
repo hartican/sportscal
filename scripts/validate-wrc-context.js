@@ -46,10 +46,10 @@ const appSource = read("index.html") + read("assets/js/sport-hub-ui.js");
 const serverFeedSource = read("api/feed.js");
 
 assert.deepEqual(validateWrcContext(context), [], "checked-in WRC context must satisfy the strict domain contract");
-assert.equal(context.events.length, 14);
-assert.deepEqual(context.events.map(event => event.roundNumber), Array.from({ length: 14 }, (_, index) => index + 1));
+assert.equal(context.events.filter(e=>e.date.startsWith('2026-')).length,14);
+assert.deepEqual(context.events.filter(e=>e.date.startsWith('2026-')).map(event => event.roundNumber), Array.from({ length: 14 }, (_, index) => index + 1));
 assert(context.events.every(event => event.endDate >= event.date && event.dateOnly === true));
-assert(context.events.every(event => event.broadcasters.some(provider => provider.broadcasterName === "Stan Sport" && provider.live && provider.replay && provider.sourceUrl === STAN_URL)));
+assert(context.events.filter(e=>e.date.startsWith('2026-')).every(event => event.broadcasters.some(provider => provider.broadcasterName === "Stan Sport" && provider.live && provider.replay && provider.sourceUrl === STAN_URL)));
 assert.equal(context.ladderSnapshots.length, 3);
 assert.deepEqual(new Set(context.ladderSnapshots.map(snapshot => snapshot.competitionId)), new Set([
   "competition:wrc-drivers-2026", "competition:wrc-co-drivers-2026", "competition:wrc-manufacturers-2026",
@@ -170,8 +170,8 @@ assert.equal(classifyCalendarEvent({title:"Dakar Rally"}).key, "motorsport");
 assert.equal(classifyCalendarEvent({title:"Regional forest rally"}).key, "motorsport");
 assert.deepEqual(discovery.oneOffMotorsportFrothIds({key:"motorsport",name:"Dakar Rally"}), ["sport:motorsport"]);
 
-const feedWrc = feed.events.filter(event => event.key === "wrc");
-const incomingWrc = incoming.events.filter(event => event.key === "wrc");
+const feedWrc = feed.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-"));
+const incomingWrc = incoming.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-"));
 assert.equal(feedWrc.length, 14);
 assert.equal(incomingWrc.length, 14);
 assert(feedWrc.every(event => event.endDate >= event.date && event.displayTime === "Multiple live stages"));
@@ -208,17 +208,17 @@ assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-
 assert(!feed.events.some(event => event.key === "rally"));
 assert(!feed.events.some(event => /Paris-Dakar Rally 2026 Stage 11|WRC Safari Rally 2027/.test(event.name)));
 const resynced = syncWrcToFeed(feed, context);
-assert.equal(resynced.events.filter(event => event.key === "wrc").length, 14, "WRC projection must be idempotent");
+assert.equal(resynced.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-" )).length, 14, "WRC projection must be idempotent");
 assert.equal(resynced.sourceNote.split(WRC_SOURCE_NOTE).length - 1, 1, "WRC source disclosure must remain idempotent");
 
-assert.equal(hubs.canonicalFixturesForSport(context, "wrc").length, 14);
+assert.equal(hubs.canonicalFixturesForSport(context, "wrc").filter(e=>e.date.startsWith("2026-")).length, 14);
 const officialView = hubs.canonicalFixtureView(context.events[0], { participants:context.participants, feedCards:feed.events });
 assert.equal(officialView.event.canonicalResultText, "Oliver Solberg / Elliott Edmondson · 4:24:59.0");
 assert.equal(officialView.event.sportDomainId, "sport:wrc");
 assert.equal(officialView.event.canonicalSportDomainId, "sport:motorsport");
 const scheduledView = hubs.canonicalFixtureView(context.events.find(event => event.status === "scheduled"), { participants:context.participants, feedCards:feed.events });
 assert.equal(scheduledView.event.resultStatus, null, "a scheduled WRC round must not invent a result state");
-assert.equal(hubs.supportedRounds(hubs.canonicalFixturesForSport(context, "wrc")).length, 14);
+assert.equal(hubs.supportedRounds(hubs.canonicalFixturesForSport(context, "wrc").filter(e=>e.date.startsWith("2026-"))).length, 14);
 assert.equal(feedTimeline.status({date:"2026-09-10",endDate:"2026-09-13",dateOnly:true,status:"upcoming"}, new Date("2026-09-11T02:00:00.000Z")), "live");
 
 const chile = feedWrc.find(event => event.roundNumber === 12);
@@ -262,4 +262,4 @@ assert(serverFeedSource.includes('require("../data/canonical/wrc-context-2026.js
 assert(new Set(context.sources.map(source => source.sourceUrl)).has(CALENDAR_URL));
 assert(new Set(context.sources.map(source => source.sourceUrl)).has(STANDINGS_URL));
 
-console.log("WRC context valid: official 14-round calendar, three senior tables, date-only Feed and ICS semantics, Stan live/replay metadata, hub results, and rally migration coverage.");
+console.log("WRC context valid: 13 active rounds and one retained withdrawal, three senior tables, date-only Feed and ICS semantics, Stan live/replay metadata, hub results, and rally migration coverage.");

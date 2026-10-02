@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T12:49:01.004Z",
+  "generatedAt": "2026-10-02T13:18:18.899Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -69,11 +69,11 @@
       "id": "sport:motorsport",
       "slug": "motorsport",
       "label": "Motorsport",
-      "fixtureCount": 86,
+      "fixtureCount": 87,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T12:47:28.214Z",
+      "freshAt": "2026-10-02T13:18:18.899Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -81,11 +81,11 @@
       "id": "sport:wrc",
       "slug": "wrc",
       "label": "WRC",
-      "fixtureCount": 14,
+      "fixtureCount": 15,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-01T21:33:40.877Z",
+      "freshAt": "2026-10-02T13:06:48.940Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/wrc.json"
     },

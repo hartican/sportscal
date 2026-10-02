@@ -1,12 +1,14 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261002124728214-20261002124901004",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261002124728214-20261002124901004-20261002130649571-20261002131818899",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-02T12:49:01.004Z",
+  "publishedAt": "2026-10-02T13:18:18.899Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
     "nfl",
+    "motogp",
     "masters",
+    "wsl",
     "nba",
     "lemans",
     "fifa",
@@ -25,14 +27,12 @@
     "fiba-women",
     "nrlw",
     "football",
-    "wsl",
     "supercars",
     "downhill-mtb",
     "big-wave",
     "ski",
     "golf",
-    "goodwood",
-    "motogp"
+    "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -49,19 +49,29 @@
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
-        "count": 14,
+        "count": 15,
         "firstEventDate": "2026-01-22",
-        "lastEventDate": "2026-11-11"
+        "lastEventDate": "2027-01-21"
       },
       "nfl": {
         "count": 1,
         "firstEventDate": "2026-02-09",
         "lastEventDate": "2026-02-09"
       },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
+      },
       "masters": {
         "count": 4,
         "firstEventDate": "2026-04-09",
         "lastEventDate": "2026-04-12"
+      },
+      "wsl": {
+        "count": 1,
+        "firstEventDate": "2026-04-16",
+        "lastEventDate": "2026-04-16"
       },
       "nba": {
         "count": 172,
@@ -153,11 +163,6 @@
         "firstEventDate": "2026-09-25",
         "lastEventDate": "2026-09-29"
       },
-      "wsl": {
-        "count": 1,
-        "firstEventDate": "2026-04-16",
-        "lastEventDate": "2026-04-16"
-      },
       "supercars": {
         "count": 1,
         "firstEventDate": "2026-10-11",
@@ -187,11 +192,6 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
-      },
-      "motogp": {
-        "count": 205,
-        "firstEventDate": "2026-02-27",
-        "lastEventDate": "2027-10-01"
       }
     }
   }

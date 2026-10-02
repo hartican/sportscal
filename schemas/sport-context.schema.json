@@ -21,6 +21,20 @@
     "schemaVersion": { "const": "sport-context.v1" },
     "taxonomyVersion": { "const": "sports-taxonomy.v1" },
     "season": { "type": "integer", "minimum": 2026 },
+    "calendarCoverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["season", "publishedRounds", "complete", "checkedAt", "futureCalendarComplete"],
+      "properties": {
+        "season": { "type": "integer" },
+        "publishedRounds": { "type": "integer", "minimum": 1 },
+        "retainedWithdrawals": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "complete": { "type": "boolean" },
+        "checkedAt": { "type": "string", "format": "date-time" },
+        "revisionSourceUrl": { "type": "string", "format": "uri" },
+        "futureCalendarComplete": { "type": "boolean" },
+        "futureNote": { "type": "string" }
+      }
+    },
     "generatedAt": { "type": "string", "format": "date-time" },
     "sources": {
       "type": "array",
@@ -183,7 +197,7 @@
     "event": {
       "type": "object",
       "additionalProperties": true,
-      "required": ["id", "sportDomainId", "preferenceDomainId", "competitionId", "displayName", "roundNumber", "date", "endDate", "dateOnly", "status"],
+      "required": ["id", "sportDomainId", "preferenceDomainId", "competitionId", "displayName", "date", "endDate", "dateOnly", "status"],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "sportDomainId": { "$ref": "#/$defs/id" },
@@ -291,6 +305,7 @@
         "preferenceDomainId": { "$ref": "#/$defs/id" },
         "participantSportDomainId": { "$ref": "#/$defs/id" },
         "titlePattern": { "type": "string", "minLength": 3 },
+        "season": { "type": "string", "pattern": "^\\d{4}$" },
         "resolutionMode": { "enum": ["all-active", "title-match", "explicit"] },
         "participantIds": {
           "type": "array",

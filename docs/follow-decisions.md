@@ -342,3 +342,7 @@ An explicit MotoGP follow admits one combined Q1/Q2 card, Sprint and Grand Prix 
 ## Live scores on Feed — 2 October 2026
 
 The approved Athletes repair moves shared source-oriented live scores onto collapsed and expanded Feed fixture cards with Results ON. Results OFF removes score content and accessible score labels. Existing final results are not duplicated; freshness and terminal observations remain authoritative. Match Centre stays until Athletes is delivered. Sporting refresh operates independently of Fantasy Deadlines, whose enrichment remains opt-in. Regression: validate-feed-live-scores.js and validate-feed-live-scores-browser.js.
+
+## 2 October 2026 — followed drivers presentation
+
+The followed-driver and team links beneath racing fixture titles use one horizontally scrolling row. Keep every followed name and its profile action, 44px touch height, keyboard access and visible focus. Remove pagination and wrapping; this changes presentation only and does not grant or remove follows. Applies to F1, MotoGP, WRC, Motorsport and Cycling. Regression: `validate-mobile-presentation-browser.js`.
