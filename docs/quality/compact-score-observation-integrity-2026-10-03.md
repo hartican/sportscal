@@ -1,5 +1,7 @@
 # Nothing Sport — compact-score observation integrity review, 3 October 2026
 
+**Implementation update, 3 October:** the shared repair is now shipped at `306303df`, shell 384, READY `dpl_9rwdC3RA2D3r796j5PGZEKYwEv3i`, normal workflow 37042198759 (214s). Original score/status observations, genuine per-fixture verification, no timestamp-only compact/history churn and honest unknown freshness pass actual SQL/handler/browser tests and both cached 383→384 upgrades. Sporting files/identities are retained. [Full acceptance](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/compact-observations-delivery-20261003.md). The 5,000-row local capacity benchmark is a future-window warning relative to the existing eight-second write deadline, not a verified production failure; retain the current deadline/last-good budget and require capacity proof before substantial expansion. Full Football/rights/device/recovery/cohort certification remains open. The original dated review below is history.
+
 **Next recommended module:** repair per-fixture compact score/status observations and prove score-only final corrections through actual storage, the shared overlay and API. This is a reproduced shared correctness defect with Football impact, not a reason for another provider or scheduler. The current app remains the verified SailGP release `a2fdcc258379a0a8c87dbb560463260f2dc7cf6f`, shell 383. This review changes evidence and prioritisation only; no app/database repair is claimed.
 
 ## Material finding and user effect
