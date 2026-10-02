@@ -1,0 +1,38 @@
+# NBL status integrity and quiet refreshes — 2 October 2026
+
+Business value: make saved NBL cards honest about play and stop republishing unchanged finals. This is the next bounded repair under the cross-sport MVP outcome. It does not expand competitions, buy a provider or change Follow consent.
+
+## Current competition evidence
+
+A read-only observation of the [official NBL schedule](https://schedule.nbl.com.au/nbl), using the existing year=2026/league=nbl API, returned all 165 NBL27 regular-season fixtures, including 16 completed scores. Fixture IDs, participants, kickoffs, rounds, status and both completed scores agree with the saved canonical collection. All ten official current club positions/W/L records pass the existing complete-table validation. Preseason, Blitz and other raw catalogue rows are excluded. Agreement within this one official publication is not an independent second sporting source or full-season certification.
+
+| Quality area | Verified scope | Remaining boundary |
+|---|---|---|
+| Fixtures and scores | 165 regular-season fixtures; 16 completed scores; ten club identities; original IDs and observations retained | Finals, Ignite Cup and future source corrections are outside this bounded regular-season assessment |
+| Standings/context | Ten official ranks and W/L records; existing before-game records and optional stale-table retention pass | Final tie-break/qualification adjudication is not established by current W/L agreement |
+| Viewing | Existing fixture-specific Nine/9Now options and ESPN via Disney+, Kayo and Foxtel mapping remain; the [official NBL27 viewing article](https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season) supports Saturday free coverage and ESPN alternatives | Homepage destinations are not direct streams; historical live rights do not establish replay availability; no media playback was tested |
+| Status | Controlled source-to-screen checks now distinguish explicit fresh live status, unresolved play and confirmed completion | The existing canonical schedule cadence is retained; this is not a new live-score service |
+| Mobile/Follow | Shared compact/full Feed and Schedule, named participant controls, status accessibility, Results/preferences and cached upgrade checks | Authenticated accounts, physical installed phones, actual live play and full editorial/artwork quality remain separate |
+| Commercial readiness | Existing source scope preserved; no purchase | Public availability is not proof of permission to redistribute commercial data or club marks |
+
+## Reproduced defects and repair
+
+At kickoff plus 30 minutes, a retained upcoming NBL fixture was classified as live by the generic clock window. An explicit live observation from two days earlier still displayed LIVE. The shared guard recognised the existing Football competitions but omitted NBL. Changing only the competition in the same replay made the Football card correctly await an update, ruling out the card renderer as the cause.
+
+Extending that guard exposed a second failure: a changed primary NBL live observation reached the quick patch with an old inherited status timestamp. The NBL card adapter now attaches its actual primary source observation, and the existing quick patch carries it into Feed/Schedule. Valid explicit observations within 30 minutes remain LIVE; missing, invalid, future or older observations display **Awaiting match update** after kickoff. Completed results stay FINISHED, cancellation/postponement/interruptions cannot become live, and future Starts Soon remains intact. The live-only filter no longer admits an unconfirmed scheduled start. Multi-day Cricket and other sports retain their existing rules.
+
+A real canonical rehearsal also patched 32 incoming/published records for 16 unchanged finals. Every difference was observation metadata; sporting facts and editorial were identical. `resultSourceCheckedAt` now joins the existing fields excluded from quick semantic comparison. The corrected canonical invocation reports `changed: []`, zero failures and zero AI calls, with all sporting/generated files byte-identical to the reviewed baseline. Changed facts still publish their actual observations. The original diagnostic generated writes were discarded before this no-op rehearsal; no synthetic observation entered published data.
+
+## Verification and release boundary
+
+The existing `validate-nbl-match-context.js --published` now exercises the actual primary adapter → card → quick patch → identity reconciliation → Schedule seam. It covers stale/invalid/future checks, the exact 30-minute live boundary, original IDs/participants, metadata-only live/final reruns, a provider-confirmed zero score and a later live overlay unable to reopen that final. This fast regression is added to canonical QA and remains in the existing normal production gate. No new test scheduler or duplicated status renderer is introduced.
+
+The existing Football status browser harness accepts `--nbl`, reusing the same real builders. Chromium and WebKit each pass 96 controlled cases: eight status variants × compact/full Feed/Schedule × 320/390 widths × day/night. Original facts/preferences remain unchanged, both participant controls remain named, and timing text stays inside the card. These are temporary anonymous browser observations with account APIs unavailable and worker blocked, not actual sporting results or phone acceptance. Both installed-upgrade engines additionally execute the NBL stale-status rule from the upgraded/offline runtime, alongside existing state/profile/standings/failure checks.
+
+Affected local contracts and ordinary cloud release gates must pass without bypass before production acceptance is appended below. Runtime changes from 497,161 to 497,166 bytes; shell/worker advance together from 354 to 355. The startup cap is unchanged. No fixture, result, table, viewing, narrative, consent or saved activity is intentionally modified in this module. Unrelated local `supabase/.temp/` is preserved and excluded.
+
+Effort: one bounded shared-display/primary-observation module plus existing checks and release. Dependencies: existing NBL adapter, shared timing/identity projection and normal cached-shell/release gates. Cash: A$0 additional services; source request count and cadence unchanged. Owner-time impact: no new recurring task or product decision; fewer generated-file rewrites. Token/runtime savings are not extrapolated from one rehearsal. Acceptance: fresh explicit status survives the real persistence seam, stale/unconfirmed status cannot claim live, repeated unchanged facts produce no publication, and the exact published snapshot passes READY/alias/served/render/cache proof. Act now because misleading play status and pointless publication harm trust and operating cost; defer provider expansion and monetisation until sporting/permission/device gates pass.
+
+The certification denominator remains **0/3 Football pilots and 0/16 carried families**. NBL regular-season source agreement and this repair do not complete a sport family. Next assess the existing Cricket/Rugby windows; do not substitute another subscription or repeated cosmetic Football work for remaining acceptance evidence.
+
+Evidence directory: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`. Keep `nbl-source-observation-20261002.json`, the original diagnostic and corrected no-churn canonical logs, both controlled browser JSON reports, local-check evidence and both installed-upgrade logs. Red assertions are preserved as diagnosis evidence; no release assertion is waived.

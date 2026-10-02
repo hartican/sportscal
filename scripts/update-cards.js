@@ -334,6 +334,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-coverage-repair.js"],
   ["scripts/validate-card-timing.js"],
   ["scripts/validate-football-status-display.js"],
+  ["scripts/validate-nbl-match-context.js", "--published"],
   ["scripts/validate-match-centre.js"],
   ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-tournament-hydration.js"],

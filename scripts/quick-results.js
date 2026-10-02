@@ -8,8 +8,8 @@ const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy,spoilerContractIssues}=require('./lib/storyline-card-rules');
-const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','delayedResultSource','sourceAttribution'];
-function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
+const KEYS=['teamMatchContext','season','viewingOptions','status','scheduleStatus','statusCheckedAt','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','delayedResultSource','sourceAttribution'];
+function semantic(value){return JSON.stringify(value,(key,v)=>['verifiedAt','checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','statusCheckedAt','resultSourceCheckedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function retainReviewedResultEditorial(events,previous){
  const byId=new Map(previous.map(event=>[event.id,event]));
  const facts=['id','name','competitionId','participantIds','participants','participantsConfirmed','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','roundNumber','roundLabel','scheduleStatus','status','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];

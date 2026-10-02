@@ -14,6 +14,8 @@ async function assertCachedFootballStatus(page){
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
   },footballStatusFixture);
   assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
+  const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
+  assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';

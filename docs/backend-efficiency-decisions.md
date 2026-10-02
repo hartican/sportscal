@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## NBL published status and unchanged finals — 2 October 2026
+
+Extend the existing source-qualified match-status display to `competition:nbl`. After kickoff, unconfirmed or stale live status displays Awaiting match update. Explicit live status needs its actual published primary observation at or before now, within the existing 30-minute window. Completed results, pre-start timing and non-playing states remain intact. The canonical NBL card adapter carries that observation through the existing quick patch and Schedule projection; no live source, scheduler, request, database writer or per-user polling is added. Metadata-only repeated checks preserve original published observations; this is honest saved-data presentation, not real-time NBL delivery.
+
+The canonical scoped rehearsal exposed 32 record patches across incoming/published Feed for 16 unchanged finals, caused solely by result-source check dates. Exclude that observation date from quick semantic comparison alongside the existing volatile fields. Actual changed status, score or other facts still publish with their real dates. A repeated canonical NBL invocation now returns no changes and retains sporting/generated data bytes. Regression uses the actual adapter/card/patch/identity/Schedule seam, fresh/stale/invalid/future status, zero scores, terminal continuity and unchanged live/final reruns in `validate-nbl-match-context.js --published`, already in the normal production gate. Reuse the existing status browser harness with `--nbl` and installed upgrade/offline checks. Full sport, permission and physical-device acceptance remain separate. See [the delivery record](quality/nbl-status-integrity-2026-10-02.md).
+
 ## Football quick refresh publication — 2 October 2026
 
 Weekday EPL standings use the existing complete primary table adapter: one bounded request per invocation, original observations and last-good retention; no second scheduler. Generated standings receive a matching shell/script/worker epoch in the same release commit. The scheduled wrapper reads expected hashes from that published commit after automatic versioning, and still rejects wrong served bytes or a missing/wrong shell version.

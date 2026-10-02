@@ -131,6 +131,7 @@ function cardForEvent(event, schedule, participantsById){
     sourceName:source.name,
     sourceUrl:source.url,
     sourceCheckedAt,
+    ...(event.sportKey === 'nbl' ? {statusCheckedAt:sourceCheckedAt} : {}),
     sourceType:source.type,
     sourceTrust:"verified",
     status:event.status || (completed ? "completed" : "upcoming"),
