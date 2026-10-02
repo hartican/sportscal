@@ -68,7 +68,7 @@ async function main(){
  const [report,sources]=await Promise.all([collect(options),sourceReadout.collect()]);
  report.canonicalSources=sources;
  if(output){fs.mkdirSync(output,{recursive:true});const stem=path.join(output,'delivery-readout-'+report.generatedAt.slice(0,10));fs.writeFileSync(stem+'.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync(stem+'.md',markdown(report)+ '\n'+sourceReadout.markdown(sources));}
- console.log(JSON.stringify({window:report.window,observedRuns:report.observedRuns,counts:report.counts,successfulJobSeconds:report.successfulJobSeconds,unavailableJobEvidence:report.jobEvidence.filter(j=>j.error).length,canonicalSources:{state:sources.state,runId:sources.run?.databaseId,error:sources.error,quick:sources.reports?.quick.state,sourceFailures:sources.reports?.quick.failureCount,hydrationGaps:sources.reports?.hydration.partialCount},costs:report.costs}));
+ console.log(JSON.stringify({window:report.window,observedRuns:report.observedRuns,counts:report.counts,successfulJobSeconds:report.successfulJobSeconds,unavailableJobEvidence:report.jobEvidence.filter(j=>j.error).length,canonicalSources:{state:sources.state,runId:sources.run?.databaseId,error:sources.error,quick:sources.reports?.quick.state,sourceFailures:sources.reports?.quick.failureCount,hydrationGaps:sources.reports?.hydration.partialCount,golf:sources.reports?.golf.state,golfFailures:sources.reports?.golf.failureCount},costs:report.costs}));
 }
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports={stats,seconds,summarize,collect,markdown};

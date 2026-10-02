@@ -140,6 +140,8 @@ jobs:
           node scripts/validate-startup-budget.js
           node scripts/validate-worker-fallback.js
           node scripts/validate-lpga-results.js
+          node scripts/validate-golf-source-observations.js
+          node scripts/validate-canonical-source-readout.js
           node scripts/validate-f1-session-results.js
           node scripts/validate-crowd-foresight.js
           node scripts/validate-nothingscore-submissions.js

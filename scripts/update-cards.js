@@ -58,7 +58,7 @@ function runStep(args) {
   const display = commandLabel || command;
 
   console.log(`\n> ${display}`);
-  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT"])delete env[key];
+  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT"])delete env[key];
   const result = spawnSync(runner, commandArgs, { stdio: "inherit",env });
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
@@ -246,6 +246,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
   ["scripts/validate-experience-reliability.js"],
+  ["scripts/validate-golf-source-observations.js"],
+  ["scripts/validate-canonical-source-readout.js"],
   ["scripts/validate-worker-fallback.js"],
   ["scripts/validate-feed-filter-pagination.js"],
   ["scripts/validate-feed-page-concurrency.js"],
@@ -433,7 +435,8 @@ async function runMain() {
       ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-reviewed-au-viewing.js','--published'],
       ['scripts/validate-tournament-hydration.js'],['scripts/validate-canonical-source-readout.js'],
-      ['scripts/validate-lpga-results.js'],['scripts/validate-experience-reliability.js']
+      ['scripts/validate-lpga-results.js'],['scripts/validate-experience-reliability.js'],
+      ['scripts/validate-golf-source-observations.js']
     ])runStep(step);
     console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
   }
@@ -613,8 +616,20 @@ async function main(){
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
   const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
   process.env.FOOTBALL_DATA_RUN_DIR=directory;
-  if(!process.argv.includes('--offline'))require('./lib/football-data-backup').record({state:'invocation',mode:process.argv.includes('--quick')?'quick':process.argv.includes('--european-football')?'european-football':'full'},{directory});
-  try{return await runMain();}finally{if(!process.argv.includes('--offline')){const file=path.join(directory,'budget.json');require('./lib/football-data-backup').record({state:'budget',calls:fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).calls:0},{directory});}if(!prior){fs.rmSync(directory,{recursive:true,force:true});delete process.env.FOOTBALL_DATA_RUN_DIR;}}
+  const priorGolf={file:process.env.GOLF_SOURCE_REPORT,runId:process.env.GOLF_SOURCE_RUN_ID};
+  process.env.GOLF_SOURCE_REPORT ||= path.join(directory,'golf-source-report.json');
+  process.env.GOLF_SOURCE_RUN_ID=crypto.randomUUID();
+  try{
+    require('../lib/golf-source-observations').create({mode:process.argv.includes('--offline')?'offline':process.argv.includes('--quick')?'quick':'full'}).save();
+    if(!process.argv.includes('--offline'))require('./lib/football-data-backup').record({state:'invocation',mode:process.argv.includes('--quick')?'quick':process.argv.includes('--european-football')?'european-football':'full'},{directory});
+    return await runMain();
+  }finally{
+    try{if(!process.argv.includes('--offline')){const file=path.join(directory,'budget.json');require('./lib/football-data-backup').record({state:'budget',calls:fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).calls:0},{directory});}}
+    finally{
+      if(!prior){fs.rmSync(directory,{recursive:true,force:true});delete process.env.FOOTBALL_DATA_RUN_DIR;}
+      for(const [key,value] of [['GOLF_SOURCE_REPORT',priorGolf.file],['GOLF_SOURCE_RUN_ID',priorGolf.runId]]){if(value===undefined)delete process.env[key];else process.env[key]=value;}
+    }
+  }
 }
 
 if (require.main === module) {

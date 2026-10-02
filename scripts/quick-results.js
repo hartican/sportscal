@@ -38,7 +38,7 @@ function patchKnown(events,updates){
  return {events:result,count};
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
-function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
+function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
 async function refreshNflResults(now){
  const path='data/canonical/american-football-directory.v1.json',directory=read(path);
  const response=await json(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${now.getFullYear()}&limit=1000`);
@@ -203,7 +203,11 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    if(known.length){const cards=await pl.loadCards(doc.events.filter(e=>e.key==='premier-league'),{checkedAt:now.toISOString()});const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
- if(!offline)try{const path='data/canonical/pga-tour-schedule.json',result=await require('../lib/lpga-results').refresh(read(path),{now});if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.message}`));}catch(error){failures.push(`LPGA: ${error.message}`);}
+ if(!offline)try{
+  const path='data/canonical/pga-tour-schedule.json',result=await require('../lib/lpga-results').refreshOnce(read(path),{now});
+  if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}
+  failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.code}`));
+ }catch(error){failures.push(`LPGA: ${error.message}`);}
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');

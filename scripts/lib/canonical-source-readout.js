@@ -25,8 +25,8 @@ function observation(doc, now) {
   const ageHours = (now.getTime() - stamp) / 3600000;
   return {checkedAt: new Date(stamp).toISOString(), ageHours, stale: ageHours > MAX_AGE_HOURS};
 }
-function summary({quick = null, hydration = null, football = null, now = new Date()} = {}) {
-  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}, football: {state: 'unavailable'}};
+function summary({quick = null, hydration = null, football = null, golf = null, now = new Date()} = {}) {
+  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}, football: {state: 'unavailable'}, golf: {state:'unavailable'}};
   if (quick) {
     try {
       const observed = observation(quick, now);
@@ -60,6 +60,12 @@ function summary({quick = null, hydration = null, football = null, now = new Dat
     if(football.schemaVersion!=='football-data-backup-report.v1'||!Array.isArray(football.checks)||football.checks.length>20)throw Error('invalid_football_report');
     result.football={...observed,state:'observed',checks:football.checks.map(row=>({code:safe(row.code||row.mode||'invocation'),state:safe(row.state),newFinals:row.newFinals||0,calls:Number.isSafeInteger(row.calls)?row.calls:null,primaryFailure:row.primaryFailure?safe(row.primaryFailure):null,backupFailure:row.backupFailure?safe(row.backupFailure):null,table:row.table}))};
   }catch(error){result.football.error=safe(error.message);}}
+  if(golf){try{
+    require('../../lib/golf-source-observations').validate(golf,now);
+    const observed=observation(golf,now);
+    const exceptions=golf.checks.filter(row=>['failed','unpublished','not-attested'].includes(row.state)||['retained-calendar','not-attested'].includes(row.statusEvidence));
+    result.golf={...observed,state:golf.checks.length?'observed':'not-checked',mode:golf.mode,observationCount:golf.checks.length,acceptedCount:golf.checks.filter(row=>row.state==='accepted').length,failureCount:golf.checks.filter(row=>row.state==='failed').length,exceptionCount:exceptions.length,exceptions:exceptions.map(row=>({...row,name:row.name?safe(row.name):null,tournamentId:row.tournamentId?safe(row.tournamentId):null})),resultsPassCount:golf.resultsPasses.length,resultsChecked:golf.resultsPasses.reduce((n,pass)=>n+pass.checked,0)};
+  }catch(error){result.golf.error=safe(error.message);}}
   return result;
 }
 async function gh(args) {
@@ -90,7 +96,7 @@ async function collect({now = new Date(), read = gh} = {}) {
     if (artifacts.length !== 1 || artifacts[0].expired || !Number.isSafeInteger(artifacts[0].size_in_bytes) || artifacts[0].size_in_bytes > MAX_BYTES) throw Error('report_artifact_missing_expired_or_oversized');
     directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ns-canonical-readout-'));
     await read(['run', 'download', String(run.databaseId), '--repo', REPO, '--name', ARTIFACT, '--dir', directory]);
-    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), football: readReport(directory,'football-data-backup-report.json'), now});
+    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), football: readReport(directory,'football-data-backup-report.json'), golf:readReport(directory,'golf-source-report.json'), now});
     result.state = 'observed';
   } catch (e) { result.error = safe(e.message); }
   finally { if (directory) fs.rmSync(directory, {recursive: true, force: true}); }
@@ -120,6 +126,13 @@ function markdown(result) {
   const football=result.reports.football;
   if(football?.state==='observed'){lines.push(`Delayed Football backup: ${football.checkedAt}${football.stale?' — STALE':''}.`,...football.checks.map(row=>`${row.code}: ${row.state}, ${row.newFinals} new finals${row.calls!==null?'; '+row.calls+' provider requests':''}${row.primaryFailure?'; primary failed: '+row.primaryFailure:''}${row.backupFailure?'; backup: '+row.backupFailure:''}${row.table?.state==='unavailable'?'; table comparison unavailable':''}.`));}
   else lines.push('Delayed Football backup evidence unavailable; not a zero-failure observation.');
+  const golf=result.reports.golf;
+  if(golf?.state==='observed'){
+    lines.push(`Golf source observations: ${golf.checkedAt}${golf.stale?' — STALE, over 36 hours old':''}; ${golf.acceptedCount} accepted resource observations, ${golf.failureCount} failures, ${golf.exceptionCount} exceptions. These counts do not attest whole tournament completeness.`);
+    lines.push(`LPGA finals: ${golf.resultsPassCount} bounded pass(es), ${golf.resultsChecked} candidates checked. The quick route reuses an existing pass and its failures in the same invocation.`);
+    lines.push(...golf.exceptions.slice(0,8).map(row=>`- ${row.name||row.tournamentId||'Golf calendar'} / ${row.resource}: ${row.state} (${row.code}); source check ${row.checkedAt}; retained facts ${row.retainedFactAt||'not established'}${row.status?'; status '+row.status+' ('+(row.statusEvidence||'not attested')+')':''}${row.sourceUrl?'; [organiser source]('+row.sourceUrl+')':''}.`));
+    if(golf.exceptionCount>8)lines.push(`${golf.exceptionCount-8} further Golf exceptions retained in the JSON readout.`);
+  }else lines.push(`Golf source evidence ${golf?.state==='not-checked'?'has no attempted resource checks in this invocation':'unavailable'}${golf?.error?' ('+golf.error+')':''}; source health is unknown.`);
   return heading + lines.join('\n\n') + '\n\n' + result.limitations.join(' ') + '\n';
 }
 module.exports = {summary, collect, markdown, safe};

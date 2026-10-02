@@ -33,6 +33,21 @@ assert(!golfText.includes('0 child fixtures'),'intentional parent presentation i
 for(const change of [{listedEntries:251},{confirmedEntries:121},{pairingGroups:-1},{pairingRounds:6},{participantsConfirmed:'yes'},{participationCheckedAt:'2026-10-02T00:00:00Z'}])assert.equal(summary({hydration:{...hydration,tournaments:[{...golf,detailEvidence:{...details,...change}}]},now}).hydration.state,'unavailable','malformed/future detail evidence cannot be presented as valid');
 assert.equal(summary({hydration:{...hydration,tournaments:[{...golf,format:'complete-sport'}]},now}).hydration.state,'unavailable');
 
+
+const golfSources={schemaVersion:'golf-source-report.v1',runId:'test-invocation',mode:'quick',checkedAt:quick.checkedAt,resultsPasses:[{checkedAt:quick.checkedAt,checked:1,failures:[{id:'fixture:golf:lpga:2026063',code:'http-429'}]}],checks:[{resource:'entries',state:'failed',code:'http-503',checkedAt:quick.checkedAt,sourceUrl:'https://www.lpga.com/tournaments/lotte-championship/entries',tournamentId:'2026068',name:'LOTTE',competitionId:'competition:lpga-tour',retainedFactAt:'2026-09-30T20:00:00Z',status:null,statusEvidence:null}]};
+const sourceSummary=summary({golf:golfSources,now});
+assert.equal(sourceSummary.golf.failureCount,1);assert.equal(sourceSummary.golf.exceptionCount,1);
+const sourceText=markdown({state:'observed',run,reports:sourceSummary,limitations:[]});
+assert(sourceText.includes('workflow success')&&sourceText.includes('1 failures')&&sourceText.includes('http-503'),'green workflow must expose Golf subsource failure');
+assert(sourceText.includes('source check '+quick.checkedAt)&&sourceText.includes('retained facts 2026-09-30T20:00:00Z'),'check and retained-fact dates remain separate');
+assert.equal(summary({golf:{...golfSources,checks:[],resultsPasses:[]},now}).golf.state,'not-checked');
+assert(markdown({state:'observed',run,reports:summary({golf:{...golfSources,checks:[],resultsPasses:[]},now}),limitations:[]}).includes('health is unknown'));
+assert.equal(summary({now}).golf.state,'unavailable');
+assert.equal(summary({golf:golfSources,now:new Date('2026-10-03T03:00:00Z')}).golf.stale,true);
+for(const change of [{schemaVersion:'wrong'},{checkedAt:'invalid'},{checkedAt:'2099-01-01T00:00:00Z'},{checks:[{...golfSources.checks[0],retainedFactAt:'2026-10-01T01:00:00Z'}]},{checks:[{...golfSources.checks[0],code:'Bearer private'}]},{checks:[{...golfSources.checks[0],sourceUrl:'https://other.invalid/entries'}]}])assert.equal(summary({golf:{...golfSources,...change},now}).golf.state,'unavailable');
+const manyGolf=summary({golf:{...golfSources,checks:Array(11).fill(golfSources.checks[0])},now});
+assert(markdown({state:'observed',run,reports:manyGolf,limitations:[]}).includes('3 further Golf exceptions'));
+
 (async()=>{
   const calls=[];let downloaded;
   const read=async args=>{
@@ -40,9 +55,9 @@ assert.equal(summary({hydration:{...hydration,tournaments:[{...golf,format:'comp
     if(args[0]==='run'&&args[1]==='list')return JSON.stringify([{...run,databaseId:36777788727,status:'in_progress',conclusion:null,createdAt:'2026-10-01T02:30:00Z'},run]);
     if(args[0]==='api')return JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:false}]});
     assert.deepEqual(args.slice(0,3),['run','download',String(run.databaseId)]);
-    downloaded=args.at(-1);fs.writeFileSync(path.join(downloaded,'quick-results-report.json'),JSON.stringify(quick));fs.writeFileSync(path.join(downloaded,'tournament-hydration-report.json'),JSON.stringify(hydration));return '';
+    downloaded=args.at(-1);fs.writeFileSync(path.join(downloaded,'quick-results-report.json'),JSON.stringify(quick));fs.writeFileSync(path.join(downloaded,'tournament-hydration-report.json'),JSON.stringify(hydration));fs.writeFileSync(path.join(downloaded,'golf-source-report.json'),JSON.stringify(golfSources));return '';
   };
-  const actual=await collect({now,read});assert.equal(actual.state,'observed');assert.equal(actual.run.databaseId,run.databaseId);assert.equal(actual.latestRun.status,'in_progress');assert.equal(actual.reports.quick.failureCount,1);assert.equal(calls.length,3);assert(!fs.existsSync(downloaded),'temporary artifacts are removed');assert(calls.every(c=>!c.includes('--method')),'only read/download requests');assert(markdown(actual).includes('LPGA results HTTP 404'));assert(markdown(actual).includes('newer run'));assert(markdown(actual).includes('China Open'));
+  const actual=await collect({now,read});assert.equal(actual.state,'observed');assert.equal(actual.run.databaseId,run.databaseId);assert.equal(actual.latestRun.status,'in_progress');assert.equal(actual.reports.quick.failureCount,1);assert.equal(actual.reports.golf.failureCount,1);assert(markdown(actual).includes('http-503'));assert.equal(calls.length,3);assert(!fs.existsSync(downloaded),'temporary artifacts are removed');assert(calls.every(c=>!c.includes('--method')),'only read/download requests');assert(markdown(actual).includes('LPGA results HTTP 404'));assert(markdown(actual).includes('newer run'));assert(markdown(actual).includes('China Open'));
   const unavailable=await collect({now,read:async()=>{throw Error('unavailable');}});assert.equal(unavailable.state,'unavailable');assert(markdown(unavailable).includes('unknown'));
   let requests=0;
   const expired=await collect({now,read:async args=>{requests++;return args[0]==='run'?JSON.stringify([run]):JSON.stringify({total_count:1,artifacts:[{name:'tournament-hydration-report',size_in_bytes:1000,expired:true}]});}});assert.equal(expired.state,'unavailable');assert.equal(requests,2,'expired artifact never downloaded');
