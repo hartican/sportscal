@@ -1,6 +1,6 @@
 # Super Rugby AUS final access and host review — 2 October 2026
 
-Status: scoped implementation and verification in progress; production acceptance follows below only after exact-snapshot verification. No wider Rugby or monetisable-MVP certification.
+Status: shipped and production-verified on 2 October 2026 at the exact snapshot below. No wider Rugby or monetisable-MVP certification.
 
 The existing Western Force–NSW Waratahs final on 3 October retains its fixture identity, participants, scheduled 06:30 UTC / 16:30 Sydney start, status and original sporting observations. The venue changes from the retained World Rugby value “Hale School” to **Scotch College Playing Fields, Swanbourne, Perth**. Its source-qualified venue observation is separate from score/status freshness.
 
@@ -33,3 +33,15 @@ This delivery gives users a sourced free option and correct venue for an imminen
 The next Bledisloe module is estimated at 1–2 focused engineering days, confidence medium, with production activity, pending-reminder races and recovery rehearsal as dependencies. Source evidence is ready; durable reconciliation is not implemented. Acceptance is one source-backed fixture whose activity remains accessible without lost credits, altered consent or replayed reminders. Full programme acceptance remains 0/3 Football pilots and 0/16 families, against the at-least-13/16 target.
 
 Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`, including `super-aus-*`, `rugby-host-clock-live-api-20261002.json`, and `rugby-bledisloe-{activity,constraints,saved-state}-preflight-20261002.json`. No production refresh was run for this investigation.
+
+## Production acceptance
+
+Published GitHub main and deployed app: `0591cb5896e17083cf91f07a92bc55151f6a1364`, shell/worker **369**. [Normal production workflow 36993273454](https://github.com/hartican/sportscal/actions/runs/36993273454) passed in **165 seconds**, with no skipped gate or release exception. READY deployment `dpl_B1hFiujF3P3HnZV1rtFinAwz7QAQ` matches the production target. All three aliases and eighteen immutable-package/served hashes agree at `2026-10-02T10:09:46.022Z`. Main's concurrent reminder-intent, FPL, owner-content and tennis changes were retained through safe rebases; their wider database/device acceptance is not inferred from this scoped module.
+
+The fresh anonymous live API at `2026-10-02T10:09:24.076Z` verifies this final's exact ID, 06:30 UTC kickoff, host venue and separate venue observation, YouTube-first URL and retained Stan observation. The original 08:24 host viewing/venue check remains separate from the later genuine 10:00 live collection check. Five API cases also retain the prior free Nine, Kayo/Foxtel and unverified-viewing behaviours. `stale: false` describes transport health, not full sport correctness.
+
+Both Chromium and WebKit passed **128 controlled live cases each**, four widths, Feed/Schedule expansion, actual destination URLs, concrete host venue, Results privacy and ordinary Cricket Schedule. APIs were isolated and workers blocked in those component checks. Separately, fresh Chromium with the genuine production worker rendered the final and restarted offline at `2026-10-02T10:09:37.691Z` with cache 369 and the same venue/options. Both 364→369 cached upgrade rehearsals passed against the unchanged published public shell. These are browser/worker simulations, not physical iOS Home Screen or video playback evidence. Early failed observations remain retained above.
+
+The affected source/API/projection and current-main compatibility checks, actual Inspector UI and canonical viewing reconciliation passed. All 832 canonical coverage rows and 1,064 event rows remain unchanged; both 694-record Rugby projections preserve IDs/order and alter only this final's reviewed viewing/venue fields. The release keeps **eight critical requests, 429,601 gzip bytes, 0.94% baseline growth** within the unchanged 1.25% cap, and a 2.98 MB precache within 3 MB. Static transfer sizes are not a measured device-speed claim. No database migration, new provider, source poll, purchase, scheduler or reminder replay was introduced by this module; A$0 added services and no new recurring owner task.
+
+Saved acceptance: `super-aus-production-release-20261002.log`, `super-aus-release-0591cb-20261002/`, `super-aus-served-artifacts-20261002.json`, `super-aus-live-api-20261002.json`, `super-aus-live-{chromium,webkit,worker}-20261002.json`, `super-aus-release-upgrade-{chromium,webkit}-20261002.log`, `super-aus-preservation-20261002.json`, and `super-aus-release-startup-metrics-20261002.json`. Normal GitHub runner deprecation/migration notices remain annotations, not failed application gates.
