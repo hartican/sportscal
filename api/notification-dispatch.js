@@ -66,6 +66,9 @@ module.exports = async function notificationDispatchHandler(request, response){
     if (!publicKey || !privateKey) throw Object.assign(new Error("Web Push is not configured."), { status:503, payload:{ code:"push_not_configured" } });
     webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), publicKey, privateKey);
 
+    const contentRefresh=await require('../lib/comms-refresh').reconcile({now:now.getTime()}).catch(()=>({error:'content_refresh_failed'}));
+    const ownerPosts=await require('../lib/comms-post-alerts').dispatch({now}).catch(()=>({error:'owner_post_dispatch_failed'}));
+
     const liveRatings=await require('../lib/live-rating-alerts').dispatch({now}).catch(()=>({error:'live_rating_dispatch_failed'}));
     const socialRewards=await require('../lib/social-reward-alerts').dispatch({now}).catch(()=>({error:'social_reward_dispatch_failed'}));
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
@@ -109,14 +112,14 @@ module.exports = async function notificationDispatchHandler(request, response){
     const completedAt = new Date().toISOString();
     await recordDispatchHealth({
       last_completed_at:completedAt,
-      ...(failed === 0 && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed ? { last_success_at:completedAt } : {}),
+      ...(failed === 0 && !ownerPosts.error && !ownerPosts.failed && !contentRefresh.error && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed ? { last_success_at:completedAt } : {}),
       checked_count:(reminders || []).length,
       claimed_count:claimed.length,
-      sent_count:sent + (liveRatings.sent || 0) + (socialRewards.sent || 0),
-      failed_count:failed + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0),
-      last_error:liveRatings.error || socialRewards.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
+      sent_count:sent + (ownerPosts.sent || 0) + (liveRatings.sent || 0) + (socialRewards.sent || 0),
+      failed_count:failed + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0),
+      last_error:ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(liveRatings.error || socialRewards.error ? 503 : 200).json({ scheduleChecks, liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(liveRatings.error || socialRewards.error || ownerPosts.error ? 503 : 200).json({ scheduleChecks, contentRefresh, ownerPosts, liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
     await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:['push_not_configured','reminder_schedule_reconciliation_failed'].includes(error?.payload?.code) ? error.payload.code : 'notification_dispatch_failed' }).catch(() => null);
     const outgoing = publicError(error);

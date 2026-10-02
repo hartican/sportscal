@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
+const content=require('../lib/comms-content'),ui=require('../config/admin-comms-workspace'),{PGlite}=require('@electric-sql/pglite');
+const now=Date.parse('2026-10-02T00:00:00Z');
+const fixture={id:'test-fixture',name:'Roosters v Knights',key:'nrl',sport:'NRL',storyline:{stakes:5},startTimeUtc:'2026-10-04T08:30:00Z',liveWindow:3,status:'upcoming',sourceName:'Official',sourceUrl:'https://example.test',editorialNarrative:{hook:'Why it matters: A close rivalry.',formCopy:'Form: Recent results.',synopsis:'Match context: A final.',closingCopy:'Storyline: One last chance.'}};
+async function main(){
+  assert.equal(content.sydneyInstant('2026-10-03'),'2026-10-02T23:00:00.000Z');
+  assert.equal(content.sydneyInstant('2026-10-04'),'2026-10-03T22:00:00.000Z');
+  assert.equal(content.sydneyInstant('2027-04-04'),'2027-04-03T23:00:00.000Z');
+  assert.equal(content.postingSlots({...fixture,startTimeUtc:'2026-10-03T22:00:00Z'},now).find(s=>s.kind==='day-of').at,'2026-10-03T20:00:00.000Z');
+  const slots=content.postingSlots(fixture,now);assert.equal(slots.length,1);assert(slots[0].mergedPreview);assert.equal(slots[0].at,'2026-10-03T22:00:00.000Z');
+  const preview=content.postingSlots(fixture,now-3*content.DAY);assert.equal(preview[0].at,'2026-10-01T08:30:00.000Z');
+  assert.equal(content.postingSlots(fixture,now+2*content.DAY).length,1,'Missed preview collapses into day-of');
+  const dateOnly={...fixture,startTimeUtc:null,date:'2026-10-04'};assert(content.postingSlots(dateOnly,now)[0].at);assert(content.postingSlots(dateOnly,now)[0].estimated);
+  assert.equal(content.rating(fixture,null).source,'editorial');assert.equal(content.rating(fixture,null).animationPreset,'subtle');
+  assert.equal(content.rating(fixture,{mean:4.8,count:5}).animationPreset,'subtle');assert.equal(content.rating(fixture,{mean:4.81,count:5}).animationPreset,'energy');
+  assert(content.eligible({...fixture,storyline:{stakes:4}},{mean:4.8,count:3},now));assert(content.eligible({...fixture,commsKind:'major-event',storyline:{stakes:3}},null,now));assert(!content.eligible({...fixture,status:'completed'},null,now));
+  const original=content.candidate(fixture,preview[0],null,'one'),fresh=content.candidate({...fixture,editorialNarrative:{...fixture.editorialNarrative,hook:'Changed source hook.'}},preview[0],{mean:4.9,count:3},'two');
+  assert.equal(original.campaignId,'marquee_'+crypto.createHash('sha256').update('test-fixture').digest('hex').slice(0,16));
+  assert.deepEqual(original.drafts.email.bodyParagraphs.slice(0,4),['A close rivalry.','Recent results.','A final.','One last chance.']);
+  assert.deepEqual(content.candidate(fixture,preview[0],null,'one'),original);
+  const edited=structuredClone(original.drafts);edited.email.subject='My copy';edited.hook='My hook';
+  const merged=content.protectCopy(original.drafts,fresh.drafts,edited);assert.equal(merged.email.subject,'My copy');assert.equal(merged.hook,'My hook');assert(merged.cms.suggestedChanges.some(s=>s.field==='hook'));assert.equal(merged.live.animationPreset,'energy');
+  assert.equal(ui.fromSydney('2026-10-04T09:00'),'2026-10-03T22:00:00.000Z');
+  const db=new PGlite(),user='11111111-1111-4111-8111-111111111111',installation='22222222-2222-4222-8222-222222222222';
+  try{
+    await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key);create schema private;create function private.nothingsports_guard_erasure_write() returns trigger language plpgsql as $$begin return new;end$$;
+    create table nothingsports_push_installations(installation_id uuid primary key,user_id uuid,permission text);
+    create table nothingsports_nsc_pilot_members(user_id uuid primary key,approved boolean,suspended boolean);
+    create table nothingsports_nsc_contributions(event_id text,user_id uuid,phase text,rating smallint,updated_at timestamptz);
+    create table nothingsports_marquee_campaigns(campaign_id text primary key,event_id text,source_revision text,campaign_revision integer default 1,content_hash text,state text,candidate jsonb,draft_copy jsonb,proposed_send_at timestamptz,export_snapshot jsonb,export_stale boolean default false,updated_at timestamptz default now());
+    create table nothingsports_marquee_campaign_versions(campaign_id text references nothingsports_marquee_campaigns on delete cascade,campaign_revision integer,snapshot jsonb,reason text,created_by uuid,primary key(campaign_id,campaign_revision));
+    grant all on all tables in schema public to service_role;grant usage on schema public,private to service_role;
+    insert into auth.users values('${user}');insert into nothingsports_push_installations values('${installation}','${user}','granted');insert into nothingsports_nsc_pilot_members values('${user}',true,false);`);
+    await db.exec(fs.readFileSync('supabase/migrations/20261002055902_owner_content_workspace.sql','utf8'));
+    await db.exec('set role service_role');
+    const rpc=async(sql,args=[])=>(await db.query(sql,args)).rows;
+    const sync=(revision,c,copy)=>rpc('select nothingsports_comms_sync($1,$2,$3,$4,$5,$6,$7) as result',[original.campaignId,revision,c,copy,c.contentHash,slots[0].at,user]);
+    assert.equal((await sync(0,original,original.drafts))[0].result.campaign.campaign_revision,1);
+    assert((await sync(1,original,original.drafts))[0].result.unchanged);
+    assert.equal((await sync(1,fresh,merged))[0].result.campaign.campaign_revision,2);
+    assert((await sync(1,original,original.drafts))[0].result.conflict);
+    assert.equal((await rpc('select count(*)::int as n from nothingsports_marquee_campaign_versions'))[0].n,2);
+    const before='2026-10-03T21:30:00Z',due='2026-10-03T22:00:00Z';
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[before])).length,0);
+    await rpc('insert into nothingsports_comms_preferences(user_id,installation_id,alerts_enabled) values($1,$2,true)',[user,installation]);
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[before]))[0].kind,'before');
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[before])).length,0);
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[due]))[0].kind,'due');
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[due])).length,0);
+    assert((await rpc("select nothingsports_comms_task($1,2,'posted',null,$2) as result",[original.campaignId,user]))[0].result.campaign.posted_at);
+    assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[due])).length,0);
+    assert((await rpc("select nothingsports_comms_task($1,3,'schedule',$2,$3) as result",[original.campaignId,'2026-10-04T00:00:00Z',user]))[0].result.campaign.draft_copy.cms.manualPostAt);
+    await db.exec('set role anon');await assert.rejects(rpc('select * from nothingsports_comms_preferences'),/permission denied/);await assert.rejects(rpc('select * from nothingsports_comms_heat()'),/permission denied/);
+  }finally{await db.close();}
+  console.log('Owner content model/database passed: DST, slots, Heat, protected prose, history, CAS, reminder opt-in/dedup and RLS.');
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});

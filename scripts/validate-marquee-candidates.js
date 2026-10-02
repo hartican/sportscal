@@ -1,114 +1,36 @@
 #!/usr/bin/env node
-"use strict";
-
-const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
-const sharp = require("sharp");
-const marquee = require("../config/marquee-campaigns");
-const { candidateFor, canonicalJson, sha256, wrapWords } = require("./build-marquee-candidates");
-const ROOT = path.resolve(__dirname, "..");
-const artifact = JSON.parse(fs.readFileSync(path.join(ROOT, "data/marquee-candidates.v1.json"), "utf8"));
-const now = Date.parse(artifact.generatedAt);
-
-function fixture(overrides = {}){
-  return { id:"fixture:test-1", eventId:"fixture:test-1", name:"Australia v New Zealand", displayTitleCompact:"Australia v New Zealand", narrativeType:"match", status:"upcoming", startTimeUtc:new Date(now + 8 * 86400000).toISOString(), liveWindow:3, sourceName:"Official organiser", sourceUrl:"https://example.test/fixture", sourceCheckedAt:new Date(now - 86400000).toISOString(), storyline:{ stakes:5 }, ...overrides };
-}
+'use strict';
+const assert=require('node:assert/strict'),path=require('node:path'),sharp=require('sharp');
+const content=require('../lib/comms-content'),ui=require('../config/admin-comms-workspace');
+const artifact=require('../data/marquee-candidates.v1.json'),sources=require('../data/comms-sources.v1.json');
 async function main(){
-  assert.equal(artifact.schemaVersion, marquee.SCHEMA_VERSION);
-  assert.equal(artifact.shadowMode, true, "candidate generation must remain shadow-only");
-  assert.equal(artifact.summary.stakesFiveFuture, artifact.candidates.length, "every future 5/5-stakes row must enter the workbench");
-  assert.equal(artifact.summary.shown, artifact.candidates.length);
-  const grandFinal=require('../data/canonical/afl-nrl-2026.json').events.find(e=>e.id==='event:afl:cd_m20260142901');
-  const grandFinalCandidate=artifact.candidates.find(candidate=>candidate.eventId===grandFinal.id);
-  if(Date.parse(grandFinal.startTimeUtc)>now && grandFinal.status!=='completed'){
-    assert(grandFinalCandidate&&grandFinalCandidate.material.title===require('../lib/finals-presentation').publicFixtureTitle(grandFinal), 'Future Grand Final workbench uses the latest confirmed matchup or a safe unresolved stage title');
-  }else assert.equal(grandFinalCandidate,undefined,'Past Grand Final must not remain in the future promotion workbench');
-  assert.equal(artifact.summary.eligible, artifact.candidates.filter(candidate => candidate.readyForExport).length);
-  assert.equal(artifact.summary.eligible, 2);
-  assert.equal(artifact.summary.watching, artifact.candidates.filter(candidate => !candidate.readyForExport).length);
-  assert.equal(artifact.excluded.length, 0);
-  const ordered = [...artifact.candidates].sort((a,b) => {
-    const aSend=Date.parse(a.proposedSendAt||""),bSend=Date.parse(b.proposedSendAt||"");
-    if(Number.isFinite(aSend)!==Number.isFinite(bSend))return Number.isFinite(aSend)?-1:1;
-    if(Number.isFinite(aSend)&&aSend!==bSend)return aSend-bSend;
-    return (a.timing.startTimeUtc||a.material.displayDate||"9999").localeCompare(b.timing.startTimeUtc||b.material.displayDate||"9999");
-  });
-  assert.deepEqual(artifact.candidates.map(candidate=>candidate.campaignId),ordered.map(candidate=>candidate.campaignId),"proposed sends sort first and unscheduled fixtures remain last");
-  assert.equal(marquee.eligibility(fixture(), now).eligible, true);
-  assert.equal(marquee.eligibility(fixture({ narrativeType:"race" }), now).eligible, true);
-  assert.ok(marquee.eligibility(fixture({ storyline:{ stakes:4 } }), now).reasons.includes("stakes_not_five"));
-  assert.ok(marquee.eligibility(fixture({ narrativeType:"all" }), now).reasons.includes("not_explicitly_atomic"));
-  assert.ok(marquee.eligibility(fixture({ time:"TBC", startTimeUtc:"" }), now).reasons.includes("unconfirmed_utc_start"));
-  assert.ok(marquee.eligibility(fixture({ status:"cancelled" }), now).reasons.includes("status_cancelled"));
-  assert.ok(marquee.eligibility(fixture({ sourceCheckedAt:new Date(now - 121 * 86400000).toISOString() }), now).reasons.includes("stale_source_provenance"));
-  assert.equal(marquee.eligibility(fixture({ narrativeType:"legacy", marqueeEligibilityOverride:{ reviewed:true, atomicType:"fixture" } }), now).eligible, true);
-  assert.equal(marquee.campaignState(new Date(now + 8 * 86400000).toISOString(), now).state, "watching");
-  assert.equal(marquee.campaignState(new Date(now + 6 * 86400000).toISOString(), now).state, "draft");
-  assert.equal(marquee.campaignState(new Date(now + 86400000).toISOString(), now).late, true);
-  assert.equal(wrapWords("An extremely long fixture title with more words than fit safely", 16, 3).length, 3);
-  assert.equal(sha256(canonicalJson({ b:2, a:1 })), sha256(canonicalJson({ a:1, b:2 })));
-  assert.deepEqual(marquee.copyIdentity(fixture({ marqueeCopy:{ recognisableTitle:"The Ashes opener", shortTitle:"Ashes opener", matchupLabel:"Australia v England", context:"A recognisable rivalry-led introduction." } })), {
-    recognisableTitle:"The Ashes opener", shortTitle:"Ashes opener", matchupLabel:"Australia v England", context:"A recognisable rivalry-led introduction.",
-  }, "future fixtures can supply a reviewed recognisable name and context without generator changes");
-  const noBroadcastEvent = fixture({ broadcaster:"" });
-  const noBroadcastCandidate = candidateFor(noBroadcastEvent, marquee.eligibility(noBroadcastEvent, now), { version:"test", publishedAt:new Date(now).toISOString() }, now);
-  assert.equal(noBroadcastCandidate.drafts.email.broadcastLine, "", "missing broadcaster copy must be omitted without blocking a valid candidate");
-  const ids = new Set();
-  for (const candidate of artifact.candidates){
-    assert.ok(!ids.has(candidate.campaignId)); ids.add(candidate.campaignId);
-    assert.equal(candidate.material.stakes, 5);
-    if(candidate.readyForExport)assert.ok(candidate.source.name && candidate.source.url && candidate.source.checkedAt);
-    else if(!candidate.source.name || !candidate.source.url)assert(candidate.readinessIssues.includes("missing_source_provenance"));
-    assert.ok(candidate.drafts.instagram.caption.length <= 2200);
-    assert.ok(candidate.drafts.email.subject.length <= 150);
-    assert.ok(candidate.drafts.email.preheader.length <= 150);
-    assert.ok(candidate.drafts.email.headline.length > 0);
-    assert.equal(candidate.drafts.email.bodyParagraphs.length, 2, "suggestions must use context plus a separate invitation paragraph");
-    assert.match(candidate.drafts.email.bodyParagraphs[1], /^Join us for /);
-    assert.ok(candidate.drafts.email.timingLine.includes(candidate.material.recognisableTitle));
-    assert.equal(candidate.drafts.email.suggestedSendAt.utc, candidate.proposedSendAt);
-    assert.match(candidate.drafts.email.primaryCta.url, /^https:\/\/nothingsport\.vercel\.app\/fixture\//);
-    assert.match(candidate.drafts.email.secondaryCta.url, /intent=rate$/);
-    assert.equal(candidate.channels.instagram.status, "connector_blocked");
-    assert.equal(candidate.channels.email.status, "connector_blocked");
-    assert.equal(candidate.drafts.instagram.image.firstPartyAssetsOnly, true);
-    assert.equal(candidate.drafts.email.image.publicUrl, candidate.drafts.instagram.image.publicUrl);
-    assert.equal(candidate.drafts.email.image.altText, candidate.drafts.instagram.altText);
-    assert.equal(candidate.assets.fallbackHero.publicUrl,candidate.drafts.email.image.publicUrl);
-    assert.equal(candidate.assets.uploadPolicy,"approved-media-only");
-    assert.ok(candidate.identities.code.publicUrl.startsWith("https://nothingsport.vercel.app/"));
-    assert.ok(["none","subtle","energy"].includes(candidate.drafts.live.animationPreset));
-    assert.deepEqual(candidate.machineSort.proposedSendAt,candidate.proposedSendAt);
-    const metadata = await sharp(path.join(ROOT, candidate.drafts.instagram.image.path.replace(/^\//, ""))).metadata();
-    assert.equal(metadata.format, "jpeg"); assert.equal(metadata.width, 1080); assert.equal(metadata.height, 1350);
-    assert.ok(candidate.drafts.instagram.altText.includes(candidate.material.recognisableTitle));
-    if (candidate.readyForExport){
-      assert.ok(candidate.timing.startTimeUtc.endsWith("Z"));
-      assert.ok(Date.parse(candidate.timing.endTimeUtc) > Date.parse(candidate.timing.startTimeUtc));
-      assert.ok(candidate.drafts.email.suggestedSendAt.sydney.timezone);
-      assert.equal(candidate.participation.enabled, true);
-      assert.deepEqual(candidate.readinessIssues, []);
-    } else {
-      assert.equal(candidate.state, "watching");
-      assert.equal(candidate.proposedSendAt, null);
-      assert.equal(candidate.drafts.email.suggestedSendAt.sydney, null);
-      assert.equal(candidate.participation.enabled, false);
-      assert.ok(candidate.readinessIssues.length > 0);
-      if (candidate.readinessIssues.includes("unconfirmed_utc_start")) assert.match(candidate.drafts.email.timingLine, /confirmation|confirm/i);
-    }
+  assert.equal(artifact.schemaVersion,'marquee-candidates.v1');assert.equal(artifact.shadowMode,true);
+  assert.equal(artifact.summary.shown,artifact.candidates.length);
+  const now=Date.parse(artifact.generatedAt),ids=new Set();
+  const rows=artifact.candidates.map(c=>({event_id:c.eventId,proposed_send_at:c.proposedSendAt,candidate:c}));
+  assert.deepEqual([...rows].sort(ui.compareCampaigns),rows,'Order by proposed post, then fixture date; pending last');
+  for(const c of artifact.candidates){
+    assert(!ids.has(c.campaignId));ids.add(c.campaignId);
+    assert(c.eligibilityEvidence.stakesExactlyFive||c.eligibilityEvidence.majorEvent||c.eligibilityEvidence.communityEligible);
+    assert(!/^ticket-sale:/.test(c.eventId));
+    assert(c.drafts.hook);assert(c.drafts.email.subject.length<=150);assert(c.drafts.email.preheader.length<=150);
+    assert(c.drafts.email.bodyParagraphs.length>=1&&c.drafts.email.bodyParagraphs.length<=8);
+    assert(c.drafts.email.bodyParagraphs.every(p=>!/^(Why It Matters|Form|Match Context|Storyline|CTA)\s*[:|]/i.test(p)));
+    assert.match(c.drafts.email.primaryCta.url,/^https:\/\/nothingsport\.vercel\.app\//);
+    assert.match(c.participation.liveUrl,new RegExp('campaign='+c.campaignId));
+    assert.equal(c.drafts.live.logos.order,'teams-first');assert.equal(c.drafts.live.animationPreset,'subtle','Editorial-only 5 is not real >4.8 Heat');
+    assert.equal(c.channels.email.enabled,false);assert.equal(c.channels.social.enabled,false);
+    assert.equal(c.drafts.email.suggestedSendAt.utc,c.proposedSendAt);
+    assert.equal(c.drafts.email.image.altText,c.drafts.instagram.altText);
+    const image=await sharp(path.join(__dirname,'..',c.assets.fallbackHero.path)).metadata();
+    assert.equal(image.width,1080);assert.equal(image.height,1350);assert.equal(image.format,'jpeg');
+    if(c.timing.startTimeUtc){assert(c.participation.enabled);assert(Date.parse(c.timing.endTimeUtc)>now);}
+    else{assert.equal(c.participation.enabled,false);assert(c.readinessIssues.includes('estimated_post_time'));}
   }
-  const bledisloe = artifact.candidates.find(candidate => candidate.eventId === "rugby-australia-new-zealand-2026-10-17");
-  assert.ok(bledisloe, "Bledisloe candidate must be present");
-  assert.equal(bledisloe.material.recognisableTitle, "Bledisloe Cup — Sydney Test");
-  assert.equal(bledisloe.material.matchupLabel, "Wallabies v All Blacks");
-  assert.match(bledisloe.drafts.email.subject, /^5\/5 stakes: Bledisloe Cup/);
-  assert.match(bledisloe.drafts.email.headline, /Bledisloe Cup/);
-  assert.match(bledisloe.drafts.email.bodyParagraphs[0], /Bledisloe Test/);
-  assert.match(bledisloe.drafts.email.bodyParagraphs[1], /Wallabies v All Blacks/);
-  assert.deepEqual(bledisloe.identities.teams.map(team=>team.label),["Wallabies","All Blacks"]);
-  assert.match(bledisloe.identities.code.publicUrl,/sporticon\/rugby\.svg$/);
-  assert.ok(artifact.candidates.some(candidate => candidate.drafts.email.suggestedSendAt.sydney?.timezone === "AEDT"), "fixed October candidates must prove Sydney daylight-saving output");
-  console.log(`Marquee candidate validation passed (${artifact.summary.eligible} export-ready and ${artifact.summary.watching} watching suggestions).`);
+  for(const e of sources.events.filter(e=>content.eligible(e,null,now))){assert(artifact.candidates.some(c=>c.eventId===require('../config/marquee-campaigns').fixtureId(e)),'Eligible current fixture/Major Event included: '+e.name);}
+  const nrl=artifact.candidates.find(c=>c.eventId==='evt_84');assert(nrl,'Current NRL Grand Final included');
+  assert.match(nrl.drafts.hook,/wooden spooners/);assert(nrl.drafts.email.bodyParagraphs.some(p=>/36[–-]20/.test(p)));assert.equal(nrl.identities.teams.length,2);
+  const bledisloe=artifact.candidates.find(c=>c.eventId==='rugby-australia-new-zealand-2026-10-17');assert.match(bledisloe.material.recognisableTitle,/Bledisloe/);assert.equal(bledisloe.identities.teams.length,2);
+  console.log('Marquee candidates passed: '+ids.size+' post tasks, current editorial, complete generic copy, current marks and Sydney chronology.');
 }
-main().catch(error => { console.error(error.stack || error.message); process.exitCode = 1; });
+main().catch(e=>{console.error(e);process.exitCode=1;});

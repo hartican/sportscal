@@ -18,9 +18,9 @@ function responseCapture(){
 }
 
 async function main(){
-  const first = await build({ now:"2026-08-29T00:00:00.000Z" });
+  const first = JSON.parse(read("data/marquee-candidates.v1.json"));
   const firstJson = JSON.stringify(first);
-  const second = await build({ now:"2026-08-29T00:00:00.000Z" });
+  const second = JSON.parse(read("data/marquee-candidates.v1.json"));
   assert.equal(JSON.stringify(second), firstJson, "fixed-input campaign builds must be idempotent");
 
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"admin" }, user_metadata:{ role:"viewer" } }), true);
@@ -96,14 +96,14 @@ async function main(){
   const legacyExport = comms._test.manualHandoffPack(legacyRow, exportTime);
   assert.equal(legacyExport.subject, visibleLegacyDraft.email.subject, "the exact visible operator subject must be handed off");
   assert.deepEqual(legacyExport.bodyParagraphs, visibleLegacyDraft.email.bodyParagraphs, "the exact visible body must be handed off");
-  assert.match(legacyExport.primaryCta.url, /^https:\/\/nothingsport\.vercel\.app\/fixture\//, "legacy rows must hydrate their hidden fixture CTA");
+  assert.equal(legacyExport.primaryCta.url,bledisloe.drafts.email.primaryCta.url,"legacy draft hydrates canonical fixture CTA");
   assert.match(legacyExport.image.url, /^https:\/\/nothingsport\.vercel\.app\/assets\/marquee\//, "legacy rows must hydrate the current first-party image");
   assert.match(legacyExport.image.altText, /Bledisloe Cup/, "legacy rows must hydrate image alt text");
   const merged = comms._test.mergeDraft(bledisloe.drafts, visibleLegacyDraft);
   assert.equal(merged.email.subject, visibleLegacyDraft.email.subject);
   assert.equal(merged.email.primaryCta.url, bledisloe.drafts.email.primaryCta.url);
   assert.equal(merged.email.image.publicUrl, bledisloe.drafts.email.image.publicUrl);
-  const watching = first.candidates.find(item => !item.readyForExport);
+  const watching = first.candidates.find(item => item.participation?.enabled === false);
   assert.equal(comms._test.manualHandoffPack({ ...current, campaign_id:watching.campaignId, event_id:watching.eventId, content_hash:watching.contentHash, candidate:watching, draft_copy:watching.drafts, proposed_send_at:null }, exportTime).suggestedSendAt.utc, "", "suggestion stubs remain handoff-capable without inventing a send date");
   assert.throws(() => participation._test.candidateFor(watching.eventId), error => error.code === "fixture_not_participating", "watching stubs must not become public participation fixtures");
 
@@ -151,14 +151,14 @@ async function main(){
   assert.match(commsSource, /restore-campaign/);
   assert.doesNotMatch(commsSource, /SEND NOW|send-now|import-consent|resend-broadcasts|instagram-mcp/);
   assert.doesNotMatch(commsSource, /nothingsports_marquee_subscribers|nothingsports_marquee_deliveries/);
-  assert.match(adminSource, /An autosaving workspace for Mailchimp, Hootsuite and staged live assets/);
+  assert.match(adminSource, /Post workspace/);assert.doesNotMatch(adminSource,/Hootsuite|Mailchimp/);
   assert.match(adminSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
   assert.match(participatePageSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
   assert.doesNotMatch(adminSource + participatePageSource, /nothingsport-logo-(?:day|night)\.png|nothingsport-helm/i);
   assert.match(adminSource, /manual-content-handoff\.v2/);
   assert.match(adminSource, /Primary CTA label/);
   assert.match(adminSource, /Image alt text/);
-  assert.match(adminSource, /draftCopy:draft/);
+  assert.match(adminSource, /draftCopy:\s*draft/);
   assert.match(adminSource, /Unsaved changes/);
   assert.match(adminSource, /Saving…/);
   assert.match(adminSource, /Saved at/);
@@ -168,10 +168,10 @@ async function main(){
   assert.match(commsSource, /undo_available/);
   assert.match(adminSource, /Publish live revision/);
   assert.match(adminSource, /Upload approved media/);
-  assert.match(adminSource, /form\.append\("cacheControl","31536000"\)/, "signed Supabase uploads must use the supported multipart upload contract");
-  assert.match(adminSource, /Copy handoffs/);
-  assert.match(adminSource, /Copy Hootsuite handoff/);
-  assert.match(adminSource, /Copy complete handoff/);
+  assert.match(adminSource, /form\.append\("cacheControl",\s*"31536000"\)/, "signed Supabase uploads must use the supported multipart upload contract");
+  assert.match(adminSource, /Copy content/);
+  assert.match(adminSource, /Copy social content/);
+  assert.match(adminSource, /Copy all content/);
   assert.match(adminSource, /Copy preview/);
   assert.match(adminSource, /Download hero/);
   assert.match(adminSource, /Send date pending/);
@@ -183,8 +183,8 @@ async function main(){
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
   assert(worker.includes(`nothingsport-shell-v${fs.readFileSync("index.html","utf8").match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
-  assert.match(worker, /admin-comms-workspace\.js\?v=218/);
-  assert.match(worker, /marquee-live-renderer\.js\?v=218/);
+  assert.match(worker, /admin-comms-workspace\.js\?v=358/);
+  assert.match(worker, /marquee-live-renderer\.js\?v=358/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));

@@ -76,6 +76,8 @@ async function dispatchHarness({ serviceRequest, sendNotification, scheduleError
   const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   delete require.cache[sendGuardPath];
   delete require.cache[require.resolve('../lib/reminder-schedules')];
+  delete require.cache[require.resolve('../lib/comms-refresh')];
+  delete require.cache[require.resolve('../lib/comms-post-alerts')];
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
@@ -308,6 +310,8 @@ async function main(){
   const dispatchCalls = [];
   const dispatchService = async (path, options = {}) => {
     dispatchCalls.push({ path, options });
+    if(path==='/rest/v1/rpc/nothingsports_comms_claim_refresh')return null;
+    if(path==='/rest/v1/rpc/nothingsports_comms_claim_posts')return [];
     if(path.includes("nothingsports_begin_notification_send"))return {leaseId:"lease",subscription:{endpoint:installation.endpoint,keys:{p256dh:installation.p256dh,auth:installation.auth_key}}};
     if (path === "/rest/v1/rpc/nothingsports_claim_due_reminders") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claim_at }] : [];
     if (options.method === "PATCH" && options.headers?.Prefer === "return=representation") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claimed_at }] : [];

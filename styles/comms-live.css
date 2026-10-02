@@ -1,0 +1,19 @@
+/* One presentation for private preview and public /live. No JS animation loops. */
+.ns-live-asset{overflow:hidden;border-radius:18px;border:1px solid #35353d;background:#0d0d10}
+.ns-live-hero{position:relative;min-height:clamp(390px,62vw,590px);overflow:hidden}
+.ns-live-hero>img,.ns-live-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ns-live-fallback{background:radial-gradient(circle at 85% 10%,#48172f,transparent 48%),#101014}
+.ns-live-fallback img{position:absolute;top:24px;right:24px;width:min(220px,42%);opacity:.2}
+.ns-live-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0001 12%,#09090bd9 76%,#09090b 100%)}
+.ns-live-copy{position:absolute;inset:auto 0 0;padding:clamp(22px,5vw,44px)}
+.ns-live-copy h2{font-size:clamp(2rem,7vw,4.25rem);line-height:.98;margin:.25rem 0 .75rem;max-width:16ch}
+.ns-live-kicker{color:#ff2d8d;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.ns-live-hook{color:#e2e2e7;max-width:56ch}
+.ns-live-marks{display:flex;gap:8px;flex-wrap:wrap}
+.ns-live-mark{display:flex;align-items:center;gap:6px;background:#09090bd9;border:1px solid #ffffff2b;border-radius:999px;padding:6px 10px;font-size:.78rem;font-weight:800}
+.ns-live-mark img{width:27px;height:27px;object-fit:contain}
+.motion-subtle .ns-live-hero>img,.motion-subtle .ns-live-fallback{animation:ns-comms-drift 14s ease-in-out infinite alternate}
+.motion-energy .ns-live-hero>img,.motion-energy .ns-live-fallback{animation:ns-comms-energy 8s ease-in-out infinite alternate}
+@keyframes ns-comms-drift{to{transform:scale(1.035)}}
+@keyframes ns-comms-energy{to{transform:scale(1.06) translate3d(-.8%,.5%,0)}}
+@media(prefers-reduced-motion:reduce){.ns-live-hero>img,.ns-live-fallback{animation:none!important;transform:none!important}}

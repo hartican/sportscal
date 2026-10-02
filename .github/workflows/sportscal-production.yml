@@ -89,6 +89,11 @@ jobs:
           node scripts/validate-card-identities.js
           node scripts/validate-refresh-resume.js
           node scripts/validate-marquee-candidates.js
+          node scripts/validate-marquee-communications.js
+          node scripts/validate-admin-console.js
+          node scripts/validate-admin-api.js
+          node scripts/validate-owner-content-workspace.js
+          node scripts/validate-owner-content-refresh.js
           node scripts/validate-football-classification.js --published
           node scripts/validate-premier-league-context.js
           node scripts/validate-football-schedule.js

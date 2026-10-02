@@ -6,6 +6,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const sharp = require("sharp");
 const marquee = require("../config/marquee-campaigns");
+const content = require("../lib/comms-content");
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT = path.join(ROOT, "data/marquee-candidates.v1.json");
@@ -74,7 +75,7 @@ function imageSvg(candidate, logoData){
     <text x="72" y="265" fill="#ff2d8d" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="5">UNMISSABLE · ${sport}</text>
     <text x="72" y="390" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="800">${title}</text>
     <text x="72" y="760" fill="#f1f1f1" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="650">${dateTime}</text>
-    <rect x="72" y="812" width="300" height="78" rx="39" fill="#ff2d8d"/><text x="222" y="864" text-anchor="middle" fill="#09090b" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="900">5/5 STAKES</text>
+    <rect x="72" y="812" width="430" height="78" rx="39" fill="#ff2d8d"/><text x="287" y="864" text-anchor="middle" fill="#09090b" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="900">${xml(candidate.material.rating?.label||'Editorial stakes')}</text>
     <text x="72" y="980" fill="#d7d7db" font-family="Arial,Helvetica,sans-serif" font-size="31">${hook}</text>
     <line x1="72" y1="1195" x2="1008" y2="1195" stroke="#35353b" stroke-width="2"/><text x="72" y="1260" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700">nothingsport.vercel.app/live</text>
   </svg>`);
@@ -167,19 +168,23 @@ function candidateFor(event, evidence, feedMeta, nowMs){
   };
 }
 async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString() } = {}){
+  const previous=fs.existsSync(OUTPUT)?readJson(OUTPUT).candidates:[];
   const feed = readJson(path.join(ROOT, "data/events.json"));
   const feedMeta = readJson(path.join(ROOT, "data/feed-meta.json"));
-  const canonical = canonicalEvents();
   const nowMs = Date.parse(now);
   if (!Number.isFinite(nowMs)) throw new Error(`Invalid campaign reference time: ${now}`);
-  const excluded = [], candidates = [];
-  const futureFive = (feed.events || []).filter(event => Number(event?.storyline?.stakes) === 5 && !["completed", "past"].includes(String(event?.status || "").toLowerCase()));
-  for (const sourceEvent of futureFive){
-    const id = marquee.fixtureId(sourceEvent);
-    const event = mergedEvent(sourceEvent, canonical.get(id));
-    const evidence = marquee.eligibility(event, nowMs);
-    if (!evidence.fixtureId){ excluded.push({ eventId:id, title:event.name || "", reasons:evidence.reasons }); continue; }
-    candidates.push(candidateFor(event, evidence, feedMeta, nowMs));
+  const canonical=[...new Set(canonicalEvents().values())];
+  const merged=require('../config/fixture-identity').mergeOverlays(canonical,feed.events||[]);
+  const events=require('../config/fixture-identity').mergeOverlays(merged,require('../lib/competition-fixtures').fixtures());
+  const resolve=require('../lib/fixture-editorial').createResolver(readJson(path.join(ROOT,'data/editorial-knowledge.v1.json')),events);
+  const fields=['id','eventId','canonicalEventId','sourceEventIds','name','displayTitleCompact','publicStageLabel','sport','key','date','startTimeUtc','endTimeUtc','startDate','endDate','status','timePrecision','timeTbc','startTimeTbc','dateOnly','liveWindow','venue','broadcaster','competitionId','participants','participantIds','homeParticipantId','awayParticipantId','sourceName','sourceUrl','sourceCheckedAt','canonicalSourceName','canonicalSourceUrl','canonicalSourceCheckedAt','storyline','editorialNarrative','selectedSentence','fullSpiel','stakesScore','displayDateLabel','schedulingWindow','commsKind'];
+  const majors=readJson(path.join(ROOT,'data/major-events.v1.json')).events.filter(e=>e.lifecycleStatus!=='retired').map(e=>({...e,commsKind:'major-event',date:e.startDate,sport:e.sportLabel||e.sportKey,status:e.lifecycleStatus||'upcoming',sourceName:e.sourceName||e.source?.name||e.name,sourceUrl:e.sourceUrl||e.officialUrl||e.source?.url,sourceCheckedAt:e.sourceCheckedAt||e.publishedAt,editorialNarrative:e.editorialNarrative||{hook:e.summary,synopsis:(e.details||[]).join('\n\n')}}));
+  const sourceItems=[...events.map(resolve),...majors].filter(e=>!content.past(e,nowMs)).map(e=>Object.fromEntries(fields.filter(k=>e[k]!==undefined).map(k=>[k,e[k]])));
+  const sourceRevision=`${feedMeta.version||'feed'}@${feedMeta.publishedAt||'unknown'}:${content.hash(sourceItems).slice(0,12)}`;
+  fs.writeFileSync(path.join(ROOT,'data/comms-sources.v1.json'),JSON.stringify({schemaVersion:'comms-sources.v1',sourceRevision,events:sourceItems})+'\n');
+  const excluded=[],candidates=[],futureFive=sourceItems.filter(e=>Number(e.storyline?.stakes??e.stakesScore)===5);
+  for(const event of sourceItems.filter(e=>content.eligible(e,null,nowMs))){
+    for(const slot of content.postingSlots(event,nowMs))candidates.push(content.candidate(event,slot,null,sourceRevision));
   }
   candidates.sort((a,b)=>{
     const aSend=Date.parse(a.proposedSendAt||""),bSend=Date.parse(b.proposedSendAt||"");
@@ -198,12 +203,15 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
     candidate.live.hero={...image};
   }
   const artifact = {
-    schemaVersion:marquee.SCHEMA_VERSION, sourceRevision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}`,
+    schemaVersion:marquee.SCHEMA_VERSION, sourceRevision,
     generatedAt:new Date(nowMs).toISOString(), shadowMode:true,
     summary:{ stakesFiveFuture:futureFive.length, shown:candidates.length, eligible:candidates.filter(c => c.readyForExport).length, watching:candidates.filter(c => !c.readyForExport).length, actionable:candidates.filter(c => c.actionable).length, late:candidates.filter(c => c.late).length },
     candidates, excluded:excluded.sort((a, b) => a.eventId.localeCompare(b.eventId)),
   };
   fs.writeFileSync(OUTPUT, `${JSON.stringify(artifact, null, 2)}\n`);
+  // Only expired campaign compositions are purged. Active revisions and shared brand/team assets remain.
+  const activeIds=new Set(candidates.map(c=>c.campaignId)),expiredIds=new Set(previous.filter(c=>Date.parse(c.timing?.endTimeUtc||'')<=nowMs&&!activeIds.has(c.campaignId)).map(c=>c.campaignId));
+  for(const file of fs.readdirSync(IMAGE_DIRECTORY))if(/^marquee_[a-f0-9]{16}-[a-f0-9]{12}\.jpg$/.test(file)&&expiredIds.has(file.slice(0,24)))fs.unlinkSync(path.join(IMAGE_DIRECTORY,file));
   console.log(`Marquee candidates: ${artifact.summary.shown} shown, ${artifact.summary.eligible} export-ready, ${artifact.summary.watching} watching, ${artifact.summary.actionable} actionable, ${artifact.summary.late} late; ${excluded.length} excluded. Shadow mode wrote ${path.relative(ROOT, OUTPUT)}.`);
   return artifact;
 }

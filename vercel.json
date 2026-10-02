@@ -5,8 +5,10 @@
   },
   "functions": {
     "api/notification-dispatch.js": {
-      "includeFiles": "data/code-inspector/*.json"
+      "includeFiles": "data/{code-inspector/*.json,comms-sources.v1.json,marquee-candidates.v1.json}",
+      "maxDuration": 60
     },
+    "api/comms.js": {"includeFiles":"data/{comms-sources.v1.json,marquee-candidates.v1.json}","maxDuration":60},
     "api/chat.js": {
       "includeFiles": "data/chat-fixtures.v1.json",
       "maxDuration": 60

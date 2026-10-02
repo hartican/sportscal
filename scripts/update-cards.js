@@ -264,6 +264,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-marquee-candidates.js"],
   ["scripts/validate-marquee-candidates.js"],
   ["scripts/validate-marquee-communications.js"],
+  ["scripts/validate-owner-content-workspace.js"],
   ["scripts/validate-admin-console.js"],
   ["scripts/validate-admin-api.js"],
   ["scripts/validate-phase5-premium-ranking.js"],

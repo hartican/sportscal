@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09090b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="NS Owner">
+  <link rel="manifest" href="/owner.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/nothingsport-app-192.png">
   <meta name="robots" content="noindex,nofollow">
   <title>Owner console · Nothing Sport</title>
   <style>
@@ -21,10 +26,13 @@
   <section id="adminApp"><p class="muted">Loading owner console…</p></section>
 </main>
 <script src="/config/server-sync.js"></script>
-<script src="/config/marquee-live-renderer.js?v=214"></script>
-<script src="/config/admin-comms-workspace.js?v=214"></script>
+<link rel="stylesheet" href="/styles/comms-live.css?v=358">
+<link rel="stylesheet" href="/styles/owner-content.css?v=358">
+<script src="/config/marquee-live-renderer.js?v=358"></script>
+<script src="/config/admin-comms-workspace.js?v=358"></script>
 <script>
 (()=>{
+  if('serviceWorker' in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
   const app=document.getElementById("adminApp"),nav=document.getElementById("adminNav"),signout=document.getElementById("signout"),client=NOTHINGSPORTS_SERVER_SYNC.createClient();
   const esc=value=>String(value??"").replace(/[&<>"']/g,character=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[character]);
   const date=value=>value?new Intl.DateTimeFormat("en-AU",{dateStyle:"medium",timeStyle:"short"}).format(new Date(value)):"—";
@@ -73,8 +81,10 @@
     const apply=()=>{const value=app.querySelector("#reportStatus").value,url=new URL(location.href);value?url.searchParams.set("status",value):url.searchParams.delete("status");history.replaceState({},"",url);renderReports()};app.querySelector("#reportStatus").addEventListener("change",apply);app.querySelector("#refreshReports").addEventListener("click",apply);
     const data=await client.adminReportsRequest({status}),list=app.querySelector("#reportsList");list.innerHTML="";if(!data.reports.length){list.innerHTML='<div class="admin-empty">No reports match this status.</div>';return}data.reports.forEach(report=>list.appendChild(reportCard(report)));
   }
+  let disposeComms=null;
   async function loadRoute(){
-    try{const active=route();if(active==="users")await renderUsers();else if(active==="reports")await renderReports();else{setChrome("comms");await NOTHINGSPORTS_ADMIN_COMMS_UI.mount(app,client)}}catch(error){if(error.status===401||!client.getSession())login(error.message);else{setChrome(route());app.innerHTML=`<div class="admin-error"><h1>Owner console unavailable</h1><p>${esc(error.message)}</p><button id="retryAdmin">Retry</button></div>`;app.querySelector("#retryAdmin").addEventListener("click",loadRoute)}}
+    if(disposeComms){const cleanup=disposeComms;disposeComms=null;try{await cleanup();}catch(error){alert("Save failed. Your draft is retained on this device: "+error.message);return;}}
+    try{const active=route();if(active==="users")await renderUsers();else if(active==="reports")await renderReports();else{setChrome("comms");disposeComms=await NOTHINGSPORTS_ADMIN_COMMS_UI.mount(app,client)}}catch(error){if(error.status===401||!client.getSession())login(error.message);else{setChrome(route());app.innerHTML=`<div class="admin-error"><h1>Owner console unavailable</h1><p>${esc(error.message)}</p><button id="retryAdmin">Retry</button></div>`;app.querySelector("#retryAdmin").addEventListener("click",loadRoute)}}
   }
   nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",event=>{event.preventDefault();history.pushState({},"",link.href);loadRoute()}));window.addEventListener("popstate",loadRoute);signout.addEventListener("click",async()=>{await client.signOut();login()});client.getSession()?loadRoute():login();
 })();
