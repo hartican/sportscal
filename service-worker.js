@@ -1,10 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v362";
-const SHELL_VERSION = "362";
+const CACHE_NAME = "nothingsport-shell-v363";
+const SHELL_VERSION = "363";
 const APP_SHELL = [
+  "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=362",
+  "/assets/js/settings-optional-ui.js?v=363",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
   // Navigations already share /index.html below; do not download/cache its
@@ -18,12 +19,12 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=362",
+  "/assets/js/app-shell-runtime.js?v=363",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=318",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
-  "/assets/styles/card-clarity.css?v=358",
+  "/assets/styles/card-clarity.css?v=363",
   "/config/follow-directory-worker.js?v=275",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",

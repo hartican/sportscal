@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="362">
+<meta name="app-shell-version" content="363">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=362" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=363" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6880,7 +6880,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=362">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=358">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=363">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
 <body>
@@ -6961,6 +6961,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" loading="lazy" decoding="async">
   <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above<br>Football data provided by the Football-Data.org API</div>
+  <p class="asset-attribution steak-attribution"><a href="https://www.flaticon.com/free-icons/steak" title="steak icons" target="_blank" rel="noopener noreferrer">Steak icons created by meaicon - Flaticon</a></p>
   <div class="footer-copyright" data-brand-copy="copyright">Copyright ©&nbsp;2026&nbsp;Nothing Sport. All Rights Reserved.</div>
   <div class="footer-socials" aria-label="Follow Nothing Sport">
     <a class="footer-social-link" href="https://www.instagram.com/_nothingsport/" target="_blank" rel="noopener noreferrer external" aria-label="Follow Nothing Sport on Instagram at @_nothingsport"><span data-vector-glyph="social:instagram"></span><span>@_nothingsport</span></a>
@@ -7175,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=362"></script>
+<script src="assets/js/app-shell-runtime.js?v=363"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -17019,7 +17020,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=362';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=363';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){

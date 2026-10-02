@@ -6,6 +6,10 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const labels=['Low stakes','Mid stakes','High stakes','Huge stakes','Epic stakes'];
 const project=path.resolve(__dirname,'..');
+const assetPath='assets/icons/flaticon/meaicon-steak.png';
+assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(project,assetPath))).digest('hex'),'f8e6cbbc6b2b9721d8cf03aad1f5b5c8d856b74f554b267ce99459f0f337f674','Use the exact user-supplied PNG');
+const steak=require('../config/vector-assets').openUse['ui:steak'];
+assert.equal(steak.author,'meaicon');assert.equal(steak.rightsStatus,'user-supplied');
 const output=process.env.STAKES_QA_OUTPUT;
 const close=(a,b)=>Math.abs(a-b)<.1;
 (async()=>{
@@ -31,7 +35,11 @@ const close=(a,b)=>Math.abs(a-b)<.1;
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',selectedSelectorEntityIds:['sport:f1'],followedSports:['f1']})));
    await page.goto(base,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating(),null,{timeout:60000});
-   const scenarios=await page.evaluate(()=>{
+   const scenarios=await page.evaluate(async()=>{
+    const source=new Image();source.src="assets/icons/flaticon/meaicon-steak.png";await source.decode();
+    const canvas=document.createElement("canvas");canvas.width=canvas.height=512;const context=canvas.getContext("2d");context.drawImage(source,0,0);const pixels=context.getImageData(0,0,512,512).data;
+    if(source.naturalWidth!==512||source.naturalHeight!==512||!pixels.some((v,i)=>i%4===3&&v===0)||!pixels.some((v,i)=>i%4===3&&v===255))throw Error("Supplied steak and transparent detail must load");
+    const credit=document.querySelector("footer .steak-attribution a");if(credit?.textContent!=="Steak icons created by meaicon - Flaticon"||credit.href!=="https://www.flaticon.com/free-icons/steak")throw Error("Missing visible Flaticon credit");
     const results=[];
     const ev={id:'qa-stakes',key:'f1',name:'Stakes QA race',startTimeUtc:'2026-10-10T12:00:00Z',timePrecision:'exact'};
     const mount=(snapshot,inDrawer)=>{
@@ -44,7 +52,7 @@ const close=(a,b)=>Math.abs(a-b)<.1;
      document.documentElement.dataset.theme=theme;
      const card=mount({phase,currentUser:{submissions:{[phase]:{rating}}},peerResults:{count:3,average:3,rawAverage:3,label:'Legacy adjective'}},inDrawer);
      const buttons=[...card.querySelectorAll('.nsc-rating-block')];
-     results.push({theme,inDrawer,phase,rating,boxes:buttons.map(b=>{const r=b.getBoundingClientRect(),s=b.querySelector('svg').getBoundingClientRect();return{left:r.left,right:r.right,width:r.width,height:r.height,svgLeft:s.left,svgRight:s.right,svgWidth:s.width,svgHeight:s.height};}),card:card.getBoundingClientRect().toJSON(),rowWidth:card.querySelector('.nsc-rating-blocks').getBoundingClientRect().width,disabled:buttons.some(b=>b.disabled),filled:buttons.filter(b=>b.classList.contains('is-filled')).length,pressed:buttons.map(b=>b.getAttribute('aria-pressed')),aria:buttons.map(b=>b.getAttribute('aria-label')),prompt:card.querySelector('.nsc-rating-prompt').textContent,summary:card.querySelector('.nsc-peer-summary').textContent,tags:[...card.querySelectorAll('.fixture-tag')].map(t=>t.textContent),detailStroke:getComputedStyle(buttons[0].querySelector('.steak-detail')).stroke,outerFill:getComputedStyle(buttons[0].querySelector('.steak-cut')).fill,detailFill:getComputedStyle(buttons[0].querySelector('.steak-detail')).fill});
+     results.push({theme,inDrawer,phase,rating,boxes:buttons.map(b=>{const r=b.getBoundingClientRect(),s=b.querySelector('svg').getBoundingClientRect();return{left:r.left,right:r.right,width:r.width,height:r.height,svgLeft:s.left,svgRight:s.right,svgWidth:s.width,svgHeight:s.height};}),card:card.getBoundingClientRect().toJSON(),rowWidth:card.querySelector('.nsc-rating-blocks').getBoundingClientRect().width,disabled:buttons.some(b=>b.disabled),filled:buttons.filter(b=>b.classList.contains('is-filled')).length,pressed:buttons.map(b=>b.getAttribute('aria-pressed')),aria:buttons.map(b=>b.getAttribute('aria-label')),prompt:card.querySelector('.nsc-rating-prompt').textContent,summary:card.querySelector('.nsc-peer-summary').textContent,tags:[...card.querySelectorAll('.fixture-tag')].map(t=>t.textContent),artwork:buttons.map(b=>{const image=b.querySelector('.steak-artwork');const style=getComputedStyle(image);return{opacity:style.opacity,filter:getComputedStyle(b.querySelector("svg")).filter,source:image.getAttribute('href')};})});
     }
     const crowd=[];
     for(const [rawAverage,average]of [[1,1],[1.49,1.5],[1.5,1.5],[2.49,2.5],[2.5,2.5],[3.49,3.5],[3.5,3.5],[4.49,4.5],[4.5,4.5],[5,5],[null,2],[undefined,3]]){
@@ -68,8 +76,9 @@ const close=(a,b)=>Math.abs(a-b)<.1;
     assert.equal(s.prompt,s.rating?labels[s.rating-1]:s.phase==='pulse'?'How’s it going? Rate stakes':'Tap to rate stakes',context);
     assert.equal(s.summary,`3 Nothingers ${s.phase==='heat'?'expect':s.phase==='pulse'?'are rating this':'have rated this'} High stakes · 3.0/5`,context);
     assert(!s.tags.includes('LEGACY ADJECTIVE')&&!s.tags.includes('HIGH STAKES'),context);
-    assert.equal(s.detailFill,'none',context);
-    if(s.rating)assert.notEqual(s.detailStroke,s.outerFill,'Bone/fat detail remains visible: '+context);
+    assert.deepEqual(s.artwork.map(a=>a.opacity),labels.map((_,i)=>i<s.rating?'1':'0.4'),context);
+    assert(s.artwork.every(a=>a.source===assetPath),context);
+    assert(s.artwork.every(a=>s.theme==='night'?a.filter.includes('invert(1)'):a.filter==='none'),context);
     cases++;
    }
    for(const c of scenarios.crowd)assert.equal(c.text,`3 Nothingers expect ${labels[Math.round(c.rawAverage??c.average)-1]} · ${c.average.toFixed(1)}/5`);
@@ -128,12 +137,17 @@ const close=(a,b)=>Math.abs(a-b)<.1;
    await buttons.first().focus();
    await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.getAttribute('aria-label')),'2 out of 5: Mid stakes');assert.equal(await buttons.nth(1).evaluate(b=>getComputedStyle(b).outlineStyle),'solid');
    await page.keyboard.press('Enter');await host.getByText('Sign in to rate this fixture.',{exact:true}).waitFor();assert.equal(writes.length,6);
-   if(output&&width===390){
-    fs.mkdirSync(output,{recursive:true});
+   if(width===390){
+    if(output)fs.mkdirSync(output,{recursive:true});
     for(const theme of ['day','night'])for(const rating of [0,2,5]){
      await page.evaluate(({theme,rating})=>{document.documentElement.dataset.theme=theme;const host=document.getElementById('stakes-test');host.className='event-card feed-fixture';host.style.cssText='width:300px;padding:16px;margin:0 auto;display:block';document.querySelector('#listView').appendChild(host);host.replaceChildren(buildNothingscorePeerResults({id:'qa-picture',key:'f1',name:'QA race',startTimeUtc:'2026-10-10T12:00:00Z'},{phase:'heat',currentUser:{contribution:{rating}},peerResults:{count:3,average:3,rawAverage:3}}));},{theme,rating});
      await page.locator('#stakes-test').evaluate(host=>host.scrollIntoView({block:'center'}));
-     await page.locator('#stakes-test').screenshot({path:path.join(output,`stakes-${theme}-${rating}.png`)});
+     const pixels=await page.locator('#stakes-test .steak-glyph').first().screenshot();
+     const brightness=await page.evaluate(async source=>{const image=new Image();image.src=source;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const values=[...ctx.getImageData(0,0,canvas.width,canvas.height).data].filter((_,i)=>i%4===0);return{min:Math.min(...values),max:Math.max(...values)};},'data:image/png;base64,'+pixels.toString('base64'));
+     // Inspect rendered pixels: WebKit can report a nested SVG image filter without painting it.
+     if(theme==='night')assert(brightness.max>(rating?220:70),'Night steak must paint visibly in '+process.env.STAKES_QA_BROWSER);
+     else assert(brightness.min<(rating?40:180),'Day steak must paint visibly');
+     if(output)await page.locator('#stakes-test').screenshot({path:path.join(output,`stakes-${theme}-${rating}.png`)});
     }
    }
    assert.deepEqual(errors,[]);await page.close();console.log(`${width}px: stakes labels, crowd boundaries, touch geometry, saving/recovery and keyboard passed`);

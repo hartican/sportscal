@@ -51,7 +51,6 @@
   };
 
   const customBodies = {
-    "ui:steak": '<g transform="translate(15 10) rotate(-65) translate(-12 -14)"><path class="steak-cut" d="M12 2C5 0 2 6 4 13c2 7 6 13 11 13s8-5 6-10C19 10 17 3 12 2Z"/><path class="steak-detail steak-bone" fill="none" stroke-width="2" d="M6.5 8h11M11.5 8v14"/></g>',
     "sport:sailing": '<path d="M12 3v13M12 4l7 10h-7M11 7 5 15h6"/><path d="M3 18c3 2 6 2 9 0s6-2 9 0M3 21c3 2 6 2 9 0s6-2 9 0"/>',
     "sport:ice-hockey": '<path d="m17 3-7 15H3v3h9L21 3"/><ellipse cx="19" cy="20" rx="3" ry="1.5"/>',
     "sport:cricket": '<path d="m7 3 4 4-5 5-4-4z"/><path d="m9 5 10 10-4 4L5 9M17 4v8M21 4v8M15 4h8M15 12h8"/>',
@@ -73,6 +72,7 @@
   };
 
   const openUse = Object.freeze({
+    "ui:steak": Object.freeze({ key:"ui:steak", assetClass:"licensed", rightsStatus:"user-supplied", provenance:"user-supplied", library:"Flaticon", author:"meaicon", license:"Flaticon License (attribution required)", source:"https://www.flaticon.com/free-icons/steak", licenseUrl:"https://www.flaticon.com/legal", attribution:"Steak icons created by meaicon - Flaticon", path:"assets/icons/flaticon/meaicon-steak.png", render:"raster" }),
     ...Object.fromEntries(Object.entries(sporticon).map(([key, file]) => [key, Object.freeze({ key, assetClass: "open-use", rightsStatus: "open-use", provenance: "licensed-library", library: "Sporticon", license: "Apache-2.0", source: SPORTICON_SOURCE, path: `assets/icons/sporticon/${file}`, render: "mask" })])),
     ...Object.fromEntries(Object.keys(lucideBodies).map(key => [key, Object.freeze({ key, assetClass: "open-use", rightsStatus: "open-use", provenance: "licensed-library", library: "Lucide", license: "ISC", source: LUCIDE_SOURCE, render: "inline" })])),
     ...Object.fromEntries(Object.keys(simpleIconBodies).map(key => [key, Object.freeze({ key, assetClass: "open-use", rightsStatus: "open-use", provenance: "licensed-library", library: "Simple Icons", license: "CC0-1.0", source: SIMPLE_ICONS_SOURCE, disclaimer: SIMPLE_ICONS_DISCLAIMER, trademarkNotice: "Brand marks remain subject to their owners' trademark and usage rules.", render: "inline" })])),
@@ -108,6 +108,11 @@
   function glyphMarkup(key, options = {}){
     const entry = openUse[key] || custom[key];
     if (!entry) return inlineSvg('<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>', options);
+    if (entry.render === "raster"){
+      const accessibility = options.label ? `role="img" aria-label="${escapeAttribute(options.label)}"` : 'aria-hidden="true"';
+      // Crop transparent source margins in the viewport; retain the supplied PNG unchanged.
+      return `<svg class="vector-glyph steak-glyph ${escapeAttribute(options.className || "")}" viewBox="12 59 488 394" preserveAspectRatio="none" ${accessibility}><image class="steak-artwork" href="${escapeAttribute(entry.path)}" width="512" height="512"/></svg>`;
+    }
     if (entry.render === "mask"){
       const accessibility = options.label ? `role="img" aria-label="${escapeAttribute(options.label)}"` : 'aria-hidden="true"';
       if (options.preferImage){
@@ -116,7 +121,7 @@
       }
       return `<span class="vector-glyph vector-mask ${escapeAttribute(options.className || "")}" style="--glyph-url:url('${escapeAttribute(entry.path)}')" ${accessibility}></span>`;
     }
-    return inlineSvg(lucideBodies[key] || simpleIconBodies[key] || customBodies[key], { ...options, ...(key === "ui:steak" ? { viewBox:"0 0 30 20" } : {}) });
+    return inlineSvg(lucideBodies[key] || simpleIconBodies[key] || customBodies[key], options);
   }
 
   const editorialKeys = Object.freeze({
