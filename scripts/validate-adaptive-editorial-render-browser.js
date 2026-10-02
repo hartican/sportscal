@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const policy=require('../config/editorial-maintenance');
-const ids=['rugby-new-zealand-australia-2026-10-10','supercars-bathurst-1000-2026','epl-2026-27-128980'];
+const ids=['rugby-new-zealand-australia-2026-10-10','rugby-australia-new-zealand-2026-10-17','rlwc-australia-new-zealand-2026','supercars-bathurst-1000-2026','epl-2026-27-128980'];
 const root=path.resolve(__dirname,'..');
 const server=http.createServer((req,res)=>{const name=new URL(req.url,'http://local').pathname;const file=path.resolve(root,'.'+(name==='/'?'/index.html':name));if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}try{const bytes=fs.readFileSync(file);res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.json')?'application/json':file.endsWith('.html')?'text/html':file.endsWith('.css')?'text/css':'application/octet-stream');res.end(bytes);}catch{res.writeHead(404);res.end();}});
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=process.env.EDITORIAL_QA_URL||'http://127.0.0.1:'+server.address().port;
@@ -10,5 +10,5 @@ try{for(const [engine,type] of Object.entries({chromium,webkit})){const browser=
 for(const width of [390,1280]){const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});await page.route('**/api/**',route=>route.fulfill({status:503,json:{}}));await page.goto(base);await page.waitForFunction(()=>typeof buildEventCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
 const proof=await page.evaluate(async ids=>{document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(n=>n.classList.remove('show'));activeTab='feed';activeView='list';const events=(await(await fetch('/data/events.json?editorial-proof='+Date.now())).json()).events;const list=document.getElementById('listView');list.replaceChildren();return ids.map(id=>{const event=events.find(e=>e.id===id);setCardState(event,'opened');const card=buildEventCard(event);list.appendChild(card);return {id,text:card.textContent,hook:event.editorialNarrative.hook,sections:event.editorialNarrative};});},ids);
 for(const item of proof){assert.equal(item.text.split(item.hook).length-1,1,item.id+' Hook must not duplicate across folds');for(const key of ['formCopy','closingCopy','synopsis'])assert(item.sections[key]&&item.text.replace(/\s+/g,'').includes(item.sections[key].replace(/\s+/g,'')),item.id+' missing rendered '+key);}
-console.log(engine+' '+width+'px '+base+': three source-backed cards, all four rendered sections and nonduplicated Hook passed.');await page.close();}
+console.log(engine+' '+width+'px '+base+': '+ids.length+' source-backed cards including both Bledisloe Tests, all four rendered sections and nonduplicated Hook passed.');await page.close();}
 }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exitCode=1;});

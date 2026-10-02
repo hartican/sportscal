@@ -46471,7 +46471,7 @@
       }
     },
     {
-      "id": "projection:fixture-research:rlwc-australia-new-zealand-2026",
+      "id": "projection:feed:rlwc-australia-new-zealand-2026",
       "targetType": "feed-event",
       "targetIds": [
         "rlwc-australia-new-zealand-2026"
@@ -46508,7 +46508,7 @@
       }
     },
     {
-      "id": "projection:fixture-research:rugby-australia-new-zealand-2026-10-17",
+      "id": "projection:feed:bledisloe-sydney-2026",
       "targetType": "feed-event",
       "targetIds": [
         "rugby-australia-new-zealand-2026-10-17"

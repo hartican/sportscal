@@ -74,3 +74,10 @@ Liverpool v Manchester City. The Owner explicitly authorised replacing the
 older Bledisloe copy lock. The men's NRL Grand Final remains protected. City's
 financial case concerns reporting and spending rules, not a salary cap; distinguish
 Commission findings, the club's appeal and still-undecided sanctions.
+
+### 3 October 2026: stable projection identities and Bledisloe recovery
+
+- An editorial refresh preserves an existing feed projection ID when all its targets belong to the refreshed fixture. Copy, provenance and review dates may change; the projection identity must not change merely because a research import ran.
+- A shared projection is split only for the refreshed targets. Unrelated targets keep their original ID and copy; repeated imports retain the new scoped identity.
+- Restored the World Cup opener's `projection:feed:rlwc-australia-new-zealand-2026` and Sydney Bledisloe's `projection:feed:bledisloe-sydney-2026` without rewriting their researched sections. Both Bledisloe cards must retain distinct Hook, Form, Storyline and Match Context in Feed rendering.
+- `validate-editorial-projection-identity.js` is a mandatory production gate. Browser proof covers all five refreshed previews, including both Bledisloe Tests, at desktop and mobile widths in Chromium and WebKit. Physical iOS Home Screen behaviour remains separate evidence.

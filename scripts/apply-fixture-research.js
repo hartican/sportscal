@@ -15,6 +15,13 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
     const targets=[...feed.events,...catalogue];
     const targetIds=[...new Set(targets.filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id) || overview && event.tennisTournamentId===`tournament:tennis:${overview[1]}` && ['tournament_overview','tennis_parent'].includes(event.cardType)).map(event=>event.id))];
     if(!targetIds.length)throw new Error('Missing researched fixture '+entry.id);
+    // A copy refresh must not rename an exclusively owned projection. Shared
+    // projections are split without rewriting their unrelated targets.
+    const existing=narrative.projectionForTarget(knowledge,'feed-event',{id:entry.id}) || knowledge.eventProjections.find(p=>p.targetType==='feed-event'&&p.targetIds.some(id=>targetIds.includes(id)));
+    const fallback=`projection:${prefix}`;
+    let projectionId=existing&&existing.targetIds.every(id=>targetIds.includes(id))?existing.id:fallback;
+    let suffix=0;
+    while(knowledge.eventProjections.some(p=>p.id===projectionId&&(p.targetType!=='feed-event'||p.targetIds.some(id=>!targetIds.includes(id)))))projectionId=`${fallback}:scope-${++suffix}`;
     const subjectId=`subject:${prefix}`,threadId=`thread:${prefix}`;
     const sourceIds=entry.sources.map((url,index)=>`source:${prefix}:${index}`);
     upsert('subjects',{id:subjectId,kind:'event',name:entry.title});
@@ -24,8 +31,8 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
       upsert('narrativeFacts',{id,subjectIds:[subjectId],statement:fact.statement,dimension:fact.dimension,sourceIds:fact.sourceIndexes.map(index=>sourceIds[index]),observedAt:entry.researchedAt,expiresAt:null});return id;
     });
     upsert('narrativeThreads',{id:threadId,subjectIds:[subjectId],title:entry.title,summary:entry.synopsis,factIds,status:entry.promotedReplay?'resolved':'active',updatedAt:entry.researchedAt});
-    knowledge.eventProjections=knowledge.eventProjections.filter(projection=>projection.id!==`projection:${prefix}`).map(projection=>projection.targetType==='feed-event'?{...projection,targetIds:projection.targetIds.filter(id=>id!==entry.id&&!targetIds.includes(id))}:projection).filter(projection=>projection.targetIds.length);
-    const projection={id:`projection:${prefix}`,targetType:'feed-event',targetIds,researchDepth:entry.researchDepth || 5,hook:entry.hook,synopsis:entry.synopsis,...(entry.formCopy?{formCopy:entry.formCopy}:{}),...(entry.closingCopy?{closingCopy:entry.closingCopy}:{}),threadIds:[threadId],factIds,sourceIds,researchedAt:entry.researchedAt,editorialPhase:entry.editorialPhase||'preview',refreshAfter:entry.promotedReplay||entry.editorialPhase==='recap'?null:(entry.refreshAfter || [...feed.events,...catalogue].find(event=>targetIds.includes(event.id))?.startTimeUtc || null),generationMode:'researched',originalityReview:{method:'independent-summary-no-source-prose-retained',reviewedAt:entry.researchedAt},...(entry.hookSpoilerOn?{hookSpoilerOn:entry.hookSpoilerOn,synopsisSpoilerOn:entry.synopsisSpoilerOn}:{})};
+    knowledge.eventProjections=knowledge.eventProjections.map(projection=>projection.targetType==='feed-event'?{...projection,targetIds:projection.targetIds.filter(id=>id!==entry.id&&!targetIds.includes(id))}:projection).filter(projection=>projection.targetIds.length);
+    const projection={id:projectionId,targetType:'feed-event',targetIds,researchDepth:entry.researchDepth || 5,hook:entry.hook,synopsis:entry.synopsis,...(entry.formCopy?{formCopy:entry.formCopy}:{}),...(entry.closingCopy?{closingCopy:entry.closingCopy}:{}),threadIds:[threadId],factIds,sourceIds,researchedAt:entry.researchedAt,editorialPhase:entry.editorialPhase||'preview',refreshAfter:entry.promotedReplay||entry.editorialPhase==='recap'?null:(entry.refreshAfter || [...feed.events,...catalogue].find(event=>targetIds.includes(event.id))?.startTimeUtc || null),generationMode:'researched',originalityReview:{method:'independent-summary-no-source-prose-retained',reviewedAt:entry.researchedAt},...(entry.hookSpoilerOn?{hookSpoilerOn:entry.hookSpoilerOn,synopsisSpoilerOn:entry.synopsisSpoilerOn}:{})};
     Object.assign(projection,require('../config/editorial-locks').projection([...feed.events,...catalogue].find(event=>targetIds.includes(event.id))||{id:entry.id},projection));
     knowledge.eventProjections.push(projection);
     const indexes=narrative.indexesFor(knowledge);

@@ -95418,7 +95418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:rlwc-australia-new-zealand-2026",
+      "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
       "researchTier": "marquee",
       "hook": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
       "synopsis": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
@@ -96170,7 +96170,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:rugby-australia-new-zealand-2026-10-17",
+      "projectionId": "projection:feed:bledisloe-sydney-2026",
       "researchTier": "marquee",
       "hook": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
       "synopsis": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",

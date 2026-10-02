@@ -1,7 +1,7 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905",
-  "generatedAt": "2026-10-02T17:58:14.803Z",
+  "sourceRevision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5",
+  "generatedAt": "2026-10-02T21:11:21.069Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 46,
@@ -65,7 +65,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Japan Grand Prix",
@@ -330,7 +330,7 @@
         "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-27T13:57:48.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Roosters v Broncos",
@@ -620,7 +620,7 @@
         "name": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
         "checkedAt": "2026-09-29T23:38:21.617Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Bahrain GP (Malaysia) · Race",
@@ -886,7 +886,7 @@
         "name": "Accor Stadium official Grand Final programme",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-30T22:37:31.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "NRL Grand Final: Roosters v Knights",
@@ -1183,7 +1183,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1448,7 +1448,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -1716,7 +1716,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -1981,7 +1981,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2247,7 +2247,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -2516,7 +2516,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -2782,7 +2782,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3048,7 +3048,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -3342,7 +3342,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -3638,7 +3638,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3905,7 +3905,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -4200,7 +4200,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -4493,7 +4493,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -4758,7 +4758,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -5022,7 +5022,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5287,7 +5287,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5551,7 +5551,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -5816,7 +5816,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -6032,7 +6032,7 @@
       "campaignId": "marquee_6fe221cb59607039",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:dubai-day-1",
-      "contentHash": "0c735e12db2fbd85484b75afd60e26448c778360991d60075db07ba64e69c729",
+      "contentHash": "e8f428ad34c07f837d0e7291f78735b1bf5661bdb054e41f6c4159380befe9c8",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -6082,7 +6082,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -6091,7 +6091,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Dubai, United Arab Emirates",
+        "venue": "Port Rashid",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-21",
         "stakes": 5,
@@ -6123,8 +6123,8 @@
         "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+          "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -6152,7 +6152,7 @@
           "bodyParagraphs": [
             "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
             "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
-            "Dubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Dubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Dubai Sail Grand Prix — race day 1: Sat 21 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -6165,8 +6165,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_6fe221cb59607039"
           },
           "image": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6187,10 +6187,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_dubai_day_1"
         },
         "instagram": {
-          "caption": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.\n\nDubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.\n\nDubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6218,8 +6218,8 @@
           "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6254,8 +6254,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+          "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -6264,8 +6264,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-0c735e12db2f.jpg",
+            "path": "/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-e8f428ad34c0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6298,7 +6298,7 @@
       "campaignId": "marquee_127ace7277cb370c",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:dubai-day-2",
-      "contentHash": "9058401445ff394965a7cb2ef81e3d03f2a51061174553fed2b44517b1a8f38e",
+      "contentHash": "3272e8fc9d601a76e11426eb556c3424a2be1a1360a7da71ed20e6dbc5a524c7",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -6348,7 +6348,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -6357,7 +6357,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Dubai, United Arab Emirates",
+        "venue": "Port Rashid",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-22",
         "stakes": 5,
@@ -6389,8 +6389,8 @@
         "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+          "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -6418,7 +6418,7 @@
           "bodyParagraphs": [
             "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
             "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-            "Dubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Dubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Dubai Sail Grand Prix — race day 2: Sun 22 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -6431,8 +6431,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_127ace7277cb370c"
           },
           "image": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6453,10 +6453,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_dubai_day_2"
         },
         "instagram": {
-          "caption": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.\n\nDubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.\n\nDubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6484,8 +6484,8 @@
           "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6520,8 +6520,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+          "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -6530,8 +6530,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-9058401445ff.jpg",
+            "path": "/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-3272e8fc9d60.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6612,7 +6612,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -6828,7 +6828,7 @@
       "campaignId": "marquee_e0d6e0b185946e45",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:dubai-day-1",
-      "contentHash": "548c405cb88a06cdadb5a193e6c3111854e9b471d5693f1b49ba911545632a90",
+      "contentHash": "dc5ece4e547b4aa441ab74ca5c2aaf8de324d55f644b6cf14c66c69d5b0c3ca0",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -6879,7 +6879,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -6888,7 +6888,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Dubai, United Arab Emirates",
+        "venue": "Port Rashid",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-21",
         "stakes": 5,
@@ -6920,8 +6920,8 @@
         "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+          "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -6949,7 +6949,7 @@
           "bodyParagraphs": [
             "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
             "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
-            "Dubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Dubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Dubai Sail Grand Prix — race day 1: Sat 21 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -6962,8 +6962,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_e0d6e0b185946e45"
           },
           "image": {
-            "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+            "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -6984,10 +6984,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_dubai_day_1"
         },
         "instagram": {
-          "caption": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.\n\nDubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.\n\nDubai Sail Grand Prix — race day 1 is Sat 21 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+            "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7015,8 +7015,8 @@
           "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+            "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7051,8 +7051,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+          "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -7061,8 +7061,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-548c405cb88a.jpg",
+            "path": "/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e0d6e0b185946e45-dc5ece4e547b.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7095,7 +7095,7 @@
       "campaignId": "marquee_9c67b79bdece040f",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:dubai-day-2",
-      "contentHash": "837faf6bbc3893a7935ef1ea5a83a1919077b782162bfb4bcb06a719f509c9d2",
+      "contentHash": "3871fc657e5f67a5341c9afd2a2f597de83ee1ce2958102ad820e6572456764f",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -7146,7 +7146,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -7155,7 +7155,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Dubai, United Arab Emirates",
+        "venue": "Port Rashid",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-22",
         "stakes": 5,
@@ -7187,8 +7187,8 @@
         "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+          "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -7216,7 +7216,7 @@
           "bodyParagraphs": [
             "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
             "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-            "Dubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Dubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Dubai Sail Grand Prix — race day 2: Sun 22 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -7229,8 +7229,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_9c67b79bdece040f"
           },
           "image": {
-            "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+            "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7251,10 +7251,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_dubai_day_2"
         },
         "instagram": {
-          "caption": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.\n\nDubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Dubai, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.\n\nDubai Sail Grand Prix — race day 2 is Sun 22 Nov 2026; exact start time to be confirmed at Port Rashid. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+            "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7282,8 +7282,8 @@
           "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+            "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7318,8 +7318,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+          "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -7328,8 +7328,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-837faf6bbc38.jpg",
+            "path": "/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c67b79bdece040f-3871fc657e5f.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -7411,7 +7411,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -7677,7 +7677,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -7895,7 +7895,7 @@
       "campaignId": "marquee_60bb801351c88fdb",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:abu-dhabi-day-1",
-      "contentHash": "84a34186e428497b0eaf82f554f6b8f1d675d75d804e823ea817223e4c0fabf2",
+      "contentHash": "4b1d6ed8e537bdf0e5591b335de8107e29e5198cf440cf2d92d74d1afbab498b",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -7945,7 +7945,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -7954,7 +7954,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Abu Dhabi, United Arab Emirates",
+        "venue": "Emirates Palace Marina",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-28",
         "stakes": 5,
@@ -7986,8 +7986,8 @@
         "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -8015,7 +8015,7 @@
           "bodyParagraphs": [
             "The Abu Dhabi Grand Final opens with the season championship still alive.",
             "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-            "Abu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Abu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Abu Dhabi Sail Grand Prix — race day 1: Sat 28 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -8028,8 +8028,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_60bb801351c88fdb"
           },
           "image": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8050,10 +8050,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_abu_dhabi_day_1"
         },
         "instagram": {
-          "caption": "The Abu Dhabi Grand Final opens with the season championship still alive.\n\nAbu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "The Abu Dhabi Grand Final opens with the season championship still alive.\n\nAbu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8081,8 +8081,8 @@
           "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8117,8 +8117,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -8127,8 +8127,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-84a34186e428.jpg",
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-4b1d6ed8e537.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8161,7 +8161,7 @@
       "campaignId": "marquee_1ee34ef38f7a2d90",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:abu-dhabi-day-2",
-      "contentHash": "f89412911b374f7e9933fddf55d74fb1e813254fd90226a4bf4d40d3412edc12",
+      "contentHash": "0f8a2d1c1fe5af7e8efbcb6a1c2c167cf188c8773352fe681ad00fe307d95255",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -8211,7 +8211,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -8220,7 +8220,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Abu Dhabi, United Arab Emirates",
+        "venue": "Emirates Palace Marina",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-29",
         "stakes": 5,
@@ -8252,8 +8252,8 @@
         "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -8281,7 +8281,7 @@
           "bodyParagraphs": [
             "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
             "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
-            "Abu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Abu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Abu Dhabi Sail Grand Prix — championship day: Sun 29 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -8294,8 +8294,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_1ee34ef38f7a2d90"
           },
           "image": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8316,10 +8316,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_abu_dhabi_day_2"
         },
         "instagram": {
-          "caption": "SailGP's last race crowns the 2026 champion in Abu Dhabi.\n\nAbu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "SailGP's last race crowns the 2026 champion in Abu Dhabi.\n\nAbu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8347,8 +8347,8 @@
           "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8383,8 +8383,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -8393,8 +8393,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-f89412911b37.jpg",
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-0f8a2d1c1fe5.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -8475,7 +8475,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -8739,7 +8739,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -9003,7 +9003,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -9221,7 +9221,7 @@
       "campaignId": "marquee_1a282c4089d1e8a2",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:abu-dhabi-day-1",
-      "contentHash": "e0b7e5eb56d9743c2faad3acf386908e9430a03ea81adf3b695848d912909183",
+      "contentHash": "7879b56f5138c3e650c1243afd3c14da6f7420f326fc56a40225a91ef2df6a24",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -9272,7 +9272,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -9281,7 +9281,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Abu Dhabi, United Arab Emirates",
+        "venue": "Emirates Palace Marina",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-28",
         "stakes": 5,
@@ -9313,8 +9313,8 @@
         "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+          "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -9342,7 +9342,7 @@
           "bodyParagraphs": [
             "The Abu Dhabi Grand Final opens with the season championship still alive.",
             "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-            "Abu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Abu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Abu Dhabi Sail Grand Prix — race day 1: Sat 28 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -9355,8 +9355,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_1a282c4089d1e8a2"
           },
           "image": {
-            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9377,10 +9377,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_abu_dhabi_day_1"
         },
         "instagram": {
-          "caption": "The Abu Dhabi Grand Final opens with the season championship still alive.\n\nAbu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "The Abu Dhabi Grand Final opens with the season championship still alive.\n\nAbu Dhabi Sail Grand Prix — race day 1 is Sat 28 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9408,8 +9408,8 @@
           "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9444,8 +9444,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+          "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -9454,8 +9454,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-e0b7e5eb56d9.jpg",
+            "path": "/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1a282c4089d1e8a2-7879b56f5138.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9488,7 +9488,7 @@
       "campaignId": "marquee_f67dee91f0736735",
       "campaignRevision": 1,
       "eventId": "event:sailgp:2026:abu-dhabi-day-2",
-      "contentHash": "11af2a3e724613b34c703bb1ee3e457c4e0e73eae263183d3d66a73d36aca069",
+      "contentHash": "50ed0d344529e126fcab40bbd6d69069c8e72df9e94ca685ffef1286b0370f2a",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -9539,7 +9539,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -9548,7 +9548,7 @@
         "participants": [],
         "sport": "SailGP",
         "competition": "competition:sailgp",
-        "venue": "Abu Dhabi, United Arab Emirates",
+        "venue": "Emirates Palace Marina",
         "broadcaster": "Fox Sports via Kayo / Foxtel",
         "displayDate": "2026-11-29",
         "stakes": 5,
@@ -9580,8 +9580,8 @@
         "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
         "kicker": "5.0/5 editorial stakes · SailGP",
         "hero": {
-          "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+          "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -9609,7 +9609,7 @@
           "bodyParagraphs": [
             "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
             "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
-            "Abu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Abu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Abu Dhabi Sail Grand Prix — championship day: Sun 29 Nov 2026; exact start time to be confirmed.",
           "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
@@ -9622,8 +9622,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_f67dee91f0736735"
           },
           "image": {
-            "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+            "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9644,10 +9644,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_sailgp_2026_abu_dhabi_day_2"
         },
         "instagram": {
-          "caption": "SailGP's last race crowns the 2026 champion in Abu Dhabi.\n\nAbu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Abu Dhabi, United Arab Emirates. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "SailGP's last race crowns the 2026 champion in Abu Dhabi.\n\nAbu Dhabi Sail Grand Prix — championship day is Sun 29 Nov 2026; exact start time to be confirmed at Emirates Palace Marina. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+            "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9675,8 +9675,8 @@
           "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
           "kicker": "5.0/5 editorial stakes · SailGP",
           "hero": {
-            "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+            "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9711,8 +9711,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+          "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -9721,8 +9721,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-11af2a3e7246.jpg",
+            "path": "/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_f67dee91f0736735-50ed0d344529.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -9804,7 +9804,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -10069,7 +10069,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -10332,7 +10332,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10601,7 +10601,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10869,7 +10869,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11131,7 +11131,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -11399,7 +11399,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11662,7 +11662,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -11929,7 +11929,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12192,7 +12192,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12454,7 +12454,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12717,7 +12717,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12979,7 +12979,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -13242,7 +13242,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -13505,7 +13505,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -13769,7 +13769,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -14031,7 +14031,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -14294,7 +14294,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -14556,7 +14556,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14819,7 +14819,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -15081,7 +15081,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15344,7 +15344,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15606,7 +15606,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -15870,7 +15870,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -16133,7 +16133,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -16396,7 +16396,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -16658,7 +16658,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -16921,7 +16921,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -17183,7 +17183,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -17447,7 +17447,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -17710,7 +17710,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -17973,7 +17973,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -18235,7 +18235,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -18498,7 +18498,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -18760,7 +18760,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "The 155th Open",
@@ -19023,7 +19023,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -19286,7 +19286,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "The 155th Open",
@@ -19550,7 +19550,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -19812,7 +19812,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -20075,7 +20075,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -20337,7 +20337,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -20600,7 +20600,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -20862,7 +20862,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -21125,7 +21125,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -21387,7 +21387,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -21650,7 +21650,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -21912,7 +21912,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -22175,7 +22175,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-02T12:00:04.170Z",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -22435,7 +22435,7 @@
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261002175813510@2026-10-02T17:58:13.510Z:79244a4cf905"
+        "revision": "editorial-identity-20261002211119158@2026-10-02T21:11:19.158Z:5c4da33572f5"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",
