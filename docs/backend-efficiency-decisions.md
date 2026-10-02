@@ -337,3 +337,7 @@ Generated runtime changes receive a forward version and matching document/preloa
 ## Independent card maintenance - 2 October 2026
 
 Owner-approved partial progress: isolate card-local research/source/validation failures, preserve their last-known data and record actionable deferrals. Continue independently valid cards; defer only declared direct dependencies. Weekend editorial emits a dated accepted/deferred report and accepts explicit deferred research records. Shared knowledge integrity, spoiler, build and release gates still stop affected publication. No extra ingestion, preference access, scheduler, polling or retry loop is introduced.
+
+## Football displayed live-status integrity — 2 October 2026
+
+The existing European awaiting-update guard also applies to the retained EPL/UEFA competition identities. After kickoff, unconfirmed or stale live status displays Awaiting match update; a valid explicit live observation must be at or before now and within the existing 30-minute window. Future timestamps cannot count as fresh. Completed results and original observations remain intact. This is display integrity, not a new refresh cadence, request, source, scheduler, database writer or reminder rule. Existing Follow admission and all valid non-Football timing contracts remain unchanged. Regressions: `validate-football-status-display.js`, `validate-football-status-browser.js` and cached-rule acceptance in the existing installed-PWA rehearsal.

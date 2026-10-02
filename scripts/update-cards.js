@@ -333,6 +333,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-cricket-provider-identities.js", "--published"],
   ["scripts/validate-coverage-repair.js"],
   ["scripts/validate-card-timing.js"],
+  ["scripts/validate-football-status-display.js"],
   ["scripts/validate-match-centre.js"],
   ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-tournament-hydration.js"],

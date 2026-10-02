@@ -7,6 +7,15 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(__dirname,'..');
+const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedFootballStatus(page){
+  const status=await page.evaluate(fixture=>{
+    const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
+    return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
+  },footballStatusFixture);
+  assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
+}
+
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
 const keepOpen = process.env.PWA_KEEP_OPEN === '1';
 const candidateVersion = JSON.parse(fs.readFileSync(path.join(root,'app-version.json'))).version;
@@ -100,6 +109,7 @@ const server=http.createServer((req,res)=>{
       const profile=await upgraded.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Candidate profile module unavailable');return response.text();},candidateProfilePath);
       assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
       profileCacheVerified=true;
+      await assertCachedFootballStatus(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
@@ -133,6 +143,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
+    await assertCachedFootballStatus(upgraded);
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');
     await upgraded.evaluate(()=>sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'})));
@@ -156,6 +167,6 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

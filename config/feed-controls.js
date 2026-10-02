@@ -146,10 +146,10 @@
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
     const statusCheckedAt=Date.parse(event?.statusCheckedAt || event?.statusSource?.checkedAt || event?.timingSource?.checkedAt || "");
-    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&Math.abs(nowMs-statusCheckedAt)<=30*60*1000;
-    // Daily community schedules are not live observations. A fresh explicit
+    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&statusCheckedAt<=nowMs&&nowMs-statusCheckedAt<=30*60*1000;
+    // Football schedules are not live observations. A fresh explicit
     // live overlay may supersede them, but elapsed time never does.
-    if(event?.sourceAttribution?.provider==='OpenLigaDB'){
+    if(event?.sourceAttribution?.provider==='OpenLigaDB'||/^competition:(premier-league-|uefa-(champions|europa)-league$)/.test(event?.competitionId||'')){
       if(['suspended','abandoned'].includes(status))return null;
       if(nowMs>=startMs && !['completed','finished','final'].includes(status)
         && !(['live','in_progress','in-progress','ongoing'].includes(status)&&freshExplicitStatus)){
