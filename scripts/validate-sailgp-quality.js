@@ -46,9 +46,9 @@ if(process.argv.includes('--published')){
   for(const file of ['feeds/incoming/events.json','data/events.json','data/code-inspector/sailgp.json','data/follow-schedule/sailgp.json']){
     const doc=JSON.parse(fs.readFileSync(path.join(root,file))),events=doc.events||doc.fixtures;
     for(const row of rows){const e=events.find(e=>[e.id,e.eventId,e.canonicalEventId].includes(row.id)||e.id===row.canonicalId);assert(e,file+': missing Geneva day');assert.equal(e.startTimeUtc,row.startTimeUtc);assert.equal(e.endTimeUtc,row.endTimeUtc);assert.equal(e.timingProvenance.checkedAt,row.timingProvenance.checkedAt);assert.equal(e.resultSourceCheckedAt,'2026-09-21T20:24:10.712468Z','timing check does not refresh results');}
-    const future=events.filter(e=>e.key==='sailgp'&&/(?:dubai|abu[-_]dhabi)/.test(e.id));assert.equal(future.length,4);assert(future.every(e=>!e.startTimeUtc&&e.timeTbc!==false&&e.timePrecision==='tbc'),'no future clock from event envelopes');
+    const future=events.filter(e=>e.key==='sailgp'&&e.season==='2026'&&/(?:dubai|abu[-_]dhabi)/.test(e.id));assert.equal(future.length,4);assert(future.every(e=>!e.startTimeUtc&&e.timeTbc!==false&&e.timePrecision==='tbc'),'no future clock from event envelopes');
   }
-  const code=JSON.parse(fs.readFileSync(path.join(root,'data/code-inspector/sailgp.json')));assert.equal(code.coverageStatus,'partial');assert.equal(code.fixtures.length,7);assert.equal(code.standings.length,0);
+  const code=JSON.parse(fs.readFileSync(path.join(root,'data/code-inspector/sailgp.json')));assert.equal(code.coverageStatus,'partial');assert.equal(code.fixtures.length,schedule.sailgpCalendarCoverage?.raceDayCount||7);assert.equal(code.standings.length,0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(root,'data/code-inspector/manifest.json'))).codes.find(c=>c.id==='competition:sailgp').coverageStatus,'partial');
 }
 console.log('SailGP reviewed clocks: validation, identity/facts/freshness retention, later-primary protection, real persistence, stable reruns, fail-before-write and partial published window passed.');

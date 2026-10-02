@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261002175813510-20261002180605455",
+  "version": "weekend-editorial-20261002175813510-20261002180605455-20261002184155145",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-02T18:06:05.455Z",
+  "publishedAt": "2026-10-02T18:41:55.145Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -23,7 +23,6 @@
     "premier-league",
     "aflw",
     "tennis",
-    "sailgp",
     "fiba-women",
     "nrlw",
     "football",
@@ -32,7 +31,8 @@
     "big-wave",
     "ski",
     "golf",
-    "goodwood"
+    "goodwood",
+    "sailgp"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -43,7 +43,7 @@
       "marqueeAnnualMonths": 12
     },
     "status": "scaffolded",
-    "firstEventDate": "2026-01-22",
+    "firstEventDate": "2026-01-17",
     "lastEventDate": "2027-10-01",
     "daysAhead": 364,
     "coversStandardPreloadWindow": true,
@@ -143,11 +143,6 @@
         "firstEventDate": "2026-09-03",
         "lastEventDate": "2026-10-02"
       },
-      "sailgp": {
-        "count": 7,
-        "firstEventDate": "2026-09-06",
-        "lastEventDate": "2026-11-29"
-      },
       "fiba-women": {
         "count": 17,
         "firstEventDate": "2026-09-06",
@@ -192,6 +187,11 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
+      },
+      "sailgp": {
+        "count": 46,
+        "firstEventDate": "2026-01-17",
+        "lastEventDate": "2027-09-12"
       }
     }
   }

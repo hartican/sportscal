@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T18:06:05.455Z",
+  "generatedAt": "2026-10-02T18:41:55.145Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -350,11 +350,11 @@
       "id": "competition:sailgp",
       "slug": "sailgp",
       "label": "SailGP",
-      "fixtureCount": 7,
+      "fixtureCount": 46,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T16:31:39.278Z",
+      "freshAt": "2026-10-02T18:41:55.145Z",
       "parentSportId": "sport:sailing",
       "chunkPath": "data/code-inspector/sailgp.json"
     },

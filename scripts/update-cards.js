@@ -123,6 +123,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-f1-standings.js"],
   ["scripts/refresh-f1-sessions.js"],
   ["scripts/refresh-motogp-sessions.js"],
+  ["scripts/refresh-sailgp-calendar.js"],
   ["scripts/refresh-nbl-schedule.js"],
   ["scripts/refresh-athlete-profiles.js"],
   ["scripts/refresh-athlete-profiles.js", "--check"],
@@ -268,6 +269,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-all-sport-visibility.js"],
   ["scripts/validate-requested-sports.js"],
   ["scripts/validate-sailgp-quality.js", "--published"],
+  ["scripts/validate-sailgp-calendar.js", "--published"],
   ["scripts/validate-adaptive-follow-grid.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -440,6 +442,24 @@ async function runMain() {
       ['scripts/validate-golf-source-observations.js']
     ])runStep(step);
     console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
+  }
+  if(process.argv.includes('--sailgp-venues')){
+    for(const step of [
+      ['scripts/refresh-sailgp-calendar.js'],
+      ['scripts/sync-requested-sports-to-feed.js','feeds/incoming/events.json','feeds/incoming/events.json','--sailgp-only'],
+      ['scripts/sync-requested-sports-to-feed.js','data/events.json','data/events.json','--sailgp-only'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=sailgp'],
+      ['scripts/build-app-shell-runtime.js'],
+      ['scripts/validate-sailgp-calendar.js','--published'],
+      ['scripts/validate-sailgp-quality.js','--published'],
+      ['scripts/validate-requested-sports.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],
+      ['scripts/qa-storyline-spoilers.js','data/events.json']
+    ])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('SailGP reviewed calendar and venue publication complete through canonical owner; no sporting source requests.');return;
   }
   if(process.argv.includes('--sailgp-quality')){
     for(const step of [

@@ -127,7 +127,8 @@ for (const [key, competitionId, label, host] of [
 ]){
   const mark = identities.markForEvent({ key, competitionId, name: `${label} coverage` });
   assert.equal(mark?.label, label, `${label} cards must use their competition logo`);
-  assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
+  if(key==='sailgp')assert.equal(mark?.url,'assets/identities/sailgp/brand-light.png','SailGP keeps its complete official image locally');
+  else assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
   assert.equal(mark?.provenance === "official-site" || mark?.provenance === "reference-library", true, `${label} must retain vetted logo provenance`);
 }
 const motoMark=identities.markForEvent({key:"motogp",competitionId:"competition:motogp"});

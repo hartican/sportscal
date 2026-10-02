@@ -38,11 +38,12 @@ async function assertCachedFootballStatus(page){
   assert.equal(tournamentPhase.feed,'IN PROGRESS');assert.equal(tournamentPhase.clock,null);assert.equal(tournamentPhase.scheduled,null,'cached dates alone never invent tournament progress');
   const sailgp=await page.evaluate(async()=>{
     const code=await(await fetch('/data/code-inspector/sailgp.json')).json();
-    return {coverage:code.coverageStatus,copy:codeInspectorCoverageCopy(code.code?{...code.code,coverageStatus:code.coverageStatus}:code),geneva:code.fixtures.filter(f=>f.id.includes('geneva')).map(f=>({start:f.startTimeUtc,end:f.endTimeUtc,timingCheckedAt:f.timingProvenance?.checkedAt,resultCheckedAt:f.resultSourceCheckedAt})),future:code.fixtures.filter(f=>/(dubai|abu-dhabi)/.test(f.id)).map(f=>({start:f.startTimeUtc,precision:f.timePrecision}))};
+    return {coverage:code.coverageStatus,copy:codeInspectorCoverageCopy(code.code?{...code.code,coverageStatus:code.coverageStatus}:code),geneva:code.fixtures.filter(f=>f.id.includes('geneva')).map(f=>({start:f.startTimeUtc,end:f.endTimeUtc,timingCheckedAt:f.timingProvenance?.checkedAt,resultCheckedAt:f.resultSourceCheckedAt})),future:code.fixtures.filter(f=>f.season==='2026'&&/(dubai|abu-dhabi)/.test(f.id)).map(f=>({start:f.startTimeUtc,precision:f.timePrecision})),nextSeason:code.fixtures.filter(f=>f.season==='2027').map(f=>({confirmed:f.participantsConfirmed,entries:f.participantIds||[],providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId),start:f.startTimeUtc,precision:f.timePrecision}))};
   });
   assert.equal(sailgp.coverage,'partial');assert.match(sailgp.copy,/Season teams may be listed/);assert.equal(sailgp.geneva.length,2);
   for(const [i,f]of sailgp.geneva.entries()){assert.equal(f.start,`2026-09-${19+i}T13:30:00.000Z`);assert.equal(f.end,`2026-09-${19+i}T15:00:00.000Z`);assert.equal(f.timingCheckedAt,'2026-10-02T16:06:23.274Z');assert.equal(f.resultCheckedAt,'2026-09-21T20:24:10.712468Z');}
   assert.equal(sailgp.future.length,4);assert(sailgp.future.every(f=>!f.start&&f.precision==='tbc'),'cached event envelopes never become invented daily sessions');
+  assert.equal(sailgp.nextSeason.length,require('../data/canonical/fiba-women-sailgp-motogp-2026.json').events.filter(e=>e.sportKey==='sailgp'&&e.season==='2027').length);assert(sailgp.nextSeason.every(f=>f.confirmed===false&&!f.entries.length&&!f.providers.length&&!f.start&&f.precision==='tbc'),'upgraded/offline future SailGP keeps unpublished times, entries and rights unresolved');
   const abandoned=await page.evaluate(()=>{
     const event={key:'cricket',status:'abandoned',startTimeUtc:'2026-09-28T04:30:00Z',endTimeUtc:'2026-09-28T09:00:00Z'};
     const now=new Date('2026-09-28T05:00:00Z');
@@ -60,9 +61,11 @@ async function assertCachedFootballStatus(page){
     return {count:fixtures.length,id:f.id,start:f.startTimeUtc,time:f.time,checkedAt:f.timingProvenance?.checkedAt,legacy:NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(old),providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId)};
   });
   assert.deepEqual(futureRugby,{count:1,id:'rugby-australia-new-zealand-2026-10-17',start:'2026-10-17T05:00:00.000Z',time:'16:00',checkedAt:'2026-10-02T08:24:46.814Z',legacy:'rugby-australia-new-zealand-2026-10-17',providers:['nine-tv','nine','stan']},'upgraded/offline cached future Bledisloe uses one reviewed identity and original host observation');
-  const motoAssets=require('../assets/identities/motogp/asset-manifest.json').assets.map(a=>a.path).concat('assets/identities/motogp/motorcycle-white.svg',require('../assets/identities/wrc/asset-manifest.json').assets.map(a=>a.path));
+  const motoAssets=require('../assets/identities/motogp/asset-manifest.json').assets.map(a=>a.path).concat('assets/identities/motogp/motorcycle-white.svg',require('../assets/identities/wrc/asset-manifest.json').assets.map(a=>a.path),'assets/identities/sailgp/sailing-white.svg');
   const motoOffline=await page.evaluate(async paths=>Promise.all(paths.map(async path=>{const r=await fetch('/'+path);const source=await r.text();return r.ok&&source.includes('<svg')&&!source.includes('<image');})),motoAssets);
   assert(motoOffline.every(Boolean),'every MotoGP and WRC vector must remain available in the installed/offline shell');
+  const sailgpIdentity=await page.evaluate(async()=>Promise.all(['light','dark'].map(async theme=>{const image=new Image();image.src='/assets/identities/sailgp/brand-'+theme+'.png';await image.decode();return image.naturalWidth===1670&&image.naturalHeight===335;})));
+  assert(sailgpIdentity.every(Boolean),'both complete local SailGP marks decode after upgrade and remain cached offline');
   const viewing=await page.evaluate(async()=>{
     const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
     const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf');

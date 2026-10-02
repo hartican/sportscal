@@ -1,5 +1,10 @@
 # Follow and Feed decisions
 
+## SailGP venue/calendar delivery — 3 October 2026
+
+The approved venue rollout ingests reviewed official two-day calendars through the existing cards owner: 13 current-season events plus individually published future weekends within twelve months. Existing seven day IDs, source/result observations and Geneva timing survive; future entries are empty rather than inherited from the 2026 roster. Country panels use existing reviewed palettes or neutral colours; unverified course/venue geometry uses the sailing glyph. Calendar coverage is distinct from result/entry/timing completeness, so the partial explanation remains. Events parents receive no rating controls and no new choice is followed by default. No admission/exclusion/retention/notification rule changes. Regression: `validate-sailgp-calendar.js --published`, existing timing/Follow policy gates and both-engine venue/cache checks.
+
+
 ## Followed drivers on fixture cards — 3 October 2026
 
 F1 and WRC followed participants use one horizontal scrolling row beneath the fixture title. Every name remains reachable by touch and keyboard with a minimum 44px target height; names retain their existing profile action and Follow identity. This changes presentation only, with no pagination, new admission or preference change. Regression: `validate-mobile-presentation-browser.js` in Chromium and WebKit at four widths and both themes.

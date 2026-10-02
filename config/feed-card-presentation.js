@@ -64,6 +64,9 @@
   function club(id){const key=identityKey(id).replace(/^team:/,'');const womens=key.match(/^aflw:cd_t(\d+)$/);return clubs[womens?'afl:cd_t'+aflWomen[womens[1]]:key];}
   function displayLabel(id,fallback){if(/^(?:winner|loser|tbc|tbd|qualifier|to be confirmed)\b/i.test(fallback||''))return fallback;return club(id)?.[0]||nicknames[identityKey(id)]||String(fallback||'').replace(/\s+Men(?:’s|'s)?$/i,'');}
   function palette(event,sides=[]){
+    // SailGP's venue panel follows its host country, including retained cards
+    // with confirmed team entries. Team colours do not identify the waterway.
+    if(event.key==='sailgp')return hosts[event.venueCountryCode]||['#7c8797','#7c8797'];
     if(sides.some(side=>/^(?:winner|loser|tbc|tbd|qualifier|to be confirmed)\b/i.test(side.label||'')))return null;
     const ids=event.participantIds||[],left=identityKey(event.homeParticipantId||ids[0]||sides[0]?.participant?.id||sides[0]?.mark?.id),right=identityKey(event.awayParticipantId||ids[1]||sides[1]?.participant?.id||sides[1]?.mark?.id);
     const country=(id,i)=>{const p=(event.participants||[]).find(p=>identityKey(p.id||p.participantId)===id)||sides[i]?.participant||sides[i]?.mark;return p?.countryCode||p?.nationalityCode||p?.metadata?.countryCode||sides[i]?.participant?.countryCode||sides[i]?.participant?.nationalityCode||sides[i]?.mark?.countryCode;};
@@ -74,7 +77,7 @@
     const key=String(event.competitionId||'').replace('competition:golf:','competition:');
     const brand=Object.entries(tournaments).find(([id])=>key===id||key.startsWith(id+'-')||key.startsWith(id+':'))?.[1];
     if(brand)return [brand,brand];
-    if(['f1','motogp','wrc','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||(['motogp','wrc'].includes(event.key)?['#526174','#384657']:null);
+    if(['f1','motogp','wrc','sailgp','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||(['motogp','wrc','sailgp'].includes(event.key)?['#526174','#384657']:null);
     return null;
   }
   // Official current calendar, reviewed 2026-09-25: https://www.formula1.com/en/racing/2026
@@ -84,7 +87,7 @@
   // Distances retain published precision; captions deliberately round to 0.1km.
   const f1CircuitStats2026={australia:[5.278,14],china:[5.451,16],japan:[5.807,18],miami:[5.412,19],canada:[4.361,14],monaco:[3.337,19],'barcelona-catalunya':[4.657,14],austria:[4.326,10],'great-britain':[5.891,18],belgium:[7.004,19],hungary:[4.381,14],netherlands:[4.259,14],italy:[5.793,11],spain:[5.414,22],azerbaijan:[6.003,20],bahrain:[5.543,15],singapore:[4.927,19],'united-states':[5.513,20],mexico:[4.304,17],brazil:[4.309,15],'las-vegas':[6.201,17],qatar:[5.419,16],'united-arab-emirates':[5.281,16]};
   function circuitCaption(event){
-    const parts=[event.venue,event.venueCity].filter(Boolean);
+    const parts=[...new Set([event.venue,event.venueCity].filter(Boolean))];
     const stats=event.key==='f1'&&String(event.date||event.startTimeUtc||'').startsWith('2026')&&f1CircuitStats2026[String(event.circuitId||'').replace('circuit:f1:','')];
     if(stats)parts.push(`${stats[0].toFixed(1)}km`,`${stats[1]} turns`);
     if(event.venueCaption)parts.push(event.venueCaption);
@@ -103,7 +106,7 @@
     return registry?.resolve(event)||null;
   }
   function circuitAsset(event){
-    if(['motogp','wrc'].includes(event.key))return venueArtwork(event)?.path||null;
+    if(['motogp','wrc','sailgp'].includes(event.key))return venueArtwork(event)?.path||null;
     if(event.key!=='f1')return null;
     const circuits=[['silverstone','gb-1948'],['spa-francorchamps','be-1925'],['albert park','au-1953'],['hungaroring','hu-1986'],['zandvoort','nl-1948'],['monza','it-1922'],['madring','es-2026'],['baku','az-2016'],['sepang','my-1999'],['marina bay','sg-2008'],['americas','us-2012'],['hermanos','mx-1962'],['jose carlos','br-1940'],['las vegas','us-2023'],['lusail','qa-2004'],['yas marina','ae-2009'],['bahrain','bh-2002'],['shanghai','cn-2004'],['suzuka','jp-1962'],['monaco','mc-1929'],['gilles','ca-1978'],['red bull ring','at-1969'],['jeddah','sa-2021'],['miami','us-2022']];
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();

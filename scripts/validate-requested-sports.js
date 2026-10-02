@@ -17,7 +17,7 @@ const countryFlags = require("../config/country-flags");
 const EXPECTED = Object.freeze({
   nrlw:{ participantCount:12, eventCount:7, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
   "fiba-women":{ participantCount:16, eventCount:17, codeId:"competition:fiba-womens-world-cup", competitionId:"competition:fiba-womens-world-cup" },
-  sailgp:{ participantCount:13, eventCount:7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
+  sailgp:{ participantCount:13, eventCount:schedule.sailgpCalendarCoverage?.raceDayCount||7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
   motogp:{ participantCount:22, eventCount:schedule.events.filter(event=>event.sportKey==="motogp").length, codeId:"competition:motogp", competitionId:"competition:motogp" },
 });
 
@@ -68,7 +68,7 @@ for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
     const expectedIds = new Set(schedule.events.filter(event => event.sportKey === sportKey).map(event => event.id));
     const cards = feed.events.filter(event => expectedIds.has(event.canonicalEventId));
     assert.equal(cards.length, expected.eventCount, `${feedPath}: ${sportKey} schedule was not published in full`);
-    assert(cards.every(card => card.key === sportKey && followFirst.viewingOptions(card).length > 0), `${feedPath}: ${sportKey} cards need exact AU viewing options`);
+    assert(cards.every(card => card.key === sportKey && (sportKey==='sailgp'&&card.season==='2027'?followFirst.viewingOptions(card).length===0:followFirst.viewingOptions(card).length>0)), `${feedPath}: ${sportKey} needs verified AU viewing or an explicit future-season TBC`);
     if(sportKey === "nrlw"){
       const final = cards.find(card => card.canonicalEventId === "event:nrlw:2026:grand-final");
       assert.equal(final.timeTbc, false, "a confirmed start must explicitly clear a previously published TBC flag");
@@ -78,7 +78,7 @@ for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
     }
 
     if (["motogp", "sailgp"].includes(sportKey)){
-      assert(cards.every(card => (card.participantDisplayMode === "field" || (sportKey === "motogp" && card.participantsConfirmed === false)) && (card.participantIds || []).length === (card.participantsConfirmed === false ? 0 : expected.participantCount)), `${feedPath}: ${sportKey} field follows must bind to every event without a fake matchup`);
+      assert(cards.every(card => (card.participantDisplayMode === "field" || card.participantsConfirmed === false) && (card.participantIds || []).length === (card.participantsConfirmed === false ? 0 : expected.participantCount)), `${feedPath}: ${sportKey} field follows need confirmed entries or an explicitly unresolved field without a fake matchup`);
     }
   }
 }

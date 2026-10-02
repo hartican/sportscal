@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="386">
+<meta name="app-shell-version" content="387">
 <meta name="athletes-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=386" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=387" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6981,6 +6981,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
     <a href="/terms.html">Terms &amp; Conditions</a>
   </nav>
   <p class="asset-attribution wrc-attribution">WRC route: <a href="https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf" target="_blank" rel="noopener noreferrer">Rally Italia Sardegna / ACI</a>. Fallback: Sporticon (Apache 2.0). Full credits in About.</p>
+  <p class="asset-attribution sailgp-attribution">SailGP marks: <a href="https://sailgp.com/" target="_blank" rel="noopener noreferrer">SailGP</a>, editorial identification; original rights retained. Sailing fallback by Nothing Sport. Unverified courses use this glyph.</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -7185,7 +7186,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=386"></script>
+<script src="assets/js/app-shell-runtime.js?v=387"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16988,7 +16989,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=386';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=387';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -17256,7 +17257,7 @@ function buildDetailedEventCard(ev, options = {}){
     card.appendChild(buildCompactCardSummary(ev));
     if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
     if(activeTab==='feed')composeFeedCard(card,ev,{compact:true,renderCardState});
-    else if(['motogp','wrc'].includes(ev.key))appendVenuePanel(card,card,ev);
+    else if(['motogp','wrc','sailgp'].includes(ev.key))appendVenuePanel(card,card,ev);
     return card;
   }
   if(activeTab === 'feed'){
@@ -17282,7 +17283,7 @@ function buildDetailedEventCard(ev, options = {}){
   }
   card.appendChild(mainDiv);
   if(activeTab==='feed')composeFeedCard(card,ev,{compact:false,renderCardState});
-  else if(['motogp','wrc'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
+  else if(['motogp','wrc','sailgp'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
@@ -19071,7 +19072,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=380';
+  const url='assets/js/follow-presentation-ui.js?v=387';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -20007,7 +20008,7 @@ function buildDismissedEventStub(record){
 }
 
 async function renderEventOverviews(container){
- try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=376');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=387');
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(container);
  }catch{const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';container.append(notice);}
 }

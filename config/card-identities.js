@@ -146,10 +146,10 @@
     "cricket-australia": officialMark("organisation:cricket-australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", {
       logo: { backgroundLight: "dark", backgroundDark: "dark" },
     }),
-    sailgp: officialMark("competition:sailgp", "SailGP", "https://images.ctfassets.net/2lppn7hwgzta/49nSoTH4iRkcIxgzvD2KBi/6895c52f4ee8551a88bb10214fa84ea1/Rolex_SailGP_Landscape_Logo_Primary_RGB.png", "https://sailgp.com/", {
+    sailgp: officialMark("competition:sailgp", "SailGP", "assets/identities/sailgp/brand-light.png", "https://sailgp.com/", {
       logo: {
-        dark: "https://images.ctfassets.net/2lppn7hwgzta/dUmTzy6WOpc4VIZmCnIVW/5e62c50f3fdeb58a67c6d31dd80bb900/Rolex_SailGP_Landscape_Logo_Reversed_RGB.png",
-        iconDark: "https://images.ctfassets.net/2lppn7hwgzta/dUmTzy6WOpc4VIZmCnIVW/5e62c50f3fdeb58a67c6d31dd80bb900/Rolex_SailGP_Landscape_Logo_Reversed_RGB.png",
+        dark: "assets/identities/sailgp/brand-dark.png",
+        iconDark: "assets/identities/sailgp/brand-dark.png",
         backgroundLight: "light",
         backgroundDark: "dark",
       },

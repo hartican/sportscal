@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "sailgp-reviewed-calendar.v1",
+  "year": 2026,
+  "collectionId": "6zSK9lO75W6vKlYYgmvIzD",
+  "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+  "checkedAt": "2026-10-02T18:24:00.000Z",
+  "sourceSnapshotSha256": "798b3ee50da3df444668067b349749946f2054ab10d47fb3b803c666e8aae1cd",
+  "races": [
+    {
+      "contentfulId": "teH72NwsEfnpHS0g5kDHZ",
+      "name": "Oracle Perth Sail Grand Prix",
+      "locationName": "Perth",
+      "startDateTime": "2026-01-17T13:00:00.000+08:00",
+      "endDateTime": "2026-01-18T14:30:00.000+08:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 1",
+      "ctaLink": "https://sailgp.com/races/2026/perth-sail-grand-prix/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "3KWUSfhkOKOiHBpHHeufjT",
+          "name": "Saturday, 17 January: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-01-17T13:00:00.000+08:00",
+          "endDateTime": "2026-01-17T14:30:00.000+08:00",
+          "state": "replayAvailable"
+        },
+        {
+          "contentfulId": "4T2XmEwa0dD4nJWpmX3Zi3",
+          "name": "Sunday, 18 January: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-01-18T13:00:00.000+08:00",
+          "endDateTime": "2026-01-18T14:30:00.000+08:00",
+          "state": "replayAvailable"
+        }
+      ]
+    },
+    {
+      "contentfulId": "3aljV8MnlbvcyGqNk2xZy1",
+      "name": "ITM New Zealand Sail Grand Prix",
+      "locationName": "Auckland",
+      "startDateTime": "2026-02-14T16:00:00.000+13:00",
+      "endDateTime": "2026-02-15T13:00:00.000+13:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 2",
+      "ctaLink": "https://sailgp.com/races/2026/new-zealand-sail-grand-prix-auckland/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "5eDtc4MbXd51cS9W7n60Mo",
+          "name": "Saturday, 14 February: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-02-14T16:00:00.000+13:00",
+          "endDateTime": "2026-02-14T17:30:00.000+13:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "p9qtpoDpwZucUOmgY6yCt",
+          "name": "Sunday, 15 February: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-02-15T11:30:00.000+13:00",
+          "endDateTime": "2026-02-15T13:00:00.000+13:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "bFkHJZuFKMpmOOLPskEzm",
+      "name": "KPMG Sydney Sail Grand Prix",
+      "locationName": "Sydney",
+      "startDateTime": "2026-02-28T17:30:00.000+11:00",
+      "endDateTime": "2026-03-01T19:00:00.000+11:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 3",
+      "ctaLink": "https://sailgp.com/races/2026/sydney-sail-grand-prix/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "4mQUwxcYdkNIXaXPsmbrB8",
+          "name": "Saturday, 28 February: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-02-28T17:30:00.000+11:00",
+          "endDateTime": "2026-02-28T19:00:00.000+11:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "6e653Xv0xr23rxDl1gO49e",
+          "name": "Sunday, 1 March: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-03-01T17:30:00.000+11:00",
+          "endDateTime": "2026-03-01T19:00:00.000+11:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "78msPs16Mod9yjAOERumAb",
+      "name": "ENEL Rio Sail Grand Prix",
+      "locationName": "Rio",
+      "startDateTime": "2026-04-11T15:00:00.000-03:00",
+      "endDateTime": "2026-04-12T16:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 4",
+      "ctaLink": "https://sailgp.com/races/2026/rio-sail-grand-prix/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "6sd8iuek10c4vYYlLyNy2",
+          "name": "Saturday, 11 April: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-04-11T15:00:00.000-03:00",
+          "endDateTime": "2026-04-11T16:30:00.000-03:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "4fbyiSZhSXqwDJzu8AFpwp",
+          "name": "Sunday, 12 April: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-04-12T15:00:00.000-03:00",
+          "endDateTime": "2026-04-12T16:30:00.000-03:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "10Yk0bQ7Yi9DBjJ5Dv9iXP",
+      "name": "Apex Group Bermuda Sail Grand Prix",
+      "locationName": "Bermuda",
+      "startDateTime": "2026-05-09T14:00:00.000-03:00",
+      "endDateTime": "2026-05-10T15:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 5",
+      "ctaLink": "https://sailgp.com/races/2026/bermuda-sail-grand-prix/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "3D8JJO3xfC34FPMCxnwQOD",
+          "name": "Saturday, 9 May: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-05-09T14:00:00.000-03:00",
+          "endDateTime": "2026-05-09T15:30:00.000-03:00",
+          "state": "replayAvailable"
+        },
+        {
+          "contentfulId": "cMJvDG01zYTEpnmpCahXN",
+          "name": "Sunday 10 May: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-05-10T14:00:00.000-03:00",
+          "endDateTime": "2026-05-10T15:30:00.000-03:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "346Mz7EWobd3HTE9C2Kvzy",
+      "name": "Mubadala New York Sail Grand Prix",
+      "locationName": "New York",
+      "startDateTime": "2026-05-30T13:30:00.000-04:00",
+      "endDateTime": "2026-05-31T18:00:00.000-04:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 6",
+      "ctaLink": "https://sailgp.com/races/2026/new-york-sail-grand-prix/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "4uXNTwvYkh1r0ZpwYn0KDJ",
+          "name": "Sunday 31 May: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-05-31T13:30:00.000-04:00",
+          "endDateTime": "2026-05-31T18:00:00.000-04:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "37E1F1CM6QeZDS6aqwaqfr",
+      "name": "Canada Sail Grand Prix",
+      "locationName": "Halifax",
+      "startDateTime": "2026-06-20T16:00:00.000-03:00",
+      "endDateTime": "2026-06-21T15:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 7",
+      "ctaLink": "https://sailgp.com/races/2026/canada-sail-grand-prix-halifax/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "uuv1WzaPUcV1LASccyLjF",
+          "name": "Saturday 20 June: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-06-20T16:00:00.000-03:00",
+          "endDateTime": "2026-06-20T17:30:00.000-03:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "3LvfyElj5kNQqQLiqaAIPm",
+          "name": "Saturday 21 June: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-06-21T14:00:00.000-03:00",
+          "endDateTime": "2026-06-21T15:30:00.000-03:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "2d0I3aRgYjhwxbaDBdswZj",
+      "name": "Emirates Great Britain Sail Grand Prix",
+      "locationName": "Portsmouth",
+      "startDateTime": "2026-07-25T16:30:00.000+01:00",
+      "endDateTime": "2026-07-26T18:00:00.000-01:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 8",
+      "ctaLink": "https://sailgp.com/races/2026/great-britain-sail-grand-prix-portsmouth/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "WlvQDXPO7aa87GMH8WlrT",
+          "name": "Saturday 25 July: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-07-25T16:30:00.000+01:00",
+          "endDateTime": "2026-07-25T18:00:00.000+01:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "4CLlhvYbNyHzO1xzQ9743u",
+          "name": "Saturday 26 July: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-07-26T16:30:00.000+01:00",
+          "endDateTime": "2026-07-26T18:00:00.000+01:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "5oDsAUM2ooVF4aWSDB3AOU",
+      "name": "ROCKWOOL Germany Sail Grand Prix",
+      "locationName": "Sassnitz",
+      "startDateTime": "2026-08-22T14:00:00.000+02:00",
+      "endDateTime": "2026-08-23T15:30:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 9",
+      "ctaLink": "https://sailgp.com/races/2026/germany-sail-grand-prix-sassnitz/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "6LI1SRD9k6fakNiq8isdEZ",
+          "name": "Saturday, 22nd August: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-08-22T14:00:00.000+02:00",
+          "endDateTime": "2026-08-22T15:30:00.000+02:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "73Qvut5VLGHPx1QkzZESae",
+          "name": "Sunday, 23rd August: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-08-23T14:00:00.000+02:00",
+          "endDateTime": "2026-08-23T15:30:00.000+02:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "34nkhLIsn0F1BB9RQTVBte",
+      "name": "Spain Sail Grand Prix",
+      "locationName": "Valencia",
+      "startDateTime": "2026-09-05T13:30:00.000+02:00",
+      "endDateTime": "2026-09-06T15:00:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 10",
+      "ctaLink": "https://sailgp.com/races/2026/spain-sail-grand-prix-valencia/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "7IloHH2kfkGNJ9Xb5MhpZa",
+          "name": "Saturday, September 5: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-09-05T13:30:00.000+02:00",
+          "endDateTime": "2026-09-05T15:00:00.000+02:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "5IJu34G49ZozKjL4zNYduH",
+          "name": "Sunday, September 6: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-09-06T13:30:00.000+02:00",
+          "endDateTime": "2026-09-06T15:00:00.000+02:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "12801rvI8djCGTgzPl04DQ",
+      "name": "Rolex Switzerland Sail Grand Prix",
+      "locationName": "Geneva",
+      "startDateTime": "2026-09-19T15:30:00.000+02:00",
+      "endDateTime": "2026-09-20T17:00:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 11",
+      "ctaLink": "http://sailgp.com/races/2026/switzerland-sail-grand-prix-geneva/overview/",
+      "raceDays": [
+        {
+          "contentfulId": "J92pBUtvVP5Y1q3rg2CKv",
+          "name": "Saturday, September 19: Race Day 1",
+          "shortName": "Race Day 1",
+          "startDateTime": "2026-09-19T15:30:00.000+02:00",
+          "endDateTime": "2026-09-19T17:00:00.000+02:00",
+          "state": "finished"
+        },
+        {
+          "contentfulId": "2OLNbkxsmJDbKvnPvPXXDs",
+          "name": "Sunday, September 20: Race Day 2",
+          "shortName": "Race Day 2",
+          "startDateTime": "2026-09-20T15:30:00.000+02:00",
+          "endDateTime": "2026-09-20T17:00:00.000+02:00",
+          "state": "finished"
+        }
+      ]
+    },
+    {
+      "contentfulId": "7qvLy2kwgja9KUK46xHwmF",
+      "name": "Emirates Dubai Sail Grand Prix",
+      "locationName": "Dubai",
+      "startDateTime": "2026-11-21T13:00:00.000+04:00",
+      "endDateTime": "2026-11-22T14:30:00.000+04:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 12",
+      "ctaLink": "https://sailgp.com/races/2026/dubai-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "7wnnXBtNQCDxZkomyZJdoD",
+      "name": "Mubadala Abu Dhabi Sail Grand Prix 2026 Season Grand Final",
+      "locationName": "Abu Dhabi",
+      "startDateTime": "2026-11-28T13:00:00.000+04:00",
+      "endDateTime": "2026-11-29T14:30:00.000+04:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 13",
+      "ctaLink": "https://sailgp.com/races/2026/abu-dhabi-sail-grand-prix-grand-final/overview/",
+      "raceDays": []
+    }
+  ]
+}

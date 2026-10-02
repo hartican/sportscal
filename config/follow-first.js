@@ -116,7 +116,7 @@
     "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], [], null, { rightsScope:"sport", coverageStatus:"unverified" }),
     "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], null),
     "competition:motogp":viewingRights(["competition:motogp", "competition:motogp-2026", "motogp"], ["kayo", "foxtel"], "https://www.motogp.com.au/fan-zone/how-to-watch-motogp-live-on-tv-and-stream-in-australia", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
-    "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
+    "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", notBefore:"2026-01-01", notAfter:"2026-12-31T23:59:59.999Z" }),
     "competition:fiba-womens-world-cup":viewingRights(["competition:fiba-womens-world-cup", "competition:fiba-womens-world-cup-2026", "fiba-women"], ["kayo", "foxtel"], "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], null),
     // Reviewed series rights, not a blanket rule for overseas cricket.

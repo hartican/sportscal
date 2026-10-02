@@ -64,7 +64,7 @@ function cardForEvent(event, schedule, participantsById){
   const result = event.result || null;
   const resultSource = result ? schedule.sources[result.sourceId] : null;
   if (result && !resultSource) throw new Error(`${event.id}: unknown result source ${result.sourceId}`);
-  const broadcaster = broadcasterFor(event.sportKey);
+  const broadcaster = event.sportKey==='sailgp'&&event.season==='2027'?{label:'Broadcast TBC',options:[],ids:[]}:broadcasterFor(event.sportKey);
   const fieldEvent = ["motogp", "sailgp", "golf"].includes(event.sportKey);
   const aggregateSchedule = event.cardKind === "event" || (
     event.sportKey === "fiba-women"
@@ -122,7 +122,7 @@ function cardForEvent(event, schedule, participantsById){
     expected:Number(event.expected),
     stakesScore:stakes,
     venue:event.venue || null,
-    ...Object.fromEntries(["circuitId","venueOfficialName","venueId","venueVerified","venueCity","venueCountryCode","venueSourceUrl","venueConfigurationId","venueConfigurationVerified","venueArtworkId","venueGeometrySourceUrl","circuitLengthMetres","circuitTurns","sessionType","weekendId","tournamentName","season","scheduleNote","sourceSessionIds","participantsConfirmed","resultCoverage"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(["circuitId","venueOfficialName","venueId","venueVerified","venueCity","venueCountryCode","venueSourceUrl","venueCaption","courseGeometryVerified","calendarProvenance","venueConfigurationId","venueConfigurationVerified","venueArtworkId","venueGeometrySourceUrl","circuitLengthMetres","circuitTurns","sessionType","weekendId","tournamentName","season","scheduleNote","sourceSessionIds","participantsConfirmed","resultCoverage"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     liveWindow:Number(event.liveWindow || 3),
     round:event.round || "all",
     roundLabel:event.roundLabel || null,
@@ -208,7 +208,7 @@ function main(){
   const schedules=SCHEDULE_PATHS.map(readJson);
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-    return (schedule.events || []).filter(event=>!process.argv.includes('--motogp-only')||event.sportKey==='motogp').map(event => cardForEvent(event, schedule, participantsById));
+    return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')).map(event => cardForEvent(event, schedule, participantsById));
   });
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
@@ -217,6 +217,9 @@ function main(){
   const legacyF1Ids=new Set(incomingF1.size ? Object.values(F1_LEGACY_STABLE_IDS) : []);
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
+  cards.forEach((card,index)=>{
+    if(card.key==='sailgp'&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
+  });
   // Published MotoGP race IDs retain ratings, chat, reminders and results.
   cards.forEach((card,index)=>{
     if(card.key!=='motogp')return;
@@ -252,4 +255,10 @@ if (require.main === module){
   }
 }
 
-module.exports = { cardForEvent, stableCardId };
+function mergeSailgpCard(card,existing){
+  // Calendar/venue presentation cannot overwrite a newer result, observation,
+  // researched editorial or saved identity. Unknown future entries stay empty.
+  const fields=['venue','venueOfficialName','venueVerified','venueCity','venueCountryCode','venueSourceUrl','venueCaption','courseGeometryVerified','calendarProvenance','season','weekendId','tournamentName','roundNumber','sessionType'];
+  return {...existing,...Object.fromEntries(fields.filter(key=>card[key]!=null).map(key=>[key,card[key]]))};
+}
+module.exports = { cardForEvent, stableCardId, mergeSailgpCard };

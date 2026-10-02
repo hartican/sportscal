@@ -1,5 +1,10 @@
 # Backend efficiency decisions
 
+## SailGP reviewed calendar ingestion — 3 October 2026
+
+The authorised venue rollout adds reviewed organiser calendar facts to the existing canonical cards owner, using committed edition-specific source snapshots. It makes no sporting provider calls, unattended site scraper, database writes or result/live integration. Calendar failures reject before writes, identical replays retain bytes, and changed existing dates require identity review. New reviewed source snapshots can enter through this owner; broader source permission and result certification remain open. Existing Geneva and result observation clocks survive. Regression: `validate-sailgp-calendar.js --published` and retained timing/Follow/source gates.
+
+
 ## Reviewed SailGP session timing — 3 October 2026
 
 The existing canonical cards owner applies two dated official Geneva race-day windows to retained identities, with schedule observations separate from original result/source observations. Validate the selected documents before writing; identical timing reruns preserve bytes, and later real timing observations win. The ordinary requested-sport projection retains that provenance. A bounded `--sailgp-quality` route uses the same owner and projections, with no provider fetch, scheduler, database write or automatic source adapter. Future Dubai/Abu Dhabi race-day clocks remain unresolved; event envelopes cannot establish individual sessions. SailGP publication is partial until evidence supports completeness. Regression: `validate-sailgp-quality.js --published`, existing source/projection contracts and real shell upgrade checks. Source permission and broader competition acceptance remain open.
