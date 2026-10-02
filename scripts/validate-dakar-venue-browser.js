@@ -33,12 +33,13 @@ const samples=require('../data/events.json').events.filter(e=>e.dakarCalendar),a
   }
   await page.unroute(/\/assets\/identities\/dakar\/dakar-2027-edition\.svg(?:\?.*)?$/);
   await page.locator('.tab-btn[data-tab="follow"]').click();const expand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await expand.count())await expand.click();
-  const motorsport=page.locator('[data-follow-sport="sport:motorsport"]').first();await motorsport.waitFor({state:'visible'});await motorsport.click();const reveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await reveal.count())await reveal.click();
+  const motorsport=page.locator('[data-follow-sport="sport:motorsport"]').first();await motorsport.waitFor({state:'visible'});await motorsport.click();await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:f1'&&!codeInspectorChunkLoading);await page.evaluate(()=>scrollTo(0,0));const reveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await reveal.count())await reveal.click();
   await page.locator('.follow-category-bar').getByRole('button',{name:'Dakar Rally',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#follow-navigation-controls > h2')?.textContent.includes('Dakar'));
   const revealDakar=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await revealDakar.count())await revealDakar.click();
   await page.waitForFunction(()=>document.querySelector('.schedule-rest-note')?.textContent.includes('Bisha'));
   await page.evaluate(()=>scrollTo(0,0));const showMark=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await showMark.count())await showMark.click();
   const mark=page.locator('#follow-navigation-controls h2 img.event-brand-logo').first();await mark.evaluate(i=>i.decode());assert.match(await mark.getAttribute('src'),/dakar-brand.png/);
+  await page.evaluate(()=>{const next=clonePreferences(userPreferences);next.selectedSelectorEntityIds=['sport:motorsport'];next.followedSports=['motorsport'];savePreferences(next,{viewOnly:true});renderFollowView();});await page.waitForFunction(()=>document.querySelector('input[aria-label="Follow Dakar Rally"]')?.checked===false);assert.equal(await page.getByRole('checkbox',{name:'Follow Dakar Rally',exact:true}).isChecked(),false,'broad Motorsport cannot show the new Dakar choice as followed');
   assert.match(await page.locator('.schedule-rest-note').last().textContent(),/9 Jan|9 JAN/i);assert.equal(await page.locator('.schedule-rest-note .nsc-rating-block').count(),0);
   assert(await page.locator('footer .dakar-attribution').isVisible());await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();assert(await page.locator('.settings-about .dakar-attribution').isVisible());await page.close();
  }}finally{await browser.close();}}
