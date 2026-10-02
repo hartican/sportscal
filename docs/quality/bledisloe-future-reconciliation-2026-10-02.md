@@ -67,6 +67,8 @@ The fresh anonymous live API after RLS returns 200, both legacy/canonical keys a
 
 Evidence: `bledisloe-rls-release-workflow-accepted-20261002.json`, `bledisloe-rls-served-artifacts-20261002.json`, `bledisloe-rls-package-continuity-20261002.json`, `bledisloe-private-rls-postflight-20261002.json` and `bledisloe-live-api-after-private-rls-20261002.json`.
 
+Saved Markdown/HTML delivery and CTO section 32 retain valid anchors, unique IDs, one main landmark, en-AU language, labelled/focusable table regions and scoped headers. Twelve browser cases across Chromium/WebKit and 320/390/1280 widths pass page-overflow, skip-link keyboard activation and table-focus checks. Native first-Tab reaches the skip link in Chromium; default WebKit skips hyperlinks. The initial assertion assumed Chromium's Tab behaviour in both engines and failed; its log is retained, and native Tab observations are reported separately from tested focus/keyboard activation. This is not screen-reader or physical-device certification. See `bledisloe-report-validation-20261002.json` and `bledisloe-report-browser-validation-20261002.json`.
+
 ## Limits and next work
 
 This is one exact-fixture repair. No full Rugby or Football pilot/family certification, rights clearance, match playback, physical-phone notification or recovery access proof is implied. Certification remains **0/3 Football pilots and 0/16 sport families**, against the agreed target of at least 13/16. Passwords/iCloud recovery attempts remain set aside under the owner's instruction. Continue the single ordered CTO queue; source failures, budget headroom and full source-to-screen sporting evidence are still separate work. No subscription or invitation is needed for this delivery.
