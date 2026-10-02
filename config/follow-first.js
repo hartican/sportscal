@@ -529,7 +529,7 @@
     const tennis = root.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);
     if(tennis?.isParent(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
     if(followPolicy.sportKey(event).startsWith('tennis') && tennis?.isRubber(event))return null;
-    if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
+    if (followPolicy.aggregateEvent(event) || !followPolicy.feedEligibleSession(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const cricket=root.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==="function"?require("./cricket-coverage"):null);
     if(cricket&&!cricket.allowed(event))return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));

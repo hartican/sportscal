@@ -254,6 +254,7 @@
     let entry = aliasIndex.get(normalized);
     const contextual = CONTEXTUAL_ALIASES[normalized];
     if (!entry && contextual && contextual.keys.includes(String(context?.key || "")) && (!contextual.eventSeriesId || context.eventSeriesId === contextual.eventSeriesId || /us-open/.test(context.id || context.parentEventId || ""))) entry = entriesById.get(contextual.id);
+    if (!entry && context.venueVerified === true && context.venueOfficialName === officialName) entry = {id:context.venueId || fallbackId(officialName),displayName:officialName,officialName,aliases:[officialName]};
     if (entry) return Object.freeze({ ...entry, audited: true });
     return Object.freeze({
       id: fallbackId(officialName),

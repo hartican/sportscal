@@ -128,7 +128,10 @@
   }));
 
   const canonicalByKey = Object.fromEntries(domains.map(domain => [domain.key, domain]));
+  // Existing gender-specific selector choices share their sport's neutral glyph.
+  const womenAliases=Object.fromEntries(Object.entries({surf:'surf',skiing:'ski',extreme:'extreme',hockey:'ice-hockey',gymnastics:'gymnastics',nba:'nba',cricket:'cricket',rugby:'rugby',football:'fifa',tennis:'tennis',golf:'masters',cycling:'cycling',athletics:'multi-sport',swimming:'multi-sport',boxing:'boxing','ice-hockey':'ice-hockey'}).map(([key,base])=>[key+'-women',Object.freeze({...canonicalByKey[base],key:key+'-women'})]));
   const byKey = Object.freeze({
+    ...womenAliases,
     ...canonicalByKey,
     rally: canonicalByKey.wrc,
     snow: canonicalByKey.ski,
@@ -145,6 +148,7 @@
       domainId: domain.domainId,
     })]));
     entries.rally = entries.wrc;
+    Object.entries(womenAliases).forEach(([key,domain])=>{entries[key]={label:domain.label,color:domain.color,glyph:domain.glyph,domainId:domain.domainId};});
     entries.snow = entries.ski;
     entries.skiing = entries.ski;
     entries["winter-sport"] = entries.ski;

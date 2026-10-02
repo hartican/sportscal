@@ -91,10 +91,10 @@ function cardForEvent(event, schedule, participantsById){
   const stakes = event.round === "final" ? 5 : event.round === "semifinal" || event.round === "quarterfinal" ? 4 : Math.max(2, Math.ceil(Number(event.expected) / 2));
   const completed = Boolean(result) || event.status === "completed";
   const sourceCheckedAt = event.sourceCheckedAt || source.checkedAt || schedule.generatedAt || SOURCE_CHECKED_AT;
-  const spoilerSafeHook = `${event.name} is complete; the key moments are protected until you choose to reveal them.`;
-  const spoilerSafeSynopsis = `${event.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
-  const revealedHook = result?.status === "official" ? result.outcomeText : `${event.name} is complete; the official outcome is still pending.`;
-  const revealedSynopsis = result?.status === "official" ? result.recapText : `${event.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
+  const spoilerSafeHook = event.resultCoverage==='calendar-only'?`${event.name} is complete. A verified result is unavailable.`:`${event.name} is complete; the key moments are protected until you choose to reveal them.`;
+  const spoilerSafeSynopsis = event.resultCoverage==='calendar-only'?spoilerSafeHook:`${event.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
+  const revealedHook = event.resultCoverage==='calendar-only'?'Result coverage is unavailable for this session.':result?.status === "official" ? result.outcomeText : `${event.name} is complete; the official outcome is still pending.`;
+  const revealedSynopsis = event.resultCoverage==='calendar-only'?spoilerSafeHook:result?.status === "official" ? result.recapText : `${event.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
   return {
     id,
     eventId:id,
@@ -108,8 +108,9 @@ function cardForEvent(event, schedule, participantsById){
     ...(event.endDate ? {endDate:event.endDate} : {}),
     time:event.time,
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
+    ...(event.endTimeUtc ? { endTimeUtc:event.endTimeUtc } : {}),
     timeTbc:Boolean(event.timeTbc),
-    timePrecision:event.timeTbc ? "tbc" : (event.timePrecision || "exact"),
+    timePrecision:event.timePrecision || (event.timeTbc ? "tbc" : "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",
     ...(Array.isArray(event.viewingOptions) ? {viewingOptions:event.viewingOptions} : {}),
     ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext,season:event.season} : {}),
@@ -119,7 +120,7 @@ function cardForEvent(event, schedule, participantsById){
     expected:Number(event.expected),
     stakesScore:stakes,
     venue:event.venue || null,
-    ...Object.fromEntries(["circuitId","venueOfficialName","venueCity","venueCountryCode","venueSourceUrl"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(["circuitId","venueOfficialName","venueId","venueVerified","venueCity","venueCountryCode","venueSourceUrl","venueConfigurationId","venueConfigurationVerified","venueArtworkId","venueGeometrySourceUrl","circuitLengthMetres","circuitTurns","sessionType","weekendId","tournamentName","season","scheduleNote","sourceSessionIds","participantsConfirmed","resultCoverage"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     liveWindow:Number(event.liveWindow || 3),
     round:event.round || "all",
     roundLabel:event.roundLabel || null,
@@ -205,15 +206,21 @@ function main(){
   const schedules=SCHEDULE_PATHS.map(readJson);
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-    return (schedule.events || []).map(event => cardForEvent(event, schedule, participantsById));
+    return (schedule.events || []).filter(event=>!process.argv.includes('--motogp-only')||event.sportKey==='motogp').map(event => cardForEvent(event, schedule, participantsById));
   });
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
   const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
   const incomingF1=new Set(cards.map(f1Identity).filter(Boolean));
-  const legacyF1Ids=new Set(Object.values(F1_LEGACY_STABLE_IDS));
+  const legacyF1Ids=new Set(incomingF1.size ? Object.values(F1_LEGACY_STABLE_IDS) : []);
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
+  // Published MotoGP race IDs retain ratings, chat, reminders and results.
+  cards.forEach((card,index)=>{
+    if(card.key!=='motogp')return;
+    const existing=existingById.get(card.id);
+    if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','fixtureResults','resultPublishedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
+  });
   cards.forEach((card,index)=>{
     const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);
     if(!identity)return;

@@ -72,6 +72,7 @@
   };
 
   const openUse = Object.freeze({
+    "sport:motorcycle": Object.freeze({key:"sport:motorcycle",assetClass:"licensed",rightsStatus:"user-supplied",provenance:"user-supplied",library:"Flaticon",author:"Magnific",license:"Flaticon License (attribution required)",source:"https://www.flaticon.com/free-icon/motorbike_1768191",licenseUrl:"https://www.flaticon.com/media/license/license.pdf",path:"assets/identities/motogp/motorcycle.svg",render:"mask"}),
     "ui:steak": Object.freeze({ key:"ui:steak", assetClass:"licensed", rightsStatus:"user-supplied", provenance:"user-supplied", library:"Flaticon", author:"meaicon", license:"Flaticon License (attribution required)", source:"https://www.flaticon.com/free-icons/steak", licenseUrl:"https://www.flaticon.com/legal", attribution:"Steak icons created by meaicon - Flaticon", path:"assets/icons/flaticon/meaicon-steak.png", render:"raster" }),
     ...Object.fromEntries(Object.entries(sporticon).map(([key, file]) => [key, Object.freeze({ key, assetClass: "open-use", rightsStatus: "open-use", provenance: "licensed-library", library: "Sporticon", license: "Apache-2.0", source: SPORTICON_SOURCE, path: `assets/icons/sporticon/${file}`, render: "mask" })])),
     ...Object.fromEntries(Object.keys(lucideBodies).map(key => [key, Object.freeze({ key, assetClass: "open-use", rightsStatus: "open-use", provenance: "licensed-library", library: "Lucide", license: "ISC", source: LUCIDE_SOURCE, render: "inline" })])),

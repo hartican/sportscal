@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031-20261002083342256-20261002083452815-20261002083541232-20261002083626212-20261002091406548",
+  "version": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031-20261002083342256-20261002083452815-20261002083541232-20261002083626212-20261002091406548-20261002095834558-20261002103611380",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-02T09:14:06.548Z",
+  "publishedAt": "2026-10-02T10:36:11.380Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -24,7 +24,6 @@
     "sailgp",
     "fiba-women",
     "nrlw",
-    "motogp",
     "football",
     "wsl",
     "supercars",
@@ -32,7 +31,8 @@
     "big-wave",
     "ski",
     "golf",
-    "goodwood"
+    "goodwood",
+    "motogp"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -44,8 +44,8 @@
     },
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
-    "lastEventDate": "2027-07-15",
-    "daysAhead": 286,
+    "lastEventDate": "2027-10-01",
+    "daysAhead": 364,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -148,11 +148,6 @@
         "firstEventDate": "2026-09-10",
         "lastEventDate": "2026-10-04"
       },
-      "motogp": {
-        "count": 9,
-        "firstEventDate": "2026-09-13",
-        "lastEventDate": "2026-11-29"
-      },
       "football": {
         "count": 2,
         "firstEventDate": "2026-09-25",
@@ -192,6 +187,11 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
+      },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
       }
     }
   }

@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="369">
+<meta name="app-shell-version" content="370">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=369" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=370" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6739,9 +6739,6 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 
 
 .event-card-controls{
-  --traffic-dismiss:#ff5f57;
-  --traffic-minimise:#febc2e;
-  --traffic-expand:#28c840;
   grid-column:1 / -1;
   display:flex;
   align-items:center;
@@ -6879,7 +6876,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=362">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=370">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=363">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -6962,6 +6959,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above<br>Football data provided by the Football-Data.org API</div>
   <p class="asset-attribution steak-attribution"><a href="https://www.flaticon.com/free-icons/steak" title="steak icons" target="_blank" rel="noopener noreferrer">Steak icons created by meaicon - Flaticon</a></p>
+  <p class="asset-attribution venue-attribution">MotoGP artwork: <a href="https://www.flaticon.com/free-icon/motorbike_1768191" target="_blank" rel="noopener noreferrer">Magnific</a>, <a href="https://www.flaticon.com/free-icon/world_14063354" target="_blank" rel="noopener noreferrer">Roundicons Premium</a> and <a href="https://www.flaticon.com/packs/motogp-13797032" target="_blank" rel="noopener noreferrer">berkahicon</a> — <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">Flaticon</a>. </p>
   <div class="footer-copyright" data-brand-copy="copyright">Copyright ©&nbsp;2026&nbsp;Nothing Sport. All Rights Reserved.</div>
   <div class="footer-socials" aria-label="Follow Nothing Sport">
     <a class="footer-social-link" href="https://www.instagram.com/_nothingsport/" target="_blank" rel="noopener noreferrer external" aria-label="Follow Nothing Sport on Instagram at @_nothingsport"><span data-vector-glyph="social:instagram"></span><span>@_nothingsport</span></a>
@@ -7176,7 +7174,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=369"></script>
+<script src="assets/js/app-shell-runtime.js?v=370"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -17023,7 +17021,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=367';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=370';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -17195,90 +17193,7 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
   }
 }
 
-function composeFeedCard(card,ev,{compact,renderCardState}){
-  card.classList.add('feed-fixture');
-  if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
-  const fixtureSides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
-  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev,fixtureSides.map(side=>({...side,participant:{...side.participant,countryCode:side.participant?.countryCode||CARD_IDENTITIES.nationalTeamIdentities?.teamsById?.[side.participant?.id||side.mark?.id]?.countryCode}})));
-  if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);if(palette[2])card.style.setProperty('--fixture-accent',palette[2]);}
-  const main=card.querySelector('.event-main')||card.querySelector('.compact-card-summary');
-  if(!main)return;
-  if(ev.key==='f1'){
-    card.classList.add('f1-location-card');
-    const hero=document.createElement('div');hero.className='f1-location-hero';
-    const track=NOTHINGSPORTS_FEED_CARD_PRESENTATION.circuitAsset(ev);
-    if(track){const outline=document.createElement('img');outline.src=track;outline.alt=`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);}
-    const badge=document.createElement('span');badge.className='f1-location-date';badge.textContent=ev.date?new Date(ev.date+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'}):'Date TBC';
-    const venue=document.createElement('span');venue.className='f1-location-caption';venue.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.circuitCaption(ev);const labels=document.createElement('div');labels.className='f1-location-labels';labels.append(badge);
-    const raceLabel=NOTHINGSPORTS_FEED_CARD_PRESENTATION.raceLabel(ev);
-    if(raceLabel){const race=document.createElement('span');race.className='f1-location-race';const flag=document.createElement('span');flag.className='f1-chequered-flag';flag.setAttribute('aria-hidden','true');flag.textContent='🏁';race.append(flag,document.createTextNode(raceLabel));labels.append(race);}
-    hero.append(labels,venue);main.prepend(hero);
-  }
-  const timing=card.querySelector('.fixture-timing-group');
-  const identity=card.querySelector('.matchup-identity');
-  const summary=card.querySelector('.compact-card-summary');
-  if(identity){
-    const logos=[...identity.querySelectorAll('.matchup-team-logo-slot')],names=[...identity.querySelectorAll('.matchup-team-name')];
-    const sides=fixtureSides;
-    const format=identity.querySelector('.matchup-format-badge');
-    identity.replaceChildren();identity.classList.add('feed-matchup');
-    for(let i=0;i<2;i++){
-      const side=document.createElement('div');side.className='feed-opponent';side.append(logos[i],names[i]);
-      const name=names[i].querySelector('.fixture-profile-link')||names[i];
-      name.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(sides[i]?.participant?.id||sides[i]?.mark?.id,name.textContent);
-      const standing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,sides[i]?.participant?.id||sides[i]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
-      if(standing){const rank=document.createElement('span');rank.className='fixture-standing';rank.textContent=standing.label;rank.title=standing.description;rank.setAttribute('aria-label',standing.description);side.append(rank);}
-      identity.append(side);if(i===0&&timing)identity.append(timing);
-    }
-    if(format){format.classList.add('fixture-kind');main.prepend(format);}
-  }else{
-    const name=summary?.querySelector('.compact-card-name')||main.querySelector('.event-name-line');
-    const lineup=card.querySelector('.major-event-matchup-sides');
-    const middle=lineup?.querySelector('.major-event-matchup-v,.compact-matchup-middle')||summary?.querySelector('.compact-matchup-middle');
-    if(middle&&timing){
-      const format=middle.querySelector('.matchup-format-badge');if(format)main.prepend(format);
-      middle.replaceWith(timing);lineup?.classList.add('feed-player-matchup');
-    }else if(name&&timing)name.after(timing);
-    const mark=card.querySelector(':scope > .event-hero-mark,:scope > .event-icon');
-    if(mark){if(ev.contestUnit==='tie'&&ev.key==='tennis')mark.remove();else main.prepend(mark);}
-    const caption=card.querySelector(':scope > .fixture-event-caption');if(caption)main.prepend(caption);
-  }
-  const header=document.createElement('div');header.className='fixture-card-header';
-  const oldKind=main.querySelector('.fixture-kind,.matchup-format-badge');if(oldKind){if(!/^(?:afl|nrl|tennis|football|golf|f1)$/i.test(oldKind.textContent.trim()))header.dataset.fixtureFormat=oldKind.textContent;oldKind.remove();}
-  const mark=card.querySelector('.event-hero-mark,.event-icon');
-  if(['tennis','wimbledon'].includes(ev.key)){
-    const brand=CARD_IDENTITIES.markForEvent(ev);
-    if(/\b(?:singles|doubles)\b/i.test(ev.stage||''))header.dataset.fixtureFormat=ev.stage;
-    if(brand&&brand.id?.startsWith('brand:')){const img=document.createElement('img');img.src=CARD_IDENTITIES.logoForTheme(brand,{useDark:themeUsesDarkAssets()});img.alt='';img.width=96;img.height=64;img.decoding='async';img.loading='lazy';img.onerror=()=>img.remove();header.append(img);}
-    mark?.remove();card.querySelector('.fixture-event-caption')?.remove();
-  }else if(mark){if(ev.key==='f1'){mark.remove();card.querySelector('.fixture-event-caption')?.remove();}else mark.classList.add('fixture-brand-mark');}
-  card.prepend(header);
-  card.querySelector('.fixture-timing-header')?.remove();
-  card.querySelector('.event-date-line')?.remove();
-  if(compact){
-    for(const side of summary.querySelectorAll('.compact-matchup-side')){
-      const index=[...summary.querySelectorAll('.compact-matchup-side')].indexOf(side),ids=matchupIdentityMatches(ev,compactFixtureName(ev));
-      const rank=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,ids[index]?.participant?.id||ids[index]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
-      const name=side.querySelector('.fixture-profile-link');if(name)name.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(ids[index]?.participant?.id||ids[index]?.mark?.id,name.textContent);
-      if(rank){const el=document.createElement('small');el.className='fixture-standing';el.textContent=rank.label;el.title=rank.description;side.append(el);}
-    }
-    main.appendChild(buildNothingscoreSummary(ev,{showAggregate:true}));
-  }
-  const actions=card.querySelector('.event-card-primary-actions');
-  if(actions){actions.querySelectorAll('a:has(.provider-action-mark),.viewing-tbc').forEach(n=>n.remove());}
-  const info=document.createElement('div');info.className='fixture-access';info.dataset.cardArea='essentials';
-  appendEventQuickActions(info,ev,{reminder:false,chat:false});
-  const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);info.append(venue);
-  const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
-  if(schedule.status){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=schedule.fullSchedule;info.prepend(date);}
-  const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
-  const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
-  if(compact){const hook=buildEventWhyItMatters(ev);if(hook)main.append(hook);}
-  const footer=document.createElement('div');footer.className='fixture-card-footer';footer.append(more);
-  if(actions)footer.append(actions);
-  else if(compact){const secondary=document.createElement('div');secondary.className='event-card-primary-actions';appendEventQuickActions(secondary,ev,{viewing:false});footer.append(secondary);}
-  main.append(footer);
-}
+
 
 function buildDetailedEventCard(ev, options = {}){
   const meta = sportMetaForEvent(ev);
@@ -17369,6 +17284,7 @@ function buildDetailedEventCard(ev, options = {}){
     card.appendChild(buildCompactCardSummary(ev));
     if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
     if(activeTab==='feed')composeFeedCard(card,ev,{compact:true,renderCardState});
+    else if(ev.key==='motogp')appendVenuePanel(card,card,ev);
     return card;
   }
   if(activeTab === 'feed'){
@@ -17394,6 +17310,7 @@ function buildDetailedEventCard(ev, options = {}){
   }
   card.appendChild(mainDiv);
   if(activeTab==='feed')composeFeedCard(card,ev,{compact:false,renderCardState});
+  else if(ev.key==='motogp')appendVenuePanel(card,mainDiv,ev);
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
@@ -20782,7 +20699,7 @@ function buildDismissedEventStub(record){
 }
 
 async function renderEventOverviews(container){
- try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=340');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=370');
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(container);
  }catch{const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';container.append(notice);}
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T09:14:06.548Z",
+  "generatedAt": "2026-10-02T10:36:11.380Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T23:58:25.528Z",
+      "freshAt": "2026-10-02T10:36:11.380Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -337,11 +337,11 @@
       "id": "competition:motogp",
       "slug": "motogp",
       "label": "MotoGP",
-      "fixtureCount": 9,
+      "fixtureCount": 205,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-01T23:58:25.528Z",
+      "freshAt": "2026-10-02T10:36:11.380Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },

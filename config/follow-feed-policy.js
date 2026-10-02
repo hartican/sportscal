@@ -186,18 +186,18 @@
     const competition = String(event?.competitionId || "").toLowerCase();
     const key = sportKey(event);
     if (/^competition:wrc(?:-\d{4})?$/.test(competition) || key === "wrc") return true;
-    if(key==='motogp')return !isPractice(event)&&/race|sprint|grand prix/i.test([event.sessionType,event.name].join(' '));
+    if(key==='motogp')return !isPractice(event)&&/race|sprint|qualifying|grand prix/i.test([event.sessionType,event.name].join(' '));
     if(key==='sailgp')return !isPractice(event);
     const f1 = /^competition:(?:formula-one|f1)(?:[:-]\d{4})?$/.test(competition) || key === "f1";
     return f1 && !isPractice(event);
   }
 
   function isPractice(event){
-    return /\b(?:practice|fp[123]|testing|test session)\b/i.test([event?.sessionType,event?.stage,event?.name].filter(Boolean).join(" "));
+    return /\b(?:practice|fp[123]|warm[ -]?up|testing|test session)\b/i.test([event?.sessionType,event?.stage,event?.name].filter(Boolean).join(" "));
   }
 
   function feedEligibleSession(event){
-    return !(sportKey(event) === "f1" && isPractice(event));
+    return !(["f1","motogp"].includes(sportKey(event)) && isPractice(event));
   }
 
   function isFinalsOrKnockout(event){

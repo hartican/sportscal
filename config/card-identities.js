@@ -154,14 +154,7 @@
         backgroundDark: "dark",
       },
     }),
-    motogp: officialMark("competition:motogp", "MotoGP", "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-light.svg?v2", "https://www.motogp.com/", {
-      logo: {
-        dark: "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-dark.svg?v2",
-        iconDark: "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-dark.svg?v2",
-        backgroundLight: "light",
-        backgroundDark: "dark",
-      },
-    }),
+    motogp: Object.freeze({...referenceMark("competition:motogp", "MotoGP", "assets/identities/motogp/badge.svg", "https://www.flaticon.com/free-icon/world_14063354", {provenance:"user-supplied",backgroundLight:"transparent",backgroundDark:"transparent"}), assetClass:"licensed",rightsStatus:"user-supplied",author:"Roundicons Premium",license:"Flaticon License (attribution required)",attribution:"Motogp icons created by Roundicons Premium - Flaticon"}),
     nfl: referenceMark("competition:nfl", "NFL", "https://upload.wikimedia.org/wikipedia/en/a/a2/National_Football_League_logo.svg", "https://designplaybook.nfl.com/"),
     rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
     "premier-league": referenceMark("competition:premier-league", "Premier League", "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg", "https://www.premierleague.com/"),
@@ -176,7 +169,7 @@
   // treating a governing body's protected trademark as the app's own identity.
   const sportMarks = Object.freeze({
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
-    motogp: sportMark("motogp", "MotoGP", "sport:motorsport", "MGP"),
+    motogp: Object.freeze({...sportMark("motogp", "MotoGP", "sport:motorcycle", "MGP"),assetClass:"licensed",rightsStatus:"user-supplied",sourceUrl:"https://www.flaticon.com/free-icon/motorbike_1768191",author:"Magnific",license:"Flaticon License (attribution required)"}),
     sailgp: sportMark("sailgp", "SailGP", "sport:sailing", "SGP"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
     wrc: officialMark("competition:wrc", "FIA World Rally Championship", "assets/identities/competitions/wrc-dark.png", "https://www.wrc.com/en", {logo:{dark:"assets/identities/competitions/wrc-light.png",backgroundDark:"dark"}}),

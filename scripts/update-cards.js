@@ -121,6 +121,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-team-player-directories.js"],
   ["scripts/refresh-f1-standings.js"],
   ["scripts/refresh-f1-sessions.js"],
+  ["scripts/refresh-motogp-sessions.js"],
   ["scripts/refresh-nbl-schedule.js"],
   ["scripts/refresh-athlete-profiles.js"],
   ["scripts/refresh-athlete-profiles.js", "--check"],
@@ -419,6 +420,23 @@ async function runMain() {
     runStep(['scripts/validate-lpga-results.js']);
     runStep(['scripts/refresh-lpga-results.js']);
     runStep(['scripts/build-code-inspector.js','--codes=golf']);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
+  if(process.argv.includes('--motogp')){
+    for(const step of [
+      ['scripts/refresh-motogp-sessions.js'],
+      ['scripts/sync-requested-sports-to-feed.js','feeds/incoming/events.json','feeds/incoming/events.json','--motogp-only'],
+      ['scripts/sync-requested-sports-to-feed.js','data/events.json','data/events.json','--motogp-only'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=motogp,motorsport'],
+      ['scripts/build-app-shell-runtime.js'],
+      ['scripts/validate-motogp-venue-pilot.js'],['scripts/validate-requested-sports.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed-card-presentation.js'],
+      ['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],
+      ['scripts/qa-storyline-spoilers.js','feeds/incoming/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json']
+    ])runStep(step);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }

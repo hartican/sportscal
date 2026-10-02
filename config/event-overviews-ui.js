@@ -16,7 +16,7 @@ async function render(container){
  const choice=buildSurfaceCategoryChooser('events',available,renderEventsView);node.replaceChildren(choice.select);
  for(const event of available.filter(e=>e.sportKey===choice.selected)){
   const card=document.createElement('article');card.className='match-centre-card events-overview-card';const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p');dates.textContent=NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):'');
-  const link=buildFeedScheduleLink({...event,sportDomainId:'sport:'+event.sportKey});link.textContent='Open schedule';card.append(title,dates,link);node.append(card);
+  const link=buildFeedScheduleLink({...event,sportDomainId:'sport:'+event.sportKey});link.textContent='Open schedule';card.append(title,dates,link);if(event.sportKey==='motogp')appendVenuePanel(card,card,event);node.append(card);
  }
  if(!available.length){const empty=document.createElement('p');empty.textContent='Follow a sport to see its upcoming events.';node.append(empty);}
 }

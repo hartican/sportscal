@@ -123,7 +123,6 @@ assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 Worl
 assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
 for (const [key, competitionId, label, host] of [
   ["sailgp", "competition:sailgp", "SailGP", "images.ctfassets.net"],
-  ["motogp", "competition:motogp", "MotoGP", "static.dorna.com"],
   ["nfl", "competition:nfl", "NFL", "upload.wikimedia.org"],
 ]){
   const mark = identities.markForEvent({ key, competitionId, name: `${label} coverage` });
@@ -131,6 +130,11 @@ for (const [key, competitionId, label, host] of [
   assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
   assert.equal(mark?.provenance === "official-site" || mark?.provenance === "reference-library", true, `${label} must retain vetted logo provenance`);
 }
+const motoMark=identities.markForEvent({key:"motogp",competitionId:"competition:motogp"});
+assert.equal(motoMark.url,"assets/identities/motogp/badge.svg");
+assert.equal(motoMark.author,"Roundicons Premium");
+assert.equal(motoMark.assetClass,"licensed");
+assert.match(motoMark.sourceUrl,/flaticon.com/);
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
 assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
 premierLeagueMarks.forEach(mark => {
@@ -203,7 +207,7 @@ assert.equal(identities.markForEvent({ key:"football", competitionId:"competitio
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
-  assert(["official-reference", "open-use"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
+  assert(["official-reference", "open-use", "licensed"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
   assert(mark.url || mark.glyph || mark.wordmark, `${key} must provide a high-quality image, vector or editorial wordmark`);
 });
 

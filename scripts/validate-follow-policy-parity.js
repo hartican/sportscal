@@ -18,6 +18,13 @@ included(fixture("women-test",{key:"rugby",competitionScope:"international",gend
 included(fixture("u20-test",{key:"rugby",competitionScope:"international",ageGroup:"U20"}),rugby,false,"age-group fixtures are not senior internationals");
 included(fixture("domestic-final",{key:"rugby",round:"Grand Final",stakesScore:1}),rugby,true,"source-confirmed rugby finals follow the selected sport");
 included(fixture('motogp-gp',{key:'motogp',name:'San Marino Grand Prix Race'}),{followedSports:['motogp']},true,'premier Grand Prix races remain marquee without stakes');
+for(const sessionType of ['qualifying','sprint','race'])included(fixture('motogp-'+sessionType,{key:'motogp',sessionType,name:'MotoGP Japan Grand Prix · '+sessionType}),{followedSports:['motogp']},true,'explicit MotoGP admits '+sessionType);
+for(const sessionType of ['practice-1','practice','practice-2','warmup']){
+ const event=fixture('motogp-'+sessionType,{key:'motogp',sessionType,name:'MotoGP Japan Grand Prix · '+sessionType,participantIds:['athlete:motogp:qa']});
+ included(event,{followedSports:['motogp'],preferenceGraph:{entityFollows:[{participantId:'athlete:motogp:qa',followLevel:'follow'}]}},false,'practice and warm-up remain Schedule only');
+ assert.equal(policy.eligibleForFollow(event,{explicitSelection:true,competitionFollow:true}),false);
+}
+included(fixture('motogp-no-consent',{key:'motogp',sessionType:'race',name:'MotoGP Japan Grand Prix'}),{},false,'calendar discovery never grants consent');
 included(fixture('sailgp-meet',{key:'sailgp',name:'Sydney Sail Grand Prix'}),{followedSports:['sailgp']},true,'premier SailGP meets remain marquee without stakes');
 const tennis={followedSports:["tennis"],followFirst:{australiansOnlySportIds:["sport:tennis"]}};
 included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,false,"early tennis requires a followed player");

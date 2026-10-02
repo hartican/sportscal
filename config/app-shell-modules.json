@@ -60,6 +60,8 @@
   "config/editorial-locks.js",
   "config/editorial-lifecycle.js",
   "config/feed-view-filter.js",
+  "config/venue-artwork.js",
   "config/feed-card-presentation.js",
+  "config/venue-panel-ui.js",
   "config/fixture-reminder-policy.js"
 ]

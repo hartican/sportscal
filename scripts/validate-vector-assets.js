@@ -42,8 +42,7 @@ sportRegistry.domains.forEach(domain => {
 });
 
 Object.values(vectorAssets.openUse).filter(entry => entry.render === "mask").forEach(entry => {
-  assert.equal(entry.library, "Sporticon");
-  assert.equal(entry.license, "Apache-2.0");
+  if(entry.key === "sport:motorcycle"){assert.equal(entry.author,"Magnific");assert.match(entry.license,/Flaticon/);}else{assert.equal(entry.library, "Sporticon");assert.equal(entry.license, "Apache-2.0");}
   assert(fs.existsSync(entry.path), `Sporticon file must exist: ${entry.path}`);
   assert.match(fs.readFileSync(entry.path, "utf8"), /<svg\b/i, `${entry.path} must be an SVG`);
   assert(serviceWorker.includes(`/${entry.path}`), `${entry.path} must be available offline`);
@@ -104,6 +103,6 @@ assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyph
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");
 assert.match(uiSource, /prefers-reduced-motion/, "reduced-motion preferences must be honoured");
 assert.doesNotMatch(uiSource, /\bcard\.setAttribute\("role", "button"\)/, "event cards must not create nested interactive button roles");
-assert.match(uiSource, /button\.className = `event-card-control traffic-\$\{name\}`/, "event disclosure must use the shared native keyboard-operable traffic control");
+assert.match(uiSource, /button=document\.createElement\('button'\);button\.type='button';button\.className='event-card-disclosure'/, "event disclosure must use the shared native keyboard-operable control");
 
 console.log(`Vector asset validation passed (${Object.keys(vectorAssets.openUse).length} open-use entries, ${sportRegistry.domains.length} configured sport keys).`);

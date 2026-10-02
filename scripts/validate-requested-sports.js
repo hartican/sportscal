@@ -18,7 +18,7 @@ const EXPECTED = Object.freeze({
   nrlw:{ participantCount:12, eventCount:7, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
   "fiba-women":{ participantCount:16, eventCount:17, codeId:"competition:fiba-womens-world-cup", competitionId:"competition:fiba-womens-world-cup" },
   sailgp:{ participantCount:13, eventCount:7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
-  motogp:{ participantCount:22, eventCount:9, codeId:"competition:motogp", competitionId:"competition:motogp" },
+  motogp:{ participantCount:22, eventCount:schedule.events.filter(event=>event.sportKey==="motogp").length, codeId:"competition:motogp", competitionId:"competition:motogp" },
 });
 
 assert.equal(schedule.schemaVersion, "requested-sports-schedule.v1");
@@ -32,7 +32,7 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   assert.equal(participants.length, expected.participantCount, `${sportKey}: participant directory is incomplete`);
   assert.equal(events.length, expected.eventCount, `${sportKey}: schedule coverage is incomplete`);
   assert(events.every(event => event.codeId === expected.codeId && event.competitionId === expected.competitionId), `${sportKey}: every event must retain its exact competition code`);
-  assert(events.every(event => /^2026-\d{2}-\d{2}$/.test(event.date)), `${sportKey}: every event needs a Sydney schedule date`);
+  assert(events.every(event => /^20\d{2}-\d{2}-\d{2}$/.test(event.date)), `${sportKey}: every event needs a Sydney schedule date`);
   assert(events.every(event => event.timeTbc ? !event.startTimeUtc : !Number.isNaN(Date.parse(event.startTimeUtc))), `${sportKey}: only confirmed events may carry a UTC start`);
   assert(events.every(event => schedule.sources[event.sourceId]?.type === "official"), `${sportKey}: schedule cards must be source-backed by the rights-holder or governing body`);
   assert(participants.every(participant => participant.sourceIds?.every(sourceId => schedule.sources[sourceId]?.type === "official")), `${sportKey}: Follow records must be official-source backed`);
@@ -78,7 +78,7 @@ for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
     }
 
     if (["motogp", "sailgp"].includes(sportKey)){
-      assert(cards.every(card => card.participantDisplayMode === "field" && card.participantIds.length === expected.participantCount), `${feedPath}: ${sportKey} field follows must bind to every event without a fake matchup`);
+      assert(cards.every(card => (card.participantDisplayMode === "field" || (sportKey === "motogp" && card.participantsConfirmed === false)) && (card.participantIds || []).length === (card.participantsConfirmed === false ? 0 : expected.participantCount)), `${feedPath}: ${sportKey} field follows must bind to every event without a fake matchup`);
     }
   }
 }

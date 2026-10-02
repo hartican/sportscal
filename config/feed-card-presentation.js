@@ -49,7 +49,7 @@
   const nicknames={'team:football:brazil':'Brazil · Canarinho','team:football:socceroos':'Socceroos','team:football:matildas':'Matildas','team:cricket:south-africa':'Proteas','team:cricket:south-africa-women':'Proteas Women','team:cricket:new-zealand':'Black Caps','team:cricket:new-zealand-women':'White Ferns','team:rugby:australia':'Wallabies','team:rugby:new-zealand':'All Blacks','team:rugby:south-africa':'Springboks'};
   const nationalColours={AU:'#c29b2f',BR:'#c4a42e',ZA:'#368566',NZ:'#525965',GB:'#345a88',ES:'#b63342',CZ:'#3863a5',FR:'#3766a2',IT:'#3a79ad',AR:'#69a3c1',JP:'#b94554',CN:'#bb3d43',US:'#385f9a',CA:'#bc4550',IN:'#367dbe',PK:'#357c59',BD:'#36815d',LK:'#4659a2',IE:'#448367',DE:'#555c65',NL:'#c67d40',PT:'#a43d4c',BE:'#b8464a',CH:'#b8464a',RS:'#b34d54',HR:'#b84b55',PL:'#b94a56',RO:'#b7a040',FI:'#4875a5',SE:'#bcaa46',NO:'#b84850',DK:'#b94750',KR:'#b64850',UA:'#4486b6',UY:'#6b9bb4'};
   const tournaments={'competition:masters':'#248458','competition:pga-tour':'#355c93','competition:pga-championship':'#355c93','competition:dp-world-tour':'#66549d','competition:us-open':'#355c93','competition:the-open':'#355c93','competition:presidents-cup':'#ab8b3e','competition:tennis:wimbledon':'#50865e','competition:tennis:us-open':'#345ea6','competition:tennis:australian-open':'#318eb6','competition:billie-jean-king-cup':'#259b98','competition:tennis:billie-jean-king-cup':'#259b98','competition:tennis:roland-garros':'#b4714c'};
-  const hosts={MY:['#b99b34','#50535a'],ES:['#b63342','#c59a24'],AU:['#397c66','#c8a733'],GB:['#345a88','#a54454'],IT:['#4e806c','#b64749'],JP:['#b94554','#8e8791'],SG:['#b94b59','#8c8897'],US:['#345a88','#a54454'],BR:['#438368','#c1a53e'],MX:['#448569','#b3444e'],NL:['#c67d40','#b79345'],BE:['#555c65','#b79b3d'],CA:['#b94b59','#8c8897'],FR:['#345a88','#a54454'],CN:['#b94554','#c59a24'],AT:['#b94b59','#8c8897'],HU:['#b94554','#448569'],AZ:['#b94554','#448569','#458da1'],MC:['#b94554','#8c8897'],QA:['#86425b','#8c8897'],AE:['#448569','#b3444e'],SA:['#448569','#8c8897'],BH:['#b94b59','#8c8897']};
+  const hosts={MY:['#b99b34','#50535a'],ES:['#b63342','#c59a24'],AU:['#397c66','#c8a733'],GB:['#345a88','#a54454'],IT:['#4e806c','#b64749'],JP:['#b94554','#8e8791'],SG:['#b94b59','#8c8897'],US:['#345a88','#a54454'],BR:['#438368','#c1a53e'],MX:['#448569','#b3444e'],NL:['#c67d40','#b79345'],BE:['#555c65','#b79b3d'],CA:['#b94b59','#8c8897'],FR:['#345a88','#a54454'],CN:['#b94554','#c59a24'],AT:['#b94b59','#8c8897'],HU:['#b94554','#448569'],AZ:['#b94554','#448569','#458da1'],MC:['#b94554','#8c8897'],QA:['#86425b','#8c8897'],AE:['#448569','#b3444e'],SA:['#448569','#8c8897'],BH:['#b94b59','#8c8897'],DE:['#555c65','#b8464a','#b99b34'],CZ:['#345a88','#b94554'],TH:['#345a88','#b94554'],ID:['#b94b59','#8c8897'],PT:['#448569','#b3444e'],AR:['#69a3c1','#8c8897']};
   // Reviewed home colours; the second is an authentic secondary, not opponent inference.
   const footballColours={1:['#b63b42','#ddd5b8'],2:['#893c56','#75a5c1'],4:['#345dab','#d6d8dc'],5:['#75a5c1','#47556d'],6:['#b63b42','#345dab'],7:['#345dab','#d6d8dc'],8:['#345dab','#d6d8dc'],9:['#c9cbd0','#b5a23c'],10:['#b63b42','#d6d8dc'],11:['#75a5c1','#394a6e'],12:['#b63b42','#454b57'],15:['#b63b42','#d6d8dc'],21:['#c9cbd0','#394a6e'],23:['#555c65','#c9cbd0'],29:['#b63b42','#555c65'],34:['#555c65','#b63b42'],41:['#b99038','#555c65'],127:['#b63b42','#555c65'],130:['#b63b42','#d6d8dc'],131:['#345dab','#c9cbd0']};
   function parentCompact(event,now=new Date()){
@@ -74,7 +74,7 @@
     const key=String(event.competitionId||'').replace('competition:golf:','competition:');
     const brand=Object.entries(tournaments).find(([id])=>key===id||key.startsWith(id+'-')||key.startsWith(id+':'))?.[1];
     if(brand)return [brand,brand];
-    if(['f1','motogp','wrc','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||null;
+    if(['f1','motogp','wrc','motorsport','supercars'].includes(event.key))return hosts[event.venueCountryCode]||(event.key==='motogp'?['#526174','#384657']:null);
     return null;
   }
   // Official current calendar, reviewed 2026-09-25: https://www.formula1.com/en/racing/2026
@@ -87,6 +87,7 @@
     const parts=[event.venue,event.venueCity].filter(Boolean);
     const stats=event.key==='f1'&&String(event.date||event.startTimeUtc||'').startsWith('2026')&&f1CircuitStats2026[String(event.circuitId||'').replace('circuit:f1:','')];
     if(stats)parts.push(`${stats[0].toFixed(1)}km`,`${stats[1]} turns`);
+    if(event.key==='motogp'&&event.scheduleNote)parts.push('Session day and time TBC');
     return parts.join(' • ');
   }
   function raceLabel(event){
@@ -95,11 +96,16 @@
     const round=f1Calendar2026.indexOf(slug)+1;
     return round?`RACE ${round} of ${f1Calendar2026.length}`:null;
   }
+  function venueArtwork(event){
+    const registry=globalThis.NOTHINGSPORTS_VENUE_ARTWORK||(typeof require==='function'?require('./venue-artwork'):null);
+    return registry?.resolve(event)||null;
+  }
   function circuitAsset(event){
+    if(event.key==='motogp')return venueArtwork(event)?.path||null;
     if(event.key!=='f1')return null;
     const circuits=[['silverstone','gb-1948'],['spa-francorchamps','be-1925'],['albert park','au-1953'],['hungaroring','hu-1986'],['zandvoort','nl-1948'],['monza','it-1922'],['madring','es-2026'],['baku','az-2016'],['sepang','my-1999'],['marina bay','sg-2008'],['americas','us-2012'],['hermanos','mx-1962'],['jose carlos','br-1940'],['las vegas','us-2023'],['lusail','qa-2004'],['yas marina','ae-2009'],['bahrain','bh-2002'],['shanghai','cn-2004'],['suzuka','jp-1962'],['monaco','mc-1929'],['gilles','ca-1978'],['red bull ring','at-1969'],['jeddah','sa-2021'],['miami','us-2022']];
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     const id=circuits.find(([namePart])=>name.includes(namePart))?.[1];return id?`assets/identities/f1/circuits/${id}.svg`:null;
   }
-  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption});
+  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption,venueArtwork});
 });
