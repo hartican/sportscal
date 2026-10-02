@@ -2108,14 +2108,18 @@
     {
       "id": "evt_84",
       "title": "Roosters v Knights",
-      "hook": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-      "synopsis": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
       "sources": [
         "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
         "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/"
+        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/",
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+        "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+        "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
+        "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/"
       ],
-      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchedAt": "2026-10-01T23:58:25.032Z",
       "researchDepth": 5,
       "facts": [
         {
@@ -2145,8 +2149,46 @@
           "sourceIndexes": [
             2
           ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
+          "sourceIndexes": [
+            4,
+            5
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
+          "sourceIndexes": [
+            5
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
+          "sourceIndexes": [
+            6
+          ]
         }
-      ]
+      ],
+      "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+      "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
     }
   ]
 }

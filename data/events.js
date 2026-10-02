@@ -64797,8 +64797,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_84",
     "eventId": "evt_84",
     "displayTitleCompact": "Roosters v Knights",
-    "selectedSentence": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-    "fullSpiel": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+    "selectedSentence": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+    "fullSpiel": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
     "sourceName": "Roosters v Knights — NRL Grand Final — official research 1",
     "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
     "sourceCheckedAt": "2026-09-30T22:37:31.000Z",
@@ -64812,19 +64812,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "status": "upcoming",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-      "hookSpoilerOn": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-      "synopsisSpoilerOff": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
-      "synopsisSpoilerOn": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "hookSpoilerOff": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "hookSpoilerOn": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "synopsisSpoilerOff": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+      "synopsisSpoilerOn": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
       "arcStage": "preview",
       "intensity": 5,
       "expectedSpectacle": 1,
       "intensitySource": "manual",
-      "lastReviewedAt": "2026-10-01T23:21:33.194Z",
+      "lastReviewedAt": "2026-10-01T23:58:25.032Z",
       "researchDepth": 5,
       "archetype": "title_decider"
     },
-    "lastReviewedAt": "2026-10-01T23:21:33.194Z",
+    "lastReviewedAt": "2026-10-01T23:58:25.032Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Roosters v Knights",
@@ -64833,11 +64833,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "narrative:matchup",
         "narrative:consequence",
         "narrative:schedule",
-        "narrative:history"
+        "narrative:history",
+        "narrative:form",
+        "narrative:path"
       ],
       "sourceName": "Roosters v Knights — official research 1",
       "sourceUrl": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
-      "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
+      "sourceCheckedAt": "2026-10-01T23:58:25.032Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -64846,8 +64848,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_84",
       "researchTier": "marquee",
-      "hook": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-      "synopsis": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+      "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+      "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
       "threadIds": [
         "thread:fixture-research:evt_84"
       ],
@@ -64855,20 +64859,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3"
+        "fact:fixture-research:evt_84:3",
+        "fact:fixture-research:evt_84:4",
+        "fact:fixture-research:evt_84:5",
+        "fact:fixture-research:evt_84:6",
+        "fact:fixture-research:evt_84:7",
+        "fact:fixture-research:evt_84:8"
       ],
       "sourceIds": [
         "source:fixture-research:evt_84:0",
         "source:fixture-research:evt_84:1",
-        "source:fixture-research:evt_84:2"
+        "source:fixture-research:evt_84:2",
+        "source:fixture-research:evt_84:3",
+        "source:fixture-research:evt_84:4",
+        "source:fixture-research:evt_84:5",
+        "source:fixture-research:evt_84:6"
       ],
       "dimensions": [
         "matchup",
         "consequence",
         "schedule",
-        "history"
+        "history",
+        "form",
+        "path"
       ],
-      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchedAt": "2026-10-01T23:58:25.032Z",
       "refreshAfter": "2026-10-04T08:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"

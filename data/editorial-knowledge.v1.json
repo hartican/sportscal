@@ -4611,14 +4611,14 @@
       "name": "Roosters v Knights — official research 1",
       "url": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T23:21:33.194Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:fixture-research:evt_84:1",
       "name": "Roosters v Knights — official research 2",
       "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T23:21:33.194Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:fixture-research:rugby-australia-south-africa-2026-09-27:0",
@@ -4660,14 +4660,14 @@
       "name": "Roosters v Knights — official research 3",
       "url": "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T23:21:33.194Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:fixture-research:evt_84:3",
-      "name": "Roosters v Knights — NRL Grand Final — official research 4",
-      "url": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+      "name": "Roosters v Knights — official research 4",
+      "url": "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-mexico-practice-1",
@@ -4685,17 +4685,17 @@
     },
     {
       "id": "source:fixture-research:evt_84:4",
-      "name": "Roosters v Knights — NRL Grand Final — official research 5",
-      "url": "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
+      "name": "Roosters v Knights — official research 5",
+      "url": "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:fixture-research:evt_84:5",
-      "name": "Roosters v Knights — NRL Grand Final — official research 6",
-      "url": "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/",
+      "name": "Roosters v Knights — official research 6",
+      "url": "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
       "sourceType": "official",
-      "checkedAt": "2026-09-30T22:37:31.000Z"
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641202:fixture",
@@ -4927,6 +4927,13 @@
       "url": "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw",
       "sourceType": "official",
       "checkedAt": "2026-10-01T23:21:33.194Z"
+    },
+    {
+      "id": "source:fixture-research:evt_84:6",
+      "name": "Roosters v Knights — official research 7",
+      "url": "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-01T23:58:25.032Z"
     }
   ],
   "narrativeFacts": [
@@ -26446,7 +26453,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-10-01T23:21:33.194Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -26459,7 +26466,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:1"
       ],
-      "observedAt": "2026-10-01T23:21:33.194Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -26472,7 +26479,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:0"
       ],
-      "observedAt": "2026-10-01T23:21:33.194Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -26485,7 +26492,7 @@
       "sourceIds": [
         "source:fixture-research:evt_84:2"
       ],
-      "observedAt": "2026-10-01T23:21:33.194Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -27005,9 +27012,9 @@
       "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
       "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:evt_84:2"
+        "source:fixture-research:evt_84:3"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -27018,9 +27025,9 @@
       "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
       "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:evt_84:3"
+        "source:fixture-research:evt_84:4"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -27057,10 +27064,10 @@
       "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
       "dimension": "history",
       "sourceIds": [
-        "source:fixture-research:evt_84:3",
-        "source:fixture-research:evt_84:4"
+        "source:fixture-research:evt_84:4",
+        "source:fixture-research:evt_84:5"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -27071,9 +27078,9 @@
       "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
       "dimension": "path",
       "sourceIds": [
-        "source:fixture-research:evt_84:4"
+        "source:fixture-research:evt_84:5"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -27084,9 +27091,9 @@
       "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
       "dimension": "path",
       "sourceIds": [
-        "source:fixture-research:evt_84:5"
+        "source:fixture-research:evt_84:6"
       ],
-      "observedAt": "2026-09-30T22:37:31.000Z",
+      "observedAt": "2026-10-01T23:58:25.032Z",
       "expiresAt": null
     },
     {
@@ -30515,15 +30522,20 @@
         "subject:fixture-research:evt_84"
       ],
       "title": "Roosters v Knights",
-      "summary": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "summary": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
       "factIds": [
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3"
+        "fact:fixture-research:evt_84:3",
+        "fact:fixture-research:evt_84:4",
+        "fact:fixture-research:evt_84:5",
+        "fact:fixture-research:evt_84:6",
+        "fact:fixture-research:evt_84:7",
+        "fact:fixture-research:evt_84:8"
       ],
       "status": "active",
-      "updatedAt": "2026-10-01T23:21:33.194Z"
+      "updatedAt": "2026-10-01T23:58:25.032Z"
     },
     {
       "id": "thread:fixture-research:rugby-australia-south-africa-2026-09-27",
@@ -45807,8 +45819,10 @@
         "evt_84"
       ],
       "researchDepth": 5,
-      "hook": "Tedesco and Ponga give this decider two very different routes to a match-winning moment.",
-      "synopsis": "Both fullbacks are named in the official grand-final teams, putting their influence at the centre of the Roosters-Knights contest. Sydney are seeking their first premiership in seven years; Newcastle have reached the last step of their revival. Watch the space each side creates for its fullback rather than treating this as a contest of reputations. There is no next round to recover in.",
+      "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+      "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+      "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
       "threadIds": [
         "thread:fixture-research:evt_84"
       ],
@@ -45816,20 +45830,29 @@
         "fact:fixture-research:evt_84:0",
         "fact:fixture-research:evt_84:1",
         "fact:fixture-research:evt_84:2",
-        "fact:fixture-research:evt_84:3"
+        "fact:fixture-research:evt_84:3",
+        "fact:fixture-research:evt_84:4",
+        "fact:fixture-research:evt_84:5",
+        "fact:fixture-research:evt_84:6",
+        "fact:fixture-research:evt_84:7",
+        "fact:fixture-research:evt_84:8"
       ],
       "sourceIds": [
         "source:fixture-research:evt_84:0",
         "source:fixture-research:evt_84:1",
-        "source:fixture-research:evt_84:2"
+        "source:fixture-research:evt_84:2",
+        "source:fixture-research:evt_84:3",
+        "source:fixture-research:evt_84:4",
+        "source:fixture-research:evt_84:5",
+        "source:fixture-research:evt_84:6"
       ],
-      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchedAt": "2026-10-01T23:58:25.032Z",
       "editorialPhase": "preview",
       "refreshAfter": "2026-10-04T08:30:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-01T23:21:33.194Z"
+        "reviewedAt": "2026-10-01T23:58:25.032Z"
       }
     }
   ]

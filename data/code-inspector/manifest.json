@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-01T23:50:16.947Z",
+  "generatedAt": "2026-10-01T23:58:25.528Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -48,7 +48,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -60,7 +60,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -98,7 +98,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -147,7 +147,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -341,7 +341,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-01T23:50:16.947Z",
+      "freshAt": "2026-10-01T23:58:25.528Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
