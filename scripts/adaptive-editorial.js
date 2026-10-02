@@ -32,19 +32,31 @@ async function main(args){
     for(const row of rows){const event=local.events.find(e=>policy.ids(e).includes(row.event_id));if(event&&row.staged_copy&&policy.equalCopy(row.staged_copy,policy.copy(event)))await store.patch(row.event_id,row.revision,{published_copy:row.staged_copy,published_git_sha:sha,staged_copy:null});}
     console.log('Verified editorial publication recorded for '+sha);return;
   }
+  const mode=args.includes('--list')?'list':'research';
+  const readout=require('./lib/editorial-run-readout').begin({mode});
+  let failure;
+  try{
   const inventory=await store.inventory(),cards=inventory.cards.filter(c=>c.selected&&c.schedule.due);
-  if(args.includes('--list')){console.log(JSON.stringify({...inventory,cards:cards.map(c=>({id:c.event.id,name:c.event.name,date:c.schedule.date,eligibility:c.eligibility,schedule:c.schedule,copy:c.state.pending_copy||policy.copy(c.event),sources:c.event.editorialSources||[],pendingEdit:!!c.state.pending_copy,revision:c.state.revision}))},null,2));return;}
-  if(!cards.length){console.log('No due qualifying 5/5 editorial; no changes or release.');return {updatedIds:[],deferred:[]};}
+  readout.inventory(inventory,cards);
+  if(args.includes('--list')){readout.stage('complete');console.log(JSON.stringify({...inventory,cards:cards.map(c=>({id:c.event.id,name:c.event.name,date:c.schedule.date,eligibility:c.eligibility,schedule:c.schedule,copy:c.state.pending_copy||policy.copy(c.event),sources:c.event.editorialSources||[],pendingEdit:!!c.state.pending_copy,revision:c.state.revision}))},null,2));return;}
+  if(!cards.length){readout.stage('complete');console.log('No due qualifying 5/5 editorial; no changes or release.');return {updatedIds:[],deferred:[]};}
+  readout.stage('research');
   const index=args.indexOf('--research');assert(index>=0&&args[index+1],'Provide --research <dated JSON>, or --list first.');
   const research=read(args[index+1]);assert.deepEqual(research.horizon,inventory.horizon,'Research must match the current 14-day Sydney horizon.');
   const result=require('./weekend-editorial').main(args,{range:inventory.horizon,cards:cards.map(c=>c.event),rangeKey:'horizon',mode:'adaptive'});
+  readout.result(result);readout.stage('checks');
   const after=read('data/events.json');
   for(const card of cards){const deferred=result.deferred?.find(d=>d.id===card.event.id);const event=after.events.find(e=>e.id===card.event.id)||card.event;
     await store.checked(card,{copy:policy.copy(event),deferred:deferred||null});
+    readout.checked(deferred);
   }
   if(result.updatedIds?.length){
+    readout.stage('build');
     for(const cmd of [['scripts/build-marquee-candidates.js'],['scripts/adaptive-editorial.js','--build-sources']]){const run=spawnSync(process.execPath,cmd,{stdio:'inherit'});assert.equal(run.status,0,cmd[0]+' failed; do not release.');}
   }
+  readout.stage('complete');
   return result;
+  }catch(error){failure=error;throw error;}
+  finally{try{readout.finish(failure);}catch(reportError){if(failure)throw new AggregateError([failure,reportError],failure.message+'; private run measurement also failed: '+reportError.message+'. Do not publish.');throw reportError;}}
 }
 module.exports={main,buildSources};

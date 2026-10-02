@@ -25,6 +25,14 @@ Publish scoped changes to GitHub main and dispatch `sportscal-production.yml` wi
 
 Local scheduled runs need the existing service-role environment. `NS_EDITORIAL_ENV_FILE` may point to an access-restricted production environment file outside Git; never print or commit it. If unavailable, fail explicitly rather than reading preferences or guessing rating signals.
 
+### Measured private run readout
+
+The existing `NS_EDITORIAL_CHECK_REPORT` captures an aggregate `runReadouts` entry for each list/research invocation. Keep using a fresh private out-of-checkout report; service-credential runs can use that same report option. No second tracker, database table or scheduler is added. The report preserves every prepared CAS operation and retains at most 32 measurements.
+
+Measurements cover window/selected/due cards, changed/deferred cards, successful checks, CLI elapsed time and the failure stage. Snapshot-mode updates are **prepared**, not confirmed database writes; direct-service updates are counted only after they return successfully. Connector application and production publication are still separate proof steps. A failed inventory has unknown counts, never a healthy zero. The aggregate contains no fixture names/IDs, private copy, votes or raw errors. External agent research time, model tokens and cash cost remain explicitly unavailable unless separately measured; CLI runtime is not end-to-end research/release time.
+
+Use these counts in the existing brief weekly exception readout: identify repeated deferrals, unnecessary changed-copy releases or an unusually large due set. Routine unchanged checks stay quiet. Do not change eligibility/cadence or infer token savings from these measurements alone. An unsafe report path or invalid permissions fails before editorial work begins.
+
 ### Credential-free scheduled execution
 
 Vercel sensitive environment exports may contain masked placeholders, not usable

@@ -104,6 +104,7 @@ jobs:
           node scripts/validate-marquee-candidates.js
           node scripts/validate-marquee-communications.js
           node scripts/validate-adaptive-editorial.js
+          node scripts/validate-editorial-run-readout.js
           node scripts/validate-editorial-api.js
           node scripts/validate-editorial-signals-database.js
           node scripts/validate-editorial-control-snapshot.js

@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Private editorial run measurements — 3 October 2026
+
+List/research invocations record aggregate counts and CLI runtime in the existing private check report, with no extra service calls, database writes, scheduler or owner tracker. Preserve prepared CAS operations; distinguish prepared updates from successful direct-service writes, and do not infer connector commits or production publication. Failed inventories keep unknown counts. Raw errors, private copy, votes and fixture identities stay out of measurements. External model tokens/research time and cash cost remain unavailable. Eligibility, due cadence, source budgets and release gates are unchanged. Regression: `validate-editorial-run-readout.js` plus existing control snapshot/SQL and adaptive editorial gates.
+
 ## SailGP reviewed calendar ingestion — 3 October 2026
 
 The authorised venue rollout adds reviewed organiser calendar facts to the existing canonical cards owner, using committed edition-specific source snapshots. It makes no sporting provider calls, unattended site scraper, database writes or result/live integration. Calendar failures reject before writes, identical replays retain bytes, and changed existing dates require identity review. New reviewed source snapshots can enter through this owner; broader source permission and result certification remain open. Existing Geneva and result observation clocks survive. Regression: `validate-sailgp-calendar.js --published` and retained timing/Follow/source gates.
