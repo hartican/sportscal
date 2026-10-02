@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Explicit tournament phase in Follow and Feed — 3 October 2026
+
+Date-only Golf/Tennis or explicitly marked tournament parents show “In progress” when their published status explicitly says live, ongoing or in progress. This describes the tournament phase; it does not imply a session is live now. Compact, selected, expanded and minimised Follow cards retain the cue, as does Feed. Dates alone cannot create progress. Completed, cancelled, abandoned, postponed, suspended or interrupted status blocks the cue. Keep date ranges, session-time uncertainty and Results privacy.
+
+This repairs a reproduced source-to-screen omission. It changes no Follow admission, Live Now filter, fixture identity, refresh, reminder, rating or personal setting. Regression: `validate-feed-card-presentation.js`, `validate-installed-pwa-upgrade-browser.js`; dated two-engine actual-parent rendering evidence is retained with the CTO delivery report.
+
 ## Fantasy deadline evaluation defaults — 2 October 2026
 
 The user approved a one-time ON/FPL Classic default for every pre-rollout saved profile, including OFF/None. This supersedes the feature's initial OFF/default-None policy. Automatic enablement is labelled a rollout choice, never user consent. Add rollout version 2; preserve every later explicit OFF/None, reject replayed defaults over recorded choices, and protect markers from older clients. New users receive an unchecked checkbox on the existing startup screen; only Save & start persists their onboarding choice. Resets use the new-user OFF/None defaults. Other competitions remain unselected, and future games are never silently selected.

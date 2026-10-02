@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="381">
+<meta name="app-shell-version" content="382">
 <meta name="athletes-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=381" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=382" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2751,6 +2751,11 @@ main{
   border-color:rgba(255,196,61,.34);
   background:rgba(255,196,61,.12);
   color:#ffd66e;
+}
+
+.event-timing-state.in-progress{
+  border-color:currentColor;
+  color:inherit;
 }
 
 .event-timing-state.live-now{
@@ -7177,7 +7182,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=381"></script>
+<script src="assets/js/app-shell-runtime.js?v=382"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13000,6 +13005,7 @@ function editorialConsequenceForDisplay(record){
 }
 
 function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(event, nowAEST())){
+  timing ||= NOTHINGSPORTS_CARD_TIMING.tournamentPhase(event);
   if (!timing) return null;
   const chip = document.createElement("span");
   chip.className = `event-timing-state ${timing.key}`;
@@ -15212,7 +15218,12 @@ function buildCompactCardSummary(ev){
     summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${badgeTiming.ariaLabel}. ${sportLabel}`);
     summary.title=summary.getAttribute('aria-label');
   }
-  summary.append(title,time);return summary;
+  summary.append(title,time);
+  if(activeTab !== 'feed'){
+    const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
+    if(phase){summary.appendChild(buildEventTimingStateChip(ev,phase));summary.setAttribute('aria-label',`${summary.getAttribute('aria-label')}. ${phase.ariaLabel}`);summary.title=summary.getAttribute('aria-label');}
+  }
+  return summary;
 }
 
 function feedClockKey(){
@@ -17040,6 +17051,10 @@ function buildFixtureFallbackCard(event, options = {}){
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
   if(activeTab === 'feed')copy.appendChild(buildFixtureTimingGroup(ev));
   copy.append(title, timing);
+  if(activeTab !== 'feed'){
+    const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
+    if(phase)copy.appendChild(buildEventTimingStateChip(ev,phase));
+  }
   card.append(copy,buildFeedScheduleLink(ev));
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
@@ -17109,7 +17124,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
   if (isMinimised){
     const competition = document.createElement("div");
     competition.className = "event-competition-line";
-    competition.textContent = [ev.competitionName || ev.competitionLabel || meta.label, ev.roundLabel || ev.round, timingState?.key==='awaiting-update' ? timingState.label : globalThis.NOTHINGSPORTS_ODI_DISPLAY.awaiting(ev,nowAEST()) ? "Awaiting confirmed result" : status === "past" ? "Completed" : status === "live" ? "Live" : "Upcoming"].filter(value => value && value !== "all").join(" · ");
+    competition.textContent = [ev.competitionName || ev.competitionLabel || meta.label, ev.roundLabel || ev.round, timingState?.key==='awaiting-update' ? timingState.label : globalThis.NOTHINGSPORTS_ODI_DISPLAY.awaiting(ev,nowAEST()) ? "Awaiting confirmed result" : NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev)?.label || (status === "past" ? "Completed" : status === "live" ? "Live" : "Upcoming")].filter(value => value && value !== "all").join(" · ");
     nameWrap.appendChild(competition);
   }
   if (displayedResult) nameWrap.appendChild(displayedResult);

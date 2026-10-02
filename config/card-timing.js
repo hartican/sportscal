@@ -16,6 +16,16 @@
     const date = new Date(`${value}T12:00:00+10:00`);
     return Number.isFinite(+date) ? date : null;
   }
+  // A multi-day tournament phase is not evidence that a session is live now.
+  // Keep this separate from clock filters and never infer it from its dates.
+  function tournamentPhase(event){
+    if (!(event.dateOnly || event.timePrecision === 'date-only') ||
+        !(event.tournamentParent || ['golf_tournament','tennis_parent'].includes(event.cardType))) return null;
+    const statuses = [event.status,event.scheduleStatus].map(value => String(value || '').toLowerCase());
+    if (statuses.some(value => ['completed','finished','final','cancelled','canceled','abandoned','postponed','suspended','interrupted'].includes(value))) return null;
+    if (!statuses.some(value => ['live','ongoing','in_progress','in-progress'].includes(value))) return null;
+    return Object.freeze({key:'in-progress',label:'In progress',ariaLabel:'Tournament in progress. Session times vary.'});
+  }
   function presentation(event, reference = new Date()){
     const now = new Date(reference);
     const precision = event.timePrecision;
@@ -47,6 +57,7 @@
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
     else if(statuses.includes("ongoing"))status="ONGOING";
     else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";
+    if (tournamentPhase(event)) status = 'IN PROGRESS';
     const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
     if(odi?.awaiting(event,reference))status=odi.label;
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
@@ -54,5 +65,5 @@
     if(observed?.key==='awaiting-update')status=observed.label;
     return Object.freeze({day:date?(range?day:dated(date)):'DATE TBC',time,label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
-  return Object.freeze({presentation});
+  return Object.freeze({presentation,tournamentPhase});
 });

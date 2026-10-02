@@ -17,6 +17,18 @@ async function assertCachedFootballStatus(page){
   assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
   const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
   assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
+  const tournamentPhase=await page.evaluate(()=>{
+    const event={id:'offline-phase-qa',name:'Tournament phase QA',key:'golf',cardType:'golf_tournament',dateOnly:true,date:'2026-10-01',endDate:'2026-10-04',status:'live'};
+    const priorTab=activeTab;
+    try{
+      activeTab='follow';
+      const compact=buildCompactCardSummary(event),chip=buildEventTimingStateChip(event);
+      activeTab='feed';
+      return {compact:compact.querySelector('.event-timing-state')?.textContent,accessible:compact.getAttribute('aria-label'),chip:chip?.textContent,feed:buildFixtureTimingBadge(event).dataset.timingStatus,clock:NOTHINGSPORTS_FEED_CONTROLS.timingState(event),scheduled:NOTHINGSPORTS_CARD_TIMING.tournamentPhase({...event,status:'scheduled'})};
+    }finally{activeTab=priorTab;}
+  });
+  assert.equal(tournamentPhase.compact,'In progress');assert.equal(tournamentPhase.chip,'In progress');assert.match(tournamentPhase.accessible,/Tournament in progress/);
+  assert.equal(tournamentPhase.feed,'IN PROGRESS');assert.equal(tournamentPhase.clock,null);assert.equal(tournamentPhase.scheduled,null,'cached dates alone never invent tournament progress');
   const abandoned=await page.evaluate(()=>{
     const event={key:'cricket',status:'abandoned',startTimeUtc:'2026-09-28T04:30:00Z',endTimeUtc:'2026-09-28T09:00:00Z'};
     const now=new Date('2026-09-28T05:00:00Z');
