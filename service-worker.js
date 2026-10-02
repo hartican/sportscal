@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v388";
-const SHELL_VERSION = "388";
+const CACHE_NAME = "nothingsport-shell-v389";
+const SHELL_VERSION = "389";
 const APP_SHELL = [
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
@@ -55,7 +55,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=388",
+  "/assets/js/app-shell-runtime.js?v=389",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
