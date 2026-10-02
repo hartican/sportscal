@@ -7,11 +7,11 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow','Match Centre']);
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Athletes','Follow']);
 assert(html.includes('Back to Feed')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
@@ -68,7 +68,8 @@ const wrcCode = manifest.codes.find(code => code.id === "sport:wrc");
 assert(wrcCode, "WRC must publish a dedicated Follow Schedule code under Motorsport");
 assert.equal(wrcCode.parentSportId, "sport:motorsport");
 const wrcChunk = JSON.parse(fs.readFileSync(path.join(ROOT, wrcCode.chunkPath), "utf8"));
-assert.equal(wrcChunk.fixtures.length, 14, "WRC Schedule must expose exactly fourteen championship rounds");
+assert.equal(wrcChunk.fixtures.filter(f=>/^event:wrc:2026:round-/.test(f.id)).length, 14, "WRC Schedule must expose exactly fourteen 2026 championship rounds");
+assert.deepEqual(new Set(wrcChunk.fixtures.map(f=>f.id)),new Set(wrcContext.events.map(f=>f.id)),"WRC Schedule must also preserve every separately sourced future fixture");
 assert.equal(wrcContext.ladderSnapshots.length, 3, "WRC retains driver, co-driver and manufacturer tables");
 assert.equal(wrcChunk.standings.length, wrcContext.ladderSnapshots.reduce((sum,table)=>sum+table.entries.length,0), "WRC Standings must expose all three senior FIA tables");
 assert(wrcChunk.fixtures.every(fixture => fixture.dateOnly && fixture.endDate >= fixture.date), "WRC Schedule must preserve inclusive date-only ranges");

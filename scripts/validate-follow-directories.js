@@ -82,7 +82,7 @@ for (const name of ["Stefanos Tsitsipas", "Rafael Nadal", "Roger Federer"]){
 const serena = tennis.records.find(record => record.displayName === "Serena Williams");
 assert(serena && womensWatch.memberIds.includes(serena.id), "Serena Williams must remain in the WTA/womens watch list without requiring a rank");
 assert(["Rafael Nadal", "Roger Federer", "Serena Williams"].every(name => tennis.records.find(record => record.displayName === name)?.ranking === null), "watch-list membership must not require an ATP or WTA ranking");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 assert(html.includes('buildDirectorySelect("List", filters.collectionId') && html.includes("selectedCollectionMemberIds.has(record.id)"), "the Tennis directory must expose collection membership as a working List filter");
 for (const sportKey of ["afl", "aflw", "f1"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));

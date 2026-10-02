@@ -110,7 +110,7 @@ let opened = followed;
 for (const id of ["one", "two", "three"]) opened = followFirst.registerOpen(opened, id);
 assert.equal(followFirst.shouldPromptRefinement(opened), true);
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const notificationApi = fs.readFileSync("api/notifications.js", "utf8");

@@ -42,7 +42,7 @@ const context = JSON.parse(read("data/canonical/wrc-context-2026.json"));
 const feed = JSON.parse(read("data/events.json"));
 const incoming = JSON.parse(read("feeds/incoming/events.json"));
 const schema = JSON.parse(read("schemas/sport-context.schema.json"));
-const appSource = read("index.html") + read("assets/js/sport-hub-ui.js");
+const appSource = require("./app-shell-test-utils").readFollowApplicationSource() + read("assets/js/sport-hub-ui.js");
 const serverFeedSource = read("api/feed.js");
 
 assert.deepEqual(validateWrcContext(context), [], "checked-in WRC context must satisfy the strict domain contract");

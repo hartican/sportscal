@@ -155,7 +155,7 @@ assert.equal(new Set([...tennisDirectory.collections,...womensDirectory.collecti
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:mens-top-10").memberIds.length, 10);
 assert.equal(womensDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
 
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
 require("./app-shell-test-utils").assertShellModule(html,"config/follow-first.js");
 assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");

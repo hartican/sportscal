@@ -52,7 +52,7 @@ const affinity=social.ratingAffinityFromRows([
 ],id=>events.get(id));
 assert.deepEqual(affinity.map(item=>[item.sportId,item.count]),[["sport:motorsport",3],["sport:nbl",1]],"grid ranking counts each fixture phase once and rolls F1 into Motorsport");
 
-const html=fs.readFileSync("index.html","utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 assert(html.includes("rankedFollowGridSports")&&html.includes(".slice(0,7)"),"Follow must rank no more than seven followed sports");
 assert(html.includes('sportKey === "nbl" ? "team"'),"NBL defaults to its separate Teams view");
 const ui=fs.readFileSync("assets/js/nsc-rankings-ui.js","utf8");

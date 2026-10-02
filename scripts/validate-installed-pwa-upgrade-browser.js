@@ -96,7 +96,7 @@ const server=http.createServer((req,res)=>{
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
-  if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name==='assets/js/app-shell-runtime.js'))){res.writeHead(503);res.end();return;}
+  if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name===(process.env.PWA_REQUIRED_FAILURE_ASSET||'assets/js/app-shell-runtime.js')))){res.writeHead(503);res.end();return;}
   const bytes=phase==='baseline'?baselineFile(name):candidateFile(name);
   if(!bytes){res.writeHead(404);res.end();return;}
   const type=({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(name)]||'application/octet-stream';
@@ -187,6 +187,17 @@ const server=http.createServer((req,res)=>{
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     assert.equal(await upgraded.evaluate(async()=>await(await fetch('/data/marquee-candidates.v1.json')).text()),ownerCandidates,'owner candidates remain available offline after use');
     await assertCachedFootballStatus(upgraded);
+    if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
+      const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
+      const before=await upgraded.evaluate(choices);
+      await upgraded.evaluate(()=>{activeTab='follow';renderAll();});
+      await upgraded.locator('.follow-navigation').waitFor();
+      assert.equal(await upgraded.evaluate(choices),before,'first Follow open offline retains follows, spoiler, appearance and notification choices');
+      const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/const url='(assets\/js\/follow-presentation-ui\.js\?v=\d+)'/)[1];
+      const cached=await upgraded.evaluate(async url=>{const r=await caches.match('/'+url);return r?await r.text():null;},url);
+      assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8'),'offline first open executes the exact precached Follow interface');
+      await upgraded.evaluate(()=>{activeTab='feed';renderAll();});
+    }
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');
     await upgraded.evaluate(()=>sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'})));
