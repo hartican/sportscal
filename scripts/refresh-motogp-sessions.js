@@ -11,6 +11,7 @@ const SLUGS = {THA:'thailand',BRA:'brazil',USA:'united-states',SPA:'spain',FRA:'
 const LABELS = {THA:'Thailand',BRA:'Brazil',USA:'Americas',SPA:'Spain',FRA:'France',CAT:'Catalunya',ITA:'Italy',HUN:'Hungary',CZE:'Czechia',NED:'Netherlands',GER:'Germany',GBR:'Great Britain',ARA:'Aragon',RSM:'San Marino',AUT:'Austria',JPN:'Japan',INA:'Indonesia',AUS:'Australia',MAL:'Malaysia',QAT:'Qatar',POR:'Portugal',VAL:'Valencia',ARG:'Argentina'};
 const TYPES = {FP1:'practice-1',PR:'practice',FP2:'practice-2',WUP:'warmup',SPR:'sprint'};
 const ARTWORK=require('../config/venue-artwork').motogp;
+const REVIEWED_TRACKS=require('../assets/identities/motogp/asset-manifest.json').assets.filter(a=>a.providerVerification);
 const LEGACY = new Set(['san-marino','austria','japan','indonesia','australia','malaysia','qatar','portugal','valencia']);
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const write = (file, value) => { fs.mkdirSync(path.dirname(file), {recursive:true}); fs.writeFileSync(file, JSON.stringify(value,null,2)+'\n'); };
@@ -22,7 +23,13 @@ function snapshot(raw,year,checkedAt){
  if(!Array.isArray(raw))throw Error(`${year}: calendar is not an array`);
  const weekends=raw.filter(e=>e.kind==='GP').map(e=>{
   const tracks=e.circuit?.tracks||[], active=tracks.filter(t=>t.is_active), mapped=active.filter(t=>t.assets?.simple?.path);
-  const t=mapped.length===1?mapped[0]:active.length===1?active[0]:null;
+  let t=mapped.length===1?mapped[0]:active.length===1?active[0]:null;
+  // A reviewed current event map can correct one provider flag. Require the
+  // exact circuit, configuration, season, length and source; never admit all
+  // inactive layouts or carry a review across a changed source/configuration.
+  if(!t){const review=REVIEWED_TRACKS.find(a=>a.providerVerification.circuitId===e.circuit?.id&&a.providerVerification.years.includes(year));
+   if(review)t=tracks.find(track=>track.id===review.venueConfigurationId&&Number(track.lenght)===review.providerVerification.lengthMetres&&track.assets?.simple?.path===review.geometrySourceUrl)||null;
+  }
   if(!e.id||!SLUGS[e.shortname]||!e.date_start||!e.date_end||!e.circuit?.id)throw Error(`${year}: unverified calendar/track ${e.shortname}`);
   // Inactive/ambiguous historical layouts cannot establish current geometry.
   const verified=Boolean(t);

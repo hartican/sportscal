@@ -7,7 +7,7 @@ function resolve(event){
  if(event.key!=="motogp")return null;
  const verified=event.venueConfigurationVerified===true;
  const asset=verified&&(motogp?motogp[event.venueConfigurationId]:event.venueArtworkId);
- return asset?{path:`assets/identities/motogp/circuits/${encodeURIComponent(asset)}.svg`,kind:"venue",label:`${event.venue||"Venue"} circuit silhouette`}:{path:"assets/identities/motogp/motorcycle-white.svg",kind:"fallback",label:"MotoGP motorcycle; circuit artwork unavailable"};
+ return asset?{path:`assets/identities/motogp/circuits/${encodeURIComponent(asset)}.svg`,kind:"venue",label:`${event.venue||"Venue"} circuit outline`}:{path:"assets/identities/motogp/motorcycle-white.svg",kind:"fallback",label:"MotoGP motorcycle; circuit artwork unavailable"};
 }
 return Object.freeze({resolve,motogp});
 });

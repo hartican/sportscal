@@ -3,7 +3,7 @@
   "year": 2027,
   "sourceUrl": "https://api.pulselive.motogp.com/motogp/v1/events?seasonYear=2027",
   "calendarUrl": "https://www.motogp.com/en/calendar/2027",
-  "checkedAt": "2026-10-02T10:36:07.231Z",
+  "checkedAt": "2026-10-02T12:00:04.170Z",
   "weekends": [
     {
       "id": "8ab8c4e8-5069-499c-a330-42176595b117",
@@ -66,11 +66,11 @@
         "name": "Autódromo Internacional de Goiânia – Ayrton Senna",
         "city": "",
         "country": "BR",
-        "trackId": null,
-        "configurationVerified": false,
-        "lengthMetres": null,
-        "turns": null,
-        "mapSourceUrl": null
+        "trackId": "50941f7f-e112-4404-8dcf-5fb2c47e9617",
+        "configurationVerified": true,
+        "lengthMetres": 3835,
+        "turns": 14,
+        "mapSourceUrl": "https://photos.motogp.com/events-admin/5/0/50941f7f-e112-4404-8dcf-5fb2c47e9617/simple/bra.png"
       },
       "sessions": []
     },

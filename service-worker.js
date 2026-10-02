@@ -1,11 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v372";
-const SHELL_VERSION = "372";
+const CACHE_NAME = "nothingsport-shell-v373";
+const SHELL_VERSION = "373";
 const APP_SHELL = [
   "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=370",
+  "/assets/js/settings-optional-ui.js?v=373",
   "/assets/js/follow-navigation.js?v=372",
   "/assets/js/tournament-fixture-ui.js?v=366",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -21,6 +21,15 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
+  "/assets/identities/motogp/circuits/chang.svg",
+  "/assets/identities/motogp/circuits/cota.svg",
+  "/assets/identities/motogp/circuits/balaton-park.svg",
+  "/assets/identities/motogp/circuits/assen.svg",
+  "/assets/identities/motogp/circuits/motegi.svg",
+  "/assets/identities/motogp/circuits/mandalika.svg",
+  "/assets/identities/motogp/circuits/portimao.svg",
+  "/assets/identities/motogp/circuits/goiania.svg",
+  "/assets/identities/motogp/circuits/spielberg-motogp.svg",
   "/assets/identities/motogp/badge.svg",
   "/assets/identities/motogp/circuits/aragon.svg",
   "/assets/identities/motogp/circuits/brno.svg",
@@ -40,7 +49,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=372",
+  "/assets/js/app-shell-runtime.js?v=373",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=368",
   "/config/tennis-journeys.js?v=368",

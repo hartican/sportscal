@@ -34,7 +34,8 @@ const manifest=read('assets/identities/motogp/asset-manifest.json');
 assert.equal(manifest.assets.filter(a=>a.attachment).length,15);
 for(const asset of manifest.assets){
  const svg=fs.readFileSync(path.join(root,asset.path),'utf8');assert.match(svg,/<path\b/);assert.doesNotMatch(svg,/<image\b|data:image|<script\b/i);assert.match(svg,/viewBox=/);
- assert.match(asset.sourceUrl,/^https:\/\/www.flaticon.com\/free-icon\//);assert(asset.author&&asset.modifications&&asset.licenseUrl);
+ assert.match(asset.sourceUrl,/^https:\/\/(?:www.flaticon.com\/free-icon\/|photos.motogp.com\/|commons.wikimedia.org\/wiki\/)/);assert(asset.author&&asset.modifications&&asset.licenseUrl);
+ if(asset.path.includes('/circuits/'))assert.equal(asset.presentation,'track-outline');
  if(asset.mappingStatus==='verified-venue')assert.equal(art.motogp[asset.venueConfigurationId],asset.id);
 }
 for(const event of records){
@@ -43,10 +44,21 @@ for(const event of records){
  if(event.venue==='Bugatti Circuit')assert.match(resolved.path,/bugatti/);
  assert.equal(art.resolve({...event,key:'motogp',venueConfigurationVerified:false}).kind,'fallback');
 }
-for(const code of ['AUT','ARG','CAT']){
+for(const code of ['ARG']){
  const w=calendars.flatMap(d=>d.weekends).find(w=>w.shortname===code);
  assert.equal(art.resolve({key:'motogp',venueConfigurationVerified:true,venueConfigurationId:w.circuit.trackId}).kind,'fallback',`${code} must not receive an unverified/different layout`);
 }
+for(const w of calendars[0].weekends){
+ assert(art.motogp[w.circuit.trackId],`${w.shortname}: current-season configuration needs artwork`);
+}
+assert.equal(art.motogp['50941f7f-e112-4404-8dcf-5fb2c47e9617'],'goiania');
+const raw=calendars[0].weekends.map(w=>({...w,kind:'GP',circuit:{...w.circuit,iso_code:w.country,tracks:[{id:w.circuit.trackId,is_active:w.shortname!=='BRA',lenght:w.circuit.lengthMetres,assets:{simple:{path:w.circuit.mapSourceUrl}}}]}}));
+assert.equal(ingestion.snapshot(raw,2026,now.toISOString()).weekends.find(w=>w.shortname==='BRA').circuit.configurationVerified,true);
+for(const mutation of [r=>r.circuit.id+='-changed',r=>r.circuit.tracks[0].id+='-changed',r=>r.circuit.tracks[0].lenght=4000,r=>r.circuit.tracks[0].assets.simple.path+='?changed']){
+ const changed=structuredClone(raw);mutation(changed.find(w=>w.shortname==='BRA'));
+ assert.equal(ingestion.snapshot(changed,2026,now.toISOString()).weekends.find(w=>w.shortname==='BRA').circuit.configurationVerified,false,'reviewed inactive-layout override must reject a changed source/configuration');
+}
+assert.equal(ingestion.snapshot(raw,2028,now.toISOString()).weekends.find(w=>w.shortname==='BRA').circuit.configurationVerified,false,'override cannot grant future-season consent');
 assert.deepEqual(presentation.palette({key:'motogp'}),['#526174','#384657']);
 assert.equal(presentation.circuitAsset({key:'f1',venue:'Silverstone Circuit'}),'assets/identities/f1/circuits/gb-1948.svg');
 for(const file of ['feeds/incoming/events.json','data/events.json']){

@@ -61,31 +61,38 @@
       "attachmentSha256": "760316d064fce06527e61d11d6a30e556316f5cb0764c1eebaee131d3191e681",
       "path": "assets/identities/motogp/circuits/misano.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797091",
+      "sourceUrl": "https://www.flaticon.com/free-icon/san-marino_13797026",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        277,
-        200
+        276,
+        198
       ],
       "sourceCrop": [
         118,
-        156,
-        395,
-        356
+        157,
+        394,
+        355
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/misano",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "0c4b819d-6014-4920-877b-ab0a1f3415a3",
       "venueOfficialName": "Misano World Circuit Marco Simoncelli",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/0/c/0c4b819d-6014-4920-877b-ab0a1f3415a3/simple/rsm.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797091",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13797/13797026.png",
+      "sourceSha256": "0db2b1edb28d1085f6bcfb4836639a3e9cae0caf492590b4e4ebef20368168cb",
+      "sourceFile": "flaticon-san-marino-13797026.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road.png",
+      "originalAttachmentSha256": "760316d064fce06527e61d11d6a30e556316f5cb0764c1eebaee131d3191e681"
     },
     {
       "id": "silverstone",
@@ -93,31 +100,38 @@
       "attachmentSha256": "5c9e44f839ef096a051c45807fd7618c10c6803deec15a8850b804e9a14d5d4b",
       "path": "assets/identities/motogp/circuits/silverstone.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797098",
+      "sourceUrl": "https://www.flaticon.com/free-icon/silverstone_13797011",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        198,
-        241
+        196,
+        239
       ],
       "sourceCrop": [
-        157,
-        137,
-        355,
-        378
+        158,
+        138,
+        354,
+        377
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/silverstone",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "2f84e93c-dca6-4ca4-9319-c29eba5bbabb",
       "venueOfficialName": "Silverstone Circuit",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/2/f/2f84e93c-dca6-4ca4-9319-c29eba5bbabb/simple/gbr.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797098",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13797/13797011.png",
+      "sourceSha256": "2d933f64e0e90e2d9d403f394421c629cf547d411324ab72fe2f62600a14ab18",
+      "sourceFile": "flaticon-silverstone-13797011.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (1).png",
+      "originalAttachmentSha256": "5c9e44f839ef096a051c45807fd7618c10c6803deec15a8850b804e9a14d5d4b"
     },
     {
       "id": "sachsenring",
@@ -125,31 +139,38 @@
       "attachmentSha256": "077602c53195f061b8d58c7705f20bf15f84e63220b29c1f18d8b81ebb46f29e",
       "path": "assets/identities/motogp/circuits/sachsenring.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797105",
+      "sourceUrl": "https://www.flaticon.com/free-icon/track_13796988",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        212,
-        206
+        211,
+        204
       ],
       "sourceCrop": [
         150,
-        153,
-        362,
-        359
+        154,
+        361,
+        358
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/sachsenring",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "5cab1166-44c1-45ad-bc30-96d910170097",
       "venueOfficialName": "Sachsenring",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/5/c/5cab1166-44c1-45ad-bc30-96d910170097/simple/ger.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797105",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796988.png",
+      "sourceSha256": "9ad603052241b85cb463c2db81e722539dbbb26a5c7b95fb6c6934e989e9eaf9",
+      "sourceFile": "flaticon-track-c-13796988.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (2).png",
+      "originalAttachmentSha256": "077602c53195f061b8d58c7705f20bf15f84e63220b29c1f18d8b81ebb46f29e"
     },
     {
       "id": "phillip-island",
@@ -157,31 +178,39 @@
       "attachmentSha256": "249c0ebb992533d7b9062db1d785b82135949b08c5da0691292ea81257e57d5f",
       "path": "assets/identities/motogp/circuits/phillip-island.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797111",
+      "sourceUrl": "https://www.flaticon.com/free-icon/philip-island_13796981",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        308,
-        208
+        307,
+        206
       ],
       "sourceCrop": [
-        102,
-        152,
+        103,
+        153,
         410,
-        360
+        359
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/philip-island",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "ce2c750b-4a15-4285-966b-5db647e6596a",
       "venueOfficialName": "Phillip Island",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/c/e/ce2c750b-4a15-4285-966b-5db647e6596a/simple/aus.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "replacementAttachment": "philip-island.png",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797111",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796981.png",
+      "sourceSha256": "8558349544360a8ba741dabf4365bc94f76349d54c4b265e6d4f241c3b29a370",
+      "sourceFile": "attachment-philip-island.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (3).png",
+      "originalAttachmentSha256": "249c0ebb992533d7b9062db1d785b82135949b08c5da0691292ea81257e57d5f"
     },
     {
       "id": "brno",
@@ -189,31 +218,38 @@
       "attachmentSha256": "e712c7479f1c4d321c732b2a34fb202806013841ca3b86ef7ba5a4d547f7089e",
       "path": "assets/identities/motogp/circuits/brno.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/circuit_13797117",
+      "sourceUrl": "https://www.flaticon.com/free-icon/motogp_13796946",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        332,
-        197
+        331,
+        195
       ],
       "sourceCrop": [
         90,
-        156,
-        422,
-        353
+        157,
+        421,
+        352
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/motogp",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "811bb92b-cf2c-44ec-a188-b9681ba9fc12",
       "venueOfficialName": "CREDITAS Autodrom Brno",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/8/1/811bb92b-cf2c-44ec-a188-b9681ba9fc12/simple/cze11.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/circuit_13797117",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796946.png",
+      "sourceSha256": "02532df4fe8686348640e26fa848674315e93c1358e190c2ce6ff02d192e5761",
+      "sourceFile": "flaticon-motogp-b-13796946.png",
+      "presentation": "track-outline",
+      "originalAttachment": "circuit.png",
+      "originalAttachmentSha256": "e712c7479f1c4d321c732b2a34fb202806013841ca3b86ef7ba5a4d547f7089e"
     },
     {
       "id": "indianapolis",
@@ -221,55 +257,73 @@
       "attachmentSha256": "6894ff376d85b76a1a667c79196e1b81f8a6d59a40aafd0de8bf690fc90ce302",
       "path": "assets/identities/motogp/circuits/indianapolis.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797123",
+      "sourceUrl": "https://www.flaticon.com/free-icon/track_13796903",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        330,
-        168
+        328,
+        167
       ],
       "sourceCrop": [
-        91,
+        92,
         171,
-        421,
-        339
+        420,
+        338
       ],
       "mappingStatus": "unused",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/indianapolis",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
-      "verification": "No current-season configuration match verified. Never assigned by country/name."
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "verification": "No current-season configuration match verified. Never assigned by country/name.",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797123",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796903.png",
+      "sourceSha256": "91dc17256849d5042666a01e76ff5617c121e500b12b72b9eb3ab81ffb873a15",
+      "sourceFile": "flaticon-track-e-13796903.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (4).png",
+      "originalAttachmentSha256": "6894ff376d85b76a1a667c79196e1b81f8a6d59a40aafd0de8bf690fc90ce302"
     },
     {
       "id": "catalunya",
       "attachment": "road (5).png",
       "attachmentSha256": "352f1d5f08d30639e7b4a127b781f6621cd74ef6347363b1bce3c14a739eb56f",
       "path": "assets/identities/motogp/circuits/catalunya.svg",
-      "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797129",
-      "license": "Flaticon License (attribution required)",
-      "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/e/e/eea725c5-432a-483b-bf46-f9769b8e5ddf/simple/cat.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        214,
-        222
+        534,
+        174
       ],
       "sourceCrop": [
-        149,
-        145,
-        363,
-        367
+        159,
+        339,
+        693,
+        513
       ],
-      "mappingStatus": "unused",
-      "traceTool": "vtracer 0.6.15",
+      "mappingStatus": "verified-venue",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/catalunya",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
-      "verification": "Venue identified; stylised image does not establish the current no-chicane configuration. Unused."
+      "sourceMatch": "Current MotoGP configuration from the official calendar map, replacing the previous attachment candidate.",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "venueConfigurationId": "eea725c5-432a-483b-bf46-f9769b8e5ddf",
+      "venueOfficialName": "Circuit de Barcelona-Catalunya",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/e/e/eea725c5-432a-483b-bf46-f9769b8e5ddf/simple/cat.png",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "4f3bf7beebb9940385cfb6536f3e579faa973685406fdbd8bf501df96426b553",
+      "sourceFile": "official-CAT.png",
+      "presentation": "track-outline",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797129",
+      "originalAttachment": "road (5).png",
+      "originalAttachmentSha256": "352f1d5f08d30639e7b4a127b781f6621cd74ef6347363b1bce3c14a739eb56f",
+      "previousSourceMatch": "128px preview compared with attachment, same colour geometry"
     },
     {
       "id": "bugatti",
@@ -277,31 +331,38 @@
       "attachmentSha256": "03a5cc1508eb0437c541f1a4a6e761ad7ded6c986b14d5dfe6341315450f382d",
       "path": "assets/identities/motogp/circuits/bugatti.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797139",
+      "sourceUrl": "https://www.flaticon.com/free-icon/track_13796893",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        300,
-        122
+        298,
+        120
       ],
       "sourceCrop": [
-        106,
-        195,
-        406,
-        317
+        107,
+        196,
+        405,
+        316
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/motogp",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "45f698f6-883b-4379-bac3-3253ee6e32e0",
       "venueOfficialName": "Bugatti Circuit",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/4/5/45f698f6-883b-4379-bac3-3253ee6e32e0/simple/fra11.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797139",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796893.png",
+      "sourceSha256": "ad355a30c0b34dfb616f47b816e555e5d775c570a3c985aa388b868f19f371ca",
+      "sourceFile": "flaticon-track-b-13796893.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (6).png",
+      "originalAttachmentSha256": "03a5cc1508eb0437c541f1a4a6e761ad7ded6c986b14d5dfe6341315450f382d"
     },
     {
       "id": "termas-candidate",
@@ -309,10 +370,10 @@
       "attachmentSha256": "a7d514fb081718cc6f6e4bff57eab23daa9bf11758690d5ad43bc5ebcc6a5bbf",
       "path": "assets/identities/motogp/circuits/termas-candidate.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797146",
+      "sourceUrl": "https://www.flaticon.com/free-icon/motogp_13796964",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
@@ -326,10 +387,17 @@
         360
       ],
       "mappingStatus": "unused",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/autodromo",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
-      "verification": "No current-season configuration match verified. Never assigned by country/name."
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "verification": "No current-season configuration match verified. Never assigned by country/name.",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797146",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796964.png",
+      "sourceSha256": "7b4b2440bdc5c2f441545ea6c0643abc501229aff63c83b9c4d41dfa5a9c25b5",
+      "sourceFile": "flaticon-motogp-a-13796964.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (7).png",
+      "originalAttachmentSha256": "a7d514fb081718cc6f6e4bff57eab23daa9bf11758690d5ad43bc5ebcc6a5bbf"
     },
     {
       "id": "mugello",
@@ -337,31 +405,38 @@
       "attachmentSha256": "97706a63d84996c900e5de74c21087fa2a1e7ab134726756fd4729ee543c449c",
       "path": "assets/identities/motogp/circuits/mugello.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797202",
+      "sourceUrl": "https://www.flaticon.com/free-icon/mugello_13796973",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        334,
-        207
+        332,
+        206
       ],
       "sourceCrop": [
-        89,
-        152,
-        423,
+        90,
+        153,
+        422,
         359
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/motogp",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "af57cc25-cf15-4f68-b775-ddaea8fec828",
       "venueOfficialName": "Autodromo Internazionale del Mugello",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/a/f/af57cc25-cf15-4f68-b775-ddaea8fec828/simple/ita.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797202",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796973.png",
+      "sourceSha256": "44dffc2fd670e2cc651dbb5577864e9375d5394af8daf553be256606289e3f72",
+      "sourceFile": "flaticon-mugello-13796973.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (8).png",
+      "originalAttachmentSha256": "97706a63d84996c900e5de74c21087fa2a1e7ab134726756fd4729ee543c449c"
     },
     {
       "id": "jerez",
@@ -369,31 +444,38 @@
       "attachmentSha256": "ce13aee302acb18677612bd5e44dd846cf456aca975be453beabf0f0c452a61a",
       "path": "assets/identities/motogp/circuits/jerez.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/circuit_13797343",
+      "sourceUrl": "https://www.flaticon.com/free-icon/sachsenring_13796936",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        242,
-        210
+        240,
+        208
       ],
       "sourceCrop": [
-        135,
-        151,
-        377,
-        361
+        136,
+        152,
+        376,
+        360
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/jerez",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "42621ff3-ef5d-4c7c-8abf-eb54c16181bc",
       "venueOfficialName": "Circuito de Jerez - \u00c1ngel Nieto",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/4/2/42621ff3-ef5d-4c7c-8abf-eb54c16181bc/simple/spa.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/circuit_13797343",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796936.png",
+      "sourceSha256": "4742455ef047fb51e3c8a2da90318a0139c12e19b0fd797bf8030fd55b19fdd4",
+      "sourceFile": "flaticon-sachsenring-13796936.png",
+      "presentation": "track-outline",
+      "originalAttachment": "circuit (1).png",
+      "originalAttachmentSha256": "ce13aee302acb18677612bd5e44dd846cf456aca975be453beabf0f0c452a61a"
     },
     {
       "id": "lusail",
@@ -401,31 +483,38 @@
       "attachmentSha256": "e56af87ec5482d5212678eb64b9b15731faa2406b3a3be517ce328cdbe3de114",
       "path": "assets/identities/motogp/circuits/lusail.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/circuit_13797355",
+      "sourceUrl": "https://www.flaticon.com/free-icon/qatar_13796955",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        268,
-        208
+        267,
+        207
       ],
       "sourceCrop": [
         122,
         151,
-        390,
-        359
+        389,
+        358
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/lasail",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
       "venueConfigurationId": "b1cd25b2-1658-4c3b-bd3f-1a7796f7cd27",
       "venueOfficialName": "Lusail International Circuit",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/b/1/b1cd25b2-1658-4c3b-bd3f-1a7796f7cd27/simple/qat.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/circuit_13797355",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796955.png",
+      "sourceSha256": "486e672a9f4b93552129091595c34df0dc87d8336662ffd82ebbd1e1bf0d02e0",
+      "sourceFile": "flaticon-qatar-13796955.png",
+      "presentation": "track-outline",
+      "originalAttachment": "circuit (2).png",
+      "originalAttachmentSha256": "e56af87ec5482d5212678eb64b9b15731faa2406b3a3be517ce328cdbe3de114"
     },
     {
       "id": "us-candidate",
@@ -433,114 +522,431 @@
       "attachmentSha256": "70314f82831d16399f8c2a45a314d9ffe18a71d329bc6381c48efe2d9bf4a857",
       "path": "assets/identities/motogp/circuits/us-candidate.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797368",
+      "sourceUrl": "https://www.flaticon.com/free-icon/track_13796925",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        262,
-        221
+        261,
+        220
       ],
       "sourceCrop": [
-        125,
-        145,
+        126,
+        146,
         387,
         366
       ],
       "mappingStatus": "unused",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "suppliedAttributionUrl": "https://www.flaticon.com/free-icons/motogp",
-      "sourceMatch": "128px preview compared with attachment, same colour geometry",
-      "verification": "No current-season configuration match verified. Never assigned by country/name."
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "verification": "No current-season configuration match verified. Never assigned by country/name.",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797368",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796925.png",
+      "sourceSha256": "900dda704e6e2ec0d93c65b412b48d99d9dad5afe073b177abed6598f66f75ae",
+      "sourceFile": "flaticon-track-a-13796925.png",
+      "presentation": "track-outline",
+      "originalAttachment": "road (9).png",
+      "originalAttachmentSha256": "70314f82831d16399f8c2a45a314d9ffe18a71d329bc6381c48efe2d9bf4a857"
     },
     {
       "id": "aragon",
       "path": "assets/identities/motogp/circuits/aragon.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797379",
+      "sourceUrl": "https://www.flaticon.com/free-icon/spain_13796995",
       "sourcePngSha256": "ab24267b700fb751533621a14b787898ed020a1ccfcf1f39e5b35e97f59bb7d7",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
         294,
-        199
+        198
       ],
       "sourceCrop": [
         109,
         157,
         403,
-        356
+        355
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "venueConfigurationId": "99cf40f3-6ed4-4cd9-9c1c-22379f6d929b",
       "venueOfficialName": "MotorLand Arag\u00f3n",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/9/9/99cf40f3-6ed4-4cd9-9c1c-22379f6d929b/simple/ara.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797379",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13796/13796995.png",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "sourceSha256": "f0d087097b15af8cbe7c085165a9da9d83e42f1b548cfa7d47c2bc231a2fe337",
+      "sourceFile": "flaticon-spain-a-13796995.png",
+      "presentation": "track-outline"
     },
     {
       "id": "sepang",
       "path": "assets/identities/motogp/circuits/sepang.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797391",
+      "sourceUrl": "https://www.flaticon.com/free-icon/sepang_13797003",
       "sourcePngSha256": "c13bc7557eddd89da9394861259fafcfdb47e1fb34fa873d7812a4f19216d309",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
         244,
-        202
+        201
       ],
       "sourceCrop": [
         134,
-        155,
+        156,
         378,
         357
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "venueConfigurationId": "07f44869-813e-46e6-97ba-aa405e134d87",
       "venueOfficialName": "Petronas Sepang International Circuit",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/0/7/07f44869-813e-46e6-97ba-aa405e134d87/simple/mal.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
-      "verifiedAt": "2026-10-02"
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797391",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13797/13797003.png",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "sourceSha256": "b19489931dfbe5899564333c80be2e9830d55a7bd260f7aef68fb96d3f4d2f28",
+      "sourceFile": "flaticon-sepang-13797003.png",
+      "presentation": "track-outline"
     },
     {
       "id": "valencia",
       "path": "assets/identities/motogp/circuits/valencia.svg",
       "author": "berkahicon",
-      "sourceUrl": "https://www.flaticon.com/free-icon/road_13797405",
+      "sourceUrl": "https://www.flaticon.com/free-icon/spain_13797019",
       "sourcePngSha256": "a1a2682054b5044f65728ad400443b194b6f46336d77cd43fe991ca5e04802cd",
       "license": "Flaticon License (attribution required)",
       "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
-      "modifications": "Alpha silhouette vector traced, transparent exterior cropped; monochrome white.",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
       "viewBox": [
         0,
         0,
-        322,
-        143
+        320,
+        141
       ],
       "sourceCrop": [
-        95,
-        183,
-        417,
-        326
+        96,
+        184,
+        416,
+        325
       ],
       "mappingStatus": "verified-venue",
-      "traceTool": "vtracer 0.6.15",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
       "venueConfigurationId": "795839a0-8faa-4f4e-a574-8dce32cfc560",
       "venueOfficialName": "Circuit Ricardo Tormo",
       "geometrySourceUrl": "https://photos.motogp.com/events-admin/7/9/795839a0-8faa-4f4e-a574-8dce32cfc560/simple/val.png",
       "verification": "Compared supplied silhouette with official MotoGP current track map; orientation differs, same GP configuration. Restricted to official track UUID.",
+      "verifiedAt": "2026-10-02",
+      "previousSourceUrl": "https://www.flaticon.com/free-icon/road_13797405",
+      "sourcePngUrl": "https://cdn-icons-png.flaticon.com/512/13797/13797019.png",
+      "sourceMatch": "Outline pack counterpart compared with supplied geometry and official MotoGP map; icon titles do not establish venue assignment.",
+      "sourceSha256": "ab52f7c8877402da0ced1dfaf8ed57208744c912a36291288732c093ba59f987",
+      "sourceFile": "flaticon-spain-b-13797019.png",
+      "presentation": "track-outline"
+    },
+    {
+      "id": "chang",
+      "path": "assets/identities/motogp/circuits/chang.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/5/e/5eb8c6ce-f16b-4be5-8aea-39ebaa3b18ba/simple/tha.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "5eb8c6ce-f16b-4be5-8aea-39ebaa3b18ba",
+      "venueOfficialName": "Chang International Circuit",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/5/e/5eb8c6ce-f16b-4be5-8aea-39ebaa3b18ba/simple/tha.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "5ed56696f4a1bc95d7bb284450489c329ca831577ada464ac8ba6cfc6d4f628b",
+      "sourceFile": "official-THA.png",
+      "sourceCrop": [
+        163,
+        281,
+        688,
+        570
+      ],
+      "viewBox": [
+        0,
+        0,
+        525,
+        289
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "cota",
+      "path": "assets/identities/motogp/circuits/cota.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/c/7/c7c0782e-67f2-4351-af96-6dd5835e8d42/simple/usa.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "c7c0782e-67f2-4351-af96-6dd5835e8d42",
+      "venueOfficialName": "Circuit Of The Americas",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/c/7/c7c0782e-67f2-4351-af96-6dd5835e8d42/simple/usa.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "9d7282443331a4ac29720f0fbd848b6edb98a929dc2ee84a2690f9bc66a2a9c2",
+      "sourceFile": "official-USA.png",
+      "sourceCrop": [
+        169,
+        276,
+        683,
+        574
+      ],
+      "viewBox": [
+        0,
+        0,
+        514,
+        298
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "balaton-park",
+      "path": "assets/identities/motogp/circuits/balaton-park.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/4/6/46218937-1b94-4d2e-97b7-256b5bf181c3/simple/hun.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "46218937-1b94-4d2e-97b7-256b5bf181c3",
+      "venueOfficialName": "Balaton Park",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/4/6/46218937-1b94-4d2e-97b7-256b5bf181c3/simple/hun.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "1552144c7a3ddab7f6e2839ad2ff9ce2a425c7308ed461999e628de6e2ee1513",
+      "sourceFile": "official-HUN.png",
+      "sourceCrop": [
+        246,
+        224,
+        604,
+        668
+      ],
+      "viewBox": [
+        0,
+        0,
+        358,
+        444
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "assen",
+      "path": "assets/identities/motogp/circuits/assen.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/2/c/2c30ee0c-d85b-48e1-b6d4-303a2ba22ae1/simple/nld.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "2c30ee0c-d85b-48e1-b6d4-303a2ba22ae1",
+      "venueOfficialName": "TT Circuit Assen",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/2/c/2c30ee0c-d85b-48e1-b6d4-303a2ba22ae1/simple/nld.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "6dad8ea1436e9c4bd694c1c0047470a637745b6914a883fe47ebcd80a0eb7f9e",
+      "sourceFile": "official-NED.png",
+      "sourceCrop": [
+        205,
+        233,
+        646,
+        619
+      ],
+      "viewBox": [
+        0,
+        0,
+        441,
+        386
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "motegi",
+      "path": "assets/identities/motogp/circuits/motegi.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/9/f/9fbd0109-0b0b-4bbb-a671-d7840036babe/simple/jpn.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "9fbd0109-0b0b-4bbb-a671-d7840036babe",
+      "venueOfficialName": "Mobility Resort Motegi",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/9/f/9fbd0109-0b0b-4bbb-a671-d7840036babe/simple/jpn.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "0578e9231cc7c634ed31f962120af533eadf05f56d6295976e1bca6baaa6c63b",
+      "sourceFile": "official-JPN.png",
+      "sourceCrop": [
+        252,
+        255,
+        599,
+        596
+      ],
+      "viewBox": [
+        0,
+        0,
+        347,
+        341
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "mandalika",
+      "path": "assets/identities/motogp/circuits/mandalika.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/0/d/0db4e87a-920f-4699-a688-63e22b924f1b/simple/ina.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "0db4e87a-920f-4699-a688-63e22b924f1b",
+      "venueOfficialName": "Pertamina Mandalika International Circuit",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/0/d/0db4e87a-920f-4699-a688-63e22b924f1b/simple/ina.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "0013babcb93bc691a2934be9a20ee1105b75046e5a5301a6aef4a9297abc2517",
+      "sourceFile": "official-INA.png",
+      "sourceCrop": [
+        258,
+        184,
+        617,
+        631
+      ],
+      "viewBox": [
+        0,
+        0,
+        359,
+        447
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "portimao",
+      "path": "assets/identities/motogp/circuits/portimao.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/0/b/0b5cf829-21cf-48dd-a324-1465fc504c24/simple/por.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "0b5cf829-21cf-48dd-a324-1465fc504c24",
+      "venueOfficialName": "Aut\u00f3dromo Internacional do Algarve",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/0/b/0b5cf829-21cf-48dd-a324-1465fc504c24/simple/por.png",
+      "verification": "Route linework in the official current MotoGP calendar track map, restricted to its configuration UUID.",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "cfb9a0be59d7c0b6e570dc8075a906c7ba12a4b2191cd0388dbaad669ec14b86",
+      "sourceFile": "official-POR.png",
+      "sourceCrop": [
+        164,
+        314,
+        687,
+        536
+      ],
+      "viewBox": [
+        0,
+        0,
+        523,
+        222
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)"
+    },
+    {
+      "id": "goiania",
+      "path": "assets/identities/motogp/circuits/goiania.svg",
+      "author": "MotoGP Sports Entertainment Group",
+      "sourceUrl": "https://photos.motogp.com/events-admin/5/0/50941f7f-e112-4404-8dcf-5fb2c47e9617/simple/bra.png",
+      "license": "Official circuit geometry reference; original media rights reserved",
+      "licenseUrl": "https://www.motogp.com/en/legal-notice",
+      "mappingStatus": "verified-venue",
+      "venueConfigurationId": "50941f7f-e112-4404-8dcf-5fb2c47e9617",
+      "venueOfficialName": "Aut\u00f3dromo Internacional de Goi\u00e2nia \u2013 Ayrton Senna",
+      "geometrySourceUrl": "https://photos.motogp.com/events-admin/5/0/50941f7f-e112-4404-8dcf-5fb2c47e9617/simple/bra.png",
+      "verification": "3835m layout displayed on the 2026 Brazil event page and official race classifications. An explicit circuit/track/source override addresses the provider inactive flag; no general inactive-layout admission.",
+      "verificationSourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
+      "verifiedAt": "2026-10-02",
+      "sourceSha256": "65b10a44808c4075dd775bb804f57999f5f3658c24725f919d033ef4f0d10f46",
+      "sourceFile": "official-BRA-simple.png",
+      "sourceCrop": [
+        147,
+        334,
+        706,
+        516
+      ],
+      "viewBox": [
+        0,
+        0,
+        559,
+        182
+      ],
+      "presentation": "track-outline",
+      "modifications": "Route linework vector traced and cropped; white monochrome, transparent exterior and enclosed areas. No infill or embedded raster.",
+      "traceTool": "vtracer 0.6.15 (exact connected contours)",
+      "providerVerification": {
+        "circuitId": "206ca7d6-e857-4a4d-be01-addd9090173d",
+        "years": [
+          2026,
+          2027
+        ],
+        "lengthMetres": 3835
+      }
+    },
+    {
+      "id": "spielberg-motogp",
+      "path": "assets/identities/motogp/circuits/spielberg-motogp.svg",
+      "author": "Gpmat; Pitlane02, Sentoan, HorsePunchKid, Cs-wolves, RoelTM, Sparkle1",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Bull_Ring_moto_2022.svg",
+      "sourceSha256": "25bb5103ea6b3a7536350379b2bc73ef1ca25f6c1a610aa27d928d930ab6b0d6",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modifications": "Race-course path retained, including the MotoGP right-left chicane. Labels, old straight and pit lane removed; white stroke and cropped transparent viewBox. This derivative remains CC BY-SA 3.0.",
+      "viewBox": [
+        56.62956619262695,
+        66.21000671386719,
+        566.1541137695312,
+        367.2347106933594
+      ],
+      "mappingStatus": "verified-venue",
+      "presentation": "track-outline",
+      "venueConfigurationId": "53e027a4-908f-4253-9805-7321bd212fae",
+      "venueOfficialName": "Red Bull Ring - Spielberg",
+      "geometrySourceUrl": "https://www.redbullring.com/en/events-tickets/moto-gp/motogp-circuit/",
+      "verification": "2022-onwards MotoGP configuration with M\u00fcnzer chicane, cross-checked against the circuit operator. The outdated simplified MotoGP map and F1 no-chicane configuration are excluded.",
       "verifiedAt": "2026-10-02"
+    }
+  ],
+  "unavailable": [
+    {
+      "id": "buenos-aires-2027",
+      "venue": "Aut\u00f3dromo Oscar y Juan G\u00e1lvez",
+      "reason": "The official event map retains the historical 4350m shape; the new 2027 course is being rebuilt. No independently verified current MotoGP outline found. Never substitute Termas or the proposed F1 variant.",
+      "sources": [
+        "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
+        "https://buenosaires.gob.ar/gcaba_historico/noticias/la-ciudad-reformula-la-megaobra-del-autodromo-para-recibir-al-motogp-y-que"
+      ],
+      "checkedAt": "2026-10-02"
     }
   ]
 }

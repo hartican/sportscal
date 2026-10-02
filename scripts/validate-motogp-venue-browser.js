@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33956',out=process.env.MOTOGP_QA_OUTPUT||'/tmp/motogp-qa';fs.mkdirSync(out,{recursive:true});
-const events=require('../data/events.json').events;const samples=['italy','austria','qatar','argentina'].map(slug=>events.find(e=>e.key==='motogp'&&e.sessionType==='race'&&e.canonicalEventId.includes(':'+slug)&&e.season===(slug==='argentina'?'2027':'2026')));
+const events=require('../data/events.json').events;const samples=['italy','austria','qatar','argentina','japan','indonesia','brazil','thailand'].map(slug=>events.find(e=>e.key==='motogp'&&e.sessionType==='race'&&e.canonicalEventId.includes(':'+slug)&&e.season===(slug==='argentina'?'2027':'2026')));
 (async()=>{
  const report={cases:[],errors:[]};
  for(const [name,engine]of[['chromium',chromium],['webkit',webkit]]){
@@ -22,7 +22,8 @@ const events=require('../data/events.json').events;const samples=['italy','austr
     },{theme,state,surface,event});
     assert.equal(result.height,state==='compact'?130:220,JSON.stringify({name,width,theme,state,surface,result}));assert(result.naturalWidth>0);assert(!result.overflow);assert(result.left>=result.cardLeft-1&&result.right<=result.cardRight+1);assert(result.caption.includes(event.venue));
     if(event.scheduleNote)assert(result.caption.includes('TBC'));report.cases.push({name,width,theme,state,surface,eventId:event.id,...result});
-    if(width===390&&surface==='feed'&&event.venue.includes('Mugello'))await page.locator('#pilot-test').screenshot({path:path.join(out,`${name}-${theme}-${state}.png`)});
+    assert.equal(result.fallback,event.venueConfigurationVerified!==true||!event.venueArtworkId,'verified course replaces the fallback on both surfaces');
+    if(width===390&&surface==='feed')await page.locator('#pilot-test').screenshot({path:path.join(out,`${name}-${theme}-${state}-${event.venueArtworkId||'fallback'}.png`)});
    }
    await page.route('**/mugello.svg*',route=>route.abort());
    await page.evaluate(event=>{const card=buildEventCard(event);document.getElementById('pilot-test').replaceChildren(card);const image=card.querySelector('.venue-location-hero img');image.src+='?failed-source-test=1';},samples[0]);
