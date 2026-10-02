@@ -11,6 +11,8 @@ const samples=require('../data/events.json').events.filter(e=>e.grandTourCalenda
    const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});page.on('pageerror',e=>report.errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',version:26,selectedSelectorEntityIds:['sport:tdf','sport:giro','sport:vuelta'],followedSports:['tdf','giro','vuelta'],followFirst:{refinement:{completedAt:'2026-10-03T00:00:00Z'}}})));
    await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:60000});
+   await page.locator('#listView .event-card[data-event-id*="tdf"][data-event-id*="2027"] .venue-location-hero img').first().waitFor();
+   assert(await page.evaluate(()=>activeEvents.filter(e=>e.key==='tdf'&&e.season==='2027').length===3),'ordinary startup loads all three published stages for an explicit Tour follow');
    for(const theme of['day','night'])for(const state of['opened','compact'])for(const surface of['feed','detail'])for(const event of samples){
     const result=await page.evaluate(async({theme,state,surface,event})=>{
      applyThemePreference(theme);document.getElementById('venue-test')?.remove();activeTab=surface==='feed'?'feed':'follow';setCardState(event,state);

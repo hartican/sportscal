@@ -21,7 +21,7 @@
 
   function scheduleCode(entity, codes = []){
     if (!entity) return null;
-    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
+    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup","sport:tdf":"competition:tour-de-france","sport:giro":"competition:giro-ditalia","sport:vuelta":"competition:vuelta-a-espana","sport:wsl":"competition:wsl-championship-tour"};
     const exactId=String(entity.id||'');
     const selectedId=aliases[exactId] ? exactId : exactId.replace(/-women$/,'');
     const own = codes.find(code => code.id === (aliases[selectedId] || selectedId));
@@ -138,6 +138,9 @@
     }
     const aliases = {rugby:"rugby-union",nba:"basketball",nfl:"american-football",nhl:"ice-hockey",cwg:"multi-sport",rally:"wrc",fifa:"football","premier-league":"football"};
     const ids = new Set([...keys].map(key => {const base=key.replace(/-women$/,'');return `sport:${aliases[base] || base}`;}));
+    const competitionCodes={tdf:'competition:tour-de-france',giro:'competition:giro-ditalia',vuelta:'competition:vuelta-a-espana',wsl:'competition:wsl-championship-tour'};
+    for(const key of keys)if(competitionCodes[key])ids.add(competitionCodes[key]);
+    for(const choice of preferences?.preferenceGraph?.competitionPreferences||[])if(choice.enabled===true&&Object.values(competitionCodes).includes(choice.competitionId))ids.add(choice.competitionId);
     if((preferences?.preferenceGraph?.entityFollows || []).some(follow=>/^competitor:f1:/.test(follow.participantId)&&['follow','priority'].includes(follow.followLevel)))ids.add('sport:motorsport');
     // A taxonomy parent does not imply data containment (e.g. AFL and AFLW).
     return codes.filter(code => ids.has(code.id) || keys.has(code.slug));

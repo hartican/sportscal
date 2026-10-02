@@ -31,6 +31,12 @@ assert(!require('../config/follow-summary').allFollowed({version:26,selectedSele
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-grand-tours-'));
 try{refresh({root:temp,document:doc});const f=path.join(temp,'data/canonical/grand-tours-calendar.v1.json'),before=fs.readFileSync(f);assert.throws(()=>refresh({root:temp,document:{...doc,editions:[]}}));assert(before.equals(fs.readFileSync(f)));refresh({root:temp,document:doc});assert(before.equals(fs.readFileSync(f)));}finally{fs.rmSync(temp,{recursive:true,force:true});}
 const manifest=require('../assets/identities/cycling/asset-manifest.json');
+const fixtureIdentity=require('../config/fixture-identity'),codes=require('../data/code-inspector/manifest.json').codes;
+for(const [key,id] of [['tdf','competition:tour-de-france'],['giro','competition:giro-ditalia'],['vuelta','competition:vuelta-a-espana']]){
+ assert.equal(fixtureIdentity.scheduleCode({id:'sport:'+key,parentId:'sport:cycling'},codes).id,id,'Follow heading resolves its own championship schedule');
+ assert(fixtureIdentity.followedScheduleCodes({version:26,selectedSelectorEntityIds:['sport:'+key]},codes).some(c=>c.id===id),'explicit child follow loads its complete schedule');
+ assert(fixtureIdentity.followedScheduleCodes({preferenceGraph:{competitionPreferences:[{competitionId:id,enabled:true}]}},codes).some(c=>c.id===id),'explicit competition follow loads its complete schedule');
+}
 for(const a of manifest.assets){const bytes=fs.readFileSync(path.join(__dirname,'..',a.path));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),a.sha256);assert(a.sourceUrl&&a.author&&a.license&&a.modifications);if(a.path.endsWith('.svg')){const s=bytes.toString();assert(!/<image|data:image|<rect|<script|<foreignObject/.test(s));assert(s.includes('viewBox='));}}
 for(const e of schedule.events){const card=cardForEvent(e,schedule,new Map()),resolved=art.resolve(card);assert(resolved);if(e.courseGeometryVerified){assert.equal(resolved.kind,'course');assert.equal(resolved.path,manifest.assets.find(a=>a.id===e.courseArtworkId)?.path);assert.equal(art.resolve({...card,roundNumber:99}).kind,'fallback','never borrow another stage configuration');}else assert.equal(resolved.kind,'fallback');}
 for(const id of ['event:tdf:2026:stage-9','event:tdf:2026:stage-21','event:vuelta:2026:stage-3'])assert.equal(schedule.events.find(e=>e.id===id).courseGeometryVerified,false,'outdated source geometry withheld');
