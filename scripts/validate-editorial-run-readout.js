@@ -5,7 +5,18 @@ const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),cryp
 const child=require('node:child_process'),store=require('../lib/editorial-maintenance'),policy=require('../config/editorial-maintenance'),weekend=require('./weekend-editorial'),supabase=require('../lib/supabase-server');
 const root=path.resolve(__dirname,'..'),dir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-editorial-readout-'));
 fs.chmodSync(dir,0o700);
-const source=store.sources(),now=new Date('2026-10-03T00:00:00Z');
+const source=store.sources();
+// Choose a retained unresolved fixture window, rather than a wall-clock date
+// that would make later releases fail as those fixtures finish or roll away.
+let now;
+for(const event of source.events){
+  const start=Date.parse(event.startTimeUtc||String(event.date||event.startDate||'').slice(0,10)+'T12:00:00Z');
+  if(!Number.isFinite(start))continue;
+  const candidate=new Date(start-policy.DAY);
+  if(!policy.schedule(event,{},candidate).due)continue;
+  if(source.events.filter(e=>policy.schedule(e,{},candidate).due).length>=2){now=candidate;break;}
+}
+assert(now,'Retained unresolved fixture window required.');
 const window=source.events.filter(e=>policy.schedule(e,{},now).inWindow);
 const fixtures=window.filter(e=>policy.schedule(e,{},now).due).slice(0,2);
 assert.equal(fixtures.length,2,'Retained fixture sample required for real inventory checks.');
@@ -126,7 +137,11 @@ async function main(){
 
     // Bound only aggregate history, never prepared operations; absent optional
     // reporting retains the existing quiet behaviour.
-    run=setup({existing:true,selected:false});for(let i=0;i<34;i++)await cli.main(['--list']);assert.equal(read(run.report).runReadouts.length,32);assert.equal(read(run.report).operations.length,1);
+    run=setup({existing:true,selected:false});const history=read(run.report);
+    history.runReadouts=Array.from({length:32},(_,sequence)=>({sequence,schemaVersion:'editorial-run-readout.v1'}));
+    fs.writeFileSync(run.report,JSON.stringify(history),{mode:0o600});
+    await cli.main(['--list']);const retained=read(run.report);
+    assert.equal(retained.runReadouts.length,32);assert.equal(retained.runReadouts[0].sequence,1);assert.equal(retained.runReadouts.at(-1).mode,'list');assert.equal(retained.operations.length,1);
     delete process.env.NS_EDITORIAL_CHECK_REPORT;await cli.main(['--list']);assert.deepEqual(hashes(),baseline);
     originals.log('Editorial run readout: real inventory/check preparation, retained CAS/drafts, no-change artifacts, held/conflict/outage stages, direct vs prepared saves, private paths and bounded aggregate history passed. No production writes or publication.');
   }finally{
