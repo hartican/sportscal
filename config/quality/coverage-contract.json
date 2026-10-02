@@ -1,6 +1,6 @@
 {
   "version": "2026-09-27",
-  "evidenceUpdatedAt": "2026-10-02",
+  "evidenceUpdatedAt": "2026-10-03",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
@@ -36,6 +36,7 @@
       "expectedSeasonFixtures": 380,
       "state": "partial",
       "evidence": [
+        "docs/quality/epl-result-clock-snapshot-integrity-2026-10-03.md",
         "docs/quality/football-status-display-2026-10-02.md",
         "docs/quality/fixture-identity-layout-2026-10-02.md",
         "docs/quality/football-artwork-rights-2026-10-02.md",
@@ -57,6 +58,7 @@
         "Routine source freshness, recovery and commercial permission"
       ],
       "verifiedSnapshotProgress": [
+        "3 October: app 8fa3e907/shell 386, normal release 37046120485, READY/three aliases/metadata/22 served hashes and both actual 384\u2192386 cached upgrades verified. Captured EPL-final and actual SQL tests prevent check-clock history/compact-row churn while retaining genuine verification and corrections. First ordinary 18:30 UTC check retained all 380 IDs and sporting facts, zero failures, 380 receipts and expected transition revision 7364. Later unchanged ordinary check, sustained storage outcome, rights, independent recovery and physical-device acceptance remain unverified; no certification, new scheduler or spend.",
         "2 October: shared mobile identity repair shipped at a40388fa4d691e273dea74e20a4c8e7c7cc2eab3/shell 353 with normal cloud, READY/alias/14-file, both-engine layout/upgrade and 468 live missing-club observations. Compact fallbacks match the 48px frame; Schedule identities fit narrow cards. No fixture/source/crest changes, new spend or certification; rights, physical/independent recovery and final sporting inputs remain open.",
         "2 October read-only artwork inventory: 20 club crests resolve and 0 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
         "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
