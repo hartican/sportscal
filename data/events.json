@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "adaptive-editorial-20261002174853306",
-  "publishedAt": "2026-10-02T17:48:53.306Z",
+  "version": "weekend-editorial-20261002175813510",
+  "publishedAt": "2026-10-02T17:58:13.510Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -95941,8 +95941,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "match",
-      "selectedSentence": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
-      "fullSpiel": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+      "selectedSentence": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
+      "fullSpiel": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
       "sourceName": "RLWC 2026 — competition rules",
       "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -95968,28 +95968,29 @@
         "intensity": 5,
         "arcStage": "preview",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
-        "hookSpoilerOn": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
-        "synopsisSpoilerOff": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
-        "synopsisSpoilerOn": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+        "hookSpoilerOff": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
+        "hookSpoilerOn": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
+        "synopsisSpoilerOff": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
+        "synopsisSpoilerOn": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+        "lastReviewedAt": "2026-10-02T17:57:04.283Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "lastReviewedAt": "2026-10-02T17:57:04.283Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Champions meet on opening night",
+        "angle": "Australia v New Zealand — Rugby League World Cup",
         "contextSignals": [
           "event-specific",
           "narrative:matchup",
           "narrative:form",
+          "narrative:history",
           "narrative:consequence",
-          "narrative:history"
+          "narrative:schedule"
         ],
-        "sourceName": "RLWC 2026 — competition rules",
-        "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
-        "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+        "sourceName": "Australia v New Zealand — Rugby League World Cup — official research 1",
+        "sourceUrl": "https://www.nrl.com/news/2026/09/27/cleary-out-of-world-cup-edwards-yeo-in-doubt-as-crossland-awaits-fate/",
+        "sourceCheckedAt": "2026-10-02T17:57:04.283Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -96006,34 +96007,38 @@
       "sourceType": "official",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
+        "projectionId": "projection:fixture-research:rlwc-australia-new-zealand-2026",
         "researchTier": "marquee",
-        "hook": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
-        "synopsis": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+        "hook": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
+        "synopsis": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
+        "formCopy": "New Zealand arrive as the 2025 Pacific Cup champions; Australia bring the momentum of an Ashes series win. The Kiwis' forward depth gives them a platform to challenge the defending world champions, rather than wait for an upset. Australia's task has become harder with Nathan Cleary ruled out, while the fitness of Isaah Yeo and Dylan Edwards remains uncertain.",
+        "closingCopy": "This rivalry is about who owns the green-and-gold standard, not just who wins opening night. Kevin Walters must rebuild Australia's attacking direction without Cleary; Sam Walker is a contender, not a confirmed selection. For New Zealand, the old Sydney Football Stadium's seven-match losing record offers a history to overturn at the rebuilt Allianz. The 2008 champions showed why an opening defeat need not define a World Cup, but neither side wants to spend this tournament recovering lost ground.",
         "threadIds": [
-          "thread:rlwc:2026:kangaroos-kiwis-opener",
-          "thread:rlwc:2026:three-tournaments-one-world-cup"
+          "thread:fixture-research:rlwc-australia-new-zealand-2026"
         ],
         "factIds": [
-          "fact:rlwc-aus-nz:opening-match",
-          "fact:rlwc-aus-nz:recent-champions",
-          "fact:rlwc-aus-nz:pool-path",
-          "fact:rlwc-aus-nz:2008-precedent"
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:0",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:1",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:2",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:3",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:4",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:5"
         ],
         "sourceIds": [
-          "source:rlwc2026:competition-rules",
-          "source:rlwc2026:fixtures-announced",
-          "source:nrl:2026-kiwis-record-book-plan",
-          "source:nrl:2026-six-months-to-rlwc"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:3"
         ],
         "dimensions": [
           "matchup",
           "form",
+          "history",
           "consequence",
-          "history"
+          "schedule"
         ],
-        "researchedAt": "2026-08-29T23:56:41.761Z",
-        "refreshAfter": "2026-10-01T12:00:00.000Z",
+        "researchedAt": "2026-10-02T17:57:04.283Z",
+        "refreshAfter": "2026-10-15T09:05:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       },
@@ -96687,8 +96692,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "test",
-      "selectedSentence": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
-      "fullSpiel": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "selectedSentence": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
+      "fullSpiel": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
       "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
       "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -96714,27 +96719,30 @@
         "intensity": 5,
         "arcStage": "preview",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
-        "hookSpoilerOn": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
-        "synopsisSpoilerOff": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
-        "synopsisSpoilerOn": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+        "hookSpoilerOff": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
+        "hookSpoilerOn": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
+        "synopsisSpoilerOff": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
+        "synopsisSpoilerOn": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+        "lastReviewedAt": "2026-10-02T17:57:04.283Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "lastReviewedAt": "2026-10-02T17:57:04.283Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Sydney depends on Auckland",
+        "angle": "Australia v New Zealand",
         "contextSignals": [
           "event-specific",
+          "narrative:schedule",
           "narrative:path",
-          "narrative:consequence",
-          "narrative:history"
+          "narrative:form",
+          "narrative:matchup",
+          "narrative:history",
+          "narrative:consequence"
         ],
-        "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
+        "sourceName": "Australia v New Zealand — official research 1",
         "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-        "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+        "sourceCheckedAt": "2026-10-02T17:57:04.283Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -96751,32 +96759,38 @@
       "sourceType": "official",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:feed:bledisloe-sydney-2026",
+        "projectionId": "projection:fixture-research:rugby-australia-new-zealand-2026-10-17",
         "researchTier": "marquee",
-        "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
-        "synopsis": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+        "hook": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
+        "synopsis": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
+        "formCopy": "Australia enter the Bledisloe fortnight buoyed by their recent Springboks performance; New Zealand have come through a demanding four-Test South Africa series. Codie Taylor captains the All Blacks while Ardie Savea recovers from shoulder surgery, with Scott Barrett returning after back surgery. Those are the current squad-level changes, not a confirmed Sydney starting XV.",
+        "closingCopy": "For Wallabies supporters, home advantage is an invitation to believe rather than accept another familiar ending. For New Zealand, protecting a trophy held since 2003 is a matter of standards as well as silverware. Les Kiss is building towards a home World Cup; Taylor must lead through an injury-hit period. This same stadium hosts the countries' first World Cup pool meeting next October, giving both teams a chance to shape the atmosphere of a rivalry that will return on an even bigger stage.",
         "threadIds": [
-          "thread:rugby:bledisloe:2026-two-test-series"
+          "thread:fixture-research:rugby-australia-new-zealand-2026-10-17"
         ],
         "factIds": [
-          "fact:bledisloe-sydney:second-test",
-          "fact:bledisloe-sydney:stakes-depend-on-auckland",
-          "fact:bledisloe-sydney:nz-long-hold",
-          "fact:bledisloe-sydney:same-ground-2027"
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:2",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:3",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:4",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:5"
         ],
         "sourceIds": [
-          "source:rugbyau:2026-wallabies-schedule",
-          "source:rugbyau:2025-bledisloe-auckland",
-          "source:rugbyau:2025-bledisloe-perth",
-          "source:rugbyau:2027-world-cup-pools"
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:2"
         ],
         "dimensions": [
+          "schedule",
           "path",
-          "consequence",
-          "history"
+          "form",
+          "matchup",
+          "history",
+          "consequence"
         ],
-        "researchedAt": "2026-08-29T23:56:41.761Z",
-        "refreshAfter": "2026-10-10T12:00:00.000Z",
+        "researchedAt": "2026-10-02T17:57:04.283Z",
+        "refreshAfter": "2026-10-17T05:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       },

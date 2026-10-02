@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T17:48:53.306Z",
+  "generatedAt": "2026-10-02T17:58:13.510Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -48,7 +48,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-02T15:24:03.623Z",
+      "freshAt": "2026-10-02T17:58:13.510Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
