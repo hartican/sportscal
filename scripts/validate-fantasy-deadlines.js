@@ -4,7 +4,7 @@ const p={enabled:true,gameByCompetition:{'competition:premier-league':'fpl-class
 const output=fpl.normalize(sample),e={...sample.events[0],fantasyDeadlines:output.find(x=>x.id===sample.events[0].canonicalEventId).fantasyDeadlines};
 const deadline=Date.parse(e.fantasyDeadlines[0].deadlineAt),now=deadline-2*86400000;
 const sources={'live-fantasy-fpl':{enabled:true,checkedAt:new Date(now).toISOString()}};
-assert.deepEqual(f.normalizePreferences(),{enabled:false,gameByCompetition:{}});assert.equal(f.normalizePreferences({enabled:'true'}).enabled,false);
+assert.deepEqual(f.normalizePreferences(),{enabled:false,gameByCompetition:{},rolloutVersion:2,choiceSource:'pending-onboarding'});assert.equal(f.normalizePreferences({enabled:'true'}).enabled,false);
 assert.deepEqual(f.normalizePreferences({enabled:true,gameByCompetition:{'competition:premier-league':'bogus'}}).gameByCompetition,{});
 for(const [ms,expected] of [[86400000,'1d 0h 0m'],[3600000,'1h 0m'],[60000,'1m'],[59999,'<1m'],[0,null],[-1,null],[2*86400000+4*3600000+18*60000,'2d 4h 18m']])assert.equal(f.format(ms),expected);
 assert(f.select(e,p,sources,now));assert.equal(f.select(e,{},sources,now),null);assert.equal(f.select(e,{enabled:true},sources,now),null);

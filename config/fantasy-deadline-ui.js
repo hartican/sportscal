@@ -40,9 +40,10 @@ function clearFantasyPlaceholderSpace(){
   }
 }
 function saveFantasySetting(next){
-  const clean=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(next);
+  const clean=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences({...next,choiceSource:'settings'});
   savePreferences({...userPreferences,fantasyDeadlines:clean},{viewOnly:true});
   if(draftPreferences)draftPreferences.fantasyDeadlines=clonePreferences(clean);
+  if(settingsDraftBaseline)settingsDraftBaseline.fantasyDeadlines=clonePreferences(clean);
   queueServerStateSync();
   clearFantasyPlaceholderSpace();
   globalThis.fantasyDeadlineController?.sync();
@@ -55,6 +56,12 @@ globalThis.fantasyDeadlineController=createController({
 });
 for(const name of ['focus','pageshow'])window.addEventListener(name,()=>globalThis.fantasyDeadlineController.sync());
 document.addEventListener('visibilitychange',()=>globalThis.fantasyDeadlineController.sync());
+function appendEvaluationDisclosure(parent){
+  if(fantasySourceState['live-fantasy-fpl']?.accessStatus==='approved')return;
+  const note=document.createElement('p');note.className='preference-help fantasy-license-note';
+  note.textContent='Evaluation feature. FPL data licence pending negotiation; commercial use subject to licence clearance. Nothing Sport is not affiliated with or endorsed by the Premier League.';
+  parent.append(note);
+}
 function renderFantasySettings(body){
   const f=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES,p=f.normalizePreferences(userPreferences.fantasyDeadlines);
   body.innerHTML='<section class="filter-panel"><label><input id="fantasyDeadlineToggle" type="checkbox"> Show fantasy deadlines on soccer cards</label><p class="preference-help">Show a small countdown for your selected fantasy games when their submission deadline is verified. Unavailable or expired deadlines stay hidden.</p><p class="preference-help">Changes save immediately.</p></section>';
@@ -64,7 +71,7 @@ function renderFantasySettings(body){
   for(const competition of f.COMPETITIONS){
     const group=document.createElement('div');group.className='fantasy-game-choice';const title=document.createElement('strong');title.textContent=competition.label;group.append(title);
     const games=f.GAMES.filter(g=>g.competitionId===competition.id);
-    if(games.length){const label=document.createElement('label');label.textContent='Fantasy game ';const select=document.createElement('select');select.setAttribute('aria-label',competition.label+' fantasy game');const none=document.createElement('option');none.value='';none.textContent='None';select.append(none);for(const game of games){const option=document.createElement('option');option.value=game.gameId;option.textContent=game.label;select.append(option);}select.value=p.gameByCompetition[competition.id]||'';select.onchange=()=>{const choices={...userPreferences.fantasyDeadlines.gameByCompetition};if(select.value)choices[competition.id]=select.value;else delete choices[competition.id];saveFantasySetting({...userPreferences.fantasyDeadlines,gameByCompetition:choices});};label.append(select);group.append(label);const help=document.createElement('p');help.className='preference-help';help.textContent=games[0].help+(fantasySourceState[games[0].sourceId]?.enabled===false?' Deadline data is currently unavailable.':'');group.append(help);}
+    if(games.length){const label=document.createElement('label');label.textContent='Fantasy game ';const select=document.createElement('select');select.setAttribute('aria-label',competition.label+' fantasy game');const none=document.createElement('option');none.value='';none.textContent='None';select.append(none);for(const game of games){const option=document.createElement('option');option.value=game.gameId;option.textContent=game.label;select.append(option);}select.value=p.gameByCompetition[competition.id]||'';select.onchange=()=>{const choices={...userPreferences.fantasyDeadlines.gameByCompetition};if(select.value)choices[competition.id]=select.value;else delete choices[competition.id];saveFantasySetting({...userPreferences.fantasyDeadlines,gameByCompetition:choices});};label.append(select);group.append(label);const help=document.createElement('p');help.className='preference-help';help.textContent=games[0].help+(fantasySourceState[games[0].sourceId]?.enabled===false?' Deadline data is currently unavailable.':'');group.append(help);appendEvaluationDisclosure(group);}
     else{const help=document.createElement('p');help.className='preference-help';help.textContent='No verified fantasy source yet';group.append(help);}section.append(group);
   }body.append(section);
 }
@@ -165,9 +172,79 @@ function renderAboutSettings(body){
     button.addEventListener("click", () => openLegalDocument(button.dataset.legalDocument));
   });
   about.appendChild(legal);
+  appendEvaluationDisclosure(about);
 }
 
-globalThis.NOTHINGSPORTS_FANTASY_UI={createController,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
+function renderStartupMetadataSettings(body){
+  const meta = startupMetaDraft();
+  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
+    <section class="filter-panel"><h3>What are you into?</h3><p class="preference-help">Choose at least one. These seed your sport follows and Aussies Only; you can refine clubs and players later.</p><div class="setup-choice-grid" id="startupSportsGrid"></div></section>
+    <section class="filter-panel"><h3>Fantasy deadlines</h3><label class="setup-consent"><input id="startupFantasyDeadlines" type="checkbox" ${draftPreferences.fantasyDeadlines.enabled ? "checked" : ""}> Show FPL deadline countdowns on Premier League cards</label><p class="preference-help">Shows verified Fantasy Premier League deadlines. You can turn this off in Settings.</p></section>
+    <section class="filter-panel"><h3>Major events</h3><p class="preference-help">Optional. Pick the big event families you actively want.</p><div class="setup-choice-grid" id="startupEventsGrid"></div></section>
+    <section class="filter-panel"><h3>Set location</h3><p class="preference-help">City, postcode or area only. Coordinates are rounded and the default radius is 20 km.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="startupLocationQuery" type="search" value="${meta.location.label.replace(/"/g, "&quot;")}" maxlength="120" autocomplete="postal-code" placeholder="e.g. Sydney or 2000"></label><label class="field-label">Radius<select id="startupRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${meta.location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><div class="account-sync-actions"><button class="btn ghost" type="button" id="findStartupLocationBtn">Find location</button><button class="btn ghost" type="button" id="useCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="startupLocationStatus">${meta.location.label ? `${meta.location.label}${meta.location.region ? `, ${meta.location.region}` : ""} · ${meta.location.radiusKm} km` : "No location set yet."}</p></section>
+    <section class="filter-panel"><h3>Offers you might actually use</h3><p class="preference-help">Optional, lightweight ad relevance metadata. It does not change Feed eligibility.</p><div class="setup-choice-grid" id="startupOffersGrid"></div><label class="pilot-disclosure setup-consent"><input id="personalisedOffersConsent" type="checkbox" ${meta.personalisedOffersConsent ? "checked" : ""}><span><strong>Allow personalised offers later</strong>This is separate, optional consent. A Supabase admin can edit your seed preferences but cannot grant this consent for you.</span></label></section>
+    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">Optional for now. A verified account keeps this setup and future follows connected across devices.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create verified account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Or continue with a local profile.</p></section>
+  </div>`;
+  document.getElementById('startupFantasyDeadlines').addEventListener('change',event=>{
+    draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(event.target.checked);
+  });
+  const renderChoices = (targetId, records, selectedIds, onChange) => {
+    const grid = document.getElementById(targetId);
+    records.forEach(record => {
+      const label = document.createElement("label");
+      label.className = "setup-choice";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.checked = selectedIds.includes(record.id);
+      input.addEventListener("change", () => onChange(record.id, input.checked));
+      label.append(input, document.createTextNode(record.label));
+      grid.appendChild(label);
+    });
+  };
+  renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS, meta.sports, (id, checked) => {
+    const sports = new Set(startupMetaDraft().sports);
+    if (checked) sports.add(id); else sports.delete(id);
+    if (!sports.size){ showToast("Choose at least one sport."); renderSettingsScreen(); return; }
+    applyStartupMetaDraft({ sports:Array.from(sports) });
+  });
+  renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES, meta.majorEvents, (id, checked) => {
+    const events = new Set(startupMetaDraft().majorEvents);
+    if (checked) events.add(id); else events.delete(id);
+    applyStartupMetaDraft({ majorEvents:Array.from(events) });
+  });
+  renderChoices("startupOffersGrid", FOLLOW_FIRST.OFFER_INTERESTS, meta.offerInterests, (id, checked) => {
+    const offers = new Set(startupMetaDraft().offerInterests);
+    if (checked) offers.add(id); else offers.delete(id);
+    applyStartupMetaDraft({ offerInterests:Array.from(offers) });
+  });
+  document.getElementById("startupRadius").addEventListener("change", event => applyStartupMetaDraft({ location:{ ...startupMetaDraft().location, radiusKm:Number(event.target.value) } }));
+  document.getElementById("personalisedOffersConsent").addEventListener("change", event => applyStartupMetaDraft({ personalisedOffersConsent:event.target.checked, consentUpdatedAt:event.target.checked ? new Date().toISOString() : null }));
+  document.getElementById("findStartupLocationBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupLocationStatus");
+    status.textContent = "Finding that area…";
+    try{ await resolveSetupLocation(document.getElementById("startupLocationQuery").value.trim()); }
+    catch(error){ status.textContent = error.message; }
+  });
+  document.getElementById("useCurrentLocationBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupLocationStatus");
+    status.textContent = "Requesting your current area…";
+    try{ await useCurrentSetupLocation(); }
+    catch(error){ status.textContent = error.message || "Location permission was not granted."; }
+  });
+  document.getElementById("startupCreateAccountBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupAccountStatus");
+    const email = document.getElementById("startupAccountEmail").value.trim();
+    const password = document.getElementById("startupAccountPassword").value;
+    status.textContent = "Creating your account…";
+    try{
+      const result = await serverSyncClient.signUp(email, password, startupMetaDraft());
+      if (result.session){ await bootstrapServerPersistence(); status.textContent = "Account created and connected."; }
+      else status.textContent = "Check your email to verify the account, then sign in from Settings.";
+    }catch(error){ status.textContent = error.message || "The account could not be created."; }
+  });
+}
+
+globalThis.NOTHINGSPORTS_FANTASY_UI={createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
 for(const card of document.querySelectorAll('.feed-card-slot .event-card')){const ev=profileFixtureEvents.get(card.dataset.eventId);if(ev)installFantasyCard(card,ev,{});}
 globalThis.fantasyDeadlineController.sync();
 })();

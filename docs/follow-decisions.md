@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Fantasy deadline evaluation defaults — 2 October 2026
+
+The user approved a one-time ON/FPL Classic default for every pre-rollout saved profile, including OFF/None. This supersedes the feature's initial OFF/default-None policy. Automatic enablement is labelled a rollout choice, never user consent. Add rollout version 2; preserve every later explicit OFF/None, reject replayed defaults over recorded choices, and protect markers from older clients. New users receive an unchecked checkbox on the existing startup screen; only Save & start persists their onboarding choice. Resets use the new-user OFF/None defaults. Other competitions remain unselected, and future games are never silently selected.
+
+This is optional presentation on already eligible soccer fixtures. It does not follow EPL, admit fixtures, alter spoilers or grant notification consent. Ongoing FPL evaluation is explicitly operator-enabled, separate from unconfirmed provider licence approval, with readable Settings/About fine print and the existing server kill switch. No account linking or fantasy submissions. Regressions: validate-fantasy-rollout.js, validate-fantasy-deadlines-browser.js and the existing source/API, Follow parity and startup/PWA gates.
+
 ## Reviewed Lancashire/Durham provider equivalence — 30 September 2026
 
 CA50/ESPN1116 identify the same men's Lancashire side, and CA40/ESPN924 the same men's Durham side. An existing explicit Follow under either exact ID applies to the same participant; it does not opt into a different competition, gender or reserve side. Updating Follow through either alias replaces the group's prior explicit choice, so an old Unfollow cannot defeat a deliberate refollow. Confirmed participant exclusions match both aliases; ordinary Unfollow retains its existing neutral semantics. Stored preferences are not bulk rewritten. Only the separately reviewed CA39484/ESPN1513451 fixture pair is consolidated; both action aliases remain. Evidence and cutover limits: `docs/quality/cricket-provider-identities.md`. Regressions: `validate-cricket-provider-identities.js`, `validate-cricket-identities-browser.js`, existing server/client Follow parity.

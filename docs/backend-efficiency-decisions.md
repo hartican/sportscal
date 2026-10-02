@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Live FPL evaluation — 2 October 2026
+
+The existing protected two-minute fixture scheduler owns one optional FPL source. Fetch bootstrap and fixtures once each per due cycle: 30 minutes ordinarily and two minutes within six hours of a future submission cutoff. Accept verification for at most 60 minutes ordinarily or ten minutes near cutoff. Source failures never renew freshness. The existing lease, bounded two-worker/runtime limits, last-good JSON storage and explicit withdrawals remain; no scheduler, database migration, provider fetch from clients or per-card interval is added.
+
+The operator explicitly enabled ongoing evaluation separately from provider approval. Public source metadata exposes evaluation/approved/disabled without secrets; successful verification and access status affect only opt-in validators. OFF ordinary clients receive no fantasy enrichment. Preserve default/follow/notification boundaries in the Follow decision record. Regressions: fantasy source, API and rollout validators plus existing backend efficiency and database lease checks. Actual natural scheduled publication and live countdowns are separate acceptance evidence from recorded source tests.
+
 ## Reviewed past Rugby identity — 2 October 2026
 
 One exact AU–South Africa fixture retains its curated ID and four reviewed RA/WR aliases. Read snapshots span both historical IDs in existing bounded queries; legacy requested response keys survive. A service-only readiness RPC gates mutations for this one past match until atomic ledger/rating reconciliation completes; other fixtures add no check. No provider refresh, polling, scheduler or reminder replay is added. Preserve each original credit row/day/category and all history; private rooms and saved state are not merged. Operator undo refuses newer activity or erased preimages. Deployment precedes reconciliation with a temporary per-fixture write hold. Evidence, migration, acceptance and regressions: [reviewed Rugby reconciliation](quality/rugby-identity-reconciliation-2026-10-02.md). This does not certify Rugby or increase MVP budgets.

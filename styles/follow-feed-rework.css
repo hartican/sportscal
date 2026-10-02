@@ -399,3 +399,5 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fantasy-deadline{margin:3px 0;font-size:12px;line-height:1.35;color:var(--text);opacity:.85;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere;}
 .fantasy-game-choice{display:grid;gap:6px;margin:12px 0;}
 .fantasy-game-choice select{max-width:100%;font:inherit;}
+
+.fantasy-license-note{font-size:max(12px,.75rem);line-height:1.5;}

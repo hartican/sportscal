@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="361">
+<meta name="app-shell-version" content="362">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=361" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=362" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6879,7 +6879,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=359">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=362">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=358">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7175,7 +7175,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=361"></script>
+<script src="assets/js/app-shell-runtime.js?v=362"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -9275,6 +9275,7 @@ function feedScopeForIntent(intent){
 }
 
 function mergePreferences(saved){
+  const existingFantasyProfile=Boolean(saved&&typeof saved==='object'&&Object.keys(saved).some(key=>!['followBrowse','feedCompact'].includes(key)));
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
   if (!saved || typeof saved !== "object"){
     merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
@@ -9334,7 +9335,9 @@ function mergePreferences(saved){
     ...saved,
     version: DEFAULT_PREFERENCES.version,
     theme: normalizeThemePreference(saved.theme ?? merged.theme),
-    fantasyDeadlines: globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(saved.fantasyDeadlines),
+    fantasyDeadlines: existingFantasyProfile
+      ? globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.migratePreferences(saved.fantasyDeadlines)
+      : globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(saved.fantasyDeadlines),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     feedIntent: PERSONALISED_FEED?.normaliseFeedIntent?.(saved.feedIntent || feedIntentForScope(saved.feedControls?.scope)) || "balanced",
     feedControls: FEED_CONTROLS?.normalize?.(saved.feedControls || {
@@ -10351,6 +10354,12 @@ function normalizeServerArchiveReferences(references, profileId){
     }));
 }
 
+function fantasyPreferencesDiffer(state){
+  return USER_STATE_SYNC.hasChanges(USER_STATE_SYNC.createPatch(
+    {preferences:{fantasyDeadlines:state.preferences?.fantasyDeadlines}},
+    {preferences:{fantasyDeadlines:userPreferences.fantasyDeadlines}}
+  ));
+}
 function applyServerState(state){
   if (!state) return false;
   setTimeout(()=>void followSharedHandle(),0);
@@ -10358,8 +10367,9 @@ function applyServerState(state){
   try{
     const localBrowse=userPreferences.followBrowse;
     const localCompact=userPreferences.feedCompact;
-    userPreferences = mergePreferences({...state.preferences,followBrowse:localBrowse,feedCompact:localCompact});
-    if(draftPreferences)draftPreferences.fantasyDeadlines=clonePreferences(userPreferences.fantasyDeadlines);
+    const incomingPreferences={...state.preferences,followBrowse:localBrowse,feedCompact:localCompact};
+    if(state.preferences&&Object.keys(state.preferences).length)incomingPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.hydratePreferences(state.preferences.fantasyDeadlines,userPreferences.fantasyDeadlines);
+    userPreferences = mergePreferences(incomingPreferences);
     clearFantasyPlaceholderSpace();
     globalThis.fantasyDeadlineController?.sync();
     void ensureFeedSourceReadiness(userPreferences).then(() => {
@@ -10430,6 +10440,7 @@ function applyServerState(state){
     return true;
   }finally{
     serverSyncApplying = false;
+    if(fantasyPreferencesDiffer(state))setTimeout(queueServerStateSync,0);
   }
 }
 
@@ -10506,7 +10517,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
       });
       await hydrateUserMetaSeed();
       startupSessionStateBaseline = null;
-      if (USER_STATE_SYNC.hasChanges(sessionPatch)) await syncCurrentServerState();
+      if (USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
     } else {
       setServerPersistence({ state: "signedIn", user, message: "" });
       serverStateBaseline = {
@@ -17008,7 +17019,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=361';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=362';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -22617,68 +22628,8 @@ async function useCurrentSetupLocation(){
 }
 
 function renderStartupMetadataSettings(body){
-  const meta = startupMetaDraft();
-  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <section class="filter-panel"><h3>What are you into?</h3><p class="preference-help">Choose at least one. These seed your sport follows and Aussies Only; you can refine clubs and players later.</p><div class="setup-choice-grid" id="startupSportsGrid"></div></section>
-    <section class="filter-panel"><h3>Major events</h3><p class="preference-help">Optional. Pick the big event families you actively want.</p><div class="setup-choice-grid" id="startupEventsGrid"></div></section>
-    <section class="filter-panel"><h3>Set location</h3><p class="preference-help">City, postcode or area only. Coordinates are rounded and the default radius is 20 km.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="startupLocationQuery" type="search" value="${meta.location.label.replace(/"/g, "&quot;")}" maxlength="120" autocomplete="postal-code" placeholder="e.g. Sydney or 2000"></label><label class="field-label">Radius<select id="startupRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${meta.location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><div class="account-sync-actions"><button class="btn ghost" type="button" id="findStartupLocationBtn">Find location</button><button class="btn ghost" type="button" id="useCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="startupLocationStatus">${meta.location.label ? `${meta.location.label}${meta.location.region ? `, ${meta.location.region}` : ""} · ${meta.location.radiusKm} km` : "No location set yet."}</p></section>
-    <section class="filter-panel"><h3>Offers you might actually use</h3><p class="preference-help">Optional, lightweight ad relevance metadata. It does not change Feed eligibility.</p><div class="setup-choice-grid" id="startupOffersGrid"></div><label class="pilot-disclosure setup-consent"><input id="personalisedOffersConsent" type="checkbox" ${meta.personalisedOffersConsent ? "checked" : ""}><span><strong>Allow personalised offers later</strong>This is separate, optional consent. A Supabase admin can edit your seed preferences but cannot grant this consent for you.</span></label></section>
-    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">Optional for now. A verified account keeps this setup and future follows connected across devices.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create verified account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Or continue with a local profile.</p></section>
-  </div>`;
-  const renderChoices = (targetId, records, selectedIds, onChange) => {
-    const grid = document.getElementById(targetId);
-    records.forEach(record => {
-      const label = document.createElement("label");
-      label.className = "setup-choice";
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.checked = selectedIds.includes(record.id);
-      input.addEventListener("change", () => onChange(record.id, input.checked));
-      label.append(input, document.createTextNode(record.label));
-      grid.appendChild(label);
-    });
-  };
-  renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS, meta.sports, (id, checked) => {
-    const sports = new Set(startupMetaDraft().sports);
-    if (checked) sports.add(id); else sports.delete(id);
-    if (!sports.size){ showToast("Choose at least one sport."); renderSettingsScreen(); return; }
-    applyStartupMetaDraft({ sports:Array.from(sports) });
-  });
-  renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES, meta.majorEvents, (id, checked) => {
-    const events = new Set(startupMetaDraft().majorEvents);
-    if (checked) events.add(id); else events.delete(id);
-    applyStartupMetaDraft({ majorEvents:Array.from(events) });
-  });
-  renderChoices("startupOffersGrid", FOLLOW_FIRST.OFFER_INTERESTS, meta.offerInterests, (id, checked) => {
-    const offers = new Set(startupMetaDraft().offerInterests);
-    if (checked) offers.add(id); else offers.delete(id);
-    applyStartupMetaDraft({ offerInterests:Array.from(offers) });
-  });
-  document.getElementById("startupRadius").addEventListener("change", event => applyStartupMetaDraft({ location:{ ...startupMetaDraft().location, radiusKm:Number(event.target.value) } }));
-  document.getElementById("personalisedOffersConsent").addEventListener("change", event => applyStartupMetaDraft({ personalisedOffersConsent:event.target.checked, consentUpdatedAt:event.target.checked ? new Date().toISOString() : null }));
-  document.getElementById("findStartupLocationBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupLocationStatus");
-    status.textContent = "Finding that area…";
-    try{ await resolveSetupLocation(document.getElementById("startupLocationQuery").value.trim()); }
-    catch(error){ status.textContent = error.message; }
-  });
-  document.getElementById("useCurrentLocationBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupLocationStatus");
-    status.textContent = "Requesting your current area…";
-    try{ await useCurrentSetupLocation(); }
-    catch(error){ status.textContent = error.message || "Location permission was not granted."; }
-  });
-  document.getElementById("startupCreateAccountBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupAccountStatus");
-    const email = document.getElementById("startupAccountEmail").value.trim();
-    const password = document.getElementById("startupAccountPassword").value;
-    status.textContent = "Creating your account…";
-    try{
-      const result = await serverSyncClient.signUp(email, password, startupMetaDraft());
-      if (result.session){ await bootstrapServerPersistence(); status.textContent = "Account created and connected."; }
-      else status.textContent = "Check your email to verify the account, then sign in from Settings.";
-    }catch(error){ status.textContent = error.message || "The account could not be created."; }
-  });
+  body.textContent='Loading setup…';
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='startup')ui.renderStartupSettings(body);}).catch(()=>{body.textContent='Setup temporarily unavailable. Try again.';});
 }
 
 async function renderAllFollowedSettings(body){
@@ -22813,6 +22764,7 @@ function recordSavedPreferenceChanges(previous, next){
 
 function saveSettingsPreferences(){
   const viewportAnchor = settingsViewportAnchor;
+  if(settingsFirstRun)draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(draftPreferences.fantasyDeadlines.enabled);
   draftPreferences.onboardingComplete = true;
   syncDraftSelectorSports();
   const settingsPatch = USER_STATE_SYNC?.createPatch

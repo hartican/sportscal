@@ -1,10 +1,10 @@
-(function(root,factory){const api=factory();root.NOTHINGSPORTS_FANTASY_DEADLINES=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;})(typeof globalThis!=='undefined'?globalThis:window,function(){
+(function(root,factory){const api=factory(root.NOTHINGSPORTS_FANTASY_PREFERENCES||(typeof require==='function'?require('./fantasy-preferences'):null));root.NOTHINGSPORTS_FANTASY_DEADLINES=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;})(typeof globalThis!=='undefined'?globalThis:window,function(preferences){
   'use strict';
   const SCHEMA_VERSION='fantasy-deadlines.v1';
   const GAMES=Object.freeze([{providerId:'premier-league',gameId:'fpl-classic',label:'Fantasy Premier League',shortLabel:'FPL',competitionId:'competition:premier-league',sourceId:'live-fantasy-fpl',rulesUrl:'https://fantasy.premierleague.com/help/rules',rulesVerifiedAt:'2026-10-02',help:'The initial team submission deadline applies to the whole gameweek. No fantasy account connection is needed.'}]);
   const COMPETITIONS=Object.freeze([['premier-league','Premier League'],['bundesliga','Bundesliga'],['la-liga','La Liga'],['serie-a','Serie A'],['ligue-1','Ligue 1'],['champions-league','Champions League'],['fifa-world-cup','FIFA World Cup']].map(([id,label])=>({id:'competition:'+id,label})));
   function competitionKey(value){const id=String(value||'');return COMPETITIONS.find(c=>id===c.id||new RegExp('^'+c.id+'-\\d{4}(?:-\\d{2,4})?$').test(id))?.id||null;}
-  function normalizePreferences(raw){const value=raw&&typeof raw==='object'?raw:{};const choices={};for(const [id,game] of Object.entries(value.gameByCompetition||{})){if(GAMES.some(g=>g.gameId===game&&g.competitionId===id))choices[id]=game;}return {enabled:value.enabled===true,gameByCompetition:choices};}
+  const {normalizePreferences,migratePreferences,onboardingChoice,hydratePreferences}=preferences;
   function soccer(event){return event?.sportDomainId==='sport:football'||event?.codeId==='sport:football'||['football','premier-league','fifa','champions-league'].includes(event?.key);}
   function format(ms){if(!Number.isFinite(ms)||ms<=0)return null;if(ms<60000)return '<1m';const total=Math.floor(ms/60000),d=Math.floor(total/1440),h=Math.floor(total%1440/60),m=total%60;return d?`${d}d ${h}h ${m}m`:h?`${h}h ${m}m`:`${m}m`;}
   function ageLimit(deadline,now){return deadline-now<=6*3600000?10*60000:60*60000;}
@@ -21,5 +21,5 @@
     return {...record,definition,deadline,verified};
   }
   function interval(records,now=Date.now()){const next=Math.min(...records.flatMap(e=>(e.fantasyDeadlines||[]).map(r=>Date.parse(r.deadlineAt))).filter(t=>t>now));return next-now<=6*3600000?120000:1800000;}
-  return {SCHEMA_VERSION,GAMES,COMPETITIONS,competitionKey,normalizePreferences,soccer,format,select,ageLimit,interval};
+  return {SCHEMA_VERSION,GAMES,COMPETITIONS,competitionKey,normalizePreferences,migratePreferences,onboardingChoice,hydratePreferences,soccer,format,select,ageLimit,interval};
 });

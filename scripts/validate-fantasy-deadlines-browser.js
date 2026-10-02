@@ -12,8 +12,39 @@ async function mount(page){
   const host=document.createElement('div');host.id='fantasy-browser-host';for(let i=0;i<2;i++){const ev=i?{...event,id:event.id+'-2',eventId:event.id+'-2'}:event;cardViewStates[ev.id]=i?'selected':'compact';host.append(buildEventCard(ev));}document.getElementById('fantasy-browser-host')?.remove();document.getElementById('listView').append(host);fantasyDeadlineController.sync();
  },require('../data/events.json').events.find(e=>e.key==='premier-league'&&Date.parse(e.startTimeUtc)>Date.now()+86400000));
 }
+async function rolloutAndOnboarding(browser,url){
+ for(const mode of ['unchecked','checked','abandoned','legacy']){
+  const context=await browser.newContext({viewport:{width:390,height:900},serviceWorkers:'block'}),page=await context.newPage();
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:304}));await page.goto(url);
+  await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());
+  const checkbox=page.getByLabel('Show FPL deadline countdowns on Premier League cards');await checkbox.waitFor();assert.equal(await checkbox.isChecked(),false);
+  assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.choiceSource),'pending-onboarding');
+  if(mode==='legacy'){
+   await page.evaluate(()=>{const legacy=clonePreferences(userPreferences);legacy.onboardingComplete=true;legacy.fantasyDeadlines={enabled:false,gameByCompetition:{}};saveActiveProfileSection('preferences',legacy);});
+   await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());
+   assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),true);assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.choiceSource),'rollout');
+   assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.gameByCompetition['competition:premier-league']),'fpl-classic');
+   await page.evaluate(()=>ensureFantasyUi());await page.evaluate(()=>NOTHINGSPORTS_FANTASY_UI.save({...userPreferences.fantasyDeadlines,enabled:false}));
+   await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),false);
+   await page.evaluate(()=>{const state=currentServerStatePayload();state.preferences.fantasyDeadlines={enabled:true,gameByCompetition:{'competition:premier-league':'fpl-classic'},rolloutVersion:2,choiceSource:'rollout'};applyServerState(state);});
+   assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),false,'automatic cloud defaults never undo a recorded OFF');
+   await page.evaluate(()=>savePreferences({...mergePreferences(null),onboardingComplete:true},{viewOnly:true}));assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.choiceSource),'pending-onboarding');assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),false);
+  }else{
+   if(mode!=='unchecked')await checkbox.check();
+   assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),false,'unfinished setup changes remain draft only');
+   if(mode==='abandoned'){
+    await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());await checkbox.waitFor();assert.equal(await checkbox.isChecked(),false);
+   }else{
+    await page.locator('#startupSportsGrid input').first().check();await page.getByRole('button',{name:'Save & start',exact:true}).click();
+    assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),mode==='checked');assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.choiceSource),'onboarding');
+    await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),mode==='checked');
+   }
+  }
+  assert.deepEqual(errors,[],mode+' startup errors');await context.close();
+ }
+}
 async function main(){await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}`;const browser=await chromium.launch({headless:true});
- try{for(const width of [320,390,768,1280]){const context=await browser.newContext({viewport:{width,height:900},timezoneId:({320:'Australia/Sydney',390:'Europe/London',768:'UTC',1280:'America/New_York'})[width],reducedMotion:'reduce',colorScheme:width===390?'dark':'light',serviceWorkers:'block'}),page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',route=>route.fulfill({status:304}));await page.goto(url);await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());
+ try{await rolloutAndOnboarding(browser,url);for(const width of [320,390,768,1280]){const context=await browser.newContext({viewport:{width,height:900},timezoneId:({320:'Australia/Sydney',390:'Europe/London',768:'UTC',1280:'America/New_York'})[width],reducedMotion:'reduce',colorScheme:width===390?'dark':'light',serviceWorkers:'block'}),page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',route=>route.fulfill({status:304}));await page.goto(url);await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());
  await page.evaluate(()=>{const next=clonePreferences(userPreferences);next.onboardingComplete=true;next.followFirst.refinement.promptedAt=new Date().toISOString();savePreferences(next,{viewOnly:true});document.getElementById('settingsModal')?.classList.remove('show');activeTab='feed';});
  assert.equal(await page.evaluate(()=>userPreferences.fantasyDeadlines.enabled),false);await mount(page);assert.equal(await page.locator('#fantasy-browser-host .fantasy-deadline').count(),0);
  await page.evaluate(async()=>{await document.fonts.ready;for(const image of document.querySelectorAll('#fantasy-browser-host img'))image.loading='eager';});await page.waitForTimeout(750);
@@ -22,7 +53,9 @@ async function main(){await new Promise(resolve=>server.listen(0,'127.0.0.1',res
  await page.getByRole('button',{name:/Appearance Day, night or system/}).click();await page.getByRole('radio',{name:'Night',exact:true}).waitFor();await page.getByRole('button',{name:'Back to previous Settings screen',exact:true}).click();
  await page.getByRole('button',{name:/Subscriptions .*preferred viewing service/}).click();await page.locator('#settingsBody .filter-panel').first().waitFor();await page.getByRole('button',{name:'Back to previous Settings screen',exact:true}).click();
  await page.getByRole('button',{name:/Set location/}).click();await page.waitForFunction(()=>document.querySelector('#settingsBody input'));await page.getByRole('button',{name:'Back to previous Settings screen',exact:true}).click();
+ await page.getByRole('button',{name:/About Nothing Sport/}).click();await page.locator('#settingsBody .fantasy-license-note').waitFor();assert.match(await page.locator('#settingsBody .fantasy-license-note').textContent(),/licence pending negotiation/);await page.getByRole('button',{name:'Back to previous Settings screen',exact:true}).click();
  await page.getByRole('button',{name:/Fantasy deadlines/}).click();await page.getByLabel('Show fantasy deadlines on soccer cards').check();assert.equal(await page.locator('#fantasy-browser-host .fantasy-deadline').count(),0,'toggle alone does not choose FPL');
+ assert(await page.locator('#settingsBody .fantasy-license-note').evaluate(n=>parseFloat(getComputedStyle(n).fontSize)>=12));
  await page.getByLabel('Premier League fantasy game').selectOption('fpl-classic');await page.waitForFunction(()=>document.querySelectorAll('#fantasy-browser-host .fantasy-deadline').length===2);
  const texts=await page.locator('#fantasy-browser-host .fantasy-deadline').allTextContents();assert.equal(texts[0],texts[1]);assert.match(texts[0],/^FPL deadline · 2d 4h 1[78]m$/);
  // A source-only change updates mounted text even when the Feed fingerprint avoids a rebuild.
@@ -52,5 +85,5 @@ async function main(){await new Promise(resolve=>server.listen(0,'127.0.0.1',res
   controller.sync();const mounted=host.querySelectorAll('.fantasy-deadline').length;clock+=60001;callback();const remaining=host.querySelectorAll('.fantasy-deadline').length;controller.dispose();host.remove();return {mounted,remaining};
  });assert.equal(expired.mounted,2);assert.equal(expired.remaining,0,'shared timer removes lines at expiry');
  assert.deepEqual(errors,[],`browser errors at ${width}px`);await context.close();}}
- finally{await browser.close();server.close();}console.log('Fantasy browser: compact/selected OFF geometry, source-only changes, explicit game choice, immediate opt-out, persistence, freshness, expiry and shared timer passed at 320/390/768/1280px.');}
+ finally{await browser.close();server.close();}console.log('Fantasy browser: legacy rollout, unchecked/checked/abandoned onboarding, reset and hydration, licensing fine print, compact/selected OFF geometry, source-only changes, explicit game choice, immediate opt-out, persistence, freshness, expiry and shared timer passed at 320/390/768/1280px.');}
 main().catch(e=>{console.error(e);server.close();process.exitCode=1;});

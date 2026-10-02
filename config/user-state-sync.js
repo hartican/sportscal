@@ -112,7 +112,35 @@
       if (change.remove) delete target[finalSegment];
       else target[finalSegment] = clone(change.value);
     });
+    preserveFantasyDecision(baseState, patch, next);
     return next;
+  }
+
+  function preserveFantasyDecision(baseState, patch, next){
+    const prior=baseState?.preferences?.fantasyDeadlines;
+    if (!Number.isSafeInteger(prior?.rolloutVersion) || prior.rolloutVersion<2) return;
+    const changes=patch.changes.filter(change=>change.path[0]==='preferences'
+      && (change.path.length===1 || change.path[1]==='fantasyDeadlines'));
+    if (!changes.length) return;
+    let incomingSource;
+    for (const change of changes){
+      if (change.remove) continue;
+      if (change.path.length===1) incomingSource=change.value?.fantasyDeadlines?.choiceSource;
+      else if (change.path.length===2) incomingSource=change.value?.choiceSource;
+      else if (change.path[2]==='choiceSource') incomingSource=change.value;
+    }
+    // Replayed defaults from another device cannot defeat any recorded choice.
+    const candidate=next.preferences?.fantasyDeadlines;
+    if (['rollout','pending-onboarding'].includes(incomingSource) || !plainObject(candidate)){
+      if (!plainObject(next.preferences)) next.preferences={};
+      next.preferences.fantasyDeadlines=clone(prior);
+      return;
+    }
+    candidate.rolloutVersion=Math.max(prior.rolloutVersion,Number.isSafeInteger(candidate.rolloutVersion)?candidate.rolloutVersion:2);
+    const changed=prior.enabled!==candidate.enabled || !sameValue(prior.gameByCompetition,candidate.gameByCompetition);
+    // Legacy clients can change the display setting but cannot erase its marker.
+    candidate.choiceSource=['settings','onboarding'].includes(incomingSource)
+      ? incomingSource : changed?'settings':prior.choiceSource;
   }
 
   function eventFamilyPath(change, leaf){

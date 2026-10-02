@@ -50,6 +50,7 @@ jobs:
           node scripts/build-fantasy-ui.js --check
           node scripts/validate-fantasy-deadlines.js
           node scripts/validate-fantasy-deadline-api.js
+          node scripts/validate-fantasy-rollout.js
           node scripts/build-app-shell-runtime.js --check
           node scripts/validate-tennis-journey-migration.js
           node scripts/validate-security-headers.js
