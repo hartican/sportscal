@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## SailGP coverage wording — 3 October 2026
+
+Published SailGP race days are a partial window, not complete season coverage. The existing coverage explanation states that season teams may be listed while event-specific entries and future session times may be unconfirmed. Two source-proven Geneva clock corrections keep every fixture/canonical ID, participant reference, follow, exclusion and saved-action key. Results retain their original observation and spoiler policy. No admission, reminder eligibility, retention or opt-in rule changes. Regression: `validate-sailgp-quality.js --published`, Follow policy parity and both-engine source-card/cache checks.
+
 ## Explicit tournament phase in Follow and Feed — 3 October 2026
 
 Date-only Golf/Tennis or explicitly marked tournament parents show “In progress” when their published status explicitly says live, ongoing or in progress. This describes the tournament phase; it does not imply a session is live now. Compact, selected, expanded and minimised Follow cards retain the cue, as does Feed. Dates alone cannot create progress. Completed, cancelled, abandoned, postponed, suspended or interrupted status blocks the cue. Keep date ranges, session-time uncertainty and Results privacy.

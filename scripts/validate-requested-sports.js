@@ -88,7 +88,7 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const code = inspector.codes.find(item => item.id === expected.codeId);
   assert(code, `${expected.codeId}: Code Inspector entry is missing`);
   assert.equal(code.fixtureCount, expected.eventCount, `${expected.codeId}: Code Inspector schedule is incomplete`);
-  assert.equal(code.coverageStatus, "complete", `${expected.codeId}: Code Inspector coverage must be explicit`);
+  assert.equal(code.coverageStatus, sportKey==='sailgp'?'partial':'complete', `${expected.codeId}: Code Inspector coverage must match the reviewed boundary`);
   const chunk = readJson(code.chunkPath);
   assert.equal(chunk.fixtures.length, expected.eventCount, `${expected.codeId}: lazy schedule chunk is incomplete`);
   if (["motogp", "sailgp"].includes(sportKey)) assert(chunk.fixtures.every(fixture => fixture.participantSlots.length === 0), `${expected.codeId}: field events must not render as two-sided fixtures`);

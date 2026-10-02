@@ -71275,8 +71275,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "cardKind": "fixture",
     "displayTitleCompact": "Geneva Sail Grand Prix — race day 1",
     "date": "2026-09-19",
-    "time": "23:00",
-    "startTimeUtc": "2026-09-19T13:00:00.000Z",
+    "time": "23:30",
+    "startTimeUtc": "2026-09-19T13:30:00.000Z",
     "timeTbc": false,
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
@@ -71408,8 +71408,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "ROCKWOOL Racing led the Geneva standings after race day one.",
       "synopsisSpoilerOn": "A race victory put ROCKWOOL Racing at the head of the standings after the opening day. The event title remained to be decided on Sunday."
     },
-    "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
+    "endTimeUtc": "2026-09-19T15:00:00.000Z",
+    "endTimeBasis": "official-session-window",
     "sourceRefs": [
       "https://mediahub.sailgp.com/teams/rockwool-denmark/",
       "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
@@ -71425,7 +71425,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "consensusTags": [],
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://sailgp.com/results/all-seasons/",
+      "checkedAt": "2026-10-02T16:06:23.274Z"
+    }
   },
   {
     "id": "epl-2026-27-128965",
@@ -74227,8 +74232,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "cardKind": "fixture",
     "displayTitleCompact": "Geneva Sail Grand Prix — race day 2",
     "date": "2026-09-20",
-    "time": "23:00",
-    "startTimeUtc": "2026-09-20T13:00:00.000Z",
+    "time": "23:30",
+    "startTimeUtc": "2026-09-20T13:30:00.000Z",
     "timeTbc": false,
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
@@ -74360,8 +74365,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Los Gallos won the Geneva Sail Grand Prix ahead of Australia.",
       "synopsisSpoilerOn": "Spain passed the BONDS Flying Roos in the shortened final to take the event victory. ROCKWOOL Racing finished third."
     },
-    "endTimeUtc": "2026-09-20T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
+    "endTimeUtc": "2026-09-20T15:00:00.000Z",
+    "endTimeBasis": "official-session-window",
     "sourceRefs": [
       "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
       "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
@@ -74377,7 +74382,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "consensusTags": [],
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://sailgp.com/results/all-seasons/",
+      "checkedAt": "2026-10-02T16:06:23.274Z"
+    }
   },
   {
     "id": "epl-2026-27-128967",

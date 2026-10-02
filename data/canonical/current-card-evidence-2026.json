@@ -1477,5 +1477,35 @@
       "sourceName": "Cricket Australia",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4567/south-africa-v-australia-odis-2026-men"
     }
+  ],
+  "timingOverrides": [
+    {
+      "id": "evt_sailgp_2026_geneva_day_1",
+      "canonicalId": "event:sailgp:2026:geneva-day-1",
+      "date": "2026-09-19",
+      "time": "23:30",
+      "startTimeUtc": "2026-09-19T13:30:00.000Z",
+      "endTimeUtc": "2026-09-19T15:00:00.000Z",
+      "endTimeBasis": "official-session-window",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://sailgp.com/results/all-seasons/",
+        "checkedAt": "2026-10-02T16:06:23.274Z"
+      }
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_2",
+      "canonicalId": "event:sailgp:2026:geneva-day-2",
+      "date": "2026-09-20",
+      "time": "23:30",
+      "startTimeUtc": "2026-09-20T13:30:00.000Z",
+      "endTimeUtc": "2026-09-20T15:00:00.000Z",
+      "endTimeBasis": "official-session-window",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://sailgp.com/results/all-seasons/",
+        "checkedAt": "2026-10-02T16:06:23.274Z"
+      }
+    }
   ]
 }

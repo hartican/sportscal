@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const reviewedTiming=require('../lib/reviewed-session-timing');
 
 const ROOT = path.resolve(__dirname, "..");
 const TARGETS = ["data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "data/follow-sources/coverage.v1.json", "data/canonical/official-card-results-2026.json", "data/major-events.v1.json"];
@@ -76,6 +77,7 @@ function applyArray(records, overrides, checkedAt, { upsert=false } = {}){
 }
 function applyEvidence({ check=false } = {}){
   const evidence = read("data/canonical/current-card-evidence-2026.json");
+  const timings=reviewedTiming.validate(evidence.timingOverrides||[]);
   // Reviewed results are final facts, not merely score text on upcoming cards.
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
@@ -100,6 +102,8 @@ function applyEvidence({ check=false } = {}){
     ...event,
     subEvents:applyArray(event.subEvents || [], evidence.resultOverrides, evidence.checkedAt),
   }));
+  feed.events=reviewedTiming.apply(feed.events,timings,{required:true});
+  coverage.events=reviewedTiming.apply(coverage.events,timings);
 
   if(check){
     for(const override of evidence.fixtureOverrides){
@@ -121,6 +125,7 @@ function applyEvidence({ check=false } = {}){
     return;
   }
   for(const file of TARGETS) write(file, documents[file]);
+  applySelectedTimings();
   console.log("Applied reviewed fixtures, results, completion timing and broadcaster evidence.");
 }
 
@@ -144,8 +149,24 @@ function applySelectedResults(ids){
   results.results=[...byId.values()];write(file,results);
   console.log(`Applied ${selected.length} reviewed result(s); unrelated fixtures, editorial and observations retained.`);
 }
+function applySelectedTimings({root=ROOT}={}){
+  const evidence=JSON.parse(fs.readFileSync(path.join(root,'data/canonical/current-card-evidence-2026.json'),'utf8'));
+  const rows=reviewedTiming.validate(evidence.timingOverrides||[]);
+  if(!rows.length)return;
+  const targets=['data/canonical/fiba-women-sailgp-motogp-2026.json','feeds/incoming/events.json','data/events.json','data/follow-sources/coverage.v1.json'];
+  // Validate every retained document before any write; a partial/missing identity
+  // must not leave the public projections with different schedule facts.
+  const updates=targets.map(file=>{
+    const filename=path.join(root,file),bytes=fs.readFileSync(filename,'utf8'),doc=JSON.parse(bytes);
+    doc.events=reviewedTiming.apply(doc.events,rows,{required:file!=='data/follow-sources/coverage.v1.json'});
+    return {filename,bytes,next:JSON.stringify(doc,null,2)+'\n'};
+  });
+  for(const {filename,bytes,next} of updates)if(bytes!==next)fs.writeFileSync(filename,next);
+  console.log(`Applied ${rows.length} reviewed session timing(s); results, participation and original source dates retained.`);
+}
 if(require.main === module){
   const scope=process.argv.find(arg=>arg.startsWith('--ids='));
-  if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
+  if(process.argv.includes('--timing-only'))applySelectedTimings();
+  else if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
 }
-module.exports = { applySelectedResults, applyEvidence, normalizeCompletedTiming, mergeRecord };
+module.exports = { applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, mergeRecord };

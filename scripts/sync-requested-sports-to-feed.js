@@ -109,6 +109,8 @@ function cardForEvent(event, schedule, participantsById){
     time:event.time,
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
     ...(event.endTimeUtc ? { endTimeUtc:event.endTimeUtc } : {}),
+    ...(event.endTimeBasis ? {endTimeBasis:event.endTimeBasis} : {}),
+    ...(event.timingProvenance ? {timingProvenance:event.timingProvenance} : {}),
     timeTbc:Boolean(event.timeTbc),
     timePrecision:event.timePrecision || (event.timeTbc ? "tbc" : "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",

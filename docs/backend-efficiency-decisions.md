@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Reviewed SailGP session timing — 3 October 2026
+
+The existing canonical cards owner applies two dated official Geneva race-day windows to retained identities, with schedule observations separate from original result/source observations. Validate the selected documents before writing; identical timing reruns preserve bytes, and later real timing observations win. The ordinary requested-sport projection retains that provenance. A bounded `--sailgp-quality` route uses the same owner and projections, with no provider fetch, scheduler, database write or automatic source adapter. Future Dubai/Abu Dhabi race-day clocks remain unresolved; event envelopes cannot establish individual sessions. SailGP publication is partial until evidence supports completeness. Regression: `validate-sailgp-quality.js --published`, existing source/projection contracts and real shell upgrade checks. Source permission and broader competition acceptance remain open.
+
 ## Live FPL evaluation — 2 October 2026
 
 The existing protected two-minute fixture scheduler owns one optional FPL source. Fetch bootstrap and fixtures once each per due cycle: 30 minutes ordinarily and two minutes within six hours of a future submission cutoff. Accept verification for at most 60 minutes ordinarily or ten minutes near cutoff. Source failures never renew freshness. The existing lease, bounded two-worker/runtime limits, last-good JSON storage and explicit withdrawals remain; no scheduler, database migration, provider fetch from clients or per-card interval is added.

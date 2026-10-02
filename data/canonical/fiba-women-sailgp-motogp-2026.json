@@ -1939,8 +1939,8 @@
       "competitionId": "competition:sailgp",
       "name": "Geneva Sail Grand Prix — race day 1",
       "date": "2026-09-19",
-      "time": "23:00",
-      "startTimeUtc": "2026-09-19T13:00:00.000Z",
+      "time": "23:30",
+      "startTimeUtc": "2026-09-19T13:30:00.000Z",
       "venue": "Geneva, Switzerland",
       "round": "all",
       "roundLabel": "Event 11",
@@ -1949,7 +1949,14 @@
       "sourceId": "sailgp-calendar",
       "broadcastSourceId": "sailgp-broadcast-au",
       "hook": "Lake Geneva opens the final European SailGP weekend of the 2026 season.",
-      "context": "The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start."
+      "context": "The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
+      "endTimeUtc": "2026-09-19T15:00:00.000Z",
+      "endTimeBasis": "official-session-window",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://sailgp.com/results/all-seasons/",
+        "checkedAt": "2026-10-02T16:06:23.274Z"
+      }
     },
     {
       "id": "event:sailgp:2026:geneva-day-2",
@@ -1958,8 +1965,8 @@
       "competitionId": "competition:sailgp",
       "name": "Geneva Sail Grand Prix — race day 2",
       "date": "2026-09-20",
-      "time": "23:00",
-      "startTimeUtc": "2026-09-20T13:00:00.000Z",
+      "time": "23:30",
+      "startTimeUtc": "2026-09-20T13:30:00.000Z",
       "venue": "Geneva, Switzerland",
       "round": "all",
       "roundLabel": "Event 11",
@@ -1968,7 +1975,14 @@
       "sourceId": "sailgp-calendar",
       "broadcastSourceId": "sailgp-broadcast-au",
       "hook": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
-      "context": "The event winner and championship positions are decided before the two-event finish in the Emirates."
+      "context": "The event winner and championship positions are decided before the two-event finish in the Emirates.",
+      "endTimeUtc": "2026-09-20T15:00:00.000Z",
+      "endTimeBasis": "official-session-window",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://sailgp.com/results/all-seasons/",
+        "checkedAt": "2026-10-02T16:06:23.274Z"
+      }
     },
     {
       "id": "event:sailgp:2026:dubai-day-1",
