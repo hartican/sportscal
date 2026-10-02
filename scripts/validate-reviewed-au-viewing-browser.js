@@ -29,6 +29,11 @@ const root=path.resolve(__dirname,'..');
   assert.equal(links.length,expected.length,`${fixture.id}/${mode}: actual visible provider actions`);
   for(let i=0;i<links.length;i++){assert.equal(links[i].href,expected[i].url);assert.equal(links[i].label,`${expected[i].replay?'Check replay availability':'Watch'} on ${expected[i].label}`);}
   const text=await card.innerText();if(!expected.length)assert(text.includes('Australian viewing unconfirmed'),'degraded state visible');
+  if(fixture.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be'){
+   assert.deepEqual(expected.map(o=>o.id),['youtube','stan'],'final free coverage appears before paid coverage');
+   assert.equal(links[0].href,'https://www.youtube.com/@rugbycomau');
+   assert(/Scotch College/i.test(text),`reviewed host venue is visible in ${mode}: ${text}`);
+  }
   if(fixture.id==='rugby-australia-south-africa-2026-09-27')assert(show?/42\s*[–-]\s*38/.test(text):!/42\s*[–-]\s*38/.test(text),'Results privacy survives viewing change');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`${fixture.id}/${mode}/${width}: mobile layout`);
   observations.push({id:fixture.id,mode,show,width,providers:expected.map(o=>o.id),overflow});
