@@ -36,6 +36,7 @@ CARD_OUTPUT_FILES=(
   "data/feed-meta.json"
   "data/follow-fixtures.v1.json"
   "data/tennis-feed-parents.v1.json"
+  "data/tennis-journeys.v1.json"
   "data/follow-schedule"
   "data/tournament-horizon.v1.json"
   "data/major-events.v1.json"

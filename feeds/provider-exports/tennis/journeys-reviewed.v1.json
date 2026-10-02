@@ -1,0 +1,1918 @@
+{
+  "schemaVersion": "tennis-journey-register.v1",
+  "reviewedAt": "2026-10-02",
+  "initialWindow": {
+    "from": "2026-10-02",
+    "through": "2027-10-02"
+  },
+  "calendarReviewedThrough": "2027-12-31",
+  "players": [
+    {
+      "id": "competitor:tennis:atp:carlos-alcaraz",
+      "name": "Carlos Alcaraz",
+      "tour": "ATP"
+    },
+    {
+      "id": "competitor:tennis:atp:jannik-sinner",
+      "name": "Jannik Sinner",
+      "tour": "ATP"
+    },
+    {
+      "id": "athlete:tennis:novak-djokovic",
+      "name": "Novak Djokovic",
+      "tour": "ATP"
+    },
+    {
+      "id": "athlete:tennis:alex-de-minaur",
+      "name": "Alex de Minaur",
+      "tour": "ATP"
+    },
+    {
+      "id": "competitor:tennis:wta:aryna-sabalenka",
+      "name": "Aryna Sabalenka",
+      "tour": "WTA"
+    }
+  ],
+  "sources": [
+    {
+      "id": "atp-calendar-2027",
+      "url": "https://www.atptour.com/-/media/files/calendar-pdfs/2026/2027-atp-tour-calendar-14-january-2026-updated.pdf",
+      "scope": "calendar",
+      "summary": "Published starts, calendar weeks and marked final-day exceptions; week-derived ends are labelled separately.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "id": "wta-calendar-2027",
+      "url": "https://www.wtatennis.com/tournaments?year=2027&status=all",
+      "scope": "calendar",
+      "summary": "Main-draw dates read from the published 2027 tournament list, including distinct WTA starts.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-10-01"
+    },
+    {
+      "id": "wta-calendar-release-2027",
+      "url": "https://www.wtatennis.com/news/4585126/wta-announces-2027-calendar-equal-prize-money-milestone-and-player-tournament-led-enhancements",
+      "scope": "calendar",
+      "summary": "Calendar announcement; does not confirm individual entries.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-10-01"
+    },
+    {
+      "id": "atp-calendar-release-2027",
+      "url": "https://www.atptour.com/en/news/2027-atp-tour-calendar-release",
+      "scope": "calendar",
+      "summary": "Announcement links the official calendar PDF.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "id": "beijing-atp-entry-2026",
+      "url": "https://www.atptour.com/en/news/beijing-2026-entry-list",
+      "scope": "entry",
+      "summary": "Published Djokovic and de Minaur entries and main-draw dates; no claim of current live status.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "id": "beijing-wta-entry-2026",
+      "url": "https://www.wtatennis.com/news/4571768/china-open-and-singapore-entry-lists-sabalenka-headlines-beijing-eala-chwalinska-set-for-singapore",
+      "scope": "entry",
+      "summary": "Sabalenka named in the China Open entry list.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "id": "beijing-wta-calendar-2026",
+      "url": "https://www.wtatennis.com/tournaments/1020/beijing/2026",
+      "scope": "calendar",
+      "summary": "Published WTA main-draw window for the China Open.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "tokyo-entry-2026",
+      "url": "https://www.japanopentennis.com/atp/en/news-and-media/news/2026-tournament-carlos-alcaraz-compete-second-consecutive-year/",
+      "scope": "entry",
+      "summary": "Alcaraz participation confirmed; main draw Sep 30 to Oct 6, separate from qualifying.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-01-22"
+    },
+    {
+      "id": "tokyo-participation-2026",
+      "url": "https://www.japanopentennis.com/atp/en/news-and-media/news/2026101-alcaraz-defeats-michelsen-three-sets/",
+      "scope": "participation",
+      "summary": "Actual Alcaraz appearance confirms participation; no result content is included in the journey register.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-10-01"
+    },
+    {
+      "id": "shanghai-calendar-2026",
+      "url": "https://en.rolexshanghaimasters.com/en/tickets/tickets",
+      "scope": "calendar",
+      "summary": "Organiser event window includes qualifying; ATP main draw begins Oct 7.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "shanghai-atp-calendar-2026",
+      "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+      "scope": "calendar",
+      "summary": "Published ATP main-draw window Oct 7 to Oct 18; no individual entry claim.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "vienna-entry-2026",
+      "url": "https://www.erstebank-open.com/en/news/storys/top-spielerfeld-komplett",
+      "scope": "entry",
+      "summary": "Sinner and de Minaur are confirmed in the organiser field.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-10-01"
+    },
+    {
+      "id": "vienna-calendar-2026",
+      "url": "https://www.erstebank-open.com/en/",
+      "scope": "calendar",
+      "summary": "Organiser full event Oct 24 to Nov 1 includes qualifying; main ATP draw Oct 26 to Nov 1.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "paris-calendar-2026",
+      "url": "https://www.atptour.com/en/tournaments/pars/352/overview",
+      "scope": "calendar",
+      "summary": "Published ATP edition Nov 2 to Nov 8; individual 2026 entries remain unverified.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "atp-finals-qualification-2026",
+      "url": "https://www.nittoatpfinals.com/en/news/alcaraz-nitto-atp-finals-2026-qualification",
+      "scope": "qualification",
+      "summary": "Alcaraz joins qualified Sinner; edition Nov 15 to Nov 22.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "id": "wuhan-entry-2026",
+      "url": "https://www.wtatennis.com/news/4577819/elena-rybakina-aryna-sabalenka-jessica-pegula-coco-gauff-headline-wuhan-field",
+      "scope": "entry",
+      "summary": "Sabalenka is named in the field; main draw Oct 12 to Oct 18.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "id": "wta-finals-qualification-2026",
+      "url": "https://www.wtatennis.com/news/4583238/aryna-sabalenka-qualifies-for-wta-finals-indian-wells-for-sixth-consecutive-season",
+      "scope": "qualification",
+      "summary": "Sabalenka has qualified for Indian Wells; round robin and knockout stages remain distinct.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-28"
+    },
+    {
+      "id": "wta-finals-calendar-2026",
+      "url": "https://www.wtatennis.com/tournaments/808/wta-finals/2026",
+      "scope": "calendar",
+      "summary": "Published Indian Wells edition Nov 8 to Nov 15.",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "davis-field-2026",
+      "url": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "scope": "team_field",
+      "summary": "Italy and Spain qualified; Australia and Serbia are absent. No individual squad selection follows from country qualification.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-22"
+    },
+    {
+      "id": "davis-calendar-2026",
+      "url": "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary",
+      "scope": "calendar",
+      "summary": "Bologna Final 8 edition Nov 24 to Nov 29.",
+      "verifiedAt": "2026-10-02",
+      "publishedAt": "2026-09-22"
+    },
+    {
+      "id": "bjk-host-2027",
+      "url": "https://www.billiejeankingcup.com/en/news/taking-the-finals-to-china-will-open-doors-says-tournament-director-conchita",
+      "scope": "host",
+      "summary": "Shenzhen host agreement covers 2027; no 2027 dates, country eligibility, team qualification or Sabalenka selection is established.",
+      "verifiedAt": "2026-10-02"
+    }
+  ],
+  "editions": [
+    {
+      "id": "tennis-edition:china-open:2026",
+      "eventFamilyId": "china-open",
+      "season": 2026,
+      "name": "China Open",
+      "venue": "Beijing",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-06",
+          "tournamentId": "tournament:tennis:atp-beijing-2026",
+          "sourceIds": [
+            "beijing-atp-entry-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "500"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-11",
+          "tournamentId": "tournament:tennis:wta-beijing-2026",
+          "sourceIds": [
+            "beijing-wta-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Published main-draw entry; subject to later withdrawals.",
+          "sourceIds": [
+            "beijing-atp-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Published main-draw entry; subject to later withdrawals.",
+          "sourceIds": [
+            "beijing-atp-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Published main-draw entry; subject to later withdrawals.",
+          "sourceIds": [
+            "beijing-wta-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:japan-open:2026",
+      "eventFamilyId": "japan-open-tennis-championships",
+      "season": 2026,
+      "name": "Japan Open",
+      "venue": "Tokyo",
+      "category": "500",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-06",
+          "tournamentId": "tournament:tennis:atp-tokyo-2026",
+          "sourceIds": [
+            "tokyo-entry-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "500"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "confirmed",
+          "evidenceKind": "official_participation",
+          "reason": "Participation independently confirmed by the organiser.",
+          "sourceIds": [
+            "tokyo-entry-2026",
+            "tokyo-participation-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:shanghai-masters:2026",
+      "eventFamilyId": "shanghai-masters",
+      "season": 2026,
+      "name": "Rolex Shanghai Masters",
+      "venue": "Shanghai",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-10-07",
+          "endDate": "2026-10-18",
+          "tournamentId": "tournament:tennis:atp-shanghai-2026",
+          "sourceIds": [
+            "shanghai-atp-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "shanghai-atp-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "shanghai-atp-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "shanghai-atp-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "shanghai-atp-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:vienna:2026",
+      "eventFamilyId": "erste-bank-open",
+      "season": 2026,
+      "name": "Erste Bank Open",
+      "venue": "Vienna",
+      "category": "500",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-10-26",
+          "endDate": "2026-11-01",
+          "tournamentId": "tournament:tennis:atp-vienna-2026",
+          "sourceIds": [
+            "vienna-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "500"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Organiser confirms the entry.",
+          "sourceIds": [
+            "vienna-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Organiser confirms the entry.",
+          "sourceIds": [
+            "vienna-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:paris-masters:2026",
+      "eventFamilyId": "paris-masters",
+      "season": 2026,
+      "name": "Rolex Paris Masters",
+      "venue": "Paris",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-11-02",
+          "endDate": "2026-11-08",
+          "tournamentId": "tournament:tennis:atp-paris-2026",
+          "sourceIds": [
+            "paris-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "paris-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "paris-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "paris-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "paris-calendar-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:atp-finals:2026",
+      "eventFamilyId": "atp-finals",
+      "season": 2026,
+      "name": "Nitto ATP Finals",
+      "venue": "Turin",
+      "category": "tour_finals",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-11-15",
+          "endDate": "2026-11-22",
+          "tournamentId": "tournament:tennis:atp-finals-2026",
+          "sourceIds": [
+            "atp-finals-qualification-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "finals"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "reason": "Qualified; actual match timing awaits the published draw and order of play.",
+          "sourceIds": [
+            "atp-finals-qualification-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "reason": "Qualified; actual match timing awaits the published draw and order of play.",
+          "sourceIds": [
+            "atp-finals-qualification-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-finals-qualification-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-finals-qualification-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:wuhan-open:2026",
+      "eventFamilyId": "wuhan-open",
+      "season": 2026,
+      "name": "Wuhan Open",
+      "venue": "Wuhan",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2026-10-12",
+          "endDate": "2026-10-18",
+          "tournamentId": "tournament:tennis:wta-wuhan-2026",
+          "sourceIds": [
+            "wuhan-entry-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Named in the published entry field.",
+          "sourceIds": [
+            "wuhan-entry-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:wta-finals:2026",
+      "eventFamilyId": "wta-finals",
+      "season": 2026,
+      "name": "WTA Finals",
+      "venue": "Indian Wells",
+      "category": "tour_finals",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2026-11-08",
+          "endDate": "2026-11-15",
+          "tournamentId": "tournament:tennis:wta-finals-2026",
+          "sourceIds": [
+            "wta-finals-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "finals"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "reason": "Qualified; group matches remain excluded from automatic reminders.",
+          "sourceIds": [
+            "wta-finals-qualification-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:davis-cup-finals:2026",
+      "eventFamilyId": "davis-cup",
+      "season": 2026,
+      "name": "Davis Cup Final 8",
+      "venue": "Bologna",
+      "category": "team",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2026-11-24",
+          "endDate": "2026-11-29",
+          "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+          "sourceIds": [
+            "davis-calendar-2026"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "team"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Country qualified; requires individual squad selection and participation confirmation.",
+          "sourceIds": [
+            "davis-field-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Country qualified; requires individual squad selection and participation confirmation.",
+          "sourceIds": [
+            "davis-field-2026"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:australian-open:2027",
+      "eventFamilyId": "australian-open",
+      "season": 2027,
+      "name": "Australian Open",
+      "venue": "Melbourne",
+      "category": "major",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-01-17",
+          "endDate": "2027-01-31",
+          "tournamentId": "tournament:tennis:grand-slam-australian-open-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "major"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-01-17",
+          "endDate": "2027-01-31",
+          "tournamentId": "tournament:tennis:grand-slam-australian-open-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "major"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:indian-wells:2027",
+      "eventFamilyId": "indian-wells",
+      "season": 2027,
+      "name": "BNP Paribas Open",
+      "venue": "Indian Wells",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-03-03",
+          "endDate": "2027-03-14",
+          "tournamentId": "tournament:tennis:atp-indian-wells-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-03-03",
+          "endDate": "2027-03-14",
+          "tournamentId": "tournament:tennis:wta-indian-wells-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:miami-open:2027",
+      "eventFamilyId": "miami-open",
+      "season": 2027,
+      "name": "Miami Open",
+      "venue": "Miami",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-03-17",
+          "endDate": "2027-03-28",
+          "tournamentId": "tournament:tennis:atp-miami-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-03-16",
+          "endDate": "2027-03-28",
+          "tournamentId": "tournament:tennis:wta-miami-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:monte-carlo:2027",
+      "eventFamilyId": "monte-carlo-masters",
+      "season": 2027,
+      "name": "Monte-Carlo Masters",
+      "venue": "Monte-Carlo",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-04-04",
+          "endDate": "2027-04-11",
+          "tournamentId": "tournament:tennis:atp-monte-carlo-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:madrid-open:2027",
+      "eventFamilyId": "madrid-open",
+      "season": 2027,
+      "name": "Madrid Open",
+      "venue": "Madrid",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-04-21",
+          "endDate": "2027-05-02",
+          "tournamentId": "tournament:tennis:atp-madrid-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-04-20",
+          "endDate": "2027-05-02",
+          "tournamentId": "tournament:tennis:wta-madrid-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:italian-open:2027",
+      "eventFamilyId": "italian-open",
+      "season": 2027,
+      "name": "Italian Open",
+      "venue": "Rome",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-05-05",
+          "endDate": "2027-05-16",
+          "tournamentId": "tournament:tennis:atp-rome-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-05-04",
+          "endDate": "2027-05-16",
+          "tournamentId": "tournament:tennis:wta-rome-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:roland-garros:2027",
+      "eventFamilyId": "roland-garros",
+      "season": 2027,
+      "name": "Roland Garros",
+      "venue": "Paris",
+      "category": "major",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-05-23",
+          "endDate": "2027-06-06",
+          "tournamentId": "tournament:tennis:grand-slam-roland-garros-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "major"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-05-23",
+          "endDate": "2027-06-06",
+          "tournamentId": "tournament:tennis:grand-slam-roland-garros-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "major"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:wimbledon:2027",
+      "eventFamilyId": "wimbledon",
+      "season": 2027,
+      "name": "Wimbledon",
+      "venue": "London",
+      "category": "major",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-06-28",
+          "endDate": "2027-07-11",
+          "tournamentId": "tournament:tennis:grand-slam-wimbledon-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "major"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-06-28",
+          "endDate": "2027-07-11",
+          "tournamentId": "tournament:tennis:grand-slam-wimbledon-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "major"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:national-bank-open:2027",
+      "eventFamilyId": "national-bank-open",
+      "season": 2027,
+      "name": "National Bank Open",
+      "venue": "ATP Toronto · WTA Montreal",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-08-01",
+          "endDate": "2027-08-12",
+          "tournamentId": "tournament:tennis:atp-canada-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-08-01",
+          "endDate": "2027-08-12",
+          "tournamentId": "tournament:tennis:wta-canada-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:cincinnati-open:2027",
+      "eventFamilyId": "cincinnati",
+      "season": 2027,
+      "name": "Cincinnati Open",
+      "venue": "Cincinnati",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-08-12",
+          "endDate": "2027-08-22",
+          "tournamentId": "tournament:tennis:atp-cincinnati-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-08-12",
+          "endDate": "2027-08-22",
+          "tournamentId": "tournament:tennis:wta-cincinnati-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:us-open:2027",
+      "eventFamilyId": "us-open",
+      "season": 2027,
+      "name": "US Open",
+      "venue": "New York",
+      "category": "major",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-08-29",
+          "endDate": "2027-09-12",
+          "tournamentId": "tournament:tennis:grand-slam-us-open-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "major"
+        },
+        {
+          "tour": "WTA",
+          "startDate": "2027-08-29",
+          "endDate": "2027-09-12",
+          "tournamentId": "tournament:tennis:grand-slam-us-open-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "major"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:china-open:2027",
+      "eventFamilyId": "china-open",
+      "season": 2027,
+      "name": "China Open",
+      "venue": "Beijing",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2027-09-29",
+          "endDate": "2027-10-10",
+          "tournamentId": "tournament:tennis:wta-beijing-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:wuhan-open:2027",
+      "eventFamilyId": "wuhan-open",
+      "season": 2027,
+      "name": "Wuhan Open",
+      "venue": "Wuhan",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2027-10-11",
+          "endDate": "2027-10-17",
+          "tournamentId": "tournament:tennis:wta-wuhan-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:shanghai-masters:2027",
+      "eventFamilyId": "shanghai-masters",
+      "season": 2027,
+      "name": "Rolex Shanghai Masters",
+      "venue": "Shanghai",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-10-06",
+          "endDate": "2027-10-17",
+          "tournamentId": "tournament:tennis:atp-shanghai-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:paris-masters:2027",
+      "eventFamilyId": "paris-masters",
+      "season": 2027,
+      "name": "Rolex Paris Masters",
+      "venue": "Paris",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-11-01",
+          "endDate": "2027-11-07",
+          "tournamentId": "tournament:tennis:atp-paris-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:doha:2027",
+      "eventFamilyId": "doha",
+      "season": 2027,
+      "name": "Qatar TotalEnergies Open",
+      "venue": "Doha",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2027-02-07",
+          "endDate": "2027-02-13",
+          "tournamentId": "tournament:tennis:wta-doha-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:dubai:2027",
+      "eventFamilyId": "dubai",
+      "season": 2027,
+      "name": "Dubai Tennis Championships",
+      "venue": "Dubai",
+      "category": "1000",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2027-02-14",
+          "endDate": "2027-02-20",
+          "tournamentId": "tournament:tennis:wta-dubai-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "1000"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "very_likely",
+          "evidenceKind": "product_projection",
+          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:atp-finals:2027",
+      "eventFamilyId": "atp-finals",
+      "season": 2027,
+      "name": "Nitto ATP Finals",
+      "venue": "Italy",
+      "category": "tour_finals",
+      "tourWindows": [
+        {
+          "tour": "ATP",
+          "startDate": "2027-11-14",
+          "endDate": "2027-11-21",
+          "tournamentId": "tournament:tennis:atp-finals-2027",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "dateBasis": "published_calendar_weeks",
+          "level": "finals"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "competitor:tennis:atp:jannik-sinner",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:novak-djokovic",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "playerId": "athlete:tennis:alex-de-minaur",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "atp-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:wta-finals:2027",
+      "eventFamilyId": "wta-finals",
+      "season": 2027,
+      "name": "WTA Finals",
+      "venue": "Charlotte",
+      "category": "tour_finals",
+      "tourWindows": [
+        {
+          "tour": "WTA",
+          "startDate": "2027-11-10",
+          "endDate": "2027-11-14",
+          "tournamentId": "tournament:tennis:wta-finals-2027",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "dateBasis": "published_main_draw_dates",
+          "level": "finals"
+        }
+      ],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Requires qualification and participation confirmation.",
+          "sourceIds": [
+            "wta-calendar-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "tennis-edition:billie-jean-king-cup-finals:2027",
+      "eventFamilyId": "billie-jean-king-cup",
+      "season": 2027,
+      "name": "Billie Jean King Cup Finals",
+      "venue": "Shenzhen",
+      "category": "team",
+      "tourWindows": [],
+      "participation": [
+        {
+          "playerId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "conditional",
+          "evidenceKind": "product_projection",
+          "reason": "Dates unpublished. Requires country eligibility, team qualification, squad selection and participation confirmation.",
+          "sourceIds": [
+            "bjk-host-2027"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
+    }
+  ]
+}

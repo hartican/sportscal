@@ -137,6 +137,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-follow-directories.js", "--check"],
   ["scripts/validate-follow-directories.js"],
   ["scripts/validate-tennis-catalogue.js"],
+  ["scripts/build-tennis-journeys.js"],
+  ["scripts/validate-tennis-journeys.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-gws-aflw-editorial.js"],
   ["scripts/validate-restored-feed-chat-contract.js"],
@@ -466,7 +468,7 @@ async function runMain() {
   if(process.argv.includes("--tennis-feed")){
     runStep(['scripts/build-code-inspector.js','--codes=tennis']);
     runStep(['scripts/build-follow-directories.js','--codes=tennis']);
-    for(const script of ['build-tennis-feed-parents','build-tournament-horizon','build-app-shell-runtime','validate-tennis-feed-normalisation'])runStep([`scripts/${script}.js`]);
+    for(const script of ['build-tennis-feed-parents','build-tournament-horizon','build-tennis-journeys','validate-tennis-journeys','build-app-shell-runtime','validate-tennis-feed-normalisation'])runStep([`scripts/${script}.js`]);
     return;
   }
   if(process.argv.includes("--follow-ui")){

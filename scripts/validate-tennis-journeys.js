@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),{build,validate}=require('./build-tennis-journeys'),journeys=require('../config/tennis-journeys'),follow=require('../config/follow-first'),reminders=require('../config/fixture-reminder-policy');
+const register=require('../feeds/provider-exports/tennis/journeys-reviewed.v1.json'),clone=x=>structuredClone(x),day='2026-10-02',doc=build(day,register);
+assert.equal(doc.window.through,'2027-10-02');assert.equal(journeys.through('2028-02-29'),'2029-02-28');assert.equal(journeys.through('2026-12-31'),'2027-12-31');
+assert.equal(new Set(doc.editions.map(e=>e.id)).size,doc.editions.length);
+const edition=family=>doc.editions.find(e=>e.eventFamilyId===family&&e.season===2027);
+assert.equal(edition('monte-carlo-masters').tourWindows[0].startDate,'2027-04-04');
+assert.deepEqual(edition('miami-open').tourWindows.map(w=>w.startDate),['2027-03-17','2027-03-16']);
+assert.deepEqual(edition('madrid-open').tourWindows.map(w=>w.startDate),['2027-04-21','2027-04-20']);
+assert.deepEqual(edition('italian-open').tourWindows.map(w=>w.startDate),['2027-05-05','2027-05-04']);
+assert.equal(edition('cincinnati').tourWindows[0].endDate,'2027-08-22');
+assert.equal(edition('national-bank-open').tourWindows[0].endDate,'2027-08-12');
+assert.equal(edition('china-open').tourWindows[0].endDate,'2027-10-10','horizon clipping cannot overwrite a tournament edition');
+assert(!doc.windowEditionIds.includes(edition('wuhan-open').id));assert(journeys.editions(doc,'2026-10-12').some(e=>e.id===edition('wuhan-open').id),'the next twelve months roll with the current date');
+const sab=doc.players.find(p=>p.name==='Aryna Sabalenka'),atp=doc.players.find(p=>p.name==='Carlos Alcaraz');
+let prefs=follow.migratePreferences({preferenceGraph:{entityFollows:[{participantId:sab.id,followLevel:'follow'}]}});
+const women=journeys.editions(doc,day,prefs);assert(women.length>10);assert(women.every(e=>e.participation.every(p=>p.playerId===sab.id)));assert(women.some(e=>e.eventFamilyId==='billie-jean-king-cup'&&e.undated));assert(!women.some(e=>e.eventFamilyId==='japan-open-tennis-championships'));
+prefs.followFirst.excludedMajorEventIds.push('miami-open');assert(!journeys.editions(doc,day,prefs).some(e=>e.eventFamilyId==='miami-open'));
+prefs.preferenceGraph.entityFollows.push({participantId:atp.id,followLevel:'follow'});prefs.preferenceGraph.competitionPreferences.push({competitionId:'tournament:tennis:wta-cincinnati-2027',enabled:false});
+const cinc=journeys.editions(doc,day,prefs).find(e=>e.eventFamilyId==='cincinnati');assert.deepEqual(cinc.tourWindows.map(w=>w.tour),['ATP']);assert.deepEqual(cinc.participation.map(p=>p.playerId),[atp.id]);
+prefs.preferenceGraph.entityFollows[0].followLevel='unfollow';assert(journeys.editions(doc,day,prefs).every(e=>e.participation.every(p=>p.playerId!==sab.id)),'later unfollow remains effective');
+const bad=clone(register);bad.editions[0].participation[0].sourceIds=['atp-calendar-2027'];assert.throws(()=>validate(bad),/Calendar cannot prove/);
+const speculative=clone(register);speculative.editions[1].participation[0].status='very_likely';assert.throws(()=>validate(speculative),/Smaller events/);
+const phantom=clone(register);phantom.editions[0].fixtures=[{id:'fabricated-match'}];assert.throws(()=>validate(phantom),/must not become a fixture/);
+const duplicate=clone(register);duplicate.editions.push(clone(duplicate.editions[0]));assert.throws(()=>validate(duplicate),/Duplicate/);
+const missing=clone(register);missing.editions[0].tourWindows[0].sourceIds=['unknown'];assert.throws(()=>validate(missing),/provenance/);
+const withdrawn=clone(register);withdrawn.sources.push({id:'qa-withdrawal',url:'https://organiser.example/withdrawal',scope:'withdrawal',verifiedAt:day});withdrawn.editions[0].participation[0]={...withdrawn.editions[0].participation[0],status:'withdrawn',sourceIds:['qa-withdrawal']};assert.doesNotThrow(()=>validate(withdrawn));
+for(const e of doc.editions){assert.equal(reminders.automatic(e,prefs),false);assert.equal(reminders.timing(e),null);}
+assert(fs.readFileSync('scripts/update-cards.js','utf8').includes('["scripts/build-tennis-journeys.js"]'),'the existing canonical owner maintains this projection');
+assert(!fs.readFileSync('lib/reminder-fixtures.js','utf8').includes('tennis-journeys.v1'),'journey context is never a reminder catalogue');
+const published=require('../data/tennis-journeys.v1.json');validate({...published,schemaVersion:'tennis-journey-register.v1'});assert.equal(published.contextOnly,true);
+console.log('Tennis journeys: verified date differences, one edition, rolling/leap windows, provenance, unconfirmed participation, exclusions/unfollows and no manufactured fixtures/reminders passed.');
