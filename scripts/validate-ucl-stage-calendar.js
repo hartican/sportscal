@@ -27,7 +27,7 @@ const final=stages.at(-1),exact={...final,startTimeUtc:'2027-06-05T19:00:00Z',ti
 const confirmed=build.normalizeFixture(exact,'competition:uefa-champions-league');
 assert.equal(confirmed.date,'2027-06-06','controlled exact UTC maps to the following Sydney date');
 assert.equal(confirmed.displayDateLabel,undefined,'a confirmed fixture cannot keep a venue-calendar label over its Sydney date');
-for(const change of [{startTimeUtc:null},{startTimeUtc:'invalid'},{timePrecision:'tbc'},{timeTbc:true},{scheduleStatus:'provisional'}]){
+for(const change of [{startTimeUtc:null},{startTimeUtc:'invalid'},{timePrecision:'tbc'},{timeTbc:true},{startTimeTbc:true},{scheduleStatus:'provisional'}]){
  const unresolved=build.normalizeFixture({...exact,...change},'competition:uefa-champions-league');
  assert.equal(unresolved.displayDateLabel,final.displayDateLabel,'missing or unconfirmed exact facts retain the labelled calendar');
 }
