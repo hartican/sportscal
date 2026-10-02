@@ -305,3 +305,11 @@ Implementation of the 30 September women’s category decision: a team tournamen
 ## Stakes rating presentation — 2 October 2026
 
 Fixture cards and fixture detail present the existing viewing ratings as Low, Mid, High, Huge and Epic stakes. Five monochrome beef-steak glyphs occupy a centred 220px row: each 44px touch target contains a 30 × 20px glyph with 14px visible spacing. Personal labels use the full wording; the crowd label sits beside its numerical average rather than duplicating an adjective tag. Heat, Pulse and Impact values, editability, rewards, Feed admission and Events parent-card rules remain unchanged. Regression: `validate-rating-flames-browser.js` covers stakes presentation, accessibility, geometry and saving/recovery.
+
+## Follow journeys experiment — 2 October 2026
+
+Owner-approved one-time migration adds Alcaraz, Sinner, Djokovic, De Minaur and Sabalenka to all existing registered accounts. Preserve explicit participant opt-outs/mutes and event/competition exclusions. Future accounts retain ordinary onboarding; later unfollows and preference resets never reapply the experiment. Canonical NS identities and aliases are authoritative, not the brief’s example provider codes.
+
+Automatic reminders apply across sports only to sourced knockout/final fixtures containing followed participants, including early main-draw tennis rounds and timed nested Event fixtures. Qualifying, group stages, tennis 250/500s, warm-ups and exhibitions are excluded from automatic ON. Manual known-time reminders remain available. Explicit fixture OFF, global auto OFF and push opt-outs win. Parent dates, session starts, play order and estimated times never create automatic reminders. The same canonical fixture shares one reminder across surfaces. This policy is implemented in phase 2; phase 1 changes follows and fine print only.
+
+Results OFF hides scores/outcomes, but tournament/Event progression and upcoming opponents remain visible. The advancement-clue notice belongs in Settings > About > Results and spoilers, with no Feed warning. Coverage requires actual published fixtures; a calendar entry establishes neither participation nor a match. Regression: validate-tennis-journey-migration.js plus existing Follow and user-state contracts.

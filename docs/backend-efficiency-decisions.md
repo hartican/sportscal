@@ -358,3 +358,9 @@ Owner-approved partial progress: isolate card-local research/source/validation f
 ## Football displayed live-status integrity — 2 October 2026
 
 The existing European awaiting-update guard also applies to the retained EPL/UEFA competition identities. After kickoff, unconfirmed or stale live status displays Awaiting match update; a valid explicit live observation must be at or before now and within the existing 30-minute window. Future timestamps cannot count as fresh. Completed results and original observations remain intact. This is display integrity, not a new refresh cadence, request, source, scheduler, database writer or reminder rule. Existing Follow admission and all valid non-Football timing contracts remain unchanged. Regressions: `validate-football-status-display.js`, `validate-football-status-browser.js` and cached-rule acceptance in the existing installed-PWA rehearsal.
+
+## Follow journeys experiment — 2 October 2026
+
+The approved migration freezes the existing registered-account cohort once, snapshots preferences privately and locks each saved record before adding missing athlete follows. Updating updated_at preserves API compare-and-set conflicts; new accounts, later unfollows and resets cannot retrigger it. Recovery data is service-only with forced RLS and account-deletion cascade. No refresh, polling or scheduler change accompanies phase 1.
+
+Phase 2 retains the sole five-minute reminder dispatcher and bounded processing. The target is delivery at T−15 through T−10 against an official exact/not-before instant, independently of app activity. Shared sources and server-owned canonical fixture timing are required; unsupported or stale inputs hold delivery. ATP/WTA full-event and real-phone evidence remain acceptance gates, not deployment claims.
