@@ -33,6 +33,14 @@
   for(const [label,action]of [['Clear filters',()=>{filters[code]={};persist();windows.delete(code);dialog.close();renderFollowView();}],['Apply',()=>{filters[code]=draft;persist();windows.delete(code);dialog.close();renderFollowView();}],['Cancel',()=>dialog.close()]]){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.onclick=action;actions.append(b);}dialog.append(actions);dialog.onclose=()=>dialog.remove();document.body.append(dialog);dialog.showModal();
  }
  function mount(container,entity,state){
+  if(entity.id==='sport:motogp'){
+   const heading=container.querySelector(':scope > h2');
+   if(heading){
+    heading.style.cssText='display:flex;align-items:center;gap:8px';
+    const mark=document.createElement('span');mark.className='follow-sport-mark';mark.setAttribute('aria-hidden','true');
+    renderEventIdentityMark(mark,{key:'motogp'},{...sportMetaForEvent({key:'motogp'}),glyph:'sport:motorcycle'});heading.prepend(mark);
+   }
+  }
   const nav=document.createElement('div');nav.className='follow-navigation';const spacer=document.createElement('div');spacer.className='follow-navigation-spacer';spacer.setAttribute('aria-hidden','true');
   const compact=document.createElement('div');compact.className='follow-navigation-compact';
   const label=document.createElement('span');label.textContent=`${entity.label} · ${state.section==='teams-players'?'Teams & players':state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;

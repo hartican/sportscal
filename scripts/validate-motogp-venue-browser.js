@@ -31,7 +31,12 @@ const events=require('../data/events.json').events;const samples=['italy','austr
    // Shared Events parent, visible credits and local Follow badge.
    await page.evaluate(async()=>{activeTab='events';userPreferences.selectedSelectorEntityIds=['sport:motogp'];userPreferences.followedSports=['motogp'];const container=document.getElementById('listView');container.replaceChildren();await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=370');await NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(container);});
    const parents=await page.locator('.events-overview-card').count();assert(parents>0);assert.equal(await page.locator('.events-overview-card .nsc-rating-block').count(),0);assert.equal(await page.locator('.events-overview-card .venue-location-hero').count(),parents);
-   const mark=await page.evaluate(()=>CARD_IDENTITIES.markForEvent({key:'motogp'}).url);assert.equal(mark,'assets/identities/motogp/badge.svg');assert(await page.locator('footer .venue-attribution').isVisible());
+   await page.evaluate(()=>document.getElementById('pilot-test')?.remove());
+   await page.locator('.tab-btn[data-tab="follow"]').click();
+   await page.getByRole('button',{name:/^Motorsport/}).click();await page.getByRole('button',{name:'MotoGP',exact:true}).click();
+   const expand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await expand.count())await expand.click();
+   const mark=page.locator('#follow-navigation-controls h2 .follow-sport-mark img.event-brand-logo');await mark.waitFor();await mark.evaluate(image=>image.decode());assert.equal(await mark.getAttribute('src'),'assets/identities/motogp/badge.svg');assert(await mark.isVisible());
+   assert(await page.locator('footer .venue-attribution').isVisible());
    await page.close();
   }}finally{await browser.close();}
  }
