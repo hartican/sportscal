@@ -27,7 +27,7 @@ function mergeRecord(record, override, checkedAt){
     record={...rest,importedCalendarClassification:customClassification};
   }
   const sourceRefs = [...new Set([record.sourceUrl, override.sourceUrl, override.broadcastSourceUrl, override.scheduleSourceUrl, ...(record.sourceRefs || [])].filter(Boolean))];
-  return {
+  const merged = {
     ...record,
     ...publicFields(override),
     id:record.id,
@@ -41,6 +41,26 @@ function mergeRecord(record, override, checkedAt){
     timePrecision:override.startTimeUtc ? "exact" : override.timePrecision || record.timePrecision,
     stakesScore:record.stakesScore || 5,
   };
+  return retainNewerReviewedEditorial(record, merged);
+}
+function retainNewerReviewedEditorial(record, merged){
+  // A dated sporting correction can carry seed editorial. Reapplying unchanged
+  // facts must not undo a later, already published review. A sporting change
+  // still invalidates that older prose; fetch clocks never count as research.
+  const reviewed=Date.parse(record.editorialNarrative?.researchedAt||'');
+  const incomingReviewed=Date.parse(merged.editorialNarrative?.researchedAt||'');
+  const facts=['name','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','competitionId','season','participantIds','participants','participantsConfirmed','teamMatchContext','standingsContext','eventType','sessionType','cardKind','round','roundNumber','roundLabel','stage','status','scheduleStatus','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];
+  // Feed's upcoming and the canonical adapter's scheduled denote the same
+  // unresolved phase. Live/postponed/completed are never equivalent to these.
+  const fact=(event,key)=>key==='status'&&['scheduled','upcoming'].includes(event[key])?'scheduled':['participants','participantIds'].includes(key)&&event[key]===undefined?[]:event[key];
+  const now=Date.now();
+  if(Number.isFinite(reviewed)&&reviewed<=now&&reviewed>(Number.isFinite(incomingReviewed)&&incomingReviewed<=now?incomingReviewed:0)&&record.editorialNarrative?.sourceIds?.length&&facts.every(key=>JSON.stringify(fact(record,key))===JSON.stringify(fact(merged,key)))){
+    for(const field of ['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt']){
+      if(Object.hasOwn(record,field))merged[field]=record[field];else delete merged[field];
+    }
+    if(record.storyline)merged.storyline={...merged.storyline,...Object.fromEntries(['researchDepth','arcStage','hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn','lastReviewedAt'].filter(key=>Object.hasOwn(record.storyline,key)).map(key=>[key,record.storyline[key]]))};
+  }
+  return merged;
 }
 function fixtureSeed(override, checkedAt){
   return mergeRecord({
@@ -164,9 +184,34 @@ function applySelectedTimings({root=ROOT}={}){
   for(const {filename,bytes,next} of updates)if(bytes!==next)fs.writeFileSync(filename,next);
   console.log(`Applied ${rows.length} reviewed session timing(s); results, participation and original source dates retained.`);
 }
+function restorePublishedEditorial(baselineSha,ids,{root=ROOT}={}){
+  assert(/^[a-f0-9]{40}$/.test(baselineSha),'A full previously verified published SHA is required');
+  assert(ids.length&&new Set(ids).size===ids.length,'Unique fixture IDs are required');
+  const {execFileSync}=require('node:child_process');
+  execFileSync('git',['merge-base','--is-ancestor',baselineSha,'HEAD'],{cwd:ROOT});
+  // Read and validate both surfaces before writing either. Restore only copy
+  // already present at the operator's verified release, never queued drafts.
+  const updates=['feeds/incoming/events.json','data/events.json'].map(file=>{
+    const previous=JSON.parse(execFileSync('git',['show',`${baselineSha}:${file}`],{cwd:ROOT,maxBuffer:32*1024*1024}));
+    const filename=path.join(root,file),bytes=fs.readFileSync(filename,'utf8'),doc=JSON.parse(bytes);
+    for(const id of ids){
+      const old=previous.events.find(event=>event.id===id),current=doc.events.find(event=>event.id===id);
+      assert(old&&current,`${id}: fixture must exist in both snapshots (${file})`);
+      assert(old.editorialNarrative?.sourceIds?.length&&Number.isFinite(Date.parse(old.editorialNarrative.researchedAt)),`${id}: reviewed baseline is required`);
+      const next=retainNewerReviewedEditorial(old,structuredClone(current));
+      assert(JSON.stringify(next.editorialNarrative)===JSON.stringify(old.editorialNarrative)||Date.parse(current.editorialNarrative?.researchedAt)>=Date.parse(old.editorialNarrative.researchedAt),`${id}: changed sporting facts prevent restoring an older preview (${file})`);
+      doc.events[doc.events.indexOf(current)]=next;
+    }
+    return {filename,bytes,next:JSON.stringify(doc,null,2)+'\n'};
+  });
+  for(const {filename,bytes,next}of updates)if(bytes!==next)fs.writeFileSync(filename,next);
+  console.log(`Restored already published editorial for ${ids.length} selected fixture(s); facts, identities, source observations and unrelated cards retained.`);
+}
 if(require.main === module){
   const scope=process.argv.find(arg=>arg.startsWith('--ids='));
-  if(process.argv.includes('--timing-only'))applySelectedTimings();
+  const baseline=process.argv.find(arg=>arg.startsWith('--restore-published='));
+  if(baseline){assert(scope,'Published editorial repair requires --ids=');restorePublishedEditorial(baseline.slice('--restore-published='.length),scope.slice(6).split(','));}
+  else if(process.argv.includes('--timing-only'))applySelectedTimings();
   else if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
 }
-module.exports = { applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, mergeRecord };
+module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, mergeRecord, retainNewerReviewedEditorial };

@@ -549,12 +549,30 @@ async function runMain() {
     return;
   }
   if(process.argv.includes('--reviewed-fixtures')){
+    const baseline=process.argv.find(arg=>arg.startsWith('--restore-published='));
+    const ids=process.argv.find(arg=>arg.startsWith('--ids='));
+    if(baseline&&!ids)throw new Error('Published editorial repair requires --ids=');
+    let codes=[];
+    if(baseline){
+      const known=new Set(JSON.parse(fs.readFileSync('data/code-inspector/manifest.json')).codes.map(code=>code.slug));
+      const events=JSON.parse(fs.readFileSync('data/events.json')).events;
+      codes=[...new Set(ids.slice(6).split(',').flatMap(id=>{
+        const event=events.find(event=>event.id===id);if(!event)throw new Error('Unknown editorial repair fixture '+id);
+        return [event.key,event.sportDomainId?.replace(/^sport:/,'')].filter(code=>known.has(code));
+      }))];
+      if(!codes.length)throw new Error('Editorial repair requires existing Code projections');
+    }
     for(const args of [
-      ['scripts/apply-current-card-evidence.js'],
+      ['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:[])],
       ['scripts/apply-national-team-identities.js','feeds/incoming/events.json'],
       ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js'],
+      ['scripts/build-code-inspector.js',...(baseline?[`--codes=${codes.join(',')}`]:[])],
+      ['scripts/build-app-shell-runtime.js'],
+      ['scripts/validate-current-evidence-editorial-retention.js'],
+      ['scripts/validate-editorial-locks.js','--published'],
+      ['scripts/validate-feed.js','data/events.json'],
+      ['scripts/qa-storyline-spoilers.js','data/events.json'],
     ]) runStep(args);
     if(!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
     console.log('Reviewed fixture publication complete; no unrelated source refresh performed.');
