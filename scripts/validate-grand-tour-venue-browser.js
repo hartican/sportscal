@@ -13,6 +13,15 @@ const samples=require('../data/events.json').events.filter(e=>e.grandTourCalenda
    await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:60000});
    await page.locator('#listView .event-card[data-event-id*="tdf"][data-event-id*="2027"] .venue-location-hero img').first().waitFor();
    assert(await page.evaluate(()=>activeEvents.filter(e=>e.key==='tdf'&&e.season==='2027').length===3),'ordinary startup loads all three published stages for an explicit Tour follow');
+   await page.locator('.tab-btn[data-tab="follow"]').click();
+   const coldExpand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await coldExpand.count())await coldExpand.click();
+   const coldCycling=page.locator('#follow-navigation-controls [data-follow-sport="sport:cycling"]').first();await coldCycling.waitFor({state:'attached'});if(!await coldCycling.isVisible())await page.getByRole('button',{name:'More sports',exact:true}).click();await coldCycling.click();
+   for(const[key,label]of[['tdf','Tour de France'],['giro','Giro d’Italia'],['vuelta','La Vuelta']]){
+    const coldReveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await coldReveal.count())await coldReveal.click();
+    await page.locator('.follow-category-bar').getByRole('button',{name:label,exact:true}).click();
+    await page.waitForFunction(key=>{const image=document.querySelector('#follow-navigation-controls > h2 img.event-brand-logo');return image?.complete&&image.naturalWidth>0&&image.getAttribute('src')?.includes(key+'-brand.');},key);
+   }
+   await page.locator('.tab-btn[data-tab="feed"]').click();
    for(const theme of['day','night'])for(const state of['opened','compact'])for(const surface of['feed','detail'])for(const event of samples){
     const result=await page.evaluate(async({theme,state,surface,event})=>{
      applyThemePreference(theme);document.getElementById('venue-test')?.remove();activeTab=surface==='feed'?'feed':'follow';setCardState(event,state);

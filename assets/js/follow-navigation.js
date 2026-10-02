@@ -53,6 +53,7 @@
   if(['schedule','results'].includes(state.section)){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Filter';b.onclick=()=>{const code=followInspectorCode(entity);if(codeInspectorChunk?.code?.id===code?.id)openFilters(code.id,(codeInspectorChunk.fixtures||[]).filter(inspectorFixtureMatchesTab).filter(followScheduleScopeMatches));};compact.append(b);}
   compact.append(toggle);nav.append(compact,controls);container.prepend(nav,spacer);set(collapsed);
   nav.collapse=()=>set(true);
+  if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }
  addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
  globalThis.NOTHINGSPORTS_FOLLOW_NAV={mount,matches,selected,openFilters,windows};
