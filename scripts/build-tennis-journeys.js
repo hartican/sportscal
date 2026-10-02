@@ -20,6 +20,13 @@ function validate(doc){
    if(e.category==='500'&&!['confirmed','withdrawn'].includes(p.status))throw Error('Smaller events need confirmed participation');
   }
  }
+ const reviews=new Set();
+ if(doc.coverageReviews!==undefined&&!Array.isArray(doc.coverageReviews))throw Error('Invalid coverage reviews');
+ for(const review of doc.coverageReviews||[]){
+  const edition=doc.editions.find(e=>e.id===review.editionId),key=review.editionId+'|'+review.tour;
+  if(!edition?.tourWindows.some(w=>w.tour===review.tour)||reviews.has(key)||!Number.isFinite(Date.parse(review.checkedAt))||review.checkedAt.slice(0,10)>doc.reviewedAt||review.nsCoverage!=='unavailable'||!['partial-match-order','session-only','publication-pending'].includes(review.publication)||!/^https:\/\//.test(review.scheduleUrl)||!review.evidenceUrls?.length||review.evidenceUrls.some(u=>!/^https:\/\//.test(u))||review.completeDrawVerified!==false||review.completeIndividualTimingVerified!==false||review.reuseCleared!==false)throw Error('Coverage gaps cannot certify an ingestion source');
+  reviews.add(key);
+ }
  return doc;
 }
 function build(day=new Date().toLocaleDateString('en-CA',{timeZone:'Australia/Sydney'}),doc=JSON.parse(fs.readFileSync(path.join(ROOT,input)))){

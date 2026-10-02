@@ -58,10 +58,11 @@
   openMatchCentreFeedFixture(event,{temporary:true});
  }
  function timing(event){
-  if(!Number.isFinite(Date.parse(event.startTimeUtc))||!['exact','not-before'].includes(event.timePrecision))return 'Timing awaited';
-  return (event.timePrecision==='not-before'?'Not before ':'')+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date(event.startTimeUtc));
+  const state=model.timingState(event);if(state==='publication-pending')return 'Organiser publication pending';if(state==='unresolved')return 'Match time unresolved';if(state==='unverified')return 'Match time not verified';if(state==='stale'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Timing needs rechecking';
+  return (state==='stale'?'Update needed · last published time: ':'')+(String(event.timePrecision).replace('_','-')==='not-before'?'Not before ':'')+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date(event.startTimeUtc));
  }
  function official(record){
+  const context=model.currentContext(journeys,record.id,formatDateKey(nowAEST()),userPreferences);if(context?.review)return {url:context.review.scheduleUrl,label:'Official '+context.edition.name+' schedule'};
   const player=journeys?.players.find(p=>model.identity(p.id)===recordKey(record));
   if(player?.tour==='WTA'||record.tour==='WTA'||record.id?.startsWith('competitor:tennis:wta:')||record.sportKey==='tennis-women')return {url:'https://www.wtatennis.com/scores',label:'Official tennis schedule'};
   if(record.sportKey==='tennis')return {url:'https://www.atptour.com/en/scores/current',label:'Official tennis schedules'};
@@ -69,13 +70,13 @@
  }
  function schedule(host,record){
   const event=model.next(availableEvents(),record.id);
-  if(!event){host.append(node('p','NS has not verified the next '+(record.sportKey==='tennis'?'match':'fixture')+'.','athletes-coverage-gap'));}
+  if(!event){const context=model.currentContext(journeys,record.id,formatDateKey(nowAEST()),userPreferences);if(context){host.append(node('p',context.edition.name+' · '+({'official_entry':'Entry verified','official_participation':'Participation verified','official_qualification':'Qualification verified'}[context.participation.evidenceKind]||'Participation verified')),node('small',context.window.startDate+' – '+context.window.endDate+' · tournament dates'));}const hidden=model.next(events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e)),record.id);host.append(node('p',hidden?'No upcoming fixture to show. Removed fixtures stay hidden.':context?.review?'NS match coverage is unavailable for this tournament.':'NS has not verified the next '+(record.sportKey==='tennis'?'match':'fixture')+'.','athletes-coverage-gap'));}
   else{
    const title=node('p',spoilerSafeDisplayTitle(event)||event.name,'athletes-next-match');host.append(title,node('p',[event.eventName||event.tournamentName||event.competitionName,event.roundLabel||event.round,timing(event)].filter(Boolean).join(' · ')));
    if(event.sourceCheckedAt)host.append(node('small','Checked '+new Date(event.sourceCheckedAt).toLocaleString('en-AU',{timeZone:'Australia/Sydney'})));
    const actions=node('div',null,'athletes-actions');
-   if(event.startTimeUtc&&!event.timeTbc&&['exact','not-before'].includes(event.timePrecision)){const button=node('button','Open match','btn');button.type='button';button.setAttribute('aria-label','Open match');button.onclick=()=>openMatch(event,button);actions.append(button);appendEventQuickActions(actions,event,{chat:false,viewing:false});}
-   else actions.append(node('span','Reminder timing awaited'));
+   {const button=node('button','Open match','btn');button.type='button';button.setAttribute('aria-label','Open match');button.onclick=()=>openMatch(event,button);actions.append(button);appendEventQuickActions(actions,event,{chat:false,viewing:false});}
+   if(model.timingState(event)!=='published')actions.append(node('span','Reminder timing needs verification'));
    host.append(actions);const readiness=node('small','Device notification readiness has not been checked.');host.append(readiness);const settings=userPreferences.followFirst?.notifications||{};if(settings.enabled===false||settings.sportingRemindersEnabled===false)readiness.textContent='Sporting notifications are off in Settings.';else if(typeof Notification==='undefined'||Notification.permission!=='granted')readiness.textContent='Device notifications are not enabled. Use Notifications in Settings.';else{void navigator.serviceWorker?.getRegistration().then(r=>r?.pushManager?.getSubscription()).then(subscription=>{if(readiness.isConnected)readiness.textContent=subscription?'Device permission and push subscription are present. Delivery still requires an enabled installation.':'Device notifications need setup in Settings.';}).catch(()=>{});}
   }
   const source=official(record);if(source){const a=node('a',source.label,'athletes-official');a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';host.append(a);}

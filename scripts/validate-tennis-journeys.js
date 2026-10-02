@@ -25,6 +25,8 @@ const speculative=clone(register);speculative.editions[1].participation[0].statu
 const phantom=clone(register);phantom.editions[0].fixtures=[{id:'fabricated-match'}];assert.throws(()=>validate(phantom),/must not become a fixture/);
 const duplicate=clone(register);duplicate.editions.push(clone(duplicate.editions[0]));assert.throws(()=>validate(duplicate),/Duplicate/);
 const missing=clone(register);missing.editions[0].tourWindows[0].sourceIds=['unknown'];assert.throws(()=>validate(missing),/provenance/);
+for(const patch of [{nsCoverage:'complete'},{completeDrawVerified:true},{completeIndividualTimingVerified:true},{reuseCleared:true},{editionId:'unknown-edition'},{evidenceUrls:[]},{checkedAt:'2027-10-02T00:00:00Z'}]){const invalid=clone(register);Object.assign(invalid.coverageReviews[0],patch);assert.throws(()=>validate(invalid),/Coverage gaps cannot certify/);}
+const repeatedReview=clone(register);repeatedReview.coverageReviews.push(clone(repeatedReview.coverageReviews[0]));assert.throws(()=>validate(repeatedReview),/Coverage gaps cannot certify/);
 const withdrawn=clone(register);withdrawn.sources.push({id:'qa-withdrawal',url:'https://organiser.example/withdrawal',scope:'withdrawal',verifiedAt:day});withdrawn.editions[0].participation[0]={...withdrawn.editions[0].participation[0],status:'withdrawn',sourceIds:['qa-withdrawal']};assert.doesNotThrow(()=>validate(withdrawn));
 for(const e of doc.editions){assert.equal(reminders.automatic(e,prefs),false);assert.equal(reminders.timing(e),null);}
 assert(fs.readFileSync('scripts/update-cards.js','utf8').includes('["scripts/build-tennis-journeys.js"]'),'the existing canonical owner maintains this projection');

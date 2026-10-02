@@ -1915,9 +1915,56 @@
       ]
     }
   ],
+  "coverageReviews": [
+    {
+      "editionId": "tennis-edition:china-open:2026",
+      "tour": "ATP",
+      "checkedAt": "2026-10-02T13:50:00Z",
+      "nsCoverage": "unavailable",
+      "publication": "partial-match-order",
+      "scheduleUrl": "https://www.wtatennis.com/tournaments/1020/beijing/2026/order-of-play",
+      "evidenceUrls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+        "https://www.wtatennis.com/terms-and-conditions"
+      ],
+      "completeDrawVerified": false,
+      "completeIndividualTimingVerified": false,
+      "reuseCleared": false
+    },
+    {
+      "editionId": "tennis-edition:china-open:2026",
+      "tour": "WTA",
+      "checkedAt": "2026-10-02T13:50:00Z",
+      "nsCoverage": "unavailable",
+      "publication": "partial-match-order",
+      "scheduleUrl": "https://www.wtatennis.com/tournaments/1020/beijing/2026/order-of-play",
+      "evidenceUrls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+        "https://www.wtatennis.com/terms-and-conditions"
+      ],
+      "completeDrawVerified": false,
+      "completeIndividualTimingVerified": false,
+      "reuseCleared": false
+    },
+    {
+      "editionId": "tennis-edition:japan-open:2026",
+      "tour": "ATP",
+      "checkedAt": "2026-10-02T13:50:00Z",
+      "nsCoverage": "unavailable",
+      "publication": "session-only",
+      "scheduleUrl": "https://www.japanopentennis.com/atp/about/tournament-schedule/",
+      "evidenceUrls": [
+        "https://www.japanopentennis.com/atp/en/about/tournament-schedule/",
+        "https://www.japanopentennis.com/atp/en/about/tournament-fact-sheet/"
+      ],
+      "completeDrawVerified": false,
+      "completeIndividualTimingVerified": false,
+      "reuseCleared": false
+    }
+  ],
   "window": {
-    "from": "2026-10-02",
-    "through": "2027-10-02"
+    "from": "2026-10-03",
+    "through": "2027-10-03"
   },
   "contextOnly": true,
   "windowEditionIds": [

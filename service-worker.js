@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v378";
-const SHELL_VERSION = "378";
+const CACHE_NAME = "nothingsport-shell-v379";
+const SHELL_VERSION = "379";
 const APP_SHELL = [
   "/assets/identities/wrc/routes/sardegna-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
@@ -51,9 +51,9 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=378",
+  "/assets/js/app-shell-runtime.js?v=379",
   "/config/tournament-schedule.js?v=318",
-  "/assets/js/tennis-schedule-ui.js?v=368",
+  "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
@@ -84,8 +84,8 @@ const APP_SHELL = [
   "/config/match-centre.js?v=356",
   "/config/feed-live-scores.js?v=374",
   "/config/feed-live-score-loader.js?v=375",
-  "/config/athletes.js?v=375",
-  "/assets/js/athletes-ui.js?v=375",
+  "/config/athletes.js?v=379",
+  "/assets/js/athletes-ui.js?v=379",
   "/config/athlete-profile-ui.js?v=375",
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",

@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="378">
+<meta name="app-shell-version" content="379">
 <meta name="athletes-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=378" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=379" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7177,7 +7177,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=378"></script>
+<script src="assets/js/app-shell-runtime.js?v=379"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8730,14 +8730,14 @@ async function loadAthletes(){
   if(activeTab!=='athletes')return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');panel.className='athletes-hub';panel.textContent='Loading Athletes…';
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=356'),loadDeferredScript('config/athletes.js?v=375'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=375')).then(()=>{if(activeTab==='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if(activeTab==='athletes'){panel.textContent='Athletes could not load.';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=356'),loadDeferredScript('config/athletes.js?v=379'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=379')).then(()=>{if(activeTab==='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if(activeTab==='athletes'){panel.textContent='Athletes could not load.';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
-  await loadDeferredScript('config/athletes.js?v=375');
+  await loadDeferredScript('config/athletes.js?v=379');
   await loadDeferredScript('config/tennis-journeys.js?v=368');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=375');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=379');
   if(owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -14266,7 +14266,7 @@ function codeInspectorStandingsSportKey(code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=318').then(()=>loadDeferredScript('config/tennis-journeys.js?v=368')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=368')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=318').then(()=>loadDeferredScript('config/tennis-journeys.js?v=368')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=379')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
