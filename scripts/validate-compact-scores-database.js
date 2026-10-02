@@ -73,6 +73,32 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
    await publish([{...live,sourceCheckedAt:at(13)}],undefined,'stationary');fixture=await read('stationary');assert.equal(fixture.scoreCheckedAt,at(13));assert.equal(fixture.scoreFactObservedAt,at(12));assert.equal((await rows('stationary'))[0].ctid,liveRow.ctid);
    assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_snapshots where source_id='stationary'")).rows[0].n,1);
    evidence.scenarios.push('stationary live 0–0 remains genuinely verified without score/history churn');
+   // Replay a real production final whose check clocks previously caused full-season churn.
+   const captured=require('./fixtures/epl-result-observation-clocks.json').rows.map(({fixture})=>{
+    const score=require('./fixtures/epl-result-observation-score.json').fixture;
+    return {...fixture,...score,scoreCheckedAt:fixture.scoreCheckedAt,statusCheckedAt:fixture.sourceCheckedAt};
+   });
+   await publish([captured[0]],undefined,'epl-captured');
+   const finalRow=(await rows('epl-captured'))[0];
+   await publish([captured[1]],undefined,'epl-captured');
+   assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_snapshots where source_id='epl-captured'")).rows[0].n,1,'actual final recheck must not create a full fixture snapshot');
+   assert.equal((await rows('epl-captured'))[0].ctid,finalRow.ctid,'actual final recheck must not rewrite its compact score');
+   fixture=await read(captured[0].id);
+   assert.equal(Date.parse(fixture.scoreCheckedAt),Date.parse(captured[1].scoreCheckedAt),'actual verification receipt advances');
+   assert.equal(Date.parse(fixture.scoreFactObservedAt),Date.parse(captured[0].scoreCheckedAt),'unchanged score retains original fact observation');
+   assert.equal(fixture.homeScore,3);assert.equal(fixture.awayScore,0);
+   const retained=(await db.query("select fixtures from public.nothingsports_fixture_snapshots where source_id='epl-captured'")).rows[0].fixtures[0];
+   assert.equal(retained.resultSourceCheckedAt,captured[0].resultSourceCheckedAt,'stored snapshot keeps its original result observation');
+   // A source written by the previous hash algorithm gets one transition, then stabilises.
+   await db.query("update public.nothingsports_fixture_sources set content_hash=$1 where source_id='epl-captured'",['9d5732845a0fc2dbc6e4a883800657ccf151984b118d0e393f551165b670b6ca']);
+   await publish([captured[1]],undefined,'epl-captured');await publish([captured[1]],undefined,'epl-captured');
+   assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_snapshots where source_id='epl-captured'")).rows[0].n,2,'one old-hash transition is followed by stable unchanged reruns');
+   const resultCorrection={...captured[1],homeScore:4,score:'Arsenal 4-0 Coventry City',canonicalResultScoreline:'Arsenal 4-0 Coventry City',scoreCheckedAt:'2026-10-02T18:00:00Z',sourceCheckedAt:'2026-10-02T18:00:00Z'};
+   await publish([resultCorrection],undefined,'epl-captured');
+   assert.equal((await read(captured[0].id)).homeScore,4,'real final correction still persists');
+   assert.notEqual((await rows('epl-captured'))[0].ctid,finalRow.ctid,'real corrected score uses its compact row');
+   assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_snapshots where source_id='epl-captured'")).rows[0].n,2,'score-only correction avoids another full snapshot');
+   evidence.scenarios.push('captured EPL final: stable full snapshot/compact row, genuine verification, original clocks, one old-hash transition and real correction');
    assert.equal((await request('/rpc/nothingsports_read_match_scores',{body:{p_fixture_ids:[]}})).length,0);
    assert.equal((await request('/rpc/nothingsports_read_match_scores',{body:{p_fixture_ids:Array(61).fill('match')}})).length,0);
    await assert.rejects(db.query('select public.nothingsports_publish_compact_scores($1,$2,$3,$4,$5,$6)',['test',token,'[]','[]','bad',120000]),/Lease expired/);

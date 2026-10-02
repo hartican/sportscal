@@ -12,6 +12,16 @@ assert.equal(contentHash([event]),contentHash([{...event,sourceCheckedAt:now.toI
 const eplReviewFixture=require("./fixtures/live-fixture-epl-review.json");
 const recheckedEpl={...eplReviewFixture,lastReviewedAt:now.toISOString(),sourceCheckedAt:now.toISOString(),canonicalSourceCheckedAt:now.toISOString()};
 assert.equal(contentHash([eplReviewFixture]),contentHash([recheckedEpl]),"EPL observation timestamps alone must not create a fact revision");
+// Actual production revisions 7362/7363 changed only observation clocks.
+const resultClocks=require('./fixtures/epl-result-observation-clocks.json').rows.map(row=>row.fixture);
+assert.equal(contentHash([resultClocks[0]]),contentHash([resultClocks[1]]),'rechecking the captured EPL final must not revise sporting facts');
+for(const change of [
+  {outcomeText:'Corrected final outcome'}, {resultPublishedAt:'2026-10-02T18:00:00Z'},
+  {resultSourceUrl:'https://www.premierleague.com/en/match/correction'},
+  {startTimeUtc:'2026-08-21T20:00:00.000Z'}, {status:'abandoned'},
+  {participantIds:['team:football:epl:1','team:football:epl:6']},
+  {viewingOptions:[{providerId:'stan',webUrl:'https://www.stan.com.au/sport'}]},
+])assert.notEqual(contentHash([resultClocks[0]]),contentHash([{...resultClocks[1],...change}]),'captured final facts remain detectable: '+Object.keys(change)[0]);
 for(const change of [
   {startTimeUtc:"2026-08-21T20:00:00.000Z"},
   {endTimeUtc:"2026-08-21T22:00:00.000Z"},
@@ -38,6 +48,10 @@ async function main(){
         assert.equal(calls[2].body.p_scores[0].homeScore,4,"real scores still reach compact persistence");
       }else assert.notEqual(calls[1].body.p_hash,calls[2].body.p_hash,"real scores still revise ordinary snapshots");
       assert.equal(calls[1].body.p_fixtures[0].lastReviewedAt,recheckedEpl.lastReviewedAt,"hashing does not strip observation data from the payload");
+      calls.length=0;
+      for(const fixture of resultClocks)await adapter.publish('live-premier-league','test-token',{fixtures:[fixture],hash:contentHash([fixture]),intervalMs:1800000});
+      assert.equal(calls[0].body.p_hash,calls[1].body.p_hash,'actual captured final reaches normal/compact persistence with the same hash');
+      assert.equal(calls[1].body.p_fixtures[0].resultSourceCheckedAt,resultClocks[1].resultSourceCheckedAt,'original result observation remains in the persistence payload');
     }
   }finally{
     if(priorScoreWrites===undefined)delete process.env.MATCH_CENTRE_SCORE_WRITES;

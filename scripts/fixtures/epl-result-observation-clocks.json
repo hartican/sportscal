@@ -1,0 +1,238 @@
+{
+  "source": "read-only production live-premier-league snapshots 7362 and 7363",
+  "capturedAt": "2026-10-02T18:05:50.607Z",
+  "rows": [
+    {
+      "revision": 7362,
+      "fixture": {
+        "id": "epl-2026-27-128923",
+        "key": "premier-league",
+        "date": "2026-08-22",
+        "name": "Arsenal v Coventry City",
+        "time": "05:00",
+        "round": "all",
+        "sport": "Football",
+        "venue": "Emirates Stadium",
+        "season": "2026/27",
+        "status": "completed",
+        "eventId": "epl-2026-27-128923",
+        "expected": 6,
+        "fullSpiel": "Arsenal v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "recapText": "Arsenal completed a 3-goal win in Premier League Matchweek 1.",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "storyline": {
+          "stakes": 3,
+          "arcStage": "recap",
+          "intensity": 3,
+          "hookSpoilerOn": "Arsenal defeated Coventry City 3-0.",
+          "hookSpoilerOff": "Arsenal v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+          "intensitySource": "computed",
+          "expectedSpectacle": 6,
+          "synopsisSpoilerOn": "Arsenal completed a 3-goal win in Premier League Matchweek 1.",
+          "synopsisSpoilerOff": "Arsenal v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
+        },
+        "broadcasts": [],
+        "endTimeUtc": "2026-08-21T21:00:00.000Z",
+        "liveWindow": 3,
+        "roundLabel": "Premier League Matchweek 1",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceType": "official",
+        "broadcaster": "Stan Sport",
+        "outcomeText": "Arsenal defeated Coventry City 3-0.",
+        "roundNumber": 1,
+        "sourceTrust": "verified",
+        "participants": [
+          {
+            "id": "",
+            "name": "Arsenal",
+            "role": "home"
+          },
+          {
+            "id": "",
+            "name": "Coventry City",
+            "role": "away"
+          }
+        ],
+        "resultLabels": [
+          "Premier League Matchweek 1",
+          "Arsenal defeated Coventry City 3-0."
+        ],
+        "startTimeUtc": "2026-08-21T19:00:00.000Z",
+        "competitionId": "competition:premier-league-2026-27",
+        "consensusTags": [],
+        "narrativeType": "regular-season-fixture",
+        "sportDomainId": "sport:football",
+        "timePrecision": "exact",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "lastReviewedAt": "2026-10-02T17:26:03.598Z",
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:5"
+        ],
+        "replayEligible": true,
+        "scheduleStatus": "confirmed",
+        "scoreCheckedAt": "2026-10-02T17:26:03.598Z",
+        "sourceEventIds": [
+          "epl-2026-27-128923"
+        ],
+        "viewingOptions": [
+          {
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "linkScope": "sport",
+            "serviceId": "stan",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "territory": "AU",
+            "accessType": "subscription",
+            "providerId": "stan",
+            "verifiedAt": "2026-08-25T00:00:00.000Z",
+            "rightsScope": "competition",
+            "liveOrReplay": "live",
+            "serviceLabel": "Stan Sport",
+            "replayVerified": false
+          }
+        ],
+        "catchupEligible": true,
+        "competitionName": "Premier League",
+        "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-02T17:26:03.598Z",
+        "briefingEligible": false,
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "canonicalEventId": "event:premier-league:128923",
+        "participantSlots": [],
+        "selectedSentence": "Premier League Matchweek 1 fixture, with the confirmed kick-off sourced from the official schedule.",
+        "awayParticipantId": "team:football:epl:5",
+        "canonicalSourceId": "128923",
+        "highlightEligible": true,
+        "homeParticipantId": "team:football:epl:1",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceType": "official",
+        "displayTitleCompact": "Arsenal v Coventry City",
+        "resultSourceCheckedAt": "2026-10-02T17:26:03.598Z",
+        "participantCountryCodes": [],
+        "canonicalSourceCheckedAt": "2026-10-02T17:26:03.598Z",
+        "representativeCountryCodes": []
+      }
+    },
+    {
+      "revision": 7363,
+      "fixture": {
+        "id": "epl-2026-27-128923",
+        "key": "premier-league",
+        "date": "2026-08-22",
+        "name": "Arsenal v Coventry City",
+        "time": "05:00",
+        "round": "all",
+        "sport": "Football",
+        "venue": "Emirates Stadium",
+        "season": "2026/27",
+        "status": "completed",
+        "eventId": "epl-2026-27-128923",
+        "expected": 6,
+        "fullSpiel": "Arsenal v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "recapText": "Arsenal completed a 3-goal win in Premier League Matchweek 1.",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "storyline": {
+          "stakes": 3,
+          "arcStage": "recap",
+          "intensity": 3,
+          "hookSpoilerOn": "Arsenal defeated Coventry City 3-0.",
+          "hookSpoilerOff": "Arsenal v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+          "intensitySource": "computed",
+          "expectedSpectacle": 6,
+          "synopsisSpoilerOn": "Arsenal completed a 3-goal win in Premier League Matchweek 1.",
+          "synopsisSpoilerOff": "Arsenal v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
+        },
+        "broadcasts": [],
+        "endTimeUtc": "2026-08-21T21:00:00.000Z",
+        "liveWindow": 3,
+        "roundLabel": "Premier League Matchweek 1",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceType": "official",
+        "broadcaster": "Stan Sport",
+        "outcomeText": "Arsenal defeated Coventry City 3-0.",
+        "roundNumber": 1,
+        "sourceTrust": "verified",
+        "participants": [
+          {
+            "id": "",
+            "name": "Arsenal",
+            "role": "home"
+          },
+          {
+            "id": "",
+            "name": "Coventry City",
+            "role": "away"
+          }
+        ],
+        "resultLabels": [
+          "Premier League Matchweek 1",
+          "Arsenal defeated Coventry City 3-0."
+        ],
+        "startTimeUtc": "2026-08-21T19:00:00.000Z",
+        "competitionId": "competition:premier-league-2026-27",
+        "consensusTags": [],
+        "narrativeType": "regular-season-fixture",
+        "sportDomainId": "sport:football",
+        "timePrecision": "exact",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "lastReviewedAt": "2026-10-02T17:58:01.260Z",
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:5"
+        ],
+        "replayEligible": true,
+        "scheduleStatus": "confirmed",
+        "scoreCheckedAt": "2026-10-02T17:58:01.260Z",
+        "sourceEventIds": [
+          "epl-2026-27-128923"
+        ],
+        "viewingOptions": [
+          {
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "linkScope": "sport",
+            "serviceId": "stan",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "territory": "AU",
+            "accessType": "subscription",
+            "providerId": "stan",
+            "verifiedAt": "2026-08-25T00:00:00.000Z",
+            "rightsScope": "competition",
+            "liveOrReplay": "live",
+            "serviceLabel": "Stan Sport",
+            "replayVerified": false
+          }
+        ],
+        "catchupEligible": true,
+        "competitionName": "Premier League",
+        "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-02T17:58:01.260Z",
+        "briefingEligible": false,
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "canonicalEventId": "event:premier-league:128923",
+        "participantSlots": [],
+        "selectedSentence": "Premier League Matchweek 1 fixture, with the confirmed kick-off sourced from the official schedule.",
+        "awayParticipantId": "team:football:epl:5",
+        "canonicalSourceId": "128923",
+        "highlightEligible": true,
+        "homeParticipantId": "team:football:epl:1",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceType": "official",
+        "displayTitleCompact": "Arsenal v Coventry City",
+        "resultSourceCheckedAt": "2026-10-02T17:58:01.260Z",
+        "participantCountryCodes": [],
+        "canonicalSourceCheckedAt": "2026-10-02T17:58:01.260Z",
+        "representativeCountryCodes": []
+      }
+    }
+  ]
+}
