@@ -416,7 +416,14 @@ async function run(){
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
     const rlwcOpener = response.body.events.find(item => item.id === "rlwc-australia-new-zealand-2026");
     assert(rlwcOpener, "a selected Major Events child must resolve to the curated event in the authenticated Feed");
-    assert.equal(rlwcOpener.editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the resolved World Cup opener must carry its validated L0 projection before pagination");
+    const knowledge=require('../data/editorial-knowledge.v1.json');
+    const narrative=require('./lib/editorial-narrative');
+    assert.deepEqual(narrative.validateKnowledge(knowledge),[],"the published editorial evidence must validate");
+    const openerProjection=knowledge.eventProjections.findLast(projection=>projection.targetType==='feed-event'&&projection.targetIds.includes(rlwcOpener.id));
+    assert(openerProjection,"the World Cup opener must have a source-backed projection");
+    assert.equal(rlwcOpener.editorialNarrative?.projectionId,openerProjection.id,"the resolved World Cup opener must carry its current validated L0 projection before pagination");
+    assert.equal(rlwcOpener.editorialNarrative.hook,openerProjection.hook,"the current researched copy must reach the authenticated Feed");
+    assert.equal(rlwcOpener.editorialNarrative.researchedAt,openerProjection.researchedAt,"publication must preserve the original research observation");
     assert(!response.body.events.some(item => item.id === "major-match:rlwc-2026:australia-new-zealand"), "the selected alias must not compete with its curated event in the authenticated Feed");
     assert(zlib.gzipSync(JSON.stringify(response.body)).length <= 250 * 1024, "the first authenticated feed page must remain below 250 KiB compressed");
     assert.equal(response.headers["Cache-Control"], "private, max-age=0, must-revalidate");
