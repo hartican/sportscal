@@ -1,6 +1,10 @@
 "use strict";
 const {guardedSend}=require("../lib/notification-send");
 
+const fixtureReminders=require('../lib/reminder-fixtures');
+const automaticReminders=require('../lib/automatic-reminders');
+const reminderPolicy=require('../config/fixture-reminder-policy');
+
 const crypto = require("node:crypto");
 const webpush = require("web-push");
 const {
@@ -69,6 +73,7 @@ function sameInstant(first, second){
 }
 
 function reminderDeliveryReset(existing, startsAt, deliveryMode){
+  if (existing?.dispatched_at) return {};
   if (existing && sameInstant(existing.starts_at, startsAt) && String(existing.delivery_mode || "match-15") === deliveryMode) return {};
   return { dispatched_at:null, claimed_at:null, attempts:0, last_error:null };
 }
@@ -137,7 +142,8 @@ async function notificationsHandler(request, response){
         response.status(400).json({ error:"An event is required to cancel a reminder.", code:"invalid_event" });
         return;
       }
-      await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?user_id=eq.${encodeURIComponent(user.id)}&event_id=eq.${encodeURIComponent(eventId)}`, { method:"DELETE" });
+      const fixture=fixtureReminders.index(fixtureReminders.published()).resolve(eventId) || { id:eventId };
+      await automaticReminders.choose({ userId:user.id, fixture, enabled:false, request:supabaseServiceRequest });
       response.status(200).json({ cancelled:true, eventId });
       return;
     }
@@ -179,6 +185,7 @@ async function notificationsHandler(request, response){
           timezone:clean(body.timezone, 80) || "Australia/Sydney",
           user_agent:clean(request.headers?.["user-agent"], 512),
           permission:"granted",
+          sporting_reminders_enabled:installationPreference(body,"sportingRemindersEnabled",existing,"sporting_reminders_enabled"),
           live_ratings_enabled:installationPreference(body,"liveRatingsEnabled",existing,"live_ratings_enabled"),
           social_alerts_enabled:installationPreference(body,"socialAlertsEnabled",existing,"social_alerts_enabled"),
           chat_alerts_enabled:installationPreference(body, "chatAlertsEnabled", existing, "chat_alerts_enabled"),
@@ -261,25 +268,19 @@ async function notificationsHandler(request, response){
       return;
     }
     if (body.action === "remind"){
-      const eventId = clean(body.eventId);
-      const title = clean(body.title);
-      const startsAt = new Date(body.startsAt);
-      if (!eventId || !title || !Number.isFinite(startsAt.getTime()) || startsAt.getTime() <= Date.now()){
-        response.status(400).json({ error:"The sporting start must be a future time.", code:"invalid_sporting_start" });
-        return;
+      const catalogue=await fixtureReminders.catalogue({request:supabaseServiceRequest});
+      const fixture=catalogue.resolve(clean(body.eventId));
+      const timing=reminderPolicy.timing(fixture);
+      if(!fixture||!timing){
+        response.status(409).json({error:"This fixture has no verified future start.",code:"unverified_fixture_start"});return;
       }
-      const deliveryMode = validDeliveryMode(body.deliveryMode);
-      if (!deliveryMode){
-        response.status(400).json({ error:"That reminder timing mode is not supported.", code:"invalid_delivery_mode" });
-        return;
+      const eventId=reminderPolicy.fixtureId(fixture),title=clean(fixture.name||fixture.displayTitleCompact||"Sporting fixture");
+      const startsAt=new Date(timing.startsAt),remindAt=new Date(timing.remindAt),deliveryMode="match-15",leadMinutes=15,viewingUrl=null;
+      if(user){
+        if(installation.user_id!==user.id){response.status(403).json({error:"This installation belongs to another account.",code:"installation_account_mismatch"});return;}
+        await automaticReminders.choose({userId:user.id,fixture,enabled:true,request:supabaseServiceRequest,catalogue});
+        response.status(200).json({reminded:true,eventId,startsAt:timing.startsAt,remindAt:timing.remindAt,leadMinutes,deliveryMode,precision:timing.precision,late:timing.late});return;
       }
-      const leadMinutes = deliveryMode === "session-start" ? 0 : 15;
-      const remindAt = new Date(startsAt.getTime() - leadMinutes * 60 * 1000);
-      if (remindAt.getTime() <= Date.now()){
-        response.status(409).json({ error:leadMinutes ? "It is already less than 15 minutes before this sport starts." : "That published session has already started.", code:"reminder_window_passed" });
-        return;
-      }
-      const viewingUrl = body.viewingUrl ? validHttps(body.viewingUrl) : null;
       const installationIds = await enabledInstallationIds(user, installation);
       if (!installationIds.length){
         response.status(409).json({ error:"This account has no enabled notification installations.", code:"no_enabled_installations" });
@@ -299,7 +300,10 @@ async function notificationsHandler(request, response){
           remind_at:remindAt.toISOString(),
           delivery_mode:deliveryMode,
           viewing_url:viewingUrl,
-          fallback_to_broadcast:Boolean(body.fallbackToBroadcast),
+          fallback_to_broadcast:false,
+          reminder_origin:"manual",timing_precision:timing.precision,
+          schedule_checked_at:new Date().toISOString(),schedule_state:"ready",schedule_starts_at:timing.startsAt,
+          ...(timing.late ? {late_published_at:new Date().toISOString()} : {}),
           ...reminderDeliveryReset(existingByInstallation.get(targetInstallationId), startsAt.toISOString(), deliveryMode),
           updated_at:new Date().toISOString(),
           },
@@ -315,7 +319,7 @@ async function notificationsHandler(request, response){
         response.status(400).json({ error:"An event is required to cancel a reminder.", code:"invalid_event" });
         return;
       }
-      await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=eq.${encodeURIComponent(installationId)}&event_id=eq.${encodeURIComponent(eventId)}`, { method:"DELETE" });
+      await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=eq.${encodeURIComponent(installationId)}&event_id=eq.${encodeURIComponent(eventId)}`, { method:"PATCH",body:{schedule_state:"off",updated_at:new Date().toISOString()} });
       response.status(200).json({ cancelled:true, eventId });
       return;
     }

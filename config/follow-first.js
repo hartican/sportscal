@@ -250,6 +250,7 @@
       notifications:{
         enabled:true,
         sportingRemindersEnabled:true,
+        autoRemindersEnabled:true,
         chatAlertsEnabled:true,
         liveRatingsEnabled:true,
         socialAlertsEnabled:true,
@@ -377,6 +378,7 @@
               ? false
               : true,
           sportingRemindersEnabled:prior.notifications?.sportingRemindersEnabled !== false,
+          autoRemindersEnabled:prior.notifications?.autoRemindersEnabled !== false,
           chatAlertsEnabled:prior.notifications?.chatAlertsEnabled !== false,
           liveRatingsEnabled:prior.notifications?.liveRatingsEnabled !== false,
           socialAlertsEnabled:prior.notifications?.socialAlertsEnabled !== false,

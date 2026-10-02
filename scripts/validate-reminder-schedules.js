@@ -7,7 +7,7 @@ async function main(){
  const now=new Date(),future=h=>new Date(+now+h*3600000).toISOString();
  const event='event:premier-league:128923';
  const reminder={id:'00000000-0000-4000-8000-000000000001',event_id:event,starts_at:future(2),updated_at:now.toISOString(),delivery_mode:'match-15'};
- const fixture={id:event,startTimeUtc:future(3),status:'upcoming',timePrecision:'exact',scheduleStatus:'confirmed'};
+ const fixture={id:event,startTimeUtc:future(3),status:'upcoming',timePrecision:'exact',scheduleStatus:'confirmed',sourceUrl:'https://organiser.example/fixture',sourceCheckedAt:now.toISOString()};
  assert.equal(decision(reminder,fixture,now).new_start,future(3));
  assert.equal(decision(reminder,{...fixture,startTimeUtc:future(0.1)},now).new_start,future(0.1));
  for(const status of ['cancelled','postponed','suspended','completed','live'])assert.equal(decision(reminder,{...fixture,status},now).state,'inactive');

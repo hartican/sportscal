@@ -14,7 +14,7 @@ function renderTournamentSlots(container,event){
   const details=document.createElement('details');details.className='tournament-fixture-slots';const summary=document.createElement('summary');summary.textContent='Tournament schedule';details.append(summary);let mounted=false;
   const stamp=f=>f.startTimeUtc?new Date(f.startTimeUtc).toLocaleString('en-AU',{timeZone:Intl.DateTimeFormat().resolvedOptions().timeZone,weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}):f.date?[f.date,f.time].filter(Boolean).join(' · '):'Time not yet published';
   const participant=p=>p.displayName||p.name||p.label;
-  const row=(host,title,info)=>{const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=title;p.append(strong,document.createTextNode(info?' · '+info:''));host.append(p);};
+  const row=(host,title,info,fixture)=>{const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=title;p.append(strong,document.createTextNode(info?' · '+info:''));if(fixture){const action=getEventAction(fixture),timing=eventReminderTiming(fixture);if(timing||action.reminderRequested){const button=document.createElement('button');button.type='button';button.className='event-quick-action';button.dataset.reminderActionKey=eventActionKey(fixture);button.dataset.reminderAliases=EVENT_ACTION_IDENTITY.aliasesForEvent(fixture).join('|');renderQuickReminderButton(button,action.reminderRequested);button.disabled=!action.reminderRequested&&!reminderCanBeScheduled(timing);button.addEventListener('click',()=>void toggleQuickReminder(fixture,button));p.append(button);}}host.append(p);};
   details.addEventListener('toggle',()=>{if(!details.open||mounted)return;mounted=true;
    if(appearances.length){
     const followed=p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel);
@@ -34,9 +34,9 @@ function renderTournamentSlots(container,event){
    let published=0,pending=false;
    for(const f of fixtures.filter(f=>f.id!==event.id&&f.cardType!=='golf_session'&&f.contestUnit!=='rubber')){
     if(f.appearances?.length)continue;if(f.contestUnit==='tie'&&!f.participantIds?.length){pending=true;continue;}published++;
-    row(details,!userPreferences.showSpoilers&&f.spoilerSafeTitle?f.spoilerSafeTitle:f.name,stamp(f));
+    row(details,!userPreferences.showSpoilers&&f.spoilerSafeTitle?f.spoilerSafeTitle:f.name,stamp(f),{...f,key:f.key||event.key,tournamentLevel:f.tournamentLevel||tournament?.level});
     for(const r of f.rubbers||[]){if(!(r.participantIds?.length||r.sides?.some(s=>s.names?.length))){pending ||= r.status!=='not-required';continue;}
-     row(details,r.name,[r.matchType,userPreferences.showSpoilers?r.score:null,r.status==='not-required'?'Not required':null].filter(Boolean).join(' · '));}
+     row(details,r.name,[r.matchType,userPreferences.showSpoilers?r.score:null,r.status==='not-required'?'Not required':null].filter(Boolean).join(' · '),{...r,key:r.key||f.key||event.key,tournamentLevel:r.tournamentLevel||f.tournamentLevel||tournament?.level,roundLabel:r.roundLabel||f.roundLabel,competitionId:r.competitionId||f.competitionId});}
    }
    if(!published&&!appearances.length){for(const f of fixtures.filter(f=>f.cardType==='golf_session')){row(details,f.name,stamp(f));published++;}}
    if(pending||!appearances.length&&!published){const note=document.createElement('p');note.textContent='Further pairings and playing times will appear when published.';details.append(note);}

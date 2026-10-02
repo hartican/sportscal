@@ -6,9 +6,12 @@
   "functions": {
     "api/notification-dispatch.js": {
       "includeFiles": "data/{code-inspector/*.json,comms-sources.v1.json,marquee-candidates.v1.json}",
+      "maxDuration": 30
+    },
+    "api/comms.js": {
+      "includeFiles": "data/{comms-sources.v1.json,marquee-candidates.v1.json}",
       "maxDuration": 60
     },
-    "api/comms.js": {"includeFiles":"data/{comms-sources.v1.json,marquee-candidates.v1.json}","maxDuration":60},
     "api/chat.js": {
       "includeFiles": "data/chat-fixtures.v1.json",
       "maxDuration": 60
@@ -23,6 +26,9 @@
     "api/feed.js": {
       "maxDuration": 60,
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
+    },
+    "api/notifications.js": {
+      "includeFiles": "data/code-inspector/*.json"
     }
   },
   "redirects": [

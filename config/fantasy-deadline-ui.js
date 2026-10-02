@@ -12,7 +12,8 @@ const {select,format,ageLimit}=f;
   function createController({document,preferences,sources,resolve,active,now=()=>Date.now(),setTimer=setTimeout,clearTimer=clearTimeout}){
     let timer=null,disposed=false;const cancel=()=>{if(timer!==null)clearTimer(timer);timer=null;};
     function sync(){cancel();if(disposed)return;const clock=now(),cache=new Map();let next=Infinity;
-      for(const card of document.querySelectorAll('[data-fantasy-fixture]')){
+      globalThis.NOTHINGSPORTS_FANTASY_UI={renderNotificationSettings,createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
+for(const card of document.querySelectorAll('[data-fantasy-fixture]')){
         const event=resolve(card.dataset.fantasyFixture),record=active()?select(event,preferences(),sources(),clock):null;let line=card.querySelector('.fantasy-deadline');
         if(!record){line?.remove();continue;}
         const key=record.gameId+':'+record.fantasyRoundId+':'+record.deadlineAt;if(!cache.has(key))cache.set(key,presentation(record,clock));const copy=cache.get(key);
@@ -244,7 +245,96 @@ function renderStartupMetadataSettings(body){
   });
 }
 
-globalThis.NOTHINGSPORTS_FANTASY_UI={createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
+function renderNotificationSettings(body){
+  const preferences = draftPreferences.followFirst.notifications;
+  const enabled = preferences.enabled !== false;
+  const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
+  const iosInstall = iosPushRequiresHomeScreen();
+  const statusCopy = permission === "denied"
+    ? "System alerts are blocked. Allow notifications for Nothing Sport in this browser or device Settings, then return here."
+    : iosInstall
+      ? "On iPhone or iPad, add Nothing Sport to the Home Screen, open it there, then reopen a guest room link there once. System push and badges only work in the installed app."
+      : enabled && permission === "granted"
+        ? "System alerts are enabled on this device. Background sounds are controlled by the device."
+        : "Your alert choices default to on. Tap Enable system alerts to grant this device permission.";
+  const actionLabel = permission === "granted" && enabled ? "Turn off system alerts on this device" : "Enable system alerts";
+  body.innerHTML = `<div class="preference-stack">
+    <section class="filter-panel"><h3>Sounds, alerts and badges</h3>
+      <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
+      <label class="viewing-toggle"><input type="checkbox" id="liveRatingsEnabled" ${preferences.liveRatingsEnabled !== false ? "checked" : ""}><span><strong>5/5 ratings from people I follow</strong>Grouped Heat, Live and Impact alerts across all sports.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="socialAlertsEnabled" ${preferences.socialAlertsEnabled !== false ? "checked" : ""}><span><strong>New followers and bonus points</strong>Notify you when someone follows your profile, copies your sporting follows, or earns you points.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="autoRemindersEnabled" ${preferences.autoRemindersEnabled !== false ? "checked" : ""}><span><strong>Automatic reminders for my follows</strong>Remind me before eligible knockout fixtures featuring athletes or teams I follow.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Deliver sporting reminders before their published start.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothinger Leaderboard.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
+      <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
+      <button class="btn ghost" type="button" id="testChatSoundBtn">Play test sound</button>
+      <button class="btn ghost" type="button" id="testSystemNotificationBtn" ${permission === "unsupported" ? "disabled" : ""}>Send test notification</button>
+      <p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p>
+      <p class="preference-help" id="notificationDiagnosticsStatus">Checking device and scheduler status…</p>
+    </section>
+  </div>`;
+  [["autoRemindersEnabled","autoRemindersEnabled"],["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
+    document.getElementById(id).addEventListener("change", event => {
+      draftPreferences.followFirst.notifications[key] = event.target.checked;
+    });
+  });
+  document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
+    const status = document.getElementById("notificationPermissionStatus");
+    const button = document.getElementById("notificationPermissionBtn");
+    button.disabled = true;
+    if (enabled && permission === "granted"){
+      status.textContent = "Turning off system alerts on this device…";
+      try{
+        await disablePushInstallation();
+        setBackgroundNotificationPreference(draftPreferences, false);
+        renderSettingsScreen();
+      }catch(error){
+        status.textContent = error.message || "System alerts could not be turned off.";
+        button.disabled = false;
+      }
+      return;
+    }
+    status.textContent = "Requesting system permission…";
+    try{
+      await ensurePushInstallation();
+      setBackgroundNotificationPreference(draftPreferences, true);
+      renderSettingsScreen();
+    }catch(error){
+      status.textContent = error.message || (Notification.permission === "denied"
+        ? "Notifications are blocked. Allow Nothing Sport in browser or device Settings."
+        : "Notification permission was not granted.");
+      button.disabled = false;
+    }
+  });
+  document.getElementById("testChatSoundBtn").addEventListener("click", async event => {
+    const status = document.getElementById("notificationPermissionStatus");
+    event.currentTarget.disabled = true;
+    draftPreferences.followFirst.notifications.soundsEnabled = true;
+    const played = await playIncomingChatSound({ force: true });
+    status.textContent = played ? "Test sound played." : "Sound is blocked on this device. Check volume and browser sound permissions.";
+    event.currentTarget.disabled = false;
+  });
+  document.getElementById("testSystemNotificationBtn").addEventListener("click", async event => {
+    const status = document.getElementById("notificationPermissionStatus");
+    event.currentTarget.disabled = true;
+    status.textContent = "Sending a real system notification to this device…";
+    try{
+      await ensurePushInstallation();
+      const result = await notificationDiagnosticsCommand("test");
+      status.textContent = result.sent ? "Test notification sent. Its receipt will appear below when the open app observes it." : "The test was not sent.";
+      await refreshNotificationDiagnosticsStatus();
+    }catch(error){
+      status.textContent = error.message || "The test notification could not be sent.";
+    }finally{
+      event.currentTarget.disabled = false;
+    }
+  });
+  void refreshNotificationDiagnosticsStatus();
+}
+
+globalThis.NOTHINGSPORTS_FANTASY_UI={renderNotificationSettings,createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
 for(const card of document.querySelectorAll('.feed-card-slot .event-card')){const ev=profileFixtureEvents.get(card.dataset.eventId);if(ev)installFantasyCard(card,ev,{});}
 globalThis.fantasyDeadlineController.sync();
 })();

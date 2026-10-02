@@ -133,6 +133,8 @@ jobs:
           node scripts/validate-backend-efficiency.js
           node scripts/validate-notifications.js
           node scripts/validate-reminder-schedules.js
+          node scripts/validate-automatic-reminders.js
+          node scripts/validate-reminder-dispatch-capacity.js
           node scripts/validate-pilot-readout.js
           node scripts/validate-pilot-readout-sql.js
           node scripts/validate-live-fixtures.js
