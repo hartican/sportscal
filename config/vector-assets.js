@@ -51,7 +51,7 @@
   };
 
   const customBodies = {
-    "ui:steak": '<path class="steak-cut" d="M9 1.5C4 1.5 1 4.5 1 9c0 5 4 9.5 10 9.5 4 0 5-3.5 8-3.5 4 0 10-.5 10-5.5 0-4-4.5-8-10-8-4 0-5 2-10 0Z"/><path class="steak-detail" fill="none" d="M6 5c-4 4-1 10 4 11m6-10c3-2 8 0 9 3"/><ellipse class="steak-detail" fill="none" cx="12" cy="9.5" rx="3" ry="2.5"/>',
+    "ui:steak": '<g transform="translate(15 10) rotate(-65) translate(-12 -14)"><path class="steak-cut" d="M12 2C5 0 2 6 4 13c2 7 6 13 11 13s8-5 6-10C19 10 17 3 12 2Z"/><path class="steak-detail steak-bone" fill="none" stroke-width="2" d="M6.5 8h11M11.5 8v14"/></g>',
     "sport:sailing": '<path d="M12 3v13M12 4l7 10h-7M11 7 5 15h6"/><path d="M3 18c3 2 6 2 9 0s6-2 9 0M3 21c3 2 6 2 9 0s6-2 9 0"/>',
     "sport:ice-hockey": '<path d="m17 3-7 15H3v3h9L21 3"/><ellipse cx="19" cy="20" rx="3" ry="1.5"/>',
     "sport:cricket": '<path d="m7 3 4 4-5 5-4-4z"/><path d="m9 5 10 10-4 4L5 9M17 4v8M21 4v8M15 4h8M15 12h8"/>',
