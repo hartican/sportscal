@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v368";
-const SHELL_VERSION = "368";
+const CACHE_NAME = "nothingsport-shell-v369";
+const SHELL_VERSION = "369";
 const APP_SHELL = [
   "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
@@ -20,7 +20,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=368",
+  "/assets/js/app-shell-runtime.js?v=369",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=368",
   "/config/tennis-journeys.js?v=368",
