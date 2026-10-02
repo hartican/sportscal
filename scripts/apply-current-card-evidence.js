@@ -21,6 +21,10 @@ function publicFields(override){
   return next;
 }
 function mergeRecord(record, override, checkedAt){
+  if(record.customClassification && override.sourceType==='official'){
+    const {customClassification,...rest}=record;
+    record={...rest,importedCalendarClassification:customClassification};
+  }
   const sourceRefs = [...new Set([record.sourceUrl, override.sourceUrl, override.broadcastSourceUrl, override.scheduleSourceUrl, ...(record.sourceRefs || [])].filter(Boolean))];
   return {
     ...record,
@@ -33,7 +37,7 @@ function mergeRecord(record, override, checkedAt){
     sourceTrust:"verified",
     sourceRefs,
     scheduleStatus:override.startTimeUtc ? "confirmed" : record.scheduleStatus,
-    timePrecision:override.startTimeUtc ? "exact" : record.timePrecision,
+    timePrecision:override.startTimeUtc ? "exact" : override.timePrecision || record.timePrecision,
     stakesScore:record.stakesScore || 5,
   };
 }
@@ -110,7 +114,7 @@ function applyEvidence({ check=false } = {}){
         || coverage.events.find(item => matches(item, override));
       assert(record, `${override.id} must exist in Feed or detailed Event fixtures`);
       assert.equal(record.score, override.score, `${override.id} score`);
-      assert(record.endTimeUtc, `${override.id} must have a stable completion boundary`);
+      assert(record.endTimeUtc || (record.dateOnly===true && /^\d{4}-\d{2}-\d{2}$/.test(record.endDate)), `${override.id} must have a stable completion boundary or explicit date-only window`);
     }
     for(const group of evidence.broadcastOverrides) for(const id of group.ids) assert.equal(coverage.events.find(record => identity(record) === id)?.broadcaster, group.broadcaster, `${id} broadcaster`);
     console.log("Current card evidence is fully applied.");
@@ -120,5 +124,28 @@ function applyEvidence({ check=false } = {}){
   console.log("Applied reviewed fixtures, results, completion timing and broadcaster evidence.");
 }
 
-if(require.main === module) applyEvidence({ check:process.argv.includes("--check") });
-module.exports = { applyEvidence, normalizeCompletedTiming, mergeRecord };
+function applySelectedResults(ids){
+  const evidence=read('data/canonical/current-card-evidence-2026.json');
+  const selected=ids.map(id=>{
+    const row=evidence.resultOverrides.find(row=>row.id===id);
+    assert(row && row.sourceCheckedAt && row.sourceUrl && row.sourceName, `${id}: dated result evidence is required`);
+    return {...row,status:'completed'};
+  });
+  for(const file of ['feeds/incoming/events.json','data/events.json']){
+    const document=read(file);
+    document.events=document.events.map(record=>{
+      const override=selected.find(row=>matches(record,row));
+      return override?normalizeCompletedTiming(mergeRecord(record,override,override.sourceCheckedAt)):record;
+    });
+    write(file,document);
+  }
+  const file='data/canonical/official-card-results-2026.json',results=read(file),byId=new Map(results.results.map(row=>[row.id,row]));
+  for(const row of selected)byId.set(row.id,{...byId.get(row.id),...publicFields(row)});
+  results.results=[...byId.values()];write(file,results);
+  console.log(`Applied ${selected.length} reviewed result(s); unrelated fixtures, editorial and observations retained.`);
+}
+if(require.main === module){
+  const scope=process.argv.find(arg=>arg.startsWith('--ids='));
+  if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
+}
+module.exports = { applySelectedResults, applyEvidence, normalizeCompletedTiming, mergeRecord };

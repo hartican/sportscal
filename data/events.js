@@ -2178,7 +2178,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v Ireland",
     "date": "2026-07-04",
     "time": "20:10",
-    "broadcaster": "Stan Sport",
+    "broadcaster": "Australian viewing unconfirmed",
     "expected": 8,
     "venue": "Allianz Stadium, Sydney",
     "liveWindow": 3,
@@ -2190,9 +2190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Wallabies official Australia v Ireland match report",
     "sourceUrl": "https://www.wallabies.rugby/news/wallabies-ireland-match-report-scores-reaction-rugby-union-nations-championship-202674",
     "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "post-match",
     "replayEligible": true,
@@ -6280,7 +6278,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v France",
     "date": "2026-07-11",
     "time": "17:40",
-    "broadcaster": "Stan Sport",
+    "broadcaster": "Australian viewing unconfirmed",
     "expected": 7,
     "venue": "Brisbane Stadium",
     "liveWindow": 3,
@@ -6292,9 +6290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "2026 Nations Championship results",
     "sourceUrl": "https://www.rugby.com.au/news",
     "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "post-match",
     "replayEligible": true,
@@ -7600,10 +7596,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-07-18",
     "time": "20:00",
     "startTimeUtc": "2026-07-18T10:00:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "HBF Park, Perth",
     "liveWindow": 3,
@@ -16598,10 +16592,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-08-08",
     "time": "20:05",
     "startTimeUtc": "2026-08-08T10:05:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 6,
     "venue": "Hanazono Rugby Stadium, Osaka",
     "liveWindow": 3,
@@ -18103,10 +18095,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-08-15",
     "time": "15:00",
     "startTimeUtc": "2026-08-15T05:00:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Queensland Country Bank Stadium, Townsville",
     "liveWindow": 3,
@@ -21216,10 +21206,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-08-22",
     "time": "23:00",
     "startTimeUtc": "2026-08-22T13:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [
-      "Broadcast details TBC"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 10,
     "venue": "Ellis Park, Johannesburg",
     "liveWindow": 3,
@@ -26095,10 +26083,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-08-30",
     "time": "05:00",
     "startTimeUtc": "2026-08-29T19:00:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Estadio 23 de Agosto, San Salvador de Jujuy",
     "liveWindow": 3,
@@ -34646,10 +34632,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-09-06",
     "time": "07:00",
     "startTimeUtc": "2026-09-05T21:00:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Estadio Malvinas Argentinas, Mendoza",
     "liveWindow": 3,
@@ -59855,10 +59839,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-09-27",
     "time": "19:45",
     "startTimeUtc": "2026-09-27T09:45:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Nine / 9Now / Stan Sport",
+    "broadcastOptions": [],
     "expected": 9,
     "venue": "Optus Stadium, Perth",
     "liveWindow": 3,
@@ -59878,12 +59860,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       {
         "name": "Wallabies",
         "role": "home",
-        "id": ""
+        "id": "team:rugby:wallabies"
       },
       {
         "name": "South Africa",
         "role": "away",
-        "id": ""
+        "id": "team:rugby:springboks"
       }
     ],
     "storyline": {
@@ -59968,14 +59950,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine-tv",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "stan",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.stan.com.au/watch/sport/rugby/wallabies",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/wallabies",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
-      "rugby-australia-south-africa-2026-09-27"
+      "rugby-australia-south-africa-2026-09-27",
+      "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+      "fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945",
+      "fixture:rugby:ra:949625",
+      "fixture-rugby-ra-949625"
     ],
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "kind": "official",
+      "checkedAt": "2026-10-02T01:36:47.809Z",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949625"
+    }
   },
   {
     "id": "football-australia-brazil-2026-09-29",
@@ -61189,10 +61214,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "key": "wsl",
     "name": "WSL Margaret River Pro",
     "displayTitleCompact": "WSL Margaret River Pro",
-    "date": "2026-10-02",
-    "time": "06:00",
-    "startTimeUtc": "2026-10-01T20:00:00.000Z",
-    "endTimeUtc": "2026-10-02T01:00:00.000Z",
+    "date": "2026-04-16",
+    "time": null,
+    "startTimeUtc": null,
+    "endTimeUtc": null,
     "broadcaster": "WSL / Paramount+",
     "broadcastOptions": [
       "WSL / Paramount+"
@@ -61204,16 +61229,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
     "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-    "sourceName": "Imported from nothingsport-manual-seed",
-    "sourceUrl": "calendar://nothingsport-manual-seed/wsl-margaret-river-pro-2026",
-    "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-    "sourceType": "personal-calendar",
-    "customClassification": {
-      "schemaVersion": "calendar-events.v1",
-      "calendarName": "nothingsport-manual-seed",
-      "sportRule": "explicit.sportKey",
-      "eventRule": "explicit.eventType"
-    },
+    "sourceName": "Surfing Western Australia",
+    "sourceUrl": "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
+    "sourceCheckedAt": "2026-10-02T05:51:35.949Z",
+    "sourceType": "official",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -61224,22 +61243,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "status": "upcoming",
+    "status": "completed",
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
-      "hookSpoilerOn": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
-      "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "hookSpoilerOff": "WSL Margaret River Pro is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "George Pittar and Lakey Peterson won the 2026 Margaret River Pro.",
+      "synopsisSpoilerOff": "WSL Margaret River Pro is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOn": "The April event concluded with George Pittar winning the men’s competition and Lakey Peterson winning the women’s competition.",
       "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-14T02:56:19.695Z",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "statusCheckedAt": "2026-08-06T09:00:00+10:00",
-    "timePrecision": "exact",
+    "timePrecision": "date-only",
     "participantIds": [],
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -61251,7 +61270,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "importedCalendarClassification": {
+      "schemaVersion": "calendar-events.v1",
+      "calendarName": "nothingsport-manual-seed",
+      "sportRule": "explicit.sportKey",
+      "eventRule": "explicit.eventType"
+    },
+    "endDate": "2026-04-26",
+    "dateOnly": true,
+    "cardKind": "event",
+    "score": "Men: George Pittar; Women: Lakey Peterson",
+    "scoreDisplay": "Men: George Pittar; Women: Lakey Peterson",
+    "outcomeText": "George Pittar and Lakey Peterson won the 2026 Margaret River Pro.",
+    "recapText": "The April event concluded with George Pittar winning the men’s competition and Lakey Peterson winning the women’s competition.",
+    "sourceRefs": [
+      "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
+      "https://www.amrshire.wa.gov.au/shire-and-council/news/what-locals-need-to-know-about-the-pro",
+      "calendar://nothingsport-manual-seed/wsl-margaret-river-pro-2026"
+    ],
+    "stakesScore": 5,
+    "scoreCheckedAt": "2026-10-02T05:51:35.949Z"
   },
   {
     "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
@@ -65414,7 +65453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "South Africa v Australia — First Test",
     "date": "2026-10-09",
     "time": "18:30",
-    "broadcaster": "Kayo / Foxtel",
+    "broadcaster": "Kayo Sports / Foxtel",
     "expected": 7,
     "venue": "Kingsmead, Durban",
     "liveWindow": 8,
@@ -65426,9 +65465,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Cricket Australia",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
-    "broadcastOptions": [
-      "Kayo / Foxtel"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,
@@ -65531,7 +65568,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/sport.html",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "fixture:cricket:espn:1525659",
     "sourceEventIds": [
       "evt_87",
@@ -66569,10 +66629,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-10",
     "time": "17:10",
     "startTimeUtc": "2026-10-10T06:10:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Nine / 9Now / Stan Sport",
+    "broadcastOptions": [],
     "expected": 9,
     "venue": "Eden Park, Auckland",
     "liveWindow": 3,
@@ -66637,7 +66695,41 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine-tv",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "stan",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "rugby-new-zealand-australia-2026-10-10",
     "sourceEventIds": [
       "rugby-new-zealand-australia-2026-10-10",
@@ -71615,10 +71707,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-17",
     "time": "15:45",
     "startTimeUtc": "2026-10-17T04:45:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Nine / 9Now / Stan Sport",
+    "broadcastOptions": [],
     "expected": 10,
     "venue": "Accor Stadium, Sydney",
     "liveWindow": 3,
@@ -71723,7 +71813,41 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine-tv",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.9now.com.au/the-rugby-championship",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "stan",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "rugby-australia-new-zealand-2026-10-17",
     "sourceEventIds": [
       "rugby-australia-new-zealand-2026-10-17"
@@ -74183,7 +74307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "South Africa v Australia — Second Test",
     "date": "2026-10-18",
     "time": "19:00",
-    "broadcaster": "Kayo / Foxtel",
+    "broadcaster": "Kayo Sports / Foxtel",
     "expected": 8,
     "venue": "St George's Park, Gqeberha",
     "liveWindow": 8,
@@ -74195,9 +74319,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Cricket Australia",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
-    "broadcastOptions": [
-      "Kayo / Foxtel"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,
@@ -74302,7 +74424,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/sport.html",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "fixture:cricket:espn:1525660",
     "sourceEventIds": [
       "evt_88",
@@ -80234,7 +80379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "South Africa v Australia — Third Test",
     "date": "2026-10-27",
     "time": "19:30",
-    "broadcaster": "Kayo / Foxtel",
+    "broadcaster": "Kayo Sports / Foxtel",
     "expected": 8,
     "venue": "Newlands, Cape Town",
     "liveWindow": 8,
@@ -80246,9 +80391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Cricket Australia",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
-    "broadcastOptions": [
-      "Kayo / Foxtel"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,
@@ -80349,7 +80492,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/sport.html",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "fixture:cricket:espn:1525661",
     "sourceEventIds": [
       "evt_89",
@@ -88454,10 +88620,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-09",
     "time": "02:10",
     "startTimeUtc": "2026-11-08T15:10:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 8,
     "venue": "Twickenham Stadium, London",
     "liveWindow": 3,
@@ -90908,10 +91072,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-16",
     "time": "02:10",
     "startTimeUtc": "2026-11-15T15:10:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Murrayfield Stadium, Edinburgh",
     "liveWindow": 3,
@@ -93793,10 +93955,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-22",
     "time": "07:10",
     "startTimeUtc": "2026-11-21T20:10:00.000Z",
-    "broadcaster": "Stan Sport",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Principality Stadium, Cardiff",
     "liveWindow": 3,
@@ -94895,7 +95055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v Ireland (Nov tour)",
     "date": "2026-11-28",
     "time": "00:00",
-    "broadcaster": "Stan Sport",
+    "broadcaster": "Australian viewing unconfirmed",
     "expected": 8,
     "venue": null,
     "liveWindow": 3,
@@ -94907,9 +95067,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Bundled nothingsport seed data",
     "sourceUrl": "https://github.com/hartican/sportscal",
     "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
-    "broadcastOptions": [
-      "Stan Sport"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,

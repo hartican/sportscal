@@ -113,7 +113,7 @@
     "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], null, { grandFinalProviderIds:Object.freeze(["nine"]) }),
     "competition:nrlw-premiership":viewingRights(["competition:nrlw-premiership", "competition:nrlw-premiership-2026", "nrlw"], ["nine", "kayo", "foxtel"], "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", matchPriority:2 }),
     "competition:rugby-league-world-cup":viewingRights(["competition:rugby-league-world-cup", "rlwc2026"], ["seven"], null, { matchPriority:1 }),
-    "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], ["stan"], "https://www.stan.com.au/watch/sport/rugby", { rightsScope:"sport", sourceIsProvider:true }),
+    "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], [], null, { rightsScope:"sport", coverageStatus:"unverified" }),
     "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], null),
     "competition:motogp":viewingRights(["competition:motogp", "competition:motogp-2026", "motogp"], ["kayo", "foxtel"], "https://www.motogp.com.au/fan-zone/how-to-watch-motogp-live-on-tv-and-stream-in-australia", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
@@ -754,13 +754,13 @@
     const tokens = [event?.competitionId, event?.majorEventId, event?.sportDomainId, event?.sportId, event?.key, event?.competition, event?.competitionName, event?.name]
       .map(normalizeToken)
       .filter(Boolean);
-    const eventTime = Date.parse(event?.startsAt || event?.sportingStartsAt || event?.start || event?.date || "");
+    const eventTime = Date.parse(event?.startsAt || event?.sportingStartsAt || event?.startTimeUtc || event?.start || event?.date || "");
     const eventKey = String(event?.key || "").toLowerCase();
     const candidates = [...Object.values(COMPETITION_VIEWING_RIGHTS)]
       .sort((left, right) => (Number(right.matchPriority) || 0) - (Number(left.matchPriority) || 0))
       .filter(rights => {
         if (rights.eventKeys && eventKey && !rights.eventKeys.includes(eventKey)) return false;
-        if (Number.isFinite(eventTime) && ((rights.notBefore && eventTime < Date.parse(rights.notBefore)) || (rights.notAfter && eventTime > Date.parse(rights.notAfter)))) return false;
+        if ((rights.notBefore || rights.notAfter) && (!Number.isFinite(eventTime) || (rights.notBefore && eventTime < Date.parse(rights.notBefore)) || (rights.notAfter && eventTime > Date.parse(rights.notAfter)))) return false;
         return true;
       });
     const matches = (rights, values) => rights.competitionAliases.some(rawAlias => {

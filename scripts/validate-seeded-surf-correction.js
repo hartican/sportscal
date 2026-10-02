@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {validateFeed,normalizeFeed}=require('./lib/feed-utils');
+const {mergeRecord}=require('./apply-current-card-evidence');
+const id='calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026',feed=require('../data/events.json'),row=feed.events.find(e=>e.id===id);
+assert(row);assert.equal(row.status,'completed');assert.equal(row.date,'2026-04-16');assert.equal(row.endDate,'2026-04-26');
+assert.equal(row.startTimeUtc,null);assert.equal(row.time,null);assert.equal(row.dateOnly,true);assert.equal(row.timePrecision,'date-only');
+assert.equal(row.sourceType,'official');assert(row.sourceRefs.some(url=>url.startsWith('calendar://')));assert(row.importedCalendarClassification);assert.equal(row.customClassification,undefined);
+assert.match(row.outcomeText,/George Pittar and Lakey Peterson/);assert.match(row.sourceUrl,/surfingwa\.com\.au/);
+assert.equal(validateFeed(normalizeFeed({...feed,events:[row]})).length,0,'honest dated event window needs no fabricated clock time');
+for(const mutation of [{dateOnly:false},{timePrecision:'exact'},{endDate:'2026-04-15'},{endDate:null}])assert(validateFeed(normalizeFeed({...feed,events:[{...row,...mutation}]})).some(e=>/time|endDate/.test(e)),'ordinary/exact/incomplete windows retain validation');
+const override=require('../data/canonical/current-card-evidence-2026.json').resultOverrides.find(r=>r.id===id);
+const prior={...row,sourceType:'personal-calendar',customClassification:row.importedCalendarClassification};delete prior.importedCalendarClassification;
+const corrected=mergeRecord(prior,override,override.sourceCheckedAt);
+assert.equal(corrected.id,id);assert.equal(corrected.customClassification,undefined);assert.deepEqual(corrected.importedCalendarClassification,prior.customClassification);
+assert.deepEqual(mergeRecord(corrected,override,override.sourceCheckedAt),corrected,'unchanged review preserves its original observation and calendar identity');
+const paged=require('../data/feed/manifest.json');assert(paged.pages.every(page=>!require('../'+page.path).events.some(e=>e.id===id)),'past event is absent from current paged Feed under ordinary retention');
+console.log('Seeded Surf correction: official April window/result, no invented clock, original activity ID/import provenance, unchanged review and normal retention passed.');

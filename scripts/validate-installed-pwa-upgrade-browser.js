@@ -28,7 +28,13 @@ async function assertCachedFootballStatus(page){
   assert.equal(abandoned.observation,'abandoned','upgraded/offline deferred Match Centre accepts the official abandonment correction');
   const rugby=await page.evaluate(f=>{const normalized=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(f);const oldRatings=ratings;try{ratings={[f.id]:5};return {id:normalized.id,start:normalized.startTimeUtc,scoreCheckedAt:normalized.scoreCheckedAt,rating:getActual('rugby-australia-south-africa-2026-09-27')};}finally{ratings=oldRatings;}},require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby);
   assert.equal(rugby.id,'rugby-australia-south-africa-2026-09-27');assert.equal(rugby.start,'2026-09-27T09:45:00.000Z');assert.equal(rugby.rating,5,'cached runtime reads the old saved Rugby rating');assert.equal(rugby.scoreCheckedAt,require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby.scoreCheckedAt,'cached host timing never refreshes score facts');
-
+  const viewing=await page.evaluate(async()=>{
+    const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
+    const rugby=await load('rugby-union'),cricket=await load('cricket');
+    const providers=f=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId);
+    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659'))};
+  });
+  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel']},'upgraded/offline runtime and cached projections retain honest Australian viewing');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
@@ -108,7 +114,8 @@ const server=http.createServer((req,res)=>{
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
-    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame())upgradeNavigations++;});
+    const upgradeNavigationLog=[];
+    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame()){upgradeNavigations++;upgradeNavigationLog.push({url:frame.url(),at:Date.now(),nextRelease});}});
     if(keepOpen)await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});
     else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     const firstVersion=await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content');
@@ -139,7 +146,7 @@ const server=http.createServer((req,res)=>{
     // but none of its previously included sports may disappear.
     assert(savedSelection.sports.every(sport=>restoredSelection.sports.includes(sport)),'Existing followed sport coverage survives migration');
     if(keepOpen)assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
-    await upgraded.waitForTimeout(3500);assert(upgradeNavigations<=2,'Legacy migration must navigate at most once');
+    await upgraded.waitForTimeout(3500);assert(upgradeNavigations<=2,'Legacy migration must navigate at most once: '+JSON.stringify(upgradeNavigationLog));
     // The ongoing release exercises an already-open page, rather than another
     // fresh navigation. The old releases above use authentic historical bytes.
     const currentState=await upgraded.evaluate(async()=>{await NOTHINGSPORTS_APP_UPDATE.check({force:true});return NOTHINGSPORTS_APP_UPDATE.snapshot();});

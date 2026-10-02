@@ -145,9 +145,11 @@ function validateFeed(feed) {
   (feed.events || []).forEach((event, index) => {
     const prefix = `events[${index}]`;
     const fixture=event.cardKind==='fixture';
+    const dateOnlyWindow=event.dateOnly===true && event.timePrecision==='date-only' && isDate(event.date) && isDate(event.endDate) && event.endDate>=event.date;
     const windowKnown=isDate(event.schedulingWindow?.startsOn)&&isDate(event.schedulingWindow?.endsOn);
     const required = fixture?["id","eventId","key","name"]:["id", "eventId", "sport", "key", "name", "displayTitleCompact", "date", "time", "broadcaster", "expected", "liveWindow", "selectedSentence", "fullSpiel", "sourceName", "sourceUrl", "sourceCheckedAt"];
     required.forEach(field => {
+      if(field==='time' && dateOnlyWindow)return;
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
     if (!SPORT_KEY_PATTERN.test(event.key)) errors.push(`${prefix}.key must be a lowercase key (lowercase slug with . _ -).`);
@@ -155,7 +157,7 @@ function validateFeed(feed) {
     if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
     if (!isDate(event.date) && !(fixture && !event.date && windowKnown)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
     if (event.endDate !== undefined && event.endDate !== null && (!isDate(event.endDate) || event.endDate < event.date)) errors.push(`${prefix}.endDate must be YYYY-MM-DD on or after date.`);
-    if (!isTime(event.time) && !(fixture && !event.time && event.timePrecision !== "exact")) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
+    if (!isTime(event.time) && !(fixture && !event.time && event.timePrecision !== "exact") && !(dateOnlyWindow && !event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
     if (event.startTimeUtc !== undefined && event.startTimeUtc !== null && !isDateTime(event.startTimeUtc)) errors.push(`${prefix}.startTimeUtc must be ISO date-time if present.`);
     if (event.endTimeUtc !== undefined && event.endTimeUtc !== null && !isDateTime(event.endTimeUtc)) errors.push(`${prefix}.endTimeUtc must be ISO date-time if present.`);
     if (!(fixture && (event.expected==null || Number.isNaN(event.expected))) && (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 1 || Number(event.expected) > 10)) errors.push(`${prefix}.expected must be 1-10.`);

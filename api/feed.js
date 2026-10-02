@@ -76,7 +76,7 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
-      const events=d.overlaySnapshots(resolved.events,snapshot?.sources);
+      const events=d.overlaySnapshots(resolved.events,snapshot?.sources).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
       const feed=d.buildServerFeed({matchCentreOnly,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
       t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
       const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};

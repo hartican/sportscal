@@ -425,7 +425,7 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...openLiga.events,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf], code.id, new Set([...canonical,...sourced,...golf])).map(enrichFixtureEditorial);
+  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf], code.id, new Set([...canonical,...sourced,...golf])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
 }
 
 function groupingMode(fixtures){

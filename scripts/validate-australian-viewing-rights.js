@@ -43,7 +43,7 @@ for (const [rightsId, rights] of Object.entries(followFirst.COMPETITION_VIEWING_
 }
 
 const scenarios = [
-  ["Rugby Union", { sport:"Rugby Union", key:"rugby", name:"Argentina v Australia" }, ["stan"]],
+  ["Unreviewed Rugby Union", { sport:"Rugby Union", key:"rugby", name:"Argentina v Australia", broadcaster:"Stan Sport" }, []],
   ["NRL", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"Broncos v Storm" }, ["kayo", "foxtel"]],
   ["NRL Grand Final", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"NRL Grand Final", stage:"Grand Final" }, ["nine"]],
   ["NRLW", { sportDomainId:"sport:nrl", competitionId:"competition:nrlw-premiership-2026", key:"nrlw", name:"Broncos v Roosters" }, ["nine", "kayo", "foxtel"]],
@@ -111,16 +111,18 @@ const permittedViewingTbcNames = new Set([
   "Shahdag — Moguls World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
-assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
+assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed')), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
 const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
 if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
 for (const event of unresolvedPublishedCards) assert(followFirst.viewingOptions(event).length === 0, `${event.name} must not inherit a foreign or ambiguous provider`);
 
 const rugbyCards = events.filter(event => /rugby union|\brugby\b/i.test(`${event.sport || ""} ${event.key || ""}`) && !/rugby league/i.test(event.sport || ""));
-assert(rugbyCards.length > 0, "published Feed must include Rugby Union coverage for the Stan rule check");
+assert(rugbyCards.length > 0, "published Feed must include Rugby Union coverage for the reviewed-window check");
 for (const event of rugbyCards){
-  assert(followFirst.viewingLink(event)?.providerId === "stan", `${event.name} must render Watch on Stan Sport`);
+  const reviewed=require('../lib/reviewed-au-viewing').reviewedAuViewing(event);
+  assert(JSON.stringify(event.viewingOptions)===JSON.stringify(reviewed.viewingOptions), `${event.name} must preserve its dated viewing evidence`);
+  assert(followFirst.viewingLink(event) || event.broadcaster==='Australian viewing unconfirmed', `${event.name} must expose an honest degraded state`);
 }
 
 const eplCards = events.filter(event => String(event.competitionId || "").startsWith("competition:premier-league"));

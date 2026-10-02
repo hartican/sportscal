@@ -61,6 +61,15 @@ if (replaceExisting) {
 const identity=require('../config/fixture-identity'),scope=require('../config/cricket-coverage'),protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
 publishedFeed.events=identity.mergeOverlays([],publishedFeed.events).map(e=>{if(Array.isArray(e.participants)&&!e.participants.length){const {participants,...withoutEmptyParticipants}=e;return withoutEmptyParticipants;}return e;}).filter(e=>scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
 const publicationStamp = new Date().toISOString();
+publishedFeed.events=publishedFeed.events.map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
+// A reviewed official correction keeps the original calendar import provenance
+// separately. Merging the retained seed must not restore its obsolete source kind.
+publishedFeed.events=publishedFeed.events.map(event=>{
+  if(event.sourceType!=='personal-calendar' && event.importedCalendarClassification && JSON.stringify(event.customClassification)===JSON.stringify(event.importedCalendarClassification)){
+    const {customClassification,...corrected}=event;return corrected;
+  }
+  return event;
+});
 const versionBase = String(publishedFeed.version || "feed").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "") || "feed";
 publishedFeed = {
   ...publishedFeed,

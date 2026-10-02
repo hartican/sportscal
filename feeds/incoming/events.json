@@ -53614,10 +53614,10 @@
       "key": "wsl",
       "name": "WSL Margaret River Pro",
       "displayTitleCompact": "WSL Margaret River Pro",
-      "date": "2026-10-02",
-      "time": "06:00",
-      "startTimeUtc": "2026-10-01T20:00:00.000Z",
-      "endTimeUtc": "2026-10-02T01:00:00.000Z",
+      "date": "2026-04-16",
+      "time": null,
+      "startTimeUtc": null,
+      "endTimeUtc": null,
       "broadcaster": "WSL / Paramount+",
       "broadcastOptions": [
         "WSL / Paramount+"
@@ -53629,16 +53629,10 @@
       "narrativeType": "all",
       "selectedSentence": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "sourceName": "Imported from nothingsport-manual-seed",
-      "sourceUrl": "calendar://nothingsport-manual-seed/wsl-margaret-river-pro-2026",
-      "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-      "sourceType": "personal-calendar",
-      "customClassification": {
-        "schemaVersion": "calendar-events.v1",
-        "calendarName": "nothingsport-manual-seed",
-        "sportRule": "explicit.sportKey",
-        "eventRule": "explicit.eventType"
-      },
+      "sourceName": "Surfing Western Australia",
+      "sourceUrl": "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
+      "sourceCheckedAt": "2026-10-02T05:51:35.949Z",
+      "sourceType": "official",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -53649,20 +53643,41 @@
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       },
-      "status": "upcoming",
+      "status": "completed",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
-        "hookSpoilerOn": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
-        "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-        "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+        "hookSpoilerOff": "WSL Margaret River Pro is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "George Pittar and Lakey Peterson won the 2026 Margaret River Pro.",
+        "synopsisSpoilerOff": "WSL Margaret River Pro is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "The April event concluded with George Pittar winning the men’s competition and Lakey Peterson winning the women’s competition.",
         "intensitySource": "computed"
       },
       "lastReviewedAt": "2026-08-14T02:56:19.695Z",
-      "sourceTrust": "unverified"
+      "sourceTrust": "verified",
+      "importedCalendarClassification": {
+        "schemaVersion": "calendar-events.v1",
+        "calendarName": "nothingsport-manual-seed",
+        "sportRule": "explicit.sportKey",
+        "eventRule": "explicit.eventType"
+      },
+      "endDate": "2026-04-26",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "cardKind": "event",
+      "score": "Men: George Pittar; Women: Lakey Peterson",
+      "scoreDisplay": "Men: George Pittar; Women: Lakey Peterson",
+      "outcomeText": "George Pittar and Lakey Peterson won the 2026 Margaret River Pro.",
+      "recapText": "The April event concluded with George Pittar winning the men’s competition and Lakey Peterson winning the women’s competition.",
+      "canonicalEventId": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
+      "sourceRefs": [
+        "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
+        "https://www.amrshire.wa.gov.au/shire-and-council/news/what-locals-need-to-know-about-the-pro",
+        "calendar://nothingsport-manual-seed/wsl-margaret-river-pro-2026"
+      ],
+      "stakesScore": 5
     },
     {
       "id": "tennis-tournament-wta-beijing-2026-2026-10-02",

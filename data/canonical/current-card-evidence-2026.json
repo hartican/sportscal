@@ -1394,6 +1394,27 @@
       "sourceUrl": "https://www.cbf.com.br/selecao-brasileira/noticias/jogos/a/brasil-vence-a-australia-por-4-a-2",
       "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
       "resultPublishedAt": "2026-09-29T12:50:00.000Z"
+    },
+    {
+      "id": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
+      "status": "completed",
+      "date": "2026-04-16",
+      "endDate": "2026-04-26",
+      "dateOnly": true,
+      "time": null,
+      "startTimeUtc": null,
+      "endTimeUtc": null,
+      "timePrecision": "date-only",
+      "cardKind": "event",
+      "score": "Men: George Pittar; Women: Lakey Peterson",
+      "scoreDisplay": "Men: George Pittar; Women: Lakey Peterson",
+      "outcomeText": "George Pittar and Lakey Peterson won the 2026 Margaret River Pro.",
+      "recapText": "The April event concluded with George Pittar winning the men’s competition and Lakey Peterson winning the women’s competition.",
+      "sourceName": "Surfing Western Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
+      "sourceCheckedAt": "2026-10-02T05:51:35.949Z",
+      "scheduleSourceUrl": "https://www.amrshire.wa.gov.au/shire-and-council/news/what-locals-need-to-know-about-the-pro"
     }
   ],
   "broadcastOverrides": [

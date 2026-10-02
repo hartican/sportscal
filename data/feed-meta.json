@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261001235825528",
+  "version": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-01T23:58:25.528Z",
+  "publishedAt": "2026-10-02T07:48:00.844Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -37,7 +37,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-01",
+    "basisDate": "2026-10-02",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -45,7 +45,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 287,
+    "daysAhead": 286,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -160,8 +160,8 @@
       },
       "wsl": {
         "count": 1,
-        "firstEventDate": "2026-10-02",
-        "lastEventDate": "2026-10-02"
+        "firstEventDate": "2026-04-16",
+        "lastEventDate": "2026-04-16"
       },
       "supercars": {
         "count": 1,

@@ -327,6 +327,10 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-mobile-reliability-pass.js"],
   ["scripts/validate-header-loader-overlay.js"],
   ["scripts/validate-australian-viewing-rights.js"],
+  ["scripts/validate-reviewed-au-viewing.js", "--published"],
+  ["scripts/validate-reviewed-au-viewing-api.js"],
+  ["scripts/validate-seeded-surf-correction.js"],
+  ["scripts/validate-cricket-viewing.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
@@ -468,6 +472,18 @@ async function runMain() {
   if(process.argv.includes("--follow-ui")){
     for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-tennis-feed-parents","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
+  }
+  if(process.argv.includes('--viewing-reconciliation')){
+    for(const step of [
+      ['scripts/apply-current-card-evidence.js','--ids=calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],['scripts/build-code-inspector.js','--codes=rugby-union,cricket'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-reviewed-au-viewing.js','--published'],['scripts/validate-australian-viewing-rights.js'],['scripts/validate-cricket-viewing.js'],
+      ['scripts/validate-seeded-surf-correction.js'],
+      ['scripts/validate-feed-follow-repairs.js'],['scripts/validate-current-card-coverage.js']
+    ])runStep(step);
+    console.log('Reviewed viewing projections rebuilt through canonical owner; sporting sources and their observation times retained.');return;
   }
   if(process.argv.includes('--cricket-identities')){
     runStep(['scripts/build-code-inspector.js','--codes=cricket']);

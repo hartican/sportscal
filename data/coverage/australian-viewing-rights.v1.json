@@ -1,7 +1,7 @@
 {
   "schemaVersion": "australian-viewing-rights.v1",
   "territory": "AU",
-  "verifiedAt": "2026-09-06T00:00:00.000Z",
+  "verifiedAt": "2026-10-02T05:17:58.761Z",
   "sports": [
     {
       "key": "afl",
@@ -63,9 +63,11 @@
     {
       "key": "rugby",
       "label": "Rugby Union",
-      "resolution": "sport",
+      "resolution": "Reviewed competition/fixture windows only; other Rugby viewing is unverified",
       "providerIds": [
-        "stan"
+        "stan",
+        "nine-tv",
+        "nine"
       ]
     },
     {
@@ -232,7 +234,9 @@
       "sourceUrl": "https://sevenwestmedia.com.au/wp-content/uploads/2025/10/Live-free-and-exclusive-%E2%80%93-Rugby-League-World-Cup.pdf"
     },
     "sport:rugby-union": {
-      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby"
+      "sourceUrl": "https://www.rugby.com.au/watch",
+      "status": "unverified fallback; dated reviewed windows supplement at build time",
+      "verifiedAt": "2026-10-02T05:17:58.761Z"
     },
     "competition:formula-one": {
       "sourceUrl": "https://www.foxtel.com.au/watch/f1.html"
@@ -351,5 +355,169 @@
       ],
       "note": "Stan lists the 2026/27 competition and Australian kick-offs. Competition destination, not a verified fixture replay URL."
     }
-  }
+  },
+  "reviewedWindows": [
+    {
+      "competitionIds": [
+        "competition:rugby:wr:06dfcce9-aefd-487b-a6f3-4efaf036e1be"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/fpc",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/fpc"
+        }
+      ]
+    },
+    {
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/npc",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/npc"
+        }
+      ]
+    },
+    {
+      "competitionIds": [
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/prem-rugby",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/prem-rugby"
+        }
+      ]
+    },
+    {
+      "competitionIds": [
+        "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/super-rugby-aus",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/super-rugby-aus"
+        }
+      ]
+    },
+    {
+      "competitionIds": [
+        "competition:rugby:wr:24bf7f35-5e9f-487b-916d-eab79e4453fb",
+        "competition:rugby:wr:14de5b79-3cda-4025-8150-843fa3f19ee8"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/wxv",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/wxv"
+        }
+      ]
+    },
+    {
+      "fixtureIds": [
+        "rugby-new-zealand-australia-2026-10-10",
+        "rugby-australia-new-zealand-2026-10-17",
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
+      ],
+      "participantIds": [
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks"
+      ],
+      "notBefore": "2026-10-01",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.rugby.com.au/watch",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "nine-tv",
+          "url": "https://www.9now.com.au/the-rugby-championship"
+        },
+        {
+          "id": "nine",
+          "url": "https://www.9now.com.au/the-rugby-championship"
+        },
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup"
+        }
+      ]
+    },
+    {
+      "fixtureIds": [
+        "rugby-australia-south-africa-2026-09-27"
+      ],
+      "participantIds": [
+        "team:rugby:wallabies",
+        "team:rugby:springboks"
+      ],
+      "notBefore": "2026-09-27",
+      "notAfter": "2026-09-28",
+      "sourceUrl": "https://www.rugby.com.au/watch",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "nine-tv",
+          "url": "https://www.9now.com.au/the-rugby-championship"
+        },
+        {
+          "id": "nine",
+          "url": "https://www.9now.com.au/the-rugby-championship"
+        },
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/wallabies",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/wallabies"
+        }
+      ]
+    },
+    {
+      "fixtureIds": [
+        "fixture:cricket:espn:1525659",
+        "fixture:cricket:espn:1525660",
+        "fixture:cricket:espn:1525661"
+      ],
+      "participantIds": [
+        "team:cricket:south-africa",
+        "team:cricket:australia"
+      ],
+      "format": "test",
+      "notBefore": "2026-10-09",
+      "notAfter": "2026-11-01",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+      "verifiedAt": "2026-10-02T05:17:58.761Z",
+      "providers": [
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "linkScope": "sport"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/sport.html",
+          "linkScope": "sport"
+        }
+      ]
+    }
+  ]
 }
