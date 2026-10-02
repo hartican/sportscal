@@ -8,6 +8,9 @@ async function main(){
  const prefs={version:24,preferenceGraph:{entityFollows:[{participantId:athlete,followLevel:'follow'}]},followFirst:{notifications:{}}};
  const f={id:'fixture:tennis:pilot:1',key:'tennis-women',name:'Sabalenka vs opponent',participantIds:[athlete,'athlete:tennis:opponent'],status:'upcoming',scheduleStatus:'confirmed',startTimeUtc:start,timePrecision:'exact',sourceUrl:'https://organiser.example/order-of-play',sourceCheckedAt:now.toISOString(),roundLabel:'Round of 128',tournamentLevel:'WTA 1000'};
  assert.equal(policy.automatic(f,prefs,{},+now),true,'Early main-draw knockout rounds qualify');
+ const projected=require('./lib/tournament-horizon').structure({tournamentId:'qa',key:'tennis',level:'WTA 1000',startDate:start.slice(0,10),endDate:start.slice(0,10)},[f]);
+ assert.equal(policy.automatic({...projected.publishedFixtures[0],tournamentLevel:projected.level},prefs,{},+now),true,'The real nested projection retains its own timing and round evidence');
+ assert.equal(policy.timing(require('./lib/tournament-horizon').structure({tournamentId:'qa',startTimeUtc:start},[{...f,startTimeUtc:null}]).publishedFixtures[0],+now),null,'A parent start cannot fill a missing child time');
  for(const stage of ['Round Robin','Group stage','Qualifying round 1','Exhibition','Final round'])assert.equal(policy.automatic({...f,roundLabel:stage},prefs,{},+now),false,stage);
  for(const level of ['ATP 250','WTA 500','Warm-up','Exhibition','Unknown'])assert.equal(policy.automatic({...f,tournamentLevel:level},prefs,{},+now),false,level);
  assert.equal(policy.automatic({...f,roundLabel:'Group',name:'WTA Finals'},prefs,{},+now),false);

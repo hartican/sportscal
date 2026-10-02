@@ -183,7 +183,8 @@ async function main(){
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
   assert(worker.includes(`nothingsport-shell-v${fs.readFileSync("index.html","utf8").match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
-  assert.match(worker, /admin-comms-workspace\.js\?v=358/);
+  assert.match(read('admin.html'), /admin-comms-workspace\.js\?v=358/, 'the owner console loads its versioned optional module');
+  assert.match(worker, /event\.respondWith\(staleWhileRevalidate\(event\.request, event, cacheKey\)\)/, 'optional scripts remain cached after use');
   assert.match(worker, /marquee-live-renderer\.js\?v=358/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));

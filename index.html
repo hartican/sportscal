@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="365">
+<meta name="app-shell-version" content="366">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=365" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=366" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=365"></script>
+<script src="assets/js/app-shell-runtime.js?v=366"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16171,7 +16171,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=365').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=366').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
