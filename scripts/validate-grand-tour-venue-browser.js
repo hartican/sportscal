@@ -4,15 +4,8 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33956',out=process.env.GRAND_TOUR_QA_OUTPUT||'/tmp/grand-tour-qa';fs.mkdirSync(out,{recursive:true});
 const samples=require('../data/events.json').events.filter(e=>e.grandTourCalendar),art=require('../config/venue-artwork');
-(async()=>{const report={cases:[],errors:[]};
- for(const[name,engine]of[['chromium',chromium],['webkit',webkit]]){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{channel:'chrome'}:{})});
-  try{for(const width of[320,390,768,1280]){
-   const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});page.on('pageerror',e=>report.errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
-   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',version:26,selectedSelectorEntityIds:['sport:tdf','sport:giro','sport:vuelta'],followedSports:['tdf','giro','vuelta'],followFirst:{refinement:{completedAt:'2026-10-03T00:00:00Z'}}})));
-   await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:60000});
-   await page.locator('#listView .event-card[data-event-id*="tdf"][data-event-id*="2027"] .venue-location-hero img').first().waitFor();
-   assert(await page.evaluate(()=>activeEvents.filter(e=>e.key==='tdf'&&e.season==='2027').length===3),'ordinary startup loads all three published stages for an explicit Tour follow');
+async function checkColdFollow(browser,width){
+ const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});try{await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',version:26,selectedSelectorEntityIds:['sport:tdf','sport:giro','sport:vuelta'],followedSports:['tdf','giro','vuelta']})));await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>startupFunnelFinished&&!startupCoordinator.isHydrating());
    await page.locator('.tab-btn[data-tab="follow"]').click();
    const coldExpand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await coldExpand.count())await coldExpand.click();
    const coldCycling=page.locator('#follow-navigation-controls [data-follow-sport="sport:cycling"]').first();await coldCycling.waitFor({state:'attached'});if(!await coldCycling.isVisible())await page.getByRole('button',{name:'More sports',exact:true}).click();await coldCycling.click();
@@ -21,7 +14,18 @@ const samples=require('../data/events.json').events.filter(e=>e.grandTourCalenda
     await page.locator('.follow-category-bar').getByRole('button',{name:label,exact:true}).click();
     await page.waitForFunction(key=>{const image=document.querySelector('#follow-navigation-controls > h2 img.event-brand-logo');return image?.complete&&image.naturalWidth>0&&image.getAttribute('src')?.includes(key+'-brand.');},key);
    }
-   await page.locator('.tab-btn[data-tab="feed"]').click();
+
+ }finally{await page.close();}
+}
+(async()=>{const report={cases:[],errors:[]};
+ for(const[name,engine]of[['chromium',chromium],['webkit',webkit]]){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{channel:'chrome'}:{})});
+  try{for(const width of[320,390,768,1280]){await checkColdFollow(browser,width);
+   const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});page.on('pageerror',e=>report.errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',version:26,selectedSelectorEntityIds:['sport:tdf','sport:giro','sport:vuelta'],followedSports:['tdf','giro','vuelta'],followFirst:{refinement:{completedAt:'2026-10-03T00:00:00Z'}}})));
+   await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:60000});
+   await page.locator('#listView .event-card[data-event-id*="tdf"][data-event-id*="2027"] .venue-location-hero img').first().waitFor();
+   assert(await page.evaluate(()=>activeEvents.filter(e=>e.key==='tdf'&&e.season==='2027').length===3),'ordinary startup loads all three published stages for an explicit Tour follow');
    for(const theme of['day','night'])for(const state of['opened','compact'])for(const surface of['feed','detail'])for(const event of samples){
     const result=await page.evaluate(async({theme,state,surface,event})=>{
      applyThemePreference(theme);document.getElementById('venue-test')?.remove();activeTab=surface==='feed'?'feed':'follow';setCardState(event,state);
