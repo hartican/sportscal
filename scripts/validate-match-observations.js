@@ -15,6 +15,9 @@ const previousFinal={...observed,status:'completed',statusCheckedAt:'2026-09-30T
 assert.equal(contract.observation(previousFinal,observed).status,'abandoned');
 assert.equal(contract.observation(observed,{...observed,status:'live',statusCheckedAt:'2026-10-02T02:00:00Z'}).status,'abandoned');
 assert.equal(contract.eligible(abandoned,Date.parse('2026-09-28T05:00:00Z')),false,'abandoned matches never enter Match Centre');
+const oldProviderFinal={...abandoned,status:'completed',sourceCheckedAt:'2026-10-01T07:42:00.600Z'};
+assert.equal(overlaySnapshots([abandoned],[{checked_at:'2026-10-02T01:48:04.105848Z',fixtures:[oldProviderFinal]}])[0].status,'abandoned','a later source poll cannot freshen older settled facts into an adjudication');
+assert.equal(overlaySnapshots([abandoned],[{checked_at:'2026-10-02T03:00:00Z',fixtures:[{...oldProviderFinal,sourceCheckedAt:'2026-10-02T02:00:00Z',scoreDisplay:'India won by 5 runs'}]}])[0].status,'completed','genuinely newer timestamped final corrections still pass');
 assert.equal(merged.status,'live','schedule-only update must not regress confirmed live status');
 assert.equal(merged.innings[0].runs,235);assert.equal(merged.scoreCheckedAt,scoreTime);assert.equal(merged.statusCheckedAt,scoreTime);
 assert.deepEqual(overlaySnapshots([base],[...snapshots].reverse()),overlaySnapshots([base],snapshots));
@@ -24,6 +27,9 @@ for(const status of ['stumps','suspended','completed','cancelled','postponed']){
  assert.equal(e.statusCheckedAt,'2026-09-24T11:46:00Z');
 }
 (async()=>{let output;
+ const abandonmentHandler=createMatchCentreHandler({enabled:()=>true,published:()=>[abandoned],request:async()=>[{checked_at:'2026-10-02T01:48:04.105848Z',fixture:oldProviderFinal}]});
+ await abandonmentHandler({url:'/api/match-centre?ids='+abandoned.id},{setHeader(){},status(){return this;},json(d){output=d.fixtures[0];}});
+ assert.equal(output.status,'abandoned');assert.equal(output.statusCheckedAt,abandonedSample.checkedAt);assert.equal(output.scoreCheckedAt,abandonedSample.checkedAt);
  const h=createMatchCentreHandler({enabled:()=>true,published:()=>[base],request:async()=>snapshots.map(s=>({checked_at:s.checked_at,fixture:s.fixtures[0]}))});
  await h({url:'/api/match-centre?ids='+base.id},{setHeader(){},status(){return this;},json(d){output=d.fixtures[0];}});
  assert.equal(output.status,'live');assert.equal(output.checkedAt,scoreTime);assert.equal(output.scoreCheckedAt,scoreTime);assert.equal(output.statusCheckedAt,scoreTime);
