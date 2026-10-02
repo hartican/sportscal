@@ -47,7 +47,8 @@ async function assertCachedFootballStatus(page){
       lpga:lpga.map(f=>({id:f.id,providers:providers(f),options:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>({scope:o.rightsScope,replay:o.replayVerified})),participationCheckedAt:f.participationCheckedAt})),
       unrelatedLpga:providers({key:'golf',competitionId:'competition:lpga-tour',name:'LPGA Tour'})};
   });
-  const expectedLpga=require('../data/canonical/pga-tour-schedule.json').lpga.filter(f=>['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].includes(f.id)).map(f=>({id:f.id,providers:['kayo','foxtel'],options:[{scope:'competition',replay:false},{scope:'competition',replay:false}],participationCheckedAt:f.participationCheckedAt}));
+  const currentLpga=require('../data/canonical/pga-tour-schedule.json').lpga;
+  const expectedLpga=['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].map(id=>currentLpga.find(f=>f.id===id)).map(f=>({id:f.id,providers:['kayo','foxtel'],options:[{scope:'competition',replay:false},{scope:'competition',replay:false}],participationCheckedAt:f.participationCheckedAt}));
   assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth',lpga:expectedLpga,unrelatedLpga:[]},'upgraded/offline runtime and cached projections retain honest AU viewing, LPGA token boundaries and original Golf observations');
 }
 
