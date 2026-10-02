@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {project,readRows,sync,PAGE_SIZE,MAX_PAGES}=require('./sync-live-coverage');
+const identity=require('../config/fixture-identity');
 const now=new Date('2026-09-30T04:00:00Z');
 const base={id:'fixture:rugby:wr:test',key:'rugby',sportDomainId:'sport:rugby-union',name:'Home v Away',startTimeUtc:'2026-09-26T12:00:00Z',sourceCheckedAt:'2026-09-27T00:00:00Z',status:'scheduled',participants:[{id:'home',name:'Home'},{id:'away',name:'Away'}],participantIds:['home','away'],homeParticipantId:'home',awayParticipantId:'away',viewingOptions:[{providerId:'stan'}]};
 const row=(f,source_id='discovery-rugby-mru')=>({source_id,fixture_id:f.id,fixture:f});
@@ -36,6 +37,17 @@ const prior={events:[base],sources:[{id:'discovery-rugby-mru',checkedAt:base.sou
   await sync({file,now:cricketNow,rows:[row({...abandoned,sourceCheckedAt:'2026-10-02T01:50:00Z'},'cricket-ca-current')]});
   assert(fs.readFileSync(file).equals(published),'rechecking the same abandoned facts preserves published bytes and observation');
  }finally{fs.rmSync(cricketDir,{recursive:true,force:true});}
+ const reviewed=require('./fixtures/bledisloe-reviewed-provider-pair.json').worldRugby;
+ const reviewedNow=new Date('2026-10-02T15:00:00Z'),reviewedFresh={...reviewed,sourceName:'World Rugby',sourceFixtureId:reviewed.id.slice('fixture:rugby:wr:'.length),sourceCheckedAt:'2026-10-02T12:36:00.784Z'};
+ const normalized=identity.normalizeCore(reviewedFresh),sourcePrior={events:[reviewedFresh],participants:[],competitions:[],sources:[]};
+ const sourceResult=project(sourcePrior,[row(normalized)],{now:reviewedNow});
+ assert.equal(sourceResult.document.events.length,1);assert.equal(sourceResult.document.events[0].id,reviewed.id,'shared normalized observations retain the original provider key');
+ assert.equal(sourceResult.document.events[0].canonicalEventId,reviewedFresh.id===normalized.id?reviewedFresh.id:normalized.id);
+ assert.equal(identity.normalizeCore(sourceResult.document.events[0]).id,'rugby-australia-new-zealand-2026-10-17','consumer action identity stays canonical');
+ assert.equal(sourceResult.document.events[0].startTimeUtc,'2026-10-17T05:00:00.000Z');assert.equal(sourceResult.document.events[0].sourceCheckedAt,reviewedFresh.sourceCheckedAt);
+ const damaged={...sourcePrior,events:[normalized]},recovered=project(damaged,[row(normalized)],{now:reviewedNow});assert.equal(recovered.document.events[0].id,reviewed.id,'existing canonicalized raw key is recoverable only from reviewed provider equivalence');assert.equal(project(recovered.document,[row(normalized)],{now:reviewedNow}).report.changed,0);
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-provider-key-'));try{const file=path.join(temp,'coverage.json');fs.writeFileSync(file,JSON.stringify(damaged));await sync({file,now:reviewedNow,rows:[row(normalized)]});assert.equal(JSON.parse(fs.readFileSync(file)).events[0].id,reviewed.id);const bytes=fs.readFileSync(file);await sync({file,now:reviewedNow,rows:[row(normalized)]});assert(fs.readFileSync(file).equals(bytes));const full=await require('./refresh-source-coverage').refreshCoverage({outputPath:file,now:reviewedNow,sources:[{id:'test-reviewed-provider',fetch:async()=>[normalized]}]});assert.equal(full.events.find(f=>f.sourceFixtureId===reviewedFresh.sourceFixtureId).id,reviewed.id,'full owner also retains reviewed provider keys');assert.equal(identity.normalizeCore(full.events.find(f=>f.id===reviewed.id)).startTimeUtc,'2026-10-17T05:00:00.000Z');}finally{fs.rmSync(temp,{recursive:true,force:true});}
+ const unknown={...normalized,sourceFixtureId:'00000000-0000-0000-0000-000000000000'};assert.equal(require('../lib/source-observation-identity').normalize(unknown).id,normalized.id,'unreviewed provider key cannot change a fixture identity');
  const {projectionSteps}=require('./quick-results');const steps=projectionSteps(['Live coverage cricket','Live coverage rugby-union']);assert(steps.some(s=>s.includes('--codes=cricket,rugby-union')));assert(!steps.some(s=>s[0]==='scripts/publish-feed.js'));assert(fs.readFileSync(path.join(__dirname,'quick-results.js'),'utf8').includes("require('./sync-live-coverage').sync({now})"));
  if(process.argv.includes('--live-read')){
   if(new URL(process.env.SUPABASE_URL).hostname!=='mkghopnkhcxtmfrcjdbc.supabase.co')throw Error('Unexpected live fixture project');

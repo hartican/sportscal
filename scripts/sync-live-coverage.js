@@ -34,7 +34,8 @@ function project(previous,rows,{now=new Date()}={}){
  if(!recent)throw Error('No recent shared coverage observations; existing coverage retained');
  updates.sort((a,b)=>Date.parse(a.sourceCheckedAt||a.canonicalSourceCheckedAt)-Date.parse(b.sourceCheckedAt||b.canonicalSourceCheckedAt));
  const old=new Map(previous.events.map(f=>[f.id,f]));
- const merged=identity.mergeOverlays(previous.events,updates).map(f=>{
+ const merged=identity.mergeOverlays(previous.events,updates).map(record=>{
+  const f=require('../lib/source-observation-identity').normalize(record);
   if(!old.has(f.id))f.canonicalEventId=f.canonicalEventId||f.id;
   if(!old.get(f.id)?.sourceEventIds&&f.sourceEventIds?.every(id=>[f.id,f.eventId,f.canonicalEventId].includes(id)))delete f.sourceEventIds;
   return old.has(f.id)&&contentHash([old.get(f.id)])===contentHash([f])?old.get(f.id):f;

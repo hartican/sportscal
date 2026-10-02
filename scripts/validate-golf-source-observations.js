@@ -31,7 +31,8 @@ assert.equal(observations.errorCode(Object.assign(Error('private'),{name:'Timeou
 (async()=>{
  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-golf-observation-test-'));
  try{
-  const baseline=require('../data/canonical/pga-tour-schedule.json'),outputPath=path.join(tmp,'schedule.json');
+  // Synthetic prior observation dates keep retention scenarios independent of later refresh dates.
+  const baseline=JSON.parse(JSON.stringify(require('../data/canonical/pga-tour-schedule.json'),(key,value)=>['checkedAt','sourceCheckedAt','participationCheckedAt','statusCheckedAt','scoreCheckedAt'].includes(key)?oldStamp:value)),outputPath=path.join(tmp,'schedule.json');
   const reportFile=path.join(tmp,'sources.json');
   const tournament={...require('./fixtures/golf/lpga-walmart-2026.json').tournament,tournamentId:2026068,name:'LOTTE Championship presented by Hoakalei',startDate:'2026-10-01T00:00:00',endDate:'2026-10-04T00:00:00',timeZone:'Hawaiian Standard Time'};
   const currentStatus={status:'In Progress',active:true,refresh:true};
