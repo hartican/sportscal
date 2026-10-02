@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T07:58:31.031Z",
+  "generatedAt": "2026-10-02T08:35:41.232Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -135,7 +135,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T07:58:31.031Z",
+      "freshAt": "2026-10-02T08:35:41.232Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -183,7 +183,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T07:58:31.031Z",
+      "freshAt": "2026-10-02T08:35:41.232Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {

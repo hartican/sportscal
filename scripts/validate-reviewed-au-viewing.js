@@ -10,7 +10,17 @@ for(const f of rugby.filter(f=>f.date>='2026-10-01'&&f.date<'2026-11-01'&&f.part
  assert.deepEqual(providers(f),['nine-tv','nine','stan'],'both reviewed Bledisloe representations retain viewing without changing IDs');
 }
 const superAus=rugby.find(f=>f.id.includes('e492d961'));
-assert.deepEqual(providers(superAus),['stan']);
+assert.deepEqual(providers(superAus),['youtube','stan'],'reviewed final offers free organiser coverage before subscription');
+const finalOptions=follow.viewingOptions(review(superAus));
+assert.equal(finalOptions[0].url,'https://www.youtube.com/@rugbycomau');
+assert.equal(finalOptions[0].linkScope,'sport','channel is not a promised fixture playback permalink');
+assert.equal(finalOptions[1].verifiedAt,'2026-10-02T05:17:58.761Z','new option does not re-date unchanged Stan evidence');
+assert.deepEqual(providers({...superAus,participantIds:['team:rugby:reds','team:rugby:waratahs']}),['stan'],'exact reviewed finalists bound free coverage');
+assert.deepEqual(providers({...superAus,startTimeUtc:'2026-10-04T06:30:00Z',date:'2026-10-04'}),['stan'],'free final evidence expires on its reviewed local date');
+const normalized=require('../config/fixture-identity').normalizeCore(superAus);
+assert.equal(normalized.venue,'Scotch College Playing Fields, Swanbourne, Perth');
+assert.equal(normalized.venueProvenance.checkedAt,'2026-10-02T08:24:48.810Z');
+for(const field of ['id','startTimeUtc','status','statusCheckedAt','scoreCheckedAt'])assert.equal(normalized[field],superAus[field],'venue review does not refresh sporting observations');
 const unknown=rugby.find(f=>f.competitionName==='Top 14 2027');
 assert.deepEqual(providers({...unknown,broadcaster:'Stan Sport',viewingOptions:['Stan Sport']}),[],'catalogue absence is unverified, never invented Stan rights');
 assert.equal(review(unknown).broadcaster,'Australian viewing unconfirmed');
@@ -39,6 +49,7 @@ if(process.argv.includes('--published')){
  const strip=options=>options.map(({reviewId,...o})=>o);
  for(const folder of ['code-inspector','follow-schedule'])for(const code of ['rugby-union','cricket'])for(const f of require(`../data/${folder}/${code}.json`).fixtures){
   assert.deepEqual(strip(f.viewingOptions),strip(review(f).viewingOptions),`${folder}/${code}/${f.id}: source evidence survives actual projection`);
+  if(f.id===superAus.id){assert.equal(f.venue,normalized.venue,'actual final projection carries host venue');assert.equal(f.venueProvenance.checkedAt,normalized.venueProvenance.checkedAt);}
  }
  const feed=require('../data/events.json').events;
  for(const f of feed.filter(f=>f.key==='rugby'||f.viewingOptions?.some(o=>o.reviewId==='au-viewing-20261002')))assert.deepEqual(f.viewingOptions,review(f).viewingOptions,'published cards retain evidence and original dates');

@@ -403,6 +403,36 @@
       ]
     },
     {
+      "fixtureIds": [
+        "fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be"
+      ],
+      "participantIds": [
+        "team:rugby:force",
+        "team:rugby:waratahs"
+      ],
+      "notBefore": "2026-10-03",
+      "notAfter": "2026-10-04",
+      "sourceUrl": "https://www.rugby.com.au/news/hmp-joc-return-boost-force-grand-final-scotch-2026930",
+      "verifiedAt": "2026-10-02T08:24:48.810Z",
+      "providers": [
+        {
+          "id": "youtube",
+          "url": "https://www.youtube.com/@rugbycomau",
+          "linkScope": "sport",
+          "destinationVerifiedAt": "2026-10-02T08:31:29.062Z"
+        },
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby/super-rugby-aus",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/super-rugby-aus",
+          "verifiedAt": "2026-10-02T05:17:58.761Z"
+        }
+      ],
+      "competitionIds": [
+        "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482"
+      ]
+    },
+    {
       "competitionIds": [
         "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482"
       ],

@@ -32,9 +32,10 @@ async function assertCachedFootballStatus(page){
     const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
     const rugby=await load('rugby-union'),cricket=await load('cricket');
     const providers=f=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId);
-    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659'))};
+    const final=rugby.find(f=>f.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be');
+    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659')),final:providers(final),venue:NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(final).venue};
   });
-  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel']},'upgraded/offline runtime and cached projections retain honest Australian viewing');
+  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth'},'upgraded/offline runtime and cached projections retain honest Australian viewing and host venue');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
