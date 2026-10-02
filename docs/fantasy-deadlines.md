@@ -14,6 +14,8 @@ Valid cards show `FPL deadline · 2d 4h 18m` below the scheduled fixture text an
 
 A single shared timeout updates mounted cards, deduplicating round presentation. It pauses away from Feed or while hidden. UTC subtraction drives the countdown; accessible absolute times use the current local timezone. Days mean 24 hours. Countdown text is not an aria-live region.
 
+Newly mounted eligible cards queue one shared 250ms batch to the existing live fixture API, rather than waiting for the two-minute poll. The 30-second duplicate guard applies to already requested IDs, not unseen fixtures. Requests remain bounded to 60 IDs, with a bounded recent-ID set and one follow-up for cards mounted during an in-flight response. Feed window slots retain optional enrichment for later remounts. No provider requests or additional scheduler are created by card mounting.
+
 The main shell carries only preference normalisation. `scripts/build-fantasy-ui.js` builds the cached optional Settings asset from the full fantasy model and `config/fantasy-deadline-ui.js`; its existing Appearance, Subscriptions, Location, startup onboarding and About renderers retain their previous behaviour. This avoids exceeding the unchanged startup budget.
 
 ## FPL mapping and sources
@@ -47,5 +49,6 @@ No static fantasy snapshot is generated, so there is no alternate canonical refr
 - `node scripts/validate-fantasy-rollout.js`
 - `node scripts/build-fantasy-ui.js --check`
 - `node scripts/validate-fantasy-deadlines-browser.js` (set `PLAYWRIGHT_MODULE` when using a bundled runtime)
+- `node scripts/validate-fantasy-feed-refresh-browser.js` (late UI load, later cards, remounts, in-flight mounts and request batching)
 
 The source/API validators are part of the production workflow. Use recorded source data for deterministic tests; source audits are separately read-only. Existing compact Feed, cross-device, live fixture, database, backend-efficiency, startup-size, shell-cache and installed-PWA checks remain required. Browser simulations do not establish iOS Home Screen behaviour.

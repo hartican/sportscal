@@ -12,8 +12,7 @@ const {select,format,ageLimit}=f;
   function createController({document,preferences,sources,resolve,active,now=()=>Date.now(),setTimer=setTimeout,clearTimer=clearTimeout}){
     let timer=null,disposed=false;const cancel=()=>{if(timer!==null)clearTimer(timer);timer=null;};
     function sync(){cancel();if(disposed)return;const clock=now(),cache=new Map();let next=Infinity;
-      globalThis.NOTHINGSPORTS_FANTASY_UI={renderNotificationSettings,createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
-for(const card of document.querySelectorAll('[data-fantasy-fixture]')){
+      for(const card of document.querySelectorAll('[data-fantasy-fixture]')){
         const event=resolve(card.dataset.fantasyFixture),record=active()?select(event,preferences(),sources(),clock):null;let line=card.querySelector('.fantasy-deadline');
         if(!record){line?.remove();continue;}
         const key=record.gameId+':'+record.fantasyRoundId+':'+record.deadlineAt;if(!cache.has(key))cache.set(key,presentation(record,clock));const copy=cache.get(key);
@@ -33,6 +32,7 @@ function installFantasyCard(card,ev,options){
   if(activeTab!=='feed'||activeInspectorCodeId||options.archived||options.inspectorFixture||options.eventParent||['events','premium-rail'].includes(options.mode))return;
   const target=card.querySelector('.fixture-access');if(!target)return;
   card.dataset.fantasyFixture=String(ev.eventId||ev.id);target.dataset.fantasyPlacement='';
+  if(f.competitionKey(ev.competitionId)&&userPreferences.fantasyDeadlines.gameByCompetition[f.competitionKey(ev.competitionId)])queueLiveFixtureSnapshot();
 }
 function clearFantasyPlaceholderSpace(){
   for(const slot of document.querySelectorAll('.feed-card-slot[data-fantasy-height]')){
