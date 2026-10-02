@@ -26,9 +26,9 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
   const grouped = new Map();
-  const eventGroup=f=>f.tournamentId||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
+  const eventGroup=f=>f.tournamentId||(f.dakarCalendar?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
-  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women'].includes(code.id);
+  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','competition:dakar'].includes(code.id);
   const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
@@ -56,7 +56,10 @@ globalThis.renderFollowSchedulePanel=function(container){
     const section=document.createElement('section');section.className='code-inspector-group';
     const title=document.createElement('h3');title.textContent=label;
     const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
-    grouped.get(label).forEach(f=>{
+    const rows=[...grouped.get(label)];
+    if(code.id==='competition:dakar'&&codeInspectorTab!=='results')for(const note of codeInspectorChunk.scheduleNotes||[])if(rows.some(f=>f.season===note.season))rows.push({...note,restDayNote:true});
+    rows.sort((a,b)=>String(a.date).localeCompare(String(b.date))).forEach(f=>{
+      if(f.restDayNote){const rest=document.createElement('p');rest.className='schedule-rest-note';rest.textContent=`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(f.date)} · Rest day · ${f.venue} — no competitive stage`;list.append(rest);return;}
       const card=buildCodeInspectorFixture(f);
       if(codeInspectorTab==='results'){
         const canonical=canonicalFeedFixtureForInspector(f),status=f.resultStatus||canonical?.resultStatus,score=f.resultScore||canonical?.score;
@@ -64,7 +67,8 @@ globalThis.renderFollowSchedulePanel=function(container){
         else if(userPreferences.showSpoilers&&score){const note=document.createElement('p');note.textContent=`Official: ${score}`;card.append(note);}
       }
       list.appendChild(card);
-    });section.append(title,list);panel.append(section);
+    });
+    section.append(title,list);panel.append(section);
   });
   if(window.end<groupLabels.length)action('Later rounds / events',()=>{window.end=Math.min(groupLabels.length,window.end+3);renderCodeInspector();});
 

@@ -1,0 +1,9 @@
+# Dakar calendar and venue presentation acceptance
+
+Authorised scope: Dakar Rally, mixed competition, current season and published future events within the existing twelve-month horizon. No new live/results provider, scheduler, research-on-render or automatic opt-in.
+
+Official evidence: ASO 2026 FIM programme (`https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf`) and 2027 itinerary (`https://www.dakar.com/en/overall-route?iframe=true`). Reviewed exports retain sources, check time, stage order, endpoints, country and class-route caveats. Both editions contain a prologue and thirteen competitive stages. Riyadh 10 January 2026 and Bisha 9 January 2027 are rest-day notes, never sporting fixtures. Start times are unconfirmed and remain date-only.
+
+The 2026 and 2027 ASO edition PDFs supply native transparent route paths for Events parents. Stage cards use the rally-raid fallback because edition overview geometry cannot verify an individual stage. Full official Dakar identity mark retained. The fallback is Freepik’s Flaticon off-road icon 2054939, traced to paths and credited in footer/About. Individual source, author, licence, modification and hash records are in `assets/identities/dakar/asset-manifest.json`.
+
+Checks: reviewed source validation, idempotence, source-failure preservation, date-correction review, stage/rest separation, explicit consent and server parity, SVG path/transparency and wrong-edition rejection. Responsive browser checks cover both engines, themes, card states and surfaces, Events parents, rest-day Schedule notes, identity decoding, failed-artwork fallback and credits. Installed-browser upgrade simulations prewarm the optional assets and verify offline availability without expanding precache. Wider competition quality remains unverified: entries, class-specific stage geometry, results, viewing and physical installed iOS acceptance are not certified by calendar publication.

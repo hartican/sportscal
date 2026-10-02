@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "venue-assets.v1",
+  "assets": [
+    {
+      "id": "dakar-brand",
+      "path": "assets/identities/dakar/dakar-brand.png",
+      "sourceUrl": "https://www.dakar.com/",
+      "author": "Dakar / ASO",
+      "license": "Original ASO rights and trademarks retained; editorial identification",
+      "licenseUrl": "https://www.dakar.com/",
+      "modifications": "Unchanged complete official mark",
+      "mappingStatus": "brand",
+      "sha256": "d2d7749b1991dfeed209222f6d2d0e2fdb9df72b3d75149912301ae49e98b446"
+    },
+    {
+      "id": "rally-raid-white",
+      "path": "assets/identities/dakar/rally-raid-white.svg",
+      "sourceUrl": "https://www.flaticon.com/free-icon/off-road_2054939",
+      "author": "Freepik",
+      "license": "Flaticon attribution licence",
+      "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
+      "modifications": "Black outline PNG traced to native white SVG paths; cropped; transparent background and enclosed spaces",
+      "mappingStatus": "sport-fallback",
+      "sha256": "0f4a5ad720d2adb520a22edf49659475c0f822678c84cf35eedbe3cd3c0eb6d5"
+    },
+    {
+      "id": "dakar-2026-edition",
+      "path": "assets/identities/dakar/dakar-2026-edition.svg",
+      "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_dak/dak26-parcours-vd.pdf",
+      "author": "Dakar / ASO",
+      "license": "Original ASO rights and trademarks retained; editorial identification",
+      "licenseUrl": "https://www.dakar.com/",
+      "modifications": "Native route paths extracted from official edition PDF; recoloured white; cropped; map background, photos, labels and legend removed; no invented connectors",
+      "mappingStatus": "verified-edition",
+      "sha256": "965398662d8a858ff11d38c21f63bb579303bb6bbaa2a261035c2a5c00b1a328"
+    },
+    {
+      "id": "dakar-2027-edition",
+      "path": "assets/identities/dakar/dakar-2027-edition.svg",
+      "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_dak/dak2027-parcours.pdf",
+      "author": "Dakar / ASO",
+      "license": "Original ASO rights and trademarks retained; editorial identification",
+      "licenseUrl": "https://www.dakar.com/",
+      "modifications": "Native route paths extracted from official edition PDF; recoloured white; cropped; map background, photos, labels and legend removed; no invented connectors",
+      "mappingStatus": "verified-edition",
+      "sha256": "97bc4c2e048a1583a4473673ee8abb5f9ff777cf87c627c58fc15ead3fa57b58"
+    }
+  ]
+}

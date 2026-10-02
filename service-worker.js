@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v392";
-const SHELL_VERSION = "392";
+const CACHE_NAME = "nothingsport-shell-v393";
+const SHELL_VERSION = "393";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -7,7 +7,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=392",
+  "/assets/js/follow-presentation-ui.js?v=393",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -15,8 +15,8 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=392",
-  "/assets/js/follow-navigation.js?v=392",
+  "/assets/js/settings-optional-ui.js?v=393",
+  "/assets/js/follow-navigation.js?v=393",
   "/assets/js/tournament-fixture-ui.js?v=366",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
@@ -57,7 +57,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=392",
+  "/assets/js/app-shell-runtime.js?v=393",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
@@ -69,7 +69,7 @@ const APP_SHELL = [
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
-  "/config/follow-summary.js?v=392",
+  "/config/follow-summary.js?v=393",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
   "/styles/follow-feed-rework.css?v=376",
@@ -84,7 +84,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=293",
-  "/config/event-overviews-ui.js?v=392",
+  "/config/event-overviews-ui.js?v=393",
   "/config/surface-category-ui.js?v=340",
   "/assets/styles/match-centre.css?v=340",
   "/config/match-centre.js?v=384",

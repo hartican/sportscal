@@ -7,6 +7,7 @@ assert.equal(baseline.summary.carriedFamilies,16);assert.equal(baseline.summary.
 assert.equal(baseline.summary.pilotTotal,3);
 if(contract.certifications.length===0)assert.equal(baseline.summary.certifiedFamilies,0);
 assert(baseline.families.find(f=>f.id==='skiing').carried,'published skiing cards remain in denominator');
+const dakar=baseline.families.find(f=>f.id==='motorsport').competitions.find(c=>c.id==='competition:dakar');assert.equal(dakar.fixtures,28);assert.equal(dakar.status,'unverified','Dakar calendar and edition artwork cannot certify missing stage geometry, entries, results and viewing');
 const surfing=baseline.families.find(f=>f.id==='surfing');
 assert(surfing.codes.includes('wsl'),'authorised WSL windows remain in the existing surfing family');
 assert.equal(surfing.competitions.find(c=>c.id==='competition:wsl-championship-tour').fixtures,12);

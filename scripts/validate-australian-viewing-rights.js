@@ -123,7 +123,9 @@ const unconfirmedMajorRights=event=>{
     &&event.date===reviewed.date&&event.name===reviewed.name&&event.venueConfigurationId===reviewed.venueConfigurationId
     &&event.calendarProvenance?.sourceUrl===reviewed.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===reviewed.calendarProvenance.checkedAt;
 };
-assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
+const reviewedDakarStages=new Map(require('../data/canonical/dakar-calendar.v1.json').events.map(e=>[e.id,e]));
+const unconfirmedDakarRights=event=>{const r=reviewedDakarStages.get(event.canonicalEventId);return event.key==='dakar'&&event.dakarCalendar===true&&event.competitionId==='competition:dakar'&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&r&&event.date===r.date&&event.name===r.name&&event.sessionType===r.sessionType&&event.calendarProvenance?.sourceUrl===r.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===r.calendarProvenance.checkedAt;};
+assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event) || unconfirmedDakarRights(event)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
 const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
 if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.

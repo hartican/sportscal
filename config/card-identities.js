@@ -158,6 +158,7 @@
         backgroundDark: "dark",
       },
     }),
+    dakar: officialMark("brand:dakar","Dakar Rally","assets/identities/dakar/dakar-brand.png","https://www.dakar.com/",{backgroundLight:"dark",backgroundDark:"dark"}),
     motogp: Object.freeze({...referenceMark("competition:motogp", "MotoGP", "assets/identities/motogp/badge.svg", "https://www.flaticon.com/free-icon/world_14063354", {provenance:"user-supplied",backgroundLight:"transparent",backgroundDark:"transparent"}), assetClass:"licensed",rightsStatus:"user-supplied",author:"Roundicons Premium",license:"Flaticon License (attribution required)",attribution:"Motogp icons created by Roundicons Premium - Flaticon"}),
     nfl: referenceMark("competition:nfl", "NFL", "https://upload.wikimedia.org/wikipedia/en/a/a2/National_Football_League_logo.svg", "https://designplaybook.nfl.com/"),
     rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
@@ -174,6 +175,7 @@
   const sportMarks = Object.freeze({
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
     motogp: Object.freeze({...sportMark("motogp", "MotoGP", "sport:motorcycle", "MGP"),assetClass:"licensed",rightsStatus:"user-supplied",sourceUrl:"https://www.flaticon.com/free-icon/motorbike_1768191",author:"Magnific",license:"Flaticon License (attribution required)"}),
+    dakar: sportMark("dakar","Dakar Rally","sport:motorsport","DKR"),
     sailgp: sportMark("sailgp", "SailGP", "sport:sailing", "SGP"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
     wrc: officialMark("competition:wrc", "FIA World Rally Championship", "assets/identities/competitions/wrc-dark.png", "https://www.wrc.com/en", {logo:{dark:"assets/identities/competitions/wrc-light.png",backgroundDark:"dark"}}),
@@ -552,6 +554,7 @@
     "competition:motogp":eventMarks.motogp,
     "competition:supercars":eventMarks.supercars,
     "competition:sailgp":eventMarks.sailgp,
+    "competition:dakar":eventMarks.dakar,
     "competition:wsl-championship-tour":eventMarks.wsl,
     "competition:tour-de-france":eventMarks.tdf,
     "competition:giro-ditalia":eventMarks.giro,

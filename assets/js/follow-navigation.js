@@ -33,7 +33,7 @@
   for(const [label,action]of [['Clear filters',()=>{filters[code]={};persist();windows.delete(code);dialog.close();renderFollowView();}],['Apply',()=>{filters[code]=draft;persist();windows.delete(code);dialog.close();renderFollowView();}],['Cancel',()=>dialog.close()]]){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.onclick=action;actions.append(b);}dialog.append(actions);dialog.onclose=()=>dialog.remove();document.body.append(dialog);dialog.showModal();
  }
  function mount(container,entity,state){
-  if(['sport:motogp','sport:wrc','sport:sailgp','sport:wsl','sport:tdf','sport:giro','sport:vuelta'].includes(entity.id)){
+  if(['sport:motogp','sport:wrc','sport:sailgp','sport:wsl','sport:tdf','sport:giro','sport:vuelta','sport:dakar'].includes(entity.id)){
    const key=entity.id.slice(6);
    const heading=container.querySelector(':scope > h2');
    if(heading){

@@ -4,6 +4,11 @@
 // the verified artwork ID; older cached projections safely use the fallback.
 const motogp=typeof module!=="undefined"&&module.exports?Object.freeze(Object.fromEntries(require('../assets/identities/motogp/asset-manifest.json').assets.filter(a=>a.mappingStatus==='verified-venue').map(a=>[a.venueConfigurationId,a.id]))):null;
 function resolve(event){
+ if(event.key==='dakar'){
+  const season=String(event.season||'');
+  const verified=event.isEditionOverview===true&&event.editionGeometryVerified===true&&['2026','2027'].includes(season)&&event.editionArtworkId===`dakar-${season}`;
+  return verified?{path:`assets/identities/dakar/dakar-${season}-edition.svg`,kind:'edition',label:`Dakar ${season} • verified edition overview route`}:{path:'assets/identities/dakar/rally-raid-white.svg',kind:'fallback',label:'Rally raid glyph; verified stage geometry unavailable'};
+ }
  if(event.golfMajorCalendar===true&&['golf','masters'].includes(event.key)){
   const verified=event.courseGeometryVerified===true&&event.majorSlug==='pga-championship'&&event.season==='2026'&&event.courseArtworkId==='aronimink-2026'&&event.venueConfigurationId==='golf:aronimink:2026';
   return verified?{path:'assets/identities/golf/aronimink-2026.svg',kind:'course',label:'Aronimink Golf Club • 2026 PGA Championship • verified fairway layout'}:{path:'assets/identities/golf/golf-white.svg',kind:'fallback',label:'Golf glyph; verified championship course layout unavailable'};

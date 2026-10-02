@@ -25,6 +25,7 @@ const LEGACY_SPORT_KEYS = new Set([
   "aflw",
   "nrlw",
   "motogp",
+  "dakar",
   "sailgp",
   "fiba-women",
   "cricket",

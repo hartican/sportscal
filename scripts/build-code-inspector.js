@@ -49,12 +49,13 @@ const CODE_KEYS = Object.freeze({
   "sport:afl": ["afl"],
   "sport:aflw": ["aflw"],
   "sport:nrl": ["nrl"],
-  "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
+  "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "dakar", "lemans", "goodwood", "bathurst"],
   "sport:f1": ["f1"],
   "sport:wrc": ["wrc"],
   "sport:nrlw": ["nrlw"],
   "sport:nbl": ["nbl"],
   "competition:motogp": ["motogp"],
+  "competition:dakar": ["dakar"],
   "competition:sailgp": ["sailgp"],
   "competition:wsl-championship-tour": ["wsl"],
   "competition:fiba-womens-world-cup": ["fiba-women"],
@@ -255,7 +256,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -495,6 +496,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const requestedCompetitionCodes = [
     ...["tour-de-france","giro-ditalia","vuelta-a-espana"].map(slug=>({...taxonomy.competitions.find(c=>c.id==="competition:"+slug),parentSportId:"sport:cycling"})),
     {id:"competition:wsl-championship-tour",slug:"wsl",name:"WSL",parentSportId:"sport:surf"},
+    {id:"competition:dakar",slug:"dakar",name:"Dakar Rally",parentSportId:"sport:motorsport"},
     { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
     { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },
     { id:"competition:fiba-womens-world-cup", slug:"fiba-women", name:"FIBA Women", parentSportId:"sport:basketball" },
@@ -534,11 +536,12 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       groupingMode: groupingMode(fixtures),
       freshAt,
       fixtures,
+      ...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{}),
       standings:codeStandings(code),
     })}\n`);
     const scheduleDir=path.join(path.dirname(outputDir),"follow-schedule");fs.mkdirSync(scheduleDir,{recursive:true});
     const scheduleFixtures=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
-    fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures})+"\n");
+    fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures,...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{})})+"\n");
     return {
       followSchedulePath:`data/follow-schedule/${fileName}`,
       id: code.id,

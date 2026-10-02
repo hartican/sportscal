@@ -165,6 +165,8 @@ function renderAboutSettings(body){
   const about = body.querySelector(".settings-about-copy");
   const cyclingCredits = document.querySelector("footer.app-footer .cycling-attribution")?.cloneNode(true);
   if (cyclingCredits) about.appendChild(cyclingCredits);
+  const dakarCredits = document.querySelector("footer.app-footer .dakar-attribution")?.cloneNode(true);
+  if(dakarCredits)about.appendChild(dakarCredits);
   const golfCredits = document.querySelector("footer.app-footer .golf-attribution")?.cloneNode(true);
   if (golfCredits) about.appendChild(golfCredits);
   const socials = document.querySelector("footer.app-footer .footer-socials")?.cloneNode(true);

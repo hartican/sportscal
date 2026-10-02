@@ -389,3 +389,9 @@ Current 2026 calendars contain 21 stages each; rest days are Schedule informatio
 ## 3 October 2026 — Published men’s major rounds
 
 The approved venue rollout publishes four round cards for each men’s major. The four independent Major Events choices begin unfollowed. Explicit Golf, a direct major family or a recognised major competition follow admits those rounds using the existing major rule. Retained championship-window identities stay available for manual pins and source-confirmed golfer/Australian entries; broad Golf avoids a duplicate fifth card. Golfer follows do not create round cards, and an empty field does not establish participation. Existing women’s coverage, ordinary tournaments, Presidents Cup rules, exclusions, reminders and saved identities remain intact. Tee times stay unconfirmed; a published round date never creates an exact clock. Regression: `validate-golf-major-calendars.js`, `validate-golf-major-venue-browser.js` and installed-browser upgrade rehearsals.
+
+## Dakar venue rollout — 3 October 2026
+
+Dakar is a separate Motorsport child and competition. Its new choice begins unfollowed; broad Motorsport, WRC and source discovery do not grant Dakar consent. Explicit competition/sport choices and manual pins use existing exclusions and retention. Published prologue and competitive-stage dates receive sporting cards; rest days are Schedule notes with no rating or fixture actions. The overall edition route belongs only on Events parents. Unverified stage geometry uses the attributed rally-raid fallback; calendar-only dates cannot imply class entries, results or viewing rights. Existing mixed competition coverage remains mixed.
+
+Regression: `validate-dakar-calendars.js`, `validate-dakar-venue-browser.js`, shared server/client policy parity and both installed-browser upgrade rehearsals.
