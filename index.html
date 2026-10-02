@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="358">
+<meta name="app-shell-version" content="359">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=358" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=359" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6879,7 +6879,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=358">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=359">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=358">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7175,7 +7175,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=358"></script>
+<script src="assets/js/app-shell-runtime.js?v=359"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8300,6 +8300,7 @@ const DEFAULT_PREFERENCES = {
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
+  fantasyDeadlines: globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(),
   feedIntent: "balanced",
   localVenueIds: [],
   selectedSelectorEntityIds: DEFAULT_FIRST_RUN_SELECTOR_IDS,
@@ -8694,6 +8695,7 @@ let codeInspectorManifest = null;
 let codeInspectorManifestLoading = null;
 let codeInspectorChunk = null;
 let liveFixtureRevision = "";
+let fantasySourceState = {};
 let liveFixtureEvents = [];
 let liveFixtureRefresh = null;
 let liveFixtureLastRequestedAt = 0;
@@ -9332,6 +9334,7 @@ function mergePreferences(saved){
     ...saved,
     version: DEFAULT_PREFERENCES.version,
     theme: normalizeThemePreference(saved.theme ?? merged.theme),
+    fantasyDeadlines: globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(saved.fantasyDeadlines),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     feedIntent: PERSONALISED_FEED?.normaliseFeedIntent?.(saved.feedIntent || feedIntentForScope(saved.feedControls?.scope)) || "balanced",
     feedControls: FEED_CONTROLS?.normalize?.(saved.feedControls || {
@@ -9458,6 +9461,7 @@ function savePreferences(next,{viewOnly=false,deferFollowEffects=false}={}){
     learningPreference: graph.learning || null,
   });
   userPreferences = clean;
+  globalThis.fantasyDeadlineController?.sync();
   const nextFollowState = JSON.stringify({
     events:clean.followFirst?.followedMajorEventIds,
     excludedEvents:clean.followFirst?.excludedMajorEventIds,
@@ -10355,6 +10359,9 @@ function applyServerState(state){
     const localBrowse=userPreferences.followBrowse;
     const localCompact=userPreferences.feedCompact;
     userPreferences = mergePreferences({...state.preferences,followBrowse:localBrowse,feedCompact:localCompact});
+    if(draftPreferences)draftPreferences.fantasyDeadlines=clonePreferences(userPreferences.fantasyDeadlines);
+    clearFantasyPlaceholderSpace();
+    globalThis.fantasyDeadlineController?.sync();
     void ensureFeedSourceReadiness(userPreferences).then(() => {
       rebuildDerivedCardCache(activeEvents);
       renderAll({ preserveViewport:true });
@@ -10912,11 +10919,13 @@ async function refreshLiveFixtureSnapshot(){
   liveFixtureRefresh=(async()=>{
     try{
       liveFixtureLastRequestedAt=Date.now();
-      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}`,{cache:'default',signal:AbortSignal.timeout(5000)});
+      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}${userPreferences.fantasyDeadlines.enabled?"&fantasy=1":""}`,{cache:'default',signal:AbortSignal.timeout(5000)});
       if(response.status===304)return;
       if(!response.ok)throw new Error('Live source unavailable');
       const snapshot=await response.json();
       if(snapshot.schemaVersion!=='live-fixtures.v1'||!Array.isArray(snapshot.sources)||!snapshot.revision)throw new Error('Invalid live snapshot');
+      fantasySourceState=snapshot.fantasySources||{};
+      globalThis.fantasyDeadlineController?.sync();
       if(snapshot.revision===liveFixtureRevision)return;
       if(snapshot.sources.some(source=>!Array.isArray(source.fixtures)))throw new Error('Invalid source fixtures');
       const updates=snapshot.sources.slice().sort((a,b)=>String(a.checked_at||'').localeCompare(String(b.checked_at||''))).flatMap(source=>source.fixtures);
@@ -10925,10 +10934,18 @@ async function refreshLiveFixtureSnapshot(){
       liveFixtureEvents=nextLive;
       liveFixtureRevision=snapshot.revision;
       activeEvents=nextEvents;
-      disposableStore?.set('live-fixtures:v2',{events:nextLive,revision:liveFixtureRevision});
+      disposableStore?.set('live-fixtures:v2',{events:nextLive,revision:liveFixtureRevision,fantasySources:fantasySourceState});
       if(codeInspectorChunk)codeInspectorChunk={...codeInspectorChunk,fixtures:liveScheduleFixtures(codeInspectorChunk.fixtures)};
       rebuildDerivedCardCache(activeEvents);
-      queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));
+      // Optional deadline changes need not rebuild the fixture layout.
+      for(const event of nextEvents){
+        for(const id of new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])])){
+          const mounted=profileFixtureEvents.get(String(id));
+          if(mounted)profileFixtureEvents.set(String(id),{...mounted,fantasyDeadlines:event.fantasyDeadlines});
+        }
+      }
+      globalThis.fantasyDeadlineController?.sync();
+      queueScrollIdleMutation(()=>renderFeedIfPresentationChanged({preserveViewport:true}));
     }catch(error){/* Keep static and last-good fixtures; a network failure is not an empty calendar. */}
     finally{liveFixtureRefresh=null;}
   })();
@@ -10939,7 +10956,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
   const identity = globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY;
   if(!liveFixtureRevision){
     const saved=await disposableStore?.hydrate?.('live-fixtures:v2',null);
-    if(saved?.revision&&Array.isArray(saved.events)){liveFixtureEvents=identity.mergeOverlays(liveFixtureEvents,saved.events).filter(event=>eventMeetsDerivedRetention(event));liveFixtureRevision=saved.revision;}
+    if(saved?.revision&&Array.isArray(saved.events)){fantasySourceState=saved.fantasySources||{};liveFixtureEvents=identity.mergeOverlays(liveFixtureEvents,saved.events).filter(event=>eventMeetsDerivedRetention(event));liveFixtureRevision=saved.revision;}
   }
   const manifest = await loadCodeInspectorManifest();
   const codes = identity.followedScheduleCodes(preferences, manifest.codes);
@@ -16986,12 +17003,21 @@ function buildEuropeanDetail(ev,kind){
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution?buildEuropeanDetail(ev,'attribution'):null;}
 
 const multiDayCricketExpanded=new Set();
+function installFantasyCard(card,ev,options){globalThis.NOTHINGSPORTS_FANTASY_UI?.install(card,ev,options);}
+function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.clearSpace();}
+let fantasyUiLoading=null;
+function ensureFantasyUi(){
+  if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=356';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  return fantasyUiLoading;
+}
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
   if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    installFantasyCard(card,ev,options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
     const scheduleLink=buildFeedScheduleLink(ev);
     if(activeTab==='feed'){
@@ -17965,6 +17991,7 @@ let initialFeedCardIds = new Set();
 let feedCardWindowObserver = null;
 const MAX_MOUNTED_FEED_CARDS = 60;
 function resetFeedCardWindow(){
+  globalThis.fantasyDeadlineController?.cancel();
   feedCardWindowObserver?.disconnect();feedCardSlots.clear();
   for(const image of deferredCardImages)if(!image.isConnected)deferredCardImages.delete(image);
 }
@@ -17991,6 +18018,8 @@ function buildFeedCardSlot(event){
     for(const current of mounted){
       if(count<=MAX_MOUNTED_FEED_CARDS)break;
       if(current.near || current.slot.contains(document.activeElement))continue;
+      const fantasyLine=current.slot.querySelector('.fantasy-deadline');
+      if(fantasyLine)current.slot.dataset.fantasyHeight=String(fantasyLine.getBoundingClientRect().height+6);
       current.slot.style.minHeight=current.slot.getBoundingClientRect().height+'px';current.placeholder();current.mounted=false;count--;
     }
     for(const [slot] of feedCardSlots)if(!slot.isConnected){feedCardCardCleanup(slot);}
@@ -21038,6 +21067,8 @@ function renderTabCounts(){
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
+  if(userPreferences.fantasyDeadlines.enabled)void ensureFantasyUi().then(()=>globalThis.fantasyDeadlineController.sync()).catch(()=>{});
+  globalThis.fantasyDeadlineController?.sync();
   if(activeTab!=='match-centre')globalThis.stopMatchCentre?.();
   if(calendarChoice.busy)return;
   document.querySelector("footer.app-footer").style.visibility=startupCoordinator.isHydrating()?"hidden":"";
@@ -22133,6 +22164,7 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("account", "ui:radio", "Account", accountSettingsSummary())}
     ${settingsMenuItem("all-followed", "ui:list", "All Followed", "Sports, events, teams, athletes and collections")}
     ${settingsMenuItem("about", "ui:info", "About", "Nothing Sport, editorial standards and legal information")}
+    ${settingsMenuItem("fantasy", "ui:settings", "Fantasy deadlines", fantasySettingsSummary())}
     ${settingsMenuItem("appearance", "ui:sun", "Appearance", "Day, night or system theme")}
     ${settingsMenuItem("subscriptions", "ui:watch", "Subscriptions", `${draftPreferences.followFirst.subscriptions.length} preferred viewing service${draftPreferences.followFirst.subscriptions.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
@@ -22185,22 +22217,7 @@ function renderSettingsMenu(body){
 }
 
 function renderSubscriptionSettings(body){
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Subscriptions</h3><p class="preference-help">These choices only order View links. They never decide which cards appear in Feed.</p><div class="setup-choice-grid" id="subscriptionGrid"></div></section></div>`;
-  const selected = new Set(draftPreferences.followFirst.subscriptions || []);
-  const grid = document.getElementById("subscriptionGrid");
-  Object.entries(FOLLOW_FIRST.VIEWING_PROVIDERS).forEach(([id, provider]) => {
-    const label = document.createElement("label");
-    label.className = "setup-choice";
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.checked = selected.has(id);
-    input.addEventListener("change", () => {
-      if (input.checked) selected.add(id); else selected.delete(id);
-      draftPreferences.followFirst.subscriptions = Array.from(selected);
-    });
-    label.append(input, document.createTextNode(provider.label));
-    grid.appendChild(label);
-  });
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='subscriptions')ui.renderSubscriptionSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
 
 function renderNotificationSettings(body){
@@ -22292,37 +22309,7 @@ function renderNotificationSettings(body){
 }
 
 function renderLocationSettings(body){
-  const location = draftPreferences.followFirst.location;
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Set location</h3><p class="preference-help">Search for a city, postcode or area, or use permissioned system location. Use Travel mode for a temporary local Feed while you are away.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="settingsLocationQuery" type="search" value="${String(location.label || "").replace(/"/g, "&quot;")}" maxlength="120" placeholder="e.g. Leeds"></label><label class="field-label">Radius<select id="settingsLocationRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><label class="viewing-toggle"><input id="travelLocationMode" type="checkbox" ${location.mode === "travel" ? "checked" : ""}><span><strong>Temporary travel location</strong>Use this area until you switch Travel mode off.</span></label><div class="account-sync-actions"><button class="btn primary" type="button" id="settingsFindLocationBtn">Update location</button><button class="btn ghost" type="button" id="settingsUseCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="settingsLocationStatus">${location.label ? `${location.label} · ${location.radiusKm} km` : "No location set."}</p></section></div>`;
-  const applyLocation = value => {
-    draftPreferences.followFirst.location = FOLLOW_FIRST.normalizeLocation({ ...value, radiusKm:Number(document.getElementById("settingsLocationRadius").value), mode:document.getElementById("travelLocationMode").checked ? "travel" : value.mode });
-    draftPreferences.followFirst.startupMeta = FOLLOW_FIRST.normalizeMeta({ ...draftPreferences.followFirst.startupMeta, location:draftPreferences.followFirst.location });
-  };
-  document.getElementById("settingsFindLocationBtn").addEventListener("click", async () => {
-    const status = document.getElementById("settingsLocationStatus");
-    status.textContent = "Finding that area…";
-    try{
-      const response = await fetch(`/api/location?q=${encodeURIComponent(document.getElementById("settingsLocationQuery").value.trim())}`);
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error);
-      applyLocation(payload.location);
-      status.textContent = `${payload.location.label} will be used when you save.`;
-    }catch(error){ status.textContent = error.message || "That location could not be found."; }
-  });
-  document.getElementById("settingsUseCurrentLocationBtn").addEventListener("click", async () => {
-    try{
-      if (!navigator.geolocation) throw new Error("Location is not supported on this device.");
-      const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy:false, timeout:10000, maximumAge:300000 }));
-      const latitude = Number(position.coords.latitude.toFixed(2));
-      const longitude = Number(position.coords.longitude.toFixed(2));
-      const response = await fetch(`/api/location?lat=${latitude}&lng=${longitude}`);
-      const payload = await response.json();
-      applyLocation(payload.location || { label:"Current area", latitude, longitude, source:"system" });
-      document.getElementById("settingsLocationStatus").textContent = `${draftPreferences.followFirst.location.label} will be used when you save.`;
-    }catch(error){ document.getElementById("settingsLocationStatus").textContent = error.message || "Location permission was not granted."; }
-  });
-  document.getElementById("settingsLocationRadius").addEventListener("change", () => applyLocation(draftPreferences.followFirst.location));
-  document.getElementById("travelLocationMode").addEventListener("change", () => applyLocation(draftPreferences.followFirst.location));
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='location')ui.renderLocationSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
 
 function renderArchiveSettings(body){
@@ -22522,50 +22509,21 @@ function renderFeedbackSettings(body){
   updateFeedbackPreview();
 }
 
+function fantasySettingsSummary(){
+  const p=userPreferences.fantasyDeadlines;
+  return p.enabled?(p.gameByCompetition['competition:premier-league']==='fpl-classic'?'FPL':'Choose a game'):'Off';
+}
+function saveFantasySetting(next){globalThis.NOTHINGSPORTS_FANTASY_UI?.save(next);}
+function renderFantasySettings(body){
+  body.textContent='Loading fantasy settings…';
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='fantasy')ui.renderSettings(body);}).catch(()=>{body.textContent='Fantasy settings are temporarily unavailable. Try again.';});
+}
 function renderAppearanceSettings(body){
-  body.innerHTML = `<div class="preference-stack"></div>`;
-  const stack = body.querySelector(".preference-stack");
-  const theme = normalizeThemePreference(draftPreferences.theme);
-  const themes = [
-    ["day", "Day"],
-    ["night", "Night"],
-    ["system", "System"],
-  ];
-  const appearance = document.createElement("section");
-  appearance.className = "filter-panel";
-  appearance.innerHTML = `<h3>Appearance</h3><p class="preference-help">Choose how Nothing Sport looks on this device.</p><div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, label]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${label}</strong></label>`).join("")}</div>`;
-  appearance.querySelectorAll('input[name="theme"]').forEach(input => {
-    input.addEventListener("change", () => {
-      draftPreferences.theme = normalizeThemePreference(input.value);
-      applyThemePreference(draftPreferences.theme);
-      renderSettingsScreen();
-    });
-  });
-  const pilot = document.createElement("button");
-  pilot.type = "button";
-  pilot.className = "btn ghost";
-  pilot.textContent = "Trust pilot details";
-  pilot.addEventListener("click", () => {
-    settingsSection = "pilot";
-    renderSettingsScreen();
-  });
-  appearance.appendChild(pilot);
-  stack.appendChild(appearance);
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='appearance')ui.renderAppearanceSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
 
 function renderAboutSettings(body){
-  body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Follow a sport for its finals and marquee fixtures, or a team or athlete for all their known fixtures. Australian discovery adds fixtures with Australian participants where that filter is useful. Ratings never decide whether a followed fixture appears. Dismiss removes that exact card without changing your follows. Open Events for tournaments, Follow for each sport’s Schedule, Ladder and Standings, or Settings for All Followed.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
-  const about = body.querySelector(".settings-about-copy");
-  const socials = document.querySelector("footer.app-footer .footer-socials")?.cloneNode(true);
-  if (socials) about.appendChild(socials);
-  const legal = document.createElement("nav");
-  legal.className = "legal-settings-links";
-  legal.setAttribute("aria-label", "Legal");
-  legal.innerHTML = '<button class="legal-settings-link" type="button" data-legal-document="privacy">Privacy Policy</button><button class="legal-settings-link" type="button" data-legal-document="terms">Terms &amp; Conditions</button>';
-  legal.querySelectorAll("[data-legal-document]").forEach(button => {
-    button.addEventListener("click", () => openLegalDocument(button.dataset.legalDocument));
-  });
-  about.appendChild(legal);
+  void ensureFantasyUi().then(ui=>{if(settingsSection==='about')ui.renderAboutSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
 
 function renderLegalSettings(body, documentKey){
@@ -22760,6 +22718,7 @@ function renderSettingsScreen(){
     about: ["About", "Nothing Sport, how it is made, and the terms that govern it."],
     privacy: ["Privacy Policy", "How Nothing Sport handles information and the choices available to you."],
     terms: ["Terms & Conditions", "The terms that govern use of Nothing Sport."],
+    fantasy: ["Fantasy deadlines", "Choose the fantasy games used on your soccer Feed cards."],
     appearance: ["Appearance", "Choose how Nothing Sport looks on this device."],
     subscriptions: ["Subscriptions", "Choose services to prioritise in View links."],
     notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
@@ -22775,6 +22734,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "all-followed") renderAllFollowedSettings(body);
   else if (settingsSection === "about") renderAboutSettings(body);
   else if (settingsSection === "privacy" || settingsSection === "terms") renderLegalSettings(body, settingsSection);
+  else if (settingsSection === "fantasy") renderFantasySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
   else if (settingsSection === "subscriptions") renderSubscriptionSettings(body);
   else if (settingsSection === "notifications") renderNotificationSettings(body);

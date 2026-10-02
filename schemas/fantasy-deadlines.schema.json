@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Verified fantasy deadline enrichment",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "providerId",
+    "gameId",
+    "sourceId",
+    "competitionId",
+    "seasonId",
+    "mappingStatus"
+  ],
+  "properties": {
+    "providerId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gameId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "competitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seasonId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "providerFixtureId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fantasyRoundId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "roundLabel": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceUrl": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixtureSourceUrl": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapterVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "providerHash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mappingMethod": {
+      "type": "string",
+      "minLength": 1
+    },
+    "homeParticipantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "awayParticipantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schemaVersion": {
+      "const": "fantasy-deadlines.v1"
+    },
+    "mappingStatus": {
+      "enum": [
+        "verified",
+        "withdrawn"
+      ]
+    },
+    "lockoutType": {
+      "enum": [
+        "whole-team",
+        "initial-with-between-day-changes",
+        "per-player",
+        "per-fixture"
+      ]
+    },
+    "deadlineAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fixtureStartAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mappingStatus": {
+            "const": "verified"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "deadlineAt",
+          "fantasyRoundId",
+          "lockoutType",
+          "action",
+          "providerFixtureId",
+          "fixtureStartAt",
+          "homeParticipantId",
+          "awayParticipantId",
+          "sourceUrl",
+          "adapterVersion"
+        ]
+      }
+    }
+  ]
+}

@@ -16,6 +16,7 @@
   "config/coverage-pauses.js",
   "config/reviewed-fixture-repairs.js",
   "config/cricket-coverage.js",
+  "config/fantasy-preferences.js",
   "config/fixture-identity.js",
   "config/team-follow-catalogue.js",
   "config/event-taxonomy-compat.js",

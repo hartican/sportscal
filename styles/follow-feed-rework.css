@@ -394,3 +394,8 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture.is-compact-row .compact-matchup-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);}
 #listView .feed-fixture.is-compact-row .compact-matchup-side{overflow:visible;justify-content:center;align-items:center;}
 #listView .feed-fixture.is-compact-row .fixture-timing-badge{font-size:clamp(.95rem,2.8vw,1.4rem);}
+
+/* Optional fantasy enrichment: no row or space exists until verified. */
+.fantasy-deadline{margin:3px 0;font-size:12px;line-height:1.35;color:var(--text);opacity:.85;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere;}
+.fantasy-game-choice{display:grid;gap:6px;margin:12px 0;}
+.fantasy-game-choice select{max-width:100%;font:inherit;}

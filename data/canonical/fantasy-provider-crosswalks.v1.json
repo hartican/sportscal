@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "fantasy-crosswalks.v1",
+  "providerId": "premier-league",
+  "gameId": "fpl-classic",
+  "seasonId": "2026-27",
+  "competitionId": "competition:premier-league",
+  "verifiedAt": "2026-10-02",
+  "teams": {
+    "1": {
+      "participantId": "team:football:epl:1",
+      "providerName": "Arsenal"
+    },
+    "2": {
+      "participantId": "team:football:epl:2",
+      "providerName": "Aston Villa"
+    },
+    "3": {
+      "participantId": "team:football:epl:127",
+      "providerName": "Bournemouth"
+    },
+    "4": {
+      "participantId": "team:football:epl:130",
+      "providerName": "Brentford"
+    },
+    "5": {
+      "participantId": "team:football:epl:131",
+      "providerName": "Brighton"
+    },
+    "6": {
+      "participantId": "team:football:epl:4",
+      "providerName": "Chelsea"
+    },
+    "7": {
+      "participantId": "team:football:epl:5",
+      "providerName": "Coventry City"
+    },
+    "8": {
+      "participantId": "team:football:epl:6",
+      "providerName": "Crystal Palace"
+    },
+    "9": {
+      "participantId": "team:football:epl:7",
+      "providerName": "Everton"
+    },
+    "10": {
+      "participantId": "team:football:epl:34",
+      "providerName": "Fulham"
+    },
+    "11": {
+      "participantId": "team:football:epl:41",
+      "providerName": "Hull City"
+    },
+    "12": {
+      "participantId": "team:football:epl:8",
+      "providerName": "Ipswich Town"
+    },
+    "13": {
+      "participantId": "team:football:epl:9",
+      "providerName": "Leeds"
+    },
+    "14": {
+      "participantId": "team:football:epl:10",
+      "providerName": "Liverpool"
+    },
+    "15": {
+      "participantId": "team:football:epl:11",
+      "providerName": "Man City"
+    },
+    "16": {
+      "participantId": "team:football:epl:12",
+      "providerName": "Man Utd"
+    },
+    "17": {
+      "participantId": "team:football:epl:23",
+      "providerName": "Newcastle"
+    },
+    "18": {
+      "participantId": "team:football:epl:15",
+      "providerName": "Nott'm Forest"
+    },
+    "19": {
+      "participantId": "team:football:epl:21",
+      "providerName": "Spurs"
+    },
+    "20": {
+      "participantId": "team:football:epl:29",
+      "providerName": "Sunderland"
+    }
+  },
+  "fixtures": {}
+}
