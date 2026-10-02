@@ -450,11 +450,17 @@
       "providers": [
         {
           "id": "nine-tv",
-          "url": "https://www.9now.com.au/the-rugby-championship"
+          "url": "https://www.9now.com.au/live",
+          "linkScope": "sport",
+          "destinationVerifiedAt": "2026-10-02T07:56:40.511Z",
+          "destinationBasis": "Public live-channel landing redirects to channel-9; regional channel choice remains with Nine. Original Rugby Australia programme link returned 404."
         },
         {
           "id": "nine",
-          "url": "https://www.9now.com.au/the-rugby-championship"
+          "url": "https://www.9now.com.au/live",
+          "linkScope": "sport",
+          "destinationVerifiedAt": "2026-10-02T07:56:40.511Z",
+          "destinationBasis": "Public live-channel landing redirects to channel-9; regional channel choice remains with Nine. Original Rugby Australia programme link returned 404."
         },
         {
           "id": "stan",
@@ -478,11 +484,17 @@
       "providers": [
         {
           "id": "nine-tv",
-          "url": "https://www.9now.com.au/the-rugby-championship"
+          "url": "https://www.9now.com.au/live",
+          "linkScope": "sport",
+          "destinationVerifiedAt": "2026-10-02T07:56:40.511Z",
+          "destinationBasis": "Public live-channel landing redirects to channel-9; regional channel choice remains with Nine. Original Rugby Australia programme link returned 404."
         },
         {
           "id": "nine",
-          "url": "https://www.9now.com.au/the-rugby-championship"
+          "url": "https://www.9now.com.au/live",
+          "linkScope": "sport",
+          "destinationVerifiedAt": "2026-10-02T07:56:40.511Z",
+          "destinationBasis": "Public live-channel landing redirects to channel-9; regional channel choice remains with Nine. Original Rugby Australia programme link returned 404."
         },
         {
           "id": "stan",
@@ -514,8 +526,9 @@
         },
         {
           "id": "foxtel",
-          "url": "https://www.foxtel.com.au/watch/sport.html",
-          "linkScope": "sport"
+          "url": "https://www.foxtel.com.au/watch/cricket.html",
+          "linkScope": "sport",
+          "destinationBasis": "Official current Cricket page lists the October South Africa tour. Browser transport failed; authenticated playback and device access unverified."
         }
       ]
     }
