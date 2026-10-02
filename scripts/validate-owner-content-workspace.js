@@ -13,6 +13,7 @@ async function main(){
   const preview=content.postingSlots(fixture,now-3*content.DAY);assert.equal(preview[0].at,'2026-10-01T08:30:00.000Z');
   assert.equal(content.postingSlots(fixture,now+2*content.DAY).length,1,'Missed preview collapses into day-of');
   const dateOnly={...fixture,startTimeUtc:null,date:'2026-10-04'};assert(content.postingSlots(dateOnly,now)[0].at);assert(content.postingSlots(dateOnly,now)[0].estimated);
+  assert.equal(content.dates({id:'genuinely-unknown'}).sydneyStart.date,'Date TBC','A missing sporting date must never become the Unix epoch');
   assert.equal(content.rating(fixture,null).source,'editorial');assert.equal(content.rating(fixture,null).animationPreset,'subtle');
   assert.equal(content.rating(fixture,{mean:4.8,count:5}).animationPreset,'subtle');assert.equal(content.rating(fixture,{mean:4.81,count:5}).animationPreset,'energy');
   assert(content.eligible({...fixture,storyline:{stakes:4}},{mean:4.8,count:3},now));assert(content.eligible({...fixture,commsKind:'major-event',storyline:{stakes:3}},null,now));assert(!content.eligible({...fixture,status:'completed'},null,now));
@@ -29,11 +30,12 @@ async function main(){
     create table nothingsports_push_installations(installation_id uuid primary key,user_id uuid,permission text);
     create table nothingsports_nsc_pilot_members(user_id uuid primary key,approved boolean,suspended boolean);
     create table nothingsports_nsc_contributions(event_id text,user_id uuid,phase text,rating smallint,updated_at timestamptz);
-    create table nothingsports_marquee_campaigns(campaign_id text primary key,event_id text,source_revision text,campaign_revision integer default 1,content_hash text,state text,candidate jsonb,draft_copy jsonb,proposed_send_at timestamptz,export_snapshot jsonb,export_stale boolean default false,updated_at timestamptz default now());
+    create table nothingsports_marquee_campaigns(campaign_id text primary key check (campaign_id ~ '^marquee_[a-f0-9]{16}$'),event_id text unique,source_revision text,campaign_revision integer default 1,content_hash text,state text,candidate jsonb,draft_copy jsonb,proposed_send_at timestamptz,export_snapshot jsonb,export_stale boolean default false,updated_at timestamptz default now());
     create table nothingsports_marquee_campaign_versions(campaign_id text references nothingsports_marquee_campaigns on delete cascade,campaign_revision integer,snapshot jsonb,reason text,created_by uuid,primary key(campaign_id,campaign_revision));
     grant all on all tables in schema public to service_role;grant usage on schema public,private to service_role;
     insert into auth.users values('${user}');insert into nothingsports_push_installations values('${installation}','${user}','granted');insert into nothingsports_nsc_pilot_members values('${user}',true,false);`);
     await db.exec(fs.readFileSync('supabase/migrations/20261002055902_owner_content_workspace.sql','utf8'));
+    await db.exec(fs.readFileSync('supabase/migrations/20261002090706_owner_content_post_slots.sql','utf8'));
     await db.exec('set role service_role');
     const rpc=async(sql,args=[])=>(await db.query(sql,args)).rows;
     const sync=(revision,c,copy)=>rpc('select nothingsports_comms_sync($1,$2,$3,$4,$5,$6,$7) as result',[original.campaignId,revision,c,copy,c.contentHash,slots[0].at,user]);
@@ -52,6 +54,9 @@ async function main(){
     assert((await rpc("select nothingsports_comms_task($1,2,'posted',null,$2) as result",[original.campaignId,user]))[0].result.campaign.posted_at);
     assert.equal((await rpc('select * from nothingsports_comms_claim_posts($1)',[due])).length,0);
     assert((await rpc("select nothingsports_comms_task($1,3,'schedule',$2,$3) as result",[original.campaignId,'2026-10-04T00:00:00Z',user]))[0].result.campaign.draft_copy.cms.manualPostAt);
+    const dayOf = content.candidate(fixture,slots[0],null,'two');
+    const second = (await rpc('select nothingsports_comms_sync($1,0,$2,$3,$4,$5,$6) as result',[dayOf.campaignId,dayOf,dayOf.drafts,dayOf.contentHash,slots[0].at,user]))[0].result;
+    assert.equal(second.campaign?.campaign_revision,1,'Legacy schema must admit a preview and day-of campaign for the same fixture');
     await db.exec('set role anon');await assert.rejects(rpc('select * from nothingsports_comms_preferences'),/permission denied/);await assert.rejects(rpc('select * from nothingsports_comms_heat()'),/permission denied/);
   }finally{await db.close();}
   console.log('Owner content model/database passed: DST, slots, Heat, protected prose, history, CAS, reminder opt-in/dedup and RLS.');

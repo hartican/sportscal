@@ -22,6 +22,10 @@ async function main() {
     'Changed community stakes must not export an image bearing stale editorial stakes');
   const rows = ['expired', 'delivered', 'active'].map((id, i) => ({campaign_id:id,
     campaign_revision:1,candidate:{timing:{endTimeUtc:i===2?'2027-01-01T00:00:00Z':'2026-01-01T00:00:00Z'}}}));
+  rows.push({campaign_id:'legacy-date-only',campaign_revision:1,event_id:'old-date-only',candidate:{material:{displayDate:'2026-09-26'},timing:{endTimeUtc:null}}});
+  rows.push({campaign_id:'legacy-source-confirmed',campaign_revision:1,event_id:'event:afl:cd_m20260142801',candidate:{material:{displayDate:''},timing:{endTimeUtc:null}}});
+  rows.push({campaign_id:'genuinely-pending',campaign_revision:1,event_id:'unknown-2027',candidate:{material:{displayDate:''},timing:{endTimeUtc:null}}});
+  rows.push({campaign_id:'source-moved-later',campaign_revision:1,event_id:'evt_84',candidate:{timing:{endTimeUtc:'2026-09-25T00:00:00Z'}}});
   const assets = [
     {asset_id:'keep-history',campaign_id:'expired',public_urls:{portrait:'https://example.test/shared'}},
     {asset_id:'keep-delivery',campaign_id:'delivered',original_path:'delivery.jpg'},
@@ -36,12 +40,14 @@ async function main() {
     if(path.includes('campaign_versions')) return [{snapshot:{image:'keep-history'}}];
     throw Error('Unexpected request: '+path);
   };
-  assert.equal(await refresh.purgePast(rows,Date.parse('2026-10-02T00:00:00Z')),1);
+  assert.equal(await refresh.purgePast(rows,Date.parse('2026-10-02T00:00:00Z')),3,'Legacy watching entries need current source/date expiry, not a persisted end timestamp');
   const removed = calls.filter(c=>c.options.method==='DELETE');
   assert(!removed.some(c=>c.path.includes('keep-history')||c.path.includes('keep-delivery')));
   assert.deepEqual(removed.find(c=>c.path.includes('/storage/')).options.body.prefixes,['expired.jpg']);
   assert(removed.some(c=>c.path.includes('remove-exclusive')));
   assert(!removed.some(c=>c.path.includes('campaign_id=eq.delivered')));
+  assert(!removed.some(c=>c.path.includes('campaign_id=eq.genuinely-pending')));
+  assert(!removed.some(c=>c.path.includes('campaign_id=eq.source-moved-later')),'A newer future schedule outranks stale stored expiry');
   console.log('Owner refresh passed: current Heat, safe image fallback, protected delivery/shared history and exclusive media purge.');
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

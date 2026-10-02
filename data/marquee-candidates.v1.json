@@ -1,7 +1,7 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c",
-  "generatedAt": "2026-10-02T06:30:00.000Z",
+  "sourceRevision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc",
+  "generatedAt": "2026-10-02T09:16:43.909Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 27,
@@ -65,7 +65,7 @@
         "name": "2026 NRLW Grand Final — Roosters v Broncos — official research 1",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-27T13:57:48.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Roosters v Broncos",
@@ -355,7 +355,7 @@
         "name": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
         "checkedAt": "2026-09-29T23:38:21.617Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Bahrain GP (Malaysia) · Race",
@@ -621,7 +621,7 @@
         "name": "Accor Stadium official Grand Final programme",
         "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
         "checkedAt": "2026-09-30T22:37:31.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "NRL Grand Final: Roosters v Knights",
@@ -918,7 +918,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1183,7 +1183,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -1448,7 +1448,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-01T17:38:38.928Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1714,7 +1714,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -1980,7 +1980,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -2246,7 +2246,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -2488,7 +2488,7 @@
       "campaignId": "marquee_4b6a6fbfdd6ce674",
       "campaignRevision": 1,
       "eventId": "rugby-australia-new-zealand-2026-10-17",
-      "contentHash": "32d58f08c58b13a8a399ee78a62943521d9c5febdf94c3c75efd3ba70ed2bdd3",
+      "contentHash": "3ef15d189d54c1272da943f5a02ab5bf471fad423d6d9ebc8753ff43df8cdc94",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -2536,7 +2536,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -2549,7 +2549,7 @@
         "sport": "Rugby Union",
         "competition": "",
         "venue": "Accor Stadium, Sydney",
-        "broadcaster": "Stan Sport",
+        "broadcaster": "Nine / 9Now / Stan Sport",
         "displayDate": "2026-10-17",
         "stakes": 5,
         "rating": {
@@ -2602,8 +2602,8 @@
         "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
         "kicker": "5.0/5 editorial stakes · Rugby Union",
         "hero": {
-          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2634,7 +2634,7 @@
             "Bledisloe Cup is Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bledisloe Cup — Sydney Test: Sat 17 Oct 2026 at 3:45 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Stan Sport.",
+          "broadcastLine": "Watch in Australia on Nine / 9Now / Stan Sport.",
           "primaryCta": {
             "label": "Set a reminder / rate / watch party",
             "url": "https://nothingsport.vercel.app/?event=rugby-australia-new-zealand-2026-10-17"
@@ -2644,8 +2644,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_4b6a6fbfdd6ce674"
           },
           "image": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2668,8 +2668,8 @@
         "instagram": {
           "caption": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.\n\nBledisloe Cup is Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2697,8 +2697,8 @@
           "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
           "kicker": "5.0/5 editorial stakes · Rugby Union",
           "hero": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2734,8 +2734,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2744,8 +2744,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-32d58f08c58b.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3ef15d189d54.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2829,7 +2829,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3096,7 +3096,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -3338,7 +3338,7 @@
       "campaignId": "marquee_61b9cd9028c1c9f4",
       "campaignRevision": 1,
       "eventId": "rugby-australia-new-zealand-2026-10-17",
-      "contentHash": "0b490ed74deefd0e1bf7bde0e562856608cf399f7cb25a3d49601d671de3d704",
+      "contentHash": "0f5faf210b82e4c1503a7cb0ab527f00bca0326d929c21dea76deb65bc47a681",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -3387,7 +3387,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -3400,7 +3400,7 @@
         "sport": "Rugby Union",
         "competition": "",
         "venue": "Accor Stadium, Sydney",
-        "broadcaster": "Stan Sport",
+        "broadcaster": "Nine / 9Now / Stan Sport",
         "displayDate": "2026-10-17",
         "stakes": 5,
         "rating": {
@@ -3453,8 +3453,8 @@
         "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
         "kicker": "5.0/5 editorial stakes · Rugby Union",
         "hero": {
-          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3485,7 +3485,7 @@
             "Bledisloe Cup is Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bledisloe Cup — Sydney Test: Sat 17 Oct 2026 at 3:45 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Stan Sport.",
+          "broadcastLine": "Watch in Australia on Nine / 9Now / Stan Sport.",
           "primaryCta": {
             "label": "Set a reminder / rate / watch party",
             "url": "https://nothingsport.vercel.app/?event=rugby-australia-new-zealand-2026-10-17"
@@ -3495,8 +3495,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_61b9cd9028c1c9f4"
           },
           "image": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3519,8 +3519,8 @@
         "instagram": {
           "caption": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.\n\nBledisloe Cup is Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3548,8 +3548,8 @@
           "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
           "kicker": "5.0/5 editorial stakes · Rugby Union",
           "hero": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3585,8 +3585,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -3595,8 +3595,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0b490ed74dee.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-0f5faf210b82.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -3679,7 +3679,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -3947,7 +3947,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -4214,7 +4214,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -4482,7 +4482,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -4749,7 +4749,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -5017,7 +5017,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -5284,7 +5284,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -5550,7 +5550,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -5817,7 +5817,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -6084,7 +6084,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -6351,7 +6351,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -6619,7 +6619,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -6885,7 +6885,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -7153,7 +7153,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -7419,7 +7419,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -7686,7 +7686,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -7950,7 +7950,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -8214,7 +8214,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -8483,7 +8483,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -8750,7 +8750,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -9018,7 +9018,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -9283,7 +9283,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-01T17:37:37.734Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -9546,7 +9546,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -9815,7 +9815,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10083,7 +10083,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -10351,7 +10351,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -10618,7 +10618,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -10882,7 +10882,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -11145,7 +11145,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -11409,7 +11409,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -11672,7 +11672,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -11936,7 +11936,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -12199,7 +12199,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "The 155th Open",
@@ -12463,7 +12463,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "The 155th Open",
@@ -12676,7 +12676,7 @@
       "campaignId": "marquee_be6545810a39f55f",
       "campaignRevision": 1,
       "eventId": "major-event:australian-grand-prix-2027",
-      "contentHash": "328b51a8ca24793e7725e0200754c3cf8520b1c65dd3ef3cf58f8fc4cbff8e89",
+      "contentHash": "5d68f02cf885acf21f487457cbbaf3782f368575cecc4a9c82f4b457cf94ea78",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -12708,25 +12708,23 @@
         "fixtureDate": "",
         "estimateBasis": "unknown",
         "sydneyStart": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 1 Jan 1970",
+          "date": "Date TBC",
+          "day": "",
           "time": "Time TBC",
           "timezone": "Sydney time"
         },
         "sydneyFinish": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 1 Jan 1970",
-          "time": "10:00 am",
-          "timezone": "AEST"
+          "date": "Date TBC",
+          "time": "Time TBC",
+          "day": "",
+          "timezone": "Sydney time"
         }
       },
       "source": {
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261001235825528@2026-10-01T23:58:25.528Z:09448747a53c"
+        "revision": "weekend-editorial-20261001235825528-20261002065003261-20261002074800844-20261002075831031@2026-10-02T07:58:31.031Z:626fcce0a9cc"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",
@@ -12767,13 +12765,13 @@
         "hook": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
         "kicker": "5.0/5 editorial stakes · Formula One",
         "hero": {
-          "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+          "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
           "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
         },
         "heroAssetId": "",
         "logos": {
@@ -12796,9 +12794,9 @@
           "bodyParagraphs": [
             "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
             "Formula 1 is contracted to return to Melbourne through 2035, but the 2027 date and ticket packages remain unconfirmed. Albert Park's fast temporary-road character supplies durable context while the card remains explicitly TBC instead of turning a planning date into a fixture.",
-            "Formula 1 Australian Grand Prix 2027 is Thu 1 Jan 1970; exact start time to be confirmed at Albert Park Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
+            "Formula 1 Australian Grand Prix 2027 is Date TBC; exact start time to be confirmed at Albert Park Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
-          "timingLine": "Formula 1 Australian Grand Prix 2027: Thu 1 Jan 1970; exact start time to be confirmed.",
+          "timingLine": "Formula 1 Australian Grand Prix 2027: Date TBC; exact start time to be confirmed.",
           "broadcastLine": "",
           "primaryCta": {
             "label": "Set a reminder / rate / watch party",
@@ -12809,13 +12807,13 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_be6545810a39f55f"
           },
           "image": {
-            "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+            "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
           },
           "suggestedSendAt": {
             "utc": null,
@@ -12825,44 +12823,42 @@
           "ratingUrl": "https://nothingsport.vercel.app/?tab=events&event=major-event%3Aaustralian-grand-prix-2027"
         },
         "instagram": {
-          "caption": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.\n\nFormula 1 Australian Grand Prix 2027 is Thu 1 Jan 1970; exact start time to be confirmed at Albert Park Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.\n\nFormula 1 Australian Grand Prix 2027 is Date TBC; exact start time to be confirmed at Albert Park Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+            "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
           },
-          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
         },
         "when": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 1 Jan 1970",
+          "date": "Date TBC",
+          "day": "",
           "time": "Time TBC",
           "timezone": "Sydney time"
         },
         "finish": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 1 Jan 1970",
-          "time": "10:00 am",
-          "timezone": "AEST"
+          "date": "Date TBC",
+          "time": "Time TBC",
+          "day": "",
+          "timezone": "Sydney time"
         },
         "live": {
           "headline": "Formula 1 Australian Grand Prix 2027",
           "hook": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
           "kicker": "5.0/5 editorial stakes · Formula One",
           "hero": {
-            "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+            "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
           },
           "heroAssetId": "",
           "logos": {
@@ -12893,23 +12889,23 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+          "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
           "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+          "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-328b51a8ca24.jpg",
+            "path": "/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_be6545810a39f55f-5d68f02cf885.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Thu 1 Jan 1970; exact start time to be confirmed."
+            "altText": "Nothing Sport: Formula 1 Australian Grand Prix 2027. Date TBC; exact start time to be confirmed."
           }
         ],
         "uploadPolicy": "approved-media-only"
