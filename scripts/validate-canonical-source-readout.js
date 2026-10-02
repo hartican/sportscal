@@ -23,6 +23,15 @@ const many = summary({quick:{...quick,failures:Array(12).fill('failure')},hydrat
 const compact = markdown({state:'observed',run,reports:many,limitations:[]});
 assert(compact.includes('2 further failures') && compact.includes('3 further tournament gaps'));
 assert(!compact.includes('Gap 10 ('), 'owner-facing readout is bounded while JSON retains full gaps');
+const details={listedEntries:120,confirmedEntries:119,pairingGroups:80,pairingRounds:2,participantsConfirmed:true,participationCheckedAt:'2026-09-30T20:00:00Z'};
+const golf={...gap,tournamentId:'2026068',name:'LOTTE',code:'golf',format:'tournament-card',detailEvidence:details,issues:['Tournament completeness is not attested']};
+const golfReport=summary({hydration:{...hydration,tournaments:[golf]},now});
+assert.deepEqual(golfReport.hydration.gaps[0].detailEvidence,details);
+const golfText=markdown({state:'observed',run,reports:golfReport,limitations:[]});
+assert(golfText.includes('one tournament card')&&golfText.includes('120 listed entries')&&golfText.includes('80 tee-time groups')&&golfText.includes(details.participationCheckedAt));
+assert(!golfText.includes('0 child fixtures'),'intentional parent presentation is not a child-fixture defect');
+for(const change of [{listedEntries:251},{confirmedEntries:121},{pairingGroups:-1},{pairingRounds:6},{participantsConfirmed:'yes'},{participationCheckedAt:'2026-10-02T00:00:00Z'}])assert.equal(summary({hydration:{...hydration,tournaments:[{...golf,detailEvidence:{...details,...change}}]},now}).hydration.state,'unavailable','malformed/future detail evidence cannot be presented as valid');
+assert.equal(summary({hydration:{...hydration,tournaments:[{...golf,format:'complete-sport'}]},now}).hydration.state,'unavailable');
 
 (async()=>{
   const calls=[];let downloaded;

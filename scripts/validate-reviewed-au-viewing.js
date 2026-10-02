@@ -40,6 +40,26 @@ for(const id of ['1525659','1525660','1525661']){
  assert.deepEqual(sporting(enriched),sporting(f),'no fixture fact, source observation or activity key changes');
 }
 const warmup=cricket.find(f=>f.id==='fixture:cricket:espn:1525658');assert.deepEqual(providers(warmup),[],'no broadcast extrapolation to warmup');
+const golfDocument=require('../data/canonical/pga-tour-schedule.json'),golf=require('../lib/golf-fixtures').fixtures(golfDocument);
+assert.deepEqual(follow.viewingOptions({key:'golf',competitionId:'competition:pga-tour',name:'PGA TOUR'}).map(o=>o.providerId),['kayo','foxtel'],'actual PGA rights remain available');
+for(const competitionId of ['competition:lpga-tour','competition:unknown-lpga-tour','competition:korn-ferry-tour'])assert.deepEqual(follow.viewingOptions({key:'golf',competitionId,name:'Tournament'}),[],'shared name substrings never confer another tour rights');
+const sporting=({viewingOptions,broadcaster,broadcastOptions,broadcasterIds,...rest})=>rest;
+for(const id of ['2026068','2026070']){
+ const f=golfDocument.lpga.find(f=>f.id==='fixture:golf:lpga:'+id);assert(f);
+ const enriched=review(f),options=follow.viewingOptions(enriched);
+ assert.deepEqual(options.map(o=>o.providerId),['kayo','foxtel'],'reviewed LPGA competition has both AU subscription destinations');
+ assert(options.every(o=>o.rightsScope==='competition'&&o.linkScope==='sport'&&o.territory==='AU'&&o.accessType==='subscription'&&o.replayVerified===false),'general carriage never implies a round permalink, free playback or replay');
+ assert.equal(options[0].sourceUrl,'https://kayosports.com.au/help/s/article/What-content-is-available-as-part-of-your-Kayo-subscription');
+ assert.equal(options[1].sourceUrl,'https://www.foxtel.com.au/watch/golf.html');
+ assert.deepEqual(sporting(enriched),sporting(f),'viewing enrichment preserves all golf IDs, entries, groups, facts and original observations');
+ assert.deepEqual(golf.find(row=>row.id===f.id).viewingOptions,enriched.viewingOptions,'shared golf catalogue serves identical reviewed evidence');
+ assert.deepEqual(review(enriched),enriched,'review is idempotent');
+ for(const mutation of [{competitionId:'competition:korn-ferry-tour'},{date:'2026-11-01'},{date:'2027-10-01'},{date:null}])assert.deepEqual(providers({...enriched,...mutation}),[],'review expires or rejects a different competition/date');
+ const completed=follow.viewingOptions(review({...f,status:'completed'}));assert(completed.every(o=>o.liveOrReplay==='replay'&&!o.replayVerified),'a later final only offers checking replay availability');
+}
+for(const id of ['fixture:golf:pga:H2026166','fixture:golf:lpga:2026076','fixture:golf:lpga:2026063']){
+ const f=golf.find(f=>f.id===id);assert(f);assert.deepEqual(providers(f),[],'LPGA windows do not extrapolate to Korn Ferry, other dates or past finals');
+}
 const foreign={...unknown,viewingOptions:[{providerId:'seven',rightsScope:'fixture',sourceUrl:'https://example.test/official-fixture',verifiedAt:'2026-09-25T00:00:00Z'}]};assert.deepEqual(providers(foreign),['seven'],'separate verified fixture evidence survives');
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567'}),[],'undated fixtures do not inherit time-bounded ODI rights');
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567',startTimeUtc:'2027-09-24T00:00:00Z'}),[],'UTC-only observations obey season bounds');
@@ -51,7 +71,12 @@ if(process.argv.includes('--published')){
   assert.deepEqual(strip(f.viewingOptions),strip(review(f).viewingOptions),`${folder}/${code}/${f.id}: source evidence survives actual projection`);
   if(f.id===superAus.id){assert.equal(f.venue,normalized.venue,'actual final projection carries host venue');assert.equal(f.venueProvenance.checkedAt,normalized.venueProvenance.checkedAt);}
  }
+ for(const folder of ['code-inspector','follow-schedule'])for(const id of ['2026068','2026070']){
+  const f=require(`../data/${folder}/golf.json`).fixtures.find(f=>f.id==='fixture:golf:lpga:'+id);assert(f);
+  assert.deepEqual(f.viewingOptions,review(f).viewingOptions,`${folder}/golf: reviewed competition evidence reaches the published projection`);
+  assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['kayo','foxtel']);
+ }
  const feed=require('../data/events.json').events;
  for(const f of feed.filter(f=>f.key==='rugby'||f.viewingOptions?.some(o=>o.reviewId==='au-viewing-20261002')))assert.deepEqual(f.viewingOptions,review(f).viewingOptions,'published cards retain evidence and original dates');
 }
-console.log('Reviewed AU viewing: free/paid ordering, exact competitions, three Tests, warmup exclusion, expiry, original facts/dates, honest replay and both projections passed.');
+console.log('Reviewed AU viewing: free/paid ordering, exact competitions, three Tests, two LPGA windows, exclusions, expiry, original facts/dates, honest replay and both projections passed.');

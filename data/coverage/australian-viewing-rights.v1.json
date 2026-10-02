@@ -358,6 +358,30 @@
   },
   "reviewedWindows": [
     {
+      "fixtureIds": ["fixture:golf:lpga:2026068", "fixture:golf:lpga:2026070"],
+      "competitionIds": ["competition:lpga-tour"],
+      "notBefore": "2026-10-01",
+      "notAfter": "2026-11-01",
+      "rightsScope": "competition",
+      "sourceUrl": "https://kayosports.com.au/help/s/article/What-content-is-available-as-part-of-your-Kayo-subscription",
+      "verifiedAt": "2026-10-02T13:51:45.000Z",
+      "notes": "Dated general Australian USLPGA carriage for these two retained October tournaments only. Provider schedule/sport landing pages, not verified round broadcast starts, fixture playback or replay availability. No Korn Ferry inference.",
+      "providers": [
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "linkScope": "sport"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/golf.html",
+          "sourceUrl": "https://www.foxtel.com.au/watch/golf.html",
+          "linkScope": "sport",
+          "destinationBasis": "Official Golf page lists live USLPGA Tour carriage. Direct source transport succeeded during this review; later web transport failed. Subscriber playback and exact round listings remain unverified."
+        }
+      ]
+    },
+    {
       "competitionIds": [
         "competition:rugby:wr:06dfcce9-aefd-487b-a6f3-4efaf036e1be"
       ],

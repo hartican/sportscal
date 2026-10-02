@@ -39,12 +39,16 @@ async function assertCachedFootballStatus(page){
   assert(motoOffline.every(Boolean),'every MotoGP and WRC vector must remain available in the installed/offline shell');
   const viewing=await page.evaluate(async()=>{
     const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
-    const rugby=await load('rugby-union'),cricket=await load('cricket');
+    const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf');
     const providers=f=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId);
     const final=rugby.find(f=>f.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be');
-    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659')),final:providers(final),venue:NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(final).venue};
+    const lpga=['2026068','2026070'].map(id=>golf.find(f=>f.id==='fixture:golf:lpga:'+id));
+    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659')),final:providers(final),venue:NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(final).venue,
+      lpga:lpga.map(f=>({id:f.id,providers:providers(f),options:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>({scope:o.rightsScope,replay:o.replayVerified})),participationCheckedAt:f.participationCheckedAt})),
+      unrelatedLpga:providers({key:'golf',competitionId:'competition:lpga-tour',name:'LPGA Tour'})};
   });
-  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth'},'upgraded/offline runtime and cached projections retain honest Australian viewing and host venue');
+  const expectedLpga=require('../data/canonical/pga-tour-schedule.json').lpga.filter(f=>['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].includes(f.id)).map(f=>({id:f.id,providers:['kayo','foxtel'],options:[{scope:'competition',replay:false},{scope:'competition',replay:false}],participationCheckedAt:f.participationCheckedAt}));
+  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth',lpga:expectedLpga,unrelatedLpga:[]},'upgraded/offline runtime and cached projections retain honest AU viewing, LPGA token boundaries and original Golf observations');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';

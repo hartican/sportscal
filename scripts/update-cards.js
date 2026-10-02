@@ -427,6 +427,16 @@ async function runMain() {
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }
+  if(process.argv.includes('--golf-quality')){
+    for(const step of [
+      ['scripts/build-code-inspector.js','--codes=golf'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-reviewed-au-viewing.js','--published'],
+      ['scripts/validate-tournament-hydration.js'],['scripts/validate-canonical-source-readout.js'],
+      ['scripts/validate-lpga-results.js'],['scripts/validate-experience-reliability.js']
+    ])runStep(step);
+    console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
+  }
   if(process.argv.includes('--wrc')){
     const refresh=['scripts/refresh-wrc-context.js','--calendar-only'];
     for(const flag of ['--calendar-file','--revision-file','--future-file','--checked-at']){const i=process.argv.indexOf(flag);if(i>=0)refresh.push(flag,process.argv[i+1]);}

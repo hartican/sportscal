@@ -124,7 +124,7 @@
     "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], null),
     "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], null),
     "competition:nbl":viewingRights(["competition:nbl"], ["kayo", "foxtel"], null),
-    "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]) }),
+    "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]), tokenBoundaries:true }),
     "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], null),
     "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], null),
     "competition:nhl":viewingRights(["competition:nhl", "nhl"], [], "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games", { coverageStatus:"unverified", rightsScope:"competition" }),
@@ -773,7 +773,8 @@
       });
     const matches = (rights, values) => rights.competitionAliases.some(rawAlias => {
       const alias = normalizeToken(rawAlias);
-      return values.some(token => token === alias || (alias.length >= 3 && token.startsWith(`${alias}-`)) || (alias.length >= 4 && token.includes(alias)));
+      // Golf tour names share substrings (LPGA/PGA); only complete tokens confer rights.
+      return values.some(token => token === alias || (alias.length >= 3 && token.startsWith(`${alias}-`)) || (alias.length >= 4 && (rights.tokenBoundaries ? token.includes(`-${alias}-`) || token.endsWith(`-${alias}`) : token.includes(alias))));
     });
     // Exact competition provenance outranks generic sport/key/name matches.
     return candidates.find(rights => matches(rights, [normalizeToken(event?.competitionId)].filter(Boolean)))

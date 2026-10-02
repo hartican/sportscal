@@ -16,7 +16,7 @@ function inventory(today=day()){
  for(const t of read('data/canonical/pga-tour-schedule.json').tournaments)put({...t,tournamentId:t.id,code:'golf'});
  for(const t of read('data/major-events.v1.json').events){if(t.kind==='ticket_sale'||!t.startDate||!t.endDate)continue;put({...t,code:t.key||t.sportKey||t.sport||'unknown'});}
  put({...laver.tournament,code:'tennis'});
- return [...tournaments.values()].filter(t=>eligible(t,today)).map(t=>({...t,fixtures:schedules.filter(f=>(f.tournamentId===t.tournamentId||f.parentId===t.tournamentId)&&f.id!==t.tournamentId&&!/tennis-tournament-/.test(f.id)&&!(f.dateOnly&&f.detailsUnavailable))}));
+ return [...tournaments.values()].filter(t=>eligible(t,today)).map(t=>({...t,fixtures:schedules.filter(f=>(f.tournamentId===t.tournamentId||f.parentId===t.tournamentId)&&f.id!==t.tournamentId&&!/tennis-tournament-/.test(f.id)&&f.cardType!=='golf_tournament'&&!(f.dateOnly&&f.detailsUnavailable))}));
 }
 // Calendar-only providers are intentionally not advertised as complete draws.
 const ADAPTERS={
@@ -31,7 +31,12 @@ function adapterFor(t){
  const id=t.tournamentId||'',code=String(t.code).toLowerCase();
  if(id===bjk.TOURNAMENT)return 'bjk';
  if(id===laver.TOURNAMENT)return 'laver';
- if(/^R\d{7}$/.test(id))return 'pga';
+ if(code==='golf'){
+  if(/^R\d{7}$/.test(id))return 'pga';
+  let source;try{source=new URL(t.sourceUrl);}catch{}
+  if(source?.protocol==='https:'&&source.hostname==='www.pgatour.com'&&/^H\d{7}$/.test(id)&&t.competitionId==='competition:korn-ferry-tour')return 'pga';
+  if(source?.protocol==='https:'&&source.hostname==='www.lpga.com'&&/^\d{7}$/.test(id)&&t.competitionId==='competition:lpga-tour')return 'pga';
+ }
  if(/wrc/.test(code+' '+id))return 'wrc';
  if(/cricket|rugby-union/.test(code))return 'coverage';
  if(/basketball|ice-hockey|netball|^hockey$/.test(code))return 'official';
@@ -39,20 +44,27 @@ function adapterFor(t){
 }
 function run(script,args=[]){const result=spawnSync(process.execPath,[script,...args],{stdio:'inherit',timeout:180000});if(result.error||result.status!==0)throw new Error(result.error?.message||`${script} failed (${result.status})`);}
 function assess(t,adapter,status,today=day()){
- const real=(t.fixtures||[]).filter(f=>!['provisional','unconfirmed'].includes(f.status)&&!f.detailsUnavailable);
+ const real=(t.fixtures||[]).filter(f=>f.cardType!=='golf_tournament'&&!['provisional','unconfirmed'].includes(f.status)&&!f.detailsUnavailable);
+ const golf=adapter==='pga',entries=t.entries||[],pairings=t.appearances||[];
+ const detailEvidence=golf?{listedEntries:entries.length,confirmedEntries:entries.filter(e=>e.entryStatus==='confirmed').length,pairingGroups:pairings.length,pairingRounds:new Set(pairings.map(a=>a.round).filter(Number.isInteger)).size,participantsConfirmed:Boolean(t.participantsConfirmed),participationCheckedAt:t.participationCheckedAt||null}:null;
  const issues=[];
  if(!adapter)issues.push('No supported fixture adapter');
- if(adapter&&ADAPTERS[adapter].coverage==='calendar')issues.push('Provider covers tournament calendar; detailed rounds/sessions require another source');
- if(!real.length)issues.push('No published child fixtures hydrated');
+ if(golf)issues.push('Tournament field, tee-time and result completeness is not attested');
+ else if(adapter&&ADAPTERS[adapter].coverage==='calendar')issues.push('Provider covers tournament calendar; detailed rounds/sessions require another source');
+ if(!real.length&&!golf)issues.push('No published child fixtures hydrated');
  if(status?.error)issues.push(status.error);
  if(status?.failures?.length)issues.push(...status.failures.map(f=>`${f.source}: ${f.error}`));
  if(adapter==='bjk'&&real.length!==7)issues.push(`Expected seven ties; found ${real.length}`);
- const due=real.filter(f=>f.date<today&&!['completed','cancelled','abandoned','postponed'].includes(f.status));
+ const terminal=['completed','cancelled','abandoned','postponed'];
+ const due=real.filter(f=>(f.endDate||f.date)<today&&!terminal.includes(f.status));
  if(due.length)issues.push(`${due.length} past fixtures have unresolved results`);
+ // Date-only golf windows do not reveal when the final local round finishes.
+ // Reuse the existing conservative 36-hour result allowance; never infer a final.
+ if(golf&&Date.parse(t.endDate||t.date)+36*3600000<Date.parse(today)&&!terminal.includes(t.status))issues.push('Tournament ended with unresolved result after the date-only finish allowance');
  // Non-BJK adapters do not expose a published expected count. Never infer
  // completeness simply from a non-empty result list.
  if(adapter&&adapter!=='bjk'&&real.length)issues.push('Published fixture completeness is not attested by this adapter');
- return {tournamentId:t.tournamentId,name:t.name,code:t.code,startDate:t.startDate||t.date,endDate:t.endDate,adapter,fixtureCount:real.length,status:issues.length?'partial':'complete',issues};
+ return {tournamentId:t.tournamentId,name:t.name,code:t.code,startDate:t.startDate||t.date,endDate:t.endDate,adapter,format:golf?'tournament-card':'child-fixtures',fixtureCount:real.length,...(detailEvidence?{detailEvidence}:{}),status:issues.length?'partial':'complete',issues};
 }
 async function refresh({now=new Date(),offline=false,mode='quick',runAdapter=null,inventoryFn=inventory,reportPath=process.env.TOURNAMENT_HYDRATION_REPORT||path.join(os.tmpdir(),'sportscal-tournament-hydration-report.json')}={}){
  const today=day(now),before=inventoryFn(today),statuses={},codes=new Set(),changed=[];

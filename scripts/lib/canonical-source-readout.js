@@ -42,7 +42,15 @@ function summary({quick = null, hydration = null, football = null, now = new Dat
       const tournaments = hydration.tournaments.map(t => {
         if (typeof t.tournamentId !== 'string' || !t.tournamentId || seen.has(t.tournamentId) || !['complete', 'partial'].includes(t.status) || !Array.isArray(t.issues) || t.issues.length > 100 || t.issues.some(i => typeof i !== 'string') || !Number.isSafeInteger(t.fixtureCount) || t.fixtureCount < 0 || (t.status === 'complete' && t.issues.length)) throw Error('invalid_tournament_evidence');
         seen.add(t.tournamentId);
-        return {tournamentId: safe(t.tournamentId), name: safe(t.name || t.tournamentId), code: safe(t.code || 'unknown'), fixtureCount: t.fixtureCount, status: t.status, issues: t.issues.map(safe)};
+        const format=t.format||'child-fixtures';
+        if(!['child-fixtures','tournament-card'].includes(format))throw Error('invalid_tournament_format');
+        let detailEvidence;
+        if(format==='tournament-card'){
+          const d=t.detailEvidence;
+          if(!d||!['listedEntries','confirmedEntries','pairingGroups','pairingRounds'].every(k=>Number.isSafeInteger(d[k])&&d[k]>=0)||d.listedEntries>250||d.confirmedEntries>d.listedEntries||d.pairingGroups>1000||d.pairingRounds>5||typeof d.participantsConfirmed!=='boolean'||(d.participationCheckedAt!==null&&(typeof d.participationCheckedAt!=='string'||!Number.isFinite(Date.parse(d.participationCheckedAt))||Date.parse(d.participationCheckedAt)>now.getTime())))throw Error('invalid_golf_detail_evidence');
+          detailEvidence={listedEntries:d.listedEntries,confirmedEntries:d.confirmedEntries,pairingGroups:d.pairingGroups,pairingRounds:d.pairingRounds,participantsConfirmed:d.participantsConfirmed,participationCheckedAt:d.participationCheckedAt};
+        }
+        return {tournamentId: safe(t.tournamentId), name: safe(t.name || t.tournamentId), code: safe(t.code || 'unknown'), format, ...(detailEvidence?{detailEvidence}:{}), fixtureCount: t.fixtureCount, status: t.status, issues: t.issues.map(safe)};
       });
       result.hydration = {...observed, state: 'observed', tournamentCount: tournaments.length, completeCount: tournaments.filter(t => t.status === 'complete').length, partialCount: tournaments.filter(t => t.status === 'partial').length, gaps: tournaments.filter(t => t.status === 'partial')};
     } catch (e) { result.hydration.error = safe(e.message); }
@@ -101,7 +109,11 @@ function markdown(result) {
       lines.push(`Reported source failures: ${row.failureCount}. AI calls in this report: ${row.aiCalls === null ? 'unknown' : row.aiCalls}.`, ...row.failures.slice(0, 10).map(f => '- ' + f));
       if (row.failureCount > 10) lines.push(`${row.failureCount - 10} further failures retained in the JSON readout.`);
     } else {
-      lines.push(`Hydration gaps: ${row.partialCount}/${row.tournamentCount}; ${row.completeCount} reported complete. This is adapter coverage, not sport certification.`, ...row.gaps.slice(0, 8).map(t => `- ${t.name} (${t.code}), ${t.fixtureCount} child fixtures: ${t.issues.slice(0, 3).join('; ') || 'partial coverage without an explanation'}${t.issues.length > 3 ? '; further issues in JSON' : ''}.`));
+      lines.push(`Hydration gaps: ${row.partialCount}/${row.tournamentCount}; ${row.completeCount} reported complete. This is adapter coverage, not sport certification.`, ...row.gaps.slice(0, 8).map(t => {
+        const d=t.detailEvidence;
+        const detail=t.format==='tournament-card'?`one tournament card; retained detail: ${d.confirmedEntries} confirmed / ${d.listedEntries} listed entries, ${d.pairingGroups} tee-time groups across ${d.pairingRounds} rounds; entries ${d.participantsConfirmed?'source-confirmed':'not confirmed'}; participation checked ${d.participationCheckedAt||'unknown'}`:`${t.fixtureCount} child fixtures`;
+        return `- ${t.name} (${t.code}), ${detail}: ${t.issues.slice(0, 3).join('; ') || 'partial coverage without an explanation'}${t.issues.length > 3 ? '; further issues in JSON' : ''}.`;
+      }));
       if (row.partialCount > 8) lines.push(`${row.partialCount - 8} further tournament gaps retained in the JSON readout.`);
     }
   }

@@ -24,6 +24,23 @@ for(const [start,end,want]of [['2026-10-01','2026-10-10',true],['2026-10-02','20
 assert(!hydration.eligible({kind:'ticket_sale',startDate:'2026-09-01',endDate:'2027-01-01'},'2026-09-24'));
 assert.equal(hydration.adapterFor({tournamentId:'R2026500',code:'golf'}),'pga');assert.equal(hydration.adapterFor({tournamentId:'event:wrc:2026:round-13',code:'wrc'}),'wrc');assert.equal(hydration.assess({fixtures:[{id:'placeholder',status:'provisional'}]},null,{}).status,'partial');
 assert.equal(hydration.assess({fixtures:[{id:'calendar',date:'2026-09-24'}]},'pga',{}).status,'partial','calendar presence cannot attest rounds');
+const golf={tournamentId:'2026068',code:'golf',competitionId:'competition:lpga-tour',name:'LOTTE',cardType:'golf_tournament',date:'2026-10-01',endDate:'2026-10-04',status:'live',sourceUrl:'https://www.lpga.com/tournaments/lotte-championship/pairings',participantsConfirmed:true,participationCheckedAt:'2026-10-02T12:47:07.273Z',entries:[{entryStatus:'confirmed'},{entryStatus:'withdrawn'}],appearances:[{round:1},{round:2}],fixtures:[]};
+assert.equal(hydration.adapterFor(golf),'pga','LPGA uses the existing shared golf refresh owner');
+assert.equal(hydration.adapterFor({...golf,tournamentId:'H2026166',competitionId:'competition:korn-ferry-tour',sourceUrl:'https://www.pgatour.com/korn-ferry-tour/tournaments/2026/test/H2026166/tee-times'}),'pga');
+for(const unknown of [{...golf,competitionId:'competition:unknown'},{...golf,sourceUrl:'https://other.invalid/tournaments/test/pairings'},{...golf,code:'tennis'}])assert.equal(hydration.adapterFor(unknown),null,'unreviewed IDs/providers do not establish a golf adapter');
+const parent={...golf,id:'fixture:golf:lpga:2026068'},current=hydration.assess({...golf,fixtures:[parent]},'pga',{},'2026-10-02');
+assert.equal(current.fixtureCount,0,'one tournament card is not a hydrated child match');
+assert.equal(current.format,'tournament-card');assert.equal(current.status,'partial','retained fields never certify complete tournament coverage');
+assert(!current.issues.some(i=>/past fixtures|ended with unresolved/.test(i)),'an ongoing four-day tournament is not an overdue result');
+assert.deepEqual(current.detailEvidence,{listedEntries:2,confirmedEntries:1,pairingGroups:2,pairingRounds:2,participantsConfirmed:true,participationCheckedAt:golf.participationCheckedAt});
+assert(!hydration.assess(golf,'pga',{},'2026-10-05').issues.some(i=>/ended with unresolved/.test(i)),'date-only finish retains the existing final-local-day allowance');
+assert(hydration.assess(golf,'pga',{},'2026-10-06').issues.some(i=>/ended with unresolved/.test(i)),'unresolved results after the allowance remain visible without inferring completion');
+const multiDay={fixtures:[{id:'real',date:'2026-10-01',endDate:'2026-10-04',status:'live'}]};
+assert(!hydration.assess(multiDay,'coverage',{},'2026-10-02').issues.some(i=>/past fixtures/.test(i)));
+assert(hydration.assess(multiDay,'coverage',{},'2026-10-05').issues.some(i=>/past fixtures/.test(i)));
+assert(hydration.assess(golf,'pga',{error:'Source unavailable'},'2026-10-02').issues.includes('Source unavailable'),'real source failure remains an exception');
+const currentGolf=hydration.inventory('2026-10-02').filter(t=>t.code==='golf');
+assert(currentGolf.length>=4);assert(currentGolf.every(t=>!t.fixtures.some(f=>f.cardType==='golf_tournament')),'published parents stay separate from actual child fixtures');
 (async()=>{
  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-hydration-test-')),reportPath=path.join(tmp,'report.json');
  const t={tournamentId:bjk.TOURNAMENT,code:'tennis',name:'BJK',startDate:'2026-09-22',endDate:'2026-09-27',fixtures:[]};let calls=0;
