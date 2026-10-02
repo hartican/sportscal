@@ -35,6 +35,15 @@ if(process.argv.includes('--published')){
   const matches=fixtures.filter(f=>[canonical,...aliases].includes(f.id));assert.equal(matches.length,1,file);
   assert.equal(matches[0].id,canonical);assert.equal(matches[0].startTimeUtc,'2026-09-27T09:45:00.000Z');
  }
- const coverage=require('../data/follow-sources/coverage.v1.json').events.find(f=>f.id===canonical);assert(coverage);
+ const records=require('../data/follow-sources/coverage.v1.json').events;
+ const raw=records.find(f=>f.id===worldRugby.id);
+ assert(raw,'coverage retains the original reviewed provider key');
+ assert.equal(raw.canonicalEventId,canonical,'raw observations link to the reviewed action identity');
+ const matches=records.filter(f=>identity.canonicalFixtureId(f.id)===canonical);
+ const coverage=identity.mergeOverlays(matches,[]);
+ assert.equal(coverage.length,1,'provider observations resolve to one canonical coverage fixture');
+ assert.equal(coverage[0].id,canonical);
+ assert.equal(coverage[0].startTimeUtc,'2026-09-27T09:45:00.000Z');
+ for(const alias of aliases)assert(coverage[0].sourceEventIds.includes(alias),'reviewed alias retained: '+alias);
 }
 console.log('Rugby identity: exact source orders/IDs, host scheduling and separate original observations, no duplicate fixture, saved ratings/actions, Follow consent and confirmed-end preservation passed.');
