@@ -15,6 +15,12 @@ async function assertCachedFootballStatus(page){
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
   },footballStatusFixture);
   assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
+  const stageCalendar=await page.evaluate(stage=>{
+    const unknown=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(stage);
+    const confirmed=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore({...stage,startTimeUtc:'2027-06-05T19:00:00Z',timePrecision:'exact',scheduleStatus:'confirmed',timeTbc:false});
+    return {unknownLabel:unknown.displayDateLabel,unknownStart:unknown.startTimeUtc,confirmedLabel:confirmed.displayDateLabel||null,confirmedDate:confirmed.date};
+  },require('../data/code-inspector/champions-league.json').fixtures.find(f=>f.id==='major-stage:uefa-champions-league-2026-27:final'));
+  assert.deepEqual(stageCalendar,{unknownLabel:'Saturday 5 June 2027 (Madrid dates)',unknownStart:null,confirmedLabel:null,confirmedDate:'2027-06-06'},'upgraded/offline runtime retains actual UCL calendar precision and the controlled confirmed-UTC transition');
   const compactObservation=await page.evaluate(()=>{
     const marker='fixture-observations.v1',prior={id:'offline-correction',key:'nrl',status:'completed',homeScore:1,awayScore:0,sourceCheckedAt:'2026-09-24T13:00:00Z'};
     const corrected=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays([prior],[{...prior,homeScore:2,fixtureObservationSchema:marker,scoreCheckedAt:'2026-09-24T14:00:00Z',statusCheckedAt:'2026-09-24T14:00:00Z'}])[0];

@@ -1485,14 +1485,23 @@
           "participants": [],
           "schedulingWindow": {
             "startsOn": "2027-02-16",
-            "endsOn": "2027-06-05",
+            "endsOn": "2027-02-24",
             "timeZone": "Europe/Madrid"
           },
           "competitionScope": "international",
           "isInternational": true,
           "sourceName": "UEFA — 2026/27 Champions League overview",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+          "displayDateLabel": "16/17 and 23/24 February 2027 (Madrid dates)",
+          "timingProvenance": {
+            "sourceName": "UEFA — 2026/27 Champions League overview",
+            "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+            "observedAt": "2026-10-02T22:44:52.699Z",
+            "precision": "competition-stage-calendar",
+            "timeZone": "Europe/Madrid",
+            "sourceDateLabel": "16/17 and 23/24 February 2027"
+          }
         },
         {
           "id": "major-stage:uefa-champions-league-2026-27:round-of-16",
@@ -1552,15 +1561,24 @@
           "participantSlots": [],
           "participants": [],
           "schedulingWindow": {
-            "startsOn": "2027-02-16",
-            "endsOn": "2027-06-05",
+            "startsOn": "2027-03-09",
+            "endsOn": "2027-03-17",
             "timeZone": "Europe/Madrid"
           },
           "competitionScope": "international",
           "isInternational": true,
           "sourceName": "UEFA — 2026/27 Champions League overview",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+          "displayDateLabel": "9/10 and 16/17 March 2027 (Madrid dates)",
+          "timingProvenance": {
+            "sourceName": "UEFA — 2026/27 Champions League overview",
+            "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+            "observedAt": "2026-10-02T22:44:52.699Z",
+            "precision": "competition-stage-calendar",
+            "timeZone": "Europe/Madrid",
+            "sourceDateLabel": "9/10 and 16/17 March 2027"
+          }
         },
         {
           "id": "major-stage:uefa-champions-league-2026-27:quarter-finals",
@@ -1620,15 +1638,24 @@
           "participantSlots": [],
           "participants": [],
           "schedulingWindow": {
-            "startsOn": "2027-02-16",
-            "endsOn": "2027-06-05",
+            "startsOn": "2027-04-06",
+            "endsOn": "2027-04-14",
             "timeZone": "Europe/Madrid"
           },
           "competitionScope": "international",
           "isInternational": true,
           "sourceName": "UEFA — 2026/27 Champions League overview",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+          "displayDateLabel": "6/7 and 13/14 April 2027 (Madrid dates)",
+          "timingProvenance": {
+            "sourceName": "UEFA — 2026/27 Champions League overview",
+            "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+            "observedAt": "2026-10-02T22:44:52.699Z",
+            "precision": "competition-stage-calendar",
+            "timeZone": "Europe/Madrid",
+            "sourceDateLabel": "6/7 and 13/14 April 2027"
+          }
         },
         {
           "id": "major-stage:uefa-champions-league-2026-27:semi-finals",
@@ -1688,15 +1715,24 @@
           "participantSlots": [],
           "participants": [],
           "schedulingWindow": {
-            "startsOn": "2027-02-16",
-            "endsOn": "2027-06-05",
+            "startsOn": "2027-04-27",
+            "endsOn": "2027-05-05",
             "timeZone": "Europe/Madrid"
           },
           "competitionScope": "international",
           "isInternational": true,
           "sourceName": "UEFA — 2026/27 Champions League overview",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+          "displayDateLabel": "27/28 April and 4/5 May 2027 (Madrid dates)",
+          "timingProvenance": {
+            "sourceName": "UEFA — 2026/27 Champions League overview",
+            "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+            "observedAt": "2026-10-02T22:44:52.699Z",
+            "precision": "competition-stage-calendar",
+            "timeZone": "Europe/Madrid",
+            "sourceDateLabel": "27/28 April and 4/5 May 2027"
+          }
         },
         {
           "id": "major-stage:uefa-champions-league-2026-27:final",
@@ -1756,7 +1792,7 @@
           "participantSlots": [],
           "participants": [],
           "schedulingWindow": {
-            "startsOn": "2027-02-16",
+            "startsOn": "2027-06-05",
             "endsOn": "2027-06-05",
             "timeZone": "Europe/Madrid"
           },
@@ -1764,7 +1800,16 @@
           "isInternational": true,
           "sourceName": "UEFA — 2026/27 Champions League overview",
           "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+          "displayDateLabel": "Saturday 5 June 2027 (Madrid dates)",
+          "timingProvenance": {
+            "sourceName": "UEFA — 2026/27 Champions League overview",
+            "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+            "observedAt": "2026-10-02T22:44:52.699Z",
+            "precision": "competition-stage-calendar",
+            "timeZone": "Europe/Madrid",
+            "sourceDateLabel": "Saturday 5 June 2027"
+          }
         }
       ]
     }

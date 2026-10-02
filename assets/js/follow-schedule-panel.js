@@ -26,6 +26,8 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
   const grouped = new Map();
+  // Programme dates order the calendar; they never become match kickoffs.
+  const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
   const eventGroup=f=>f.tournamentId||(f.dakarCalendar?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
   const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','competition:dakar'].includes(code.id);
@@ -37,14 +39,14 @@ globalThis.renderFollowSchedulePanel=function(container){
     grouped.set(label, group);
   });
   grouped.forEach(group => group.sort((first, second) => (
-    String(first.date || "9999-12-31").localeCompare(String(second.date || "9999-12-31"))
+    String(sortDate(first)).localeCompare(String(sortDate(second)))
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => (!useRounds ? String(grouped.get(first)[0]?.date||'').localeCompare(String(grouped.get(second)[0]?.date||'')) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
+  const groupLabels = [...grouped.keys()].sort((first, second) => (!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0]))) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
   const today=formatDateKey(nowAEST());
-  const current=fixtures.filter(f=>(f.endDate||f.date)>=today).sort((a,b)=>String(a.date).localeCompare(String(b.date)))[0]||fixtures.at(-1);
+  const current=fixtures.filter(f=>(f.endDate||f.date||f.schedulingWindow?.endsOn)>=today).sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b))))[0]||fixtures.at(-1);
   const currentIndex=Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
   const windows=NOTHINGSPORTS_FOLLOW_NAV.windows;
   const fingerprint=JSON.stringify([codeInspectorTab,followBrowseState().scheduleScope,NOTHINGSPORTS_FOLLOW_NAV.selected(code.id)]);
@@ -58,7 +60,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
     const rows=[...grouped.get(label)];
     if(code.id==='competition:dakar'&&codeInspectorTab!=='results')for(const note of codeInspectorChunk.scheduleNotes||[])if(rows.some(f=>f.season===note.season))rows.push({...note,restDayNote:true});
-    rows.sort((a,b)=>String(a.date).localeCompare(String(b.date))).forEach(f=>{
+    rows.sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b)))).forEach(f=>{
       if(f.restDayNote){const rest=document.createElement('p');rest.className='schedule-rest-note';rest.textContent=`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(f.date)} · Rest day · ${f.venue} — no competitive stage`;list.append(rest);return;}
       const card=buildCodeInspectorFixture(f);
       if(codeInspectorTab==='results'){

@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="394">
+<meta name="app-shell-version" content="395">
 <meta name="athletes-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=394" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=395" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7190,7 +7190,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=394"></script>
+<script src="assets/js/app-shell-runtime.js?v=395"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13856,7 +13856,7 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
     };
   }
   {
-    const alias={'sport:multi-sport':'special:commonwealth-games','sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby','competition:motogp':'sport:motogp','competition:sailgp':'sport:sailgp','competition:wsl-championship-tour':'sport:wsl','competition:tour-de-france':'sport:tdf','competition:giro-ditalia':'sport:giro','competition:vuelta-a-espana':'sport:vuelta','competition:fiba-womens-world-cup':'sport:fiba-women'};
+    const alias={'sport:multi-sport':'special:commonwealth-games','sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby','competition:uefa-champions-league':'sport:champions-league','competition:motogp':'sport:motogp','competition:sailgp':'sport:sailgp','competition:wsl-championship-tour':'sport:wsl','competition:tour-de-france':'sport:tdf','competition:giro-ditalia':'sport:giro','competition:vuelta-a-espana':'sport:vuelta','competition:fiba-womens-world-cup':'sport:fiba-women'};
     const remembered=selectorEntityById(followBrowseState().sportId);
     const compatible=NOTHINGSPORTS_FIXTURE_IDENTITY.scheduleCode(remembered,manifest.codes)?.id===codeId;
     const entity=compatible?remembered:selectorEntityById(alias[codeId] || codeId);
@@ -14303,7 +14303,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=394').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=395').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){

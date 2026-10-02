@@ -21,13 +21,13 @@
 
   function scheduleCode(entity, codes = []){
     if (!entity) return null;
-    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup","sport:tdf":"competition:tour-de-france","sport:giro":"competition:giro-ditalia","sport:vuelta":"competition:vuelta-a-espana","sport:wsl":"competition:wsl-championship-tour","sport:dakar":"competition:dakar"};
+    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:champions-league":"competition:uefa-champions-league","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup","sport:tdf":"competition:tour-de-france","sport:giro":"competition:giro-ditalia","sport:vuelta":"competition:vuelta-a-espana","sport:wsl":"competition:wsl-championship-tour","sport:dakar":"competition:dakar"};
     const exactId=String(entity.id||'');
     const selectedId=aliases[exactId] ? exactId : exactId.replace(/-women$/,'');
     const own = codes.find(code => code.id === (aliases[selectedId] || selectedId));
     if (own) return own;
     // A child championship must not advertise its parent's different schedule.
-    if (entity.parentId === "sport:motorsport") return null;
+    if (entity.parentId === "sport:motorsport" || exactId==='sport:champions-league') return null;
     return codes.find(code => code.id === (aliases[entity.parentId] || entity.parentId)) || null;
   }
 
@@ -66,6 +66,11 @@
     if(Number.isFinite(+exact) && !["follows","estimated","date-only","tbc","unknown"].includes(value.timePrecision)){
       const parts=Object.fromEntries(SYDNEY_PARTS.formatToParts(exact).map(part=>[part.type,part.value]));
       normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision=value.timePrecision==="not-before"?"not-before":"exact";
+    }
+    // A reviewed venue-calendar label is a planning aid while kickoff is
+    // unknown. An explicitly confirmed exact start owns the Sydney date.
+    if(value.timingProvenance?.precision==='competition-stage-calendar' && normalized.timePrecision==='exact' && Number.isFinite(+exact) && value.scheduleStatus==='confirmed' && value.timeTbc!==true){
+      delete normalized.displayDateLabel;
     }
     // Persisted live snapshots can retain date-only metadata after the provider
     // has explicitly confirmed an exact sporting start. Reconcile that group

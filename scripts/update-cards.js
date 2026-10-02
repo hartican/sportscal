@@ -419,6 +419,7 @@ async function runMain() {
     if(scope.slice(8).split(',').some(slug=>!known.has(slug)))throw new Error('Unknown Code projection slug');
     runStep(['scripts/build-code-inspector.js',scope]);
     runStep(['scripts/validate-football-classification.js','--published']);
+    if(scope.slice(8).split(',').includes('champions-league'))runStep(['scripts/validate-ucl-stage-calendar.js','--published']);
     console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
     return;
   }
