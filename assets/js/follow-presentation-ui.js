@@ -586,7 +586,7 @@ function renderTennisFollowCollections(container){
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.textContent='Loading Follow…';
-    void loadDeferredScript('assets/js/follow-navigation.js?v=390').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=391').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -698,6 +698,7 @@ function renderFollowViewLoaded(){
       const followed=userPreferences.followFirst.followedMajorEventIds.includes(record.id);
       const toggle=document.createElement('button');toggle.type='button';toggle.className='follow-event-family-toggle';toggle.dataset.eventFamilyLabel=record.label;toggle.textContent=`${followed?'Unfollow':'Follow'} ${record.label}`;toggle.setAttribute('aria-pressed',String(followed));toggle.onclick=()=>toggleMajorEventFollow(record.id);
       const edition=MAJOR_EVENTS?.activeEditionForFamily?.(majorEventsDocument,record.id,nowAEST());
+      if(record.majorSlug){const identity=document.createElement('span');identity.className='follow-sport-mark identity-frame';identity.style.cssText='display:block;width:64px;height:44px;margin:0 auto 8px';renderEventIdentityMark(identity,{key:'golf',golfMajorCalendar:true,majorSlug:record.majorSlug},{...sportMetaForEvent({key:'golf'}),glyph:'sport:golf',label:record.label});card.append(identity);}
       card.appendChild(toggle);
       if(edition){const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Open in Events';open.onclick=()=>openMajorEventInEvents(edition.id);card.appendChild(open);}
       grid.appendChild(card);

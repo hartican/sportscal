@@ -38,6 +38,10 @@
   ]);
 
   const MAJOR_EVENT_FAMILIES = Object.freeze([
+    { id:"masters-tournament", label:"Masters Tournament", sportIds:["golf"], majorSlug:"masters" },
+    { id:"pga-championship", label:"PGA Championship", sportIds:["golf"], majorSlug:"pga-championship" },
+    { id:"us-open-golf", label:"U.S. Open", sportIds:["golf"], majorSlug:"us-open" },
+    { id:"the-open", label:"The Open Championship", sportIds:["golf"], majorSlug:"the-open" },
     { id:"presidents-cup", label:"Presidents Cup", sportIds:["golf"] },
     { id:"state-of-origin", label:"State of Origin", sportIds:["nrl"] },
     { id:"australian-open", label:"Australian Open", sportIds:["tennis"] },
@@ -601,7 +605,10 @@
       const golf=explicitSelectors.has('sport:golf')||(!explicitSelectors.size&&followedSportIds.has('golf'))||domains.some(d=>d.sportDomainId==='sport:golf'&&d.enabled===true);
       return followPolicy.eligibleForFollow(event,{competitionFollow:golf,explicitEventFollow:direct})?{type:direct?'event':'sport-marquee',entityKind:direct?'event':'sport',id:direct?'presidents-cup':'golf',label:null,displayTag:false}:null;
     }
-    if(['golf','golf-women','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
+    if(['golf','golf-women','masters'].includes(sourceSportId)){
+      const directMajor=event.golfMajorCalendar===true&&(next.followFirst.followedMajorEventIds||[]).includes(event.eventFamilyId);
+      return (sportFollowed||directMajor)&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:!directMajor&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:directMajor?'event':'sport-marquee',entityKind:directMajor?'event':'sport',id:directMajor?event.eventFamilyId:'golf',label:null,displayTag:false}:null;
+    }
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true
@@ -807,7 +814,7 @@
   }
 
   function viewingOptions(event, selectedProviderIds = []){
-    if(event?.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
+    if((event?.grandTourCalendar===true||event?.golfMajorCalendar===true)&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
     // Official draw lists these as separate broadcast and streaming services.
     // Match stable fixture identities, never every match in the competition.

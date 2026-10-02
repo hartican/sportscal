@@ -89,6 +89,15 @@ async function assertCachedFootballStatus(page){
     const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;
   })),tourAssets);
   assert(decodedTours.every(Boolean),'all 39 verified routes, bicycle fallback and complete Grand Tour marks decode offline');
+  const majors=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/golf.json')).json(),rounds=code.fixtures.filter(e=>e.golfMajorCalendar&&e.cardType==='golf_session');
+    const future=rounds.filter(e=>e.season==='2027');
+    return {rounds:rounds.length,future:future.length,unconfirmed:future.every(e=>!e.time&&e.dateOnly&&!e.startTimeUtc&&!e.participantIds?.length),unfollowed:future.every(e=>!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{})),followed:future.every(e=>!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:26,selectedSelectorEntityIds:['sport:golf']})),providers:future.flatMap(e=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(e))};
+  });
+  assert.equal(majors.rounds,32);assert.equal(majors.future,16);assert(majors.unconfirmed&&majors.unfollowed&&majors.followed);assert.deepEqual(majors.providers,[]);
+  const majorAssets=require('../assets/identities/golf/asset-manifest.json').assets;
+  const decodedMajors=await page.evaluate(async assets=>Promise.all(assets.map(async a=>{const r=await fetch('/'+a.path);if(!r.ok)return false;const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;})),majorAssets);
+  assert(decodedMajors.every(Boolean),'used major artwork and complete identity marks decode after upgrade and offline');
   const viewing=await page.evaluate(async()=>{
     const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
     const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf');

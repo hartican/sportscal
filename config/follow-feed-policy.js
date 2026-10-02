@@ -217,7 +217,13 @@
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','golf-women','masters'].includes(sportKey(event)))return participantFollow&&event.participantsConfirmed===true&&event.cardType!=='golf_session'||(event.cardType!=='golf_session'&&competitionFollow&&australiansOnly&&event.participantsConfirmed===true&&hasAustralianParticipant(event))||(presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event)));
+    if(['golf','golf-women','masters'].includes(sportKey(event))){
+      if(event.cardType!=='golf_session'&&event.participantsConfirmed===true&&(participantFollow||competitionFollow&&australiansOnly&&hasAustralianParticipant(event)))return true;
+      // Retain the tournament identity for pins and confirmed golfer entries.
+      // Broad Golf already receives its published rounds, without a fifth card.
+      if(event.golfMajorOverview===true)return false;
+      return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
+    }
     if(participantFollow)return true;
     if(sportFollow && isFinalsOrKnockout(event))return true;
     if(!sportingFixture(event))return false;

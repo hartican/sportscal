@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33956',out=process.env.GOLF_QA_OUTPUT||'/tmp/golf-major-qa';fs.mkdirSync(out,{recursive:true});
+const samples=require('../data/events.json').events.filter(e=>e.golfMajorCalendar&&e.cardType==='golf_session'),art=require('../config/venue-artwork');
+(async()=>{const report={cases:[],errors:[]};for(const[name,engine]of[['chromium',chromium],['webkit',webkit]]){
+ const browser=await engine.launch({headless:true,...(name==='chromium'?{channel:'chrome'}:{})});try{for(const width of[320,390,768,1280]){
+  const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});page.on('pageerror',e=>report.errors.push(e.message));if(!base.startsWith('https:'))await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',version:26,selectedSelectorEntityIds:['sport:golf'],followedSports:['golf'],followFirst:{refinement:{completedAt:'2026-10-03T00:00:00Z'}}})));
+  await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:60000});
+  await page.waitForFunction(()=>activeEvents.filter(e=>e.golfMajorCalendar&&e.season==='2027'&&e.cardType==='golf_session').length===16,null,{timeout:60000});
+  assert.equal(await page.evaluate(()=>activeEvents.filter(e=>e.golfMajorOverview&&automaticEventFollowReason(e)).length),0,'ordinary broad Golf does not get a fifth tournament card');
+  for(const theme of['day','night'])for(const state of['opened','compact'])for(const surface of['feed','detail'])for(const event of samples){
+   const result=await page.evaluate(async({theme,state,surface,event})=>{
+    applyThemePreference(theme);document.getElementById('venue-test')?.remove();activeTab=surface==='feed'?'feed':'follow';setCardState(event,state);
+    const mount=document.createElement('section');mount.id='venue-test';mount.style.cssText='position:fixed;top:16px;left:0;right:0;z-index:100000;width:100%;max-width:520px;margin:auto;background:var(--bg);';
+    const card=buildEventCard(event,{mode:surface==='feed'?'calendar':'schedule'}),list=document.createElement('div');list.id='listView';list.append(card);mount.append(list);document.body.append(mount);
+    const hero=card.querySelector('.venue-location-hero'),image=hero?.querySelector('img');if(!image)throw Error('Missing golf artwork '+event.id+' '+surface+' '+state);await image.decode();const a=image.getBoundingClientRect(),c=card.getBoundingClientRect();
+    const canvas=document.createElement('canvas');canvas.width=300;canvas.height=220;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0,300,220);const data=ctx.getImageData(0,0,300,220).data;let solid=0;for(let i=3;i<data.length;i+=4)if(data[i]>127)solid++;
+    return {height:a.height,left:a.left,right:a.right,cardLeft:c.left,cardRight:c.right,naturalWidth:image.naturalWidth,caption:hero.querySelector('.f1-location-caption').textContent,src:image.getAttribute('src'),fallback:hero.classList.contains('is-venue-fallback'),palette:[card.style.getPropertyValue('--fixture-left'),card.style.getPropertyValue('--fixture-right')],opaqueFraction:solid/(300*220),overflow:document.documentElement.scrollWidth>innerWidth+1};
+   },{theme,state,surface,event});
+   assert.equal(result.height,state==='compact'?130:220);assert(result.naturalWidth>0&&!result.overflow);assert(result.left>=result.cardLeft-1&&result.right<=result.cardRight+1);assert.equal(result.src,art.resolve(event).path);assert.equal(result.fallback,art.resolve(event).kind==='fallback');assert.match(result.caption,new RegExp(event.venue.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));assert(result.opaqueFraction>.003&&result.opaqueFraction<.6,'course gaps and glyph background must be transparent');assert.deepEqual(result.palette,require('../config/feed-card-presentation').palette(event).slice(0,2));
+   report.cases.push({engine:name,width,theme,state,surface,eventId:event.id,...result});if(width===390&&surface==='feed'&&event.roundNumber===1&&event.season==='2026'&&['masters','pga-championship'].includes(event.majorSlug))await page.locator('#venue-test').screenshot({path:path.join(out,`${name}-${theme}-${state}-${event.majorSlug}.png`)});
+  }
+  await page.evaluate(()=>document.getElementById('venue-test')?.remove());
+  await page.route(/\/assets\/identities\/golf\/aronimink-2026\.svg(?:\?.*)?$/,r=>r.abort());
+  for(const theme of['day','night']){
+   await page.evaluate(({event,theme})=>{applyThemePreference(theme);activeTab='feed';setCardState(event,'opened');const mount=document.createElement('section');mount.id='failed-golf-test';mount.style.cssText='position:fixed;inset:0;z-index:100000;width:100%;max-width:520px;margin:auto';mount.append(buildEventCard(event,{mode:'calendar'}));document.body.append(mount);const image=mount.querySelector('.venue-location-hero img');image.loading='eager';image.src+='?failure-probe='+theme;},{event:samples.find(e=>e.courseGeometryVerified),theme});
+   await page.waitForFunction(()=>document.querySelector('#failed-golf-test .venue-location-hero')?.classList.contains('is-venue-fallback'));
+   const fallback=page.locator('#failed-golf-test .venue-location-hero img');await fallback.evaluate(i=>i.decode());assert.match(await fallback.getAttribute('src'),/golf-white.svg/);assert.match(await page.locator('#failed-golf-test .f1-location-caption').textContent(),/Artwork unavailable/);await page.evaluate(()=>document.getElementById('failed-golf-test').remove());
+  }
+  await page.unroute(/\/assets\/identities\/golf\/aronimink-2026\.svg(?:\?.*)?$/);
+  await page.evaluate(()=>{activeTab='feed';});await page.locator('.tab-btn[data-tab="events"]').click();await page.waitForFunction(()=>document.querySelectorAll('.events-overview-card .venue-location-hero').length===4);
+  assert.equal(await page.locator('.events-overview-card .nsc-rating-block').count(),0);for(const image of await page.locator('.events-overview-card .venue-location-hero img').all()){await image.evaluate(i=>i.decode());assert.match(await image.getAttribute('src'),/golf-white.svg/);}
+  await page.locator('.tab-btn[data-tab="follow"]').click();const reveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await reveal.count())await reveal.click();
+  const golf=page.locator('[data-follow-sport="sport:golf"]').first();await golf.waitFor({state:'attached'});if(!await golf.isVisible())await page.getByRole('button',{name:'More sports',exact:true}).click();await golf.click();
+  const expand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await expand.count())await expand.click();await page.locator('.follow-section-tabs').getByRole('button',{name:'Major Events',exact:true}).click();
+  for(const[id,label,file]of[['masters-tournament','Masters Tournament','masters-brand.png'],['pga-championship','PGA Championship','pga-brand.png'],['us-open-golf','U.S. Open','golf-white.svg'],['the-open','The Open Championship','open-brand.svg']]){
+   const family=page.locator(`.follow-event-family[data-event-family-id="${id}"]`);await family.waitFor();const toggle=family.locator('.follow-event-family-toggle');assert.equal(await toggle.getAttribute('aria-pressed'),'false','new major choice begins unfollowed');
+   for(const theme of['day','night']){await page.evaluate(theme=>applyThemePreference(theme),theme);if(file){const image=family.locator('img.event-brand-logo');await image.evaluate(i=>i.decode());assert.match(await image.getAttribute('src'),new RegExp(file.replace('.','\\.')));}else assert(await family.locator('.vector-glyph').count());}
+
+   await toggle.click();await page.waitForFunction(id=>userPreferences.followFirst.followedMajorEventIds.includes(id),id);await page.locator(`.follow-event-family[data-event-family-id="${id}"] .follow-event-family-toggle`).click();await page.waitForFunction(id=>!userPreferences.followFirst.followedMajorEventIds.includes(id),id);
+  }
+  assert(await page.locator('footer .golf-attribution').isVisible());await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();assert(await page.locator('.settings-about .golf-attribution').isVisible());await page.close();
+ }}finally{await browser.close();}}
+ assert.deepEqual(report.errors,[]);fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify(report,null,2));console.log(`Golf majors: ${report.cases.length} card cases, Chromium/WebKit, four widths, both themes/states/surfaces, transparent fairways, fallback, Events parents, four independent Follow choices and credits passed.`);
+})().catch(e=>{console.error(e);process.exitCode=1;});

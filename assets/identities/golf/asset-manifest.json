@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "golf-artwork.v1",
+  "checkedAt": "2026-10-02T21:57:46.955701+00:00",
+  "assets": [
+    {
+      "id": "aronimink-2026",
+      "path": "assets/identities/golf/aronimink-2026.svg",
+      "sourceUrl": "https://pgachampionship.brightspotcdn.com/14/91/0989bdc24837a8cc1c33c7b1fe29/26-ch-course-map-spectator-guide-1.pdf",
+      "author": "PGA of America",
+      "license": "Original rights retained; editorial course identification. No open licence asserted.",
+      "modifications": "Native PDF paths for the eighteen numbered fairways (twenty disconnected portions); labels, basemap, buildings, amenities and separate practice range removed. Polylines simplified at 0.6 PDF-unit tolerance, uniformly cropped and filled white. No invented connectors.",
+      "venueConfigurationId": "golf:aronimink:2026",
+      "sha256": "1a1d44974983dd2bb0b6fa4473ed092290562e8b4b52a5d5eb637f0b809d399d"
+    },
+    {
+      "id": "golf-white",
+      "path": "assets/identities/golf/golf-white.svg",
+      "sourceUrl": "https://www.flaticon.com/free-icon/golf_5147640",
+      "author": "Plastic Donut / Flaticon",
+      "license": "Flaticon attribution licence",
+      "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
+      "modifications": "Original flag, pole, ball and cup vector traced, cropped and recoloured white. Putting surface converted to an outline; cup, interior and outer background transparent.",
+      "sha256": "737406416df889a69e82189fc2441842e959bd421844348870fc9d708b6b94b4"
+    },
+    {
+      "id": "masters-brand",
+      "path": "assets/identities/golf/masters-brand.png",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Masters_Tournament.svg",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Masters_Tournament.svg",
+      "author": "The Masters; Commons wrapper uploaded by Brgesto",
+      "license": "Commons PD-textlogo classification; trademark rights retained. Editorial identification.",
+      "modifications": "Complete original raster extracted unchanged from the SVG raster wrapper. Published as a real PNG, no embedded PNG SVG.",
+      "sha256": "16c7cea9f370b59d98f1c135c34dcc4ba05f1d575bcc71c76af0ecbb3f0a362a"
+    },
+    {
+      "id": "pga-brand",
+      "path": "assets/identities/golf/pga-brand.png",
+      "sourceUrl": "https://www.pgachampionship.com/tickets",
+      "author": "PGA of America",
+      "license": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "modifications": "Complete undated official header image retained unchanged.",
+      "sha256": "bf01f138c0600dd58f3b43268661f87554514a151ffea1111e0fb7e97c742e01"
+    },
+    {
+      "id": "open-brand",
+      "path": "assets/identities/golf/open-brand.svg",
+      "sourceUrl": "https://www.theopen.com/st-andrews-2027",
+      "assetSourceUrl": "https://www.theopen.com/images/logo-open.svg",
+      "author": "The R&A",
+      "license": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "modifications": "Complete undated official native SVG retained unchanged, with a dark identity slot in both themes.",
+      "sha256": "fd049a1dcca35987ec6d83a8d76b6aa73c2b6d11f5cdd30b130c41802db40503"
+    }
+  ],
+  "withheld": [
+    {
+      "edition": "U.S. Open 2027",
+      "sourceUrl": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
+      "reason": "Official brand image download unavailable; no tennis mark or dated 2015 logo substituted. Golf glyph used."
+    },
+    {
+      "editions": "Other seven authorised major editions",
+      "reason": "Exact championship course geometry not verified. A previous edition or different course is not substituted."
+    }
+  ]
+}

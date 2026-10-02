@@ -4,6 +4,10 @@
 // the verified artwork ID; older cached projections safely use the fallback.
 const motogp=typeof module!=="undefined"&&module.exports?Object.freeze(Object.fromEntries(require('../assets/identities/motogp/asset-manifest.json').assets.filter(a=>a.mappingStatus==='verified-venue').map(a=>[a.venueConfigurationId,a.id]))):null;
 function resolve(event){
+ if(event.golfMajorCalendar===true&&['golf','masters'].includes(event.key)){
+  const verified=event.courseGeometryVerified===true&&event.majorSlug==='pga-championship'&&event.season==='2026'&&event.courseArtworkId==='aronimink-2026'&&event.venueConfigurationId==='golf:aronimink:2026';
+  return verified?{path:'assets/identities/golf/aronimink-2026.svg',kind:'course',label:'Aronimink Golf Club • 2026 PGA Championship • verified fairway layout'}:{path:'assets/identities/golf/golf-white.svg',kind:'fallback',label:'Golf glyph; verified championship course layout unavailable'};
+ }
  if(['tdf','giro','vuelta'].includes(event.key)){
   const season=String(event.season||event.date?.slice(0,4)||'');
   const id=event.courseGeometryVerified===true&&event.courseArtworkId===`${event.key}-${season}-stage-${event.roundNumber}`&&event.courseArtworkId;

@@ -126,6 +126,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-sailgp-calendar.js"],
   ["scripts/refresh-wsl-calendar.js"],
   ["scripts/refresh-grand-tour-calendars.js"],
+  ["scripts/refresh-golf-major-calendars.js"],
   ["scripts/refresh-nbl-schedule.js"],
   ["scripts/refresh-athlete-profiles.js"],
   ["scripts/refresh-athlete-profiles.js", "--check"],
@@ -274,6 +275,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-sailgp-calendar.js", "--published"],
   ["scripts/validate-wsl-calendar.js", "--published"],
   ["scripts/validate-grand-tour-calendars.js", "--published"],
+  ["scripts/validate-golf-major-calendars.js", "--published"],
   ["scripts/validate-adaptive-follow-grid.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -446,6 +448,10 @@ async function runMain() {
       ['scripts/validate-golf-source-observations.js']
     ])runStep(step);
     console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
+  }
+  if(process.argv.includes('--golf-major-venues')){
+    for(const step of [["scripts/refresh-golf-major-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--golf-majors-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--golf-majors-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=golf"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-golf-major-calendars.js", "--published"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);
+    console.log('Reviewed men’s major rounds and venue publication complete through the canonical owner.');return;
   }
   if(process.argv.includes('--grand-tours-venues')){
     for(const step of [["scripts/refresh-grand-tour-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--grand-tours-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--grand-tours-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=tour-de-france,giro-ditalia,vuelta-a-espana,cycling"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-grand-tour-calendars.js", "--published"], ["scripts/validate-cycling-context.js"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);

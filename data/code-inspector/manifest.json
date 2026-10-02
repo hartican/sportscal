@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T22:00:46.047Z",
+  "generatedAt": "2026-10-02T22:14:52.379Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -216,11 +216,11 @@
       "id": "sport:golf",
       "slug": "golf",
       "label": "Golf",
-      "fixtureCount": 99,
+      "fixtureCount": 127,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T13:18:18.899Z",
+      "freshAt": "2026-10-02T22:14:52.379Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {

@@ -540,6 +540,12 @@
     Object.freeze({ id: "us-open", pattern: /\bus open\b/i }),
     Object.freeze({ id: "australian-open", pattern: /\b(?:australian open|aus open)\b/i }),
   ]);
+  const golfMajorMarks=Object.freeze({
+    masters:referenceMark('brand:masters-golf','Masters Tournament','assets/identities/golf/masters-brand.png','https://commons.wikimedia.org/wiki/File:Masters_Tournament.svg'),
+    'pga-championship':officialMark('brand:pga-championship','PGA Championship','assets/identities/golf/pga-brand.png','https://www.pgachampionship.com/tickets'),
+    'the-open':officialMark('brand:the-open-golf','The Open Championship','assets/identities/golf/open-brand.svg','https://www.theopen.com/st-andrews-2027',{backgroundLight:'dark',backgroundDark:'dark'}),
+    'us-open':Object.freeze({...referenceMark('fallback:us-open-golf','U.S. Open — golf identity fallback','assets/identities/golf/golf-white.svg','https://www.flaticon.com/free-icon/golf_5147640',{provenance:'licensed-library',backgroundLight:'dark',backgroundDark:'dark'}),assetClass:'licensed',rightsStatus:'attribution-required',author:'Plastic Donut',license:'Flaticon attribution licence'}),
+  });
   const competitionMarks = Object.freeze({
     "competition:billie-jean-king-cup":officialMark("brand:billie-jean-king-cup", "Billie Jean King Cup", "assets/identities/events/billie-jean-king-cup-day.png", "https://www.billiejeankingcup.com/en", {dark:"assets/identities/events/billie-jean-king-cup.svg"}),
     "competition:formula-one":eventMarks.f1,
@@ -574,6 +580,7 @@
   }
   function markForEvent(event){
     if(event?.identityRef==="event:le-mans" || /\b24 hours of le mans\b/i.test(eventSearchText(event)))return eventMarks["le-mans"];
+    if(event?.golfMajorCalendar&&golfMajorMarks[event.majorSlug])return golfMajorMarks[event.majorSlug];
     const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event)));
     if (brandRule) return eventMarks[brandRule.id] || null;
     const competitionMark = markForCompetitionId(event?.competitionId);
@@ -585,6 +592,7 @@
   function markForCompetitionId(competitionId){
     const id = String(competitionId || "");
     if (competitionMarks[id]) return competitionMarks[id];
+    const major=id.match(/^competition:(?:golf:)?(masters|pga-championship|the-open|us-open)(?:-20\d\d|:20\d\d)?$/);if(major)return golfMajorMarks[major[1]];
     if (/^competition:wrc(?:[-:]|$)/.test(id)) return sportMarks.wrc;
     if (/^competition:formula-one(?:[-:]|$)/.test(id)) return eventMarks.f1;
     if (/^competition:motogp(?:[-:]|$)/.test(id)) return eventMarks.motogp;
