@@ -68,6 +68,12 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if (argv.includes("--offline")) {
+    const quickOfflineArgs = new Set(["--offline", "--quick", "--rebuild", "--local-only", "-p"]);
+    if (!argv.includes("--quick") || argv.some(arg => !quickOfflineArgs.has(arg))) {
+      throw new Error("Only the quick refresh supports --offline. Use --quick --offline without a scoped, resumed or other route. No source steps ran.");
+    }
+  }
   return {
     localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
   };
@@ -803,6 +809,8 @@ async function runMain() {
 }
 
 async function main(){
+  // Validate mode before creating diagnostic state or starting any source step.
+  parseOptions();
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
   const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
   process.env.FOOTBALL_DATA_RUN_DIR=directory;

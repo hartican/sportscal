@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Canonical offline invocation boundary — 4 October 2026
+
+The existing canonical owner accepts `--offline` only with its genuine quick route and existing rebuild/local options. Full, scoped, resumed or mixed offline requests reject before diagnostic state, temporary files or source subprocesses. `--local-only` still permits source checks and suppresses publication/deployment. Normal source owners, online routes, cadence and budgets remain unchanged; no full offline source implementation, new scheduler, provider, database operation or reminder replay is added. Eight actual CLI rejection paths and retained real quick/completeness regressions run in `validate-update-cards.js`. Current 380-fixture EPL and five-fixture API agreement is dated audit evidence, not fresh app publication, unattended refresh, undocumented live statuses or certification. [Evidence and limits](quality/offline-refresh-boundary-2026-10-04.md).
+
 ## EPL reviewed scheduling certainty — 4 October 2026
 
 The current EPL loader qualifies upcoming clocks against a small validated, dated official-notice register, reused by its full/quick/live paths. The existing shared overlay repeats that interpretation after merging old snapshots; the Feed/Match Centre and reminder catalogue keep their current reads and budgets. An exact identity/week/UTC match is required, and changed facts revert to approximate. Genuine source checks are preserved; the distinct timing-provenance date describes the announcement review.

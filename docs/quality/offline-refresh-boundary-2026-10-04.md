@@ -1,0 +1,31 @@
+# Current EPL agreement and offline refresh boundary — 4 October 2026
+
+Local candidate: the existing canonical owner rejects unsupported offline modes before any diagnostic file, temporary directory or subprocess. Current EPL source agreement is separately verified; no sporting refresh or app-data correction is warranted by that comparison. Publication and production remain pending at this draft checkpoint. The wider CTO programme, Football acceptance and at-least-13/16-family monetisable-MVP target remain open.
+
+## Current source evidence
+
+One read-only invocation of the existing EPL reader collected its four expected primary pages, 100 + 100 + 100 + 80 records, with normal deadlines and no retries. The validated collection contains 380 unique directed fixtures across twenty clubs and 38 matchweeks: fifty explicit completed `C` and 330 upcoming `U` records. Source responses completed between 2026-10-03T22:56:12.849Z and 22:56:16.683Z; the first request began at 22:56:11.667Z. The [official league match page](https://www.premierleague.com/en/matches/premier-league/2026-27) remains the source reference. This read does not supply permission for NS commercial/API/artwork use.
+
+All 380 actual source fixtures resolve uniquely to current Inspector records through their retained raw/canonical/source aliases. Eleven compared fields—participants and directed identities, Sydney date/time and UTC start, explicit status, two integer scores, score display and scheduling precision—have zero differences. This is dated collection agreement, not evidence of undocumented live/non-playing codes or every other future source change. Original sporting and viewing clocks remain untouched; captured candidate clocks describe only the local source observation.
+
+One public production API request selected the five earliest upcoming fixtures by their existing canonical IDs. All five returned; fifty compared facts agree with the captured source, and the snapshot reports `stale:false`. The live EPL source metadata showed a genuine check at 2026-10-03T22:46:08.624915Z, revision 7525. No recent completed fixture lies within the existing seven-day public history boundary, so the sample contains no real final-result or sporting-live case. The selection does not broaden retention or certify the whole live season.
+
+The existing scheduled refresh has no active handle. Latest ordinary run 37146184945 is terminal failure, before publication, from source `0cdcd9d5`; no later scheduled run appears in the fresh bounded list. A successful later ordinary completion remains unverified. This offline-mode defect does not explain that failure: the ordinary workflow does not request offline mode. No manual workflow, scheduler change, reminder replay, production mutation or extra refresh was dispatched to manufacture proof.
+
+## Reproduced dispatch defect and repair
+
+`node scripts/update-cards.js --offline --local-only` previously labelled the Golf observation report offline, then selected `refresh-pga-schedule.js`, whose normal implementation fetches provider schedules. The real CLI reproduction replaces subprocess execution with a trap; it records the first selected source command and stops before any child runs. This proves dispatch mismatch, not an actual external request in the rehearsal. `--local-only` means no GitHub/deployment work; it has never meant no source access.
+
+The owner now accepts offline only for its genuine quick route, with its existing `--rebuild`, `--local-only` and `-p` options. Full, scoped, resumed and mixed offline routes fail with an actionable instruction to use `--quick --offline`, before diagnostics or subprocesses initialize. Normal online modes, the canonical owner and workflow cadence are unchanged. No full offline implementation, new maintenance script, provider, credential, schema or poll is introduced.
+
+The existing canonical-update release test exercises eight real rejected CLI invocations with traps for mkdir, temporary directories, file writes and subprocess dispatch. Each must reject with zero side effects. Supported quick/offline argument combinations remain accepted; existing actual isolated quick projection and injected result-completeness failure cases remain. The initial new regression fails on the old source at its diagnostic mkdir, with no real provider or production operation. Failed and passing logs remain separate.
+
+## Value, acceptance and limits
+
+Ship the scoped guard with normal gates: it prevents developer/operator offline checks from unexpectedly running source loaders or renewing a misleading offline diagnostic. This replaces ambiguity with one supported path and a concrete diagnostic, requiring no new owner routine. The current EPL agreement also establishes that another source refresh or sporting fix is unnecessary for the inspected facts. Incremental purchase cost A$0; effort is one bounded investigation and a small entrypoint guard plus mandatory release proof. Dependencies are the existing CLI/quick owner and validation suite. Avoided provider/compute/token/time cost has not been measured; five-second source collection and test duration are separate observations, not savings.
+
+Accept only zero-side-effect rejection, retained valid modes/completeness gates, unchanged sporting/shell bytes, normal checks and exact published production evidence. Current source/API agreement is direct within its declared scope; interpretation beyond it remains unverified. Original 51-chapter audit, architecture and single remaining queue remain authoritative. Football rights, actual live states, full-match playback, physical-device/cohort and wider recovery evidence remain open. Certification remains 0/3 Football pilots and 0/16 families. Passwords/iCloud stays parked, with no new purchase or repeated owner question.
+
+## Local verification checkpoint
+
+All 137 normal local release commands pass in 135,164 ms. All 389 sporting-data files and every checked cached-shell byte remain identical to the preceding source. The unchanged shell remains version 420; no new upgrade or browser-layout rehearsal is warranted by this CLI-only change. Existing source-timestamp, result, privacy and release contracts remain. GitHub publication, exact production snapshot/alias/served proof and documentation closure are pending here.

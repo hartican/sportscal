@@ -16,6 +16,27 @@ assert(localSteps.findIndex(step=>step[0]==="scripts/refresh-source-coverage.js"
 assert(localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js") < localSteps.findIndex(step=>step[0]==="scripts/build-code-inspector.js"), "reviewed timing must persist before shared projections");
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
 assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
+// Exercise the real entrypoint. Unsupported offline routes must reject before
+// diagnostics, temporary files or subprocess dispatch can perform any work.
+const offlineBoundaryRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-offline-boundary-'));
+try{
+  const hook=path.join(offlineBoundaryRoot,'preload.cjs');
+  fs.writeFileSync(hook,`const fs=require('node:fs'),cp=require('node:child_process');const calls={mkdir:0,mkdtemp:0,write:0,spawn:0};for(const [method,key] of [['mkdirSync','mkdir'],['mkdtempSync','mkdtemp'],['writeFileSync','write']])fs[method]=()=>{calls[key]++;throw Error('Unexpected offline side effect: '+key);};cp.spawnSync=()=>{calls.spawn++;throw Error('Unexpected offline subprocess');};process.on('exit',()=>process.stdout.write('OFFLINE_BOUNDARY '+JSON.stringify(calls)+'\\n'));\n`);
+  for(const args of [
+    ['--offline'],['--offline','-p'],['--offline','--european-football'],
+    ['--offline','--quick','--source=football'],['--offline','--quick','--coverage-live'],
+    ['--offline','--quick','--code-projections','--codes=football'],
+    ['--offline','--quick','--resume-from','scripts/refresh-pga-schedule.js'],
+    ['--offline','--quick','--canonical-family-repair'],
+  ]){
+    const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),...args],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{...process.env,FOOTBALL_DATA_RUN_DIR:path.join(offlineBoundaryRoot,'not-created'),GOLF_SOURCE_REPORT:path.join(offlineBoundaryRoot,'not-written.json')}});
+    assert.equal(result.status,1,'unsupported offline invocation must reject');
+    assert.match(result.stderr,/Only the quick refresh supports --offline/,'caller receives an actionable mode diagnostic');
+    const trace=result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);assert(trace,'actual entrypoint must emit the isolated trace');
+    assert.deepEqual(JSON.parse(trace[1]),{mkdir:0,mkdtemp:0,write:0,spawn:0},'offline rejection precedes every diagnostic write and source step');
+  }
+  for(const args of [['--quick','--offline'],['--offline','--quick','--rebuild','--local-only'],['-p','--offline','--quick']])assert.doesNotThrow(()=>parseOptions(args,{}),'existing quick offline modes remain supported');
+}finally{fs.rmSync(offlineBoundaryRoot,{recursive:true,force:true});}
 const quickResultProjection = quickProjectionSteps(["AFL/NRL 1"]);
 assert(!quickResultProjection.some(step => step[0] === "scripts/build-follow-fixtures.js"), "quick score updates must leave personalised follow-fixture selection to the full refresh");
 for (const file of ["feeds/incoming/events.json", "data/events.json"]) {
