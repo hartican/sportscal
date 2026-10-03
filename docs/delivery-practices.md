@@ -35,6 +35,8 @@ A 27 September measured release took 97 seconds: dependency installation 14, req
 
 Model/tool choice should follow the work: use deterministic scripts for inventories and arithmetic, targeted retrieval for code context, and deeper reasoning for ambiguous architecture or risk. Do not delegate merely to increase activity. Prefer bounded output and avoid repeatedly printing generated/minified assets, whole schemas or unchanged job status.
 
+Known-source research checkpoint — 4 October: a delegated commercial check exceeded its ten-minute budget without returning usable evidence; restarting it for a file-only closeout also failed to produce the artifact promptly. The parent stopped it and retrieved Hobby/pricing/ACCC passages with two direct web calls, four official URLs and about five seconds of fetch time; one AANA retrieval failed and stays unverified. This is not total investigation time or an efficiency success. Use direct batched reads for small questions with known official URLs; apply research delegation when independent investigation justifies coordination. When delegating, record the start/deadline in the existing task brief, require a concrete checkpoint before the cap, and stop at the deadline rather than repeatedly restarting a stalled closeout. Retain returned evidence and explicit unknowns. No new owner routine, tracker or automation. [Limits and evidence](quality/sponsor-source-assessment-2026-10-04.md).
+
 The daily canonical workflow is the refresh owner; weekday quick and Sunday full modes are routes inside it. Keep failed-source reports in its retained artifact, preserving old source timestamps. Do not create another cron to compensate for a broken route.
 
 ### Source exceptions in the same readout — 1 October 2026

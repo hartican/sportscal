@@ -341,7 +341,13 @@ async function run(){
 
   const html = fs.readFileSync("index.html", "utf8");
   require("./app-shell-test-utils").assertShellModule(html,"config/product-events.js");
-  assert(!html.includes('settingsMenuItem("pilot"') && html.includes('settingsSection === "appearance"') && html.includes('pilot.textContent = "Trust pilot details"'), "Trust pilot controls must sit inside Appearance rather than as a top-level Settings item");
+  const settingsAsset = html.match(/script\.src='(assets\/js\/settings-optional-ui\.js\?v=\d+)'/)?.[1];
+  assert(settingsAsset && html.includes("ui.renderAppearanceSettings(body)"), "Appearance must load its published Settings module");
+  assert(fs.readFileSync("service-worker.js", "utf8").includes(`"/${settingsAsset}"`), "Settings must use the same versioned asset offline");
+  require("node:child_process").execFileSync(process.execPath, ["scripts/build-fantasy-ui.js", "--check"], { stdio:"pipe" });
+  const appearance = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8")
+    .match(/function renderAppearanceSettings\(body\)\{[\s\S]*?(?=\nfunction |$)/)?.[0] || "";
+  assert(!html.includes('settingsMenuItem("pilot"') && html.includes('settingsSection === "appearance"') && appearance.includes('pilot.textContent = "Trust pilot details"') && appearance.includes("appearance.appendChild(pilot)"), "Trust pilot controls must sit inside the mounted Appearance section rather than as a top-level Settings item");
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
   assert(html.includes('participationVersion: "pilot-participation.v1"'), "signed-in measurement must use the explicit automatic-participation state");
