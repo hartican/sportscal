@@ -1,0 +1,787 @@
+{
+  "schemaVersion": "epl-kickoff-certainty.v1",
+  "competitionId": "competition:premier-league-2026-27",
+  "season": "2026/27",
+  "observedAt": "2026-10-03T20:55:46.267Z",
+  "reviewedMatchweeks": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "fixtures": [
+    {
+      "sourceFixtureId": 128973,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:1",
+        "team:football:epl:9"
+      ],
+      "startTimeUtc": "2026-10-10T11:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128974,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:2",
+        "team:football:epl:130"
+      ],
+      "startTimeUtc": "2026-10-10T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128975,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:4",
+        "team:football:epl:127"
+      ],
+      "startTimeUtc": "2026-10-10T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128979,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:8",
+        "team:football:epl:34"
+      ],
+      "startTimeUtc": "2026-10-10T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128982,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:29",
+        "team:football:epl:131"
+      ],
+      "startTimeUtc": "2026-10-10T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128981,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:12",
+        "team:football:epl:21"
+      ],
+      "startTimeUtc": "2026-10-10T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128977,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:6",
+        "team:football:epl:15"
+      ],
+      "startTimeUtc": "2026-10-11T13:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128978,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:41",
+        "team:football:epl:7"
+      ],
+      "startTimeUtc": "2026-10-11T13:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128980,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:10",
+        "team:football:epl:11"
+      ],
+      "startTimeUtc": "2026-10-11T15:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128976,
+      "roundNumber": 6,
+      "participantIds": [
+        "team:football:epl:5",
+        "team:football:epl:23"
+      ],
+      "startTimeUtc": "2026-10-12T19:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128986,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:7",
+        "team:football:epl:4"
+      ],
+      "startTimeUtc": "2026-10-17T11:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128984,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:130",
+        "team:football:epl:10"
+      ],
+      "startTimeUtc": "2026-10-17T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128987,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:34",
+        "team:football:epl:41"
+      ],
+      "startTimeUtc": "2026-10-17T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128989,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:11",
+        "team:football:epl:8"
+      ],
+      "startTimeUtc": "2026-10-17T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128990,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:23",
+        "team:football:epl:2"
+      ],
+      "startTimeUtc": "2026-10-17T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128983,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:127",
+        "team:football:epl:29"
+      ],
+      "startTimeUtc": "2026-10-18T13:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128985,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:131",
+        "team:football:epl:6"
+      ],
+      "startTimeUtc": "2026-10-18T13:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128988,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:9",
+        "team:football:epl:12"
+      ],
+      "startTimeUtc": "2026-10-18T13:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128991,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:15",
+        "team:football:epl:1"
+      ],
+      "startTimeUtc": "2026-10-18T15:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128992,
+      "roundNumber": 7,
+      "participantIds": [
+        "team:football:epl:21",
+        "team:football:epl:5"
+      ],
+      "startTimeUtc": "2026-10-19T19:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128999,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:8",
+        "team:football:epl:15"
+      ],
+      "startTimeUtc": "2026-10-23T19:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128994,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:2",
+        "team:football:epl:11"
+      ],
+      "startTimeUtc": "2026-10-24T11:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128993,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:1",
+        "team:football:epl:7"
+      ],
+      "startTimeUtc": "2026-10-24T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128996,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:5",
+        "team:football:epl:34"
+      ],
+      "startTimeUtc": "2026-10-24T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128995,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:4",
+        "team:football:epl:21"
+      ],
+      "startTimeUtc": "2026-10-24T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128997,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:6",
+        "team:football:epl:23"
+      ],
+      "startTimeUtc": "2026-10-25T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 128998,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:41",
+        "team:football:epl:130"
+      ],
+      "startTimeUtc": "2026-10-25T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129000,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:10",
+        "team:football:epl:131"
+      ],
+      "startTimeUtc": "2026-10-25T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4705445/further-fixture-amendments-announced-in-september-and-october-2026",
+      "sourcePublishedAt": "2026-09-01"
+    },
+    {
+      "sourceFixtureId": 129001,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:12",
+        "team:football:epl:127"
+      ],
+      "startTimeUtc": "2026-10-25T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129002,
+      "roundNumber": 8,
+      "participantIds": [
+        "team:football:epl:29",
+        "team:football:epl:9"
+      ],
+      "startTimeUtc": "2026-10-25T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129006,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:4",
+        "team:football:epl:12"
+      ],
+      "startTimeUtc": "2026-10-31T12:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129004,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:127",
+        "team:football:epl:9"
+      ],
+      "startTimeUtc": "2026-10-31T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129005,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:130",
+        "team:football:epl:15"
+      ],
+      "startTimeUtc": "2026-10-31T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129007,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:5",
+        "team:football:epl:29"
+      ],
+      "startTimeUtc": "2026-10-31T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129008,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:41",
+        "team:football:epl:8"
+      ],
+      "startTimeUtc": "2026-10-31T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129010,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:11",
+        "team:football:epl:131"
+      ],
+      "startTimeUtc": "2026-10-31T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129012,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:21",
+        "team:football:epl:6"
+      ],
+      "startTimeUtc": "2026-10-31T17:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129003,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:2",
+        "team:football:epl:34"
+      ],
+      "startTimeUtc": "2026-10-31T20:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4705445/further-fixture-amendments-announced-in-september-and-october-2026",
+      "sourcePublishedAt": "2026-09-01"
+    },
+    {
+      "sourceFixtureId": 129009,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:10",
+        "team:football:epl:1"
+      ],
+      "startTimeUtc": "2026-11-01T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129011,
+      "roundNumber": 9,
+      "participantIds": [
+        "team:football:epl:23",
+        "team:football:epl:7"
+      ],
+      "startTimeUtc": "2026-11-02T20:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "sourcePublishedAt": "2026-08-17"
+    },
+    {
+      "sourceFixtureId": 129016,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:7",
+        "team:football:epl:5"
+      ],
+      "startTimeUtc": "2026-11-06T20:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129019,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:9",
+        "team:football:epl:21"
+      ],
+      "startTimeUtc": "2026-11-07T12:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129013,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:1",
+        "team:football:epl:41"
+      ],
+      "startTimeUtc": "2026-11-07T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129017,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:34",
+        "team:football:epl:23"
+      ],
+      "startTimeUtc": "2026-11-07T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129021,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:15",
+        "team:football:epl:11"
+      ],
+      "startTimeUtc": "2026-11-07T17:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129014,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:131",
+        "team:football:epl:130"
+      ],
+      "startTimeUtc": "2026-11-08T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129015,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:6",
+        "team:football:epl:10"
+      ],
+      "startTimeUtc": "2026-11-08T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129018,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:8",
+        "team:football:epl:127"
+      ],
+      "startTimeUtc": "2026-11-08T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129022,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:29",
+        "team:football:epl:4"
+      ],
+      "startTimeUtc": "2026-11-08T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129020,
+      "roundNumber": 10,
+      "participantIds": [
+        "team:football:epl:12",
+        "team:football:epl:2"
+      ],
+      "startTimeUtc": "2026-11-08T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129030,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:11",
+        "team:football:epl:34"
+      ],
+      "startTimeUtc": "2026-11-21T12:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129024,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:127",
+        "team:football:epl:15"
+      ],
+      "startTimeUtc": "2026-11-21T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129023,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:2",
+        "team:football:epl:29"
+      ],
+      "startTimeUtc": "2026-11-21T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129026,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:4",
+        "team:football:epl:9"
+      ],
+      "startTimeUtc": "2026-11-21T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129027,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:5",
+        "team:football:epl:6"
+      ],
+      "startTimeUtc": "2026-11-21T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129032,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:21",
+        "team:football:epl:8"
+      ],
+      "startTimeUtc": "2026-11-21T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129031,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:23",
+        "team:football:epl:1"
+      ],
+      "startTimeUtc": "2026-11-21T17:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129028,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:41",
+        "team:football:epl:131"
+      ],
+      "startTimeUtc": "2026-11-22T14:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129029,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:10",
+        "team:football:epl:12"
+      ],
+      "startTimeUtc": "2026-11-22T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129025,
+      "roundNumber": 11,
+      "participantIds": [
+        "team:football:epl:130",
+        "team:football:epl:7"
+      ],
+      "startTimeUtc": "2026-11-23T20:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129041,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:15",
+        "team:football:epl:4"
+      ],
+      "startTimeUtc": "2026-11-27T20:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129039,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:9",
+        "team:football:epl:5"
+      ],
+      "startTimeUtc": "2026-11-28T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129040,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:12",
+        "team:football:epl:130"
+      ],
+      "startTimeUtc": "2026-11-28T15:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129038,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:8",
+        "team:football:epl:2"
+      ],
+      "startTimeUtc": "2026-11-28T17:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129036,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:7",
+        "team:football:epl:10"
+      ],
+      "startTimeUtc": "2026-11-29T12:00:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129034,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:131",
+        "team:football:epl:23"
+      ],
+      "startTimeUtc": "2026-11-29T14:05:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129035,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:6",
+        "team:football:epl:41"
+      ],
+      "startTimeUtc": "2026-11-29T14:05:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129037,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:34",
+        "team:football:epl:127"
+      ],
+      "startTimeUtc": "2026-11-29T14:05:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129042,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:29",
+        "team:football:epl:21"
+      ],
+      "startTimeUtc": "2026-11-29T14:05:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    },
+    {
+      "sourceFixtureId": 129033,
+      "roundNumber": 12,
+      "participantIds": [
+        "team:football:epl:1",
+        "team:football:epl:11"
+      ],
+      "startTimeUtc": "2026-11-29T16:30:00.000Z",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourcePublishedAt": "2026-09-21"
+    }
+  ]
+}

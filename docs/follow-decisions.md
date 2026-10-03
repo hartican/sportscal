@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## EPL provisional kickoff qualification — 4 October 2026
+
+Equal primary `kickoff` and `provisionalKickoff` timestamps do not prove final scheduling. The existing EPL source and shared snapshot overlay apply one reviewed qualification: an upcoming exact clock requires the same source fixture ID, ordered clubs, matchweek and UTC start as a dated official amendment notice. The seventy reviewed Matchweek 6–12 matches qualify; other retained upcoming starts remain approximate. Changed facts lose that older confirmation. Existing fixture clocks/IDs, consent, exclusions, explicit Remind OFF, activity and source observation dates survive. The shared reminder catalogue already uses this overlay, so old stored `confirmed` fields cannot bypass the qualification. No new Follow or notification rule is introduced.
+
+Feed, Schedule and their fallback label estimated times consistently; explicit unknown clocks remain TIME TBC. Existing confirmed starts still require the normal consent/freshness rules for reminders. Regression: the existing Football gate invokes `validate-epl-kickoff-certainty.js`; both browser engines exercise actual published and separately identified controlled cases. [Evidence and limits](quality/epl-kickoff-certainty-2026-10-04.md).
+
 ## Known canonical fixture names — 4 October 2026
 
 Existing canonical `displayName` is a known title, not an absent-name state. Shared normalization preserves an explicit `name` or compact title first, then this canonical title before a competition-only or unknown fallback. This repairs Code/Schedule and fixture-chat descriptions without changing participants, identity/action aliases, admission, routing, Follow choices, Results, ratings, reminders, data clocks or source ownership. Genuine missing/invalid titles remain explicit. Regressions run through the existing card-identity and canonical Code gates; actual reference Feed/Schedule checks cover public controls and protected results. [Evidence](quality/canonical-fixture-names-2026-10-04.md).

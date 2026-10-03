@@ -73979,7 +73979,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_32",
@@ -74265,7 +74272,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128975",
@@ -74421,7 +74435,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128979",
@@ -74577,7 +74598,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128982",
@@ -74733,7 +74761,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128981",
@@ -74889,7 +74924,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "supercars-bathurst-1000-2026",
@@ -76181,7 +76223,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128978",
@@ -76337,7 +76386,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128980",
@@ -76501,7 +76557,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128976",
@@ -76657,7 +76720,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
@@ -78861,7 +78931,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128984",
@@ -79017,7 +79094,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128987",
@@ -79173,7 +79257,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128989",
@@ -79329,7 +79420,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128990",
@@ -79485,7 +79583,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "event-aflw-cd_m20262641006",
@@ -80762,7 +80867,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128985",
@@ -80916,7 +81028,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128988",
@@ -81072,7 +81191,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128991",
@@ -81228,7 +81354,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128992",
@@ -81384,7 +81517,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_nbl_2026_27_370d79db_58ad_11f1_8bd9_59a0fb078f66",
@@ -82424,7 +82564,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_f1_2026_united_states_practice_2",
@@ -83688,7 +83835,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128993",
@@ -83844,7 +83998,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128996",
@@ -84000,7 +84161,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128995",
@@ -84156,7 +84324,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_f1_2026_united_states_practice_3",
@@ -85621,7 +85796,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-128998",
@@ -85777,7 +85959,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-129000",
@@ -85933,7 +86122,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4705445/further-fixture-amendments-announced-in-september-and-october-2026",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-01"
+    }
   },
   {
     "id": "epl-2026-27-129001",
@@ -86089,7 +86285,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "epl-2026-27-129002",
@@ -86245,7 +86448,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_35",
@@ -88968,6 +89178,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Chelsea arrives with 2W-1D-2L, while Manchester United brings 1W-2D-2L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Chelsea arrives with 2W-1D-2L, while Manchester United brings 1W-2D-2L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89124,6 +89341,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "AFC Bournemouth arrives with 0W-3D-2L, while Leeds United brings 2W-3D-0L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "AFC Bournemouth arrives with 0W-3D-2L, while Leeds United brings 2W-3D-0L. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89278,6 +89502,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Brentford arrives with 2W-3D-0L, while Nottingham Forest brings 1W-2D-2L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Brentford arrives with 2W-3D-0L, while Nottingham Forest brings 1W-2D-2L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89434,6 +89665,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Coventry City arrives with 1W-0D-4L, while Sunderland brings 1W-1D-3L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Coventry City arrives with 1W-0D-4L, while Sunderland brings 1W-1D-3L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89590,6 +89828,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Hull City arrives with 2W-2D-1L, while Ipswich Town brings 2W-0D-3L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a playoff-built counterattack against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Hull City arrives with 2W-2D-1L, while Ipswich Town brings 2W-0D-3L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a playoff-built counterattack against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89746,6 +89991,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Manchester City arrives with 5 wins from 5, while Brighton & Hove Albion brings 3W-1D-1L. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Manchester City arrives with 5 wins from 5, while Brighton & Hove Albion brings 3W-1D-1L. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:27:41.750Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -89902,6 +90154,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Tottenham Hotspur arrives with 0W-2D-3L, while Crystal Palace brings 1W-1D-3L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
       "synopsisSpoilerOn": "Tottenham Hotspur arrives with 0W-2D-3L, while Crystal Palace brings 1W-1D-3L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-10-01T17:31:04.678Z"
+    },
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
     }
   },
   {
@@ -90103,7 +90362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 9 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 9 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Aston Villa v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -90130,7 +90389,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4705445/further-fixture-amendments-announced-in-september-and-october-2026",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-01"
+    }
   },
   {
     "id": "evt_36",
@@ -91089,7 +91355,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 9 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 9 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Liverpool v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -91116,7 +91382,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_37",
@@ -91490,7 +91763,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 9 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 9 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Newcastle United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -91517,7 +91790,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4688862",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-08-17"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3729bbac_58ad_11f1_b394_cbe0cbdf48fe",
@@ -92452,7 +92732,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Everton v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -92479,7 +92759,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_nbl_2026_27_37256511_58ad_11f1_b841_b5c487635207",
@@ -92980,7 +93267,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Leeds United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -93007,7 +93294,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_f1_2026_brazil_practice_3",
@@ -93175,7 +93469,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Arsenal v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -93202,7 +93496,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129017",
@@ -93275,7 +93576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Fulham v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -93302,7 +93603,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129021",
@@ -93375,7 +93683,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Nottingham Forest v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -93402,7 +93710,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_38",
@@ -93981,7 +94296,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Brighton & Hove Albion v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -94008,7 +94323,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129015",
@@ -94081,7 +94403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Crystal Palace v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -94108,7 +94430,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129018",
@@ -94181,7 +94510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Ipswich Town v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -94208,7 +94537,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129022",
@@ -94281,7 +94617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Sunderland v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -94308,7 +94644,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "rugby-england-australia-2026-11-09",
@@ -94462,7 +94805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Manchester United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -94489,7 +94832,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_39",
@@ -99111,7 +99461,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Manchester City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99138,7 +99488,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129023",
@@ -99211,7 +99568,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Aston Villa v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99238,7 +99595,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129024",
@@ -99311,7 +99675,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Bournemouth v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99338,7 +99702,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129026",
@@ -99411,7 +99782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Chelsea v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99438,7 +99809,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129027",
@@ -99511,7 +99889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Coventry City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99538,7 +99916,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129032",
@@ -99611,7 +99996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Tottenham Hotspur v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99638,7 +100023,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129031",
@@ -99711,7 +100103,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Newcastle United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -99738,7 +100130,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "rugby-wales-australia-2026-11-22",
@@ -100391,7 +100790,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Hull City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -100418,7 +100817,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129029",
@@ -100491,7 +100897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Liverpool v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -100518,7 +100924,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129025",
@@ -100591,7 +101004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 11 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Brentford v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -100618,7 +101031,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "cricket-australia-england-second-t20-2026",
@@ -101184,7 +101604,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Nottingham Forest v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -101211,7 +101631,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_f1_2026_qatar_practice_3",
@@ -101379,7 +101806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Leeds United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -101406,7 +101833,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129040",
@@ -101479,7 +101913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Manchester United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -101506,7 +101940,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129038",
@@ -101579,7 +102020,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Ipswich Town v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -101606,7 +102047,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_42",
@@ -101901,7 +102349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Everton v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -101928,7 +102376,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129034",
@@ -102001,7 +102456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Brighton & Hove Albion v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102028,7 +102483,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129035",
@@ -102101,7 +102563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Crystal Palace v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102128,7 +102590,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129037",
@@ -102201,7 +102670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Fulham v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102228,7 +102697,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "epl-2026-27-129042",
@@ -102301,7 +102777,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Sunderland v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102328,7 +102804,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "evt_43",
@@ -102496,7 +102979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
     "fullSpiel": "Arsenal v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102523,7 +103006,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "timingProvenance": {
+      "sourceName": "Premier League fixture amendment notice",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "checkedAt": "2026-10-03T20:55:46.267Z",
+      "precision": "exact",
+      "sourcePublishedAt": "2026-09-21"
+    }
   },
   {
     "id": "cricket-australia-england-fifth-t20-2026",
@@ -102919,7 +103409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -102929,7 +103419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -102945,7 +103435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -102956,7 +103446,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129044",
@@ -103019,7 +103510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103029,7 +103520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103045,7 +103536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103056,7 +103547,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129045",
@@ -103119,7 +103611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103129,7 +103621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103145,7 +103637,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103156,7 +103648,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129046",
@@ -103219,7 +103712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103229,7 +103722,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103245,7 +103738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103256,7 +103749,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129047",
@@ -103319,7 +103813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103329,7 +103823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103345,7 +103839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103356,7 +103850,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129048",
@@ -103419,7 +103914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103429,7 +103924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103445,7 +103940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103456,7 +103951,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129049",
@@ -103519,7 +104015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103529,7 +104025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103545,7 +104041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103556,7 +104052,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129050",
@@ -103619,7 +104116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103629,7 +104126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103645,7 +104142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103656,7 +104153,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129051",
@@ -103719,7 +104217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103729,7 +104227,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103745,7 +104243,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103756,7 +104254,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129052",
@@ -103819,7 +104318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -103829,7 +104328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 13 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 13 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -103845,7 +104344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 13"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -103856,7 +104355,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3748a57b_58ad_11f1_a4fa_fb9d3a8baf78",
@@ -105346,7 +105846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105356,7 +105856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105372,7 +105872,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105383,7 +105883,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129054",
@@ -105446,7 +105947,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105456,7 +105957,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105472,7 +105973,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105483,7 +105984,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129055",
@@ -105546,7 +106048,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105556,7 +106058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105572,7 +106074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105583,7 +106085,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129056",
@@ -105646,7 +106149,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105656,7 +106159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105672,7 +106175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105683,7 +106186,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129057",
@@ -105746,7 +106250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105756,7 +106260,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105772,7 +106276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105783,7 +106287,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129058",
@@ -105846,7 +106351,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105856,7 +106361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105872,7 +106377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105883,7 +106388,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129059",
@@ -105946,7 +106452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -105956,7 +106462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -105972,7 +106478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -105983,7 +106489,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129060",
@@ -106046,7 +106553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -106056,7 +106563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -106072,7 +106579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -106083,7 +106590,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129061",
@@ -106146,7 +106654,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -106156,7 +106664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -106172,7 +106680,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -106183,7 +106691,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129062",
@@ -106246,7 +106755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -106256,7 +106765,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 14 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 14 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -106272,7 +106781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 14"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -106283,7 +106792,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_374e0e41_58ad_11f1_a41a_bf8ef84c1f3a",
@@ -108021,7 +108531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108031,7 +108541,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108047,7 +108557,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108058,7 +108568,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129064",
@@ -108121,7 +108632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108131,7 +108642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108147,7 +108658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108158,7 +108669,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129065",
@@ -108221,7 +108733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108231,7 +108743,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108247,7 +108759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108258,7 +108770,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129066",
@@ -108321,7 +108834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108331,7 +108844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108347,7 +108860,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108358,7 +108871,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129067",
@@ -108421,7 +108935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108431,7 +108945,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108447,7 +108961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108458,7 +108972,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129068",
@@ -108521,7 +109036,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108531,7 +109046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108547,7 +109062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108558,7 +109073,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129069",
@@ -108621,7 +109137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108631,7 +109147,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108647,7 +109163,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108658,7 +109174,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129070",
@@ -108721,7 +109238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108731,7 +109248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108747,7 +109264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108758,7 +109275,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129071",
@@ -108821,7 +109339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108831,7 +109349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108847,7 +109365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108858,7 +109376,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129072",
@@ -108921,7 +109440,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -108931,7 +109450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 15 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 15 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -108947,7 +109466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 15"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -108958,7 +109477,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_375da128_58ad_11f1_86da_f1316c48f9c2",
@@ -110480,7 +111000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110490,7 +111010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -110506,7 +111026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -110517,7 +111037,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129074",
@@ -110580,7 +111101,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110590,7 +111111,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -110606,7 +111127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -110617,7 +111138,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129075",
@@ -110680,7 +111202,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110690,7 +111212,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -110706,7 +111228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -110717,7 +111239,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129076",
@@ -110780,7 +111303,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110790,7 +111313,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -110806,7 +111329,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -110817,7 +111340,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129077",
@@ -110880,7 +111404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110890,7 +111414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -110906,7 +111430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -110917,7 +111441,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129078",
@@ -110980,7 +111505,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -110990,7 +111515,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -111006,7 +111531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -111017,7 +111542,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129079",
@@ -111080,7 +111606,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -111090,7 +111616,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -111106,7 +111632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -111117,7 +111643,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129080",
@@ -111180,7 +111707,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -111190,7 +111717,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -111206,7 +111733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -111217,7 +111744,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129081",
@@ -111280,7 +111808,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -111290,7 +111818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -111306,7 +111834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -111317,7 +111845,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129082",
@@ -111380,7 +111909,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -111390,7 +111919,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 16 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 16 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -111406,7 +111935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 16"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -111417,7 +111946,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3761d184_58ad_11f1_84ea_411a11259918",
@@ -113272,7 +113802,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113282,7 +113812,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113298,7 +113828,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113309,7 +113839,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129086",
@@ -113372,7 +113903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113382,7 +113913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113398,7 +113929,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113409,7 +113940,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129087",
@@ -113472,7 +114004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113482,7 +114014,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113498,7 +114030,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113509,7 +114041,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129089",
@@ -113572,7 +114105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113582,7 +114115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113598,7 +114131,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113609,7 +114142,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129092",
@@ -113672,7 +114206,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113682,7 +114216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113698,7 +114232,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113709,7 +114243,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129088",
@@ -113772,7 +114307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113782,7 +114317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113798,7 +114333,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113809,7 +114344,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129091",
@@ -113872,7 +114408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -113882,7 +114418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -113898,7 +114434,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -113909,7 +114445,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3770b91e_58ad_11f1_9efe_a362560fc147",
@@ -114385,7 +114922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -114395,7 +114932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -114411,7 +114948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -114422,7 +114959,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129090",
@@ -114485,7 +115023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -114495,7 +115033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -114511,7 +115049,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -114522,7 +115060,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129085",
@@ -114585,7 +115124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -114595,7 +115134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 17 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -114611,7 +115150,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 17"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -114622,7 +115161,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_37699500_58ad_11f1_888a_e79a703f0b90",
@@ -114891,7 +115431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -114901,7 +115441,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -114917,7 +115457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -114928,7 +115468,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129102",
@@ -114991,7 +115532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115001,7 +115542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115017,7 +115558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115028,7 +115569,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129096",
@@ -115091,7 +115633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115101,7 +115643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115117,7 +115659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115128,7 +115670,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_376b0d82_58ad_11f1_ba1c_11cc539397b9",
@@ -115397,7 +115940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115407,7 +115950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115423,7 +115966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115434,7 +115977,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129095",
@@ -115497,7 +116041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115507,7 +116051,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115523,7 +116067,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115534,7 +116078,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129097",
@@ -115597,7 +116142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115607,7 +116152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115623,7 +116168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115634,7 +116179,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129100",
@@ -115697,7 +116243,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115707,7 +116253,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115723,7 +116269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115734,7 +116280,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129101",
@@ -115797,7 +116344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115807,7 +116354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115823,7 +116370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115834,7 +116381,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129093",
@@ -115897,7 +116445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -115907,7 +116455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -115923,7 +116471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -115934,7 +116482,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129099",
@@ -115997,7 +116546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -116007,7 +116556,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 18 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -116023,7 +116572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 18"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -116034,7 +116583,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_376b1b7d_58ad_11f1_9638_61e4f965035a",
@@ -116716,7 +117266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -116726,7 +117276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -116742,7 +117292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -116753,7 +117303,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3791ec9a_58ad_11f1_8e37_819ec06531e4",
@@ -117244,7 +117795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117254,7 +117805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117270,7 +117821,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117281,7 +117832,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129103",
@@ -117344,7 +117896,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117354,7 +117906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117370,7 +117922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117381,7 +117933,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129105",
@@ -117444,7 +117997,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117454,7 +118007,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117470,7 +118023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117481,7 +118034,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129109",
@@ -117544,7 +118098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117554,7 +118108,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117570,7 +118124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117581,7 +118135,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129111",
@@ -117644,7 +118199,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117654,7 +118209,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117670,7 +118225,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117681,7 +118236,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129112",
@@ -117744,7 +118300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117754,7 +118310,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117770,7 +118326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117781,7 +118337,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129104",
@@ -117844,7 +118401,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -117854,7 +118411,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -117870,7 +118427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -117881,7 +118438,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_377a706f_58ad_11f1_9081_95101c4b3f9d",
@@ -118357,7 +118915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -118367,7 +118925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -118383,7 +118941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -118394,7 +118952,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129110",
@@ -118457,7 +119016,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -118467,7 +119026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 19 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 19 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -118483,7 +119042,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 19"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -118494,7 +119053,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "sport": "Cricket",
@@ -118890,7 +119450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -118900,7 +119460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -118916,7 +119476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -118927,7 +119487,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129114",
@@ -118990,7 +119551,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119000,7 +119561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119016,7 +119577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119027,7 +119588,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129116",
@@ -119090,7 +119652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119100,7 +119662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119116,7 +119678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119127,7 +119689,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129121",
@@ -119190,7 +119753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119200,7 +119763,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119216,7 +119779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119227,7 +119790,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129122",
@@ -119290,7 +119854,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119300,7 +119864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119316,7 +119880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119327,7 +119891,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_377af928_58ad_11f1_af79_ad562dad26a0",
@@ -119802,7 +120367,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119812,7 +120377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119828,7 +120393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119839,7 +120404,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129117",
@@ -119902,7 +120468,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -119912,7 +120478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -119928,7 +120494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -119939,7 +120505,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129118",
@@ -120002,7 +120569,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -120012,7 +120579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -120028,7 +120595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -120039,7 +120606,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129119",
@@ -120102,7 +120670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -120112,7 +120680,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -120128,7 +120696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -120139,7 +120707,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_377cd763_58ad_11f1_8114_69c2b72ae0a9",
@@ -120416,7 +120985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -120426,7 +120995,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 20 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -120442,7 +121011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 20"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -120453,7 +121022,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_37810606_58ad_11f1_9339_69207a436dad",
@@ -122611,7 +123181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -122621,7 +123191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -122637,7 +123207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -122648,7 +123218,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129124",
@@ -122711,7 +123282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -122721,7 +123292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -122737,7 +123308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -122748,7 +123319,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129125",
@@ -122811,7 +123383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -122821,7 +123393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -122837,7 +123409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -122848,7 +123420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129126",
@@ -122911,7 +123484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -122921,7 +123494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -122937,7 +123510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -122948,7 +123521,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129127",
@@ -123011,7 +123585,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123021,7 +123595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123037,7 +123611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123048,7 +123622,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129128",
@@ -123111,7 +123686,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123121,7 +123696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123137,7 +123712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123148,7 +123723,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129129",
@@ -123211,7 +123787,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123221,7 +123797,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123237,7 +123813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123248,7 +123824,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129130",
@@ -123311,7 +123888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123321,7 +123898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123337,7 +123914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123348,7 +123925,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129131",
@@ -123411,7 +123989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123421,7 +123999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123437,7 +124015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123448,7 +124026,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129132",
@@ -123511,7 +124090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -123521,7 +124100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 21 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 21 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -123537,7 +124116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 21"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -123548,7 +124127,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3786d8e9_58ad_11f1_9a23_c5dc2cf09b1f",
@@ -125421,7 +126001,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125431,7 +126011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125447,7 +126027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125458,7 +126038,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129134",
@@ -125521,7 +126102,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125531,7 +126112,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125547,7 +126128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125558,7 +126139,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129135",
@@ -125621,7 +126203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125631,7 +126213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125647,7 +126229,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125658,7 +126240,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129136",
@@ -125721,7 +126304,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125731,7 +126314,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125747,7 +126330,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125758,7 +126341,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129137",
@@ -125821,7 +126405,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125831,7 +126415,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125847,7 +126431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125858,7 +126442,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129138",
@@ -125921,7 +126506,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -125931,7 +126516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -125947,7 +126532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -125958,7 +126543,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129139",
@@ -126021,7 +126607,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -126031,7 +126617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -126047,7 +126633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -126058,7 +126644,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129140",
@@ -126121,7 +126708,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -126131,7 +126718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -126147,7 +126734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -126158,7 +126745,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129141",
@@ -126221,7 +126809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -126231,7 +126819,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -126247,7 +126835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -126258,7 +126846,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129142",
@@ -126321,7 +126910,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -126331,7 +126920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 22 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 22 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -126347,7 +126936,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 22"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -126358,7 +126947,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_378b3988_58ad_11f1_a999_cb5b62df0525",
@@ -128437,7 +129027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128447,7 +129037,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128463,7 +129053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128474,7 +129064,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129144",
@@ -128537,7 +129128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128547,7 +129138,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128563,7 +129154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128574,7 +129165,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129145",
@@ -128637,7 +129229,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128647,7 +129239,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128663,7 +129255,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128674,7 +129266,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129146",
@@ -128737,7 +129330,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128747,7 +129340,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128763,7 +129356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128774,7 +129367,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129147",
@@ -128837,7 +129431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128847,7 +129441,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128863,7 +129457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128874,7 +129468,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129148",
@@ -128937,7 +129532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -128947,7 +129542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -128963,7 +129558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -128974,7 +129569,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129149",
@@ -129037,7 +129633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -129047,7 +129643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -129063,7 +129659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -129074,7 +129670,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129150",
@@ -129137,7 +129734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -129147,7 +129744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -129163,7 +129760,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -129174,7 +129771,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129151",
@@ -129237,7 +129835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -129247,7 +129845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -129263,7 +129861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -129274,7 +129872,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129152",
@@ -129337,7 +129936,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -129347,7 +129946,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 23 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 23 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -129363,7 +129962,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 23"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -129374,7 +129973,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3794848c_58ad_11f1_8498_35ee37a73882",
@@ -130926,7 +131526,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -130936,7 +131536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -130952,7 +131552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -130963,7 +131563,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129154",
@@ -131026,7 +131627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131036,7 +131637,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131052,7 +131653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131063,7 +131664,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129155",
@@ -131126,7 +131728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131136,7 +131738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131152,7 +131754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131163,7 +131765,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129156",
@@ -131226,7 +131829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131236,7 +131839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131252,7 +131855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131263,7 +131866,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129157",
@@ -131326,7 +131930,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131336,7 +131940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131352,7 +131956,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131363,7 +131967,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129158",
@@ -131426,7 +132031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131436,7 +132041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131452,7 +132057,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131463,7 +132068,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129159",
@@ -131526,7 +132132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131536,7 +132142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131552,7 +132158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131563,7 +132169,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129160",
@@ -131626,7 +132233,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131636,7 +132243,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131652,7 +132259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131663,7 +132270,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129161",
@@ -131726,7 +132334,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131736,7 +132344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131752,7 +132360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131763,7 +132371,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129162",
@@ -131826,7 +132435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -131836,7 +132445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 24 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 24 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -131852,7 +132461,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 24"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -131863,7 +132472,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_3799258e_58ad_11f1_9453_39f5f9ac4ced",
@@ -132452,7 +133062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132462,7 +133072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132478,7 +133088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132489,7 +133099,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129164",
@@ -132552,7 +133163,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132562,7 +133173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132578,7 +133189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132589,7 +133200,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129165",
@@ -132652,7 +133264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132662,7 +133274,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132678,7 +133290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132689,7 +133301,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129166",
@@ -132752,7 +133365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132762,7 +133375,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132778,7 +133391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132789,7 +133402,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129167",
@@ -132852,7 +133466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132862,7 +133476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132878,7 +133492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132889,7 +133503,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129168",
@@ -132952,7 +133567,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -132962,7 +133577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -132978,7 +133593,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -132989,7 +133604,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129169",
@@ -133052,7 +133668,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -133062,7 +133678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -133078,7 +133694,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -133089,7 +133705,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129170",
@@ -133152,7 +133769,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -133162,7 +133779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -133178,7 +133795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -133189,7 +133806,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129171",
@@ -133252,7 +133870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -133262,7 +133880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -133278,7 +133896,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -133289,7 +133907,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129172",
@@ -133352,7 +133971,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -133362,7 +133981,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 25 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 25 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -133378,7 +133997,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 25"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -133389,7 +134008,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "evt_nbl_2026_27_37995304_58ad_11f1_bced_f323fa41d58d",
@@ -134870,7 +135490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -134880,7 +135500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -134896,7 +135516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -134907,7 +135527,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129174",
@@ -134970,7 +135591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -134980,7 +135601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -134996,7 +135617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135007,7 +135628,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129175",
@@ -135070,7 +135692,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135080,7 +135702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135096,7 +135718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135107,7 +135729,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129176",
@@ -135170,7 +135793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135180,7 +135803,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135196,7 +135819,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135207,7 +135830,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129177",
@@ -135270,7 +135894,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135280,7 +135904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135296,7 +135920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135307,7 +135931,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129178",
@@ -135370,7 +135995,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135380,7 +136005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135396,7 +136021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135407,7 +136032,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129179",
@@ -135470,7 +136096,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135480,7 +136106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135496,7 +136122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135507,7 +136133,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129180",
@@ -135570,7 +136197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135580,7 +136207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135596,7 +136223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135607,7 +136234,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129181",
@@ -135670,7 +136298,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135680,7 +136308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135696,7 +136324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135707,7 +136335,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129182",
@@ -135770,7 +136399,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135780,7 +136409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 26 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 26 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135796,7 +136425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 26"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135807,7 +136436,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129183",
@@ -135870,7 +136500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135880,7 +136510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135896,7 +136526,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -135907,7 +136537,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129184",
@@ -135970,7 +136601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -135980,7 +136611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -135996,7 +136627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136007,7 +136638,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129185",
@@ -136070,7 +136702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136080,7 +136712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136096,7 +136728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136107,7 +136739,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129186",
@@ -136170,7 +136803,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136180,7 +136813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136196,7 +136829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136207,7 +136840,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129187",
@@ -136270,7 +136904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136280,7 +136914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136296,7 +136930,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136307,7 +136941,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129188",
@@ -136370,7 +137005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136380,7 +137015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136396,7 +137031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136407,7 +137042,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129189",
@@ -136470,7 +137106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136480,7 +137116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136496,7 +137132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136507,7 +137143,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129190",
@@ -136570,7 +137207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136580,7 +137217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136596,7 +137233,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136607,7 +137244,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129191",
@@ -136670,7 +137308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136680,7 +137318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136696,7 +137334,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136707,7 +137345,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129192",
@@ -136770,7 +137409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136780,7 +137419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 27 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 27 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136796,7 +137435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 27"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136807,7 +137446,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129193",
@@ -136870,7 +137510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136880,7 +137520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136896,7 +137536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -136907,7 +137547,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129194",
@@ -136970,7 +137611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -136980,7 +137621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -136996,7 +137637,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137007,7 +137648,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129195",
@@ -137070,7 +137712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137080,7 +137722,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137096,7 +137738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137107,7 +137749,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129196",
@@ -137170,7 +137813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137180,7 +137823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137196,7 +137839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137207,7 +137850,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129197",
@@ -137270,7 +137914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137280,7 +137924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137296,7 +137940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137307,7 +137951,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129198",
@@ -137370,7 +138015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137380,7 +138025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137396,7 +138041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137407,7 +138052,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129199",
@@ -137470,7 +138116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137480,7 +138126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137496,7 +138142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137507,7 +138153,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129200",
@@ -137570,7 +138217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137580,7 +138227,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137596,7 +138243,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137607,7 +138254,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129201",
@@ -137670,7 +138318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137680,7 +138328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137696,7 +138344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137707,7 +138355,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129202",
@@ -137770,7 +138419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -137780,7 +138429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 28 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 28 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -137796,7 +138445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 28"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -137807,7 +138456,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "sport": "Ski",
@@ -138157,7 +138807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138167,7 +138817,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138183,7 +138833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138194,7 +138844,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129204",
@@ -138257,7 +138908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138267,7 +138918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138283,7 +138934,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138294,7 +138945,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129205",
@@ -138357,7 +139009,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138367,7 +139019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138383,7 +139035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138394,7 +139046,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129206",
@@ -138457,7 +139110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138467,7 +139120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138483,7 +139136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138494,7 +139147,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129207",
@@ -138557,7 +139211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138567,7 +139221,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138583,7 +139237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138594,7 +139248,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129208",
@@ -138657,7 +139312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138667,7 +139322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138683,7 +139338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138694,7 +139349,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129209",
@@ -138757,7 +139413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138767,7 +139423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138783,7 +139439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138794,7 +139450,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129210",
@@ -138857,7 +139514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138867,7 +139524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138883,7 +139540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138894,7 +139551,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129211",
@@ -138957,7 +139615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -138967,7 +139625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -138983,7 +139641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -138994,7 +139652,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129212",
@@ -139057,7 +139716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139067,7 +139726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 29 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 29 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139083,7 +139742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 29"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139094,7 +139753,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "sport": "Ski",
@@ -139218,7 +139878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139228,7 +139888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139244,7 +139904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139255,7 +139915,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129214",
@@ -139318,7 +139979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139328,7 +139989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139344,7 +140005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139355,7 +140016,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129215",
@@ -139418,7 +140080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139428,7 +140090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139444,7 +140106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139455,7 +140117,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129216",
@@ -139518,7 +140181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139528,7 +140191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139544,7 +140207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139555,7 +140218,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129217",
@@ -139618,7 +140282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139628,7 +140292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139644,7 +140308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139655,7 +140319,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129218",
@@ -139718,7 +140383,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139728,7 +140393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139744,7 +140409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139755,7 +140420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129219",
@@ -139818,7 +140484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139828,7 +140494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139844,7 +140510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139855,7 +140521,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129220",
@@ -139918,7 +140585,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -139928,7 +140595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -139944,7 +140611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -139955,7 +140622,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129221",
@@ -140018,7 +140686,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140028,7 +140696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140044,7 +140712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140055,7 +140723,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129222",
@@ -140118,7 +140787,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140128,7 +140797,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 30 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 30 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140144,7 +140813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 30"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140155,7 +140824,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129223",
@@ -140218,7 +140888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140228,7 +140898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140244,7 +140914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140255,7 +140925,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129224",
@@ -140318,7 +140989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140328,7 +140999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140344,7 +141015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140355,7 +141026,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129225",
@@ -140418,7 +141090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140428,7 +141100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140444,7 +141116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140455,7 +141127,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129226",
@@ -140518,7 +141191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140528,7 +141201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140544,7 +141217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140555,7 +141228,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129227",
@@ -140618,7 +141292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140628,7 +141302,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140644,7 +141318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140655,7 +141329,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129228",
@@ -140718,7 +141393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140728,7 +141403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140744,7 +141419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140755,7 +141430,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129229",
@@ -140818,7 +141494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140828,7 +141504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140844,7 +141520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140855,7 +141531,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129230",
@@ -140918,7 +141595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -140928,7 +141605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -140944,7 +141621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -140955,7 +141632,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129231",
@@ -141018,7 +141696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141028,7 +141706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141044,7 +141722,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141055,7 +141733,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129232",
@@ -141118,7 +141797,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141128,7 +141807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 31 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 31 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141144,7 +141823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 31"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141155,7 +141834,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129233",
@@ -141218,7 +141898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141228,7 +141908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141244,7 +141924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141255,7 +141935,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129234",
@@ -141318,7 +141999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141328,7 +142009,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141344,7 +142025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141355,7 +142036,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129235",
@@ -141418,7 +142100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141428,7 +142110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141444,7 +142126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141455,7 +142137,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129236",
@@ -141518,7 +142201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141528,7 +142211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141544,7 +142227,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141555,7 +142238,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129237",
@@ -141618,7 +142302,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141628,7 +142312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141644,7 +142328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141655,7 +142339,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129238",
@@ -141718,7 +142403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141728,7 +142413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141744,7 +142429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141755,7 +142440,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129239",
@@ -141818,7 +142504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141828,7 +142514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141844,7 +142530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141855,7 +142541,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129240",
@@ -141918,7 +142605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -141928,7 +142615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -141944,7 +142631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -141955,7 +142642,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129241",
@@ -142018,7 +142706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142028,7 +142716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142044,7 +142732,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142055,7 +142743,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129242",
@@ -142118,7 +142807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142128,7 +142817,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 32 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 32 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142144,7 +142833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 32"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142155,7 +142844,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129243",
@@ -142218,7 +142908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142228,7 +142918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142244,7 +142934,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142255,7 +142945,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129244",
@@ -142318,7 +143009,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142328,7 +143019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142344,7 +143035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142355,7 +143046,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129245",
@@ -142418,7 +143110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142428,7 +143120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142444,7 +143136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142455,7 +143147,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129246",
@@ -142518,7 +143211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142528,7 +143221,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142544,7 +143237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142555,7 +143248,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129247",
@@ -142618,7 +143312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142628,7 +143322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142644,7 +143338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142655,7 +143349,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129248",
@@ -142718,7 +143413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142728,7 +143423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142744,7 +143439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142755,7 +143450,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129249",
@@ -142818,7 +143514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142828,7 +143524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142844,7 +143540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142855,7 +143551,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129250",
@@ -142918,7 +143615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -142928,7 +143625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -142944,7 +143641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -142955,7 +143652,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129251",
@@ -143018,7 +143716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143028,7 +143726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143044,7 +143742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143055,7 +143753,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129252",
@@ -143118,7 +143817,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143128,7 +143827,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 33 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 33 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143144,7 +143843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 33"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143155,7 +143854,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129253",
@@ -143218,7 +143918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143228,7 +143928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143244,7 +143944,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143255,7 +143955,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129254",
@@ -143318,7 +144019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143328,7 +144029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143344,7 +144045,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143355,7 +144056,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129255",
@@ -143418,7 +144120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143428,7 +144130,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143444,7 +144146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143455,7 +144157,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129256",
@@ -143518,7 +144221,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143528,7 +144231,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143544,7 +144247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143555,7 +144258,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129257",
@@ -143618,7 +144322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143628,7 +144332,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143644,7 +144348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143655,7 +144359,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129258",
@@ -143718,7 +144423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143728,7 +144433,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143744,7 +144449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143755,7 +144460,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129259",
@@ -143818,7 +144524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143828,7 +144534,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143844,7 +144550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143855,7 +144561,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129260",
@@ -143918,7 +144625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -143928,7 +144635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -143944,7 +144651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -143955,7 +144662,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129261",
@@ -144018,7 +144726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144028,7 +144736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144044,7 +144752,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144055,7 +144763,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129262",
@@ -144118,7 +144827,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144128,7 +144837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 34 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 34 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144144,7 +144853,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 34"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144155,7 +144864,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129263",
@@ -144218,7 +144928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144228,7 +144938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144244,7 +144954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144255,7 +144965,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129264",
@@ -144318,7 +145029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144328,7 +145039,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144344,7 +145055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144355,7 +145066,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129265",
@@ -144418,7 +145130,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144428,7 +145140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144444,7 +145156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144455,7 +145167,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129266",
@@ -144518,7 +145231,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144528,7 +145241,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144544,7 +145257,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144555,7 +145268,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129267",
@@ -144618,7 +145332,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144628,7 +145342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144644,7 +145358,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144655,7 +145369,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129268",
@@ -144718,7 +145433,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144728,7 +145443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144744,7 +145459,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144755,7 +145470,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129269",
@@ -144818,7 +145534,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144828,7 +145544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144844,7 +145560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144855,7 +145571,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129270",
@@ -144918,7 +145635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -144928,7 +145645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -144944,7 +145661,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -144955,7 +145672,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129271",
@@ -145018,7 +145736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145028,7 +145746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145044,7 +145762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145055,7 +145773,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129272",
@@ -145118,7 +145837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145128,7 +145847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 35 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 35 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145144,7 +145863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 35"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145155,7 +145874,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129273",
@@ -145218,7 +145938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145228,7 +145948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145244,7 +145964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145255,7 +145975,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129274",
@@ -145318,7 +146039,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145328,7 +146049,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145344,7 +146065,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145355,7 +146076,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129275",
@@ -145418,7 +146140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145428,7 +146150,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145444,7 +146166,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145455,7 +146177,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129276",
@@ -145518,7 +146241,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145528,7 +146251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145544,7 +146267,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145555,7 +146278,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129277",
@@ -145618,7 +146342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145628,7 +146352,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145644,7 +146368,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145655,7 +146379,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129278",
@@ -145718,7 +146443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145728,7 +146453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145744,7 +146469,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145755,7 +146480,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129279",
@@ -145818,7 +146544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145828,7 +146554,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145844,7 +146570,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145855,7 +146581,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129280",
@@ -145918,7 +146645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -145928,7 +146655,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -145944,7 +146671,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -145955,7 +146682,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129281",
@@ -146018,7 +146746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146028,7 +146756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146044,7 +146772,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146055,7 +146783,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129282",
@@ -146118,7 +146847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146128,7 +146857,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 36 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 36 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146144,7 +146873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 36"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146155,7 +146884,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129283",
@@ -146218,7 +146948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Vitality Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146228,7 +146958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Bournemouth v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146244,7 +146974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146255,7 +146985,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129284",
@@ -146318,7 +147049,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Gtech Community Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146328,7 +147059,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brentford v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146344,7 +147075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146355,7 +147086,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129285",
@@ -146418,7 +147150,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "American Express Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146428,7 +147160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Brighton & Hove Albion v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146444,7 +147176,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146455,7 +147187,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129286",
@@ -146518,7 +147251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Hill Dickinson Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146528,7 +147261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Everton v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146544,7 +147277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146555,7 +147288,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129287",
@@ -146618,7 +147352,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Craven Cottage",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146628,7 +147362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Fulham v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146644,7 +147378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146655,7 +147389,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129288",
@@ -146718,7 +147453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Elland Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146728,7 +147463,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Leeds United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146744,7 +147479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146755,7 +147490,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129289",
@@ -146818,7 +147554,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Etihad Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146828,7 +147564,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146844,7 +147580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146855,7 +147591,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129290",
@@ -146918,7 +147655,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "St. James' Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -146928,7 +147665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Newcastle United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -146944,7 +147681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -146955,7 +147692,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129291",
@@ -147018,7 +147756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The City Ground",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147028,7 +147766,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Nottingham Forest v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147044,7 +147782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147055,7 +147793,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129292",
@@ -147118,7 +147857,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Tottenham Hotspur Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147128,7 +147867,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 37 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 37 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Tottenham Hotspur v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147144,7 +147883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 37"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147155,7 +147894,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129293",
@@ -147218,7 +147958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Emirates Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147228,7 +147968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Arsenal v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147244,7 +147984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147255,7 +147995,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129294",
@@ -147318,7 +148059,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Villa Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147328,7 +148069,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Aston Villa v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147344,7 +148085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147355,7 +148096,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129295",
@@ -147418,7 +148160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stamford Bridge",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147428,7 +148170,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Chelsea v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147444,7 +148186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147455,7 +148197,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129296",
@@ -147518,7 +148261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Coventry Building Society Arena",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147528,7 +148271,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Coventry City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147544,7 +148287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147555,7 +148298,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129297",
@@ -147618,7 +148362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Selhurst Park",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147628,7 +148372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Crystal Palace v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147644,7 +148388,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147655,7 +148399,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129298",
@@ -147718,7 +148463,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "The MKM Stadium",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147728,7 +148473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Hull City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147744,7 +148489,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147755,7 +148500,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129299",
@@ -147818,7 +148564,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Portman Road",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147828,7 +148574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Ipswich Town v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147844,7 +148590,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147855,7 +148601,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129300",
@@ -147918,7 +148665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Anfield",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -147928,7 +148675,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Liverpool v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -147944,7 +148691,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -147955,7 +148702,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129301",
@@ -148018,7 +148766,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Old Trafford",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -148028,7 +148776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Manchester United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -148044,7 +148792,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -148055,7 +148803,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "epl-2026-27-129302",
@@ -148118,7 +148867,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "venue": "Stadium of Light",
-    "scheduleStatus": "confirmed",
+    "scheduleStatus": "provisional",
     "status": "upcoming",
     "expected": 6,
     "liveWindow": 3,
@@ -148128,7 +148877,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 38 fixture, with the confirmed kick-off sourced from the official schedule.",
+    "selectedSentence": "Premier League Matchweek 38 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
     "fullSpiel": "Sunderland v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
@@ -148144,7 +148893,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Premier League Matchweek 38"
     ],
     "statusCheckedAt": "2026-09-30T12:54:10.417Z",
-    "timePrecision": "exact",
+    "timePrecision": "estimated",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -148155,7 +148904,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
   },
   {
     "id": "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027",

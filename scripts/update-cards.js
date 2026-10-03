@@ -402,6 +402,17 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--epl-timing-review')){
+    console.log(JSON.stringify(require('./lib/epl-kickoff-certainty').applyRetained()));
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=football'],['scripts/build-app-shell-runtime.js'],
+      ['scripts/validate-football-schedule.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-feed.js','data/events.json'],['scripts/validate-startup-budget.js'],
+    ])runStep(args);
+    console.log('Reviewed EPL scheduling certainty projected by the canonical owner; no provider refresh performed.');return;
+  }
   if(process.argv.includes('--european-football')){
     const result=await require('./refresh-openligadb-football').refresh();
     console.log(JSON.stringify({source:'OpenLigaDB',fixtures:result.payload.events.length,failures:result.failures,primaryFailures:result.primaryFailures}));

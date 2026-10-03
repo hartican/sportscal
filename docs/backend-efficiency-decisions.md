@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## EPL reviewed scheduling certainty — 4 October 2026
+
+The current EPL loader qualifies upcoming clocks against a small validated, dated official-notice register, reused by its full/quick/live paths. The existing shared overlay repeats that interpretation after merging old snapshots; the Feed/Match Centre and reminder catalogue keep their current reads and budgets. An exact identity/week/UTC match is required, and changed facts revert to approximate. Genuine source checks are preserved; the distinct timing-provenance date describes the announcement review.
+
+`update-cards.js --epl-timing-review --local-only` projects this retained-data repair through the existing owner without provider/AI calls. Ordinary refresh continues using that same qualification. Later announcement reviews belong in the existing Football acceptance work, not a parallel scheduler or owner-maintained checklist. No database mutation/migration, retry, automatic reminder replay, per-user source call or new recurring routine. Shell417 updates the corrected inline fallback; unchanged runtime/profile bytes retain their existing deferred ownership. [Evidence](quality/epl-kickoff-certainty-2026-10-04.md).
+
 ## Reminder intent/check erasure boundary — 4 October 2026
 
 The two later account-owned reminder tables use the existing private account-erasure write guard. Every affected insert/update shares the existing per-account transaction lock and indexed marker check; erasing accounts cannot admit new intent/check state. Remind OFF, peer state, Auth cascade, source clocks, existing RPCs and scheduler ownership remain. No new client request, poll, replay, column or grant. The existing release input adds one bounded read-only inventory RPC using its existing service credentials, so future unguarded Auth references fail before app deployment. Missing/stale/malformed evidence fails closed, with no retry or new job. This verifies direct guards, not full erasure. Independent issuer, transfer, external-copy and reconciliation gates remain mandatory. [Evidence and limits](quality/reminder-erasure-guards-2026-10-04.md).

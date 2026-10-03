@@ -143,7 +143,7 @@ function cardForFixture(fixture, checkedAt){
   if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
   const name = `${home.name} v ${away.name}`;
-  return {
+  return require('./lib/epl-kickoff-certainty').qualify({
     id: `epl-2026-27-${fixture.id}`,
     eventId: `epl-2026-27-${fixture.id}`,
     canonicalEventId: `event:premier-league:${fixture.id}`,
@@ -215,7 +215,7 @@ function cardForFixture(fixture, checkedAt){
       resultSourceUrl:OFFICIAL_MATCHES_URL,resultSourceCheckedAt:checkedAt,scoreCheckedAt:checkedAt,
       resultLabels: [`Premier League Matchweek ${gameweek}`, result.outcomeText],
     } : {}),
-  };
+  });
 }
 
 async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={}}={}){
