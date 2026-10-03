@@ -23,3 +23,6 @@ for(const folder of ['code-inspector','follow-schedule']){
  assert.equal(data.standings.length,92,'only the three reviewed Football tables enter this projection');
 }
 console.log('Football: 380 stable fixtures, 38 sourced matchweeks, dated 20-club table and unknown-round fallback passed.');
+
+// The published schedule and its existing primary/live source share one gate.
+require('./validate-premier-league-source-shape');

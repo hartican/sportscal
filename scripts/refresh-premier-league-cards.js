@@ -10,6 +10,7 @@ const SEASON_ID = 841;
 const PAGE_SIZE = 100;
 const EXPECTED_FIXTURE_COUNT = 380;
 const EXPECTED_TEAM_COUNT = 20;
+const EXPECTED_PAGE_COUNT = Math.ceil(EXPECTED_FIXTURE_COUNT / PAGE_SIZE);
 const STAN_SPORT_URL = "https://www.stan.com.au/watch/sport/football/premier-league";
 const STAN_RIGHTS_VERIFIED_AT = "2026-08-25T00:00:00.000Z";
 const SYDNEY_FORMATTER = new Intl.DateTimeFormat("en-CA", {
@@ -24,35 +25,65 @@ const SYDNEY_FORMATTER = new Intl.DateTimeFormat("en-CA", {
 
 function fetchJson(url){
   return new Promise((resolve, reject) => {
+    let deadline;
+    const fail = error => { clearTimeout(deadline); reject(error); };
     const request = https.get(url, { headers: { Origin: "https://www.premierleague.com" } }, response => {
       let body = "";
       response.setEncoding("utf8");
+      response.on("error", fail);
+      response.on("aborted", () => fail(new Error("Premier League fixture page ended before completion.")));
       response.on("data", chunk => { body += chunk; });
       response.on("end", () => {
+        clearTimeout(deadline);
         if (response.statusCode !== 200) return reject(new Error(`Premier League fixture service returned ${response.statusCode}.`));
         try { resolve(JSON.parse(body)); } catch (error) { reject(new Error(`Premier League fixture service returned invalid JSON: ${error.message}`)); }
       });
     });
     request.setTimeout(20_000, () => request.destroy(new Error("Premier League fixture service timed out.")));
-    request.on("error", reject);
+    request.on("error", fail);
+    // Socket inactivity alone permits an endlessly active response. Keep the
+    // existing 20-second duration as a fixed network deadline for each page.
+    deadline = setTimeout(() => request.destroy(new Error("Premier League fixture service exceeded its 20-second deadline.")), 20_000);
+    deadline.unref?.();
   });
+}
+
+function validateFixturePage(payload, page){
+  const info = payload?.pageInfo;
+  const expectedSize = Math.min(PAGE_SIZE, EXPECTED_FIXTURE_COUNT - page * PAGE_SIZE);
+  if (!info || info.page !== page || info.pageSize !== PAGE_SIZE || info.numPages !== EXPECTED_PAGE_COUNT || info.numEntries !== EXPECTED_FIXTURE_COUNT || !Array.isArray(payload.content) || payload.content.length !== expectedSize) {
+    throw new Error(`Premier League fixture page ${page} failed validation: expected a consistent ${EXPECTED_PAGE_COUNT}-page, ${EXPECTED_FIXTURE_COUNT}-fixture collection with ${expectedSize} records on this page.`);
+  }
+}
+
+function validateFixtureCollection(fixtures){
+  const fixtureIds = new Set(), teamIds = new Set(), gameweeks = new Set(), pairs = new Set();
+  for (const fixture of fixtures){
+    const week = fixture?.gameweek;
+    if (week?.compSeason?.id !== SEASON_ID || week.compSeason?.competition?.id !== COMPETITION_ID) throw new Error("Premier League fixture has the wrong competition or season.");
+    if (!Number.isSafeInteger(week.gameweek) || week.gameweek < 1 || week.gameweek > 38) throw new Error("Premier League fixture has an invalid matchweek.");
+    if (!Number.isSafeInteger(fixture.id) || fixture.id <= 0 || fixtureIds.has(fixture.id)) throw new Error("Premier League fixture identity is invalid or duplicated.");
+    if (!Array.isArray(fixture.teams) || fixture.teams.length !== 2) throw new Error("Premier League fixture requires exactly two clubs.");
+    const [home, away] = fixture.teams.map(entry => entry?.team?.club?.id || entry?.team?.id);
+    if (![home, away].every(id => Number.isSafeInteger(id) && id > 0) || home === away) throw new Error("Premier League fixture has an invalid club identity or self match.");
+    const pair = `${home}:${away}`;
+    if (pairs.has(pair)) throw new Error("Premier League fixture collection has a duplicate home/away pairing.");
+    fixtureIds.add(fixture.id);teamIds.add(home);teamIds.add(away);gameweeks.add(week.gameweek);pairs.add(pair);
+  }
+  if (fixtures.length !== EXPECTED_FIXTURE_COUNT || fixtureIds.size !== EXPECTED_FIXTURE_COUNT || teamIds.size !== EXPECTED_TEAM_COUNT || gameweeks.size !== 38 || pairs.size !== EXPECTED_FIXTURE_COUNT) {
+    throw new Error(`Premier League fixture refresh failed closed: expected ${EXPECTED_FIXTURE_COUNT} unique fixtures and directed pairings across ${EXPECTED_TEAM_COUNT} clubs and 38 matchweeks; received ${fixtures.length} fixtures, ${fixtureIds.size} identities, ${teamIds.size} clubs, ${gameweeks.size} matchweeks and ${pairs.size} pairings.`);
+  }
 }
 
 async function loadFixtures(){
   const pages = [];
-  for (let page = 0; ; page += 1){
+  for (let page = 0; page < EXPECTED_PAGE_COUNT; page += 1){
     const query = new URLSearchParams({ comps: String(COMPETITION_ID), comp: String(COMPETITION_ID), compSeasons: String(SEASON_ID), page: String(page), pageSize: String(PAGE_SIZE), altIds: "true" });
     const payload = await fetchJson(`${PULSE_FIXTURES_URL}?${query}`);
-    if (!Array.isArray(payload.content)) throw new Error("Premier League fixture service returned no fixture collection.");
+    validateFixturePage(payload, page);
     pages.push(...payload.content);
-    if (page + 1 >= Number(payload.pageInfo?.numPages || 0)) break;
   }
-  const fixtureIds = new Set(pages.map(fixture => fixture?.id).filter(Boolean));
-  const teamIds = new Set(pages.flatMap(fixture => fixture?.teams || []).map(entry => entry?.team?.club?.id || entry?.team?.id).filter(Boolean));
-  const gameweeks = new Set(pages.map(fixture => fixture?.gameweek?.gameweek).filter(Number.isInteger));
-  if (pages.length !== EXPECTED_FIXTURE_COUNT || fixtureIds.size !== EXPECTED_FIXTURE_COUNT || teamIds.size !== EXPECTED_TEAM_COUNT || gameweeks.size !== 38) {
-    throw new Error(`Premier League fixture refresh failed closed: expected ${EXPECTED_FIXTURE_COUNT} unique fixtures across ${EXPECTED_TEAM_COUNT} clubs and 38 gameweeks; received ${pages.length} fixtures, ${fixtureIds.size} unique fixtures, ${teamIds.size} clubs and ${gameweeks.size} gameweeks.`);
-  }
+  validateFixtureCollection(pages);
   return pages;
 }
 
@@ -213,4 +244,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { loadCards, cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime };
+module.exports = { loadCards, cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime, validateFixtureCollection, validateFixturePage };
