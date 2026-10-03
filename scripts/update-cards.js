@@ -126,6 +126,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-sailgp-calendar.js"],
   ["scripts/refresh-wsl-calendar.js"],
   ["scripts/refresh-grand-tour-calendars.js"],
+  ["scripts/refresh-lemans-calendar.js"],
   ["scripts/refresh-dakar-calendars.js"],
   ["scripts/refresh-golf-major-calendars.js"],
   ["scripts/refresh-nbl-schedule.js"],
@@ -276,6 +277,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-sailgp-calendar.js", "--published"],
   ["scripts/validate-wsl-calendar.js", "--published"],
   ["scripts/validate-grand-tour-calendars.js", "--published"],
+  ["scripts/validate-lemans-calendar.js", "--published"],
   ["scripts/validate-dakar-calendars.js", "--published"],
   ["scripts/validate-golf-major-calendars.js", "--published"],
   ["scripts/validate-adaptive-follow-grid.js"],
@@ -451,6 +453,11 @@ async function runMain() {
       ['scripts/validate-golf-source-observations.js']
     ])runStep(step);
     console.log('Golf quality projections rebuilt through canonical owner from retained facts; no sporting source refresh, scheduler or release performed.');return;
+  }
+  if(process.argv.includes('--lemans-venues')){
+    for(const step of [["scripts/refresh-lemans-calendar.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--lemans-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--lemans-only"], ["scripts/apply-reviewed-wrc-withdrawal.js"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=lemans,motorsport,wrc"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-lemans-calendar.js", "--published"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Published Le Mans programme and reviewed WRC withdrawal complete through canonical owner.');return;
   }
   if(process.argv.includes('--dakar-venues')){
     for(const step of [["scripts/refresh-dakar-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--dakar-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--dakar-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=dakar,motorsport"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-dakar-calendars.js", "--published"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);

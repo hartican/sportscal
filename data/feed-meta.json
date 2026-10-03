@@ -1,14 +1,13 @@
 {
-  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538",
+  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-02T22:46:35.538Z",
+  "publishedAt": "2026-10-03T00:04:24.160Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
     "nfl",
     "motogp",
     "nba",
-    "lemans",
     "fifa",
     "wimbledon",
     "rugby",
@@ -35,12 +34,13 @@
     "vuelta",
     "golf",
     "masters",
-    "dakar"
+    "dakar",
+    "lemans"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-02",
+    "basisDate": "2026-10-03",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -48,7 +48,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-01",
-    "daysAhead": 364,
+    "daysAhead": 363,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -70,11 +70,6 @@
         "count": 172,
         "firstEventDate": "2026-06-04",
         "lastEventDate": "2027-02-14"
-      },
-      "lemans": {
-        "count": 2,
-        "firstEventDate": "2026-06-13",
-        "lastEventDate": "2026-06-14"
       },
       "fifa": {
         "count": 20,
@@ -210,6 +205,11 @@
         "count": 28,
         "firstEventDate": "2026-01-03",
         "lastEventDate": "2027-01-15"
+      },
+      "lemans": {
+        "count": 26,
+        "firstEventDate": "2026-06-10",
+        "lastEventDate": "2027-06-14"
       }
     }
   }

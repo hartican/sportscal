@@ -46,6 +46,7 @@ function retainedEvents(source){
         ? firstDate.localeCompare(secondDate)
         : secondDate.localeCompare(firstDate);
       return dateOrder
+        || (first.lemansCalendar&&second.lemansCalendar?first.sessionOrder-second.sessionOrder:0)
         || String(first.time || "23:59").localeCompare(String(second.time || "23:59"))
         || stableEventId(first).localeCompare(stableEventId(second));
     });

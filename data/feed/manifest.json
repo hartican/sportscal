@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "editorial-publication-20261002220046047-20261002221452379-20261002224635538",
-  "sourcePublishedAt": "2026-10-02T22:46:35.538Z",
+  "sourceVersion": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160",
+  "sourcePublishedAt": "2026-10-03T00:04:24.160Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 1412,
-  "eventCount": 834,
+  "inputEventCount": 1436,
+  "eventCount": 847,
   "pages": [
     {
       "index": 0,
@@ -257,48 +257,55 @@
       "path": "data/feed/page-036.json",
       "eventCount": 20,
       "firstEventId": "event:premier-league:129297",
-      "lastEventId": "event:tdf:2027:stage-1"
+      "lastEventId": "event:motogp:2027:catalunya:race"
     },
     {
       "index": 36,
       "path": "data/feed/page-037.json",
       "eventCount": 20,
-      "firstEventId": "event:tdf:2027:stage-2",
-      "lastEventId": "event:sailgp:2027:sassnitz-day-1"
+      "firstEventId": "event:motogp:2027:catalunya:sprint",
+      "lastEventId": "event:golf:the-open-2027"
     },
     {
       "index": 37,
       "path": "data/feed/page-038.json",
       "eventCount": 20,
-      "firstEventId": "event:sailgp:2027:sassnitz-day-2",
-      "lastEventId": "event:f1:2026:bahrain:practice-1"
+      "firstEventId": "event:golf:the-open-2027:round-1",
+      "lastEventId": "event:motogp:2027:san-marino:qualifying"
     },
     {
       "index": 38,
       "path": "data/feed/page-039.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2026:japan:practice",
-      "lastEventId": "rugby-australia-south-africa-2026-09-27"
+      "firstEventId": "event:motogp:2027:san-marino:race",
+      "lastEventId": "event:aflw:cd_m20262640801"
     },
     {
       "index": 39,
       "path": "data/feed/page-040.json",
       "eventCount": 20,
-      "firstEventId": "event:afl:cd_m20260142901",
-      "lastEventId": "event:nbl:2026-27:36e7aa3c-58ad-11f1-b88d-1138b8cb68ba"
+      "firstEventId": "event:nbl:2026-27:36f713cb-58ad-11f1-b8d2-f1316c48f9c2",
+      "lastEventId": "event:aflw:cd_m20262640704"
     },
     {
       "index": 40,
       "path": "data/feed/page-041.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128967",
-      "lastEventId": "event:premier-league:128964"
+      "firstEventId": "event:f1:2026:azerbaijan:practice-3",
+      "lastEventId": "event:aflw:cd_m20262640606"
     },
     {
       "index": 41,
       "path": "data/feed/page-042.json",
-      "eventCount": 14,
-      "firstEventId": "event:aflw:cd_m20262640602",
+      "eventCount": 20,
+      "firstEventId": "event:aflw:cd_m20262640607",
+      "lastEventId": "event:motogp:2026:austria:qualifying"
+    },
+    {
+      "index": 42,
+      "path": "data/feed/page-043.json",
+      "eventCount": 7,
+      "firstEventId": "event:nbl:2026-27:36dbeb55-58ad-11f1-a69b-43a6b5595d3e",
       "lastEventId": "event:sailgp:2026:geneva-day-1"
     }
   ]

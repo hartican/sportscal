@@ -75,7 +75,7 @@ assert(stormHunter?.participantIds?.includes("athlete:tennis:storm-hunter") && s
   "Storm Hunter must remain a typed tennis athlete under the US Open identity");
 assert.equal(stormMark?.id, "brand:us-open", "an Event-derived Storm Hunter fixture must render the tournament mark");
 const leMans = (publishedFeed.events || []).filter(event => /24 Hours of Le Mans/i.test(event.name || ""));
-assert(leMans.length === 2 && leMans.every(event => event.competitionId === "competition:fia-wec" && event.identityRef === "event:le-mans" && Number(event.publishedDurationHours) === 24),
+assert(leMans.length === 26 && leMans.every(event => event.competitionId === "competition:fia-wec" && event.identityRef === "event:le-mans") && ["evt_79","evt_80"].every(id=>leMans.some(event=>event.id===id&&Number(event.publishedDurationHours)===24)),
   "24 Hours of Le Mans cards must remain endurance/WEC fixtures with their published duration");
 assert(leMans.every(event => cardIdentities.markForEvent(event)?.id === "brand:le-mans-24-hours"),
   "Le Mans cards must render the official event identity rather than Formula 1");

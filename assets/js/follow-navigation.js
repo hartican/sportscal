@@ -33,18 +33,20 @@
   for(const [label,action]of [['Clear filters',()=>{filters[code]={};persist();windows.delete(code);dialog.close();renderFollowView();}],['Apply',()=>{filters[code]=draft;persist();windows.delete(code);dialog.close();renderFollowView();}],['Cancel',()=>dialog.close()]]){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.onclick=action;actions.append(b);}dialog.append(actions);dialog.onclose=()=>dialog.remove();document.body.append(dialog);dialog.showModal();
  }
  function mount(container,entity,state){
-  if(['sport:motogp','sport:wrc','sport:sailgp','sport:wsl','sport:tdf','sport:giro','sport:vuelta','sport:dakar'].includes(entity.id)){
-   const key=entity.id.slice(6);
+  const leMans=followInspectorCode(entity)?.id==='competition:le-mans';
+  if(['sport:motogp','sport:wrc','sport:sailgp','sport:wsl','sport:tdf','sport:giro','sport:vuelta','sport:dakar'].includes(entity.id)||leMans){
+   const key=leMans?'lemans':entity.id.slice(6);
    const heading=container.querySelector(':scope > h2');
    if(heading){
+    if(leMans)heading.textContent='24 Hours of Le Mans';
     heading.style.cssText='display:flex;align-items:center;gap:8px';
     const mark=document.createElement('span');mark.className='follow-sport-mark identity-frame';mark.setAttribute('aria-hidden','true');
-    renderEventIdentityMark(mark,{key},{...sportMetaForEvent({key}),glyph:key==='motogp'?'sport:motorcycle':key==='sailgp'?'sport:sailing':key==='wsl'?'sport:surf':['tdf','giro','vuelta'].includes(key)?'sport:cycling':'sport:motorsport'});heading.prepend(mark);
+    renderEventIdentityMark(mark,{key,...(leMans?{identityRef:"event:le-mans"}:{})},{...sportMetaForEvent({key}),glyph:key==='motogp'?'sport:motorcycle':key==='sailgp'?'sport:sailing':key==='wsl'?'sport:surf':['tdf','giro','vuelta'].includes(key)?'sport:cycling':'sport:motorsport'});heading.prepend(mark);
    }
   }
   const nav=document.createElement('div');nav.className='follow-navigation';const spacer=document.createElement('div');spacer.className='follow-navigation-spacer';spacer.setAttribute('aria-hidden','true');
   const compact=document.createElement('div');compact.className='follow-navigation-compact';
-  const label=document.createElement('span');label.textContent=`${entity.label} · ${state.section==='teams-players'?'Teams & players':state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;
+  const label=document.createElement('span');label.textContent=`${leMans?'24 Hours of Le Mans':entity.label} · ${state.section==='teams-players'?'Teams & players':state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-navigation-toggle';toggle.setAttribute('aria-controls','follow-navigation-controls');
   const controls=document.createElement('div');controls.id='follow-navigation-controls';
   while(container.firstChild)controls.append(container.firstChild);

@@ -4,6 +4,10 @@
 // the verified artwork ID; older cached projections safely use the fallback.
 const motogp=typeof module!=="undefined"&&module.exports?Object.freeze(Object.fromEntries(require('../assets/identities/motogp/asset-manifest.json').assets.filter(a=>a.mappingStatus==='verified-venue').map(a=>[a.venueConfigurationId,a.id]))):null;
 function resolve(event){
+ if(event.key==='lemans'){
+  const verified=event.venueConfigurationVerified===true&&event.venueConfigurationId==='le-mans:circuit-de-la-sarthe:full'&&event.venueArtworkId==='sarthe-white';
+  return verified?{path:'assets/identities/lemans/sarthe-white.svg',kind:'venue',label:'Circuit de la Sarthe • full 13.626 km Le Mans configuration'}:{path:'assets/identities/wrc/helmet-white.svg',kind:'fallback',label:'Motorsport glyph; verified Le Mans circuit geometry unavailable'};
+ }
  if(event.key==='dakar'){
   const season=String(event.season||'');
   const verified=event.isEditionOverview===true&&event.editionGeometryVerified===true&&['2026','2027'].includes(season)&&event.editionArtworkId===`dakar-${season}`;

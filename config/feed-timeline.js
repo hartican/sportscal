@@ -18,7 +18,7 @@
     const start=calendar.eventStart(event);
     return start && +start<=+now?'past':'upcoming';
   }
-  function compare(a,b){return +(calendar.eventStart(a)||new Date(`${a.date || a.startDate}T00:00:00Z`)) - +(calendar.eventStart(b)||new Date(`${b.date || b.startDate}T00:00:00Z`)) || calendar.idFor(a).localeCompare(calendar.idFor(b));}
+  function compare(a,b){return +(calendar.eventStart(a)||new Date(`${a.date || a.startDate}T00:00:00Z`)) - +(calendar.eventStart(b)||new Date(`${b.date || b.startDate}T00:00:00Z`)) || (a.lemansCalendar&&b.lemansCalendar?a.sessionOrder-b.sessionOrder:0) || calendar.idFor(a).localeCompare(calendar.idFor(b));}
   function normalizedStatus(event,now=new Date()){
     // Keep authoritative states across repeated browser normalisation. In
     // particular, completed follows-time matches have no exact start to infer.

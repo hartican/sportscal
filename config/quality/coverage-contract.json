@@ -8,7 +8,7 @@
   "families": [
     {"id":"australian-rules","codes":["afl","aflw"],"carried":true},
     {"id":"rugby-league","codes":["nrl","nrlw"],"carried":true},
-    {"id":"motorsport","codes":["motorsport","supercars","wrc","f1","motogp","dakar"],"carried":true},
+    {"id":"motorsport","codes":["motorsport","supercars","wrc","f1","motogp","dakar","lemans"],"carried":true},
     {"id":"extreme","codes":["extreme"],"carried":false},
     {"id":"surfing","codes":["surf","wsl"],"carried":true,"note":"Reviewed WSL child belongs to the existing Surfing family; calendar coverage does not certify heats, results, viewing or rights."},
     {"id":"rugby-union","codes":["rugby-union"],"carried":true},

@@ -56,6 +56,7 @@ const CODE_KEYS = Object.freeze({
   "sport:nbl": ["nbl"],
   "competition:motogp": ["motogp"],
   "competition:dakar": ["dakar"],
+  "competition:le-mans": ["lemans"],
   "competition:sailgp": ["sailgp"],
   "competition:wsl-championship-tour": ["wsl"],
   "competition:fiba-womens-world-cup": ["fiba-women"],
@@ -256,7 +257,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['estimatedStartTimeUtc','lemansCalendar','sessionOrder','dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -398,6 +399,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
   return Array.from(fixtures.values()).filter(e=>require('../config/cricket-coverage').allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id))).sort((first, second) => (
     String(first.date || first.schedulingWindow?.startsOn || "9999-12-31")
       .localeCompare(String(second.date || second.schedulingWindow?.startsOn || "9999-12-31"))
+    || (first.lemansCalendar&&second.lemansCalendar?first.sessionOrder-second.sessionOrder:0)
     || String(first.time || "23:59").localeCompare(String(second.time || "23:59"))
     || first.id.localeCompare(second.id)
   ));
@@ -496,6 +498,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const requestedCompetitionCodes = [
     ...["tour-de-france","giro-ditalia","vuelta-a-espana"].map(slug=>({...taxonomy.competitions.find(c=>c.id==="competition:"+slug),parentSportId:"sport:cycling"})),
     {id:"competition:wsl-championship-tour",slug:"wsl",name:"WSL",parentSportId:"sport:surf"},
+    {id:"competition:le-mans",slug:"lemans",name:"24 Hours of Le Mans",parentSportId:"sport:motorsport"},
     {id:"competition:dakar",slug:"dakar",name:"Dakar Rally",parentSportId:"sport:motorsport"},
     { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
     { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },

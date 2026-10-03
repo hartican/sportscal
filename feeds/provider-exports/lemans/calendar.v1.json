@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "lemans-reviewed-calendar.v1",
+  "checkedAt": "2026-10-02T22:55:46.806913+00:00",
+  "editions": [
+    {
+      "year": 2026,
+      "name": "24 Hours of Le Mans 2026",
+      "date": "2026-06-10",
+      "endDate": "2026-06-14",
+      "sourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+      "status": "completed",
+      "sessions": [
+        {
+          "slug": "freepractice1",
+          "name": "Free Practice 1",
+          "sessionType": "practice",
+          "localDate": "2026-06-10",
+          "localStart": "2026-06-10T14:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#FreePractice1"
+        },
+        {
+          "slug": "qualifyinglmp2-lmgt3",
+          "name": "Qualifying - LMP2 & LMGT3",
+          "sessionType": "qualifying",
+          "localDate": "2026-06-10",
+          "localStart": "2026-06-10T18:45:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#QualifyingLMP2&LMGT3"
+        },
+        {
+          "slug": "qualifyinghypercar",
+          "name": "Qualifying - HYPERCAR",
+          "sessionType": "qualifying",
+          "localDate": "2026-06-10",
+          "localStart": "2026-06-10T19:30:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#QualifyingHYPERCAR"
+        },
+        {
+          "slug": "freepractice2",
+          "name": "Free Practice 2",
+          "sessionType": "practice",
+          "localDate": "2026-06-10",
+          "localStart": "2026-06-10T22:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#FreePractice2"
+        },
+        {
+          "slug": "freepractice3",
+          "name": "Free Practice 3",
+          "sessionType": "practice",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T14:45:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#FreePractice3"
+        },
+        {
+          "slug": "hyperpole1lmp2-lmgt3",
+          "name": "Hyperpole 1 - LMP2 & LMGT3",
+          "sessionType": "hyperpole",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T20:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Hyperpole1LMP2&LMGT3"
+        },
+        {
+          "slug": "hyperpole2lmp2-lmgt3",
+          "name": "Hyperpole 2 - LMP2 & LMGT3",
+          "sessionType": "hyperpole",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T20:35:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Hyperpole2LMP2&LMGT3"
+        },
+        {
+          "slug": "hyperpole1hypercar",
+          "name": "Hyperpole 1 - HYPERCAR",
+          "sessionType": "hyperpole",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T21:05:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Hyperpole1HYPERCAR"
+        },
+        {
+          "slug": "hyperpole2hypercar",
+          "name": "Hyperpole 2 - HYPERCAR",
+          "sessionType": "hyperpole",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T21:40:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Hyperpole2HYPERCAR"
+        },
+        {
+          "slug": "freepractice4",
+          "name": "Free Practice 4",
+          "sessionType": "practice",
+          "localDate": "2026-06-11",
+          "localStart": "2026-06-11T23:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#FreePractice4"
+        },
+        {
+          "slug": "warmup",
+          "name": "Warm-up",
+          "sessionType": "warm-up",
+          "localDate": "2026-06-13",
+          "localStart": "2026-06-13T12:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Warmup"
+        },
+        {
+          "slug": "start",
+          "name": "Start",
+          "sessionType": "race-start",
+          "localDate": "2026-06-13",
+          "localStart": "2026-06-13T16:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Race"
+        },
+        {
+          "slug": "finish",
+          "name": "Finish",
+          "sessionType": "race-finish",
+          "localDate": "2026-06-14",
+          "timePrecision": "estimated",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2026#Race",
+          "endTimeBasis": "24-hour race duration from confirmed start; not a separate official finish clock",
+          "estimatedLocalStart": "2026-06-14T16:00:00+02:00",
+          "localStart": null,
+          "timingNote": "Approximate finish from the published race start plus 24 hours. Not a separately confirmed finish clock."
+        }
+      ],
+      "completePublishedProgramme": true,
+      "limitations": [
+        "FIA WEC published session dates; additional ceremonies or support races are not inferred.",
+        "Future TBC text overrides noon placeholders in structured metadata.",
+        "ICS UTC labels conflict with the explicit +02:00 webpage times and are not used."
+      ]
+    },
+    {
+      "year": 2027,
+      "name": "24 Hours of Le Mans 2027",
+      "date": "2027-06-06",
+      "endDate": "2027-06-13",
+      "sourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+      "status": "upcoming",
+      "sessions": [
+        {
+          "slug": "freepractice1",
+          "name": "Free Practice 1",
+          "sessionType": "practice",
+          "localDate": "2027-06-06",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#FreePractice1"
+        },
+        {
+          "slug": "freepractice2",
+          "name": "Free Practice 2",
+          "sessionType": "practice",
+          "localDate": "2027-06-06",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#FreePractice2"
+        },
+        {
+          "slug": "freepractice3",
+          "name": "Free Practice 3",
+          "sessionType": "practice",
+          "localDate": "2027-06-09",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#FreePractice3"
+        },
+        {
+          "slug": "qualifyinglmp2-lmgt3",
+          "name": "Qualifying - LMP2 & LMGT3",
+          "sessionType": "qualifying",
+          "localDate": "2027-06-09",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#QualifyingLMP2&LMGT3"
+        },
+        {
+          "slug": "qualifyinghypercar",
+          "name": "Qualifying - HYPERCAR",
+          "sessionType": "qualifying",
+          "localDate": "2027-06-09",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#QualifyingHYPERCAR"
+        },
+        {
+          "slug": "freepractice4",
+          "name": "Free Practice 4",
+          "sessionType": "practice",
+          "localDate": "2027-06-10",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#FreePractice4"
+        },
+        {
+          "slug": "hyperpole1hypercar",
+          "name": "Hyperpole 1 - HYPERCAR",
+          "sessionType": "hyperpole",
+          "localDate": "2027-06-10",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Hyperpole1HYPERCAR"
+        },
+        {
+          "slug": "hyperpole1lmp2-lmgt3",
+          "name": "Hyperpole 1 - LMP2 & LMGT3",
+          "sessionType": "hyperpole",
+          "localDate": "2027-06-10",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Hyperpole1LMP2&LMGT3"
+        },
+        {
+          "slug": "hyperpole2hypercar",
+          "name": "Hyperpole 2 - HYPERCAR",
+          "sessionType": "hyperpole",
+          "localDate": "2027-06-10",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Hyperpole2HYPERCAR"
+        },
+        {
+          "slug": "hyperpole2lmp2-lmgt3",
+          "name": "Hyperpole 2 - LMP2 & LMGT3",
+          "sessionType": "hyperpole",
+          "localDate": "2027-06-10",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Hyperpole2LMP2&LMGT3"
+        },
+        {
+          "slug": "warmup",
+          "name": "Warm-up",
+          "sessionType": "warm-up",
+          "localDate": "2027-06-12",
+          "localStart": null,
+          "timePrecision": "date-only",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Warmup"
+        },
+        {
+          "slug": "start",
+          "name": "Start",
+          "sessionType": "race-start",
+          "localDate": "2027-06-12",
+          "localStart": "2027-06-12T16:00:00+02:00",
+          "timePrecision": "exact",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Race"
+        },
+        {
+          "slug": "finish",
+          "name": "Finish",
+          "sessionType": "race-finish",
+          "localDate": "2027-06-13",
+          "timePrecision": "estimated",
+          "timingSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+          "sourceSessionId": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027#Race",
+          "endTimeBasis": "24-hour race duration from confirmed start; not a separate official finish clock",
+          "estimatedLocalStart": "2027-06-13T16:00:00+02:00",
+          "localStart": null,
+          "timingNote": "Approximate finish from the published race start plus 24 hours. Not a separately confirmed finish clock."
+        }
+      ],
+      "completePublishedProgramme": true,
+      "limitations": [
+        "FIA WEC published session dates; additional ceremonies or support races are not inferred.",
+        "Future TBC text overrides noon placeholders in structured metadata.",
+        "ICS UTC labels conflict with the explicit +02:00 webpage times and are not used."
+      ]
+    }
+  ]
+}

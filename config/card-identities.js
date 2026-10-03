@@ -573,6 +573,7 @@
     "competition:afl:premiership": eventMarks.afl,
     "competition:nrl:premiership": eventMarks.nrl,
     "competition:fia-wec": eventMarks["le-mans"],
+    "competition:le-mans": eventMarks["le-mans"],
   });
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
   function cricketOrganisationMarkForEvent(event){

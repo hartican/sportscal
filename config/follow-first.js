@@ -595,7 +595,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl","tdf","giro","vuelta","dakar"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(event.lemansCalendar===true&&(next.followFirst.followedMajorEventIds||[]).includes('le-mans-24-hours')) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl","tdf","giro","vuelta","dakar"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
@@ -814,7 +814,7 @@
   }
 
   function viewingOptions(event, selectedProviderIds = []){
-    if((event?.grandTourCalendar===true||event?.golfMajorCalendar===true||event?.dakarCalendar===true)&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
+    if((event?.grandTourCalendar===true||event?.golfMajorCalendar===true||event?.dakarCalendar===true||event?.lemansCalendar===true)&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
     // Official draw lists these as separate broadcast and streaming services.
     // Match stable fixture identities, never every match in the competition.

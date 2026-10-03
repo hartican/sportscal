@@ -28,9 +28,9 @@ globalThis.renderFollowSchedulePanel=function(container){
   const grouped = new Map();
   // Programme dates order the calendar; they never become match kickoffs.
   const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
-  const eventGroup=f=>f.tournamentId||(f.dakarCalendar?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
+  const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
-  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','competition:dakar'].includes(code.id);
+  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','competition:dakar','competition:le-mans'].includes(code.id);
   const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
@@ -40,6 +40,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   });
   grouped.forEach(group => group.sort((first, second) => (
     String(sortDate(first)).localeCompare(String(sortDate(second)))
+    || (first.lemansCalendar&&second.lemansCalendar?first.sessionOrder-second.sessionOrder:0)
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));

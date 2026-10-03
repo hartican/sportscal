@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-02T22:46:35.538Z",
+  "generatedAt": "2026-10-03T00:04:24.160Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -69,11 +69,11 @@
       "id": "sport:motorsport",
       "slug": "motorsport",
       "label": "Motorsport",
-      "fixtureCount": 115,
+      "fixtureCount": 139,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T22:46:35.538Z",
+      "freshAt": "2026-10-03T00:04:24.160Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -383,6 +383,19 @@
       "freshAt": "2026-10-02T19:14:39.205Z",
       "parentSportId": "sport:surf",
       "chunkPath": "data/code-inspector/wsl.json"
+    },
+    {
+      "followSchedulePath": "data/follow-schedule/lemans.json",
+      "id": "competition:le-mans",
+      "slug": "lemans",
+      "label": "24 Hours of Le Mans",
+      "fixtureCount": 26,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-03T00:04:24.160Z",
+      "parentSportId": "sport:motorsport",
+      "chunkPath": "data/code-inspector/lemans.json"
     },
     {
       "followSchedulePath": "data/follow-schedule/dakar.json",

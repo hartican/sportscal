@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="396">
+<meta name="app-shell-version" content="397">
 <meta name="athletes-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=396" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=397" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6981,6 +6981,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
     <a href="/terms.html">Terms &amp; Conditions</a>
   </nav>
   <p class="asset-attribution wrc-attribution">WRC route: <a href="https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf" target="_blank" rel="noopener noreferrer">Rally Italia Sardegna / ACI</a>. Fallback: Sporticon (Apache 2.0). Full credits in About.</p>
+<p class="asset-attribution lemans-attribution">Circuit de la Sarthe outline: <a href="https://www.fiawec.com/en/race/24-hours-of-le-mans-2027" target="_blank" rel="noopener noreferrer">FIA WEC / ACO</a>, traced from the official centreline to transparent white SVG paths; background and legend removed. Complete Le Mans mark: <a href="https://www.24h-lemans.com/en/news/the-24-hours-of-le-mans-reveals-a-new-brand-identity-60525" target="_blank" rel="noopener noreferrer">24 Hours of Le Mans / ACO</a>. Original rights and trademarks retained; editorial identification. Motorsport fallback by <a href="https://github.com/ookamiinc/sporticon" target="_blank" rel="noopener noreferrer">ookami / Sporticon contributors</a> under Apache 2.0.</p>
 <p class="asset-attribution dakar-attribution">Rally raid glyph by <a href="https://www.flaticon.com/free-icon/off-road_2054939" target="_blank" rel="noopener noreferrer">Freepik from Flaticon</a>, traced, cropped and recoloured white under the <a href="https://www.flaticon.com/media/license/license.pdf" target="_blank" rel="noopener noreferrer">Flaticon attribution licence</a>. Edition routes and full Dakar mark: <a href="https://www.dakar.com/en/overall-route?iframe=true" target="_blank" rel="noopener noreferrer">Dakar / ASO</a>; routes extracted from official edition maps, with backgrounds, labels and legends removed. Original rights and trademarks retained; editorial identification.</p>
 <p class="asset-attribution golf-attribution">Golf glyph by <a href="https://www.flaticon.com/free-icon/golf_5147640" target="_blank" rel="noopener noreferrer">Plastic Donut from Flaticon</a>, vector traced, cropped and recoloured white under the <a href="https://www.flaticon.com/media/license/license.pdf" target="_blank" rel="noopener noreferrer">Flaticon attribution licence</a>. Aronimink fairway layout adapted from the <a href="https://pgachampionship.brightspotcdn.com/14/91/0989bdc24837a8cc1c33c7b1fe29/26-ch-course-map-spectator-guide-1.pdf" target="_blank" rel="noopener noreferrer">PGA of America’s 2026 spectator map</a>; background, amenities and practice areas removed, fairways simplified. Marks: <a href="https://commons.wikimedia.org/wiki/File:Masters_Tournament.svg" target="_blank" rel="noopener noreferrer">The Masters / Wikimedia Commons</a>, <a href="https://www.pgachampionship.com/tickets" target="_blank" rel="noopener noreferrer">PGA of America</a>, and <a href="https://www.theopen.com/st-andrews-2027" target="_blank" rel="noopener noreferrer">The R&amp;A</a>. Original rights and trademarks retained; editorial identification. Unverified championship layouts use the golf glyph.</p>
   <p class="asset-attribution cycling-attribution">Bicycle designed by <a href="https://www.flaticon.com/free-icon/bicycle_131684" target="_blank" rel="noopener noreferrer">Baianat from Flaticon</a>, vector traced and recoloured white. Grand Tour marks and simplified route artwork: <a href="https://www.letour.fr/en/overall-route" target="_blank" rel="noopener noreferrer">ASO / Tour de France</a>, <a href="https://www.giroditalia.it/en/the-route/" target="_blank" rel="noopener noreferrer">RCS Sport / Giro d’Italia</a> and <a href="https://www.lavuelta.es/en/overall-route" target="_blank" rel="noopener noreferrer">ASO / Unipublic / La Vuelta</a>, with organiser-linked ArcGIS and Komoot geometry. Original rights retained; editorial identification.</p>
@@ -7190,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=396"></script>
+<script src="assets/js/app-shell-runtime.js?v=397"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7204,7 +7205,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=394")
+  : loadDeferredScript("config/card-identities.js?v=397")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -13856,7 +13857,7 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
     };
   }
   {
-    const alias={'sport:multi-sport':'special:commonwealth-games','sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby','competition:uefa-champions-league':'sport:champions-league','competition:motogp':'sport:motogp','competition:sailgp':'sport:sailgp','competition:wsl-championship-tour':'sport:wsl','competition:tour-de-france':'sport:tdf','competition:giro-ditalia':'sport:giro','competition:vuelta-a-espana':'sport:vuelta','competition:fiba-womens-world-cup':'sport:fiba-women'};
+    const alias={'competition:le-mans':'special:le-mans-24-hours','sport:multi-sport':'special:commonwealth-games','sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby','competition:uefa-champions-league':'sport:champions-league','competition:motogp':'sport:motogp','competition:sailgp':'sport:sailgp','competition:wsl-championship-tour':'sport:wsl','competition:tour-de-france':'sport:tdf','competition:giro-ditalia':'sport:giro','competition:vuelta-a-espana':'sport:vuelta','competition:fiba-womens-world-cup':'sport:fiba-women'};
     const remembered=selectorEntityById(followBrowseState().sportId);
     const compatible=NOTHINGSPORTS_FIXTURE_IDENTITY.scheduleCode(remembered,manifest.codes)?.id===codeId;
     const entity=compatible?remembered:selectorEntityById(alias[codeId] || codeId);
@@ -14303,7 +14304,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=395').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=397').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -16189,7 +16190,7 @@ function buildFeedScheduleLink(ev){
 function codeIdForEvent(ev){
  if(ev.codeId)return ev.codeId;
  const key=NOTHINGSPORTS_FIXTURE_IDENTITY.sportKey(ev);
- const competitions={tdf:'competition:tour-de-france',giro:'competition:giro-ditalia',vuelta:'competition:vuelta-a-espana',wsl:'competition:wsl-championship-tour',motogp:'competition:motogp',sailgp:'competition:sailgp','fiba-women':'competition:fiba-womens-world-cup'};
+ const competitions={lemans:'competition:le-mans',dakar:'competition:dakar',tdf:'competition:tour-de-france',giro:'competition:giro-ditalia',vuelta:'competition:vuelta-a-espana',wsl:'competition:wsl-championship-tour',motogp:'competition:motogp',sailgp:'competition:sailgp','fiba-women':'competition:fiba-womens-world-cup'};
  if(competitions[key])return competitions[key];
  const aliases={wimbledon:'tennis',masters:'golf',rugby:'rugby-union',fifa:'football','premier-league':'football',nba:'basketball',nfl:'american-football',nhl:'ice-hockey',chl:'ice-hockey',tdf:'cycling',wsl:'surf','big-wave':'surf',ski:'skiing',alpine:'skiing',freestyle:'skiing',lemans:'motorsport',goodwood:'motorsport',bathurst:'motorsport','downhill-mtb':'cycling',cwg:'multi-sport'};
  return `sport:${aliases[key]||key}`;
@@ -16999,7 +17000,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=394';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=397';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -17267,7 +17268,7 @@ function buildDetailedEventCard(ev, options = {}){
     card.appendChild(buildCompactCardSummary(ev));
     if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
     if(activeTab==='feed')composeFeedCard(card,ev,{compact:true,renderCardState});
-    else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar'].includes(ev.key))appendVenuePanel(card,card,ev);
+    else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,card,ev);
     return card;
   }
   if(activeTab === 'feed'){
@@ -17293,7 +17294,7 @@ function buildDetailedEventCard(ev, options = {}){
   }
   card.appendChild(mainDiv);
   if(activeTab==='feed')composeFeedCard(card,ev,{compact:false,renderCardState});
-  else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
+  else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
@@ -19082,7 +19083,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=394';
+  const url='assets/js/follow-presentation-ui.js?v=397';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -20019,7 +20020,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=394');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=340');await loadDeferredScript('config/event-overviews-ui.js?v=397');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -21807,7 +21808,7 @@ function renderStartupMetadataSettings(body){
 async function renderAllFollowedSettings(body){
   body.textContent='Loading follows…';
   try{
-    await loadDeferredScript('config/follow-summary.js?v=394');
+    await loadDeferredScript('config/follow-summary.js?v=397');
     await globalThis.NOTHINGSPORTS_FOLLOW_SUMMARY.render(body,{
       preferences:userPreferences,manifest:loadFollowDirectoryManifest,loadChunk:loadFollowDirectoryChunk,isActive:()=>settingsSection==='all-followed',collections:followCollectionsById,
       records:()=>[...BASE_SPORT_SELECTOR_ENTITIES,...Object.values(leagueDirectoryState).flatMap(state=>[...(state.data?.teams||[]),...(state.data?.players||[])]),...(canonicalSportsData?.participants||[]),...[...followDirectoryChunks.values()].flatMap(chunk=>chunk.records||[])],
