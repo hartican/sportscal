@@ -1,6 +1,6 @@
 # NRLW reviewed finals and result continuity — 3 October 2026
 
-Prepared locally against main `c0771ed3047f7ed88af1ff96e77e89c59168f41a`. Publication and production proof are pending at this checkpoint. This closes a specific gap in the existing CTO reference-quality queue, without certifying NRLW, NRL or any entire quality family.
+Released `8106d826fabfe3613c4c64efdbede2165b813bf9`, shell 407, through [normal workflow](https://github.com/hartican/sportscal/actions/runs/37121478967). Independently verified READY/project/production target/release SHA/three aliases, all 23 served hashes and 288 actual affected live component cases pass. Baseline main was `c0771ed3047f7ed88af1ff96e77e89c59168f41a`; the prior live app was `e6ec5779`. This closes a specific gap in the existing CTO reference-quality queue, without certifying NRLW, NRL or any entire quality family.
 
 The reviewed source-to-screen collection adds four official NRLW finals: Wests Tigers 0–6 Canberra Raiders (18 September), Brisbane Broncos 40–16 Newcastle Knights (19 September), Sydney Roosters 20–10 Canberra Raiders (26 September), and Gold Coast Titans 8–20 Brisbane Broncos (27 September). Each official match response explicitly reports FullTime and supplies competition, directed participants, kickoff, venue and integer scores. The two preliminary finals had been absent; reviewing that phase also exposed the two missing Week 1 finals. Existing seven fixtures, including tomorrow's Grand Final, retain their exact records. The eleven-fixture schedule is now labelled partial; regular-season completeness, whole-sport accuracy and commercial permission remain unproven.
 
@@ -19,3 +19,22 @@ The combined release-contract runs also exposed two legacy pilot-readout defects
 Business value: users can see the actual NRLW path to the Grand Final and recently settled results, while calendar refreshes stop falsely presenting retained MotoGP finals as pending. Cash purchase A$0; no new owner routine or decision. Runtime/latency/token savings are unmeasured. Quality certification remains 0/16 families and 0/3 Football pilots. Return to the fixed Football acceptance and recovery queue after this scoped release; do not infer monetisable readiness.
 
 Source receipts, failed gates, preservation and browser/release evidence are saved under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`, using the `nrlw-finals` prefix. Raw official pages are local audit evidence, not published feed datasets.
+
+## Verified delivery and next action
+
+All 134 local normal release commands pass in 130,444 ms; the same cloud contracts pass in the linked serialized workflow. The 288 live Chromium/WebKit component cases cover actual NRLW finals at 320/390/1280 widths, themes, Results choices, compact-to-open transitions, Feed/Schedule and eight actual result catch-ups. Two coverage-label checks verify the eleven-fixture partial state. API failures are controlled and service workers blocked. Shell bytes are unchanged, so no new upgrade rehearsal is required; earlier shell-407 simulation remains dated evidence. Physical installed-device behaviour, authenticated viewing and full-family acceptance stay open.
+
+[Production proof](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-release-20261003/independent-current-proof.json), [served hashes](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-release-20261003/served-artifact-proof.json), [preservation](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-integrated-preservation-20261003.json) and [live observations](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-live-browser-20261003/verification.json) retain exact evidence. The failed full gates for due results, the stale-count assertion and the AFLW shape defect remain in separate files. Two failed NBL refreshes rolled back atomically before the MotoGP repair. Two helper errors (wrong manifest ID and an incorrect compact-score expectation) were corrected without changing product code. No failure is a passing gate or waiver.
+
+Continue the fixed Football source/window/rights and viewing acceptance first, using the next ordinary canonical refresh for operational proof rather than dispatching an extra one. When external evidence is inaccessible, advance the existing recovery/quality queue without new services. Passwords/export remains parked. Do not expand league scope or claim at least 13 certified families from eleven NRLW fixtures.
+
+## Primary reviewed match evidence
+
+| Fixture | Kickoff | Venue | Final | Source |
+|---|---|---|---|---|
+| Wests Tigers v Canberra Raiders | 2026-09-18 19:50 Sydney | Campbelltown Sports Stadium | 0–6 | [Official match](https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/) |
+| Brisbane Broncos v Newcastle Knights | 2026-09-19 16:05 Sydney | Totally Workwear Stadium | 40–16 | [Official match](https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/) |
+| Sydney Roosters v Canberra Raiders | 2026-09-26 19:50 Sydney | Allianz Stadium | 20–10 | [Official match](https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/) |
+| Gold Coast Titans v Brisbane Broncos | 2026-09-27 13:05 Sydney | Cbus Super Stadium | 8–20 | [Official match](https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/) |
+
+Actual receipts and reduced facts: [NRLW sources](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-source-20261003/receipts.json), [reviewed collection](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-source-20261003/reviewed-facts.json), [AFLW source receipts](/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/nrlw-finals-source-20261003/aflw-receipts.json). Original provider updates remain separate from these observation dates.
