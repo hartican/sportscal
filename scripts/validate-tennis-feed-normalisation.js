@@ -6,7 +6,7 @@ const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-09-24T02:00:00Z');
 const player='athlete:tennis:one',other='athlete:tennis:two';
 const tournament={tournamentId:'tournament:tennis:test-2026',name:'Test Open',season:2026,tour:'ATP',representedTours:['ATP'],startDate:'2026-09-20',endDate:'2026-09-30',competitionId:'competition:test-open',eventSeriesId:'event-series:test-open',sourceUrl:'https://sports.example/test'};
-const fixture={id:'test-match',eventId:'test-match',key:'tennis',name:'One v Two',tournamentId:tournament.tournamentId,eventFamilyId:'test-open',competitionId:tournament.competitionId,date:'2026-09-25',time:'18:00',round:'Quarterfinal',status:'upcoming',participantIds:[player,other],sourceUrl:tournament.sourceUrl};
+const fixture={id:'test-match',eventId:'test-match',key:'tennis',name:'One v Two',tournamentId:tournament.tournamentId,eventFamilyId:'test-open',competitionId:tournament.competitionId,date:'2026-09-25',time:'18:00',tournamentLevel:'1000',round:'Quarterfinal',status:'upcoming',participantIds:[player,other],sourceUrl:tournament.sourceUrl};
 const direct={preferenceGraph:{entityFollows:[{participantId:player,followLevel:'follow'}]}};
 const broad={selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis']};
 const explicit={followFirst:{followedMajorEventIds:['test-open']}};

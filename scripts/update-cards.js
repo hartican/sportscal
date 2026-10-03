@@ -112,6 +112,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-joint-tennis-tournament.js"],
   ["scripts/build-tennis-context.js"],
   ["scripts/build-tennis-context.js", "--check"],
+  ["scripts/apply-reviewed-participant-fixtures.js"],
   ["scripts/validate-country-flags.js"],
   ["scripts/validate-national-team-identities.js", "--assets-only"],
   ["scripts/refresh-football-directory.js", "--prune-removed"],
@@ -621,6 +622,10 @@ async function runMain() {
     console.log(JSON.stringify({mode:"live",...result}));
     if(result.failed.length)process.exitCode=1;
     return;
+  }
+  if(process.argv.includes("--participant-schedules")){
+    for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-app-shell-runtime.js"],["scripts/validate-athletes.js"]])runStep(args);
+    console.log("Reviewed participant schedules published through canonical owner; observation clocks retained.");return;
   }
   if(process.argv.includes("--tennis-feed")){
     runStep(['scripts/build-code-inspector.js','--codes=tennis']);

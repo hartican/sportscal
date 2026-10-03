@@ -45,6 +45,8 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
     response.setHeader('Pragma','no-cache');response.setHeader('Vary','Authorization');
     const matchCentreOnly=route.searchParams.get('scope')==='match-centre';
     const athletesOnly=route.searchParams.get('scope')==='athletes';
+    const participantId=athletesOnly?route.searchParams.get('participantId'):null;
+    if(participantId&&!/^(?:athlete|competitor|player|team):[-a-z0-9_:]{1,180}$/i.test(participantId))return response.status(400).json({error:'Invalid participant'});
     const publicMatch=(matchCentreOnly||athletesOnly)&&request.method==='POST';
     if((request.method||'GET')!=='GET'&&!publicMatch){response.setHeader('Allow','GET');return response.status(405).json({error:'The personalised feed supports GET requests only.',code:'method_not_allowed'});}
     const began=performance.now(),timings=[];
@@ -71,14 +73,14 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       t=performance.now();const snapshot=await d.readLiveSnapshots().catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
-      const key=digest({matchCentreOnly,athletesOnly,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
+      const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
       t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
       const events=d.overlaySnapshots(resolved.events,snapshot?.sources).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
-      const feed=d.buildServerFeed({matchCentreOnly,athletesOnly,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
+      const feed=d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
       if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});
       t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
       const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};

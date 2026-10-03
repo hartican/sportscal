@@ -543,6 +543,7 @@
     const golf=['golf','golf-women','masters'].includes(followPolicy.sportKey(event));
     const participants = golf&&(event.cardType==='golf_session'||event.participantsConfirmed!==true)?[]:followPolicy.participantIds(event);
     for (const id of participants){
+      if(!id.startsWith("team:")&&!followPolicy.participantFeedEligible(event))continue;
       const formatFollow=(next.preferenceGraph?.entityFollows||[]).find(f=>participantFollowIdentityKey(f.participantId)===participantFollowIdentityKey(id));
       if(formatFollow && !cricket.matchesFollow(event,formatFollow))continue;
       if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;

@@ -18,16 +18,16 @@
   if(f.isKnockout===true||f.knockout===true)return true;
   return /\b(?:qf|sf|r128|r64|r32|r16|round of (?:128|64|32|16)|quarter.?final|semi.?final|grand final|preliminary final|elimination final|qualifying final|knockout|final)\b/.test(stage)||/^(?:1st|2nd|3rd|4th|first|second|third|fourth) round$/.test(stage);
  }
+ function automaticEventScope(f){
+  if(!knockout(f))return false;
+  const tennis=/^(?:tennis|wimbledon)/.test(String(f.key||f.sportKey||''));if(!tennis)return true;
+  const category=[f.tournamentLevel,f.category,f.tourLevel,f.competitionCategory,f.tournamentCategory].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');
+  return !/qualif/.test([f.stage,f.round,f.roundLabel].join(' '))&&!/\b(?:250|500)\b|qualif|exhibition|warm.up/.test(category)&&/grand.?slam|major|1000|masters|team|davis|billie|bjk|finals/.test(category);
+ }
  function automatic(f,prefs,collections={},now=Date.now()){
   const {follow,feed}=deps(),notifications=prefs?.followFirst?.notifications||{};
   if(notifications.autoRemindersEnabled===false||feed.aggregateEvent(f)||f.tournamentParent||f.majorEventMarker||f.cardKind==='event'||f.published===false||f.participantsConfirmed===false||feed.explicitlyExcluded(f,prefs)||!knockout(f))return false;
-  const tennis=/^tennis/.test(feed.sportKey(f));
-  if(tennis){
-   const category=[f.tournamentLevel,f.category,f.tourLevel,f.competitionCategory,f.tournamentCategory].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');
-   if(/qualif/.test([f.stage,f.round,f.roundLabel].join(' ')))return false;
-   if(/\b(?:250|500)\b|qualif|exhibition|warm.up/.test(category))return false;
-   if(!/grand.?slam|major|1000|masters|team|davis|billie|bjk|finals/.test(category))return false;
-  }
+  if(!automaticEventScope({...f,key:feed.sportKey(f)}))return false;
   if(!timing(f,now))return false;
   return feed.participantIds(f).some(id=>follow.effectiveParticipantFollow(id,prefs,collections)?.followed===true);
  }
@@ -39,5 +39,5 @@
   const enabled=automatic(f,prefs,collections,now);
   return {enabled,origin:'automatic',choice:'automatic'};
  }
- return Object.freeze({fixtureId,timing,knockout,automatic,intent});
+ return Object.freeze({fixtureId,timing,knockout,automaticEventScope,automatic,intent});
 });

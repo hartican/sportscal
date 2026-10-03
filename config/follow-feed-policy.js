@@ -216,6 +216,11 @@
     return /\b(finals?|semi[- ]?finals?|quarter[- ]?finals?|preliminary final|eliminat(?:ion|or)|qualifying final|knockout|play[- ]?offs?|grand final)\b/i.test(stage);
   }
 
+  function participantFeedEligible(event){
+    if(!sportKey(event).startsWith('tennis')||participantIds(event).some(id=>id.startsWith('team:')))return true;
+    const reminders=globalThis.NOTHINGSPORTS_REMINDER_POLICY||(typeof require==='function'?require('./fixture-reminder-policy'):null);
+    return Boolean(reminders?.automaticEventScope({...event,key:sportKey(event)}));
+  }
   function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,sportFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
@@ -227,7 +232,7 @@
       if(event.golfMajorOverview===true)return false;
       return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     }
-    if(participantFollow)return true;
+    if(participantFollow&&participantFeedEligible(event))return true;
     if(sportFollow && isFinalsOrKnockout(event))return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
@@ -242,11 +247,11 @@
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
     if (["team", "athlete", "collection", "entity", "australians", "competition"].includes(String(followSource || ""))){
-      return { mode:"direct", include:true, label:"In Feed via follow" };
+      return participantFeedEligible(event)?{ mode:"direct", include:true, label:"In Feed via follow" }:{mode:"manual",include:false,label:"Add to Feed"};
     }
     if (eligibleForFollow(event,{competitionFollow:true})) return { mode:"immediate", include:true, label:"In Feed via follow" };
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, participantFeedEligible, followedFixtureDecision });
 });

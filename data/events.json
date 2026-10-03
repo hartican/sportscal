@@ -198541,6 +198541,68 @@
       "consensusTags": [],
       "dateOnly": null,
       "startTimeUtc": null
+    },
+    {
+      "id": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "eventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "name": "Alex de Minaur v Quentin Halys",
+      "cardKind": "fixture",
+      "contestUnit": "match",
+      "competitionId": "competition:tennis:atp-beijing-2026",
+      "tournamentId": "tournament:tennis:atp-beijing-2026",
+      "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+      "eventFamilyId": "china-open",
+      "tournamentName": "China Open",
+      "tournamentLevel": "500",
+      "tour": "ATP",
+      "round": "early",
+      "roundLabel": "Round of 16",
+      "date": "2026-10-03",
+      "time": "13:00",
+      "startTimeUtc": "2026-10-03T03:00:00.000Z",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "status": "scheduled",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:quentin-halys"
+      ],
+      "homeParticipantId": "athlete:tennis:alex-de-minaur",
+      "awayParticipantId": "competitor:tennis:atp:quentin-halys",
+      "participants": [
+        {
+          "id": "athlete:tennis:alex-de-minaur",
+          "displayName": "Alex de Minaur",
+          "type": "athlete",
+          "countryCode": "AUS",
+          "name": "Alex de Minaur"
+        },
+        {
+          "id": "competitor:tennis:atp:quentin-halys",
+          "displayName": "Quentin Halys",
+          "type": "competitor",
+          "countryCode": "FRA",
+          "name": "Quentin Halys"
+        }
+      ],
+      "venue": "National Tennis Center, Beijing",
+      "court": "Capital Group Diamond",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+      "sourceName": "China Open official order of play",
+      "sourceCheckedAt": "2026-10-03T01:06:36.000Z",
+      "statusCheckedAt": "2026-10-03T01:06:36.000Z",
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "Saturday 3 October 2026, first Capital Group Diamond row: ATP R16 [5] Alex DE MINAUR v Quentin HALYS",
+        "clockAssociation": "11:00 AM heading directly above this first court row; Asia/Shanghai UTC+08:00",
+        "publishedAtLocal": "2026-10-02T20:53:00+08:00",
+        "reviewMethod": "PDF pixels and text checked together; other court columns and followed-by labels excluded"
+      }
     }
   ]
 }

@@ -678,9 +678,10 @@
         return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });
       },
       invalidateFeed,
-      async loadFeed({ cursor = 0, limit = 20, scope = '' } = {}){
+      async loadFeed({ cursor = 0, limit = 20, scope = '', participantId = null } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
         if(['match-centre','athletes'].includes(scope))params.set('scope',scope);
+        if(scope==='athletes'&&participantId)params.set('participantId',participantId);
         const owner=sessionSubject(session || restoreStoredSession()),epoch=feedEpoch;
         const key=`${owner}:${epoch}:${params}`;
         if(feedRequests.has(key))return feedRequests.get(key);

@@ -298,11 +298,16 @@ async function openFromFixture(id,label,sportKey,trigger,origin={}){
   }catch(error){restore();showToast('Profile unavailable. Please try again.');}
 }
 
-  async function renderInto(host,record,sportKey,{valid=()=>host.isConnected,fixture=null}={}){
+  async function renderInto(host,record,sportKey,{valid=()=>host.isConnected,fixture=null,basicOnly=false}={}){
     host.replaceChildren();
     if(!record.profileOnly)host.append(buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
     const body=document.createElement('div');body.className='athlete-profile-body';body.textContent='Loading profile…';host.append(body);
     if(fixture){const context=document.createElement('div');host.append(context);void appendProfileFixtureContext(context,record,sportKey,fixture);}
+    if(basicOnly){
+      body.replaceChildren();const title=document.createElement('h2');title.textContent=record.displayName||record.name;body.append(title);
+      const text=document.createElement('p');text.textContent=[record.id.startsWith('team:')?'Team':record.tour||record.metadata?.tour||'Professional '+(typeof NOTHINGSPORTS_ATHLETES!=='undefined'?NOTHINGSPORTS_ATHLETES.role(sportKey).toLowerCase():'athlete'),record.nationalityCode||record.countryCode||record.metadata?.nationalityCode||record.metadata?.countryCode||record.metadata?.representedCountryCode,record.dateOfBirth?'Born '+record.dateOfBirth:null].filter(Boolean).join(' · ');body.append(text);
+      const alias=record.metadata?.providerAlias||'';const url=record.sourceUrl||record.metadata?.sourceUrl||record.sourceRefs?.[0]||(alias.startsWith('atp:player:')?'https://www.atptour.com/en/players/-/'+alias.split(':').at(-1)+'/overview':alias.startsWith('wta:player:')?'https://www.wtatennis.com/players/'+alias.split(':').at(-1)+'/name':null);if(/^https:\/\//.test(url||'')){const a=document.createElement('a');a.textContent='Player background source';a.href=url;a.target='_blank';a.rel='noopener noreferrer';body.append(a);}return;
+    }
     await populateProfile(body,record,sportKey,valid);
   }
   root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, renderInto, decorateIdentity, makeTrigger });

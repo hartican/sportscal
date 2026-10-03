@@ -473,3 +473,7 @@ The existing post-release recording operation adds one shared static feed read t
 ## Follow favourites implementation — 3 October 2026
 
 Reuse deferred directories/profiles, account identities and existing sporting refresh coordination for favourites. No additional scheduler or source request per followed user. The owner explicitly authorises the three scoped production releases despite stalled release checks; retain each failed/waived result and verify SHA, READY, aliases, served bytes and rendering separately. The waiver does not establish that a check passed. Participant schedule decoupling and global Match Centre listing follow in releases 2/3.
+
+### 2026-10-03 — Release 2 participant schedule retrieval
+
+Participant schedules reuse /api/feed scope=athletes, bounded to 50 next appearances per page or one participant profile; no eager traversal of personalised Feed pages. Public POST preferences do not read private account state; authenticated cache keys retain account and participant identity. Reviewed organiser fixtures are published only through update-cards (including its scoped participant-schedules mode), then reused by catalogue, existing live scheduler and reminder dispatcher. Rebuilds preserve genuine checks. No new source scheduler, per-user sporting request or paid provider.
