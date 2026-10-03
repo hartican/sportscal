@@ -6,8 +6,8 @@ const root=path.resolve(__dirname,'..'),report=[];
 const person={id:'competitor:tennis:atp:carlos-alcaraz',displayName:'Carlos Alcaraz',sportKey:'tennis'};
 const preferences={version:24,onboardingComplete:true,selectedSelectorEntityIds:['sport:afl-premiership','sport:nrl-premiership'],followedSports:['afl','nrl'],preferenceGraph:{entityFollows:[{participantId:person.id,followLevel:'follow'}]},followBrowse:{sportId:'sport:afl',categoryId:'sport:afl-premiership',section:'teams-players'}};
 function latch(){let release;const promise=new Promise(resolve=>{release=resolve;});return{promise,release};}
-async function ready(page){await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&typeof userPreferences==='object');await page.evaluate(()=>{acknowledgeSelectorRelease();closeSelectorOptInPrompt({restoreViewport:false});});}
-async function openFollow(page){await page.evaluate(()=>{closeSettings();globalThis.qaFollowTap=performance.now();document.querySelector('.tabs [data-tab=follow]').click();});}
+async function ready(page){await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&typeof userPreferences==='object');await page.evaluate(()=>{acknowledgeSelectorRelease();closeSelectorOptInPrompt({restoreViewport:false});});await page.locator('#startupLaunch').waitFor({state:'hidden'});}
+async function openFollow(page){await page.evaluate(()=>{closeSettings();document.querySelector('.tabs [data-tab=follow]').addEventListener('click',()=>{globalThis.qaFollowTap=performance.now();},{capture:true,once:true});});await page.locator('.tabs [data-tab=follow]').click();}
 async function controls(page){
  await page.waitForFunction(()=>['My athletes & teams','Browse sports'].every(label=>[...document.querySelectorAll('#listView .follow-home-tabs button')].some(b=>b.textContent===label)),null,{timeout:300});
  const elapsed=await page.evaluate(()=>performance.now()-qaFollowTap);assert(elapsed<300,`Follow controls took ${elapsed.toFixed(0)}ms`);return elapsed;
@@ -91,7 +91,7 @@ async function run(browser,base,engine){
   await page.route('**/assets/js/athletes-ui.js*',r=>failModule?r.fulfill({status:503,headers:{'Cache-Control':'no-store'},body:''}):r.continue());await ctx.goto();await openFollow(page);await controls(page);
   await page.getByRole('button',{name:'Retry',exact:true}).waitFor();assert(await page.getByRole('button',{name:'Browse sports',exact:true}).isVisible());
   failModule=false;await page.getByRole('button',{name:'Retry',exact:true}).click();try{await page.locator('.athletes-heading').waitFor();}catch(error){console.error('Retry diagnostics',await page.evaluate(()=>({view:followHomeView,tab:activeTab,pending:!!loadAthletes.pending,ui:!!globalThis.NOTHINGSPORTS_ATHLETES_UI,text:document.querySelector('#listView').innerText,loaded:[...loadDeferredScript.requests.keys()].filter(u=>u.includes('athletes'))})),ctx.errors);throw error;}
-  await page.evaluate(()=>{document.querySelector('.tabs [data-tab=feed]').click();document.querySelector('.tabs [data-tab=follow]').click();qaFollowTap=performance.now();});await controls(page);
+  await page.locator('.tabs [data-tab=feed]').click();await openFollow(page);await controls(page);
   assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'module failure, explicit retry and warm return'});
  }finally{await page.close();}
  // Account changes immediately clear private response records and reject stale work.
