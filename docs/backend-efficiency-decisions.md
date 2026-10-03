@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Reminder intent/check erasure boundary — 4 October 2026
+
+The two later account-owned reminder tables use the existing private account-erasure write guard. Every affected insert/update shares the existing per-account transaction lock and indexed marker check; erasing accounts cannot admit new intent/check state. Remind OFF, peer state, Auth cascade, source clocks, existing RPCs and scheduler ownership remain. No new client request, poll, replay, column or grant. The existing release input adds one bounded read-only inventory RPC using its existing service credentials, so future unguarded Auth references fail before app deployment. Missing/stale/malformed evidence fails closed, with no retry or new job. This verifies direct guards, not full erasure. Independent issuer, transfer, external-copy and reconciliation gates remain mandatory. [Evidence and limits](quality/reminder-erasure-guards-2026-10-04.md).
+
 ## Shared fixture API admission and initialization — 4 October 2026
 
 The existing shared handler checks refresh method/authentication/maintenance and public fixture/athlete input before constructing published sporting data. Its first valid public read lazily creates the same immutable library/viewing projection and hash; later reads reuse it. Protected refresh does not require this presentation catalogue. Invalid athlete identities reject before database reads or a conditional 304; failed library construction is not cached. The existing source owners, 60-ID/200-character bounds, database deadline, snapshot cache, observation/hash rules, last-good fallback and valid validators remain.

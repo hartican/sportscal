@@ -185,7 +185,9 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: node scripts/validate-live-coverage-publication.js --live-read
+        run: |
+          node scripts/validate-live-coverage-publication.js --live-read
+          node scripts/validate-account-erasure-preflight.js --live-read
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
