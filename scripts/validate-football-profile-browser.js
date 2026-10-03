@@ -163,6 +163,6 @@ try{
   }
   assert.deepEqual(errors,[]);checks++;await page.close();
  }
- if(!process.env.QA_BASE_URL&&!process.env.PROFILE_CASE_ONLY)require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'validate-profile-progressive-browser.js')],{env:{...process.env,BROWSER_ENGINE:engineName},stdio:'inherit'});
+ if(!process.env.QA_BASE_URL&&!process.env.PROFILE_CASE_ONLY)for(const script of ['validate-profile-progressive-browser.js','validate-profile-source-context-browser.js'])require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,script)],{env:{...process.env,BROWSER_ENGINE:engineName},stdio:'inherit'});
  console.log(`Football profiles (${engineName}): ${checks} tested Feed/Schedule journeys preserve focus, scroll, filters and preferences; scoped standings require local reveal. Loaded/in-flight reuse and wrong-code cold-response retry are covered by the full published run. ${process.env.POSITION_REHEARSAL_FILE||process.env.POSITION_PENDING_REHEARSAL==='1'?'Intercepted standings rehearsal; no real final-season evidence.':'Actual published standings; tested card modes and close paths passed.'}`);
 }finally{await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e);process.exitCode=1});

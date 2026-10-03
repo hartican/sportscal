@@ -117,3 +117,18 @@ test('published delayed facts require existing fixture identities, reviewed team
  const all=[...known,...require('../data/providers/openligadb/football-2026-27.json').events];const byId=new Map(all.map(e=>[e.id,e]));const ids=new Set();
  for(const r of doc.results){const e=byId.get(r.fixtureId);assert(e&&!ids.has(r.fixtureId));ids.add(r.fixtureId);assert.equal(r.competitionId,e.competitionId);assert.equal(overlay.key(r),overlay.key(e));assert.equal(r.sourceUrl,'https://www.football-data.org/');assert(/^\d+$/.test(r.providerFixtureId));for(const field of ['homeScore','awayScore'])assert(Number.isSafeInteger(r[field])&&r[field]>=0);for(const field of ['sourceCheckedAt','sourceUpdatedAt'])assert(Number.isFinite(Date.parse(r[field]))&&Date.parse(r[field])<=Date.now());assert(Date.parse(r.sourceUpdatedAt)>=Date.parse(e.startTimeUtc));}
 });
+
+test('the actual public fallback retains delayed attribution when optional source detail fails',async()=>{
+ const source=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8'),start=source.indexOf('function buildEuropeanDetail('),end=source.indexOf('function buildFixtureResultAvailability(',start);
+ assert(start>=0&&end>start);
+ const element=()=>({children:[],textContent:'',append(...children){this.children.push(...children);},remove(){this.removed=true;}});
+ const text=node=>[node.textContent,...(node.children||[]).map(text)].join('');
+ for(const primary of [undefined,{provider:'Football-Data.org'},{provider:'OpenLigaDB'}]){
+  const fixture={sourceAttribution:primary,delayedResultSource:{provider:'Football-Data.org',sourceUrl:'https://www.football-data.org/'}},loads=[];
+  const node=require('node:vm').runInNewContext(source.slice(start,end)+';buildFixtureDataAttribution(fixture)',{fixture,document:{createElement:element,createTextNode:textContent=>({textContent})},loadDeferredScript:url=>{loads.push(url);return Promise.reject(Error('Controlled optional helper failure'));},userPreferences:{showSpoilers:false}});
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(text(node),/Football data provided by the Football-Data.org API/);assert.match(text(node),/Delayed final result; primary source unavailable at recovery\./);assert(!node.removed);
+  assert.equal(text(node).includes('OpenLigaDB data · ODbL'),primary?.provider==='OpenLigaDB','ODbL applies only to the primary dataset');
+  assert.equal(loads.length,1);
+ }
+});

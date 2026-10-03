@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="415">
+<meta name="app-shell-version" content="416">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=415" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=416" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=415"></script>
+<script src="assets/js/app-shell-runtime.js?v=416"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10797,7 +10797,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=411").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=416").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 
 async function loadFootballDirectoryData(){
@@ -17022,11 +17022,14 @@ function buildOngoingTournamentParent(ev){
 }
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
-  if(kind==='attribution'){const link=document.createElement('a');link.href=ev.delayedResultSource?.sourceUrl||'/data/providers/openligadb/football-2026-27.json';link.textContent=ev.delayedResultSource?.provider||'OpenLigaDB data · ODbL';node.append(link);}
+  if(kind==='attribution'){
+    if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
+    if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
+  }
   loadDeferredScript('assets/js/football-card-context.js?v=344').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
   return node;
 }
-function buildFixtureDataAttribution(ev){return ev.sourceAttribution?buildEuropeanDetail(ev,'attribution'):null;}
+function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
 
 function buildFixtureResultAvailability(ev){
   if(ev.resultStatus!=='pending')return null;
