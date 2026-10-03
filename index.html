@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="398">
-<meta name="athletes-enabled" content="true">
+<meta name="app-shell-version" content="399">
+<meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=398" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=399" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6939,7 +6939,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <div class="tabs">
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
-    <button class="tab-btn" data-tab="athletes"><span class="tab-label">Athletes</span></button>
+    <button class="tab-btn" data-tab="match-centre"><span class="tab-label">Match Centre</span></button>
     <button class="tab-btn" data-tab="follow"><span class="tab-label">Follow</span><span class="tab-count" id="followTabCount">0</span></button>
 
   </div>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=398"></script>
+<script src="assets/js/app-shell-runtime.js?v=399"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7911,7 +7911,7 @@ function participantProfileLink(id,label,key){
     const text=document.createElement('span');text.textContent=label;return text;
   }
   const link=document.createElement('button');link.type='button';link.className='fixture-profile-link';link.textContent=label;
-  link.setAttribute('aria-label',`Open ${label} profile in ${/^(athlete|competitor|player):/.test(id)?'Athletes':'Follow'}`);
+  link.setAttribute('aria-label',`Open ${label} profile in ${'Follow'}`);
   link.onclick=event=>{event.stopPropagation();void openFeedParticipantProfile(id,label,key,link);};return link;
 }
 
@@ -8743,18 +8743,19 @@ let committedFeedPresentationFingerprint = null;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
+let followHomeView = "favourites";
 async function loadAthletes(){
-  if(activeTab!=='athletes')return;
+  if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
-  const panel=document.getElementById('listView');panel.className='athletes-hub';panel.textContent='Loading Athletes…';
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=384'),loadDeferredScript('config/athletes.js?v=379'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=379')).then(()=>{if(activeTab==='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if(activeTab==='athletes'){panel.textContent='Athletes could not load.';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
+  const panel=document.getElementById('listView');panel.className='athletes-hub';panel.textContent='Loading favourites…';
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=399'),loadDeferredScript('config/athletes.js?v=399'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=399')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites')){panel.textContent='Favourites could not load.';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
-  await loadDeferredScript('config/athletes.js?v=379');
+  await loadDeferredScript('config/athletes.js?v=399');
   await loadDeferredScript('config/tennis-journeys.js?v=368');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=379');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=399');
   if(owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -8763,7 +8764,7 @@ if (startupReloadRestoreState){
   // Saved Month View sessions retain their route, filter and scroll/card anchor,
   // but the retired view itself always resumes in the list timeline.
   activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
-  activeTab = ["feed","events","follow","athletes"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
+  activeTab = ["feed","events","follow","match-centre"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["overviews","major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
 }
 let sportHubState = {
@@ -10935,7 +10936,7 @@ function installFeedLiveScore(card,event){
   void ensureFeedScoreUi().then(()=>{if(card.isConnected&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);}).catch(()=>{});
 }
 async function refreshLiveFixtureSnapshot(){
-  if(activeTab==='athletes'){return globalThis.NOTHINGSPORTS_ATHLETES_UI?.refresh();}if(document.hidden||!['feed','events','athletes'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
+  if((activeTab==='follow'&&followHomeView==='favourites')){return globalThis.NOTHINGSPORTS_ATHLETES_UI?.refresh();}if(document.hidden||!['feed','events','follow'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
 
 function queueLiveFixtureSnapshot(){
   if(liveFixtureMountTimer!==null)return;
@@ -13863,7 +13864,7 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
     const entity=compatible?remembered:selectorEntityById(alias[codeId] || codeId);
     if(entity){const root=selectorEntityById(entity.parentId);saveFollowBrowse({sportId:root?.level===2?root.id:entity.id,categoryId:entity.id==='sport:afl'?'sport:afl-premiership':entity.id,section:startingTab==='standings'?'standings':'schedule'});}
   }
-  activeTab = "follow";
+  activeTab = "follow";followHomeView="browse";
   activeInspectorCodeId = codeId;
   codeInspectorTab = startingTab;
   codeInspectorGroup = String(startingGroup || "");
@@ -13945,9 +13946,11 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
-  if(location.hash.startsWith('#athletes')){activeTab='athletes';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
+  if(location.hash.startsWith('#athletes')||location.hash.startsWith('#follow/profile/')){activeTab='follow';followHomeView='favourites';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI?.route())return;
-  if(location.hash==='#match-centre'){history.replaceState(null,'',location.pathname+location.search);activeTab='feed';renderAll();return;}
+  if(location.hash==='#match-centre'){activeTab='match-centre';renderAll();return;}
+  if(location.hash==='#follow/browse'){activeTab='follow';followHomeView='browse';renderAll();return;}
+  if(location.hash==='#follow'){activeTab='follow';followHomeView='favourites';renderAll();return;}
   if(syncNscPageFromHistory())return;
   const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
   if (inspectorRoute){
@@ -18506,7 +18509,7 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     genderCategory: NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
     cricketFormat: ['Tests','ODIs','T20Is','BBL'].includes(raw.cricketFormat)?raw.cricketFormat:'Tests',
     collectionId: typeof raw.collectionId === "string" ? raw.collectionId.slice(0, 120) : "",
-    entityType: raw.entityType === "team" ? "team" : raw.entityType === "athlete" ? "athlete" : sportKey === "nbl" ? "team" : "athlete",
+    entityType: raw.entityType === "team" ? "team" : raw.entityType === "athlete" ? "athlete" : "athlete",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
     expandedTeamIds,
     expandedTeamId: legacyExpandedTeamId,
@@ -19083,7 +19086,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=397';
+  const url='assets/js/follow-presentation-ui.js?v=399';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -19106,10 +19109,26 @@ function showFollowPresentationLoading(container, render, isCurrent){
     retry.type='button';retry.textContent='Retry';retry.addEventListener('click',render);container.append(retry);
   });
 }
+function buildFollowHomeTabs(container){
+  const tabs=document.createElement('nav');tabs.className='follow-home-tabs';tabs.setAttribute('aria-label','Follow views');
+  for(const [view,label] of [['favourites','My athletes & teams'],['browse','Browse sports']]){
+    const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=label;button.setAttribute('aria-pressed',String(followHomeView===view));
+    button.onclick=()=>{globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate('follow');followHomeView=view;activeInspectorCodeId=null;history.pushState({followView:view},'',view==='favourites'?'#follow':'#follow/browse');renderAll();};tabs.append(button);
+  }container.prepend(tabs);
+}
 function renderFollowView(){
+  if(followHomeView==='favourites'&&!activeInspectorCodeId){void loadAthletes();return;}
+  followHomeView='browse';
   if(typeof globalThis.renderFollowViewLoaded==='function')return globalThis.renderFollowViewLoaded();
   const container=document.getElementById('listView');
   showFollowPresentationLoading(container,renderFollowView,()=>activeTab==='follow');
+}
+async function loadMatchCentre(){
+  if(activeTab!=='match-centre')return;
+  const panel=document.getElementById('listView');
+  if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
+  panel.className='match-centre';panel.textContent='Loading Match Centre…';
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=399'),loadDeferredScript('config/surface-category-ui.js?v=340'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=399')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -20210,15 +20229,17 @@ function renderEventsView(){
 }
 
 function activateTopLevelTab(nextTab, { resetViewport = true, athleteMatch = false } = {}){
-  if(nextTab!=='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
+  if(nextTab!=='follow')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
   calendarBulkController?.abort();
   if (activeInspectorCodeId){
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     closeCodeInspector({ restoreViewport: false });
   }
-  if(nextTab==='match-centre')nextTab='feed';
-  if(!athleteMatch){globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate(nextTab);if(nextTab==='athletes')history.pushState({athletes:true},'','#athletes');else if(location.hash.startsWith('#athletes')||history.state?.athleteMatchReturn)history.pushState(null,'',location.pathname+location.search);}
+  if(nextTab==='athletes')nextTab='follow';
+  if(nextTab!=='match-centre')globalThis.stopMatchCentre?.();
+  if(!athleteMatch){globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate(nextTab);if(nextTab==='follow')history.pushState({follow:true},'','#follow');else if(location.hash.startsWith('#athletes')||location.hash.startsWith('#follow')||location.hash==='#match-centre'||history.state?.athleteMatchReturn)history.pushState(null,'',location.pathname+location.search);}
   activeTab = nextTab;
+  if(nextTab==='match-centre')history.replaceState({matchCentre:true},'','#match-centre');
   if (activeTab === "feed"){
     activeFilter = "all";
     curatedFeedReturnState = null;
@@ -20226,7 +20247,7 @@ function activateTopLevelTab(nextTab, { resetViewport = true, athleteMatch = fal
   syncTopLevelNavigationState();
   if (activeTab === "feed") calendarInitialJumpPending = true;
   const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
-  if(activeTab==='follow'){saveFollowBrowse({section:'schedule',scheduleScope:null});void loadFollowRatingAffinity();}
+  if(activeTab==='follow'){followHomeView='favourites';void loadFollowRatingAffinity();}
   if (shouldLoadEvents) void loadMajorEventsData();
   else renderAll();
   if (resetViewport){
@@ -20300,7 +20321,7 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 }
 
 function renderCurrentSection(){
-  if(activeTab==='athletes'){void loadAthletes();return;}
+  if((activeTab==='follow'&&followHomeView==='favourites')){void loadAthletes();return;}
   if (activeInspectorCodeId){
     renderCodeInspector();
   } else if (startupCoordinator.isHydrating()){
@@ -20336,7 +20357,7 @@ function renderTabCounts(){
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   if(userPreferences.fantasyDeadlines.enabled)void ensureFantasyUi().then(()=>globalThis.fantasyDeadlineController.sync()).catch(()=>{});
   globalThis.fantasyDeadlineController?.sync();
-  if(activeTab!=='athletes')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
+  if((activeTab!=='follow'||followHomeView!=='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
   if(calendarChoice.busy)return;
   document.querySelector("footer.app-footer").style.visibility=startupCoordinator.isHydrating()?"hidden":"";
   if (preserveViewport || viewportAnchor){
@@ -20367,7 +20388,8 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
 
   listView.style.display = "none";
   calControls.style.display = "flex";
-  if (activeTab === 'athletes'){
+  if(activeTab==='match-centre'){calControls.style.display='none';preferenceSummary.style.display='none';jumpTodayBtn.hidden=true;listView.style.display='grid';void loadMatchCentre();
+  } else if ((activeTab === 'follow' && followHomeView === 'favourites' && !activeInspectorCodeId)){
     calControls.style.display='none';preferenceSummary.style.display='none';jumpTodayBtn.hidden=true;
     listView.style.display='grid';void loadAthletes();
   } else if (activeInspectorCodeId){
@@ -20401,7 +20423,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = false;
     listView.style.display = "flex";
     renderEventsView();
-  } else if (activeTab === "athletes"){
+  } else if ((activeTab === "follow" && followHomeView === "favourites")){
     calControls.style.display="none";preferenceSummary.style.display="none";jumpTodayBtn.hidden=true;listView.style.display="grid";
     void loadAthletes();
   } else if (activeTab === "follow"){

@@ -1,3 +1,6 @@
+function directoryIndividualLabel(key){return /^(f1|wrc|motorsport|supercars)$/.test(key)?'Drivers':key==='motogp'?'Riders':key==='golf'?'Golfers':/^(tennis|football|afl|nrl|rugby|nbl|nba)/.test(key)?'Players':'Athletes';}
+function directorySectionLabel(key){return key.startsWith('cricket')?'Teams':directoryIndividualLabel(key)+' & Teams';}
+function appendDirectoryEntityTabs(host,key,filters){const tabs=document.createElement('nav');tabs.className='follow-directory-tabs';tabs.setAttribute('aria-label',directorySectionLabel(key));for(const [type,label]of [['athlete',directoryIndividualLabel(key)],['team','Teams']]){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.setAttribute('aria-pressed',String(filters.entityType===type));b.onclick=()=>{updateDirectoryFilters(key,{entityType:type});renderStandingsContext();};tabs.append(b);}host.append(tabs);}
 "use strict";
 // Optional Follow presentation. Admission, preferences and mutations stay in the shell.
 function buildDirectorySelect(label, value, options, onChange){
@@ -90,7 +93,7 @@ function buildFootballPlayerRow(player, sportKey = "football"){
   const name = document.createElement("span");
   name.textContent = player.displayName;
   identity.appendChild(name);
-  globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI?.decorateIdentity(identity, player, sportKey);
+  identity.onclick=()=>void openAthleteProfile(player.id,player.displayName,sportKey,identity);identity.setAttribute('role','button');identity.tabIndex=0;identity.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();identity.click();}};
   const position = document.createElement("span");
   position.className = "football-player-position";
   position.textContent = player.position;
@@ -209,7 +212,14 @@ function renderFootballDirectory(container, {
   });
   const directory = document.createElement("section");
   directory.className = "football-directory";
+  appendDirectoryEntityTabs(directory,sportKey,filters);
   directory.appendChild(buildFootballDirectoryToolbar(directoryData, filters, sportKey));
+  if(filters.entityType==='athlete'){
+    const list=document.createElement('div');list.className='football-club-list';const batchKey=JSON.stringify(['players:'+sportKey,filters]);const limit=followDirectoryBatchLimits.get(batchKey)||40;
+    filtered.players.slice(0,limit).forEach(player=>list.append(buildFootballPlayerRow(player,sportKey)));directory.append(list);
+    if(!filtered.players.length){const empty=document.createElement('p');empty.textContent='No players match these filters.';directory.append(empty);}
+    if(filtered.players.length>limit){const more=document.createElement('button');more.className='btn ghost';more.textContent='Show more players';more.onclick=()=>{followDirectoryBatchLimits.set(batchKey,limit+40);renderStandingsContext();};directory.append(more);}container.append(directory);return;
+  }
   const summary = document.createElement("p");
   summary.className = "football-directory-summary";
   const directoryNote = ["nrl", "afl", "aflw"].includes(sportKey)
@@ -291,7 +301,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     rosterCountries.set(record.currentTeamId, countries);
   });
   const motorsportDirectory = ["motorsport", "f1", "wrc"].includes(sportKey);
-  const separatedEntityDirectory = motorsportDirectory || sportKey === "nbl";
+  const separatedEntityDirectory = !sportKey.startsWith("cricket");
   const collectionsById = new Map((chunk.collections || []).map(collection => [collection.id, collection]));
   const selectedCollectionMemberIds = new Set(collectionsById.get(filters.collectionId)?.memberIds || []);
   const records = allRecords
@@ -328,9 +338,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     tabs.className = "follow-directory-tabs";
     tabs.setAttribute("role", "group");
     tabs.setAttribute("aria-label", `${SPORT_META[sportKey]?.label || "Motorsport"} directory`);
-    const entityTabs = sportKey === "nbl"
-      ? [["team", "Teams"], ["athlete", "Players"]]
-      : [["athlete", sportKey === "wrc" ? "Drivers / co-drivers" : "Drivers"], ["team", sportKey === "wrc" ? "Manufacturers" : "Teams"]];
+    const entityTabs = [["athlete", directoryIndividualLabel(sportKey)], ["team", "Teams"]];
     entityTabs.forEach(([entityType, label]) => {
       const tab = document.createElement("button");
       tab.type = "button";
@@ -466,10 +474,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (chips.childElementCount) copy.appendChild(chips);
     }
     const follow = record.profileOnly ? document.createElement("span") : buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
-    if (athlete && (record.profileRef || record.profileOnly)) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, isF1Record ? "f1" : sportKey))).catch(() => {
-      copy.title = "Profile temporarily unavailable. Select to retry.";
-      copy.addEventListener("click", () => { void ensureAthleteProfileUi().then(ui => ui.open(record, isF1Record ? "f1" : sportKey, copy)).catch(() => showToast("Profile unavailable. Please try again.")); });
-    });
+    [icon,copy].forEach(target=>{target.setAttribute('role','button');target.tabIndex=0;target.onclick=()=>void openAthleteProfile(record.id,record.displayName,isF1Record?'f1':sportKey,target);target.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();target.click();}};});
     row.append(icon, copy, follow);
     list.appendChild(row);
   });
@@ -586,7 +591,7 @@ function renderTennisFollowCollections(container){
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.textContent='Loading Follow…';
-    void loadDeferredScript('assets/js/follow-navigation.js?v=397').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=399').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -668,12 +673,12 @@ function renderFollowViewLoaded(){
   }
   container.appendChild(commonControls);
   const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
-  [['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players',entity.id.startsWith('sport:cricket')?'Teams':'Teams & players'],['major-events','Major Events']].forEach(([section,label])=>{
+  [['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players',directorySectionLabel(followDirectoryKey(entity))],['major-events','Major Events']].forEach(([section,label])=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
     button.onclick=()=>{activeInspectorCodeId=null;saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
   });container.appendChild(tabs);
   followViewSection=state.section || 'schedule';
-  NOTHINGSPORTS_FOLLOW_NAV.mount(container,entity,state);
+  NOTHINGSPORTS_FOLLOW_NAV.mount(container,entity,state);buildFollowHomeTabs(container);
   if(inspectorReturnState?.activeTab==='feed'){
     const back=document.createElement('button');back.type='button';back.className='btn ghost follow-feed-back';back.textContent='Back to Feed';back.onclick=backFromCodeInspector;container.insertBefore(back,container.firstChild);
   }

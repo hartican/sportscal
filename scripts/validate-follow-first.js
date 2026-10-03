@@ -131,7 +131,7 @@ assert.match(html, />Follow</);
 assert.match(html, /Back to Feed/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
 const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
-assert.deepEqual(navLabels, ["Feed", "Events", "Athletes", "Follow"]);
+assert.deepEqual(navLabels, ["Feed", "Events", "Match Centre", "Follow"]);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";

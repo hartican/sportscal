@@ -9,7 +9,7 @@ const assert=require('node:assert/strict'),{chromium}=require('playwright');
   await page.route('**/api/**',route=>{const url=route.request().url();requests.push(url);if(url.includes('scope=match-centre'))return route.fulfill({json:{events:[fixture],pagination:{nextCursor:null}}});if(url.includes('/api/match-centre?'))return route.fulfill({json:{enabled:true,fixtures:[{id:fixture.id,status:'live',score:{home:18,away:12},homeParticipantId:fixture.homeParticipantId,awayParticipantId:fixture.awayParticipantId,checkedAt:new Date().toISOString(),officialUrl:'https://www.nrl.com/draw/'}]}});return route.fulfill({status:503,json:{}});});
   await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:33962');
   await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&!startupCoordinator.isHydrating());
-  await page.getByRole('button',{name:'Match Centre',exact:true}).click();
+  requests.length=0;await page.getByRole('button',{name:'Match Centre',exact:true}).click();
   await page.locator('.match-centre-card').waitFor();
   assert(await page.getByText('Results hidden',{exact:true}).isVisible());assert.equal(await page.locator('.match-centre-score').count(),0);
   await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});

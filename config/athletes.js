@@ -6,9 +6,9 @@
  function role(key){key=String(key||'').replace(/-women$/,'');return ['tennis','wimbledon','football','soccer','afl','aflw','nrl','nrlw','rugby','rugby-union','nba','nbl','nfl','nhl','ice-hockey','cricket','basketball','netball','hockey','fiba'].includes(key)?'Player':['f1','wrc','motorsport','supercars'].includes(key)?'Driver':key==='motogp'?'Rider':key==='golf'?'Golfer':'Athlete';}
  function participantIds(event){return [...new Set([...(event.participantIds||[]),...(event.participants||[]).map(p=>p.id),...(event.participantSlots||[]).map(p=>p.participantId),...(event.matchupSides||[]).flatMap(s=>(s.players||[]).map(p=>p.id)),event.homeParticipantId,event.awayParticipantId].filter(Boolean))];}
  const involves=(event,id)=>participantIds(event).some(p=>identity(p)===identity(id));
- function list(records,activeIds){
-  const keys=new Set([...activeIds].filter(individual).map(identity)),seen=new Set();
-  return records.filter(individual).filter(p=>{const key=identity(p.id);if(!keys.has(key)||seen.has(key))return false;seen.add(key);return true;}).map(p=>({...p,sportKey:sport(p),displayName:p.displayName||p.canonicalName||p.name||'Followed athlete'})).sort((a,b)=>a.displayName.localeCompare(b.displayName));
+ function list(records,activeIds,includeTeams=false){
+  const keys=new Set([...activeIds].filter(id=>individual(id)||includeTeams&&String(id).startsWith('team:')).map(identity)),seen=new Set();
+  return records.filter(p=>individual(p)||includeTeams&&String(p.id).startsWith('team:')).filter(p=>{const key=identity(p.id);if(!keys.has(key)||seen.has(key))return false;seen.add(key);return true;}).map(p=>({...p,sportKey:sport(p),displayName:p.displayName||p.canonicalName||p.name||'Followed athlete'})).sort((a,b)=>a.displayName.localeCompare(b.displayName));
  }
  function next(events,id,now=Date.now()){
   return events.filter(e=>involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now))||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))

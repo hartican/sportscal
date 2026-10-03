@@ -19,7 +19,7 @@
   const dialog=document.createElement('dialog');dialog.className='follow-more-dialog follow-filter-dialog';dialog.setAttribute('aria-label','Filter schedule');
   const title=document.createElement('h2');title.textContent='Filter schedule';dialog.append(title);
   const draft=JSON.parse(JSON.stringify(selected(code)));
-  for(const [key,label]of (code.includes('cricket')?[['format','Format'],['participant','Teams']]:[['round','Rounds'],['competition','Competitions'],['tournament','Tournaments'],['participant','Teams & players']])){
+  for(const [key,label]of (code.includes('cricket')?[['format','Format'],['participant','Teams']]:[['round','Rounds'],['competition','Competitions'],['tournament','Tournaments'],['participant',directorySectionLabel(code.replace('sport:',''))]])){
    const choices=new Map();for(const f of fixtures)for(const value of values(f,key)){
     const person=(f.participants||[]).find(p=>p.id===value)||(f.participantSlots||[]).find(p=>p.participantId===value)||cardIdentityParticipants().find(p=>p.id===value);
     const name=key==='competition'?f.competitionName||value:key==='tournament'?f.tournamentName||value:key==='participant'?person?.displayName||person?.name||person?.label||value:key==='country'?(value.length===2?new Intl.DisplayNames(['en'],{type:'region'}).of(value):value):value;
@@ -46,7 +46,7 @@
   }
   const nav=document.createElement('div');nav.className='follow-navigation';const spacer=document.createElement('div');spacer.className='follow-navigation-spacer';spacer.setAttribute('aria-hidden','true');
   const compact=document.createElement('div');compact.className='follow-navigation-compact';
-  const label=document.createElement('span');label.textContent=`${leMans?'24 Hours of Le Mans':entity.label} · ${state.section==='teams-players'?'Teams & players':state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;
+  const label=document.createElement('span');label.textContent=`${leMans?'24 Hours of Le Mans':entity.label} · ${state.section==='teams-players'?directorySectionLabel(followDirectoryKey(entity)):state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-navigation-toggle';toggle.setAttribute('aria-controls','follow-navigation-controls');
   const controls=document.createElement('div');controls.id='follow-navigation-controls';
   while(container.firstChild)controls.append(container.firstChild);

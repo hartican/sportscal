@@ -7,7 +7,7 @@ const people=ids.map((id,i)=>({id,name:['Carlos Alcaraz','Novak Djokovic','Minje
 assert.equal(model.role('tennis'),'Player');assert.equal(model.role('football'),'Player');assert.equal(model.role('golf'),'Golfer');assert.equal(model.role('motogp'),'Rider');assert.equal(model.role('athletics'),'Athlete');
 assert(!model.individual('team:football:one'));assert(!model.individual('winner:semifinal'));
 assert.equal(projection({participants:people,preferences}).length,4);
-assert.equal(projection({participants:people,preferences:{preferenceGraph:{entityFollows:[{participantId:'team:football:one',followLevel:'follow'}]}}}).length,0,'team follows never imply player follows');
+assert.equal(projection({participants:people,preferences:{preferenceGraph:{entityFollows:[{participantId:'team:football:one',followLevel:'follow'}]}}}).filter(p=>p.type!=='team').length,0,'team follows never imply player follows');
 assert.equal(projection({participants:people,preferences:{...preferences,preferenceGraph:{entityFollows:preferences.preferenceGraph.entityFollows.slice(1)}}}).length,3,'later unfollow remains removed');
 const now=new Date('2026-10-02T00:00:00Z');
 const event={id:'fixture:tennis:athletes-test',eventId:'fixture:tennis:athletes-test',key:'tennis',name:'Alcaraz v Djokovic',date:'2026-10-03',time:'12:00',startTimeUtc:'2026-10-03T01:00:00Z',timePrecision:'exact',status:'scheduled',participants:people.slice(0,2),participantIds:ids.slice(0,2),round:'quarterfinal',contestUnit:'match',sourceUrl:'https://example.org/official',sourceCheckedAt:now.toISOString()};
@@ -36,7 +36,7 @@ const handler=createFeedHandler({load:()=>deps,clock:()=>now});const response=()
  const before=accountReads;r=response();await handler({method:'POST',url:'/api/feed?scope=athletes',body:{preferences}},r);assert.equal(r.code,200);assert.equal(accountReads,before,'anonymous local follows never read private account state');
  r=response();await handler({method:'GET',url:'/api/feed?scope=athletes',headers:{authorization:'erased'}},r);assert.notEqual(r.code,200,'erasure/auth guards retain control');
  r=response();await handler({method:'POST',url:'/api/feed?scope=athletes',body:{preferences:{blob:'x'.repeat(131073)}}},r);assert.equal(r.code,413);
- const html=fs.readFileSync('index.html','utf8');assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Athletes','Follow']);
+ const html=fs.readFileSync('index.html','utf8');assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow']);
  const ui=fs.readFileSync('assets/js/athletes-ui.js','utf8');assert(!ui.includes('setInterval('),'reuse the sole visible sporting refresh coordinator');assert(!ui.includes('requestPermission('),'profile navigation never asks notification permission');
  console.log('Athletes: effective individual follows, roles, aliases, dismissal, source state, bounded feed scope and account/erasure isolation passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
