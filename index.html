@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="404">
+<meta name="app-shell-version" content="405">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=404" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=405" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=401">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=405">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=363">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=404"></script>
+<script src="assets/js/app-shell-runtime.js?v=405"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8744,19 +8744,38 @@ let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
 let followHomeView = "favourites";
+function renderFollowHomeLoading(panel,failed=false){
+  panel.className='athletes-hub';panel.replaceChildren();buildFollowHomeTabs(panel);
+  const heading=document.createElement('h2');heading.textContent='My athletes & teams';panel.append(heading);
+  const status=document.createElement('p');status.setAttribute('role','status');status.textContent=failed?'Favourites could not load.':'Loading favourites…';panel.append(status);
+  const seen=new Set(),collections=followCollectionsById(),prepared=FOLLOW_FIRST.migratePreferences(userPreferences);
+  const records=[...cardIdentityParticipants(),...[...followDirectoryChunks.values()].flatMap(c=>[...(c.participants||[]),...(c.players||[]),...(c.records||[])])];
+  for(const record of records){
+    const id=record.id,key=FOLLOW_FIRST.participantFollowIdentityKey(id),team=String(id).startsWith('team:');
+    if(seen.has(key)||!(/^(athlete|competitor|player):/.test(String(id))||team))continue;
+    const follow=FOLLOW_FIRST.effectiveParticipantFollow(id,userPreferences,collections,prepared),label=record.displayName||record.canonicalName||record.name;
+    if(!follow.followed||(team&&follow.source!=='explicit')||!label)continue;
+    seen.add(key);const card=document.createElement('article');card.className='athletes-person';card.dataset.athleteId=id;
+    const name=document.createElement('button');name.type='button';name.className='athletes-name';name.textContent=label;name.setAttribute('aria-label',`Open ${label} profile in Follow`);
+    name.onclick=()=>void openAthleteProfile(id,label,record.sportKey||String(record.sportDomainId||id).split(':')[1],name).catch(()=>showToast('Profile could not load. Try again.'));
+    card.append(name);panel.append(card);if(seen.size>=40)break;
+  }
+  if(failed){const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}
+}
 async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
-  const panel=document.getElementById('listView');panel.className='athletes-hub';panel.textContent='Loading favourites…';
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=401'),loadDeferredScript('config/athletes.js?v=401'),loadDeferredScript('config/tennis-journeys.js?v=368')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=404')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites')){panel.textContent='Favourites could not load.';buildFollowHomeTabs(panel);const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=()=>void loadAthletes();panel.append(retry);}}).finally(()=>{loadAthletes.pending=null;});
+  const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
+  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=401').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=405')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
+  const route=location.href,tab=activeTab,view=followHomeView;
+  const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
   await loadDeferredScript('config/athletes.js?v=401');
-  await loadDeferredScript('config/tennis-journeys.js?v=368');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=404');
-  if(owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
+  await loadDeferredScript('assets/js/athletes-ui.js?v=405');
+  if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
 if (startupReloadRestoreState){
@@ -19096,6 +19115,7 @@ function loadFollowPresentation(){
 }
 function showFollowPresentationLoading(container, render, isCurrent){
   container.textContent='Loading Follow…';
+  if(activeTab==='follow')buildFollowHomeTabs(container);
   if(container.dataset.followPresentation==='loading')return;
   container.dataset.followPresentation='loading';
   void loadFollowPresentation().then(()=>{
@@ -19105,6 +19125,7 @@ function showFollowPresentationLoading(container, render, isCurrent){
     delete container.dataset.followPresentation;
     if(!isCurrent())return;
     container.textContent='Follow could not load. ';
+    if(activeTab==='follow')buildFollowHomeTabs(container);
     const retry=document.createElement('button');
     retry.type='button';retry.textContent='Retry';retry.addEventListener('click',render);container.append(retry);
   });
@@ -19121,7 +19142,7 @@ function renderFollowView(){
   followHomeView='browse';
   if(typeof globalThis.renderFollowViewLoaded==='function')return globalThis.renderFollowViewLoaded();
   const container=document.getElementById('listView');
-  showFollowPresentationLoading(container,renderFollowView,()=>activeTab==='follow');
+  showFollowPresentationLoading(container,renderFollowView,()=>activeTab==='follow'&&followHomeView==='browse');
 }
 async function loadMatchCentre(){
   if(activeTab!=='match-centre')return;
@@ -20324,7 +20345,7 @@ function renderCurrentSection(){
   if((activeTab==='follow'&&followHomeView==='favourites')){void loadAthletes();return;}
   if (activeInspectorCodeId){
     renderCodeInspector();
-  } else if (startupCoordinator.isHydrating()){
+  } else if (activeTab !== 'follow' && startupCoordinator.isHydrating()){
     renderStartupFeedLoading();
   } else if (activeTab === "events"){
     renderEventsView();
@@ -20359,7 +20380,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   globalThis.fantasyDeadlineController?.sync();
   if((activeTab!=='follow'||followHomeView!=='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
   if(calendarChoice.busy)return;
-  document.querySelector("footer.app-footer").style.visibility=startupCoordinator.isHydrating()?"hidden":"";
+  document.querySelector("footer.app-footer").style.visibility=activeTab==='feed'&&startupCoordinator.isHydrating()?"hidden":"";
   if (preserveViewport || viewportAnchor){
     const captured = viewportAnchor || captureViewportRenderAnchor();
     const anchorTarget = captured?.card?.isConnected
@@ -20398,7 +20419,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = true;
     listView.style.display = "block";
     renderCodeInspector();
-  } else if (startupCoordinator.isHydrating()){
+  } else if (activeTab !== 'follow' && startupCoordinator.isHydrating()){
     jumpTodayBtn.hidden = true;
     listView.style.display = "block";
     renderStartupFeedLoading();

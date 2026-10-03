@@ -413,3 +413,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 .follow-home-tabs~.follow-navigation{top:calc(var(--sticky-top-bar-height,132px) + 58px)}
 .follow-home-tabs button{min-height:44px}
 .follow-home-tabs [aria-pressed=true]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.athletes-hub{display:grid;gap:14px;width:100%;max-width:760px;margin:auto;padding:16px 0;overflow-wrap:anywhere}
+.athletes-person{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}
+.athletes-name{display:block;min-height:44px;border:0;background:none;color:var(--text);font-size:1rem;font-weight:800;padding:4px 0;text-align:left;cursor:pointer}

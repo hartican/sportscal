@@ -144,6 +144,7 @@ async function validateServiceWorkerRevalidation(){
   const cached = {body:"old"};
   const fresh = {ok:true,clone(){return this;}};
   const context = {
+    AbortController,Response,setTimeout,clearTimeout,
     CACHE_NAME:"test", fetch:()=>new Promise(resolve=>{resolveNetwork=resolve;}),
     caches:{open:async()=>({match:async()=>cached,put:async()=>{saved=true;}}),match:async()=>({body:"offline"})},
   };
@@ -158,7 +159,8 @@ async function validateServiceWorkerRevalidation(){
   context.caches.open=async()=>({match:async()=>null,put:async()=>{}});
   const fallback=await context.staleWhileRevalidate("request",{waitUntil(promise){lifetime=promise;}},"missing");
   await lifetime;
-  assert.equal(fallback.body,"offline","a failed network promise must fall back to the offline shell");
+  assert.equal(fallback.status,503,"a missing optional cache reports unavailable without serving an unrelated shell");
+  assert.equal(await fallback.text(),'Temporarily unavailable');
 }
 
 function validateScrollIdleMutationQueue(){

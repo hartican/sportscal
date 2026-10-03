@@ -11,7 +11,13 @@ assert(!presentation.circuitAsset({key:'f1',venue:'Unknown circuit'}));
 // Drive the real routing branch while its deferred scripts are unavailable.
 const html=fs.readFileSync('index.html','utf8'),start=html.indexOf('function renderCurrentSection(){'),end=html.indexOf('\nfunction renderTabCounts()',start);
 let calls=0;const context={activeTab:'follow',followHomeView:'favourites',loadAthletes:()=>{calls++;}};vm.createContext(context);vm.runInContext(html.slice(start,end),context);context.renderCurrentSection();assert.equal(calls,1);
-assert(html.indexOf("if ((activeTab === 'follow' && followHomeView === 'favourites' && !activeInspectorCodeId)){",html.indexOf('function renderAll('))<html.indexOf('} else if (startupCoordinator.isHydrating())',html.indexOf('function renderAll(')));
+Object.assign(context,{followHomeView:'browse',activeInspectorCodeId:null,startupCoordinator:{isHydrating:()=>true},renderFollowView:()=>{calls++;},renderStartupFeedLoading:()=>{throw Error('Follow cannot render the Feed loading barrier');},scheduleIdentityImageRecovery(){},document:{getElementById:()=>({})}});
+context.renderCurrentSection();assert.equal(calls,2,'Browse also renders before Feed readiness');
+const renderAll=html.slice(html.indexOf('function renderAll('),html.indexOf('\nfunction firstNormalFeedCard('));
+const gate=renderAll.indexOf("} else if (activeTab !== 'follow' && startupCoordinator.isHydrating()){");
+assert(gate>=0,'Feed hydration cannot gate Follow');
+const favourites=renderAll.indexOf("if ((activeTab === 'follow' && followHomeView === 'favourites' && !activeInspectorCodeId)){");
+assert(favourites>=0&&favourites<gate,'favourites stay ahead of the startup barrier');
 console.log('Participation admission, timezone conversion, published F1 outlines and route ownership passed.');
 const first=require('../config/follow-first'),{buildServerFeed}=require('../lib/server-feed-pipeline');
 const preferences={selectedSelectorEntityIds:['sport:golf'],followFirst:{australiansOnlySportIds:['sport:golf']}};

@@ -433,3 +433,10 @@ Chromium/WebKit installed-browser rehearsal passes the 400-to-402 upgrade and of
 Final public-data correction: Match Centre defaults its optional sport chooser to All sports, rather than the first alphabetical sport. Explicit sport choices remain remembered. Everything membership is still independent of that display filter. Mixed Football/NRL browser fixtures cover the default and Followed return.
 
 Profile readiness inspection is read-only: a granted system permission does not re-register an installation on profile navigation. Existing installation OFFs are preserved; only explicit Enable alerts uses the registration path. A granted-permission browser contract verifies zero setup calls during five profile/follow round trips and one explicit request after tapping Enable alerts.
+
+
+## Follow startup responsiveness — 3 October 2026
+
+Follow exposes My athletes & teams and Browse sports immediately, including restored routes, while its optional interface and schedules load. Browse does not wait for Feed hydration or its failure state; opening it never releases the Feed completeness barrier. Locally known effective favourites remain visible while published schedules update. Missing identity/schedule responses use a loading or unavailable message, not an empty-follow claim. Optional tennis journeys load after the basic interface; favourites no longer load the unrelated Match Centre model.
+
+Identical membership requests share one operation; changed account, profile or preferences queue only the latest current read. Late responses cannot replace another route or account. Existing follows, exclusions, pagination, notification consent and refresh owners remain authoritative. Regression: `validate-follow-startup-browser.js`, `validate-follow-favourites-browser.js`, `validate-follow-decisions.js`, `validate-refresh-lifecycle.js` and both installed-browser upgrade rehearsals. Physical iPhone Home Screen cold-launch/resume evidence remains separate.

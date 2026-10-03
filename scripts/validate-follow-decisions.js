@@ -6,7 +6,7 @@ const follow=require('../config/follow-first');
 const policy=require('../config/follow-feed-policy');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-09-08T00:00:00Z');
-const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
+const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',tournamentLevel:'Grand Slam',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
 function check(event,prefs,expected,label){
  assert.equal(Boolean(follow.reasonForEvent(event,prefs)),expected,'client: '+label);
  assert.equal(buildServerFeed({events:[event],userId:'decisions',userState:{preferences:prefs},now}).events.some(e=>e.id===event.id),expected,'server: '+label);
@@ -17,7 +17,9 @@ check(fixture({round:'Round 1',participantCountryCodes:['AUS']}),{...tennis,foll
 for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,true,round);
 for(const round of ['Quarterfinal','Semi-final'])check(fixture({round,eventType:'doubles'}),tennis,false,'doubles '+round);
 check(fixture({round:'Final',eventType:'doubles'}),tennis,false,'doubles final');
-check(fixture({round:'Round 1'}),{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'one followed player is sufficient');
+const playerFollow={preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}};
+check(fixture({round:'Round of 128'}),playerFollow,true,'one followed player admits an in-scope knockout');
+for(const tournamentLevel of ['250','500',undefined])check(fixture({round:'Round of 16',tournamentLevel}),playerFollow,false,'individual tennis outside automatic scope stays manual');
 check(fixture({round:'Final'}),{},false,'no follows');
 for(const key of ['aflw','nrlw']){
  const parent=key.slice(0,-1),e=fixture({key,round:'Grand Final'});
