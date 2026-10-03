@@ -862,9 +862,9 @@
         const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
         const explicitUrl = explicitObject.webUrl || explicitObject.url || null;
         const explicitScope = String(explicitObject.linkScope || "").toLowerCase();
-        const fixtureUrl = explicitScope === "fixture" ? explicitUrl : explicitObject.fixtureUrl || null;
-        const eventUrl = explicitScope === "event" ? explicitUrl : explicitObject.eventUrl || explicitObject.tournamentUrl || rights?.eventUrls?.[providerId] || null;
-        const sportUrl = explicitScope === "sport" ? explicitUrl : explicitObject.sportUrl || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
+        const fixtureUrl = explicitScope === "fixture" && explicitUrl ? explicitUrl : explicitObject.fixtureUrl || null;
+        const eventUrl = explicitScope === "event" && explicitUrl ? explicitUrl : explicitObject.eventUrl || explicitObject.tournamentUrl || rights?.eventUrls?.[providerId] || null;
+        const sportUrl = (explicitScope === "sport" ? explicitUrl : null) || explicitObject.sportUrl || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
         const webUrl = fixtureUrl || eventUrl || explicitUrl || sportUrl;
         const linkScope = fixtureUrl ? "fixture" : eventUrl ? "event" : "sport";
         return {
