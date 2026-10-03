@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Confirmed chat administrator identity — 4 October 2026
+
+The existing `CHAT_ADMIN_EMAILS` allowlist grants chat administration only to a non-anonymous fresh Auth user with a valid, non-future `email_confirmed_at`. Generic `confirmed_at` can describe phone confirmation and cannot verify the allowlisted email. Missing, null, invalid or future email confirmation fails closed. The existing per-request Auth read, erasure guard, confirmed administrators, membership/guest capabilities and separate owner-console app-metadata role remain authoritative. No new account lookup, client claim, role-management routine, database policy, scheduler or shell change. Regression: actual-handler confirmation/foreign-room/email-picker/share-management cases in `validate-private-fixture-chat.js`, including existing confirmed-admin and disabled/rotated guest checks.
+
 ## Feed authentication and initialization boundary — 3 October 2026
 
 The existing Feed handler verifies the bearer through the existing Supabase user endpoint, retains the erasure guard and reads saved account state before initializing sporting catalogue/presentation dependencies. Every request still verifies authentication/state before using the account/revision/TTL-scoped response cache. Public POST Athletes/Followed inputs retain the existing 128 KiB bound, now checked before catalogue initialization, with no private account-state read. Invalid method/participant and shared fixture/Match Centre routes retain their existing owners. No scheduler, sporting data/source request, database change, credential, auth weakening, new cache policy or browser shell change.

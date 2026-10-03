@@ -741,6 +741,31 @@ async function run(){
     const isolated = await invoke(tokenRequest(`token-${ids.outsider}`, { query:{ roomId } }));
     assert.equal(isolated.statusCode, 403, "non-members must not read a room");
 
+    // An allowlisted string alone is not a confirmed account identity. Exercise
+    // the real handler after its trusted Auth read, not only the role helper.
+    for (const [name, identity] of [
+      ["missing-confirmation", {}],
+      ["null-confirmation", {email_confirmed_at:null}],
+      ["invalid-confirmation", {email_confirmed_at:"not-a-timestamp"}],
+      ["future-confirmation", {email_confirmed_at:"2099-01-01T00:00:00Z"}],
+      ["phone-only-confirmation", {confirmed_at:"2026-08-01T00:00:00Z",phone_confirmed_at:"2026-08-01T00:00:00Z"}],
+      ["anonymous-confirmation", {is_anonymous:true,email_confirmed_at:"2026-08-01T00:00:00Z",app_metadata:{chat_guest_attested:true}}],
+    ]){
+      const token=`isolated-${name}`;
+      tokenUsers.set(token,{id:ids.outsider,email:"admin.one@example.com",...identity});
+      const rejected=await invoke(tokenRequest(token,{query:{roomId}}));
+      assert.equal(rejected.statusCode,403,`${name}: unconfirmed/anonymous allowlisted email must not grant foreign room access`);
+      assert.equal(rejected.body.code,"chat_membership_required");
+      assert(!rejected.body.messages&&!rejected.body.members,"denied room response contains no private content");
+      const search=await invoke(tokenRequest(token,{query:{mode:"users",q:"member"}}));
+      if(identity.is_anonymous)assert.equal(search.statusCode,401);
+      else {assert.equal(search.statusCode,200);assert(search.body.users.every(account=>!Object.hasOwn(account,"email")),"ordinary search cannot acquire the admin email picker");}
+      const forbidden=await invoke(tokenRequest(token,{method:"POST",body:{action:"enable-share",roomId}}));
+      assert.equal(forbidden.statusCode,403);assert.equal(forbidden.body.code,"chat_admin_required");
+      assert.equal(rooms.find(room=>room.id===roomId).guest_share_enabled,false,"rejected management cannot change sharing");
+      tokenUsers.delete(token);
+    }
+
     const enabledShare = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
       body:{ action:"enable-share", roomId },

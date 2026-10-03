@@ -140,6 +140,10 @@ function adminEmails(environment = process.env){
 }
 
 function isAdmin(user, environment = process.env){
+  // confirmed_at can describe phone confirmation; it does not attest the
+  // allowlisted email. Trust only the fresh Auth user's email-specific field.
+  const confirmed = typeof user?.email_confirmed_at === "string" ? Date.parse(user.email_confirmed_at) : NaN;
+  if (user?.is_anonymous === true || !Number.isFinite(confirmed) || confirmed > Date.now()) return false;
   const email = String(user?.email || "").trim().toLowerCase();
   const allowlist = adminEmails(environment);
   return Boolean(email && allowlist.size && allowlist.has(email));
