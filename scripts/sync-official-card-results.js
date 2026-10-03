@@ -25,9 +25,9 @@ function applyOfficialResults(events, snapshot){
     const next = {
       ...event,
       ...result,
-      resultPublishedAt:event.resultPublishedAt || snapshot.checkedAt,
+      resultPublishedAt:event.resultPublishedAt || result.resultPublishedAt || result.sourceCheckedAt || snapshot.checkedAt,
       sourceCheckedAt:(!result.sourceUrl || result.sourceUrl === event.sourceUrl) && Date.parse(event.sourceCheckedAt) > Date.parse(result.sourceCheckedAt || snapshot.checkedAt) ? event.sourceCheckedAt : result.sourceCheckedAt || snapshot.checkedAt,
-      lastReviewedAt:snapshot.checkedAt,
+      lastReviewedAt:result.lastReviewedAt || result.sourceCheckedAt || snapshot.checkedAt,
       sourceType:"official",
       resultLabels:[event.roundLabel || event.stage || "Result", result.score, "Official result"],
     };

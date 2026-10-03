@@ -26,7 +26,7 @@ function mergeRecord(record, override, checkedAt){
     const {customClassification,...rest}=record;
     record={...rest,importedCalendarClassification:customClassification};
   }
-  const sourceRefs = [...new Set([record.sourceUrl, override.sourceUrl, override.broadcastSourceUrl, override.scheduleSourceUrl, ...(record.sourceRefs || [])].filter(Boolean))];
+  const sourceRefs = [...new Set([...(record.sourceRefs || []), record.sourceUrl, override.sourceUrl, override.broadcastSourceUrl, override.scheduleSourceUrl].filter(Boolean))];
   const merged = {
     ...record,
     ...publicFields(override),
@@ -102,7 +102,7 @@ function applyEvidence({ check=false } = {}){
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
   const canonical = documents[TARGETS[0]];
-  canonical.events = applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt).map(record=>{
+  canonical.events = applyArray(applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt), evidence.resultOverrides, evidence.checkedAt).map(record=>{
     const source={...record};
     for(const key of ['storyline','cardVariant','archived'])delete source[key];
     return source;
@@ -149,24 +149,46 @@ function applyEvidence({ check=false } = {}){
   console.log("Applied reviewed fixtures, results, completion timing and broadcaster evidence.");
 }
 
-function applySelectedResults(ids){
+function applySelectedResults(ids,{root=ROOT}={}){
+  const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
+  const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
+  assert(ids.length&&new Set(ids).size===ids.length,'Unique reviewed result IDs are required');
   const evidence=read('data/canonical/current-card-evidence-2026.json');
   const selected=ids.map(id=>{
     const row=evidence.resultOverrides.find(row=>row.id===id);
     assert(row && row.sourceCheckedAt && row.sourceUrl && row.sourceName, `${id}: dated result evidence is required`);
+    assert(/^https:\/\//.test(row.sourceUrl)&&Number.isFinite(Date.parse(row.sourceCheckedAt))&&Date.parse(row.sourceCheckedAt)<=Date.now(),`${id}: valid source observation is required`);
+    assert(row.score&&row.outcomeText&&row.recapText,`${id}: a reviewed final requires its score and factual summary`);
     return {...row,status:'completed'};
   });
-  for(const file of ['feeds/incoming/events.json','data/events.json']){
+  const files=['feeds/incoming/events.json','data/events.json'];
+  const updates=files.map(file=>{
     const document=read(file);
+    for(const row of selected)assert.equal(document.events.filter(record=>matches(record,row)).length,1,`${row.id}: exactly one retained fixture is required in ${file}`);
     document.events=document.events.map(record=>{
       const override=selected.find(row=>matches(record,row));
-      return override?normalizeCompletedTiming(mergeRecord(record,override,override.sourceCheckedAt)):record;
+      if(!override)return record;
+      const next=normalizeCompletedTiming(mergeRecord(record,override,override.sourceCheckedAt));
+      if(next.resultStatus==='pending')delete next.resultStatus;
+      delete next.resultAvailabilityEvidence;
+      return next;
     });
-    write(file,document);
-  }
+    return {file,document};
+  });
   const file='data/canonical/official-card-results-2026.json',results=read(file),byId=new Map(results.results.map(row=>[row.id,row]));
   for(const row of selected)byId.set(row.id,{...byId.get(row.id),...publicFields(row)});
-  results.results=[...byId.values()];write(file,results);
+  results.results=[...byId.values()];
+  const canonicalFile='data/canonical/afl-nrl-2026.json',canonical=read(canonicalFile);
+  for(const row of selected)assert(canonical.events.filter(record=>matches(record,row)).length<=1,`${row.id}: canonical identity must be unique`);
+  canonical.events=canonical.events.map(record=>{
+    const row=selected.find(row=>matches(record,row));if(!row)return record;
+    const next=normalizeCompletedTiming(mergeRecord(record,row,row.sourceCheckedAt));
+    for(const key of ['storyline','cardVariant','archived'])delete next[key];
+    return next;
+  });
+  for(const update of updates)write(update.file,update.document);
+  write(canonicalFile,canonical);
+  write(file,results);
   console.log(`Applied ${selected.length} reviewed result(s); unrelated fixtures, editorial and observations retained.`);
 }
 function applySelectedTimings({root=ROOT}={}){

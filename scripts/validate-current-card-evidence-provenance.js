@@ -1,4 +1,5 @@
 "use strict";
+require('./validate-reviewed-result-publication');
 const assert = require("node:assert/strict");
 const { mergeRecord } = require("./apply-current-card-evidence");
 const record = {id:"fixture", sourceUrl:"https://example.com/schedule", sourceCheckedAt:"2026-09-30T00:00:00Z"};

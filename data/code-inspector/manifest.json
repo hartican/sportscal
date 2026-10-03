@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T06:13:03.427Z",
+  "generatedAt": "2026-10-03T06:54:13.206Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -23,7 +23,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T06:54:13.206Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T06:54:13.206Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -147,7 +147,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T01:29:36.066Z",
+      "freshAt": "2026-10-03T06:54:13.206Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

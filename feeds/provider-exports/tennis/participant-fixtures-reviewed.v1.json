@@ -129,7 +129,20 @@
       },
       "liveWindow": 3,
       "broadcaster": "Australian viewing unconfirmed",
-      "viewingOptions": []
+      "viewingOptions": [],
+      "resultStatus": "pending",
+      "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "resultSourceCheckedAt": "2026-10-03T06:30:54.629Z",
+      "resultAvailabilityEvidence": {
+        "kind": "official-draw-result-unpublished",
+        "fixtureId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+        "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+        "checkedAt": "2026-10-03T06:30:54.629Z",
+        "sourceSha256": "3708c48a839d83d58ff943873469ec1545b7a70c3051ae8df7b0e7e4d4c751d7",
+        "sourcePublishedAtLocal": "2026-10-03T13:56:14+09:00",
+        "matchRow": "Round of 16: C. Alcaraz [1] v M. Arnaldi",
+        "winnerCell": "unpublished"
+      }
     },
     {
       "id": "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
@@ -230,6 +243,12 @@
       "player": "Aryna Sabalenka",
       "outcome": "Verified next Round of 32 pairing with Nikola Bartunkova from draw; individual day, court and clock unpublished.",
       "checkedAt": "2026-10-03T01:24:45.000Z"
+    },
+    {
+      "player": "Carlos Alcaraz",
+      "outcome": "Official draw still pairs Alcaraz and Arnaldi in Round of 16; no winner or second-round score appears. Result unavailable as observed; match status and original not-before clock are unchanged.",
+      "checkedAt": "2026-10-03T06:30:54.629Z",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf"
     }
   ]
 }

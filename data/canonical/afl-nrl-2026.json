@@ -12171,7 +12171,7 @@
         "team:aflw:cd_t9406"
       ],
       "displayName": "GWS GIANTS v Essendon",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -12241,7 +12241,32 @@
         "needsPreviewRefresh": false
       },
       "selectedSentence": "GWS GIANTS v Essendon: This is GWS's first Henson Park home match of the 2026 season.",
-      "fullSpiel": "This is GWS's first Henson Park home match of the 2026 season. The official fixture lists Round 8 at Henson Park, Sydney. At this refresh, GWS sit 15th and Essendon sit 17th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 8 match its own stakes within the published 12-round season."
+      "fullSpiel": "This is GWS's first Henson Park home match of the 2026 season. The official fixture lists Round 8 at Henson Park, Sydney. At this refresh, GWS sit 15th and Essendon sit 17th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 8 match its own stakes within the published 12-round season.",
+      "homeScore": 35,
+      "awayScore": 43,
+      "score": "GWS GIANTS 5.5 (35)–6.7 (43) Essendon",
+      "outcomeText": "Essendon defeated GWS GIANTS by eight points.",
+      "recapText": "Essendon won the AFLW Round 8 match at Henson Park by eight points, 43 to 35.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8946",
+      "sourceCheckedAt": "2026-10-03T06:33:30.622Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
+      "resultSourceCheckedAt": "2026-10-03T06:33:30.622Z",
+      "statusCheckedAt": "2026-10-03T06:33:30.622Z",
+      "scoreCheckedAt": "2026-10-03T06:33:30.622Z",
+      "resultPublishedAt": "2026-10-03T06:33:30.622Z",
+      "lastReviewedAt": "2026-10-03T06:33:30.622Z",
+      "eventId": "event:aflw:cd_m20262640803",
+      "canonicalEventId": "event:aflw:cd_m20262640803",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.afl.com.au/aflw/matches/8946"
+      ],
+      "stakesScore": 5,
+      "endTimeUtc": "2026-10-03T06:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event:aflw:cd_m20262640804",

@@ -66,7 +66,7 @@ globalThis.renderFollowSchedulePanel=function(container){
       const card=buildCodeInspectorFixture(f);
       if(codeInspectorTab==='results'){
         const canonical=canonicalFeedFixtureForInspector(f),status=f.resultStatus||canonical?.resultStatus,score=f.resultScore||canonical?.score;
-        if(status==='pending'){const pending=document.createElement('p');pending.textContent = "Official FIA classification pending.";card.append(pending);}
+        if(status==='pending'){if(!card.querySelector('.fixture-result-availability')){const pending=buildFixtureResultAvailability({...f,...canonical,resultStatus:'pending'});if(pending)card.append(pending);}}
         else if(userPreferences.showSpoilers&&score){const note=document.createElement('p');note.textContent=`Official: ${score}`;card.append(note);}
       }
       list.appendChild(card);

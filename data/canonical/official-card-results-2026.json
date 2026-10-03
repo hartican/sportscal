@@ -539,6 +539,55 @@
       "sourceType": "official",
       "sourceUrl": "https://surfingwa.com.au/george-pittar-and-lakey-peterson-win-2026-western-australia-margaret-river-pro/",
       "sourceCheckedAt": "2026-10-02T05:51:35.949Z"
+    },
+    {
+      "id": "event-aflw-cd_m20262640803",
+      "status": "completed",
+      "homeScore": 35,
+      "awayScore": 43,
+      "score": "GWS GIANTS 5.5 (35)–6.7 (43) Essendon",
+      "outcomeText": "Essendon defeated GWS GIANTS by eight points.",
+      "recapText": "Essendon won the AFLW Round 8 match at Henson Park by eight points, 43 to 35.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8946",
+      "sourceCheckedAt": "2026-10-03T06:33:30.622Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
+      "resultSourceCheckedAt": "2026-10-03T06:33:30.622Z",
+      "statusCheckedAt": "2026-10-03T06:33:30.622Z",
+      "scoreCheckedAt": "2026-10-03T06:33:30.622Z",
+      "resultPublishedAt": "2026-10-03T06:33:30.622Z",
+      "lastReviewedAt": "2026-10-03T06:33:30.622Z",
+      "canonicalEventId": "event:aflw:cd_m20262640803"
+    },
+    {
+      "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+      "status": "completed",
+      "score": "Alex de Minaur 3-6, 7-6(5), 7-5 Quentin Halys",
+      "outcomeText": "Alex de Minaur defeated Quentin Halys in three sets.",
+      "recapText": "De Minaur won the China Open Round of 16 match 3-6, 7-6(5), 7-5.",
+      "winnerParticipantId": "athlete:tennis:alex-de-minaur",
+      "sourceName": "ATP official China Open singles draw",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "sourceCheckedAt": "2026-10-03T06:30:00.200Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "resultSourceCheckedAt": "2026-10-03T06:30:00.200Z",
+      "statusCheckedAt": "2026-10-03T06:30:00.200Z",
+      "scoreCheckedAt": "2026-10-03T06:30:00.200Z",
+      "resultPublishedAt": "2026-10-03T06:30:00.200Z",
+      "lastReviewedAt": "2026-10-03T06:30:00.200Z",
+      "scheduleProvenance": {
+        "sourceName": "China Open official order of play",
+        "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+        "checkedAt": "2026-10-03T01:06:36.000Z",
+        "startTimeUtc": "2026-10-03T03:00:00.000Z",
+        "participantIds": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:quentin-halys"
+        ]
+      },
+      "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys"
     }
   ]
 }

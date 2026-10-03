@@ -14326,7 +14326,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=397').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=405').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -17016,6 +17016,15 @@ function buildEuropeanDetail(ev,kind){
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution?buildEuropeanDetail(ev,'attribution'):null;}
 
+function buildFixtureResultAvailability(ev){
+  if(ev.resultStatus!=='pending')return null;
+  const note=document.createElement('p');note.className='compact-card-meta fixture-status fixture-result-availability';note.style.gridColumn='1 / -1';
+  const checked=new Date(ev.resultSourceCheckedAt||'');
+  note.textContent=(ev.key==='wrc'?'Official FIA classification pending.':'Official result unavailable')+(Number.isFinite(+checked)&&+checked<=Date.now()?' · checked '+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(checked)+' (Sydney time)':'');
+  if(/^https:\/\//.test(ev.resultSourceUrl||'')){const link=document.createElement('a');link.href=ev.resultSourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Official source';link.setAttribute('aria-label','Check official result source for '+(ev.name||'this fixture'));note.append(document.createTextNode(' · '),link);}
+  return note;
+}
+
 const multiDayCricketExpanded=new Set();
 function installFantasyCard(card,ev,options){globalThis.NOTHINGSPORTS_FANTASY_UI?.install(card,ev,options);}
 function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.clearSpace();}
@@ -17034,6 +17043,7 @@ function buildEventCard(ev, options = {}){
     installFeedLiveScore(card,ev);
     installFantasyCard(card,ev,options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
+    const availability=buildFixtureResultAvailability(ev);if(availability)card.append(availability);
     const scheduleLink=buildFeedScheduleLink(ev);
     if(activeTab==='feed'){
       scheduleLink.classList.add('fixture-competition-link');
@@ -17061,6 +17071,7 @@ function buildEventCard(ev, options = {}){
     console.warn("Fixture card fallback", ev?.eventId || ev?.id);
     const fallback=buildFixtureFallbackCard(ev, options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)fallback.append(attribution);
+    const availability=buildFixtureResultAvailability(ev);if(availability)fallback.append(availability);
     return fallback;
   }
 }

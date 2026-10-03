@@ -573,23 +573,27 @@ async function runMain() {
     const baseline=process.argv.find(arg=>arg.startsWith('--restore-published='));
     const ids=process.argv.find(arg=>arg.startsWith('--ids='));
     if(baseline&&!ids)throw new Error('Published editorial repair requires --ids=');
+    const scoped=Boolean(ids);
     let codes=[];
-    if(baseline){
+    if(scoped){
       const known=new Set(JSON.parse(fs.readFileSync('data/code-inspector/manifest.json')).codes.map(code=>code.slug));
       const events=JSON.parse(fs.readFileSync('data/events.json')).events;
       codes=[...new Set(ids.slice(6).split(',').flatMap(id=>{
-        const event=events.find(event=>event.id===id);if(!event)throw new Error('Unknown editorial repair fixture '+id);
+        const event=events.find(event=>[event.id,event.canonicalEventId,...(event.sourceEventIds||[])].includes(id));if(!event)throw new Error('Unknown reviewed fixture '+id);
         return [event.key,event.sportDomainId?.replace(/^sport:/,'')].filter(code=>known.has(code));
       }))];
       if(!codes.length)throw new Error('Editorial repair requires existing Code projections');
     }
     for(const args of [
-      ['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:[])],
-      ['scripts/apply-national-team-identities.js','feeds/incoming/events.json'],
-      ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])],
+      ...(!scoped?[['scripts/apply-national-team-identities.js','feeds/incoming/events.json']]:[]),
+      ['scripts/publish-feed.js',scoped?'data/events.json':'feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ...(scoped?[['scripts/build-follow-fixtures.js']]:[]),
       ['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js',...(baseline?[`--codes=${codes.join(',')}`]:[])],
+      ['scripts/build-code-inspector.js',...(scoped?[`--codes=${codes.join(',')}`]:[])],
+      ...(scoped&&codes.includes('tennis')?['build-tennis-feed-parents','build-tournament-horizon','build-tennis-journeys'].map(script=>[`scripts/${script}.js`]):[]),
       ['scripts/build-app-shell-runtime.js'],
+      ['scripts/version-generated-shell.js'],
       ['scripts/validate-current-evidence-editorial-retention.js'],
       ['scripts/validate-editorial-locks.js','--published'],
       ['scripts/validate-feed.js','data/events.json'],
