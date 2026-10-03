@@ -66,6 +66,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .compact-card-summary{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
 .compact-card-name{grid-column:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .compact-card-time{grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;color:var(--text-dim);}
+#listView .compact-card-summary[data-time-precision="not-before"]>.compact-card-time{white-space:normal;overflow:visible;text-overflow:clip;}
 .compact-matchup-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;overflow:visible;}
 .compact-matchup-side{min-width:0;display:flex;align-items:center;gap:5px;overflow:hidden;}
 .compact-matchup-side:last-child{justify-content:flex-end;}
@@ -379,6 +380,8 @@ header.top .vector-glyph{width:20px;height:20px;}
 .f1-location-date,.f1-location-race{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:.85rem;line-height:1.25;padding:7px 10px;border-radius:5px;background:#fff;color:#10141a;font-weight:800;text-transform:uppercase;}
 .f1-location-caption{display:block;padding:8px 12px;background:#0008;color:#fff;font-size:.8rem;text-align:center;}
 .venue-location-card.is-compact-row .f1-location-hero{min-height:90px;}
+.venue-location-card.is-compact-row{flex-wrap:wrap;}
+#listView .venue-location-card.is-compact-row>.compact-card-summary{flex-basis:100%;}
 .venue-location-card.is-compact-row .f1-location-hero img{height:130px;}
 .venue-location-card .venue-location-hero{grid-column:1/-1;flex-basis:100%;width:100%;}
 .venue-location-card .event-icon,.venue-location-card .event-hero-mark,.venue-location-card>.fixture-event-caption{display:none;}

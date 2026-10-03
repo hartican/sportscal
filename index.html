@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="406">
+<meta name="app-shell-version" content="407">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=406" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=407" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=405">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=407">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=363">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=406"></script>
+<script src="assets/js/app-shell-runtime.js?v=407"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13142,6 +13142,10 @@ function eventTimeLabel(ev){
   if(ev.timePrecision==="estimated")return `Approx. ${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==="follows")return "Follows prior match";
   if(ev.dateOnly)return `${["completed","finished","final"].includes(ev.status)?"Completed":ev.displayTime || "Session times vary"} · ${eventLocationLabel(ev)}`;
+  if(ev.timePrecision==='not-before'){
+    const timing=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
+    return timing.time==='TIME TBC'?'Time TBC':`${timing.time} (Sydney time) · ${eventLocationLabel(ev)}`;
+  }
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time TBC";
   return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
@@ -15172,6 +15176,7 @@ function compactFixtureName(ev){
     .replace(/Alexander Zverev/g,'Zverev').replace(/Alejandro Tabilo/g,'Tabilo');
 }
 function compactFallbackTiming(ev){
+  if(ev.timePrecision==='not-before')return NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
   if(ev.displayDateLabel)return ev.displayDateLabel;
   const shortDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))
     ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short'}).format(new Date(`${value}T00:00:00Z`)).replace(/Sept/g,'Sep').replace(/, /g,' ') : 'Date TBC';
@@ -15237,6 +15242,7 @@ function buildFixtureTimingBadge(ev){
 
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
+  if(ev.timePrecision==='not-before')summary.dataset.timePrecision='not-before';
   const title=document.createElement('span');title.className='compact-card-name';
   const identities=matchupIdentityMatches(ev,compactFixtureName(ev));
   const tennisLineup=['tennis','wimbledon'].includes(ev.key)?majorEventMatchupLineup(ev,{compact:true}):null;
@@ -15245,7 +15251,7 @@ function buildCompactCardSummary(ev){
   else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
-  const timing=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
+  const timing=ev.timePrecision==='not-before'?NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule:ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
   const format=compactFixtureFormat(ev);const tennisCompetition=ev.competitionName||ev.majorEventName||String(ev.summary||'').split(' · ')[0];const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${tennisCompetition?' · '+tennisCompetition:''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
   if(activeTab === 'feed'){
@@ -17043,7 +17049,7 @@ function buildEventCard(ev, options = {}){
     installFeedLiveScore(card,ev);
     installFantasyCard(card,ev,options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
-    const availability=buildFixtureResultAvailability(ev);if(availability)card.append(availability);
+    const availability=buildFixtureResultAvailability(ev);if(availability)(card.querySelector('.compact-card-summary')||card).append(availability);
     const scheduleLink=buildFeedScheduleLink(ev);
     if(activeTab==='feed'){
       scheduleLink.classList.add('fixture-competition-link');
@@ -17141,7 +17147,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
   const badgeTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
   dateChip.textContent = activeTab === 'feed'
     ? [badgeTiming.status ? badgeTiming.fullSchedule : '', globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev) ? '' : eventLocationLabel(ev)].filter(Boolean).join(' · ')
-    : `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+    : ev.timePrecision==='not-before'?badgeTiming.fullSchedule:`${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
   dateLine.appendChild(dateChip);
   const stageText=FOLLOW_FIRST.stageLabel(ev);
   if(stageText && activeTab!=='feed'){const badge=document.createElement('span');badge.className='matchup-stage-badge';badge.textContent=stageText;badge.title=ev.roundLabel || ev.round || ev.stage || stageText;dateLine.appendChild(badge);}

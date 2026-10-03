@@ -28,5 +28,15 @@ assert.equal(p({date:'2026-09-25'},now).label,'FRI TIME TBC');
 assert.equal(p({},now).label,'DATE TBC · TIME TBC');
 assert.equal(p({...fixture,broadcasts:[{startTimeUtc:'2026-09-24T15:30:00Z'}]},now).label,'FRI 2:30 AM');
 assert.equal(p({...fixture,timePrecision:'unconfirmed'},now).label,'FRI TIME TBC');
+const notBefore={...fixture,timePrecision:'not-before'};
+assert.equal(p(notBefore,now).label,'FRI NOT BEFORE 2:30 AM');
+assert.match(p(notBefore,now).ariaLabel,/NOT BEFORE 2:30 AM.*Sydney time/);
+assert.equal(p({...notBefore,date:'2026-10-04',startTimeUtc:'2026-10-03T16:30:00Z'},'2026-10-03T14:30:00Z').label,'TODAY NOT BEFORE 3:30 AM','not-before uses the real Sydney DST offset');
+for(const uncertain of [{timeTbc:true},{startTimeTbc:true},{dateOnly:true},{startTimeUtc:'invalid'},{startTimeUtc:null}]){
+  const value=p({...notBefore,...uncertain},now);assert(!value.time.includes('NOT BEFORE'),'uncertain instant cannot manufacture a qualified clock');assert.equal(value.time,'TIME TBC');
+}
+assert.equal(p({...notBefore,status:'postponed'},now).label,'POSTPONED');
+assert.equal(p({...notBefore,status:'completed'},now).label,'FINISHED');
+assert.notEqual(p(notBefore,'2026-10-01T00:00:00Z').label,'FINISHED','not-before does not create a completion status');
 assert.equal(p({...fixture,featuredSubjects:[{id:'driver:one'},{id:'driver:two'}]},now).label,p(fixture,now).label);
 console.log('Card timing: calendar boundaries, DST, source status, uncertainty and sporting-start semantics passed.');

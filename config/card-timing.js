@@ -32,7 +32,7 @@
     const uncertain = event.timeTbc || event.startTimeTbc;
     const raw = precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc;
     const parsed = new Date(raw || "");
-    const hasTime = !event.dateOnly && !uncertain && (!precision || ["exact","session-start","estimated"].includes(precision)) && Number.isFinite(+parsed);
+    const hasTime = !event.dateOnly && !uncertain && (!precision || ["exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
     const date = hasTime ? parsed : calendarDate(event.date || event.startDate);
     const currentDay = dayKey(now);
     const key = date ? dayKey(date) : null;
@@ -44,7 +44,7 @@
     const range = end && key && dayKey(end) !== key;
     if (range){ day = `${dated(date)} – ${dated(end)}`; fullDate += ` – ${dated(end)}`; }
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
-    const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : ""}${clock}`;
+    const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`;
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
     const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + " (Sydney time)";
     // Explicit source status only: duration heuristics must not claim completion.
