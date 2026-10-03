@@ -1016,6 +1016,11 @@
       "id": "subject:fixture-research:rugby-australia-new-zealand-2026-10-17",
       "kind": "event",
       "name": "Australia v New Zealand"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1525660",
+      "kind": "event",
+      "name": "South Africa v Australia - Second Test"
     }
   ],
   "sources": [
@@ -4963,23 +4968,23 @@
     {
       "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
       "name": "All Blacks v Wallabies — official research 1",
-      "url": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+      "url": "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-03T22:23:28.930Z"
     },
     {
       "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
       "name": "All Blacks v Wallabies — official research 2",
-      "url": "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
+      "url": "https://www.allblacks.com/news/all-blacks/all-blacks-squad-confirmed-for-bledisloe-cup",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-03T22:23:28.930Z"
     },
     {
       "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
       "name": "All Blacks v Wallabies — official research 3",
-      "url": "https://www.rugby.com.au/news/all-blacks-lock-in-eden-park-bledisloe-for-2026-series-2025128",
+      "url": "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-03T22:23:28.930Z"
     },
     {
       "id": "source:fixture-research:supercars-bathurst-1000-2026:0",
@@ -5078,6 +5083,34 @@
       "url": "https://www.rugby.com.au/news/wallabies-2027-rugby-world-cup-pool-fixtures-new-zealand-chile-hong-kong-china-202622",
       "sourceType": "official",
       "checkedAt": "2026-10-02T17:57:04.283Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+      "name": "All Blacks v Wallabies — official research 4",
+      "url": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-03T22:23:28.930Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:0",
+      "name": "South Africa v Australia - Second Test — official research 1",
+      "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceType": "official",
+      "checkedAt": "2026-10-03T22:23:28.930Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:1",
+      "name": "South Africa v Australia - Second Test — official research 2",
+      "url": "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+      "sourceType": "official",
+      "checkedAt": "2026-10-03T22:23:28.930Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:2",
+      "name": "South Africa v Australia - Second Test — official research 3",
+      "url": "https://www.cricket.com.au/news/4584247",
+      "sourceType": "official",
+      "checkedAt": "2026-10-03T22:23:28.930Z"
     }
   ],
   "narrativeFacts": [
@@ -28025,13 +28058,12 @@
       "subjectIds": [
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
-      "statement": "The first Test is on 10 October and the second on 17 October.",
-      "dimension": "schedule",
+      "statement": "Australia retain their recent squad core following the South Africa meeting; Macpherson is a first-time squad selection and de Lutiis is recalled.",
+      "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     },
     {
@@ -28039,13 +28071,12 @@
       "subjectIds": [
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
-      "statement": "The first Test is at Eden Park and the second at Accor Stadium.",
-      "dimension": "venue",
+      "statement": "Tom Hooper and Taniela Tupou are unavailable outside the Regulation 9 international release window.",
+      "dimension": "matchup",
       "sourceIds": [
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     },
     {
@@ -28053,12 +28084,13 @@
       "subjectIds": [
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
-      "statement": "New Zealand seek a 25th consecutive Test win over Australia at Eden Park.",
-      "dimension": "history",
+      "statement": "Codie Taylor captains New Zealand; Scott Barrett returns from injury and Shannon Frizell rejoins the squad.",
+      "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0"
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     },
     {
@@ -28066,12 +28098,13 @@
       "subjectIds": [
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
-      "statement": "The two Tests contest the Bledisloe Cup, held by New Zealand since 2003.",
-      "dimension": "consequence",
+      "statement": "The two Bledisloe Tests are on 10 October at Eden Park and 17 October in Sydney.",
+      "dimension": "schedule",
       "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
         "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     },
     {
@@ -28079,12 +28112,12 @@
       "subjectIds": [
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
-      "statement": "The All Blacks completed a four-Test South Africa series; Australia meet them after their own South Africa fixture.",
-      "dimension": "form",
+      "statement": "New Zealand have held the Bledisloe Cup since 2003.",
+      "dimension": "history",
       "sourceIds": [
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1"
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:3"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     },
     {
@@ -28426,6 +28459,73 @@
         "source:fixture-research:rugby-australia-new-zealand-2026-10-17:2"
       ],
       "observedAt": "2026-10-02T17:57:04.283Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "statement": "The second Test is scheduled for 18-22 October at St George's Park, Gqeberha; Durban precedes it and Cape Town follows.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:1"
+      ],
+      "observedAt": "2026-10-03T22:23:28.930Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "statement": "This is Australia's first Test tour of South Africa since 2018, between the last two World Test Championship winners.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:0"
+      ],
+      "observedAt": "2026-10-03T22:23:28.930Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "statement": "Labuschagne retains his Test squad place despite pressure on his recent batting; Connolly, Kuhnemann and Neser join the touring group.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:1"
+      ],
+      "observedAt": "2026-10-03T22:23:28.930Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "statement": "Australia have named a 16-player Test squad; South Africa's published preliminary group is for the first Test, not a confirmed second-Test XI.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:2"
+      ],
+      "observedAt": "2026-10-03T22:23:28.930Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "statement": "The three-Test tour contributes to the World Test Championship campaign.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:0"
+      ],
+      "observedAt": "2026-10-03T22:23:28.930Z",
       "expiresAt": null
     }
   ],
@@ -31190,17 +31290,16 @@
         "subject:fixture-research:rugby-new-zealand-australia-2026-10-10"
       ],
       "title": "All Blacks v Wallabies",
-      "summary": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
+      "summary": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
       "factIds": [
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5"
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4"
       ],
       "status": "active",
-      "updatedAt": "2026-10-02T13:35:19.426Z"
+      "updatedAt": "2026-10-03T22:23:28.930Z"
     },
     {
       "id": "thread:fixture-research:supercars-bathurst-1000-2026",
@@ -31274,6 +31373,23 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-02T17:57:04.283Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1525660",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "title": "South Africa v Australia - Second Test",
+      "summary": "The second Test is scheduled for 18-22 October at St George's Park in Gqeberha, between Durban and the Cape Town finale. In a three-Test series, this is the hinge: its exact stakes depend on the opener. A lead could become decisive; a deficit could be repaired; a drawn opener would leave both sides pursuing control. The World Test Championship adds a wider consequence, while confirmed lineups and the first-Test result must inform the next preview check.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-03T22:23:28.930Z"
     }
   ],
   "audienceMemories": [],
@@ -45749,39 +45865,6 @@
       }
     },
     {
-      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture:cricket:espn:1525660"
-      ],
-      "researchDepth": 5,
-      "hook": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-      "synopsis": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
-      "threadIds": [
-        "thread:depth:cricket:south-africa"
-      ],
-      "factIds": [
-        "fact:depth:cricket:fixture-cricket-espn-1525660:1",
-        "fact:depth:cricket:fixture-cricket-espn-1525660:2",
-        "fact:depth:cricket:fixture-cricket-espn-1525660:3",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:1",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:2",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:3"
-      ],
-      "sourceIds": [
-        "source:depth:cricket:south-africa",
-        "source:depth:cricket:season",
-        "source:depth:cricket:test-workload"
-      ],
-      "researchedAt": "2026-09-30T22:50:31.966Z",
-      "refreshAfter": "2026-10-18T08:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-30T22:50:31.966Z"
-      }
-    },
-    {
       "id": "projection:sport-depth:fixture-cricket-espn-1525661",
       "targetType": "feed-event",
       "targetIds": [
@@ -46361,42 +46444,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rugby-new-zealand-australia-2026-10-10"
-      ],
-      "researchDepth": 5,
-      "hook": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
-      "synopsis": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
-      "formCopy": "The All Blacks arrive from a demanding four-Test series against South Africa. Australia come off a confidence-building meeting with the same opposition. That contrast makes this a test of recovery and composure, not just reputation: New Zealand need to settle quickly after a long spell away, while the Wallabies must carry their recent momentum into a much less forgiving setting.",
-      "closingCopy": "For Australian supporters, Eden Park turns optimism into a familiar question: can this group make belief survive the difficult moments? For New Zealand, protecting home ground is bound up with protecting the Bledisloe itself. Codie Taylor takes the captaincy while Ardie Savea recovers from shoulder surgery; Scott Barrett returns after back surgery. Those changes add a leadership test to the rivalry, without settling the starting team before it is announced.",
-      "threadIds": [
-        "thread:fixture-research:rugby-new-zealand-australia-2026-10-10"
-      ],
-      "factIds": [
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
-      ],
-      "researchedAt": "2026-10-02T13:35:19.426Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-10T06:10:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T13:35:19.426Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:epl-2026-27-128980",
       "targetType": "feed-event",
       "targetIds": [
@@ -46541,6 +46588,77 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-02T13:35:19.426Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-new-zealand-australia-2026-10-10"
+      ],
+      "researchDepth": 5,
+      "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
+      "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
+      "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
+      "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
+      "threadIds": [
+        "thread:fixture-research:rugby-new-zealand-australia-2026-10-10"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:3"
+      ],
+      "researchedAt": "2026-10-03T22:23:28.930Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-10T06:10:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-03T22:23:28.930Z"
+      }
+    },
+    {
+      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture:cricket:espn:1525660"
+      ],
+      "researchDepth": 5,
+      "hook": "St George's Park is where Australia's return to South Africa becomes a fight for the series, not simply a reunion of Test champions.",
+      "synopsis": "The second Test is scheduled for 18-22 October at St George's Park in Gqeberha, between Durban and the Cape Town finale. In a three-Test series, this is the hinge: its exact stakes depend on the opener. A lead could become decisive; a deficit could be repaired; a drawn opener would leave both sides pursuing control. The World Test Championship adds a wider consequence, while confirmed lineups and the first-Test result must inform the next preview check.",
+      "formCopy": "Australia have backed Marnus Labuschagne despite pressure on his recent Test batting, retaining a familiar core and adding Cooper Connolly, Matthew Kuhnemann and Michael Neser to the touring squad. South Africa's preliminary first-Test group brings pace and spin options, but neither that list nor Australia's touring party settles the second-Test XI. Durban will supply the relevant immediate form; until it is played, no first-Test momentum should be assumed.",
+      "closingCopy": "For Australian fans, this tour carries the weight of the first Test return to South Africa since 2018, but this match needs its own story rather than living entirely in that history. Labuschagne's selection puts trust and performance in sharp focus. For South Africa, facing another recent world champion at home is an opportunity to make status tangible across a series. The contest is about whose batting and bowling hold up under repeated pressure, not a prediction of personal redemption.",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1525660"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:2"
+      ],
+      "researchedAt": "2026-10-03T22:23:28.930Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-18T08:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-03T22:23:28.930Z"
       }
     }
   ]

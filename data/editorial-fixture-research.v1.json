@@ -2191,68 +2191,6 @@
       "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
     },
     {
-      "id": "rugby-new-zealand-australia-2026-10-10",
-      "title": "All Blacks v Wallabies",
-      "hook": "Australia bring renewed belief to Eden Park; New Zealand bring a changed captain and a record nobody in gold has broken for decades.",
-      "formCopy": "The All Blacks arrive from a demanding four-Test series against South Africa. Australia come off a confidence-building meeting with the same opposition. That contrast makes this a test of recovery and composure, not just reputation: New Zealand need to settle quickly after a long spell away, while the Wallabies must carry their recent momentum into a much less forgiving setting.",
-      "closingCopy": "For Australian supporters, Eden Park turns optimism into a familiar question: can this group make belief survive the difficult moments? For New Zealand, protecting home ground is bound up with protecting the Bledisloe itself. Codie Taylor takes the captaincy while Ardie Savea recovers from shoulder surgery; Scott Barrett returns after back surgery. Those changes add a leadership test to the rivalry, without settling the starting team before it is announced.",
-      "synopsis": "The opening Bledisloe Test is at Eden Park on Saturday 10 October, before the return match in Sydney a week later. New Zealand are chasing a 25th consecutive home-ground Test win over Australia here and have held the trophy since 2003. The Wallabies need a performance that keeps the two-match contest alive rather than allowing the venue's history to dictate the evening. Final selections remain unannounced; squad recalls are not a confirmed match-day lineup.",
-      "sources": [
-        "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
-        "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
-        "https://www.rugby.com.au/news/all-blacks-lock-in-eden-park-bledisloe-for-2026-series-2025128"
-      ],
-      "researchedAt": "2026-10-02T13:35:19.426Z",
-      "researchDepth": 5,
-      "changeReason": "New captain, injury absences and recalled leaders materially change the preview; replace incomplete two-section context.",
-      "facts": [
-        {
-          "dimension": "schedule",
-          "statement": "The first Test is on 10 October and the second on 17 October.",
-          "sourceIndexes": [
-            0,
-            2
-          ]
-        },
-        {
-          "dimension": "venue",
-          "statement": "The first Test is at Eden Park and the second at Accor Stadium.",
-          "sourceIndexes": [
-            0,
-            2
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "New Zealand seek a 25th consecutive Test win over Australia at Eden Park.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "The two Tests contest the Bledisloe Cup, held by New Zealand since 2003.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "The All Blacks completed a four-Test South Africa series; Australia meet them after their own South Africa fixture.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Taylor replaces injured Savea as captain and Scott Barrett returns after back surgery; the squad is not a named starting XV.",
-          "sourceIndexes": [
-            1
-          ]
-        }
-      ]
-    },
-    {
       "id": "epl-2026-27-128980",
       "title": "Liverpool v Manchester City",
       "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
@@ -2503,6 +2441,117 @@
           ]
         }
       ]
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "title": "All Blacks v Wallabies",
+      "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
+      "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
+      "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
+      "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-squad-confirmed-for-bledisloe-cup",
+        "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
+        "https://www.allblacks.com/team/all-blacks/bledisloe-cup"
+      ],
+      "researchDepth": 5,
+      "changeReason": "Add the official Australian squad's overseas-release constraint and distinguish announced squads from unconfirmed match-day selections.",
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Australia retain their recent squad core following the South Africa meeting; Macpherson is a first-time squad selection and de Lutiis is recalled.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Tom Hooper and Taniela Tupou are unavailable outside the Regulation 9 international release window.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Codie Taylor captains New Zealand; Scott Barrett returns from injury and Shannon Frizell rejoins the squad.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The two Bledisloe Tests are on 10 October at Eden Park and 17 October in Sydney.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "New Zealand have held the Bledisloe Cup since 2003.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-03T22:23:28.930Z"
+    },
+    {
+      "id": "fixture:cricket:espn:1525660",
+      "title": "South Africa v Australia - Second Test",
+      "hook": "St George's Park is where Australia's return to South Africa becomes a fight for the series, not simply a reunion of Test champions.",
+      "formCopy": "Australia have backed Marnus Labuschagne despite pressure on his recent Test batting, retaining a familiar core and adding Cooper Connolly, Matthew Kuhnemann and Michael Neser to the touring squad. South Africa's preliminary first-Test group brings pace and spin options, but neither that list nor Australia's touring party settles the second-Test XI. Durban will supply the relevant immediate form; until it is played, no first-Test momentum should be assumed.",
+      "closingCopy": "For Australian fans, this tour carries the weight of the first Test return to South Africa since 2018, but this match needs its own story rather than living entirely in that history. Labuschagne's selection puts trust and performance in sharp focus. For South Africa, facing another recent world champion at home is an opportunity to make status tangible across a series. The contest is about whose batting and bowling hold up under repeated pressure, not a prediction of personal redemption.",
+      "synopsis": "The second Test is scheduled for 18-22 October at St George's Park in Gqeberha, between Durban and the Cape Town finale. In a three-Test series, this is the hinge: its exact stakes depend on the opener. A lead could become decisive; a deficit could be repaired; a drawn opener would leave both sides pursuing control. The World Test Championship adds a wider consequence, while confirmed lineups and the first-Test result must inform the next preview check.",
+      "sources": [
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4584247"
+      ],
+      "researchDepth": 5,
+      "changeReason": "Complete missing Form and Storyline using announced touring squads; keep the unplayed opener and second-Test selection explicitly unresolved.",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The second Test is scheduled for 18-22 October at St George's Park, Gqeberha; Durban precedes it and Cape Town follows.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Australia's first Test tour of South Africa since 2018, between the last two World Test Championship winners.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Labuschagne retains his Test squad place despite pressure on his recent batting; Connolly, Kuhnemann and Neser join the touring group.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Australia have named a 16-player Test squad; South Africa's published preliminary group is for the first Test, not a confirmed second-Test XI.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The three-Test tour contributes to the World Test Championship campaign.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-03T22:23:28.930Z"
     }
   ]
 }
