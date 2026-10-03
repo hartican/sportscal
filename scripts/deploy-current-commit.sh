@@ -88,7 +88,10 @@ fi
 mkdir -p "$NS_DEPLOY_DIR/.vercel"
 cp "$PROJECT_LINK" "$NS_DEPLOY_DIR/.vercel/project.json"
 
-run_vercel deploy "$NS_DEPLOY_DIR" --prod --yes \
+run_vercel build --cwd "$NS_DEPLOY_DIR" --prod --yes --standalone --scope "$VERCEL_SCOPE"
+node scripts/seal-deployment-output.js "$NS_DEPLOY_DIR/.vercel/output" "$NS_DEPLOY_DIR" "${NS_DEPLOY_REPORT_DIR:?Release report required}/built-public-boundary.json"
+
+run_vercel deploy "$NS_DEPLOY_DIR" --prebuilt --prod --yes \
   --scope "$VERCEL_SCOPE" \
   --meta "releaseGitSha=$DEPLOY_SHA" \
   --meta "releaseGitRef=$DEPLOY_REF" \

@@ -23,7 +23,11 @@ async function main(){
     const response=await fetch(`https://nothingsport.vercel.app/data/${file}?verify=${sha}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
     if(response.status!==404||!response.headers.get('cache-control')?.includes('no-store'))throw new Error(`Owner source must be closed: ${file} (${response.status})`);
     const body=await response.json();if(body.code!=='internal_artifact_unavailable'||Object.keys(body).some(key=>!['error','code'].includes(key)))throw new Error(`Owner source rejection disclosed unexpected content: ${file}`);
-    internalSources.push({file,status:response.status,code:body.code,cacheControl:response.headers.get('cache-control')});
+    const encoded='%'+file.charCodeAt(0).toString(16)+file.slice(1);
+    const encodedResponse=await fetch(`https://nothingsport.vercel.app/data/${encoded}?verify=${sha}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
+    if(encodedResponse.status!==404)throw new Error(`Encoded owner source must be absent: ${file} (${encodedResponse.status})`);
+    await encodedResponse.body?.cancel();
+    internalSources.push({file,status:response.status,code:body.code,cacheControl:response.headers.get('cache-control'),encodedStatus:encodedResponse.status});
   }
   const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),checks,unauthenticated:401,internalSources};
   if(process.env.NS_DEPLOY_REPORT_DIR){fs.mkdirSync(process.env.NS_DEPLOY_REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.NS_DEPLOY_REPORT_DIR,'production-verification.json'),JSON.stringify(report,null,2));}

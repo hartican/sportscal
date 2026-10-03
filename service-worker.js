@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v414";
-const SHELL_VERSION = "414";
+const CACHE_NAME = "nothingsport-shell-v415";
+const SHELL_VERSION = "415";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -57,7 +57,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=414",
+  "/assets/js/app-shell-runtime.js?v=415",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
@@ -321,7 +321,9 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
-  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json"].includes(requestUrl.pathname)){
+  let decodedPath=requestUrl.pathname;
+  try{decodedPath=decodeURIComponent(decodedPath);}catch(_error){ /* Invalid encodings remain a server error, never a source fallback. */ }
+  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json"].includes(decodedPath)){
     event.respondWith(new Response('This source file is not a public resource.', {status:404,headers:{'Cache-Control':'private, no-store, max-age=0','Content-Type':'text/plain'}}));
     return;
   }

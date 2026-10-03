@@ -54,6 +54,7 @@ async function main(){
     fs.readFileSync = originalRead;
   }
   await require('./lib/public-fixture-read-tests').validatePublicFixtureReads();
+  require('./lib/built-public-boundary-tests').validateBuiltPublicBoundary();
 
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"admin" }, user_metadata:{ role:"viewer" } }), true);
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"viewer" }, user_metadata:{ role:"admin" } }), false, "editable metadata must never grant admin access");

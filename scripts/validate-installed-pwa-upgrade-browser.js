@@ -222,6 +222,7 @@ const server=http.createServer((req,res)=>{
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
     await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/marquee-candidates.v1.json',new Response('{"qaLegacyDraft":true}'));},baselineVersion);
+    await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/%6darquee-candidates.v1.json',new Response('{"qaLegacyEncodedDraft":true}'));},baselineVersion);
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
@@ -270,8 +271,8 @@ const server=http.createServer((req,res)=>{
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
     const assertOwnerSourcesClosed=async()=>{
-      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
-      assert.deepEqual(values,Array.from({length:3},()=>({status:404,cached:false})),'upgraded worker must deny source downloads and discard the seeded legacy draft cache');
+      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json','/data/%6darquee-candidates.v1.json','/data%2fmarquee-candidates.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
+      assert.deepEqual(values,Array.from({length:5},()=>({status:404,cached:false})),'upgraded worker must deny plain/encoded source downloads and discard seeded legacy draft caches');
     };
     await assertOwnerSourcesClosed();
     await upgraded.evaluate(async()=>{const r=await fetch('/participate.html');if(!r.ok)throw Error('Public fixture page unavailable');await r.text();});
