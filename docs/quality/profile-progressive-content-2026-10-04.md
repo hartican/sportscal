@@ -2,7 +2,7 @@
 
 ## User outcome and evidence
 
-Known profile details, or the existing explicit detail gap, now render after the required profile lookup without waiting for optional participation/history. Verified history can arrive later, preserving Results privacy and existing source links/focus. A closed or superseded profile cannot be reopened or overwritten by its late response. This is a candidate awaiting final release proof below.
+Known profile details, or the existing explicit detail gap, now render after the required profile lookup without waiting for optional participation/history. Verified history can arrive later, preserving Results privacy and existing source links/focus. A closed or superseded profile cannot be reopened or overwritten by its late response. This scoped change is published and verified live; production proof and sampling limits are recorded below.
 
 Two actual public mobile EPL Schedule → Arsenal profile samples on live `ab8340bc` found a material delay: the body appeared 4,724 ms after the first click and 1,354 ms on reopening. The standings control was usable earlier (1,836 ms and 50 ms respectively). The second genuine production history request took 1,307 ms, returned 200, non-stale and no history. The first has no completed response receipt; its recorded duration must not be presented as a successful request or a precise server-latency measurement. First-open timings also include directory/module loading and interaction, which this repair does not remove. These two observations are evidence of a specific journey, not a population performance benchmark.
 
@@ -33,4 +33,22 @@ The original 51-chapter CTO programme remains open: 0/16 families and 0/3 Footba
 
 ## Local acceptance before publication
 
-Eight affected non-browser commands pass, alongside 24 full actual local Football journeys and sixteen held-response/failure/privacy/focus/late-route renderer cases across Chromium/WebKit. Both serial kept-open 410→411 upgrade/offline/resume, preferences and profile/standings/status cache checks pass. WebKit initially retains the old open document before automatic catch-up; this is not an immediate-first-navigation or physical-phone claim. All backend, sporting data, source adapters, generated runtime, assets and SQL remain exact against preceding main. Startup keeps eight critical requests and 0.66% gzip growth under the unchanged 1.25% cap. Normal cloud and exact live publication remain pending.
+Eight affected non-browser commands pass, alongside 24 full actual local Football journeys and sixteen held-response/failure/privacy/focus/late-route renderer cases across Chromium/WebKit. Both serial kept-open 410→411 upgrade/offline/resume, preferences and profile/standings/status cache checks pass. WebKit initially retains the old open document before automatic catch-up; this is not an immediate-first-navigation or physical-phone claim. All backend, sporting data, source adapters, generated runtime, assets and SQL remain exact against preceding main. Startup keeps eight critical requests and 0.66% gzip growth under the unchanged 1.25% cap. The dated local evidence is retained separately from the completed production proof below.
+
+## Production release proof
+
+Published and deployed `d7c72f7c3163b1d5973cdf50b1458eb9169679ac`, shell 411, through [normal production workflow 37138622049](https://github.com/hartican/sportscal/actions/runs/37138622049). All 134 normal cloud gate commands and credentialed read-only shared publication input pass, alongside eight affected local commands, 24 actual local Football journeys, sixteen controlled renderer cases and both serial kept-open cache upgrade rehearsals. No failed gate was waived or bypassed.
+
+Independent current proof confirms READY `dpl_GobQ8QzvBUpZLQurmza1z4ZUfAUQ`, correct project and production release SHA and all three required aliases. Seven public served files match immutable inventory, including the actual tested profile module. Comparing all 1,256 published file hashes with live predecessor `ab8340bc` finds exactly four changed files: the profile UI, index, worker and version. The other 1,252 files remain exact, including sporting data, generated runtime, assets, source adapters, API and SQL. No files were added or removed. Package size is 161,233,056 bytes, 454 bytes more than the predecessor; this is release-package size, not startup transfer.
+
+Four actual public mobile Schedule → Arsenal profile reads after release verify that the body is observed without a completed optional-history response receipt. Genuine production history requests are retained; three return 200 with no history and non-stale data, while the first Chromium lookup has no completed receipt. Its observed wait is not a successful request duration or precise server latency.
+
+| Browser sample | First body observed | Reopened body observed | Scope and meaning |
+|---|---|---|---|
+| Chromium, before change | 4,724 ms | 1,354 ms | Two dated public reads; first includes module/directory loading; only the second has a completed history receipt |
+| Chromium, after change | 1,228 ms | 58 ms | Body appears before a completed optional-history receipt in both samples; first still includes module/directory loading |
+| WebKit, after change | 345 ms | 53 ms | Two further public reads; no matched before-WebKit benchmark |
+
+These are six sequential observations of one profile journey, not a controlled population benchmark, p95, guaranteed speedup or repeat-use measurement. Other backend APIs were isolated, workers blocked and preferences synthetic. No signed-in account, authenticated viewing, installed physical phone or cohort is proved. The current change removes the demonstrated optional-history dependency; it does not remove required profile/directory/module loading. Results privacy, valid late history, failure fallback, focused source links and route isolation are verified by the separate controlled regressions.
+
+Markdown and accessible HTML are saved under `profile-progressive-content-20261004` in the existing delivery folder. The full 51-chapter CTO report and single queue are preserved. A later documentation-only main commit is separate from this immutable live app SHA. Passwords/iCloud remains parked under the user's carry-on instruction; Football six-gate acceptance, rights/playback, sustained normal operation, physical-device evidence, a real invited cohort and independent recovery remain open. Certification stays 0/16 families and 0/3 Football pilots, with a target of at least 13/16; the programme is not complete.
