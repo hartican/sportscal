@@ -25,6 +25,8 @@ Retain required production gates. Passing a narrow test does not waive a differe
 
 Release evidence must identify the main SHA, successful workflow, READY deployment, public alias/artifact agreement and relevant live behavior. Record each proof once in a named artifact. Summaries should link or name that evidence instead of repeating entire logs. A plan, source commit, deployment and device proof are distinct states.
 
+Release runner baseline — 4 October: production and deployment cleanup explicitly select the already verified Ubuntu 24.04 family; canonical refresh retains macOS 15 for PDFKit and all jobs retain Node 24. This prevents a moving `ubuntu-latest` label from introducing an unreviewed major OS upgrade. GitHub image/security patches, action tags and Node minor releases still move; this is not an immutable toolchain. Review major compatibility changes through the existing gates and weekly exceptions, without a new tracker or standing owner decision. [Evidence and limits](quality/release-runner-baseline-2026-10-04.md).
+
 Offline regressions use an explicit fixture/snapshot reference time. Production freshness/completeness checks use the current clock. A successful fetch proves observation time, not provider accuracy or complete worldwide coverage.
 
 ## Weekly exception review
