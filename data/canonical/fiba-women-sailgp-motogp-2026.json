@@ -743,6 +743,42 @@
       "url": "https://sailgp.com/general/2027/calendar/",
       "type": "official",
       "checkedAt": "2026-10-02T18:24:00.000Z"
+    },
+    "nrlw-20261611210": {
+      "name": "NRL official NRLW match centre",
+      "url": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
+      "type": "official",
+      "checkedAt": "2026-10-03T08:17:51.107Z",
+      "providerUpdatedAt": "2026-09-19T09:54:11Z",
+      "providerMatchId": "20261611210",
+      "responseSha256": "c1f78933a769c692fa8365a512ffafc238f907b3b41fd276c892840e2f4942e4"
+    },
+    "nrlw-20261611220": {
+      "name": "NRL official NRLW match centre",
+      "url": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
+      "type": "official",
+      "checkedAt": "2026-10-03T08:17:51.314Z",
+      "providerUpdatedAt": "2026-09-20T07:14:02Z",
+      "providerMatchId": "20261611220",
+      "responseSha256": "2fc907f1da818e0ba774c45d4afb81b2c028253712ddadc067bf0825f99c7066"
+    },
+    "nrlw-20261611310": {
+      "name": "NRL official NRLW match centre",
+      "url": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
+      "type": "official",
+      "checkedAt": "2026-10-03T08:14:09.131Z",
+      "providerUpdatedAt": "2026-09-27T06:24:12Z",
+      "providerMatchId": "20261611310",
+      "responseSha256": "4a0910de5eea644b20a3a8bf251e3ab6b83a3305e4ccfc1c70c37327c3c9b999"
+    },
+    "nrlw-20261611320": {
+      "name": "NRL official NRLW match centre",
+      "url": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
+      "type": "official",
+      "checkedAt": "2026-10-03T08:14:09.307Z",
+      "providerUpdatedAt": "2026-09-27T08:08:02Z",
+      "providerMatchId": "20261611320",
+      "responseSha256": "e35fcf9909ebccb18f9c718000f99e3214fda7dee3446edcf941c55b5f5e920c"
     }
   },
   "participants": [
@@ -17949,6 +17985,174 @@
       "participantsConfirmed": false,
       "hook": "Grand Prix at Autódromo Internacional do Algarve.",
       "context": "The published 2027 calendar confirms this Grand Prix weekend. The session day and start time await the official timetable."
+    },
+    {
+      "id": "event:nrlw:2026:semifinal-wests-tigers-raiders",
+      "sportKey": "nrlw",
+      "codeId": "sport:nrlw",
+      "competitionId": "competition:nrlw-premiership-2026",
+      "name": "Wests Tigers v Canberra Raiders",
+      "date": "2026-09-18",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-18T09:50:00.000Z",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "venue": "Campbelltown Sports Stadium",
+      "round": "semifinal",
+      "roundLabel": "Semi-final",
+      "roundNumber": 12,
+      "stage": "Finals Week 1",
+      "expected": 8,
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:raiders"
+      ],
+      "sourceId": "nrlw-20261611210",
+      "sourceCheckedAt": "2026-10-03T08:17:51.107Z",
+      "broadcastSourceId": "nrlw-schedule",
+      "status": "completed",
+      "nrlwFinalsReviewed": true,
+      "providerMatchId": "20261611210",
+      "providerStatus": "FullTime",
+      "homeScore": 0,
+      "awayScore": 6,
+      "result": {
+        "status": "official",
+        "sourceId": "nrlw-20261611210",
+        "checkedAt": "2026-10-03T08:17:51.107Z",
+        "score": "Wests Tigers 0-6 Canberra Raiders",
+        "outcomeText": "Wests Tigers 0-6 Canberra Raiders.",
+        "recapText": "Wests Tigers 0-6 Canberra Raiders. Official full-time result.",
+        "winnerParticipantId": "team:nrlw:raiders"
+      },
+      "hook": "Official NRLW semi-final.",
+      "context": "Official NRLW semi-final at Campbelltown Sports Stadium."
+    },
+    {
+      "id": "event:nrlw:2026:semifinal-broncos-knights",
+      "sportKey": "nrlw",
+      "codeId": "sport:nrlw",
+      "competitionId": "competition:nrlw-premiership-2026",
+      "name": "Brisbane Broncos v Newcastle Knights",
+      "date": "2026-09-19",
+      "time": "16:05",
+      "startTimeUtc": "2026-09-19T06:05:00.000Z",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "venue": "Totally Workwear Stadium",
+      "round": "semifinal",
+      "roundLabel": "Semi-final",
+      "roundNumber": 12,
+      "stage": "Finals Week 1",
+      "expected": 8,
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:knights"
+      ],
+      "sourceId": "nrlw-20261611220",
+      "sourceCheckedAt": "2026-10-03T08:17:51.314Z",
+      "broadcastSourceId": "nrlw-schedule",
+      "status": "completed",
+      "nrlwFinalsReviewed": true,
+      "providerMatchId": "20261611220",
+      "providerStatus": "FullTime",
+      "homeScore": 40,
+      "awayScore": 16,
+      "result": {
+        "status": "official",
+        "sourceId": "nrlw-20261611220",
+        "checkedAt": "2026-10-03T08:17:51.314Z",
+        "score": "Brisbane Broncos 40-16 Newcastle Knights",
+        "outcomeText": "Brisbane Broncos 40-16 Newcastle Knights.",
+        "recapText": "Brisbane Broncos 40-16 Newcastle Knights. Official full-time result.",
+        "winnerParticipantId": "team:nrlw:broncos"
+      },
+      "hook": "Official NRLW semi-final.",
+      "context": "Official NRLW semi-final at Totally Workwear Stadium."
+    },
+    {
+      "id": "event:nrlw:2026:preliminary-final-roosters-raiders",
+      "sportKey": "nrlw",
+      "codeId": "sport:nrlw",
+      "competitionId": "competition:nrlw-premiership-2026",
+      "name": "Sydney Roosters v Canberra Raiders",
+      "date": "2026-09-26",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-26T09:50:00.000Z",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "venue": "Allianz Stadium",
+      "round": "semifinal",
+      "roundLabel": "Preliminary Final",
+      "roundNumber": 13,
+      "stage": "Finals Week 2",
+      "expected": 8,
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:raiders"
+      ],
+      "sourceId": "nrlw-20261611310",
+      "sourceCheckedAt": "2026-10-03T08:14:09.131Z",
+      "broadcastSourceId": "nrlw-schedule",
+      "status": "completed",
+      "nrlwFinalsReviewed": true,
+      "providerMatchId": "20261611310",
+      "providerStatus": "FullTime",
+      "homeScore": 20,
+      "awayScore": 10,
+      "result": {
+        "status": "official",
+        "sourceId": "nrlw-20261611310",
+        "checkedAt": "2026-10-03T08:14:09.131Z",
+        "score": "Sydney Roosters 20-10 Canberra Raiders",
+        "outcomeText": "Sydney Roosters 20-10 Canberra Raiders.",
+        "recapText": "Sydney Roosters 20-10 Canberra Raiders. Official full-time result.",
+        "winnerParticipantId": "team:nrlw:roosters"
+      },
+      "hook": "Official NRLW preliminary final.",
+      "context": "Official NRLW preliminary final at Allianz Stadium."
+    },
+    {
+      "id": "event:nrlw:2026:preliminary-final-titans-broncos",
+      "sportKey": "nrlw",
+      "codeId": "sport:nrlw",
+      "competitionId": "competition:nrlw-premiership-2026",
+      "name": "Gold Coast Titans v Brisbane Broncos",
+      "date": "2026-09-27",
+      "time": "13:05",
+      "startTimeUtc": "2026-09-27T03:05:00.000Z",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "venue": "Cbus Super Stadium",
+      "round": "semifinal",
+      "roundLabel": "Preliminary Final",
+      "roundNumber": 13,
+      "stage": "Finals Week 2",
+      "expected": 8,
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:broncos"
+      ],
+      "sourceId": "nrlw-20261611320",
+      "sourceCheckedAt": "2026-10-03T08:14:09.307Z",
+      "broadcastSourceId": "nrlw-schedule",
+      "status": "completed",
+      "nrlwFinalsReviewed": true,
+      "providerMatchId": "20261611320",
+      "providerStatus": "FullTime",
+      "homeScore": 8,
+      "awayScore": 20,
+      "result": {
+        "status": "official",
+        "sourceId": "nrlw-20261611320",
+        "checkedAt": "2026-10-03T08:14:09.307Z",
+        "score": "Gold Coast Titans 8-20 Brisbane Broncos",
+        "outcomeText": "Gold Coast Titans 8-20 Brisbane Broncos.",
+        "recapText": "Gold Coast Titans 8-20 Brisbane Broncos. Official full-time result.",
+        "winnerParticipantId": "team:nrlw:broncos"
+      },
+      "hook": "Official NRLW preliminary final.",
+      "context": "Official NRLW preliminary final at Cbus Super Stadium."
     }
   ],
   "sailgpCalendarCoverage": {
@@ -17960,5 +18164,16 @@
     "raceDayCount": 46,
     "coverageStatus": "partial",
     "note": "Published calendars and race days; results, event-specific entries, future exact times and course geometry remain partial. Unconfirmed Grand Final and events outside twelve months are not expanded."
+  },
+  "nrlwFinalsReview": {
+    "fixtureIds": [
+      "event:nrlw:2026:semifinal-wests-tigers-raiders",
+      "event:nrlw:2026:semifinal-broncos-knights",
+      "event:nrlw:2026:preliminary-final-roosters-raiders",
+      "event:nrlw:2026:preliminary-final-titans-broncos"
+    ],
+    "scope": "Four completed 2026 finals before the existing Grand Final; not complete regular-season coverage.",
+    "observedFrom": "2026-10-03T08:14:09.131Z",
+    "observedThrough": "2026-10-03T08:17:51.314Z"
   }
 }

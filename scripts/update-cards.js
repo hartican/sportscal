@@ -655,6 +655,20 @@ async function runMain() {
     ])runStep(args);
     console.log('Existing representative fixture context published through the canonical owner; no source refresh performed.');return;
   }
+  if(process.argv.includes('--nrlw-finals')){
+    for(const args of [
+      ['scripts/sync-requested-sports-to-feed.js','feeds/incoming/events.json','feeds/incoming/events.json','--nrlw-finals-only'],
+      ['scripts/sync-requested-sports-to-feed.js','data/events.json','data/events.json','--nrlw-finals-only'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=nrlw'],
+      ['scripts/validate-nrlw-reviewed-finals.js'],['scripts/validate-requested-sports.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed.js','data/events.json'],
+      ['scripts/qa-storyline-spoilers.js','data/events.json']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Four reviewed NRLW finals published through the canonical owner; no provider refresh.');return;
+  }
   if(process.argv.includes('--rugby-identities')){
     for(const step of [
       ['scripts/apply-reviewed-fixture-timing.js','--ids=rugby-australia-new-zealand-2026-10-17'],

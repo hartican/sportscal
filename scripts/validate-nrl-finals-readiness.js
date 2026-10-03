@@ -42,9 +42,15 @@ for (const event of [{id:weekOne.id}, {id:'preserved-user-action-id', sourceEven
 assert.equal(applyOfficialResults([{id:'unrelated', name:weekOne.name, status:'scheduled'}], {results:[result]}).events[0].status,'scheduled','names alone never join results');
 const canonical = require('../data/canonical/afl-nrl-2026.json');
 const feedMeta = require('../data/feed-meta.json');
+const readinessNow = new Date(feedMeta.publishedAt);
+const baselineReadiness = buildReadinessReport({canonical, feedMeta, finals:evidence, now:readinessNow});
 const stale = structuredClone(evidence);
 stale.published.find(x => x.id === weekOne.id).status = 'scheduled';
-const readiness = buildReadinessReport({canonical, feedMeta, finals:stale, now:new Date(feedMeta.publishedAt)});
+const readiness = buildReadinessReport({canonical, feedMeta, finals:stale, now:readinessNow});
 assert.equal(readiness.ready, false, 'completed regular season cannot hide stale finals');
-assert.equal(readiness.overdueResultCount, 1);
+// Other competition results can become due as the real publication rolls
+// forward. Require the precise added NRL failure without dropping those gaps.
+assert.equal(readiness.overdueResultCount, baselineReadiness.overdueResultCount + 1);
+assert.equal(readiness.overdueResults.filter(event => event.id === weekOne.id).length, 1);
+assert.deepEqual(readiness.overdueResults.filter(event => event.id !== weekOne.id), baselineReadiness.overdueResults);
 console.log('NRL finals: nine slots, eight sourced results, identity-preserving joins and missing/stale/corrupt evidence rejection passed.');

@@ -12291,7 +12291,7 @@
         "team:aflw:cd_t8796"
       ],
       "displayName": "Western Bulldogs v St Kilda",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -12328,7 +12328,31 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8944",
         "sourceType": "official",
         "checkedAt": "2026-10-02T21:09:08.586Z"
-      }
+      },
+      "canonicalEventId": "event:aflw:cd_m20262640804",
+      "homeScore": 31,
+      "awayScore": 1,
+      "score": "Western Bulldogs 3.13 (31)–0.1 (1) St Kilda",
+      "outcomeText": "Western Bulldogs defeated St Kilda by 30 points.",
+      "recapText": "Western Bulldogs won the AFLW Round 8 match by 30 points. Official full-time result: Western Bulldogs 31, St Kilda 1.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8944",
+      "sourceCheckedAt": "2026-10-03T10:54:07.910Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
+      "resultSourceCheckedAt": "2026-10-03T10:54:07.910Z",
+      "statusCheckedAt": "2026-10-03T10:54:07.910Z",
+      "scoreCheckedAt": "2026-10-03T10:54:07.910Z",
+      "lastReviewedAt": "2026-10-03T10:54:07.910Z",
+      "eventId": "event:aflw:cd_m20262640804",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.afl.com.au/aflw/matches/8944"
+      ],
+      "stakesScore": 5,
+      "endTimeUtc": "2026-10-03T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event:aflw:cd_m20262640805",
@@ -12353,7 +12377,7 @@
         "team:aflw:cd_t8786"
       ],
       "displayName": "Brisbane Lions v Gold Coast SUNS",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -12390,7 +12414,31 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8947",
         "sourceType": "official",
         "checkedAt": "2026-10-02T21:09:08.586Z"
-      }
+      },
+      "canonicalEventId": "event:aflw:cd_m20262640805",
+      "homeScore": 20,
+      "awayScore": 40,
+      "score": "Brisbane Lions 3.2 (20)–5.10 (40) Gold Coast SUNS",
+      "outcomeText": "Gold Coast SUNS defeated Brisbane Lions by 20 points.",
+      "recapText": "Gold Coast SUNS won the AFLW Round 8 match by 20 points. Official full-time result: Brisbane Lions 20, Gold Coast SUNS 40.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8947",
+      "sourceCheckedAt": "2026-10-03T10:54:08.970Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
+      "resultSourceCheckedAt": "2026-10-03T10:54:08.970Z",
+      "statusCheckedAt": "2026-10-03T10:54:08.970Z",
+      "scoreCheckedAt": "2026-10-03T10:54:08.970Z",
+      "lastReviewedAt": "2026-10-03T10:54:08.970Z",
+      "eventId": "event:aflw:cd_m20262640805",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.afl.com.au/aflw/matches/8947"
+      ],
+      "stakesScore": 5,
+      "endTimeUtc": "2026-10-03T10:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event:aflw:cd_m20262640806",

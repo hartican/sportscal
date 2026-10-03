@@ -66,6 +66,29 @@ function sportLabel(sportKey){
   })[sportKey] || sportKey;
 }
 
+function validateNrlwFinals(schedule){
+  const review=schedule?.nrlwFinalsReview;
+  if(!review || !Array.isArray(review.fixtureIds) || review.fixtureIds.length!==4 || new Set(review.fixtureIds).size!==4)throw new Error('NRLW reviewed finals: incomplete identity collection');
+  const participants=new Map(schedule.participants.map(p=>[p.id,p]));
+  const finals=schedule.events.filter(e=>e.nrlwFinalsReviewed);
+  if(finals.length!==4 || finals.some(e=>!review.fixtureIds.includes(e.id)))throw new Error('NRLW reviewed finals: collection does not match its declared scope');
+  const roundCounts={12:0,13:0};
+  for(const event of finals){
+    const source=schedule.sources[event.sourceId],result=event.result;
+    const validDate=value=>typeof value==='string'&&Number.isFinite(Date.parse(value))&&Date.parse(value)<=Date.now();
+    if(event.sportKey!=='nrlw'||event.competitionId!=='competition:nrlw-premiership-2026'||event.providerStatus!=='FullTime'||event.status!=='completed'||!Object.hasOwn(roundCounts,event.roundNumber))throw new Error('NRLW reviewed finals: unsupported competition, phase or status');
+    roundCounts[event.roundNumber]++;
+    if(source?.type!=='official'||source.providerMatchId!==event.providerMatchId||!/^https:\/\/www\.nrl\.com\/draw\/womens-premiership\/2026\/finals-week-[12]\/[a-z-]+\/$/.test(source.url)||!validDate(source.checkedAt)||!validDate(source.providerUpdatedAt)||!validDate(event.sourceCheckedAt)||!validDate(result?.checkedAt))throw new Error('NRLW reviewed finals: invalid source observation');
+    if(event.sourceCheckedAt!==source.checkedAt||result.checkedAt!==source.checkedAt||Date.parse(source.providerUpdatedAt)>Date.parse(source.checkedAt)||event.timeTbc||event.timePrecision!=='exact'||!validDate(event.startTimeUtc))throw new Error('NRLW reviewed finals: inconsistent timing');
+    const instant=new Date(event.startTimeUtc),date=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(instant),time=new Intl.DateTimeFormat('en-GB',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(instant);
+    if(event.date!==date||event.time!==time||!event.startTimeUtc.startsWith('2026-09-')||!event.venue)throw new Error('NRLW reviewed finals: invalid Sydney date, clock or venue');
+    if(!Array.isArray(event.participantIds)||event.participantIds.length!==2||new Set(event.participantIds).size!==2||event.participantIds.some(id=>!id.startsWith('team:nrlw:')||!participants.has(id))||![event.homeScore,event.awayScore].every(score=>Number.isInteger(score)&&score>=0)||event.homeScore===event.awayScore)throw new Error('NRLW reviewed finals: invalid participants or final scores');
+    const [home,away]=event.participantIds,score=`${participants.get(home).displayName} ${event.homeScore}-${event.awayScore} ${participants.get(away).displayName}`;
+    if(result.status!=='official'||result.sourceId!==event.sourceId||result.score!==score||result.winnerParticipantId!==(event.homeScore>event.awayScore?home:away))throw new Error('NRLW reviewed finals: inconsistent result');
+  }
+  if(roundCounts[12]!==2||roundCounts[13]!==2)throw new Error('NRLW reviewed finals: missing finals phase');
+}
+
 function cardForEvent(event, schedule, participantsById){
   const source = schedule.sources[event.sourceId];
   const result = event.result || null;
@@ -217,10 +240,12 @@ function main(){
   const outputPath = path.resolve(process.argv[3] || inputPath);
   const feed = readJson(inputPath);
   const schedules=SCHEDULE_PATHS.map(readJson);
+  validateNrlwFinals(schedules.find(schedule=>schedule.nrlwFinalsReview));
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
     return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')&&(!process.argv.includes('--grand-tours-only')||['tdf','giro','vuelta'].includes(event.sportKey))&&(!process.argv.includes('--lemans-only')||event.lemansCalendar===true)&&(!process.argv.includes('--dakar-only')||event.dakarCalendar===true)&&(!process.argv.includes('--golf-majors-only')||event.golfMajorCalendar===true)).map(event => cardForEvent(event, schedule, participantsById));
   });
+  if(process.argv.includes('--nrlw-finals-only'))cards.splice(0,cards.length,...cards.filter(card=>card.key==='nrlw'&&card.resultStatus==='official'&&card.canonicalEventId?.includes(':2026:')&&schedules.some(schedule=>schedule.nrlwFinalsReview?.fixtureIds.includes(card.canonicalEventId))));
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
   const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
@@ -229,6 +254,7 @@ function main(){
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
   cards.forEach((card,index)=>{
+    if(card.key==='nrlw'&&card.resultStatus==='official'&&existingById.has(card.id)){cards[index]=mergeNrlwFinalCard(card,existingById.get(card.id));return;}
     if(card.lemansCalendar&&existingById.has(card.id)){cards[index]=mergeLemansCard(card,existingById.get(card.id));return;}
     if((card.golfMajorCalendar||['sailgp','wsl','tdf','giro','vuelta','dakar','dakar'].includes(card.key))&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
   });
@@ -236,7 +262,7 @@ function main(){
   cards.forEach((card,index)=>{
     if(card.key!=='motogp')return;
     const existing=existingById.get(card.id);
-    if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','fixtureResults','resultPublishedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
+    if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','endTimeUtc','endTimeBasis','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
   });
   cards.forEach((card,index)=>{
     const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);
@@ -249,14 +275,14 @@ function main(){
     cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
   });
   const retained = (feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
-  // A scoped MotoGP refresh owns its cards only. Normalising retained raw
+  // A scoped refresh owns its cards only. Normalising retained raw
   // provider IDs here can silently change unrelated tennis source identities.
-  const motogpOnly = process.argv.includes('--motogp-only');
+  const preserveRetained = process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only');
   const next = normalizeFeed({
     ...feed,
-    events:motogpOnly ? cards : [...retained, ...cards],
+    events:preserveRetained ? cards : [...retained, ...cards],
   });
-  if (motogpOnly) next.events = [...retained, ...next.events];
+  if (preserveRetained) next.events = [...retained, ...next.events];
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);
   writeJson(outputPath, next);
@@ -286,4 +312,12 @@ function mergeLemansCard(card,existing){
   const keys=['canonicalEventId','lemansCalendar','identityRef','sessionOrder','eventFamilyId','weekendId','tournamentName','season','sessionType','codeId','taxonomyNodeId','date','time','dateOnly','timeTbc','timePrecision','startTimeUtc','estimatedStartTimeUtc','timingProvenance','scheduleStatus','calendarProvenance','venue','venueOfficialName','venueId','venueVerified','venueCountryCode','venueCity','venueSourceUrl','venueCaption','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','scheduleNote'];
   return {...existing,...Object.fromEntries(keys.map(k=>[k,card[k]??null]))};
 }
-module.exports = { cardForEvent, stableCardId, mergeSailgpCard, mergeLemansCard };
+function mergeNrlwFinalCard(card,existing){
+  const next=Date.parse(card.resultSourceCheckedAt),prior=Date.parse(existing.resultSourceCheckedAt);
+  if(existing.status==='completed'&&existing.score&&Number.isFinite(prior)&&prior>next)return existing;
+  if(existing.score&&prior===next&&existing.score!==card.score)throw new Error('NRLW reviewed finals: conflicting result at the same observation');
+  const facts=['canonicalEventId','competitionId','name','date','time','timePrecision','timeTbc','startTimeUtc','venue','round','roundLabel','roundNumber','stage','participantIds','status','resultStatus','score','resultSourceUrl','resultSourceCheckedAt','sourceUrl','sourceCheckedAt','broadcasterIds','broadcaster','broadcastOptions',...(card.viewingOptions?['viewingOptions']:[])];
+  if(facts.every(key=>JSON.stringify(existing[key])===JSON.stringify(card[key])))return existing;
+  return {...existing,...card,scoreCheckedAt:card.resultSourceCheckedAt,statusCheckedAt:card.resultSourceCheckedAt};
+}
+module.exports = { cardForEvent, stableCardId, mergeSailgpCard, mergeLemansCard, validateNrlwFinals, mergeNrlwFinalCard };

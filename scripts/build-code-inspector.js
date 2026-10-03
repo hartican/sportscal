@@ -530,7 +530,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:nbl", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:nbl", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify({

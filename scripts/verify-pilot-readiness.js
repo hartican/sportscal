@@ -60,13 +60,30 @@ function fixtureIssues(fixture, participantIds){
   return issues;
 }
 
-function completedResultIsPresent(fixture){
+function completedResultIsPresent(fixture, now = new Date()){
   const status = String(fixture?.status || fixture?.result?.status || "");
   if (["cancelled", "abandoned"].includes(status)) return true;
-  return status === "completed"
+  const legacy = status === "completed"
     && fixture?.result?.status === "completed"
     && typeof fixture?.result?.scorelineText === "string"
     && fixture.result.scorelineText.trim().length > 0;
+  if (legacy) return true;
+  // Reviewed AFLW results use the flat canonical representation. Recognise
+  // that explicit official final without accepting live/score-only records.
+  if (status !== "completed" || fixture?.competitionId !== "competition:aflw-2026"
+    || fixture.resultStatus !== "official" || fixture.sourceTrust !== "verified"
+    || !/^https:\/\/www\.afl\.com\.au\/aflw\/matches\/\d+$/.test(fixture.resultSourceUrl || "")
+    || ![fixture.homeScore,fixture.awayScore].every(value => Number.isInteger(value) && value >= 0)) return false;
+  const observed = parseTimestamp(fixture.resultSourceCheckedAt);
+  if (observed === null || observed > now.getTime()) return false;
+  const sides = [fixture.homeParticipantId,fixture.awayParticipantId];
+  if (sides.some(id => typeof id !== "string" || !id.startsWith("team:aflw:")) || sides[0] === sides[1]
+    || JSON.stringify(fixture.participantIds) !== JSON.stringify(sides)) return false;
+  const splits = [...String(fixture.score || "").matchAll(/(\d+)\.(\d+)\s*\((\d+)\)/g)];
+  return splits.length === 2 && splits.every((split,index) => (
+    Number(split[1]) * 6 + Number(split[2]) === Number(split[3])
+    && Number(split[3]) === [fixture.homeScore,fixture.awayScore][index]
+  ));
 }
 
 function buildReadinessReport({ canonical, feedMeta, finals, now = new Date() } = {}){
@@ -149,7 +166,7 @@ function buildReadinessReport({ canonical, feedMeta, finals, now = new Date() } 
     && parseTimestamp(fixture.startTimeUtc) <= resultCutoff
   ));
   const overdueResults = dueSupportedFixtures
-    .filter(fixture => !completedResultIsPresent(fixture))
+    .filter(fixture => !completedResultIsPresent(fixture,now))
     .map(fixture => ({
       id: fixture.id || null,
       sport: String(fixture.sportDomainId || "").replace(/^sport:/, ""),

@@ -8,6 +8,7 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 require('./validate-motogp-scoped-retention');
+require('./validate-nrlw-reviewed-finals');
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 const schedule = readJson("data/canonical/fiba-women-sailgp-motogp-2026.json");
 const taxonomy = require("../config/canonical-sports-taxonomy");
@@ -16,7 +17,7 @@ const followFirst = require("../config/follow-first");
 const countryFlags = require("../config/country-flags");
 
 const EXPECTED = Object.freeze({
-  nrlw:{ participantCount:12, eventCount:7, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
+  nrlw:{ participantCount:12, eventCount:11, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
   "fiba-women":{ participantCount:16, eventCount:17, codeId:"competition:fiba-womens-world-cup", competitionId:"competition:fiba-womens-world-cup" },
   sailgp:{ participantCount:13, eventCount:schedule.sailgpCalendarCoverage?.raceDayCount||7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
   motogp:{ participantCount:22, eventCount:schedule.events.filter(event=>event.sportKey==="motogp").length, codeId:"competition:motogp", competitionId:"competition:motogp" },
@@ -89,7 +90,7 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const code = inspector.codes.find(item => item.id === expected.codeId);
   assert(code, `${expected.codeId}: Code Inspector entry is missing`);
   assert.equal(code.fixtureCount, expected.eventCount, `${expected.codeId}: Code Inspector schedule is incomplete`);
-  assert.equal(code.coverageStatus, sportKey==='sailgp'?'partial':'complete', `${expected.codeId}: Code Inspector coverage must match the reviewed boundary`);
+  assert.equal(code.coverageStatus, ['sailgp','nrlw'].includes(sportKey)?'partial':'complete', `${expected.codeId}: Code Inspector coverage must match the reviewed boundary`);
   const chunk = readJson(code.chunkPath);
   assert.equal(chunk.fixtures.length, expected.eventCount, `${expected.codeId}: lazy schedule chunk is incomplete`);
   if (["motogp", "sailgp"].includes(sportKey)) assert(chunk.fixtures.every(fixture => fixture.participantSlots.length === 0), `${expected.codeId}: field events must not render as two-sided fixtures`);

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T07:04:00.240Z",
+  "generatedAt": "2026-10-03T11:47:25.795Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -23,7 +23,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T07:01:10.992Z",
+      "freshAt": "2026-10-03T10:59:41.037Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T07:01:10.992Z",
+      "freshAt": "2026-10-03T10:59:41.037Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -56,11 +56,11 @@
       "id": "sport:nrlw",
       "slug": "nrlw",
       "label": "NRLW",
-      "fixtureCount": 7,
+      "fixtureCount": 11,
       "hasStandings": false,
       "groupingMode": "round",
-      "coverageStatus": "complete",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-03T08:25:06.166Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T07:04:00.240Z",
+      "freshAt": "2026-10-03T11:47:25.795Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -98,7 +98,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T11:47:25.795Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -207,7 +207,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-02T15:24:03.623Z",
+      "freshAt": "2026-10-03T11:47:20.014Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },
@@ -419,7 +419,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T07:04:00.240Z",
+      "freshAt": "2026-10-03T11:47:01.475Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },

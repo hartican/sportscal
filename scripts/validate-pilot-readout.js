@@ -4,12 +4,23 @@ const { readFinalsEvidence } = require("./lib/pilot-finals-readiness");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const READOUT = require("../config/pilot-readout");
-const { buildReadinessReport, isUnresolvedOfficialPlaceholder } = require("./verify-pilot-readiness");
+const { buildReadinessReport, completedResultIsPresent, isUnresolvedOfficialPlaceholder } = require("./verify-pilot-readiness");
 const { inputFromReadout } = require("./evaluate-pilot-readout");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
 const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: new Date(feedMeta.publishedAt) });
+const reviewedAflw = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
+assert(reviewedAflw, 'use an actual reviewed flat AFLW result');
+assert(completedResultIsPresent(reviewedAflw,new Date(feedMeta.publishedAt)));
+for (const patch of [
+  {status:'live'}, {resultStatus:'pending'}, {sourceTrust:'unknown'},
+  {resultSourceUrl:'https://example.com/result'}, {resultSourceCheckedAt:'invalid'},
+  {resultSourceCheckedAt:'2099-01-01T00:00:00Z'}, {homeScore:-1}, {awayScore:'0'},
+  {score:'Invented final'}, {score:'Team 1.1 (99)–2.2 (14) Opponent'},
+  {awayParticipantId:reviewedAflw.homeParticipantId}, {participantIds:[...reviewedAflw.participantIds].reverse()},
+]) assert.equal(completedResultIsPresent({...reviewedAflw,...patch},new Date(feedMeta.publishedAt)),false,'unverified or contradictory flat final cannot pass');
+assert(completedResultIsPresent({...reviewedAflw,homeScore:0,awayScore:1,score:'Home 0.0 (0)–0.1 (1) Away'},new Date(feedMeta.publishedAt)),'explicit zero scores remain valid');
 const participantsById = new Map(canonical.participants.map(participant => [participant.id, participant]));
 const unresolvedPlaceholders = canonical.events.filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById));
 const placeholderParticipant = { id:"test:afl:tbd", teamCode:"TBD" };

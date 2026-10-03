@@ -22,6 +22,10 @@ try{
   const written=JSON.parse(fs.readFileSync(file));
   assert.deepEqual(written.events.filter(e=>e.key!=='motogp'),outside,`${source}: actual scoped writer preserves all unrelated IDs, facts, editorial and clocks`);
   assert.equal(new Set(written.events.map(e=>e.id)).size,written.events.length,'scoped refresh does not duplicate identities');
+  for(const final of original.events.filter(e=>e.key==='motogp'&&e.resultPublishedAt)){
+   const last=written.events.find(e=>e.id===final.id);assert(last);
+   for(const field of ['status','endTimeUtc','endTimeBasis','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','score'])assert.deepEqual(last[field],final[field],`verified MotoGP final retains ${field} through calendar-only refresh`);
+  }
  }
 }finally{fs.rmSync(temp,{recursive:true,force:true});}
 console.log('Scoped MotoGP retention: both real feed surfaces and raw-provider identity rehearsal passed.');

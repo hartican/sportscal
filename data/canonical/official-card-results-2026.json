@@ -176,9 +176,9 @@
       "status": "completed",
       "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
       "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
-      "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
+      "recapText": "Marc Marquez won the San Marino Grand Prix ahead of Alex Marquez and Pedro Acosta. Official podium result.",
       "sourceName": "MotoGP",
-      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "sourceUrl": "https://www.motogp.com/en/news/2026/09/13/marc-marquez-capitalises-on-bezzecchi-error-to-seize-title-race-lead/1089345",
       "date": "2026-09-13",
       "time": "22:00",
       "startTimeUtc": "2026-09-13T12:00:00.000Z",
@@ -186,7 +186,14 @@
       "endTimeBasis": "scheduled-live-window",
       "timePrecision": "exact",
       "timeTbc": false,
-      "scheduleStatus": "confirmed"
+      "scheduleStatus": "confirmed",
+      "sourceCheckedAt": "2026-10-03T11:33:43.704Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.motogp.com/en/news/2026/09/13/marc-marquez-capitalises-on-bezzecchi-error-to-seize-title-race-lead/1089345",
+      "resultSourceCheckedAt": "2026-10-03T11:33:43.704Z",
+      "resultPublishedAt": "2026-10-03T11:33:43.704Z",
+      "scoreCheckedAt": "2026-10-03T11:33:43.704Z",
+      "statusCheckedAt": "2026-10-03T11:33:43.704Z"
     },
     {
       "id": "event-wrc-2026-round-12",
@@ -333,7 +340,9 @@
       "resultSourceUrl": "https://stats.motogp.com/en/gp-results",
       "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "endTimeUtc": "2026-09-20T21:59:59.000Z",
-      "endTimeBasis": "completed-event-local-date-boundary"
+      "endTimeBasis": "completed-event-local-date-boundary",
+      "resultStatus": "official",
+      "resultPublishedAt": "2026-09-21T20:24:10.712468Z"
     },
     {
       "id": "evt_sailgp_2026_geneva_day_1",
@@ -588,6 +597,44 @@
         ]
       },
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys"
+    },
+    {
+      "id": "event-aflw-cd_m20262640804",
+      "canonicalEventId": "event:aflw:cd_m20262640804",
+      "status": "completed",
+      "homeScore": 31,
+      "awayScore": 1,
+      "score": "Western Bulldogs 3.13 (31)–0.1 (1) St Kilda",
+      "outcomeText": "Western Bulldogs defeated St Kilda by 30 points.",
+      "recapText": "Western Bulldogs won the AFLW Round 8 match by 30 points. Official full-time result: Western Bulldogs 31, St Kilda 1.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8944",
+      "sourceCheckedAt": "2026-10-03T10:54:07.910Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
+      "resultSourceCheckedAt": "2026-10-03T10:54:07.910Z",
+      "statusCheckedAt": "2026-10-03T10:54:07.910Z",
+      "scoreCheckedAt": "2026-10-03T10:54:07.910Z",
+      "lastReviewedAt": "2026-10-03T10:54:07.910Z"
+    },
+    {
+      "id": "event-aflw-cd_m20262640805",
+      "canonicalEventId": "event:aflw:cd_m20262640805",
+      "status": "completed",
+      "homeScore": 20,
+      "awayScore": 40,
+      "score": "Brisbane Lions 3.2 (20)–5.10 (40) Gold Coast SUNS",
+      "outcomeText": "Gold Coast SUNS defeated Brisbane Lions by 20 points.",
+      "recapText": "Gold Coast SUNS won the AFLW Round 8 match by 20 points. Official full-time result: Brisbane Lions 20, Gold Coast SUNS 40.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8947",
+      "sourceCheckedAt": "2026-10-03T10:54:08.970Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
+      "resultSourceCheckedAt": "2026-10-03T10:54:08.970Z",
+      "statusCheckedAt": "2026-10-03T10:54:08.970Z",
+      "scoreCheckedAt": "2026-10-03T10:54:08.970Z",
+      "lastReviewedAt": "2026-10-03T10:54:08.970Z"
     }
   ]
 }
