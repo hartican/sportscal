@@ -13,7 +13,7 @@ function feedDependencies(){
     require("../data/canonical/cycling-context-2026.json"),require("../data/canonical/nba-context-2026.json"),require("../data/canonical/cwg-context-2026.json")
   );
   const contextualEvents=sportContext.applyContextToEvents(require('../lib/calendar-catalogue').catalogue(),canonicalSportContext);
-  dependencies={...require('../lib/supabase-server'),...require('../lib/server-feed-pipeline'),...require('../lib/follow-fixture-resolver'),...require('../lib/live-fixtures'),eventFeed,canonicalSportContext,contextualEvents};
+  dependencies={...require('../lib/server-feed-pipeline'),...require('../lib/follow-fixture-resolver'),...require('../lib/live-fixtures'),eventFeed,canonicalSportContext,contextualEvents};
   return dependencies;
 }
 function digest(value){return crypto.createHash('sha256').update(JSON.stringify(value)).digest('base64url');}
@@ -36,7 +36,7 @@ function expiry(events,now,pipeline){
   }
   return deadline;
 }
-function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new FeedResponseCache(),live=()=>liveHandler||(liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler())}={}){
+function createFeedHandler({load=feedDependencies,authenticate=()=>require('../lib/supabase-server'),clock=()=>new Date(),cache=new FeedResponseCache(),live=()=>liveHandler||(liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler())}={}){
   return async function feedHandler(request,response){
     const route=new URL(request.url||'/api/feed','https://nothingsport.local');
     if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler()(request,response);
@@ -58,14 +58,18 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       if(typeof response.send==='function')return response.send(entry.body);
       return response.json(JSON.parse(entry.body));
     };
-    let d;
+    let d,authDependencies;
     try{
-      let t=performance.now();d=load();mark('init',performance.now()-t);
-      t=performance.now();const accessToken=publicMatch?null:d.bearerToken(request);const user=publicMatch?{id:'public-match-centre'}:await d.authenticatedUser(accessToken);mark('auth',performance.now()-t);
       if(publicMatch&&Buffer.byteLength(JSON.stringify(request.body||{}))>131072)return response.status(413).json({error:'Preferences too large'});
-      t=performance.now();const loadedUserState=publicMatch?{preferences:request.body?.preferences||{},event_user_state:request.body?.eventUserState||{}}:await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
-      const userState=loadedUserState ? d.normalizeUserFollowState(loadedUserState) : null;
-      if(!userState)throw new d.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
+      // Validate identity and account state before initializing the shared catalogue.
+      let t=performance.now();authDependencies=publicMatch?null:authenticate();
+      const accessToken=publicMatch?null:authDependencies.bearerToken(request);
+      const user=publicMatch?{id:'public-match-centre'}:await authDependencies.authenticatedUser(accessToken);mark('auth',performance.now()-t);
+      t=performance.now();const loadedUserState=publicMatch?{preferences:request.body?.preferences||{},event_user_state:request.body?.eventUserState||{}}:await authDependencies.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
+      if(!loadedUserState)throw new authDependencies.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
+      t=performance.now();d=load();mark('init',performance.now()-t);
+      const userState=d.normalizeUserFollowState(loadedUserState);
+      if(!userState)throw new authDependencies.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
       const bounded=(value,fallback,max)=>Number.isFinite(Number(value))?Math.min(max,Math.max(1,Math.floor(Number(value)))):fallback;
       const limit=request.url?bounded(route.searchParams.get('limit')||20,20,50):d.eventFeed.events.length;
       const rawCursor=Number(route.searchParams.get('cursor'));
@@ -88,7 +92,7 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       if(process.env.VERCEL)console.log(JSON.stringify({event:'feed_timing',phases:timings,cards:feed.events.length,bytes:Buffer.byteLength(body)}));
       return send(entry,200);
     }catch(error){
-      const outgoing=(d||require('../lib/supabase-server')).publicError(error);
+      const outgoing=(authDependencies||require('../lib/supabase-server')).publicError(error);
       response.status(outgoing.status).json(outgoing.body);
     }
   };

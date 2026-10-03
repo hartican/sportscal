@@ -8,7 +8,7 @@ function response(){return {headers:{},setHeader(k,v){this.headers[k]=v;},status
 async function main(){
   let builds=0,auth=0,stateVersion=1,user='alice',revision='r1',allowed=true,now=new Date('2026-09-15T03:00:00Z');
   const data={...pipeline,contextualEvents:[],canonicalSportContext:{participants:[]},eventFeed:{events:[],version:'v1',publishedAt:'2026-09-15T00:00:00Z'},bearerToken:()=>'',authenticatedUser:async()=>{auth++;if(!allowed)throw new Error('unauthorised');return{id:user};},loadUserState:async()=>({version:stateVersion}),readLiveSnapshots:async()=>({revision,sources:[]}),resolveUserFollowFixtures:()=>({events:[],participants:[],sourceVersion:'s1'}),overlaySnapshots:x=>x,buildServerFeed:({now})=>{builds++;return{events:[],generatedAt:now.toISOString(),owner:user,stateVersion};},publicError:()=>({status:401,body:{error:'unauthorised'}})};
-  const handler=createFeedHandler({load:()=>data,clock:()=>now});
+  const handler=createFeedHandler({load:()=>data,authenticate:()=>data,clock:()=>now});
   const request=(etag)=>({method:'GET',url:'/api/feed?limit=20',headers:etag?{'if-none-match':etag}:{}});
   let a=response();await handler(request(),a);assert.equal(builds,1);assert.equal(a.statusCode,200);
   let b=response();await handler(request(a.headers.ETag),b);assert.equal(b.statusCode,304);assert.equal(builds,1);assert.equal(auth,2,'Cache must still authenticate');
@@ -27,6 +27,7 @@ async function main(){
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
   assert.equal(event.status,undefined);
+  require('./validate-feed-initialization-boundary');
   console.log('Feed cache: private auth/state/revision isolation, TTL, midnight/start expiry, LRU/bytes, lazy routing and immutable inputs passed');
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
