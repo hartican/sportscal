@@ -148,3 +148,6 @@ for (const event of eplCards){
 }
 
 console.log(`Australian viewing-rights validation passed (${rightsAudit.sports.length} sports, ${scenarios.length} resolver scenarios, ${events.length} published cards, ${rugbyCards.length} rugby cards, ${eplCards.length} EPL cards).`);
+
+// The same provider contract governs scored live/upcoming and re-read options.
+require("./validate-viewing-action-integrity");

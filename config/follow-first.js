@@ -838,8 +838,11 @@
     }
     const selectedOrder = new Map((selectedProviderIds || []).map((id, index) => [String(id), index]));
     const providerOrder = [...rightsProviderIds, ...Object.keys(VIEWING_PROVIDERS).filter(id => !rightsProviderIds.includes(id))];
-    const completed = ["completed", "past", "finished", "final"].includes(String(event?.status || event?.scheduleStatus || "").toLowerCase())
-      || Boolean(event?.scoreDisplay || event?.score || event?.canonicalResultScoreline);
+    // Partial/placeholder scores do not override an explicit source state.
+    // Retain the legacy result fallback only when no status is supplied.
+    const sourceStatus = String(event?.status || event?.scheduleStatus || "").trim().toLowerCase();
+    const completed = ["completed", "past", "finished", "final"].includes(sourceStatus)
+      || (!sourceStatus && Boolean(event?.scoreDisplay || event?.score || event?.canonicalResultScoreline));
     return providerOrder
       .filter(id => broadcasterIds.has(id) && VIEWING_PROVIDERS[id]?.active !== false)
       .sort((left, right) => {
@@ -871,7 +874,7 @@
           territory:explicitObject.territory || provider.territory || rights?.territory || "AU",
           accessType:explicitObject.accessType || provider.accessType || (provider.paid ? "subscription" : "free"),
           liveOrReplay:completed ? "replay" : "live",
-          replayVerified:completed && ["replay","both"].includes(explicitObject.liveOrReplay) && Boolean(explicitObject.sourceUrl && explicitObject.verifiedAt),
+          replayVerified:completed && ["replay","both"].includes(explicitObject.liveOrReplay) && (!Object.prototype.hasOwnProperty.call(explicitObject,"replayVerified") || explicitObject.replayVerified===true) && Boolean(explicitObject.sourceUrl && explicitObject.verifiedAt),
           rightsScope:explicitObject.rightsScope || (fixtureProviderIds.length ? "fixture" : rights?.rightsScope) || "fixture",
           linkScope,
           sourceUrl:explicitObject.sourceUrl || rights?.sourceUrl || null,

@@ -22,6 +22,14 @@ async function assertCachedFootballStatus(page){
     return {unknownLabel:unknown.displayDateLabel,unknownStart:unknown.startTimeUtc,confirmedLabel:confirmed.displayDateLabel||null,confirmedDate:confirmed.date,unconfirmedLabel:unconfirmed.displayDateLabel||null};
   },require('../data/code-inspector/champions-league.json').fixtures.find(f=>f.id==='major-stage:uefa-champions-league-2026-27:final'));
   assert.deepEqual(stageCalendar,{unknownLabel:'Saturday 5 June 2027 (Madrid dates)',unknownStart:null,confirmedLabel:null,confirmedDate:'2027-06-06',unconfirmedLabel:'Saturday 5 June 2027 (Madrid dates)'},'upgraded/offline runtime retains actual UCL calendar precision and the controlled confirmed-UTC transition');
+  const viewingActions=await page.evaluate(fixture=>{
+    const api=NOTHINGSPORTS_FOLLOW_FIRST;
+    const live=api.viewingOptions({...fixture,status:'live',scheduleStatus:'live',score:'0 - 0',scoreDisplay:'0 - 0'});
+    const final={...fixture,status:'completed',scheduleStatus:'completed'};
+    const first=api.viewingOptions(final),second=api.viewingOptions({...final,viewingOptions:first,broadcastOptions:[],broadcaster:''});
+    return {livePurpose:live[0].liveOrReplay,firstReplay:first[0].replayVerified,secondReplay:second[0].replayVerified};
+  },footballStatusFixture);
+  assert.deepEqual(viewingActions,{livePurpose:'live',firstReplay:false,secondReplay:false},'upgraded/offline viewing cannot turn partial scores into replays or unknown provider metadata into replay proof');
   const compactObservation=await page.evaluate(()=>{
     const marker='fixture-observations.v1',prior={id:'offline-correction',key:'nrl',status:'completed',homeScore:1,awayScore:0,sourceCheckedAt:'2026-09-24T13:00:00Z'};
     const corrected=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays([prior],[{...prior,homeScore:2,fixtureObservationSchema:marker,scoreCheckedAt:'2026-09-24T14:00:00Z',statusCheckedAt:'2026-09-24T14:00:00Z'}])[0];
