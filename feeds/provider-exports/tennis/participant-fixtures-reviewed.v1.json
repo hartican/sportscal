@@ -61,7 +61,8 @@
         "clockAssociation": "11:00 AM heading directly above this first court row; Asia/Shanghai UTC+08:00",
         "publishedAtLocal": "2026-10-02T20:53:00+08:00",
         "reviewMethod": "PDF pixels and text checked together; other court columns and followed-by labels excluded"
-      }
+      },
+      "liveWindow": 3
     }
   ],
   "reviews": [

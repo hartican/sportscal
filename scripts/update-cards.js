@@ -624,7 +624,7 @@ async function runMain() {
     return;
   }
   if(process.argv.includes("--participant-schedules")){
-    for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-app-shell-runtime.js"],["scripts/validate-athletes.js"]])runStep(args);
+    for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/publish-feed.js","data/events.json","data/events.json","data/feed-meta.json","data/events.js","--preserve-known"],["scripts/build-follow-fixtures.js"],["scripts/build-paged-feed.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-app-shell-runtime.js"],["scripts/validate-athletes.js"]])runStep(args);
     console.log("Reviewed participant schedules published through canonical owner; observation clocks retained.");return;
   }
   if(process.argv.includes("--tennis-feed")){

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160",
-  "publishedAt": "2026-10-03T00:04:24.160Z",
+  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160-20261003011442660",
+  "publishedAt": "2026-10-03T01:14:42.660Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -198543,8 +198543,8 @@
       "startTimeUtc": null
     },
     {
-      "id": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
-      "eventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+      "eventId": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
       "key": "tennis",
       "sport": "Tennis",
@@ -198602,7 +198602,28 @@
         "clockAssociation": "11:00 AM heading directly above this first court row; Asia/Shanghai UTC+08:00",
         "publishedAtLocal": "2026-10-02T20:53:00+08:00",
         "reviewMethod": "PDF pixels and text checked together; other court columns and followed-by labels excluded"
-      }
+      },
+      "liveWindow": 3,
+      "sourceTrust": "unverified",
+      "displayTitleCompact": "Alex de Minaur v Quentin Halys",
+      "broadcastOptions": [],
+      "narrativeType": "early",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "broadcaster": "",
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
+      ],
+      "consensusTags": []
     }
   ]
 }
