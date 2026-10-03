@@ -241,11 +241,14 @@ function main(){
   const feed = readJson(inputPath);
   const schedules=SCHEDULE_PATHS.map(readJson);
   validateNrlwFinals(schedules.find(schedule=>schedule.nrlwFinalsReview));
+  const nrlwReview=readJson(path.join(ROOT,'data/canonical/nrlw-season-review.v1.json'));
+  require('./lib/nrlw-season-review').validateSeasonBackfill(nrlwReview,schedules.find(schedule=>schedule.nrlwFinalsReview));
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
     return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')&&(!process.argv.includes('--grand-tours-only')||['tdf','giro','vuelta'].includes(event.sportKey))&&(!process.argv.includes('--lemans-only')||event.lemansCalendar===true)&&(!process.argv.includes('--dakar-only')||event.dakarCalendar===true)&&(!process.argv.includes('--golf-majors-only')||event.golfMajorCalendar===true)).map(event => cardForEvent(event, schedule, participantsById));
   });
   if(process.argv.includes('--nrlw-finals-only'))cards.splice(0,cards.length,...cards.filter(card=>card.key==='nrlw'&&card.resultStatus==='official'&&card.canonicalEventId?.includes(':2026:')&&schedules.some(schedule=>schedule.nrlwFinalsReview?.fixtureIds.includes(card.canonicalEventId))));
+  if(process.argv.includes('--nrlw-season-only'))cards.splice(0,cards.length,...cards.filter(card=>nrlwReview.addedFixtureIds.includes(card.canonicalEventId)));
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
   const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
@@ -277,7 +280,7 @@ function main(){
   const retained = (feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
   // A scoped refresh owns its cards only. Normalising retained raw
   // provider IDs here can silently change unrelated tennis source identities.
-  const preserveRetained = process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only');
+  const preserveRetained = process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only') || process.argv.includes('--nrlw-season-only');
   const next = normalizeFeed({
     ...feed,
     events:preserveRetained ? cards : [...retained, ...cards],

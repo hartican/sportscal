@@ -635,6 +635,25 @@
       "statusCheckedAt": "2026-10-03T10:54:08.970Z",
       "scoreCheckedAt": "2026-10-03T10:54:08.970Z",
       "lastReviewedAt": "2026-10-03T10:54:08.970Z"
+    },
+    {
+      "id": "event-aflw-cd_m20262640806",
+      "canonicalEventId": "event:aflw:cd_m20262640806",
+      "status": "completed",
+      "homeScore": 36,
+      "awayScore": 22,
+      "score": "Port Adelaide 5.6 (36)–2.10 (22) Adelaide Crows",
+      "outcomeText": "Port Adelaide defeated Adelaide Crows by 14 points.",
+      "recapText": "Port Adelaide won the AFLW Round 8 match by 14 points. Official full-time result: Port Adelaide 36, Adelaide Crows 22.",
+      "sourceName": "AFLW official match centre",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8948",
+      "sourceCheckedAt": "2026-10-03T12:29:51.669Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
+      "resultSourceCheckedAt": "2026-10-03T12:29:51.669Z",
+      "statusCheckedAt": "2026-10-03T12:29:51.669Z",
+      "scoreCheckedAt": "2026-10-03T12:29:51.669Z",
+      "lastReviewedAt": "2026-10-03T12:29:51.669Z"
     }
   ]
 }

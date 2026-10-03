@@ -9,6 +9,11 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
 async function assertCachedFootballStatus(page){
+  const season=await page.evaluate(async()=>{
+    const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
+    return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};
+  });
+  assert.deepEqual(season,{count:71,coverage:'partial',completed:70,withdrawn:'cancelled'},'upgraded/offline projections retain the dated NRLW collection and actual WRC withdrawal');
   await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
   const status=await page.evaluate(fixture=>{
     const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};

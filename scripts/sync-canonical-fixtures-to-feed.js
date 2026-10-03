@@ -525,6 +525,12 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     sourceNote: options.sourceNote || feed.sourceNote || "Curated event cards plus official confirmed 2026 routine fixtures. Curated cards supersede routine imports for the same event.",
     events,
   });
+  // Normalisation may fill display defaults, but existing provider identities
+  // belong to their fixture and activity. It cannot rename retained cards.
+  output.events.forEach((event,index)=>{
+    event.id=events[index].id;
+    event.eventId=events[index].eventId || events[index].id;
+  });
 
   return {
     output,

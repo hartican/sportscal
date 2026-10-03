@@ -1,10 +1,10 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "editorial-publication-20261002220046047-20261003114725795",
-  "sourcePublishedAt": "2026-10-03T11:47:25.795Z",
+  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20261003123631944-20261003124100711",
+  "sourcePublishedAt": "2026-10-03T12:41:00.711Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 1443,
+  "inputEventCount": 1503,
   "eventCount": 853,
   "pages": [
     {

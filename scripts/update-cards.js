@@ -655,10 +655,11 @@ async function runMain() {
     ])runStep(args);
     console.log('Existing representative fixture context published through the canonical owner; no source refresh performed.');return;
   }
-  if(process.argv.includes('--nrlw-finals')){
+  if(process.argv.includes('--nrlw-finals') || process.argv.includes('--nrlw-season')){
+    const season=process.argv.includes('--nrlw-season'),scope=season?'--nrlw-season-only':'--nrlw-finals-only';
     for(const args of [
-      ['scripts/sync-requested-sports-to-feed.js','feeds/incoming/events.json','feeds/incoming/events.json','--nrlw-finals-only'],
-      ['scripts/sync-requested-sports-to-feed.js','data/events.json','data/events.json','--nrlw-finals-only'],
+      ['scripts/sync-requested-sports-to-feed.js','feeds/incoming/events.json','feeds/incoming/events.json',scope],
+      ['scripts/sync-requested-sports-to-feed.js','data/events.json','data/events.json',scope],
       ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
       ['scripts/build-code-inspector.js','--codes=nrlw'],
@@ -667,7 +668,7 @@ async function runMain() {
       ['scripts/qa-storyline-spoilers.js','data/events.json']
     ])runStep(args);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
-    console.log('Four reviewed NRLW finals published through the canonical owner; no provider refresh.');return;
+    console.log(`${season?'Sixty reviewed NRLW season matches':'Four reviewed NRLW finals'} published through the canonical owner; no provider refresh.`);return;
   }
   if(process.argv.includes('--rugby-identities')){
     for(const step of [

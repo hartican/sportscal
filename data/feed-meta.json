@@ -1,7 +1,7 @@
 {
-  "version": "editorial-publication-20261002220046047-20261003114725795",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261003123631944-20261003124100711",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-03T11:47:25.795Z",
+  "publishedAt": "2026-10-03T12:41:00.711Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -127,8 +127,8 @@
         "lastEventDate": "2026-09-14"
       },
       "nrlw": {
-        "count": 11,
-        "firstEventDate": "2026-09-10",
+        "count": 71,
+        "firstEventDate": "2026-07-02",
         "lastEventDate": "2026-10-04"
       },
       "football": {

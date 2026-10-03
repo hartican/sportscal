@@ -9,6 +9,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 require('./validate-motogp-scoped-retention');
 require('./validate-nrlw-reviewed-finals');
+require('./validate-nrlw-season-review');
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 const schedule = readJson("data/canonical/fiba-women-sailgp-motogp-2026.json");
 const taxonomy = require("../config/canonical-sports-taxonomy");
@@ -17,7 +18,7 @@ const followFirst = require("../config/follow-first");
 const countryFlags = require("../config/country-flags");
 
 const EXPECTED = Object.freeze({
-  nrlw:{ participantCount:12, eventCount:11, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
+  nrlw:{ participantCount:12, eventCount:71, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
   "fiba-women":{ participantCount:16, eventCount:17, codeId:"competition:fiba-womens-world-cup", competitionId:"competition:fiba-womens-world-cup" },
   sailgp:{ participantCount:13, eventCount:schedule.sailgpCalendarCoverage?.raceDayCount||7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
   motogp:{ participantCount:22, eventCount:schedule.events.filter(event=>event.sportKey==="motogp").length, codeId:"competition:motogp", competitionId:"competition:motogp" },

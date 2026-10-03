@@ -1,0 +1,1966 @@
+{
+  "schemaVersion": "nrlw-season-review.v1",
+  "competitionId": "competition:nrlw-premiership-2026",
+  "providerCompetitionId": 161,
+  "season": 2026,
+  "reviewKind": "dated-official-draw-backfill",
+  "checkedAt": "2026-10-03T12:19:46.786Z",
+  "sources": {
+    "1": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=1",
+      "checkedAt": "2026-10-03T12:17:45.381Z",
+      "status": 200,
+      "sha256": "e8a1d29891128a4bfcf3fad662e51f3b150a5e62756ab5009697ebdced9891e7",
+      "round": 1
+    },
+    "2": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=2",
+      "round": 2,
+      "checkedAt": "2026-10-03T12:19:45.533Z",
+      "status": 200,
+      "sha256": "86149747711e30aca384987b1a3e114f2736b62d88c833c3841f1824d49c5c9d"
+    },
+    "3": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=3",
+      "round": 3,
+      "checkedAt": "2026-10-03T12:19:45.631Z",
+      "status": 200,
+      "sha256": "72499cfc45b192c98a235d9d6062422b2d3c8bb2aefaf79824245bc62374671d"
+    },
+    "4": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=4",
+      "round": 4,
+      "checkedAt": "2026-10-03T12:19:45.741Z",
+      "status": 200,
+      "sha256": "eeb9442abb6823e91b9f61203b9fc5a5e4873e832c4c9aee1726e243304cc96b"
+    },
+    "5": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=5",
+      "round": 5,
+      "checkedAt": "2026-10-03T12:19:45.857Z",
+      "status": 200,
+      "sha256": "15cc8a655238e9f7bf58d53b5c51d12760123177c02d7d4287e593e6e12ed76a"
+    },
+    "6": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=6",
+      "round": 6,
+      "checkedAt": "2026-10-03T12:19:45.972Z",
+      "status": 200,
+      "sha256": "5c3c5071bab8217e287e366173660ffcd8c3788dde9ddc09d734b19ed9b1d810"
+    },
+    "7": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=7",
+      "round": 7,
+      "checkedAt": "2026-10-03T12:19:46.056Z",
+      "status": 200,
+      "sha256": "88d45e498cbdc46c9617a3e8fa6576a749ece25fa669b700a43480b2e246051c"
+    },
+    "8": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=8",
+      "round": 8,
+      "checkedAt": "2026-10-03T12:19:46.162Z",
+      "status": 200,
+      "sha256": "1cd4cc2cecece08c7ae67e1302fc5c496a19163e1c2d7f56525bc6567fb37715"
+    },
+    "9": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=9",
+      "round": 9,
+      "checkedAt": "2026-10-03T12:19:46.286Z",
+      "status": 200,
+      "sha256": "26f1a285cc455ccce5fd5156e3cad6f36070dae496927a8145ccf42763af00d8"
+    },
+    "10": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=10",
+      "round": 10,
+      "checkedAt": "2026-10-03T12:19:46.371Z",
+      "status": 200,
+      "sha256": "7d679915bec185e6b981036b007dfffca5a484f2c08f46bbb965ef6db21c765e"
+    },
+    "11": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=11",
+      "round": 11,
+      "checkedAt": "2026-10-03T12:19:46.446Z",
+      "status": 200,
+      "sha256": "af7c3971bbf069ec8b2650353b44a147ec2a782cfe8ce9ae50447ac42de4b1cc"
+    },
+    "12": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=12",
+      "round": 12,
+      "checkedAt": "2026-10-03T12:19:46.543Z",
+      "status": 200,
+      "sha256": "f5bbb80ac8da8dec83f20e7edc0846dfee643bb4c5440f4207bfc7f2e0063599"
+    },
+    "13": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=13",
+      "round": 13,
+      "checkedAt": "2026-10-03T12:19:46.631Z",
+      "status": 200,
+      "sha256": "fc416b737132c4c41b51f3fa1a768071a16d34ad5a14de99c6b26e0718927020"
+    },
+    "14": {
+      "url": "https://www.nrl.com/draw/?competition=161&season=2026&round=14",
+      "round": 14,
+      "checkedAt": "2026-10-03T12:19:46.786Z",
+      "status": 200,
+      "sha256": "5f72ff32c4a89161b86789ebe5889617e6ccb863b1636a5145b2b73aa361882c"
+    }
+  },
+  "participants": [
+    {
+      "providerTeamId": 500470,
+      "id": "team:nrlw:broncos",
+      "displayName": "Brisbane Broncos",
+      "providerName": "Broncos"
+    },
+    {
+      "providerTeamId": 500904,
+      "id": "team:nrlw:bulldogs",
+      "displayName": "Canterbury-Bankstown Bulldogs",
+      "providerName": "Bulldogs"
+    },
+    {
+      "providerTeamId": 500787,
+      "id": "team:nrlw:cowboys",
+      "displayName": "North Queensland Cowboys",
+      "providerName": "Cowboys"
+    },
+    {
+      "providerTeamId": 500471,
+      "id": "team:nrlw:dragons",
+      "displayName": "St George Illawarra Dragons",
+      "providerName": "Dragons"
+    },
+    {
+      "providerTeamId": 500692,
+      "id": "team:nrlw:eels",
+      "displayName": "Parramatta Eels",
+      "providerName": "Eels"
+    },
+    {
+      "providerTeamId": 500691,
+      "id": "team:nrlw:knights",
+      "displayName": "Newcastle Knights",
+      "providerName": "Knights"
+    },
+    {
+      "providerTeamId": 500785,
+      "id": "team:nrlw:raiders",
+      "displayName": "Canberra Raiders",
+      "providerName": "Raiders"
+    },
+    {
+      "providerTeamId": 500469,
+      "id": "team:nrlw:roosters",
+      "displayName": "Sydney Roosters",
+      "providerName": "Roosters"
+    },
+    {
+      "providerTeamId": 500786,
+      "id": "team:nrlw:sharks",
+      "displayName": "Cronulla-Sutherland Sharks",
+      "providerName": "Sharks"
+    },
+    {
+      "providerTeamId": 500690,
+      "id": "team:nrlw:titans",
+      "displayName": "Gold Coast Titans",
+      "providerName": "Titans"
+    },
+    {
+      "providerTeamId": 500472,
+      "id": "team:nrlw:warriors",
+      "displayName": "New Zealand Warriors",
+      "providerName": "Warriors"
+    },
+    {
+      "providerTeamId": 500788,
+      "id": "team:nrlw:wests-tigers",
+      "displayName": "Wests Tigers",
+      "providerName": "Wests Tigers"
+    }
+  ],
+  "preservedFixtureIds": [
+    "event:nrlw:2026:round-11-roosters-bulldogs",
+    "event:nrlw:2026:round-11-wests-tigers-raiders",
+    "event:nrlw:2026:round-11-eels-cowboys",
+    "event:nrlw:2026:round-11-sharks-dragons",
+    "event:nrlw:2026:round-11-broncos-warriors",
+    "event:nrlw:2026:round-11-knights-titans",
+    "event:nrlw:2026:grand-final",
+    "event:nrlw:2026:semifinal-wests-tigers-raiders",
+    "event:nrlw:2026:semifinal-broncos-knights",
+    "event:nrlw:2026:preliminary-final-roosters-raiders",
+    "event:nrlw:2026:preliminary-final-titans-broncos"
+  ],
+  "addedFixtureIds": [
+    "event:nrlw:2026:round-1-sharks-knights",
+    "event:nrlw:2026:round-1-titans-roosters",
+    "event:nrlw:2026:round-1-dragons-raiders",
+    "event:nrlw:2026:round-1-broncos-cowboys",
+    "event:nrlw:2026:round-1-eels-wests-tigers",
+    "event:nrlw:2026:round-1-warriors-bulldogs",
+    "event:nrlw:2026:round-2-sharks-broncos",
+    "event:nrlw:2026:round-2-cowboys-wests-tigers",
+    "event:nrlw:2026:round-2-bulldogs-titans",
+    "event:nrlw:2026:round-2-roosters-knights",
+    "event:nrlw:2026:round-2-raiders-warriors",
+    "event:nrlw:2026:round-2-dragons-eels",
+    "event:nrlw:2026:round-3-raiders-roosters",
+    "event:nrlw:2026:round-3-warriors-cowboys",
+    "event:nrlw:2026:round-3-bulldogs-sharks",
+    "event:nrlw:2026:round-3-titans-eels",
+    "event:nrlw:2026:round-3-broncos-wests-tigers",
+    "event:nrlw:2026:round-3-knights-dragons",
+    "event:nrlw:2026:round-4-raiders-sharks",
+    "event:nrlw:2026:round-4-bulldogs-dragons",
+    "event:nrlw:2026:round-4-cowboys-titans",
+    "event:nrlw:2026:round-4-eels-warriors",
+    "event:nrlw:2026:round-4-broncos-knights",
+    "event:nrlw:2026:round-4-wests-tigers-roosters",
+    "event:nrlw:2026:round-5-sharks-wests-tigers",
+    "event:nrlw:2026:round-5-dragons-roosters",
+    "event:nrlw:2026:round-5-raiders-cowboys",
+    "event:nrlw:2026:round-5-bulldogs-broncos",
+    "event:nrlw:2026:round-5-warriors-titans",
+    "event:nrlw:2026:round-5-eels-knights",
+    "event:nrlw:2026:round-6-bulldogs-cowboys",
+    "event:nrlw:2026:round-6-sharks-titans",
+    "event:nrlw:2026:round-6-warriors-knights",
+    "event:nrlw:2026:round-6-raiders-broncos",
+    "event:nrlw:2026:round-6-dragons-wests-tigers",
+    "event:nrlw:2026:round-6-roosters-eels",
+    "event:nrlw:2026:round-7-titans-dragons",
+    "event:nrlw:2026:round-7-eels-bulldogs",
+    "event:nrlw:2026:round-7-broncos-roosters",
+    "event:nrlw:2026:round-7-knights-raiders",
+    "event:nrlw:2026:round-7-wests-tigers-warriors",
+    "event:nrlw:2026:round-7-cowboys-sharks",
+    "event:nrlw:2026:round-8-knights-wests-tigers",
+    "event:nrlw:2026:round-8-bulldogs-raiders",
+    "event:nrlw:2026:round-8-dragons-cowboys",
+    "event:nrlw:2026:round-8-titans-broncos",
+    "event:nrlw:2026:round-8-roosters-warriors",
+    "event:nrlw:2026:round-8-sharks-eels",
+    "event:nrlw:2026:round-9-titans-raiders",
+    "event:nrlw:2026:round-9-roosters-sharks",
+    "event:nrlw:2026:round-9-cowboys-knights",
+    "event:nrlw:2026:round-9-warriors-dragons",
+    "event:nrlw:2026:round-9-eels-broncos",
+    "event:nrlw:2026:round-9-wests-tigers-bulldogs",
+    "event:nrlw:2026:round-10-warriors-sharks",
+    "event:nrlw:2026:round-10-cowboys-roosters",
+    "event:nrlw:2026:round-10-knights-bulldogs",
+    "event:nrlw:2026:round-10-dragons-broncos",
+    "event:nrlw:2026:round-10-wests-tigers-titans",
+    "event:nrlw:2026:round-10-raiders-eels"
+  ],
+  "fixtures": [
+    {
+      "id": "event:nrlw:2026:round-1-sharks-knights",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500786,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-02T09:45:00.000Z",
+      "date": "2026-07-02",
+      "time": "19:45",
+      "venue": "Ocean Protect Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/sharks-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 4,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-1-titans-roosters",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500690,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-04T02:45:00.000Z",
+      "date": "2026-07-04",
+      "time": "12:45",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/titans-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 10,
+      "awayScore": 34
+    },
+    {
+      "id": "event:nrlw:2026:round-1-dragons-raiders",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500471,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-04T05:15:00.000Z",
+      "date": "2026-07-04",
+      "time": "15:15",
+      "venue": "St George Venues Jubilee Stadium",
+      "venueCity": "Kogarah",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/dragons-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 4,
+      "awayScore": 20
+    },
+    {
+      "id": "event:nrlw:2026:round-1-broncos-cowboys",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500470,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-04T07:15:00.000Z",
+      "date": "2026-07-04",
+      "time": "17:15",
+      "venue": "Suncorp Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/broncos-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 50,
+      "awayScore": 4
+    },
+    {
+      "id": "event:nrlw:2026:round-1-eels-wests-tigers",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500692,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-05T01:50:00.000Z",
+      "date": "2026-07-05",
+      "time": "11:50",
+      "venue": "CommBank Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/eels-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 16,
+      "awayScore": 28
+    },
+    {
+      "id": "event:nrlw:2026:round-1-warriors-bulldogs",
+      "roundNumber": 1,
+      "roundLabel": "Round 1",
+      "providerTeamIds": [
+        500472,
+        500904
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:bulldogs"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-05T03:45:00.000Z",
+      "date": "2026-07-05",
+      "time": "13:45",
+      "venue": "FMG Stadium Waikato",
+      "venueCity": "Hamilton",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-1/warriors-v-bulldogs/",
+      "sourceCheckedAt": "2026-10-03T12:17:45.381Z",
+      "homeScore": 32,
+      "awayScore": 10
+    },
+    {
+      "id": "event:nrlw:2026:round-2-sharks-broncos",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500786,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-09T09:45:00.000Z",
+      "date": "2026-07-09",
+      "time": "19:45",
+      "venue": "Ocean Protect Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/sharks-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 16,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-2-cowboys-wests-tigers",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500787,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:cowboys",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-11T02:45:00.000Z",
+      "date": "2026-07-11",
+      "time": "12:45",
+      "venue": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/cowboys-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 18,
+      "awayScore": 30
+    },
+    {
+      "id": "event:nrlw:2026:round-2-bulldogs-titans",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500904,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-11T05:15:00.000Z",
+      "date": "2026-07-11",
+      "time": "15:15",
+      "venue": "Accor Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/bulldogs-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 10,
+      "awayScore": 36
+    },
+    {
+      "id": "event:nrlw:2026:round-2-roosters-knights",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500469,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-11T07:15:00.000Z",
+      "date": "2026-07-11",
+      "time": "17:15",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/roosters-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 12,
+      "awayScore": 10
+    },
+    {
+      "id": "event:nrlw:2026:round-2-raiders-warriors",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500785,
+        500472
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:warriors"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-12T01:55:00.000Z",
+      "date": "2026-07-12",
+      "time": "11:55",
+      "venue": "GIO Stadium",
+      "venueCity": "Canberra",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/raiders-v-warriors/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 42,
+      "awayScore": 16
+    },
+    {
+      "id": "event:nrlw:2026:round-2-dragons-eels",
+      "roundNumber": 2,
+      "roundLabel": "Round 2",
+      "providerTeamIds": [
+        500471,
+        500692
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:eels"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-12T03:45:00.000Z",
+      "date": "2026-07-12",
+      "time": "13:45",
+      "venue": "WIN Stadium",
+      "venueCity": "Wollongong",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-2/dragons-v-eels/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.533Z",
+      "homeScore": 22,
+      "awayScore": 8
+    },
+    {
+      "id": "event:nrlw:2026:round-3-raiders-roosters",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500785,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-18T02:40:00.000Z",
+      "date": "2026-07-18",
+      "time": "12:40",
+      "venue": "GIO Stadium",
+      "venueCity": "Canberra",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/raiders-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 18,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-3-warriors-cowboys",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500472,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-18T05:15:00.000Z",
+      "date": "2026-07-18",
+      "time": "15:15",
+      "venue": "Go Media Stadium",
+      "venueCity": "Auckland",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/warriors-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 42,
+      "awayScore": 4
+    },
+    {
+      "id": "event:nrlw:2026:round-3-bulldogs-sharks",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500904,
+        500786
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:sharks"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-18T07:15:00.000Z",
+      "date": "2026-07-18",
+      "time": "17:15",
+      "venue": "Accor Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/bulldogs-v-sharks/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 24,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-3-titans-eels",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500690,
+        500692
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:eels"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-19T01:50:00.000Z",
+      "date": "2026-07-19",
+      "time": "11:50",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/titans-v-eels/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 50,
+      "awayScore": 12
+    },
+    {
+      "id": "event:nrlw:2026:round-3-broncos-wests-tigers",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500470,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-19T03:45:00.000Z",
+      "date": "2026-07-19",
+      "time": "13:45",
+      "venue": "Totally Workwear Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/broncos-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 40,
+      "awayScore": 12
+    },
+    {
+      "id": "event:nrlw:2026:round-3-knights-dragons",
+      "roundNumber": 3,
+      "roundLabel": "Round 3",
+      "providerTeamIds": [
+        500691,
+        500471
+      ],
+      "participantIds": [
+        "team:nrlw:knights",
+        "team:nrlw:dragons"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-19T08:15:00.000Z",
+      "date": "2026-07-19",
+      "time": "18:15",
+      "venue": "McDonald Jones Stadium",
+      "venueCity": "Newcastle",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-3/knights-v-dragons/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.631Z",
+      "homeScore": 38,
+      "awayScore": 0
+    },
+    {
+      "id": "event:nrlw:2026:round-4-raiders-sharks",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500785,
+        500786
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:sharks"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-25T02:40:00.000Z",
+      "date": "2026-07-25",
+      "time": "12:40",
+      "venue": "GIO Stadium",
+      "venueCity": "Canberra",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/raiders-v-sharks/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 10,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-4-bulldogs-dragons",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500904,
+        500471
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:dragons"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-25T05:15:00.000Z",
+      "date": "2026-07-25",
+      "time": "15:15",
+      "venue": "Accor Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/bulldogs-v-dragons/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 28,
+      "awayScore": 8
+    },
+    {
+      "id": "event:nrlw:2026:round-4-cowboys-titans",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500787,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:cowboys",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-25T07:15:00.000Z",
+      "date": "2026-07-25",
+      "time": "17:15",
+      "venue": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/cowboys-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 6,
+      "awayScore": 34
+    },
+    {
+      "id": "event:nrlw:2026:round-4-eels-warriors",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500692,
+        500472
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:warriors"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-26T02:00:00.000Z",
+      "date": "2026-07-26",
+      "time": "12:00",
+      "venue": "Eric Tweedale Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/eels-v-warriors/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 12,
+      "awayScore": 14
+    },
+    {
+      "id": "event:nrlw:2026:round-4-broncos-knights",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500470,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-26T03:45:00.000Z",
+      "date": "2026-07-26",
+      "time": "13:45",
+      "venue": "Totally Workwear Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/broncos-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 30,
+      "awayScore": 12
+    },
+    {
+      "id": "event:nrlw:2026:round-4-wests-tigers-roosters",
+      "roundNumber": 4,
+      "roundLabel": "Round 4",
+      "providerTeamIds": [
+        500788,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-07-26T08:15:00.000Z",
+      "date": "2026-07-26",
+      "time": "18:15",
+      "venue": "Leichhardt Oval",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-4/wests-tigers-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.741Z",
+      "homeScore": 10,
+      "awayScore": 48
+    },
+    {
+      "id": "event:nrlw:2026:round-5-sharks-wests-tigers",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500786,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-01T01:35:00.000Z",
+      "date": "2026-08-01",
+      "time": "11:35",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/sharks-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 20,
+      "awayScore": 32
+    },
+    {
+      "id": "event:nrlw:2026:round-5-dragons-roosters",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500471,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-01T03:25:00.000Z",
+      "date": "2026-08-01",
+      "time": "13:25",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/dragons-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 8,
+      "awayScore": 38
+    },
+    {
+      "id": "event:nrlw:2026:round-5-raiders-cowboys",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500785,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-01T05:15:00.000Z",
+      "date": "2026-08-01",
+      "time": "15:15",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/raiders-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 16,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-5-bulldogs-broncos",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500904,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-02T01:35:00.000Z",
+      "date": "2026-08-02",
+      "time": "11:35",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/bulldogs-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 4,
+      "awayScore": 34
+    },
+    {
+      "id": "event:nrlw:2026:round-5-warriors-titans",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500472,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-02T03:25:00.000Z",
+      "date": "2026-08-02",
+      "time": "13:25",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/warriors-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 16,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-5-eels-knights",
+      "roundNumber": 5,
+      "roundLabel": "Round 5",
+      "providerTeamIds": [
+        500692,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-02T05:15:00.000Z",
+      "date": "2026-08-02",
+      "time": "15:15",
+      "venue": "Geohex Park",
+      "venueCity": "Wagga Wagga",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-5/eels-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.857Z",
+      "homeScore": 12,
+      "awayScore": 32
+    },
+    {
+      "id": "event:nrlw:2026:round-6-bulldogs-cowboys",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500904,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-08T02:45:00.000Z",
+      "date": "2026-08-08",
+      "time": "12:45",
+      "venue": "Belmore Sports Ground",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/bulldogs-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 28,
+      "awayScore": 26
+    },
+    {
+      "id": "event:nrlw:2026:round-6-sharks-titans",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500786,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-08T05:15:00.000Z",
+      "date": "2026-08-08",
+      "time": "15:15",
+      "venue": "Ocean Protect Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/sharks-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 10,
+      "awayScore": 24
+    },
+    {
+      "id": "event:nrlw:2026:round-6-warriors-knights",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500472,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-08T07:15:00.000Z",
+      "date": "2026-08-08",
+      "time": "17:15",
+      "venue": "FMG Stadium Waikato",
+      "venueCity": "Hamilton",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/warriors-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 22,
+      "awayScore": 14
+    },
+    {
+      "id": "event:nrlw:2026:round-6-raiders-broncos",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500785,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-09T01:35:00.000Z",
+      "date": "2026-08-09",
+      "time": "11:35",
+      "venue": "GIO Stadium",
+      "venueCity": "Canberra",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/raiders-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 28,
+      "awayScore": 4
+    },
+    {
+      "id": "event:nrlw:2026:round-6-dragons-wests-tigers",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500471,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-09T03:35:00.000Z",
+      "date": "2026-08-09",
+      "time": "13:35",
+      "venue": "St George Venues Jubilee Stadium",
+      "venueCity": "Kogarah",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/dragons-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 12,
+      "awayScore": 16
+    },
+    {
+      "id": "event:nrlw:2026:round-6-roosters-eels",
+      "roundNumber": 6,
+      "roundLabel": "Round 6",
+      "providerTeamIds": [
+        500469,
+        500692
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:eels"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-09T08:15:00.000Z",
+      "date": "2026-08-09",
+      "time": "18:15",
+      "venue": "Polytec Stadium",
+      "venueCity": "Gosford",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-6/roosters-v-eels/",
+      "sourceCheckedAt": "2026-10-03T12:19:45.972Z",
+      "homeScore": 46,
+      "awayScore": 6
+    },
+    {
+      "id": "event:nrlw:2026:round-7-titans-dragons",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500690,
+        500471
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:dragons"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-15T02:45:00.000Z",
+      "date": "2026-08-15",
+      "time": "12:45",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/titans-v-dragons/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 26,
+      "awayScore": 10
+    },
+    {
+      "id": "event:nrlw:2026:round-7-eels-bulldogs",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500692,
+        500904
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:bulldogs"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-15T05:15:00.000Z",
+      "date": "2026-08-15",
+      "time": "15:15",
+      "venue": "CommBank Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/eels-v-bulldogs/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 30,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-7-broncos-roosters",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500470,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-15T07:15:00.000Z",
+      "date": "2026-08-15",
+      "time": "17:15",
+      "venue": "Suncorp Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/broncos-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 20,
+      "awayScore": 34
+    },
+    {
+      "id": "event:nrlw:2026:round-7-knights-raiders",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500691,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:knights",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-16T01:50:00.000Z",
+      "date": "2026-08-16",
+      "time": "11:50",
+      "venue": "McDonald Jones Stadium",
+      "venueCity": "Newcastle",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/knights-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 18,
+      "awayScore": 25
+    },
+    {
+      "id": "event:nrlw:2026:round-7-wests-tigers-warriors",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500788,
+        500472
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:warriors"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-16T03:45:00.000Z",
+      "date": "2026-08-16",
+      "time": "13:45",
+      "venue": "CommBank Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/wests-tigers-v-warriors/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 30,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-7-cowboys-sharks",
+      "roundNumber": 7,
+      "roundLabel": "Round 7",
+      "providerTeamIds": [
+        500787,
+        500786
+      ],
+      "participantIds": [
+        "team:nrlw:cowboys",
+        "team:nrlw:sharks"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-16T08:15:00.000Z",
+      "date": "2026-08-16",
+      "time": "18:15",
+      "venue": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-7/cowboys-v-sharks/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.056Z",
+      "homeScore": 30,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-8-knights-wests-tigers",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500691,
+        500788
+      ],
+      "participantIds": [
+        "team:nrlw:knights",
+        "team:nrlw:wests-tigers"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-22T02:45:00.000Z",
+      "date": "2026-08-22",
+      "time": "12:45",
+      "venue": "McDonald Jones Stadium",
+      "venueCity": "Newcastle",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/knights-v-wests-tigers/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 26,
+      "awayScore": 27
+    },
+    {
+      "id": "event:nrlw:2026:round-8-bulldogs-raiders",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500904,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:bulldogs",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-22T05:15:00.000Z",
+      "date": "2026-08-22",
+      "time": "15:15",
+      "venue": "Belmore Sports Ground",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/bulldogs-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 4,
+      "awayScore": 48
+    },
+    {
+      "id": "event:nrlw:2026:round-8-dragons-cowboys",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500471,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-22T07:15:00.000Z",
+      "date": "2026-08-22",
+      "time": "17:15",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/dragons-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 28,
+      "awayScore": 32
+    },
+    {
+      "id": "event:nrlw:2026:round-8-titans-broncos",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500690,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-23T01:50:00.000Z",
+      "date": "2026-08-23",
+      "time": "11:50",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/titans-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 28,
+      "awayScore": 20
+    },
+    {
+      "id": "event:nrlw:2026:round-8-roosters-warriors",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500469,
+        500472
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:warriors"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-23T03:45:00.000Z",
+      "date": "2026-08-23",
+      "time": "13:45",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/roosters-v-warriors/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 66,
+      "awayScore": 8
+    },
+    {
+      "id": "event:nrlw:2026:round-8-sharks-eels",
+      "roundNumber": 8,
+      "roundLabel": "Round 8",
+      "providerTeamIds": [
+        500786,
+        500692
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:eels"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-23T08:15:00.000Z",
+      "date": "2026-08-23",
+      "time": "18:15",
+      "venue": "Ocean Protect Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-8/sharks-v-eels/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.162Z",
+      "homeScore": 16,
+      "awayScore": 42
+    },
+    {
+      "id": "event:nrlw:2026:round-9-titans-raiders",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500690,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-29T02:45:00.000Z",
+      "date": "2026-08-29",
+      "time": "12:45",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/titans-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 26,
+      "awayScore": 20
+    },
+    {
+      "id": "event:nrlw:2026:round-9-roosters-sharks",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500469,
+        500786
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:sharks"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-29T05:15:00.000Z",
+      "date": "2026-08-29",
+      "time": "15:15",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/roosters-v-sharks/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 36,
+      "awayScore": 8
+    },
+    {
+      "id": "event:nrlw:2026:round-9-cowboys-knights",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500787,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:cowboys",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-29T07:15:00.000Z",
+      "date": "2026-08-29",
+      "time": "17:15",
+      "venue": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/cowboys-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 6,
+      "awayScore": 40
+    },
+    {
+      "id": "event:nrlw:2026:round-9-warriors-dragons",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500472,
+        500471
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:dragons"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-30T01:45:00.000Z",
+      "date": "2026-08-30",
+      "time": "11:45",
+      "venue": "Go Media Stadium",
+      "venueCity": "Auckland",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/warriors-v-dragons/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 18,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-9-eels-broncos",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500692,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-30T03:45:00.000Z",
+      "date": "2026-08-30",
+      "time": "13:45",
+      "venue": "CommBank Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/eels-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 10,
+      "awayScore": 44
+    },
+    {
+      "id": "event:nrlw:2026:round-9-wests-tigers-bulldogs",
+      "roundNumber": 9,
+      "roundLabel": "Round 9",
+      "providerTeamIds": [
+        500788,
+        500904
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:bulldogs"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-08-30T08:15:00.000Z",
+      "date": "2026-08-30",
+      "time": "18:15",
+      "venue": "Campbelltown Sports Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-9/wests-tigers-v-bulldogs/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.286Z",
+      "homeScore": 44,
+      "awayScore": 14
+    },
+    {
+      "id": "event:nrlw:2026:round-10-warriors-sharks",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500472,
+        500786
+      ],
+      "participantIds": [
+        "team:nrlw:warriors",
+        "team:nrlw:sharks"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-05T02:30:00.000Z",
+      "date": "2026-09-05",
+      "time": "12:30",
+      "venue": "Go Media Stadium",
+      "venueCity": "Auckland",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/warriors-v-sharks/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 32,
+      "awayScore": 40
+    },
+    {
+      "id": "event:nrlw:2026:round-10-cowboys-roosters",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500787,
+        500469
+      ],
+      "participantIds": [
+        "team:nrlw:cowboys",
+        "team:nrlw:roosters"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-05T05:15:00.000Z",
+      "date": "2026-09-05",
+      "time": "15:15",
+      "venue": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/cowboys-v-roosters/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 6,
+      "awayScore": 56
+    },
+    {
+      "id": "event:nrlw:2026:round-10-knights-bulldogs",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500691,
+        500904
+      ],
+      "participantIds": [
+        "team:nrlw:knights",
+        "team:nrlw:bulldogs"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-05T07:15:00.000Z",
+      "date": "2026-09-05",
+      "time": "17:15",
+      "venue": "McDonald Jones Stadium",
+      "venueCity": "Newcastle",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/knights-v-bulldogs/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 56,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-10-dragons-broncos",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500471,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:dragons",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-06T01:50:00.000Z",
+      "date": "2026-09-06",
+      "time": "11:50",
+      "venue": "WIN Stadium",
+      "venueCity": "Wollongong",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/dragons-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 16,
+      "awayScore": 24
+    },
+    {
+      "id": "event:nrlw:2026:round-10-wests-tigers-titans",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500788,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-06T03:45:00.000Z",
+      "date": "2026-09-06",
+      "time": "13:45",
+      "venue": "Campbelltown Sports Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/wests-tigers-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 0,
+      "awayScore": 58
+    },
+    {
+      "id": "event:nrlw:2026:round-10-raiders-eels",
+      "roundNumber": 10,
+      "roundLabel": "Round 10",
+      "providerTeamIds": [
+        500785,
+        500692
+      ],
+      "participantIds": [
+        "team:nrlw:raiders",
+        "team:nrlw:eels"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-06T08:15:00.000Z",
+      "date": "2026-09-06",
+      "time": "18:15",
+      "venue": "GIO Stadium",
+      "venueCity": "Canberra",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-10/raiders-v-eels/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.371Z",
+      "homeScore": 16,
+      "awayScore": 17
+    },
+    {
+      "id": "event:nrlw:2026:round-11-roosters-bulldogs",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500469,
+        500904
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:bulldogs"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-10T09:45:00.000Z",
+      "date": "2026-09-10",
+      "time": "19:45",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/roosters-v-bulldogs/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 42,
+      "awayScore": 12
+    },
+    {
+      "id": "event:nrlw:2026:round-11-wests-tigers-raiders",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500788,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-11T07:40:00.000Z",
+      "date": "2026-09-11",
+      "time": "17:40",
+      "venue": "Leichhardt Oval",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/wests-tigers-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 10,
+      "awayScore": 22
+    },
+    {
+      "id": "event:nrlw:2026:round-11-eels-cowboys",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500692,
+        500787
+      ],
+      "participantIds": [
+        "team:nrlw:eels",
+        "team:nrlw:cowboys"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-12T02:00:00.000Z",
+      "date": "2026-09-12",
+      "time": "12:00",
+      "venue": "CommBank Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/eels-v-cowboys/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 33,
+      "awayScore": 28
+    },
+    {
+      "id": "event:nrlw:2026:round-11-sharks-dragons",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500786,
+        500471
+      ],
+      "participantIds": [
+        "team:nrlw:sharks",
+        "team:nrlw:dragons"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-12T07:10:00.000Z",
+      "date": "2026-09-12",
+      "time": "17:10",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/sharks-v-dragons/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 16,
+      "awayScore": 8
+    },
+    {
+      "id": "event:nrlw:2026:round-11-broncos-warriors",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500470,
+        500472
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:warriors"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-13T02:00:00.000Z",
+      "date": "2026-09-13",
+      "time": "12:00",
+      "venue": "Totally Workwear Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/broncos-v-warriors/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 52,
+      "awayScore": 18
+    },
+    {
+      "id": "event:nrlw:2026:round-11-knights-titans",
+      "roundNumber": 11,
+      "roundLabel": "Round 11",
+      "providerTeamIds": [
+        500691,
+        500690
+      ],
+      "participantIds": [
+        "team:nrlw:knights",
+        "team:nrlw:titans"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-13T03:45:00.000Z",
+      "date": "2026-09-13",
+      "time": "13:45",
+      "venue": "McDonald Jones Stadium",
+      "venueCity": "Newcastle",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/round-11/knights-v-titans/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.446Z",
+      "homeScore": 20,
+      "awayScore": 32
+    },
+    {
+      "id": "event:nrlw:2026:semifinal-wests-tigers-raiders",
+      "roundNumber": 12,
+      "roundLabel": "Finals Week 1",
+      "providerTeamIds": [
+        500788,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:wests-tigers",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-18T09:50:00.000Z",
+      "date": "2026-09-18",
+      "time": "19:50",
+      "venue": "Campbelltown Sports Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.543Z",
+      "homeScore": 0,
+      "awayScore": 6
+    },
+    {
+      "id": "event:nrlw:2026:semifinal-broncos-knights",
+      "roundNumber": 12,
+      "roundLabel": "Finals Week 1",
+      "providerTeamIds": [
+        500470,
+        500691
+      ],
+      "participantIds": [
+        "team:nrlw:broncos",
+        "team:nrlw:knights"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-19T06:05:00.000Z",
+      "date": "2026-09-19",
+      "time": "16:05",
+      "venue": "Totally Workwear Stadium",
+      "venueCity": "Brisbane",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.543Z",
+      "homeScore": 40,
+      "awayScore": 16
+    },
+    {
+      "id": "event:nrlw:2026:preliminary-final-roosters-raiders",
+      "roundNumber": 13,
+      "roundLabel": "Finals Week 2",
+      "providerTeamIds": [
+        500469,
+        500785
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:raiders"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-26T09:50:00.000Z",
+      "date": "2026-09-26",
+      "time": "19:50",
+      "venue": "Allianz Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.631Z",
+      "homeScore": 20,
+      "awayScore": 10
+    },
+    {
+      "id": "event:nrlw:2026:preliminary-final-titans-broncos",
+      "roundNumber": 13,
+      "roundLabel": "Finals Week 2",
+      "providerTeamIds": [
+        500690,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:titans",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Post",
+      "providerStatus": "FullTime",
+      "startTimeUtc": "2026-09-27T03:05:00.000Z",
+      "date": "2026-09-27",
+      "time": "13:05",
+      "venue": "Cbus Super Stadium",
+      "venueCity": "Gold Coast",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.631Z",
+      "homeScore": 8,
+      "awayScore": 20
+    },
+    {
+      "id": "event:nrlw:2026:grand-final",
+      "roundNumber": 14,
+      "roundLabel": "Grand Final",
+      "providerTeamIds": [
+        500469,
+        500470
+      ],
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:broncos"
+      ],
+      "providerMode": "Pre",
+      "providerStatus": "Upcoming",
+      "startTimeUtc": "2026-10-04T05:00:00.000Z",
+      "date": "2026-10-04",
+      "time": "16:00",
+      "venue": "Accor Stadium",
+      "venueCity": "Sydney",
+      "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/grand-final/game-1/",
+      "sourceCheckedAt": "2026-10-03T12:19:46.786Z"
+    }
+  ],
+  "limits": [
+    "Dated official draw review, not an automatic live-results adapter.",
+    "Provider destinations are supported by the existing official season announcement; historical full-match replay and authenticated playback remain unverified.",
+    "Standings, commercial reuse permission and whole-family certification are separate gates."
+  ]
+}

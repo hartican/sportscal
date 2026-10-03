@@ -10,8 +10,11 @@ const { inputFromReadout } = require("./evaluate-pilot-readout");
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
 const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: new Date(feedMeta.publishedAt) });
-const reviewedAflw = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
-assert(reviewedAflw, 'use an actual reviewed flat AFLW result');
+const reviewedAflwSource = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
+assert(reviewedAflwSource, 'use an actual reviewed flat AFLW result');
+// A genuine primary refresh may add its independently valid nested result.
+// Isolate the flat representation so the legacy path cannot mask bad fields.
+const {result:primaryResult,...reviewedAflw}=reviewedAflwSource;
 assert(completedResultIsPresent(reviewedAflw,new Date(feedMeta.publishedAt)));
 for (const patch of [
   {status:'live'}, {resultStatus:'pending'}, {sourceTrust:'unknown'},

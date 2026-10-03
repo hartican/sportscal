@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T11:47:25.795Z",
+  "generatedAt": "2026-10-03T12:41:00.711Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -23,7 +23,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T10:59:41.037Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T10:59:41.037Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -48,7 +48,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T06:13:03.427Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -56,11 +56,11 @@
       "id": "sport:nrlw",
       "slug": "nrlw",
       "label": "NRLW",
-      "fixtureCount": 11,
+      "fixtureCount": 71,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T08:25:06.166Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T11:47:25.795Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -98,7 +98,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T11:47:25.795Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -135,7 +135,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -147,7 +147,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T07:01:10.992Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -159,7 +159,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -183,7 +183,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T12:36:31.944Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -220,7 +220,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-02T22:14:52.379Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {
@@ -419,7 +419,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T11:47:01.475Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
@@ -445,7 +445,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-02T21:09:23.085Z",
+      "freshAt": "2026-10-03T12:41:00.711Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }
