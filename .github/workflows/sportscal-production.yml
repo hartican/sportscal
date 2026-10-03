@@ -52,6 +52,9 @@ jobs:
           node scripts/validate-fantasy-deadline-api.js
           node scripts/validate-fantasy-rollout.js
           node scripts/build-app-shell-runtime.js --check
+          node scripts/validate-country-flags.js
+          node scripts/validate-team-player-directories.js
+          node scripts/validate-football-directory.js
           node scripts/validate-feed-live-scores.js
           node scripts/validate-athletes.js
           node scripts/validate-follow-first.js

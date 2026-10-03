@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const countryFlags = require("../config/country-flags.js");
+const { assertShellModule, readFollowApplicationSource } = require("./app-shell-test-utils");
 
 const html = fs.readFileSync("index.html", "utf8");
 const serviceWorker = fs.readFileSync("service-worker.js", "utf8");
@@ -16,8 +17,9 @@ assert.equal(countryFlags.ASSET_SOURCE.library, "flag-icons");
 assert.equal(countryFlags.ASSET_SOURCE.version, "7.3.2");
 assert.equal(countryFlags.ASSET_SOURCE.license, "MIT");
 assert(fs.existsSync(countryFlags.ASSET_SOURCE.noticePath), "the bundled flag library must retain its MIT notice");
-require("./app-shell-test-utils").assertShellModule(html,"config/country-flags.js");
-assert(html.includes("buildAthleteName(player") && html.includes("COUNTRY_FLAGS.flagMarkup(player.birthCountryCode"), "tournament matches and the central player directory must both render country flags");
+assertShellModule(html,"config/country-flags.js");
+assert(html.includes("buildAthleteName(player"), "tournament matches must render country flags");
+assert(readFollowApplicationSource().includes("COUNTRY_FLAGS.flagMarkup(player.birthCountryCode"), "the mounted central player directory must render country flags");
 assert(html.includes('buildAthleteName(participant, { className: "standings-athlete" })'), "competitor ranking tables must render country flags");
 assert(require("./offline-shell-module")("config/country-flags.js"), "the flag mapping must be available offline");
 assert(serviceWorker.includes(`"/${countryFlags.ASSET_SOURCE.noticePath}"`), "the flag licence notice must be available offline");

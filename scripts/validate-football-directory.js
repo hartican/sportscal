@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const flags = require("../config/country-flags.js");
 const directoryApi = require("../config/football-directory.js");
+const { readFollowApplicationSource } = require("./app-shell-test-utils");
 
 const ROOT = path.resolve(__dirname, "..");
 const DIRECTORY_PATH = path.join(ROOT, "data/canonical/football-directory.v1.json");
@@ -22,7 +23,7 @@ function validate(){
   const directory = JSON.parse(fs.readFileSync(DIRECTORY_PATH, "utf8"));
   const index = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8"));
   const coreEvents = JSON.parse(fs.readFileSync(CORE_EVENTS_PATH, "utf8"));
-  const appSource = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const appSource = readFollowApplicationSource();
   const serverSource = fs.readFileSync(path.join(ROOT, "lib/server-feed-pipeline.js"), "utf8");
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");

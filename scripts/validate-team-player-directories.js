@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const directoryApi = require("../config/football-directory.js");
+const { readFollowApplicationSource } = require("./app-shell-test-utils");
 
 const ROOT = path.resolve(__dirname, "..");
 const CANONICAL = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl-nrl-2026.json"), "utf8"));
@@ -73,7 +74,7 @@ function validateDirectory(spec){
 }
 
 function validate(){
-  const app = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const app = readFollowApplicationSource();
   const server = fs.readFileSync(path.join(ROOT, "lib/server-feed-pipeline.js"), "utf8");
   const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const results = DIRECTORY_SPECS.map(validateDirectory);
