@@ -13,14 +13,15 @@ assert.equal(require('../config/card-results').tennisSets(e,e.name,{score:e.scor
 assert(e.participantIds.includes('competitor:tennis:atp:alex-de-minaur'));assert(e.participantIds.includes('competitor:tennis:atp:alexander-zverev'));
 assert.equal(timeline.status(e,new Date('2026-09-27T00:00:00Z')),'past');
 for(let i=0;i<3;i++){e.status=timeline.normalizedStatus(e,new Date('2026-09-27T00:00:00Z'));assert.equal(e.status,'completed');assert.equal(timeline.status(e),'past');}
-for(const participantId of e.participantIds){const prefs={followedSports:[],preferenceGraph:{entityFollows:[{participantId,followLevel:'follow'}]}};assert(follow.reasonForEvent(e,prefs));assert(!follow.reasonForEvent(e,{...prefs,followFirst:{excludedMajorEventIds:['laver-cup']}}));}
+for(const participantId of e.participantIds){const prefs={followedSports:[],preferenceGraph:{entityFollows:[{participantId,followLevel:'follow'}]}};assert.equal(follow.reasonForEvent(e,prefs),null,'exhibition/group contests do not enter through player follows');assert(!follow.reasonForEvent(e,{...prefs,followFirst:{excludedMajorEventIds:['laver-cup']}}));}
 assert(!follow.reasonForEvent(e,{followedSports:['tennis']}));assert(!follow.reasonForEvent(e,{}));
 for(const participantId of e.participantIds){
  const preferences={preferenceGraph:{entityFollows:[{participantId,followLevel:'follow'}]}};
  const resolved=require('../lib/follow-fixture-resolver').resolveUserFollowFixtures({events:[],userState:{preferences}});
  assert(resolved.events.some(f=>f.id===e.id),'server resolver includes canonical Laver fixtures');
  const page=require('../lib/server-feed-pipeline').buildServerFeed({events:resolved.events,userId:'synthetic-laver',userState:{preferences},now:new Date('2026-09-27T06:00:00Z'),limit:1000});
- assert(page.events.some(f=>f.id===e.id),'either player admits the completed match on the server');
+ assert(!page.events.some(f=>f.id===e.id),'player path excludes exhibition/group contests');
+ const pinned=require('../lib/server-feed-pipeline').buildServerFeed({events:resolved.events,userId:'synthetic-laver',userState:{preferences,event_user_state:{[e.id]:{addedToFixtures:true,addedFixture:e}}},now:new Date('2026-09-27T06:00:00Z'),limit:1000});assert(pinned.events.some(f=>f.id===e.id),'manual admission remains intact');
 }
 const doubles=fixtures.find(f=>f.eventType==='doubles');assert.equal(doubles.participantIds.length,4);assert.equal(doubles.matchupSides.length,2);assert(doubles.date==='2026-09-27'||doubles.date==='2026-09-26');
 assert.throws(()=>adapter.parse('<html>unavailable</html>'),/no published/);
