@@ -426,6 +426,18 @@ async function runMain() {
     console.log('Selected Code projections rebuilt from existing canonical data; no source or standings refresh.');
     return;
   }
+  if(process.argv.includes('--nrlw-ladder')){
+    // A reviewed final regular-season table, not another source poll or scheduler.
+    require('./lib/nrlw-ladder-review').readLadderReview();
+    for(const args of [
+      ['scripts/build-canonical-context-bundle.js'],
+      ['scripts/build-code-inspector.js','--codes=nrlw'],
+      ['scripts/build-app-shell-runtime.js'],
+      ['scripts/validate-nrlw-ladder.js'],
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--programme-reconciliation')){
     for(const args of [
       ['scripts/build-code-inspector.js','--codes=nrl,tennis'],

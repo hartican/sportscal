@@ -456,3 +456,8 @@ Complete the existing exact/not-before/unresolved distinction in Feed and Schedu
 ## Shanghai participation checkpoint — 4 October 2026 Sydney
 
 The 3 October dated organiser article confirms Sinner has withdrawn and explicitly names Alcaraz and Djokovic in the field. These reviewed journey facts preserve canonical identities and genuine check dates; de Minaur remains an expectation because this article does not confirm him. A source-labelled participation update appears in Sinner’s existing Follow profile. No match, clock, score, reminder, source permission or full-event coverage is inferred. The later owner-approved Follow favourites/Match Centre navigation remains authoritative. No migration, database change, new scheduler or source request per user. Regression: validate-tennis-journeys.js and validate-athletes-browser.js.
+
+
+## Dated NRLW regular-season standings — 4 October 2026 Sydney
+
+Fulfil the existing source-backed standings/profile requirement with the official final 2026 regular-season NRLW ladder: twelve clubs, reconciled against all 66 regular-season matches. Finals do not change this table. Keep the observation date and dated/non-live limitation; no inferred qualification, later-snapshot context for historical kickoffs or editorial expansion. Existing Results OFF/table and profile-local reveal, fixture/activity identities, Follow admission and reminder consent remain authoritative. NRLW remains partial. Use the existing canonical refresh owner and no additional routine. Regression and scope: `scripts/validate-nrlw-ladder.js`, `scripts/validate-nrlw-ladder-browser.js`, installed-browser upgrade rehearsals and [delivery evidence](quality/nrlw-ladder-2026-10-04.md).

@@ -57,7 +57,7 @@
       "slug": "nrlw",
       "label": "NRLW",
       "fixtureCount": 71,
-      "hasStandings": false,
+      "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
       "freshAt": "2026-10-03T12:41:00.711Z",

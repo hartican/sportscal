@@ -610,7 +610,7 @@
       seasonLabel: "2026",
       region: "AU",
       gender: "womens",
-      supportsLadder: false,
+      supportsLadder: true,
       supportsTeams: true,
       supportsCompetitors: true,
       isSpecialEvent: false,

@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT, "data/canonical/contexts.js");
 const SOURCES = Object.freeze([
   ["leagueSports", "data/canonical/afl-nrl-2026.json"],
+  ["nrlwContext", "data/canonical/nrlw-ladder-context-2026.json"],
   ["f1Context", "data/canonical/f1-context-2026.json"],
   ["wrcContext", "data/canonical/wrc-context-2026.json"],
   ["tennisContext", "data/canonical/tennis-context-2026.json"],
@@ -16,6 +17,7 @@ const SOURCES = Object.freeze([
 ]);
 
 function readContexts(){
+  require('./lib/nrlw-ladder-review').readLadderReview();
   const contexts=Object.fromEntries(SOURCES.map(([key, relativePath]) => [
     key,
     JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8")),

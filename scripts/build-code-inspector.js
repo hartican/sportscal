@@ -13,6 +13,7 @@ const fixtureIdentity = require("../config/fixture-identity");
 const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
+const canonicalNrlw = require('./lib/nrlw-ladder-review').readLadderReview();
 const canonicalF1=require("../data/canonical/f1-context-2026.json");
 const canonicalNbl=require("../data/canonical/nbl-2026-27.json");
 const canonicalTennis=require("../data/canonical/tennis-context-2026.json");
@@ -445,14 +446,14 @@ function groupingMode(fixtures){
 }
 
 function codeStandings(code,canonicalDocumentOverride){
-  const canonicalDocument=canonicalDocumentOverride||(code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null);
+  const canonicalDocument=canonicalDocumentOverride||(code.id==='sport:nrlw'?canonicalNrlw:code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null);
   const snapshots=new Map();
   for(const snapshot of canonicalDocument?.ladderSnapshots||[]){
     if(code.id==='sport:football' && snapshot.competitionId!=='competition:premier-league-2026-27')continue;
     if(canonicalDocument===canonicalAflNrl && code.id!=='sport:football' && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
     const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
   }
-  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,...(code.id==='sport:football'?{competitionName:(canonicalDocument.competitions||[]).find(competition=>competition.id===snapshot.competitionId)?.name}:{}),asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,...(snapshot.metadata?.tableNote?{tableNote:snapshot.metadata.tableNote}:{}),...(require('../data/canonical/football-delayed-results.v1.json').results.some(r=>r.competitionId===snapshot.competitionId)?{stale:true,staleNote:'Table awaits primary-source confirmation of delayed backup results.'}:{}),sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
+  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,...(['sport:football','sport:nrlw'].includes(code.id)?{competitionName:(canonicalDocument.competitions||[]).find(competition=>competition.id===snapshot.competitionId)?.name}:{}),asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,...(snapshot.metadata?.tableNote?{tableNote:snapshot.metadata.tableNote}:{}),...(require('../data/canonical/football-delayed-results.v1.json').results.some(r=>r.competitionId===snapshot.competitionId)?{stale:true,staleNote:'Table awaits primary-source confirmation of delayed backup results.'}:{}),sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
     ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
     : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []

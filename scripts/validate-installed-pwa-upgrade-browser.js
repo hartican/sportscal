@@ -14,6 +14,14 @@ async function assertCachedFootballStatus(page){
     return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};
   });
   assert.deepEqual(season,{count:71,coverage:'partial',completed:70,withdrawn:'cancelled'},'upgraded/offline projections retain the dated NRLW collection and actual WRC withdrawal');
+  const nrlwLadder=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/nrlw.json')).json();
+    const snapshot=NOTHINGSPORTS_FEED_CARD_STANDINGS.find(s=>s.competitionId==='competition:nrlw-premiership-2026');
+    return {rows:code.standings.length,ids:code.standings.map(r=>r.participantId),ranks:snapshot.entries.map(r=>r.rank),runtimeIds:snapshot.entries.map(r=>r.participantId),checkedAt:snapshot.snapshotTimeUtc,codeClocks:[...new Set(code.standings.map(r=>r.asOf))]};
+  });
+  assert.equal(nrlwLadder.rows,12);assert.deepEqual(nrlwLadder.ids,nrlwLadder.runtimeIds);
+  assert.deepEqual(nrlwLadder.ranks,Array.from({length:12},(_,i)=>i+1));
+  assert.deepEqual(nrlwLadder.codeClocks,[nrlwLadder.checkedAt],'upgraded/offline Code and card ranks retain the actual dated source clock');
   await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
   const status=await page.evaluate(fixture=>{
     const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
