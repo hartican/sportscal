@@ -3,7 +3,7 @@
   "year": 2026,
   "sourceUrl": "https://api.pulselive.motogp.com/motogp/v1/events?seasonYear=2026",
   "calendarUrl": "https://www.motogp.com/en/calendar/2026",
-  "checkedAt": "2026-10-03T03:20:13.710Z",
+  "checkedAt": "2026-10-03T07:03:56.198Z",
   "weekends": [
     {
       "id": "364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
@@ -1393,7 +1393,7 @@
           "name": "Tissot Sprint",
           "date_start": "2026-10-03T15:00:00+0900",
           "date_end": "2026-10-03T15:00:00+0900",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         },
         {
           "id": "e7740605-7724-49d9-976a-f310fd988d52",
