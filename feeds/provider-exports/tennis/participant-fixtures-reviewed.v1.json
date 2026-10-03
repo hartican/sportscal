@@ -223,8 +223,12 @@
     },
     {
       "player": "Jannik Sinner",
-      "outcome": "Shanghai has no daily schedule; illustrative player panel is not entry confirmation.",
-      "checkedAt": "2026-10-03T01:24:45.000Z"
+      "outcome": "The organiser confirmed Sinner withdrew from Shanghai. No individual Shanghai fixture or start time exists in this review.",
+      "checkedAt": "2026-10-03T14:29:18.837Z",
+      "summary": "Withdrawn from Shanghai Masters · organiser confirmed 3 October",
+      "sourceUrl": "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal",
+      "sourceLabel": "Official participation update",
+      "validUntil": "2026-10-18"
     },
     {
       "player": "Novak Djokovic",

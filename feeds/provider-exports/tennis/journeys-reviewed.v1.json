@@ -1,6 +1,6 @@
 {
   "schemaVersion": "tennis-journey-register.v1",
-  "reviewedAt": "2026-10-02",
+  "reviewedAt": "2026-10-04",
   "initialWindow": {
     "from": "2026-10-02",
     "through": "2027-10-02"
@@ -194,6 +194,22 @@
       "scope": "host",
       "summary": "Shenzhen host agreement covers 2027; no 2027 dates, country eligibility, team qualification or Sabalenka selection is established.",
       "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "shanghai-withdrawal-2026-10-03",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal",
+      "scope": "withdrawal",
+      "summary": "The organiser confirms Sinner has withdrawn from the 2026 Shanghai edition. No result or medical details imported.",
+      "verifiedAt": "2026-10-04",
+      "publishedAt": "2026-10-03"
+    },
+    {
+      "id": "shanghai-field-2026-10-03",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal",
+      "scope": "entry",
+      "summary": "The dated organiser article explicitly names Alcaraz and Djokovic in the field; no individual match or start time is published.",
+      "verifiedAt": "2026-10-04",
+      "publishedAt": "2026-10-03"
     }
   ],
   "editions": [
@@ -318,33 +334,33 @@
       "participation": [
         {
           "playerId": "competitor:tennis:atp:carlos-alcaraz",
-          "status": "very_likely",
-          "evidenceKind": "product_projection",
-          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Named in the organiser field announcement dated 3 October, subject to later withdrawals. Individual match and time unpublished.",
           "sourceIds": [
-            "shanghai-atp-calendar-2026"
+            "shanghai-field-2026-10-03"
           ],
-          "verifiedAt": "2026-10-02"
+          "verifiedAt": "2026-10-04"
         },
         {
           "playerId": "competitor:tennis:atp:jannik-sinner",
-          "status": "very_likely",
-          "evidenceKind": "product_projection",
-          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "status": "withdrawn",
+          "evidenceKind": "official_withdrawal",
+          "reason": "The organiser confirmed withdrawal on 3 October; no Shanghai match is implied.",
           "sourceIds": [
-            "shanghai-atp-calendar-2026"
+            "shanghai-withdrawal-2026-10-03"
           ],
-          "verifiedAt": "2026-10-02"
+          "verifiedAt": "2026-10-04"
         },
         {
           "playerId": "athlete:tennis:novak-djokovic",
-          "status": "conditional",
-          "evidenceKind": "product_projection",
-          "reason": "Subject to published entry, fitness and participation confirmation. Selective Masters schedule.",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Named in the organiser field announcement dated 3 October, subject to later withdrawals. Individual match and time unpublished.",
           "sourceIds": [
-            "shanghai-atp-calendar-2026"
+            "shanghai-field-2026-10-03"
           ],
-          "verifiedAt": "2026-10-02"
+          "verifiedAt": "2026-10-04"
         },
         {
           "playerId": "athlete:tennis:alex-de-minaur",
@@ -1292,7 +1308,7 @@
       "eventFamilyId": "national-bank-open",
       "season": 2027,
       "name": "National Bank Open",
-      "venue": "ATP Toronto \u00b7 WTA Montreal",
+      "venue": "ATP Toronto · WTA Montreal",
       "category": "1000",
       "tourWindows": [
         {

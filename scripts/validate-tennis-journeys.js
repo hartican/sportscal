@@ -28,6 +28,13 @@ const missing=clone(register);missing.editions[0].tourWindows[0].sourceIds=['unk
 for(const patch of [{nsCoverage:'complete'},{completeDrawVerified:true},{completeIndividualTimingVerified:true},{reuseCleared:true},{editionId:'unknown-edition'},{evidenceUrls:[]},{checkedAt:'2027-10-02T00:00:00Z'}]){const invalid=clone(register);Object.assign(invalid.coverageReviews[0],patch);assert.throws(()=>validate(invalid),/Coverage gaps cannot certify/);}
 const repeatedReview=clone(register);repeatedReview.coverageReviews.push(clone(repeatedReview.coverageReviews[0]));assert.throws(()=>validate(repeatedReview),/Coverage gaps cannot certify/);
 const withdrawn=clone(register);withdrawn.sources.push({id:'qa-withdrawal',url:'https://organiser.example/withdrawal',scope:'withdrawal',verifiedAt:day});withdrawn.editions[0].participation[0]={...withdrawn.editions[0].participation[0],status:'withdrawn',sourceIds:['qa-withdrawal']};assert.doesNotThrow(()=>validate(withdrawn));
+const shanghai=doc.editions.find(e=>e.id==='tennis-edition:shanghai-masters:2026');
+const sinner=shanghai.participation.find(p=>p.playerId.includes('jannik-sinner'));
+assert.equal(sinner.status,'withdrawn');assert.equal(sinner.evidenceKind,'official_withdrawal');
+for(const name of ['carlos-alcaraz','novak-djokovic'])assert.equal(shanghai.participation.find(p=>p.playerId.includes(name)).status,'confirmed');
+const deMinaur=shanghai.participation.find(p=>p.playerId.includes('alex-de-minaur'));assert.equal(deMinaur.status,'very_likely');assert.equal(deMinaur.verifiedAt,'2026-10-02','an article that omits a player cannot renew their evidence');
+const undocumentedWithdrawal=clone(register);undocumentedWithdrawal.editions.find(e=>e.id===shanghai.id).participation.find(p=>p.playerId===sinner.playerId).sourceIds=['shanghai-atp-calendar-2026'];assert.throws(()=>validate(undocumentedWithdrawal),/Withdrawal needs official evidence/);
+assert.equal(require('../config/athletes').currentContext(doc,sinner.playerId,'2026-10-07',prefs),null,'withdrawal cannot establish active tournament participation');
 for(const e of doc.editions){assert.equal(reminders.automatic(e,prefs),false);assert.equal(reminders.timing(e),null);}
 assert(fs.readFileSync('scripts/update-cards.js','utf8').includes('["scripts/build-tennis-journeys.js"]'),'the existing canonical owner maintains this projection');
 assert(!fs.readFileSync('lib/reminder-fixtures.js','utf8').includes('tennis-journeys.v1'),'journey context is never a reminder catalogue');
