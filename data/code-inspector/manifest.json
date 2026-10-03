@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T01:19:47.902Z",
+  "generatedAt": "2026-10-03T01:29:36.066Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -143,11 +143,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 1012,
+      "fixtureCount": 1014,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T01:19:47.902Z",
+      "freshAt": "2026-10-03T01:29:36.066Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

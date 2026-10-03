@@ -93,7 +93,7 @@ function buildFootballPlayerRow(player, sportKey = "football"){
   const name = document.createElement("span");
   name.textContent = player.displayName;
   identity.appendChild(name);
-  identity.onclick=()=>void openAthleteProfile(player.id,player.displayName,sportKey,identity);identity.setAttribute('role','button');identity.tabIndex=0;identity.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();identity.click();}};
+  identity.dataset.profileTrigger='player:'+player.id;identity.setAttribute('aria-label',`Open ${player.displayName} profile in Follow`);identity.onclick=()=>void openAthleteProfile(player.id,player.displayName,sportKey,identity);identity.setAttribute('role','button');identity.tabIndex=0;identity.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();identity.click();}};
   const position = document.createElement("span");
   position.className = "football-player-position";
   position.textContent = player.position;
@@ -133,7 +133,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   const copy = document.createElement("div");
   copy.className = "football-club-copy";
   const title = document.createElement("strong");
-  title.textContent = team.displayName;
+  title.textContent = team.displayName;title.dataset.profileTrigger='team:'+team.id;title.setAttribute('role','button');title.setAttribute('aria-label',`Open ${team.displayName} profile in Follow`);title.tabIndex=0;title.onclick=()=>void openAthleteProfile(team.id,team.displayName,sportKey,title);title.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();title.click();}};
   const detail = document.createElement("span");
   const playerScope = ["nrl", "afl", "aflw"].includes(sportKey) ? "current player" : "priority player";
   detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
@@ -474,7 +474,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (chips.childElementCount) copy.appendChild(chips);
     }
     const follow = record.profileOnly ? document.createElement("span") : buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
-    [icon,copy].forEach(target=>{target.setAttribute('role','button');target.tabIndex=0;target.onclick=()=>void openAthleteProfile(record.id,record.displayName,isF1Record?'f1':sportKey,target);target.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();target.click();}};});
+    [icon,copy].forEach(target=>{target.dataset.profileTrigger=(target===icon?'icon:':'copy:')+record.id;target.setAttribute('aria-label',`Open ${record.displayName} profile in Follow`);target.setAttribute('role','button');target.tabIndex=0;target.onclick=()=>void openAthleteProfile(record.id,record.displayName,isF1Record?'f1':sportKey,target);target.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();target.click();}};});
     row.append(icon, copy, follow);
     list.appendChild(row);
   });

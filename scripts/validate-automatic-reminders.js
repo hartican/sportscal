@@ -24,6 +24,7 @@ async function main(){
  assert.equal(policy.automatic(f,{...prefs,followFirst:{notifications:{autoRemindersEnabled:false}}},{},+now),false);
  assert.equal(policy.automatic(f,{...prefs,preferenceGraph:{entityFollows:[{participantId:athlete,followLevel:'unfollow'}]}},{},+now),false);
  assert.equal(policy.intent(f,prefs,{[f.id]:{reminderChoice:'off'}},{},+now).enabled,false);
+ assert.equal(policy.intent(f,prefs,{[f.id]:{dismissed:true,archived:true}},{},+now).enabled,true,'Feed dismissal and absence do not cancel eligible participant reminders');
  assert.equal(policy.intent({...f,tournamentLevel:'WTA 500'},prefs,{[f.id]:{reminderChoice:'on'}},{},+now).enabled,true,'Manual lower-tier intent permitted');
  const twin={...f,id:'nested:pilot:1',sourceEventIds:[f.id]},cat=fixturesApi.index([f,twin]);assert.equal(cat.fixtures.length,1,'Duplicate surfaces share one fixture');assert.equal(cat.resolve(twin.id).actionKey,f.id);
  const items=automatic.decisions({preferences:prefs,actions:{},intents:[]},cat,now);assert.equal(items.length,1);assert.equal(items[0].choice,'automatic');

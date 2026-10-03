@@ -14982,12 +14982,29 @@
       "sourceType": "published",
       "participationEvidence": [],
       "excludedParticipantIds": [],
-      "participantIds": [],
+      "participantIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:nikola-bartunkova"
+      ],
       "expected": 5,
-      "sourceParticipation": [],
+      "sourceParticipation": [
+        {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:nikola-bartunkova",
+          "draw": "singles",
+          "active": true
+        }
+      ],
       "participantsConfirmed": true,
-      "sourceParticipantIds": [],
-      "contestCount": 0
+      "sourceParticipantIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:nikola-bartunkova"
+      ],
+      "contestCount": 1
     },
     {
       "id": "tennis-parent:wuhan-open:2026:main",
@@ -15120,12 +15137,29 @@
       "sourceType": "published",
       "participationEvidence": [],
       "excludedParticipantIds": [],
-      "participantIds": [],
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:matteo-arnaldi"
+      ],
       "expected": 5,
-      "sourceParticipation": [],
+      "sourceParticipation": [
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:matteo-arnaldi",
+          "draw": "singles",
+          "active": true
+        }
+      ],
       "participantsConfirmed": true,
-      "sourceParticipantIds": [],
-      "contestCount": 0
+      "sourceParticipantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:matteo-arnaldi"
+      ],
+      "contestCount": 1
     },
     {
       "id": "tennis-parent:swiss-indoors-basel:2026:main",

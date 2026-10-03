@@ -407,3 +407,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fantasy-game-choice select{max-width:100%;font:inherit;}
 
 .fantasy-license-note{font-size:max(12px,.75rem);line-height:1.5;}
+
+/* Favourites stay one tap away while a long sport directory is scrolled. */
+.follow-home-tabs{position:sticky;top:var(--sticky-top-bar-height,132px);z-index:48;display:flex;gap:6px;align-items:center;min-height:50px;padding:4px 0;background:var(--bg);border-bottom:1px solid var(--border);scroll-margin-top:var(--sticky-top-bar-height,132px)}
+.follow-home-tabs~.follow-navigation{top:calc(var(--sticky-top-bar-height,132px) + 58px)}
+.follow-home-tabs button{min-height:44px}
+.follow-home-tabs [aria-pressed=true]{background:var(--accent);color:var(--bg);border-color:var(--accent)}

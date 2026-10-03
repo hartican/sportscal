@@ -1,16 +1,16 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const origin=process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:33962';
+const origin=process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109';
 (async()=>{for(const engine of [chromium,webkit]){
- const browser=await engine.launch();try{
+ const browser=await engine.launch({headless:true,...(engine===chromium?{channel:'chrome'}:{})});try{
   const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'block'});
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,selectedSelectorEntityIds:['sport:nrl'],followedSports:['nrl']})));
   let scoreReads=0,memberReads=0,fail=false,release=null,hold=false;const errors=[];page.on('pageerror',e=>errors.push(e.message));
   const fixture={id:'fixture:cricket:espn:1525655',eventId:'fixture:cricket:espn:1525655',key:'cricket',gender:'men',name:'South Africa v Australia',status:'live',startTimeUtc:new Date(Date.now()-3600000).toISOString(),homeParticipantId:'team:cricket:south-africa',awayParticipantId:'team:cricket:australia'};
-  await page.route('**/api/**',async route=>{const u=route.request().url();if(u.includes('scope=match-centre')){memberReads++;return route.fulfill({json:{events:[fixture],pagination:{nextCursor:null}}});}if(u.includes('/api/match-centre?')){scoreReads++;if(hold)await new Promise(r=>{release=r;});return route.fulfill(fail?{status:503,json:{}}:{json:{enabled:true,fixtures:[{...fixture,score:{innings:[{team:'South Africa Men',runs:235,wickets:5,overs:'44.1'}]},checkedAt:new Date().toISOString()}]}});}return route.fulfill({status:503,json:{}});});
-  await page.goto(origin);await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&!startupCoordinator.isHydrating());
-  await page.getByRole('button',{name:'Match Centre',exact:true}).click();await page.locator('.match-centre-card').waitFor();
+  await page.route('**/api/**',async route=>{const u=route.request().url();if(u.includes('membership=everything')||u.includes('scope=match-centre')){memberReads++;return route.fulfill({json:{enabled:true,events:[fixture],pagination:{nextCursor:null}}});}if(u.includes('/api/match-centre?')){scoreReads++;if(hold)await new Promise(r=>{release=r;});return route.fulfill(fail?{status:503,json:{}}:{json:{enabled:true,fixtures:[{...fixture,score:{innings:[{team:'South Africa Men',runs:235,wickets:5,overs:'44.1'}]},checkedAt:new Date().toISOString()}]}});}return route.fulfill({status:503,json:{}});});
+  await page.goto(origin);await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
+  await page.locator('.tabs [data-tab=match-centre]').click();await page.locator('.match-centre-card').waitFor();
   await page.waitForFunction(()=>document.querySelector('.match-centre-card small')||document.querySelector('.match-centre-card')?.textContent.includes('Results hidden'));
   await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});await page.getByText('South Africa 235/5 (44.1 overs)',{exact:true}).waitFor();
   await page.clock.install();

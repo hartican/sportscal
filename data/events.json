@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160-20261003011442660-20261003011947902",
-  "publishedAt": "2026-10-03T01:19:47.902Z",
+  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160-20261003011442660-20261003011947902-20261003012557591-20261003012629049-20261003012936066",
+  "publishedAt": "2026-10-03T01:29:36.066Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -198625,6 +198625,179 @@
         "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
       ],
       "consensusTags": []
+    },
+    {
+      "id": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+      "eventId": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+      "canonicalEventId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "name": "Carlos Alcaraz v Matteo Arnaldi",
+      "cardKind": "fixture",
+      "contestUnit": "match",
+      "competitionId": "competition:tennis:atp-tokyo-2026",
+      "tournamentId": "tournament:tennis:atp-tokyo-2026",
+      "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
+      "eventFamilyId": "japan-open-tennis-championships",
+      "tournamentName": "Japan Open",
+      "tournamentLevel": "500",
+      "tour": "ATP",
+      "round": "early",
+      "roundLabel": "Round of 16",
+      "date": "2026-10-03",
+      "time": "13:30",
+      "startTimeUtc": "2026-10-03T03:30:00.000Z",
+      "timePrecision": "not-before",
+      "timeTbc": false,
+      "status": "scheduled",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:matteo-arnaldi"
+      ],
+      "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "awayParticipantId": "competitor:tennis:atp:matteo-arnaldi",
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:carlos-alcaraz",
+          "name": "Carlos Alcaraz",
+          "displayName": "Carlos Alcaraz",
+          "type": "competitor",
+          "countryCode": "ESP"
+        },
+        {
+          "id": "competitor:tennis:atp:matteo-arnaldi",
+          "name": "Matteo Arnaldi",
+          "displayName": "Matteo Arnaldi",
+          "type": "competitor",
+          "countryCode": "ITA"
+        }
+      ],
+      "venue": "Ariake Colosseum, Tokyo",
+      "court": "Colosseum",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
+      "sourceName": "Official tournament publication",
+      "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
+      "statusCheckedAt": "2026-10-03T01:24:45.000Z",
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "3 October, Colosseum second singles row: Carlos ALCARAZ v Matteo ARNALDI",
+        "clockAssociation": "Not Before 12:30 PM directly above this row, Japan UTC+09:00; not the show court 12:00 heading",
+        "publishedAtLocal": "2026-10-02T20:23:05+09:00",
+        "reviewMethod": "PDF court columns and match rows visually checked against text"
+      },
+      "liveWindow": 3,
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "displayTitleCompact": "Carlos Alcaraz v Matteo Arnaldi",
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "sourceEventIds": [
+        "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+        "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi"
+      ],
+      "consensusTags": [],
+      "sourceTrust": "unverified",
+      "narrativeType": "early",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
+    },
+    {
+      "id": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
+      "eventId": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
+      "canonicalEventId": "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "name": "Aryna Sabalenka v Nikola Bartunkova",
+      "cardKind": "fixture",
+      "contestUnit": "match",
+      "competitionId": "competition:tennis:wta-beijing-2026",
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+      "eventFamilyId": "china-open",
+      "tournamentName": "China Open",
+      "tournamentLevel": "1000",
+      "tour": "WTA",
+      "round": "early",
+      "roundLabel": "Round of 32",
+      "date": "",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "unresolved",
+      "timeTbc": true,
+      "status": "scheduled",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:nikola-bartunkova"
+      ],
+      "homeParticipantId": "competitor:tennis:wta:aryna-sabalenka",
+      "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:aryna-sabalenka",
+          "name": "Aryna Sabalenka",
+          "displayName": "Aryna Sabalenka",
+          "type": "competitor",
+          "countryCode": "BLR"
+        },
+        {
+          "id": "competitor:tennis:wta:nikola-bartunkova",
+          "name": "Nikola Bartunkova",
+          "displayName": "Nikola Bartunkova",
+          "type": "competitor",
+          "countryCode": "CZE"
+        }
+      ],
+      "venue": "National Tennis Center, Beijing",
+      "court": null,
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+      "sourceName": "Official tournament publication",
+      "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
+      "statusCheckedAt": "2026-10-03T01:24:45.000Z",
+      "timingEvidence": {
+        "matchRow": "Bottom-half rows 121–128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
+        "clockAssociation": "No individual day, court or clock in the draw; absent from checked 3 October order of play",
+        "publishedAtLocal": "2026-10-02T21:16:00+08:00",
+        "reviewMethod": "Bracket columns and completed prior-round cells visually checked"
+      },
+      "liveWindow": 3,
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "schedulingWindow": {
+        "startsOn": "2026-09-28",
+        "endsOn": "2026-10-11",
+        "label": "Tournament context only; match day and time unpublished",
+        "basis": "tournament-context-only"
+      },
+      "displayTitleCompact": "Aryna Sabalenka v Nikola Bartunkova",
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "sourceEventIds": [
+        "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
+        "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova"
+      ],
+      "consensusTags": [],
+      "sourceTrust": "unverified",
+      "narrativeType": "early",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
     }
   ]
 }

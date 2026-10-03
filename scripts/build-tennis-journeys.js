@@ -31,7 +31,8 @@ function validate(doc){
 }
 function build(day=new Date().toLocaleDateString('en-CA',{timeZone:'Australia/Sydney'}),doc=JSON.parse(fs.readFileSync(path.join(ROOT,input)))){
  validate(doc);const window={from:day,through:journeys.through(day)};
- return {...doc,schemaVersion:'tennis-journeys.v1',window,contextOnly:true,windowEditionIds:journeys.editions(doc,day).map(e=>e.id)};
+ const reviews=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').reviews||[];const players=doc.players.map(p=>({...p,scheduleReview:reviews.find(r=>r.player===p.name)||null}));
+ return {...doc,players,schemaVersion:'tennis-journeys.v1',window,contextOnly:true,windowEditionIds:journeys.editions(doc,day).map(e=>e.id)};
 }
 if(require.main===module){const text=JSON.stringify(build(process.env.TENNIS_JOURNEY_REFERENCE_DAY||undefined),null,2)+'\n',file=path.join(ROOT,output);if(process.argv.includes('--check')){if(fs.readFileSync(file,'utf8')!==text)throw Error('Tennis journey projection is stale');}else fs.writeFileSync(file,text);console.log('Reviewed tennis journey calendar: rolling twelve months, one edition and separate tour windows; no fixtures generated.');}
 module.exports={build,validate};

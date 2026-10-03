@@ -1,25 +1,27 @@
 'use strict';
-const assert=require('node:assert/strict'),{chromium}=require('playwright');
-(async()=>{const browser=await chromium.launch({headless:true});try{
- for(const width of [320,390,768,1280])for(const colorScheme of ['light','dark']){
-  const page=await browser.newPage({viewport:{width,height:844},colorScheme,serviceWorkers:'block'}),errors=[],requests=[];
-  page.on('pageerror',e=>errors.push(e.message));
-  const fixture={id:'fixture:nrl:qa',eventId:'fixture:nrl:qa',key:'nrl',gender:'men',name:'Penrith Panthers v Melbourne Storm',status:'live',startTimeUtc:new Date(Date.now()-600000).toISOString(),homeParticipantId:'team:nrl:4',awayParticipantId:'team:nrl:3',participantIds:['team:nrl:4','team:nrl:3']};
-  await page.addInitScript(()=>{globalThis.NOTHINGSPORTS_MATCH_CENTRE_ENABLED=true;localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,selectedSelectorEntityIds:['sport:nrl'],followedSports:['nrl']}));});
-  await page.route('**/api/**',route=>{const url=route.request().url();requests.push(url);if(url.includes('scope=match-centre'))return route.fulfill({json:{events:[fixture],pagination:{nextCursor:null}}});if(url.includes('/api/match-centre?'))return route.fulfill({json:{enabled:true,fixtures:[{id:fixture.id,status:'live',score:{home:18,away:12},homeParticipantId:fixture.homeParticipantId,awayParticipantId:fixture.awayParticipantId,checkedAt:new Date().toISOString(),officialUrl:'https://www.nrl.com/draw/'}]}});return route.fulfill({status:503,json:{}});});
-  await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:33962');
-  await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&!startupCoordinator.isHydrating());
-  requests.length=0;await page.getByRole('button',{name:'Match Centre',exact:true}).click();
-  await page.locator('.match-centre-card').waitFor();
-  assert(await page.getByText('Results hidden',{exact:true}).isVisible());assert.equal(await page.locator('.match-centre-score').count(),0);
-  await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});
-  await page.waitForFunction(()=>document.querySelector('.match-centre-score')?.textContent.includes('18'));
-  assert.equal(await page.locator('.match-centre-card .nsc-widget').count(),0);
-  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth),0,'no horizontal overflow');
-  assert.equal(requests.filter(u=>u.includes('/api/match-centre?')).length,1,'coalesced score fetch');
-  assert(!requests.some(u=>u.includes('/api/fixtures?')),'no full Feed live rebuild on Match Centre');
-  assert.deepEqual(errors,[]);
-  await page.getByRole('button',{name:/^Feed/}).click();await page.waitForFunction(()=>activeTab==='feed');
-  console.log(`${width} ${colorScheme}: navigation, spoiler safety, bounded polling and layout passed`);await page.close();
+const assert=require('node:assert/strict'),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+(async()=>{for(const engine of ['chromium','webkit']){const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{
+ for(const width of [320,390,1280])for(const colorScheme of ['light','dark']){
+ const page=await browser.newPage({viewport:{width,height:844},colorScheme,serviceWorkers:'block'}),errors=[],requests=[];let fail=false,added=false;page.on('pageerror',e=>errors.push(e.message));
+ const fixtures=Array.from({length:6},(_,i)=>({id:'fixture:nrl:qa:'+i,eventId:'fixture:nrl:qa:'+i,key:'nrl',sport:'NRL',competitionName:'NRL',name:'Panthers '+i+' v Storm '+i,status:'live',sourceCheckedAt:new Date().toISOString(),startTimeUtc:new Date(Date.now()-600000).toISOString(),homeParticipantId:'team:nrl:qa-home-'+i,awayParticipantId:'team:nrl:qa-away-'+i,participantIds:['team:nrl:qa-home-'+i,'team:nrl:qa-away-'+i],participants:[{id:'team:nrl:qa-home-'+i,name:'Panthers '+i},{id:'team:nrl:qa-away-'+i,name:'Storm '+i}]}));
+ const snapshots=()=>fixtures.map(f=>({id:f.id,status:'live',score:{home:18,away:12},homeParticipantId:f.homeParticipantId,awayParticipantId:f.awayParticipantId,checkedAt:new Date().toISOString(),incidents:[{type:'Try',name:'Published scorer',time:"32′"}],clock:'40:00',officialUrl:'https://www.nrl.com/draw/'}));
+ await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:24,onboardingComplete:true,showSpoilers:false,fantasyDeadlines:{enabled:false}})));
+ await page.route('**/api/**',route=>{const url=route.request().url();requests.push(url);if(fail&&url.includes('match-centre'))return route.fulfill({status:503,json:{}});
+ if(url.includes('scope=match-centre'))return route.fulfill({json:{events:added?[fixtures[0]]:[],pagination:{nextCursor:null}}});
+ if(url.includes('membership=everything'))return route.fulfill({json:{enabled:true,events:fixtures,fixtures:snapshots(),pagination:{nextCursor:null}}});
+ if(url.includes('/api/match-centre?')){const ids=new URL(url).searchParams.get('ids').split(',');assert(ids.length<=60);return route.fulfill({json:{enabled:true,fixtures:snapshots().filter(f=>ids.includes(f.id))}});}return route.fulfill({status:503,json:{}});});
+ await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
+ requests.length=0;await page.locator('.tabs [data-tab=match-centre]').click();await page.locator('.match-centre-card').first().waitFor();assert.equal(await page.getByRole('tab',{name:'Everything',exact:true}).getAttribute('aria-selected'),'true');assert.equal(await page.locator('.match-centre-card').count(),6);
+ assert.equal(await page.locator('.match-centre-score').count(),0);assert.equal(await page.getByText('Results hidden',{exact:true}).count(),6);
+ if(width===390){const visible=await page.locator('.match-centre-card').evaluateAll(nodes=>nodes.filter(n=>n.getBoundingClientRect().bottom<=innerHeight&&n.getBoundingClientRect().top>=0).length);assert(visible>=5,'five full collapsed rows fit viewport: '+visible);}
+ const summary=page.locator('.match-centre-card summary').first();await summary.click();assert(await page.locator('.match-centre-card details').first().getAttribute('open')!==null);assert.equal(await page.locator('.match-centre-card .nsc-widget').count(),0);assert.equal(await page.getByText('Published scorer').count(),0);
+ await page.getByRole('button',{name:'Add to Feed',exact:true}).first().click();added=true;assert.equal(await page.evaluate(()=>FOLLOW_FIRST.effectiveParticipantFollow('team:nrl:qa-home-0',userPreferences).followed),false,'pin does not follow opponent');
+ await page.getByRole('tab',{name:'Followed',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===1);await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===6);assert(await page.locator('.match-centre-card details').first().getAttribute('open')!==null,'inline expansion survives sub-tab return');
+ await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});await page.waitForFunction(()=>document.querySelector('.match-centre-score')?.textContent.includes('18'));assert.match(await page.locator('.match-centre-score').first().innerText(),/Panthers 0: 18.*Storm 0: 12/);assert(await page.getByText('Try · Published scorer · 32′',{exact:true}).first().isVisible());
+ await summary.click();assert.equal(await page.locator('.match-centre-card details').first().getAttribute('open'),null);await summary.click();await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();assert(await page.locator('.match-centre-card details').first().getAttribute('open')!==null,'expansion survives score refresh');
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth),0);assert(!requests.some(u=>u.includes('/api/fixtures?')),'no all-fixture Feed rebuild');
+ fail=true;await page.waitForTimeout(50);await page.evaluate(()=>{document.querySelector('[aria-label="Refresh Match Centre"]').click();}); // repeated action is throttled without erasing retained rows
+ assert.equal(await page.locator('.match-centre-card').count(),6);assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({engine,width,colorScheme,allFixtures:6,followedPin:1,inlineExpansion:true,resultsControls:true,sideIdentity:true,compact:true,boundedReads:true,errors}));await page.close();
  }
-}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
+ }finally{await browser.close();}}})().catch(e=>{console.error(e);process.exitCode=1;});

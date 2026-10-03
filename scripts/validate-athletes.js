@@ -11,11 +11,11 @@ assert.equal(projection({participants:people,preferences:{preferenceGraph:{entit
 assert.equal(projection({participants:people,preferences:{...preferences,preferenceGraph:{entityFollows:preferences.preferenceGraph.entityFollows.slice(1)}}}).length,3,'later unfollow remains removed');
 const now=new Date('2026-10-02T00:00:00Z');
 const event={id:'fixture:tennis:athletes-test',eventId:'fixture:tennis:athletes-test',key:'tennis',name:'Alcaraz v Djokovic',date:'2026-10-03',time:'12:00',startTimeUtc:'2026-10-03T01:00:00Z',timePrecision:'exact',status:'scheduled',participants:people.slice(0,2),participantIds:ids.slice(0,2),round:'quarterfinal',contestUnit:'match',sourceUrl:'https://example.org/official',sourceCheckedAt:now.toISOString()};
-const output=(state,events=[event],options={})=>pipeline.buildServerFeed({events,userId:'account-one',userState:{preferences:state},now,athletesOnly:true,participants:people,...options});
+const output=(state,events=[event],options={})=>pipeline.buildServerFeed({events,userId:'account-one',userState:{preferences:state},now,athletesOnly:true,participants:people,tennisProjection:{parents:[],contests:[]},...options});
 assert(output(preferences).events.some(e=>e.id===event.id));
 assert.equal(output({}).events.length,0);
 const low={...event,tournamentLevel:'500'},major={...event,tournamentLevel:'grand_slam'};
-const ordinary=(e,state=preferences,action={})=>pipeline.buildServerFeed({events:[e],userId:'one',userState:{preferences:state,event_user_state:{[e.id]:action}},now}).events;
+const ordinary=(e,state=preferences,action={})=>pipeline.buildServerFeed({events:[e],userId:'one',userState:{preferences:state,event_user_state:{[e.id]:action}},now,tennisProjection:{parents:[],contests:[]}}).events;
 assert.equal(ordinary(low).length,0,'player follow alone omits 500 matches');
 assert.equal(output(preferences,[low]).events.length,1,'participant schedules retain lower-stakes matches');
 assert.equal(output({},[low],{participantId:ids[0]}).events.length,1,'browse profile does not require a follow');
@@ -25,6 +25,7 @@ for(const level of ['250','500','exhibition','warm-up'])assert.equal(ordinary({.
 assert.equal(ordinary({...major,round:'Qualifying'}).length,0);
 assert.equal(ordinary({...major,round:'Round robin'}).length,0);
 const reviewed=require('./apply-reviewed-participant-fixtures').validate();assert.equal(reviewed.events[0].startTimeUtc,'2026-10-03T03:00:00.000Z');
+const sab=reviewed.events.find(e=>e.id.includes('sabalenka-bartunkova')),alcaraz=reviewed.events.find(e=>e.id.includes('alcaraz-arnaldi'));assert.equal(alcaraz.timePrecision,'not-before');assert.equal(alcaraz.startTimeUtc,'2026-10-03T03:30:00.000Z');assert.equal(sab.startTimeUtc,null);assert.equal(sab.date,null);assert.equal(model.next([sab],sab.homeParticipantId,+now)?.id,sab.id);assert.equal(output({},[sab],{participantId:sab.homeParticipantId}).events.length,1);assert.equal(require('../config/fixture-reminder-policy').timing(sab,+now),null,'a draw and tournament window cannot create a reminder clock');
 assert(!output(preferences,[event],{userState:{preferences,event_user_state:{[event.id]:{dismissed:true}}}}).events.some(e=>e.id===event.id),'dismissed fixture cannot reappear');
 const duplicate={...people[1],id:'competitor:tennis:atp:novak-djokovic'};
 assert.equal(model.list([...people,duplicate],new Set(ids)).length,4,'canonical athlete aliases deduplicate');
@@ -40,7 +41,7 @@ assert.equal(model.timingState({...event,organiserPublicationPending:true},+now)
 assert.equal(model.timingState({...event,organiserPublicationPending:true,publicationPendingVerified:true,publicationSourceUrl:'https://example.org/official'},+now),'publication-pending');
 assert.equal(model.timingState({...event,organiserPublicationPending:true,publicationPendingVerified:true,publicationSourceUrl:'https://example.org/official',publicationPendingVerifiedAt:'2026-10-04T00:00:00Z'},+now),'published','future evidence cannot prove pending publication');
 const normalized=pipeline.normalizeUserFollowState({preferences});let accountReads=0;
-const deps={...pipeline,...require('../lib/follow-fixture-resolver'),...require('../lib/supabase-server'),bearerToken:r=>r.headers?.authorization,authenticatedUser:async token=>{if(token==='erased')throw Object.assign(new Error('erased'),{status:403});return{id:token||'account-one'};},loadUserState:async id=>{accountReads++;return id==='account-two'?{preferences:{}}:normalized;},readLiveSnapshots:async()=>null,eventFeed:{version:'test',events:[event],publishedAt:now.toISOString()},contextualEvents:[event],canonicalSportContext:{participants:people},resolveUserFollowFixtures:({events})=>({events,participants:people}),overlaySnapshots:events=>events};
+const deps={...pipeline,buildServerFeed:args=>pipeline.buildServerFeed({...args,tennisProjection:{parents:[],contests:[]}}),...require('../lib/follow-fixture-resolver'),...require('../lib/supabase-server'),bearerToken:r=>r.headers?.authorization,authenticatedUser:async token=>{if(token==='erased')throw Object.assign(new Error('erased'),{status:403});return{id:token||'account-one'};},loadUserState:async id=>{accountReads++;return id==='account-two'?{preferences:{}}:normalized;},readLiveSnapshots:async()=>null,eventFeed:{version:'test',events:[event],publishedAt:now.toISOString()},contextualEvents:[event],canonicalSportContext:{participants:people},resolveUserFollowFixtures:({events})=>({events,participants:people}),overlaySnapshots:events=>events};
 const handler=createFeedHandler({load:()=>deps,clock:()=>now});const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(code){this.code=code;return this;},json(body){this.body=body;return this;},end(){}});
 (async()=>{
  let r=response();await handler({method:'GET',url:'/api/feed?scope=athletes',headers:{authorization:'account-one'}},r);assert.equal(r.code,200);assert.equal(r.body.athletes.length,4);
