@@ -96,7 +96,7 @@
   if(prefs.enabled===false||prefs.sportingRemindersEnabled===false||prefs.autoRemindersEnabled===false){text.textContent='Start alerts are off in Settings.';button.textContent='Manage alerts';button.onclick=()=>openSettings({section:'notifications'});return;}
   text.textContent='Eligible start alerts are on · 15 minutes before the published start. Device setup may be needed.';
   button.onclick=async()=>{button.disabled=true;try{await ensurePushInstallation({requestPermission:true});text.textContent='Device alerts enabled. Eligible matches will notify even when absent from Feed.';button.hidden=true;}catch(error){text.textContent=error.message;button.disabled=false;}};
-  if(typeof Notification!=='undefined'&&Notification.permission==='granted')void ensurePushInstallation({requestPermission:false}).then(()=>{if(section.isConnected){text.textContent='Start alerts ready · eligible matches only, 15 minutes before the published start.';button.hidden=true;}}).catch(()=>{});
+  if(typeof Notification!=='undefined'&&Notification.permission==='granted')void navigator.serviceWorker?.getRegistration().then(r=>r?.pushManager?.getSubscription()).then(subscription=>{if(section.isConnected&&subscription){text.textContent='Device permission and subscription are present. Check Notifications for delivery readiness.';button.textContent='Manage alerts';button.onclick=()=>openSettings({section:'notifications'});}}).catch(()=>{});
  }
  function calendar(host,record,t){
   if(record.sportKey!=='tennis'||!journeys||!NOTHINGSPORTS_TENNIS_JOURNEYS)return;
