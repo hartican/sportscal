@@ -6,6 +6,7 @@ const fs = require("node:fs");
 const READOUT = require("../config/pilot-readout");
 const { buildReadinessReport, completedResultIsPresent, isUnresolvedOfficialPlaceholder } = require("./verify-pilot-readiness");
 const { inputFromReadout } = require("./evaluate-pilot-readout");
+const { reportFromReadout, parseOptions } = require("./evaluate-pilot-readout");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
@@ -68,6 +69,9 @@ const input = inputFromReadout([{
 }], readiness);
 
 const report = READOUT.buildMeasurementReport(input);
+assert.deepEqual(reportFromReadout(input,readiness),report,"legacy normalised reports keep their existing output and unknown cohort status");
+assert.throws(()=>reportFromReadout(input,readiness,{requireCohort:true}),/unqualified/,"ordinary all-account/normalised input cannot claim the invited population");
+assert.equal(parseOptions(['aggregate.json','--require-invited-cohort']).requireCohort,true);
 assert.equal(READOUT.SCHEMA_VERSION, "measurement-readout.v3");
 assert.equal(report.status, "report_ready");
 assert.equal(report.recommendation, null, "measurement must not automatically recommend social or another investment");
