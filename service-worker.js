@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v413";
-const SHELL_VERSION = "413";
+const CACHE_NAME = "nothingsport-shell-v414";
+const SHELL_VERSION = "414";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -57,7 +57,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=413",
+  "/assets/js/app-shell-runtime.js?v=414",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
@@ -97,7 +97,7 @@ const APP_SHELL = [
   "/data/feed/manifest.json",
   "/data/feed/page-001.json",
   "/data/feed-meta.json",
-  // Owner candidate data uses the existing cache-after-read path.
+  // Owner source artifacts are server inputs, never public cache entries.
   "/data/follow-directory/manifest.v1.json",
   "/data/follow-directory/manifest.v1.js",
   // The generated script is retained only for no-network/direct-file recovery.
@@ -321,6 +321,10 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
+  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json"].includes(requestUrl.pathname)){
+    event.respondWith(new Response('This source file is not a public resource.', {status:404,headers:{'Cache-Control':'private, no-store, max-age=0','Content-Type':'text/plain'}}));
+    return;
+  }
   if (requestUrl.pathname === "/app-version.json"){
     event.respondWith(fetch(event.request, { cache:"no-store" }));
     return;

@@ -25,3 +25,15 @@ assert.equal(publication.publicationPlan([row],[repaired],[{...repaired,selected
 assert(publication.publicationMismatch(repaired,[old]));assert(!publication.publicationMismatch(repaired,[repaired]));
 assert(policy.equalCopy(policy.copy(current),projection),'Bathurst published full four-section preview');
 console.log('Editorial publication: stale seed/quick refresh, actual served four-section proof, independent gaps, unchanged sporting facts, newer editorial, holds and protected NRL passed.');
+
+const crypto=require('node:crypto'),release=require('./lib/editorial-source-release');
+const bytes=fs.readFileSync(release.sourcePath),sha='a'.repeat(40),hash=(algorithm,value)=>crypto.createHash(algorithm).update(value).digest('hex');
+for(const transform of ['identity','json-compact']){
+ const deployed=transform==='identity'?bytes:Buffer.from(JSON.stringify(JSON.parse(bytes))+'\n');
+ const inventory={revision:sha,files:[{path:release.sourcePath,gitBlob:hash('sha1',Buffer.concat([Buffer.from('blob '+bytes.length+'\0'),bytes])),transform,bytes:deployed.length,sha256:hash('sha256',deployed)}]};
+ assert.equal(release.verifySourceInventory(sha,inventory,bytes),JSON.parse(bytes).sourceRevision);
+ for(const change of [i=>i.revision='b'.repeat(40),i=>i.files=[],i=>i.files.push({...i.files[0]}),i=>i.files[0].gitBlob='0'.repeat(40),i=>i.files[0].transform='unreviewed',i=>i.files[0].bytes++,i=>i.files[0].sha256='0'.repeat(64)]){const bad=structuredClone(inventory);change(bad);assert.throws(()=>release.verifySourceInventory(sha,bad,bytes));}
+ assert.throws(()=>release.verifySourceInventory(sha,inventory,Buffer.concat([bytes,Buffer.from(' ')])),'Wrong source bytes must reject before recording publication');
+}
+console.log('Editorial server-source inventory: exact commit, source blob, identity/compact transforms, length/hash and conflicting or duplicate entries passed.');
+require('./lib/editorial-release-command-tests').validateEditorialReleaseCommand().then(()=>console.log('Actual editorial release command: source inventory and fresh target binding passed; stale/hash conflicts reject before control writes.')).catch(error=>{console.error(error);process.exitCode=1;});

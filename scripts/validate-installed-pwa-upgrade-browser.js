@@ -191,6 +191,7 @@ const server=http.createServer((req,res)=>{
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
+  if(phase==='candidate' && ['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json'].includes(name)){res.writeHead(404,{'cache-control':'private, no-store'});res.end('Not a public resource');return;}
   if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name===(process.env.PWA_REQUIRED_FAILURE_ASSET||'assets/js/app-shell-runtime.js')))){res.writeHead(503);res.end();return;}
   const bytes=phase==='baseline'?baselineFile(name):candidateFile(name);
   if(!bytes){res.writeHead(404);res.end();return;}
@@ -220,6 +221,7 @@ const server=http.createServer((req,res)=>{
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
+    await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/marquee-candidates.v1.json',new Response('{"qaLegacyDraft":true}'));},baselineVersion);
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
@@ -267,8 +269,15 @@ const server=http.createServer((req,res)=>{
     const before=versionRequests;
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
-    const ownerCandidates=await upgraded.evaluate(async()=>{const r=await fetch('/data/marquee-candidates.v1.json');if(!r.ok)throw Error('Owner candidates unavailable after use');return r.text();});
-    await upgraded.waitForFunction(async()=>Boolean(await caches.match('/data/marquee-candidates.v1.json')));
+    const assertOwnerSourcesClosed=async()=>{
+      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
+      assert.deepEqual(values,Array.from({length:3},()=>({status:404,cached:false})),'upgraded worker must deny source downloads and discard the seeded legacy draft cache');
+    };
+    await assertOwnerSourcesClosed();
+    await upgraded.evaluate(async()=>{const r=await fetch('/participate.html');if(!r.ok)throw Error('Public fixture page unavailable');await r.text();});
+    await upgraded.waitForFunction(async()=>Boolean(await caches.match('/participate.html')));
+    const participationCache=await upgraded.evaluate(async()=>await(await caches.match('/participate.html')).text());
+    assert(!participationCache.includes('/data/marquee-candidates.v1.json')&&participationCache.includes('/api/participation'),'cached fixture page must use the public projection');
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -280,7 +289,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
-    assert.equal(await upgraded.evaluate(async()=>await(await fetch('/data/marquee-candidates.v1.json')).text()),ownerCandidates,'owner candidates remain available offline after use');
+    await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});

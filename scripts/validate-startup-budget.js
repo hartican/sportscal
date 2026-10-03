@@ -24,7 +24,7 @@ assert(!html.includes('src="data/events.js"'), "the 1.6 MB fallback bundle must 
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "offline fallback must remain available on demand");
 assert(html.includes('Preserve the stable URL so the service-worker'), "the on-demand fallback must use a cache-matchable URL");
 assert(!assets.includes("/data/events.json"), "duplicate JSON feed must not be precached");
-assert(!assets.includes("/data/marquee-candidates.v1.json"), "optional owner candidate data must cache after use");
+assert(!assets.includes("/data/marquee-candidates.v1.json"), "server owner candidate data must not be precached");
 assert(!assets.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "optional soundtrack must not be precached");
 assert(html.includes('id="soundtrackAudio"') && html.includes('preload="none"'), "soundtrack must defer network work until explicitly played");
 

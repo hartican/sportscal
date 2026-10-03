@@ -4,14 +4,15 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.QA_BASE_URL||'http://127.0.0.1:33993',out=process.env.QA_OUTPUT_DIR||'/Users/jackhartican/Documents/AI/Codex/owner-content-20261002';
 async function run(engine,label){
+  const artifact=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../data/marquee-candidates.v1.json'),'utf8'));
   const browser=await engine.launch(label==='chromium'?{channel:'chrome'}:{});
   try{
     for(const width of [390,1280]){
-      const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[];
+      const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[],rawReads=[];
+      page.on('request',r=>{if(/\/data\/(marquee-candidates|comms-sources|editorial-maintenance-sources)\.v1\.json/.test(r.url()))rawReads.push(r.url());});
       page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:401,json:{error:'Sign in required'}}));
       await page.goto(base+'/admin.html');await page.getByRole('heading',{name:'Owner sign in'}).waitFor();assert.equal(await page.getByText('Post workspace',{exact:true}).count(),0);
-      await page.evaluate(async()=>{
-        const artifact=await fetch('/data/marquee-candidates.v1.json').then(r=>r.json());
+      await page.evaluate(async artifact=>{
         const rows=artifact.candidates.map(c=>({campaign_id:c.campaignId,event_id:c.eventId,campaign_revision:1,candidate:c,draft_copy:c.drafts,proposed_send_at:c.proposedSendAt,state:'draft'}));
         window.qaCalls=[];window.qaRows=rows;window.qaClient={getSession:()=>({user:{id:'qa-only'}}),commsRequest:async(command)=>{
           if(!command)return{campaigns:structuredClone(rows),assets:[],remindersEnabled:false};
@@ -23,7 +24,7 @@ async function run(engine,label){
           return{};
         }};
         document.getElementById('adminNav').classList.remove('hidden');await NOTHINGSPORTS_ADMIN_COMMS_UI.mount(document.getElementById('adminApp'),qaClient);
-      });
+      },artifact);
       assert.equal(await page.locator('[data-editor]:visible').count(),0,'All tasks begin compact');
       assert.equal(await page.locator('.editor-tabs').count(),0,'No mutually exclusive primary tabs');
       assert(!(await page.locator('body').innerText()).match(/Hootsuite|Mailchimp/));
@@ -44,7 +45,7 @@ async function run(engine,label){
       await page.locator('[data-open]').nth(1).click();assert.equal(await page.locator('[data-editor]:visible').count(),1);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
       await page.screenshot({path:out+'/'+label+'-'+width+'.png',fullPage:false});
-      assert.deepEqual(errors,[]);await page.close();
+      assert.deepEqual(errors,[]);assert.deepEqual(rawReads,[],'Owner browser fixtures must use the protected client projection, not raw server downloads');await page.close();
     }
   }finally{await browser.close();}
 }

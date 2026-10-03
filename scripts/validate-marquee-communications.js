@@ -23,6 +23,38 @@ async function main(){
   const second = JSON.parse(read("data/marquee-candidates.v1.json"));
   assert.equal(JSON.stringify(second), firstJson, "fixed-input campaign builds must be idempotent");
 
+  const internalSources = ["marquee-candidates.v1.json", "comms-sources.v1.json", "editorial-maintenance-sources.v1.json"];
+  const routing = JSON.parse(read("vercel.json"));
+  for (const file of internalSources){
+    const redirect = routing.redirects.find(rule => rule.source === `/data/${file}`);
+    assert.equal(redirect?.destination, "/api/comms?mode=internal-artifact", "raw owner source URLs must stop before static-file serving");
+    assert.equal(redirect.permanent, false, "the source denial must not pin a permanent browser redirect");
+  }
+  const originalFetch = global.fetch, originalRead = fs.readFileSync;
+  let networkCalls = 0, sourceReads = 0;
+  try{
+    global.fetch = async () => { networkCalls++; throw new Error("Internal source denial must make no network request"); };
+    fs.readFileSync = function(file, ...args){
+      if (internalSources.some(name => String(file).endsWith(`/data/${name}`))){ sourceReads++; throw new Error("Internal source denial must not read the source file"); }
+      return originalRead.call(this, file, ...args);
+    };
+    for (const method of ["GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS"]){
+      const response = responseCapture();
+      await comms({ method, query:{ mode:"internal-artifact" }, headers:{ authorization:"Bearer test-only-not-a-credential" }, body:{ action:"sync-candidates" } }, response);
+      assert.equal(response.statusCode, 404, "raw source denial must precede authentication, method dispatch and mutations");
+      assert.deepEqual(Object.keys(response.body).sort(), ["code", "error"]);
+      assert.equal(response.body.code, "internal_artifact_unavailable");
+      assert.equal(response.headers["Cache-Control"], "private, no-store, max-age=0");
+      assert.equal(response.headers.Vary, "Authorization");
+    }
+    assert.equal(networkCalls, 0);
+    assert.equal(sourceReads, 0);
+  }finally{
+    global.fetch = originalFetch;
+    fs.readFileSync = originalRead;
+  }
+  await require('./lib/public-fixture-read-tests').validatePublicFixtureReads();
+
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"admin" }, user_metadata:{ role:"viewer" } }), true);
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"viewer" }, user_metadata:{ role:"admin" } }), false, "editable metadata must never grant admin access");
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"admin" } }), true);

@@ -18,7 +18,14 @@ async function main(){
   }
   const unauthenticated=await fetch('https://nothingsport.vercel.app/api/feed');
   if(unauthenticated.status!==401)throw new Error(`Unauthenticated feed must reject: ${unauthenticated.status}`);
-  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),checks,unauthenticated:401};
+  const internalSources=[];
+  for(const file of ['marquee-candidates.v1.json','comms-sources.v1.json','editorial-maintenance-sources.v1.json']){
+    const response=await fetch(`https://nothingsport.vercel.app/data/${file}?verify=${sha}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
+    if(response.status!==404||!response.headers.get('cache-control')?.includes('no-store'))throw new Error(`Owner source must be closed: ${file} (${response.status})`);
+    const body=await response.json();if(body.code!=='internal_artifact_unavailable'||Object.keys(body).some(key=>!['error','code'].includes(key)))throw new Error(`Owner source rejection disclosed unexpected content: ${file}`);
+    internalSources.push({file,status:response.status,code:body.code,cacheControl:response.headers.get('cache-control')});
+  }
+  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),checks,unauthenticated:401,internalSources};
   if(process.env.NS_DEPLOY_REPORT_DIR){fs.mkdirSync(process.env.NS_DEPLOY_REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.NS_DEPLOY_REPORT_DIR,'production-verification.json'),JSON.stringify(report,null,2));}
   console.log(JSON.stringify(report,null,2));
 }

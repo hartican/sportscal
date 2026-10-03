@@ -27,8 +27,15 @@ async function main(args){
     const proofPath=args[args.indexOf('--release-proof')+1];assert(args.includes('--release-proof')&&proofPath,'Provide --release-proof <pipeline production-verification.json>.');
     const proof=read(proofPath);assert.equal(proof.sha,sha);assert.equal(proof.deployment?.sha,sha);assert.equal(proof.deployment?.state,'READY');assert.equal(proof.deployment?.target,'production');
     const head=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8'});assert.equal(head.status,0);assert.equal(head.stdout.trim(),sha,'Record publication from the exact released checkout.');
-    const response=await fetch('https://nothingsport.vercel.app/data/editorial-maintenance-sources.v1.json?release='+sha,{cache:'no-store'});assert(response.ok,'Published editorial artifact unavailable.');
-    const live=await response.json(),local=store.sources();assert.equal(live.sourceRevision,local.sourceRevision,'Wrong production editorial revision.');
+    // Server research is not a public download. Bind its exact source/transform
+    // to the existing release inventory and freshly verified production target.
+    const inventory=read(require('node:path').join(require('node:path').dirname(proofPath),'deployment-files.json'));
+    const release=require('./lib/editorial-source-release'),local=store.sources();
+    assert.equal(release.verifySourceInventory(sha,inventory,fs.readFileSync(release.sourcePath)),local.sourceRevision);
+    const vercel=require('./lib/vercel-project'),current=vercel.project().targets?.production;
+    assert.equal(current?.readyState,'READY','Current production is not READY.');
+    assert.equal(vercel.sha(current),sha,'Current production does not match the release proof.');
+    assert.equal(current.id||current.uid,proof.deployment.id,'Current production deployment differs from the release proof.');
     const app=await fetch('https://nothingsport.vercel.app/app-version.json?release='+sha,{cache:'no-store'});assert(app.ok,'Production release metadata unavailable.');
     assert.deepEqual(await app.json(),read('app-version.json'),'Wrong production shell revision.');
     const servedResponse=await fetch('https://nothingsport.vercel.app/data/events.json?release='+sha,{cache:'no-store'});assert(servedResponse.ok,'Served cards unavailable.');

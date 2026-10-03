@@ -51,6 +51,14 @@ function sameOrigin(request){
   try{ return new URL(origin).origin === requestOrigin(request); }catch(_error){ return false; }
 }
 function artifact(){ return JSON.parse(fs.readFileSync(ARTIFACT, "utf8")); }
+function campaignForPublicRead(eventId, nowMs, source = artifact()){
+  const id = clean(eventId, 180);
+  // Keep the former public page's source order and direct-event lookup. The
+  // existing campaign lookup below still enforces cancellation and readiness.
+  const candidate = source.candidates.find(item => id ? item.eventId === id : Date.parse(item.timing?.endTimeUtc) > nowMs && item.participation?.enabled !== false);
+  if (!candidate?.campaignId) throw new ParticipationError("That fixture is not available for marquee participation.", 404, "fixture_not_participating");
+  return clean(candidate.campaignId, 80);
+}
 function candidateFor(eventId, campaignId = ""){
   const id = clean(eventId, 180), campaign = clean(campaignId, 80);
   const candidate = artifact().candidates.find(item => campaign ? item.campaignId === campaign : item.eventId === id);
@@ -107,12 +115,13 @@ module.exports = async function participationHandler(request, response){
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){ response.setHeader("Allow", "GET, POST"); response.status(405).json({ error:"Participation supports GET and POST only.", code:"method_not_allowed" }); return; }
     const body = (request.method || "GET") === "POST" ? bodyOf(request) : {};
-    const campaignId = clean(body.campaignId || queryValue(request, "campaign"), 80);
+    let campaignId = clean(body.campaignId || queryValue(request, "campaign"), 80);
     const requestedEventId = clean(body.eventId || queryValue(request, "eventId"), 180);
+    const now = new Date().toISOString(), nowMs = Date.parse(now);
+    if ((request.method || "GET") === "GET" && !campaignId) campaignId = campaignForPublicRead(requestedEventId, nowMs);
     const stored=campaignId?(await rows(CAMPAIGNS,{campaign_id:'eq.'+campaignId,select:'candidate,state',limit:'1'}))[0]:null;
     const candidate=stored?.candidate||candidateFor(requestedEventId,campaignId),eventId=candidate.eventId;
     if(stored?.state==='cancelled')throw new ParticipationError('This campaign is unavailable.',404,'fixture_not_participating');
-    const now = new Date().toISOString(), nowMs = Date.parse(now);
     if(candidate.participation?.enabled===false){
       if(request.method==='POST')throw new ParticipationError('Participation needs a confirmed start time.',409,'fixture_time_unconfirmed');
       response.status(200).json({schemaVersion:'marquee-participation.v1',fixture:publicFixture(candidate,nowMs,await publishedPresentation(candidate)),aggregate:{joinedCount:0,ratingCount:0,averageRating:null,currentDevice:{joined:false,rating:null}}});return;
@@ -144,4 +153,4 @@ module.exports = async function participationHandler(request, response){
   }
 };
 
-module.exports._test = Object.freeze({ COOKIE_NAME, ParticipationError, candidateFor, deviceIdentity, parseCookies, publicFixture, sameOrigin });
+module.exports._test = Object.freeze({ COOKIE_NAME, ParticipationError, campaignForPublicRead, candidateFor, deviceIdentity, parseCookies, publicFixture, sameOrigin });

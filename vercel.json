@@ -33,6 +33,21 @@
   },
   "redirects": [
     {
+      "source": "/data/marquee-candidates.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    {
+      "source": "/data/comms-sources.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    {
+      "source": "/data/editorial-maintenance-sources.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    {
       "source": "/sports_calendar.html",
       "destination": "/",
       "permanent": true
