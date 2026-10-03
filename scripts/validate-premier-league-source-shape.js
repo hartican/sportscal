@@ -57,6 +57,11 @@ async function interruptedResponse(kind){
  await rejects('missing page metadata',p=>delete p[0].pageInfo,1);
  await rejects('wrong season',p=>p[0].content[0].gameweek.compSeason.id=840,4);
  await rejects('wrong competition',p=>p[0].content[0].gameweek.compSeason.competition.id=2,4);
+ for(const value of ['QA_UNREVIEWED',undefined,null,'',false,{},'c','u']){
+  await rejects('missing or unreviewed status',p=>{if(value===undefined)delete p[0].content[1].status;else p[0].content[1].status=value;},1);
+  const fixture=structuredClone(fixtures[1]);if(value===undefined)delete fixture.status;else fixture.status=value;
+  assert.throws(()=>pl.cardForFixture(fixture,'2026-10-03T00:00:00Z'),/missing or unreviewed source status/,'direct canonical/live card calls cannot bypass status admission');
+ }
  await rejects('self match',p=>p[0].content[0].teams[1]=structuredClone(p[0].content[0].teams[0]),4);
  await rejects('duplicate identity',p=>p[0].content[1].id=p[0].content[0].id,4);
  await rejects('duplicate pairing',p=>p[0].content[1].teams=structuredClone(p[0].content[0].teams),4);
@@ -73,6 +78,21 @@ async function interruptedResponse(kind){
   await responseSequence(p=>p.forEach(x=>x.pageInfo.numPages=10000),async calls=>{await assert.rejects(pl.refreshPremierLeagueCards(file,file,options));assert.equal(calls.length,1);});
   assert.deepEqual(fs.readFileSync(file),saved,'the actual writer preserves every last-good fixture/clock after malformed primary and unavailable backup');
   const diagnostics=JSON.parse(fs.readFileSync(path.join(directory,'report.json'),'utf8'));assert(diagnostics.checks.some(c=>c.state==='last-good'&&c.primaryFailure.includes('fixture page')),'existing exception readout retains the primary failure and last-good state');
+  const backupFile=path.join(directory,'delayed.json');assert(!fs.existsSync(backupFile));
+  await responseSequence(p=>{p[0].content[1].status='QA_UNREVIEWED';},async calls=>{await assert.rejects(pl.refreshPremierLeagueCards(file,file,{...options,checkedAt:'2026-10-03T00:15:00Z'}),/unreviewed source status/);assert.equal(calls.length,1,'stop before requesting later pages');});
+  assert.deepEqual(fs.readFileSync(file),saved,'unreviewed status plus unavailable backup cannot renew last-good status, score, identity or source clocks');
+  assert(!fs.existsSync(backupFile),'failed status admission cannot create a delayed result');
+  const statusReport=JSON.parse(fs.readFileSync(path.join(directory,'report.json'),'utf8'));assert(statusReport.checks.some(c=>c.state==='last-good'&&c.primaryFailure.includes('unreviewed source status')),'existing exception readout makes primary status verification actionable');
+  const liveSource=require('../lib/live-source-adapters').liveSources(async()=>{throw Error('QA must not call any other provider');},{environment:{}}).find(source=>source.id==='live-premier-league');
+  assert(liveSource,'the existing live owner uses this shared reader');
+  let publishes=0,failures=0;const prior=structuredClone(actual.events),priorBytes=JSON.stringify(prior);
+  const store={claim:async()=>({fixtures:prior}),publish:async()=>{publishes++;},fail:async()=>{failures++;}};
+  await responseSequence(p=>{p[0].content[1].status='QA_UNREVIEWED';},async calls=>{
+   const result=await require('../lib/live-fixtures').refreshDueSources({sources:[liveSource],store,now:new Date('2026-10-03T00:15:00Z')});
+   assert.deepEqual(result.failed,[{sourceId:'live-premier-league',code:'source_refresh_failed'}]);assert.deepEqual(result.refreshed,[]);assert.equal(calls.length,1,'live failure stops at the unsupported page');
+  });
+  assert.equal(publishes,0,'the actual live owner cannot publish an invented upcoming observation');assert.equal(failures,1,'the existing live failure path records the exception');assert.equal(JSON.stringify(prior),priorBytes,'the live snapshot and its original fixture clocks remain intact');
+  await responseSequence(()=>{},async()=>pl.refreshPremierLeagueCards(file,file,options));assert.deepEqual(fs.readFileSync(file),saved,'a reviewed primary response recovers without changing unchanged facts or clocks');
  }finally{fs.rmSync(directory,{recursive:true,force:true});}
- console.log('EPL source shape: bounded four-page reads, complete directed pairings, valid season/round identity, reschedules, zero finals and actual last-good writer preservation passed; controlled source, no network.');
+ console.log('EPL source shape: bounded four-page reads, complete directed pairings, valid season/round/status admission, reschedules, zero finals and actual last-good writer preservation/recovery passed; controlled source, no network.');
 })().catch(error=>{console.error(error.stack||error.message);process.exitCode=1;});

@@ -49,6 +49,15 @@ test('the real EPL card writer uses the recovery path and preserves its fixture 
  const saved=JSON.parse(fs.readFileSync(input));assert.equal(saved.events.find(e=>e.id===target.id).homeScore,0);
  assert.deepEqual(saved.events.filter(e=>e.key!=='premier-league').map(e=>e.id).sort(),feed.events.filter(e=>e.key!=='premier-league').map(e=>e.id).sort());
 }));
+test('an unreviewed primary status retains validated delayed-final recovery without publishing the candidate',()=>scoped(async c=>{
+ const input=path.join(c.directory,'feed.json');fs.writeFileSync(input,JSON.stringify(feed));
+ const candidate={id:999999,status:'QA_UNREVIEWED',kickoff:{millis:Date.parse(target.startTimeUtc)},gameweek:{gameweek:target.roundNumber,compSeason:{id:841,competition:{id:1}}},teams:[1,2].map(id=>({team:{id,club:{id},name:'Controlled QA Club '+id}}))};
+ await pl.refreshPremierLeagueCards(input,input,{loader:async()=>[candidate],backupOptions:{...c,coordinator:coordinator(finished())}});
+ const saved=JSON.parse(fs.readFileSync(input));assert.deepEqual(saved.events.map(e=>e.id).sort(),feed.events.map(e=>e.id).sort(),'every existing fixture ID survives and the controlled candidate cannot appear');
+ const recovered=saved.events.find(e=>e.id===target.id);assert.equal(recovered.status,'completed');assert.equal(recovered.homeScore,0);assert.equal(recovered.awayScore,2);
+ for(const field of ['homeParticipantId','awayParticipantId','roundNumber','startTimeUtc','sourceCheckedAt','canonicalSourceCheckedAt','viewingOptions'])assert.deepEqual(recovered[field],target[field],'backup retains the original '+field);
+ const report=JSON.parse(fs.readFileSync(path.join(c.directory,'report.json')));assert(report.checks.some(row=>row.state==='backup'&&row.primaryFailure.includes('unreviewed source status')&&row.newFinals===1),'validated delayed recovery remains explicitly degraded');
+}));
 test('a primary outage followed by a backup outage retains a previously accepted final; primary completion later clears the overlay',()=>scoped(async c=>{
  await backup.recover({code:'PL',events:known,primaryError:Error('outage'),coordinator:coordinator(finished()),...c});const bytes=fs.readFileSync(c.outputPath);
  const failed=await backup.recover({code:'PL',events:known,primaryError:Error('outage'),coordinator:async()=>{throw Error('second outage');},...c});assert.equal(failed.recovered,false);assert.equal(failed.events.find(e=>e.id===target.id).homeScore,0);assert.deepEqual(fs.readFileSync(c.outputPath),bytes);

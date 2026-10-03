@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict');
 const {normalizeFixture}=require('./build-code-inspector');
 const {cardForFixture}=require('./refresh-premier-league-cards');
-const base={id:1,kickoff:{millis:Date.UTC(2026,9,4,14)},gameweek:{gameweek:7},teams:[{team:{id:1,name:'Arsenal',club:{id:1}}},{team:{id:2,name:'Chelsea',club:{id:2}}}]};
+const base={id:1,status:'U',kickoff:{millis:Date.UTC(2026,9,4,14)},gameweek:{gameweek:7},teams:[{team:{id:1,name:'Arsenal',club:{id:1}}},{team:{id:2,name:'Chelsea',club:{id:2}}}]};
 const card=cardForFixture(base,'2026-09-27T00:00:00Z');
 assert.equal(card.round,'all','stage classification stays valid while matchweek lives in its dedicated fields');
 assert.equal(card.roundNumber,7);assert.equal(card.roundLabel,'Premier League Matchweek 7');

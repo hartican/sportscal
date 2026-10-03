@@ -54,6 +54,15 @@ function validateFixturePage(payload, page){
   if (!info || info.page !== page || info.pageSize !== PAGE_SIZE || info.numPages !== EXPECTED_PAGE_COUNT || info.numEntries !== EXPECTED_FIXTURE_COUNT || !Array.isArray(payload.content) || payload.content.length !== expectedSize) {
     throw new Error(`Premier League fixture page ${page} failed validation: expected a consistent ${EXPECTED_PAGE_COUNT}-page, ${EXPECTED_FIXTURE_COUNT}-fixture collection with ${expectedSize} records on this page.`);
   }
+  for (const fixture of payload.content) sourceFixtureStatus(fixture);
+}
+
+function sourceFixtureStatus(fixture){
+  // Only these raw codes have dated source-to-stored evidence. Other codes
+  // must not acquire a fresh upcoming state while their meaning is unknown.
+  if (fixture?.status === "C") return "completed";
+  if (fixture?.status === "U") return "upcoming";
+  throw new Error("Premier League fixture has a missing or unreviewed source status; retain last-good data pending primary status verification.");
 }
 
 function validateFixtureCollection(fixtures){
@@ -63,6 +72,7 @@ function validateFixtureCollection(fixtures){
     if (week?.compSeason?.id !== SEASON_ID || week.compSeason?.competition?.id !== COMPETITION_ID) throw new Error("Premier League fixture has the wrong competition or season.");
     if (!Number.isSafeInteger(week.gameweek) || week.gameweek < 1 || week.gameweek > 38) throw new Error("Premier League fixture has an invalid matchweek.");
     if (!Number.isSafeInteger(fixture.id) || fixture.id <= 0 || fixtureIds.has(fixture.id)) throw new Error("Premier League fixture identity is invalid or duplicated.");
+    sourceFixtureStatus(fixture);
     if (!Array.isArray(fixture.teams) || fixture.teams.length !== 2) throw new Error("Premier League fixture requires exactly two clubs.");
     const [home, away] = fixture.teams.map(entry => entry?.team?.club?.id || entry?.team?.id);
     if (![home, away].every(id => Number.isSafeInteger(id) && id > 0) || home === away) throw new Error("Premier League fixture has an invalid club identity or self match.");
@@ -127,7 +137,8 @@ function cardForFixture(fixture, checkedAt){
   if (!home || !away || !Number.isFinite(fixture?.kickoff?.millis)) throw new Error(`Premier League fixture ${fixture?.id || "unknown"} is missing teams or a confirmed kickoff.`);
   const startTimeUtc = new Date(fixture.kickoff.millis).toISOString();
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
-  const completed = fixture.status === "C";
+  const status = sourceFixtureStatus(fixture);
+  const completed = status === "completed";
   const result = completed ? resultScoreline(fixture, home, away) : null;
   if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
@@ -176,7 +187,7 @@ function cardForFixture(fixture, checkedAt){
     }],
     venue: fixture.ground?.name || null,
     scheduleStatus: fixture.provisionalKickoff?.millis === fixture.kickoff?.millis ? "confirmed" : "provisional",
-    status: completed ? "completed" : "upcoming",
+    status,
     expected: 6,
     liveWindow: 3,
     round: "all",
