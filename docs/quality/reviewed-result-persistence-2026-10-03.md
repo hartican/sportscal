@@ -1,5 +1,7 @@
 # Reviewed result persistence and unavailable-result presentation — 3 October 2026
 
+Current release closeout (2026-10-03T07:15:47.816649+00:00): `3ef8c74e5d408812189cc02f59a020e20f0534aa`, shell 406, [workflow](https://github.com/hartican/sportscal/actions/runs/37105425818), exact READY/SHA/aliases/served and 118 live card cases and 16 served Follow startup scenarios pass. Both 405→406 browser upgrade rehearsals pass. Earlier preparation/failures below remain dated history; they are not the current release status. Physical-device/provider playback, independent recovery and full quality certification remain open.
+
 Prepared for the existing exact-snapshot release; publication/READY/live evidence remains pending. This completes the source reconciliation required by the locally held World Cup/MotoGP candidate `a5587dde`. It does not certify a sport, full tennis tournament or commercial readiness.
 
 Two existing matches now carry individually reviewed official finals: Essendon beat GWS GIANTS 43–35 in AFLW Round 8, and Alex de Minaur beat Quentin Halys 3–6, 7–6(5), 7–5 in the China Open Round of 16. The [AFL match centre](https://www.afl.com.au/aflw/matches/8946) confirms Full Time. The [ATP draw](https://www.protennislive.com/posting/2026/747/mds.pdf), released 3 October 13:58:22 Beijing time, confirms the second-round winner and set score in its bracket. Actual retrieval observations are 06:33:30.622Z and 06:30:00.200Z respectively; they are not inferred match-end times.
