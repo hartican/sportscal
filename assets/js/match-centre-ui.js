@@ -3,7 +3,7 @@
  'use strict';
 function loadMatchCentreStyles(){
  if(document.querySelector('[data-mc-style]'))return;
- const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=401';link.dataset.mcStyle='';document.head.append(link);
+ const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=403';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
 
@@ -52,7 +52,7 @@ loadMatchCentreStyles();
   const tabs=node('div',null,'mc-membership-tabs');tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Match Centre fixtures');
   for(const [view,label] of [['everything','Everything'],['followed','Followed']]){const tab=node('button',label,'btn ghost');tab.type='button';tab.setAttribute('role','tab');tab.setAttribute('aria-selected',String(selectedView===view));tab.onclick=()=>{if(selectedView===view)return;generation++;selectedView=view;manual=null;notice='';const cached=viewCache.get(view);membership=cached?.events||[];membershipKey=cached?.key||'';membershipCheckedAt=cached?.checked||0;nextCursor=cached?.nextCursor??null;membershipOwner=owner();renderMatchCentre();};tabs.append(tab);}panel.append(tabs);
   const announcement=node('p',notice,'mc-refresh-notice');announcement.setAttribute('role','status');announcement.setAttribute('aria-live','polite');panel.append(announcement);panel.setAttribute('aria-busy',String(Boolean(manual||hydrating)));
-  const all=candidates(),choice=buildSurfaceCategoryChooser('match-centre',all,render);heading.append(choice.select);const events=all.filter(e=>NOTHINGSPORTS_SURFACE_CATEGORY.matches(e,choice.selected));
+  const all=candidates(),choice=buildSurfaceCategoryChooser('match-centre',all,render,{includeAll:true});heading.append(choice.select);const events=all.filter(e=>NOTHINGSPORTS_SURFACE_CATEGORY.matches(e,choice.selected));
   if(!events.length)panel.append(node('p',hydrating?'Loading live fixtures…':selectedView==='everything'?'No fixtures in the live window. Fixtures appear 30 minutes before start.':'No followed fixtures in the live window. Add a fixture to Feed or follow its participants.'));
   for(const e of events){
    const id=m().id(e),snapshot=m().observation(m().compact(e),scores.get(id)||m().compact(e)),card=node('article',null,'match-centre-card'),details=node('details'),summary=node('summary',null,'mc-row');card.dataset.matchId=id;details.open=expanded.has(id);summary.setAttribute('aria-label',`Expand ${spoilerSafeDisplayTitle(e)}`);

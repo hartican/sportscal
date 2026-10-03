@@ -1,9 +1,10 @@
 'use strict';
-function buildSurfaceCategoryChooser(surface,events,onChange){
+function buildSurfaceCategoryChooser(surface,events,onChange,{includeAll=false}={}){
   const keys=[...new Set(events.map(NOTHINGSPORTS_SURFACE_CATEGORY.category))].sort();
+  if(includeAll)keys.unshift('all');
   const current=userPreferences.surfaceCategories?.[surface],selected=keys.includes(current)?current:keys[0];
   const select=document.createElement('select');select.setAttribute('aria-label','Sport category');
-  for(const key of keys){const option=document.createElement('option');option.value=key;option.textContent=NOTHINGSPORTS_SURFACE_CATEGORY.label(key);select.append(option);}select.value=selected||'';
+  for(const key of keys){const option=document.createElement('option');option.value=key;option.textContent=key==='all'?'All sports':NOTHINGSPORTS_SURFACE_CATEGORY.label(key);select.append(option);}select.value=selected||'';
   select.onchange=()=>{const next=clonePreferences(userPreferences);next.surfaceCategories={...next.surfaceCategories,[surface]:select.value};savePreferences(next,{viewOnly:true});onChange();};
   return {select,selected};
 }

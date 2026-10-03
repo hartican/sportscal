@@ -429,3 +429,5 @@ Further 3 October organiser checks: the Tokyo order of play independently verifi
 Offline first-use correction: when the deferred favourites interface cannot load, its shell fallback retains My athletes & teams, Browse sports and Retry. The already cached directory remains reachable without altering follows or notification choices. Installed-browser regression follows the new favourites landing before opening Browse sports.
 
 Chromium/WebKit installed-browser rehearsal passes the 400-to-402 upgrade and offline first-use Browse route, with persisted preferences and no consent changes. The returning-user fixture acknowledges the existing taxonomy notice before testing normal navigation; initial old-navigation and modal-intercept failures are recorded separately. This is automated browser evidence, not physical phone or push receipt proof.
+
+Final public-data correction: Match Centre defaults its optional sport chooser to All sports, rather than the first alphabetical sport. Explicit sport choices remain remembered. Everything membership is still independent of that display filter. Mixed Football/NRL browser fixtures cover the default and Followed return.
