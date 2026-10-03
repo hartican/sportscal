@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Known canonical fixture names — 4 October 2026
+
+Existing canonical `displayName` is a known title, not an absent-name state. Shared normalization preserves an explicit `name` or compact title first, then this canonical title before a competition-only or unknown fallback. This repairs Code/Schedule and fixture-chat descriptions without changing participants, identity/action aliases, admission, routing, Follow choices, Results, ratings, reminders, data clocks or source ownership. Genuine missing/invalid titles remain explicit. Regressions run through the existing card-identity and canonical Code gates; actual reference Feed/Schedule checks cover public controls and protected results. [Evidence](quality/canonical-fixture-names-2026-10-04.md).
+
 ## Profile content before optional history — 4 October 2026
 
 The existing rich-profile renderer shows known details or its explicit gap after required profile retrieval, before optional participation/history finishes. Source-backed history remains under Results consent, the same bounded lookup and published fallback; its arrival appends without replacing focused established source links. Closed/switched routes reject late updates. Basic-only Follow profiles retain their existing separate renderer and do not gain a history request. No identity, Follow/admission, fixture routing, disclosure, rating, reminder, notification or source-budget rule changes. Regression: `validate-profile-progressive-browser.js` through the existing full Football browser suite, plus retained actual profile/Follow and upgrade checks. [Evidence](quality/profile-progressive-content-2026-10-04.md).

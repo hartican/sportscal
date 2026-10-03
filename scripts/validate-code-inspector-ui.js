@@ -11,12 +11,12 @@ const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Athletes','Follow']);
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow']);
 assert(html.includes('Back to Feed')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
-for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
+for(const label of ['Schedule','My athletes & teams','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
 assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
 assert(html.includes("pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
@@ -93,6 +93,8 @@ const canonicalCodes = [
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
   ...["competition:tour-de-france","competition:giro-ditalia","competition:vuelta-a-espana","competition:wsl-championship-tour"].map(id=>taxonomy.competitions.find(code=>code.id===id)),
   taxonomy.competitions.find(code => code.id === "competition:motogp"),
+  taxonomy.competitions.find(code => code.id === "competition:le-mans"),
+  taxonomy.competitions.find(code => code.id === "competition:dakar"),
   taxonomy.competitions.find(code => code.id === "competition:sailgp"),
   taxonomy.competitions.find(code => code.id === "competition:fiba-womens-world-cup"),
 ].filter(Boolean);
@@ -102,7 +104,7 @@ assert.deepEqual(
   "Follow Schedule must cover every active canonical code, including unfollowed codes"
 );
 for (const [codeId, minimumFixtures] of [
-  ["sport:nrlw", 7],
+  ["sport:nrlw", 71],
   ["competition:fiba-womens-world-cup", 17],
   ["competition:sailgp", 7],
   ["competition:motogp", 9],
@@ -110,7 +112,7 @@ for (const [codeId, minimumFixtures] of [
   const code = manifest.codes.find(item => item.id === codeId);
   assert(code, `${codeId}: requested code must be published`);
   assert(code.fixtureCount >= minimumFixtures, `${codeId}: requested schedule is incomplete`);
-  assert.equal(code.coverageStatus, codeId==='competition:sailgp'?'partial':'complete', `${codeId}: coverage must match the reviewed published window`);
+  assert.equal(code.coverageStatus, ['sport:nrlw','competition:sailgp'].includes(codeId)?'partial':'complete', `${codeId}: coverage must match the reviewed published window`);
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, code.chunkPath), "utf8"));
   assert.equal(chunk.fixtures.length, code.fixtureCount, `${codeId}: manifest and chunk fixture counts must agree`);
 }
@@ -201,3 +203,5 @@ for (const fixture of canonicalBundle.events.filter(event => event.status === "s
 }
 
 console.log(`Follow Schedule and Standings UI contract valid across ${manifest.codes.length} canonical codes.`);
+
+require('./validate-canonical-fixture-names').validate({published:true});

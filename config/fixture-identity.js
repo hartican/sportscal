@@ -53,7 +53,7 @@
     if ([value.status,value.scheduleStatus].some(status => String(status || "").toLowerCase() === "unpublished")) normalized.published = false;
     normalized.id = String(value.id || value.eventId || value.canonicalEventId || "");
     normalized.eventId = String(value.eventId || value.canonicalEventId || normalized.id);
-    normalized.name = text(value.name) || text(value.displayTitleCompact) || text(value.competitionName) || "Fixture details unconfirmed";
+    normalized.name = text(value.name) || text(value.displayTitleCompact) || text(value.displayName) || text(value.competitionName) || "Fixture details unconfirmed";
     normalized.displayTitleCompact = text(value.displayTitleCompact) || normalized.name;
     normalized.date = text(value.date) || text(value.startDate);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized.date)){
