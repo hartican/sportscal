@@ -1,0 +1,90 @@
+# CTO current decision checkpoint — 4 October 2026
+
+This is the current synthesis of the original audit and dated deliveries, not another backlog. [The authoritative queue](../cto-delivery-plan.md) owns sequencing. The master Markdown/HTML report retains all 51 numbered chapters, original diagrams and historical failures. Live app fc5df199, shell 416, remains the last released app; reviewed main 0b98d317 additionally contains documentation. This checkpoint changes reports only.
+
+## Recommended course
+
+Complete acceptance of the present product, with Football first, before adding sports, a paid service or a commercial launch. Preserve the monetisable-MVP target of at least 13/16 carried families; current certification remains 0/16 and 0/3 Football pilots. Treat these zeros as absence of complete six-gate proof, not evidence that every card is wrong. The 90-day programme began 25 September; selected quality, recovery and real repeat-use evidence are achievable aims, while full cross-sport readiness has no justified date yet.
+
+## Five actions and acceptance
+
+| Action | Business value / evidence | Effort and dependencies | Cash / owner-time impact | Done or stop criterion |
+|---|---|---|---|---|
+| Finish Football pilots, EPL first, then UCL/Europa | Reuse verified 668 match identities, dated source comparisons, free outage backup and shipped presentation fixes; reduce missed/incorrect watch decisions | 2–5 focused engineering days is an estimate, plus external waits; six gates, existing source owner, source permissions, actual playback/device evidence | A$0 new subscriptions; no recurring owner tracker. Consolidate genuinely necessary provider/launch decisions later | Every declared competition/window has explicit accepted evidence for all six gates. Leave failures and unavailable evidence visible; no certification from tests or programme counts alone |
+| Close operational and service recovery limits | Shipped clock/hash, source-failure, security and erasure guards reduce churn and unsafe access; isolated Auth/Storage recovery already has bounded proof | 3–6 days is an unmeasured wider estimate; next ordinary owner run, configuration/issuer continuity, accepted transfer/identity/peer and account-lifecycle evidence | No new service. Passwords/iCloud attempts remain parked; no repeat production export just to test locally | Successful unattended publication through existing gates; recover required service configuration safely; complete scoped lifecycle reconciliation. Never infer full erasure from 68/68 direct guards |
+| Certify reference and weak current windows using the same method | NRL/NRLW, Cricket/Rugby, NBL, Golf and Sailing repairs have dated evidence; the raw matrix still exposes gaps | Approximately 1–3 days per bounded competition review before source-access waits; estimate, not a commitment to thirteen families | A$0 extra subscriptions; implementer maintains evidence. No owner choice for each minor fix | Sport-appropriate facts, viewing/context, behaviour and permitted operations pass. Retain the fixed denominator and explicit gaps; empty catalogues/contexts cannot earn credit |
+| Complete one device session, then authorised invited-cohort observation | Dual-engine rehearsals and qualified reporting are implemented; physical operation and actual useful repeat use are still absent | One prepared 15–20 minute owner session when ready; invitations require explicit authorisation and pilot readiness. Observation takes elapsed user time | Existing first-party measurement with opt-out; no analytics vendor; brief exception review | Installed close/reopen/offline/update plus one explicitly opted-in fresh reminder; actual invited-account numerators/denominators and later-day meaningful action. Simulations/owner sessions are excluded |
+| Retain the prepared fixed-fee sponsor experiment | Existing four-week brief separates commercial placement from facts/ranking; avoids a billing platform | Deferred until quality, rights, hosting entitlement and measured repeat use; one later consolidated approval | No purchase or outreach now; proposed administration cap 30 minutes/week after approval | One labelled/dismissible tile and separate sponsor events; disclose measured population; stop if entitlement/rights fail, promised delivery fails or administration exceeds agreed cap. No revenue forecast without audience/fee evidence |
+
+## Current findings disposition
+
+The following reconciles original F01–F17 against saved evidence. “Scoped repair shipped” closes the reproduced defect only; it does not close every original risk. No new production database scan or full security/accessibility audit was performed in this checkpoint.
+
+| Original finding | Current disposition | Evidence and remaining boundary |
+|---|---|---|
+| F01 Snapshot churn | Partly mitigated; targeted repairs shipped | [Captured EPL repair](epl-result-clock-snapshot-integrity-2026-10-03.md) and dated ordinary unchanged cycle; 30 September matched-window comparison found fewer additions with retention/deployment confounders. No long-term allocation/cash saving claim |
+| F02 Reminder dispatch | Owner/configuration recovered; physical delivery unverified | [Dated operational record](../cto-delivery-history-through-2026-10-03.md), 1 October empty-queue success. An empty queue is not delivered push; preserve OFF and do not replay historical reminders |
+| F03 Repeated source failure | Retired-source/health handling improved; sustained reliability unverified | 1 October aggregate has 34 active sources, zero current failures, obsolete cricket-ca-4710 retained as retired. That dated checkpoint is not present provider truth; use existing exception readout |
+| F04 NFL in Football | Scoped classifier repair shipped | [Dated Q3 evidence](../cto-delivery-history-through-2026-10-03.md); canonical identity and negative classifier cases. No Follow-policy change to mask the error |
+| F05 Australian free viewing lost | Scoped viewing repairs shipped; playback remains unverified | [Viewing acceptance](football-viewing-acceptance-2026-09-30.md) and [56-fixture 3 October window](football-viewing-window-assessment-2026-10-03.md). Snapshot/destination agreement is not authenticated playback or guaranteed replay |
+| F06 Football directory/fixture gap | Major partial progress; not complete coverage | EPL 380 + UCL 144 + Europa 144 league matches; directories, other leagues and future knockout windows are not working match coverage |
+| F07 False completeness | Separate evidence contract shipped; legacy catalogue label is not certification | [Anti-false-pass audit](coverage-certification-integrity-2026-10-03.md); current six-gate contract still certifies zero. Full evidence must be inspected, not merely linked |
+| F08 NRL/AFL reference regressions | Named cases repaired; family quality unverified | [Finals and retained results](nrlw-finals-integrity-2026-10-03.md), [NRLW ladder](nrlw-ladder-2026-10-04.md), [qualified timing](qualified-timing-2026-10-03.md). No assumed-perfect reference |
+| F09 Canonical release failure | Several reproduced QA/build defects repaired; ordinary success still open | [Deferred-source gate repair](deferred-directory-qa-2026-10-04.md). Latest ordinary run 37146184945 failed before publication; next successful ordinary invocation must supply proof |
+| F10 Installed-update uncertainty | Browser upgrades pass; physical acceptance open | [Latest two-engine 415→416 evidence](profile-source-context-2026-10-04.md); no actual iPhone close/reopen/push proof |
+| F11 Coupling/test rework | Partial extraction and meaningful integration gains; debt remains | [API initialization](feed-authentication-initialization-2026-10-03.md), [profile progressive content](profile-progressive-content-2026-10-04.md), 137 normal commands. No whole-shell rewrite or measured general productivity gain |
+| F12 Cricket viewing provenance | Affected release gate passes; wider viewing quality unverified | Current normal release 37151431175 passes Australian viewing gate; [dated Rugby/Cricket review](rugby-cricket-viewing-2026-10-02.md). Do not infer all fixtures/playback are verified |
+| F13 Unqualified telemetry | Reporting qualification implemented; actual cohort absent | [Invited-account readout](invited-account-readout-2026-10-04.md), tested membership/cutoff/QA exclusions. No real cohort query or retention claim |
+| F14 Backend security gaps | Specific boundaries/guards improved; whole security status unverified | [Chat-admin confirmation](chat-admin-confirmation-2026-10-04.md), [68/68 direct erasure guards](reminder-erasure-guards-2026-10-04.md). Leaked-password protection/plan and full indirect paths remain separate |
+| F15 Complete erasure/privacy | Rehearsals and guards implemented; end-to-end acceptance open | [Operator runbook](../account-erasure-runbook.md), [recovery limits](recovery-rehearsal-2026-10-01.md). No real customer erasure or full residual-cache certificate |
+| F16 Missing CSP/security headers | Enforced baseline shipped; strict script CSP deferred | [Header policy](../security-header-baseline.md); seven-route release proof from 20:29 UTC verifies framing/base/object, MIME and referrer protections. Inline-script inventory/report-only observation and authenticated/device compatibility still required for strict script CSP |
+| F17 Conflicting plans | One current queue established; historical plans retained as dated evidence | [Current queue](../cto-delivery-plan.md), mandatory Follow/backend records. This checkpoint replaces stale executive next actions without erasing original audit evidence |
+
+## Competition-aware current inventory
+
+Fresh local read at main 0b98d317, 4 October Sydney, using the existing non-mutating audit. The underlying sporting files are unchanged from live fc5df199. “Records” includes actual matches, sessions, tournament/stage context and retained history; it is not a number of supported fixtures or independently verified competitions. Competition groups include unclassified/undated groups where present. Counts cannot measure user demand, provider accuracy or polish. All sixteen carried families remain in the denominator.
+
+| Carried family | Unique projected records | In-scope competition groups | Full certification |
+|---|---:|---:|---|
+| Australian rules | 338 | 2 | Unverified |
+| Rugby league | 288 | 3 | Unverified |
+| Motorsport | 344 | 8 | Unverified |
+| Surfing | 15 | 2 | Unverified |
+| Rugby union | 694 | 23 | Unverified |
+| Tennis | 1014 | 6 | Unverified |
+| Football | 702 | 4 | Unverified |
+| Cycling | 66 | 1 | Unverified |
+| Cricket | 132 | 28 | Unverified |
+| Basketball | 189 | 1 | Unverified |
+| Golf | 127 | 9 | Unverified |
+| American football | 321 | 1 | Unverified |
+| Ice hockey | 1493 | 2 | Unverified |
+| Skiing | 0 | 0 | Unverified |
+| Multi-sport | 34 | 0 | Unverified |
+| Sailing | 46 | 1 | Unverified |
+
+EPL has 380 season matches, 338 in the frozen discovery window. UCL has 156 retained projected records: **144 league-phase matches, seven retained qualifying matches and five programme windows**. The five planned knockout windows deliberately have no assigned participants, date or Sydney kickoff; their sourced European date ranges remain contextual, not five defective matches. The raw auditor counts those windows among undated/identity diagnostics. Keep this signal visible and interpret it against the source model; do not invent opponents/clocks to clear it. Europa has 144 league-phase matches. Football’s 702 unique records deduplicate overlapping Codes; its parent Code alone has 690. These are different inventories, not new leagues. Skiing's zero Inspector rows do not erase its carried cards; Multi-sport’s retained rows supply no in-window certification.
+
+No certification is added. Fixture-truth, timing/results, Australian viewing, context/editorial, presentation/behaviour and operations/rights all require explicit reviewed proof. The [contract](../../config/quality/coverage-contract.json) retains its frozen window and ≥80% target. Assess requested missing Australian Football coverage only after the three current pilots work; the original demand/coverage register and roadmap govern additions.
+
+## Architecture checkpoint
+
+The current system already has useful boundaries to deepen: shared primary adapters and one canonical refresh owner; delayed outage facts separated from primary tables/datasets; stable facts and observation receipts; reusable projections; local/account personalisation; private editorial control; exact-SHA release and static/server publication boundaries. Supabase retains authentication, durable personal/social state, live snapshots/receipts, source health and protected Storage. Owner research is excluded from current static publication while required function copies remain. Public Git/history and old copies are not withdrawn.
+
+Recommended architecture is an incremental refinement of that system. Validate source → canonical fact identity/provenance → sport-specific interpretation → shared card view model → presentation. Keep personal consent/activity outside sporting facts; keep editorial interpretation labelled and revisioned; keep any future commercial support placement outside organic facts/ranking with separate events. Existing API, additive metadata and compact projection boundaries already carry the current repairs. No new API, schema, credential, scheduler, browser polling or architecture rewrite is required by this checkpoint. A future fixture/programme-type refinement needs explicit schema/projection/quality-test evidence before certification; it must not silently hide genuinely missing matches.
+
+## Development cost and low-burden practice
+
+The goal service reports **4,090,967 cumulative tokens and 35,606 seconds (9.89 hours)** at 20:42 UTC on 3 October for this thread’s continuation goal. These counters are not attributable per accepted change, do not include all earlier CTO work or other chats, and provide no cash bill, utilisation or savings estimate. They establish a material need to bound continuation work; they do not identify which repair was wasteful. Current normal release evidence records 137 local commands in 143.052 seconds; all remain required. Repeating broad review without a new hypothesis adds no acceptance evidence.
+
+Use the existing task brief and queue. Start with at most a 15-minute evidence pass; retrieve exact paths and original modules, omit generated runtime, cap output, and after two failed diagnostic attempts change the hypothesis. A passing narrow fix is not the next programme destination: choose a coherent acceptance outcome and publish once its required checks pass. Record existing run runtime and failed/reopened acceptance alongside the outcome; tokens/cash remain unknown unless actually attributable. No new owner-maintained cost sheet, scheduler or analytics service. The existing weekly exception review should state health, user value, spend, next work and at most one material decision. Ordinary technical choices remain with the implementer.
+
+## Evidence and verification boundaries
+
+Fresh read-only checks: local coverage audit; GitHub main 0b98d317; latest ordinary scheduled run 37146184945 (failure); public shell 416; Vercel project/READY/production releaseGitSha and all three aliases at 20:42:59 UTC. Prior normal release 37151431175, nine served hashes, hosted journeys and browser upgrades remain dated evidence. No sports-provider query, canonical source invocation, production database export/write, key recovery attempt, reminder replay, customer operation, invitation, subscription or app deployment occurs in this checkpoint.
+
+Saved evidence under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`: `programme-current-coverage-20261004.json`, `programme-current-production-20261004.json`, `programme-public-version-20261004.json`, `programme-investigation-accounting-20261004.json` and verification closeout. One metadata probe wrongly expected releaseGitSha in public feed-meta; the failed assumption is retained separately and corrected by the actual deployment metadata, not treated as a production mismatch. A local evidence-writer attempt also failed on Python null syntax before writing; the completed JSON is separately validated. These are tooling failures, not product defects.
+
+Confidence: high for inspected repository structure, counts and exact current release binding; medium for cross-module finding disposition based on dated scoped evidence; unverified for complete provider permission, authenticated playback, physical operation, whole-account/replacement-device recovery and actual cohort/revenue outcomes. This report does not declare the programme complete.
+
+Verification: eight report cases pass in Chromium/WebKit at 320/1280 widths, with no page overflow, labelled loaded diagrams, keyboard skip/activation, focusable table regions and scoped headers. All 51 chapter destinations resolve. Existing quality-contract/anti-false-pass tests and all local evidence links pass. The active queue changes from 28,993 to 8,809 bytes (about 70% less current reading); the complete previous text is preserved as dated history. This is a document-size result, not measured token/cash/owner-time saving. The new diagram directory was initially absent, and a content assertion initially assumed every old chapter used a uniform anchor name; both report-tool failures are retained and corrected without duplicating document mutations or changing historical deep links. Tracked source since the live app is documentary only; inherited untracked Supabase temporary files remain untouched. No broad app tests or deployment are repeated for these report-only changes.
