@@ -77,7 +77,7 @@ const CODE_KEYS = Object.freeze({
   "sport:multi-sport": ["cwg"],
   "sport:american-football": ["american-football", "nfl"],
   "sport:ice-hockey": ["ice-hockey", "nhl", "chl"],
-  "sport:skiing": ["skiing", "snow"],
+  "sport:skiing": ["ski", "skiing", "snow"],
   "sport:multi-sport": ["multi-sport", "cwg", "commonwealth-games"],
 });
 
@@ -151,8 +151,9 @@ function eventMatchesCode(event, code){
   if((event.participantIds || []).some(id=>id.startsWith("team:nrl:")) && code.id==="sport:rugby-union")return false;
   const childId = childCodeId(event);
   if (childId) return code.id === childId;
-  // Football must not match American Football by substring or a conflicting legacy key.
-  if(code.id === "sport:football"){
+  // Exact aliases recover legacy Skiing; canonical sport conflicts still win.
+  // Football must not match American Football by substring.
+  if(["sport:football","sport:skiing"].includes(code.id)){
     const domain=[event?.sportDomainId,event?.codeId,event?.sportId,event?.taxonomyNodeId].find(value=>String(value||" ").startsWith("sport:"));
     if(domain)return domain === code.id;
     const aliases=new Set(CODE_KEYS[code.id]);

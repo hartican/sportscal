@@ -69,8 +69,9 @@ async function refreshNflResults(now){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Current card evidence)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Current card evidence|Skiing calendar review)/.test(change));
  const codes=new Set();
+ if(changes.includes('Skiing calendar review'))codes.add('skiing');
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
@@ -208,6 +209,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}
   failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.code}`));
  }catch(error){failures.push(`LPGA: ${error.message}`);}
+ const skiReview=require('./lib/skiing-calendar-review').applyRetained();
+ if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');

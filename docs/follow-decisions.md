@@ -467,3 +467,8 @@ The 3 October dated organiser article confirms Sinner has withdrawn and explicit
 ## Dated NRLW regular-season standings — 4 October 2026 Sydney
 
 Fulfil the existing source-backed standings/profile requirement with the official final 2026 regular-season NRLW ladder: twelve clubs, reconciled against all 66 regular-season matches. Finals do not change this table. Keep the observation date and dated/non-live limitation; no inferred qualification, later-snapshot context for historical kickoffs or editorial expansion. Existing Results OFF/table and profile-local reveal, fixture/activity identities, Follow admission and reminder consent remain authoritative. NRLW remains partial. Use the existing canonical refresh owner and no additional routine. Regression and scope: `scripts/validate-nrlw-ladder.js`, `scripts/validate-nrlw-ladder-browser.js`, installed-browser upgrade rehearsals and [delivery evidence](quality/nrlw-ladder-2026-10-04.md).
+
+
+## Skiing calendar integrity — 4 October 2026
+
+Four already carried Skiing IDs retain their durable actions and existing opt-ins. Exact legacy classification restores their Schedule; existing Alpine/Freestyle competition metadata and a clear four-appointment partial note describe source scope. Venue calendar dates remain unknown Sydney starts until explicit verified UTC is supplied. No admission, consent, exclusion, Results or reminder policy is changed. Regression: validate-skiing-calendar-review.js, two-engine source-card/Schedule checks and normal Follow/cache gates.

@@ -110,7 +110,7 @@ const permittedViewingTbcNames = new Set([
   "Billie Jean King Cup Finals — Team competition", "2027 PGA Championship",
   "WSL Margaret River Pro", "UCI Downhill MTB World Cup",
   "Kvitfjell — Men's Downhill World Cup", "Kvitfjell — Men's Super-G World Cup",
-  "Shahdag — Moguls World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
+  "Shahdag — Moguls World Cup Finals", "Shahdag — Freestyle World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
 const unconfirmedGrandTourRights=event=>['tdf','giro','vuelta'].includes(event.key)&&event.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&/^https:\/\/(?:www\.)?(?:letour.fr|giroditalia.it|lavuelta.es)\//.test(event.calendarProvenance?.sourceUrl||'');

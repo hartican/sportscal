@@ -1,0 +1,38 @@
+# Skiing calendar integrity — 4 October 2026
+
+Status: local implementation, canonical integration and both-engine browser/cache checks passing; final normal gates, release and hosted proof pending. Four existing IDs are repaired. This is selected calendar coverage, not Skiing MVP certification or a full winter season.
+
+## Verified problem and source scope
+
+The legacy `ski` key excluded all four retained Skiing cards from the Inspector/Schedule. Three cards carried 22:00/04:00 seed clocks without reviewed race-start evidence. Existing source-time reminder normalization already blocked those seed clocks; no prior notification is claimed. All four carried an unsupported “FIS broadcast” label, and three previews promised that destination without Australian rights or a working verified link.
+
+Read-only FIS 2027 calendar/detail pages reviewed at **2026-10-03T21:36:12.000Z** verify the retained scope:
+
+| Existing ID | Reviewed venue date | Official identity | Limits |
+|---|---|---|---|
+| evt_101 | 6 March 2027, Norway | [Kvitfjell event 62952](https://www.fis-ski.com/DB/general/event-details.html?sectorcode=AL&eventid=62952&seasoncode=2027), men’s downhill race 131746 / codex 0067 | Race start not published |
+| evt_102 | 7 March 2027, Norway | Same event, men’s Super-G race 131747 / codex 0068 | Race start not published |
+| evt_103 | 20 March 2027, Idaho | [Sun Valley event 62937](https://www.fis-ski.com/DB/general/event-details.html?sectorcode=AL&eventid=62937&seasoncode=2027), men’s downhill race 131690 / codex 0073 | TCM meeting times are not racing starts; Sydney date/time unconfirmed |
+| evt_104 | 5–7 March 2027, Azerbaijan | [Shahdag event 62878](https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027), six men’s/women’s races: Aerials 5th, Moguls 6th, Dual Moguls 7th | Existing programme ID retained; no race clocks or entrants invented |
+
+[US Ski & Snowboard’s current event calendar](https://www.usskiandsnowboard.org/2026-27-events) independently agrees with Sun Valley’s 20 March downhill date; its broadcast schedule is coming soon, not Australian rights evidence. The initial unfiltered web extraction returned a cached 2025/26 season; explicitly selected 2027 browser pages and event identities are the accepted evidence. No generic catalogue or search snippet certifies a season.
+
+## Change and architectural boundary
+
+`data/canonical/skiing-calendar-review.v1.json` stores the reviewed four-record fact scope and genuine observation date. The existing cards owner has a scoped retained-data route, `node scripts/update-cards.js --skiing-calendar-review --local-only`; full and ordinary quick routes retain the same review. No new source request, live poll, scheduler, browser credential or database migration. Provider commercial-use permission remains unverified.
+
+The persistent writer preflights both complete retained documents before writing. Existing IDs stay intact; future verified exact starts, later official observations, reschedules and terminal/live states survive. Invalid, incomplete or ambiguous review input fails closed. Reruns retain the original observation, rather than making unchanged facts look newly fetched. Genuine calendar review is separate from the old status observation and Shahdag’s dated editorial research.
+
+The classifier uses exact legacy aliases and canonical sport precedence. Existing Alpine/Freestyle competition IDs classify the four appointments; no new competition, participant or preference is added. Shared timing presents **venue dates**, **Time TBC** and **Sydney start TBC**. A later explicitly confirmed exact UTC start removes the obsolete venue label and single-day end date, then uses the real Sydney day. The fallback renderer follows that same contract. Unknown viewing is explicit. Three generic seed previews become brief sourced calendar context; Shahdag’s existing narrative and research timestamp stay unchanged, while its title clearly identifies the existing multi-discipline programme.
+
+Schedule now loads the four existing cards in chronological order, makes all four reachable through Later navigation, and explains the partial boundary. The changed deferred panel URL, shell/runtime and cache epoch are coordinated at 418; the unchanged athlete-profile URL remains 416. No Follow consent, exclusion, retention, Results or automatic-reminder rule changes.
+
+## Acceptance and recommendation
+
+Business value: improve planning trust and discoverability for an already carried family, replacing misleading precision with clear gaps. Effort: a small contained source-to-screen module; verification runtime is recorded with delivery evidence. Cash: **A$0 new spending**, no provider subscription or recurring calls. Owner time: no new maintenance task or choice; future season/timing review belongs in the existing exception queue. Dependencies: reviewed FIS identity/date facts, current shared renderer and canonical publication/cache controls.
+
+Accept only when both retained surfaces keep all **1,503 IDs**, all **1,499 other records** remain byte-equivalent as parsed records, four verified calendar dates reach Schedule/Feed/fallback, no seed racing clock/watch promise survives, unknown dates cannot produce reminder clocks, later exact UTC recovery uses the correct Sydney day, and normal release/served/hosted/cache checks pass. Keep initial validation failures as evidence: nullable single-day calendar times needed the existing date-only window contract; the seed preview exceeded the existing 180-character limit; a Schedule diagnostic initially read the panel before its deferred script loaded; the actual panel then revealed an omitted partial-coverage explanation and generic session wording, both repaired.
+
+Act now because these are reproduced visible correctness defects. Defer full winter coverage, automated race results, ranking/entry completeness and verified Australian playback until a complete nominated competition window and source/rights evidence are available. Do not infer demand from four implementation records. Programme target remains **≥13/16 families**; certified **0/16 and 0/3 Football pilots**. Continue the whole programme; Passwords/iCloud remains parked.
+
+Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/skiing-calendar-integrity-20261004/`. Source review, full baseline, canonical logs, final preservation and 180 local renderer cases exist: 144 actual published records and 36 controlled exact-recovery cases, plus two actual Schedule navigation journeys. Three widths, two themes, reminder-clock exclusion, preference preservation and overflow checks pass. API calls are mocked unavailable and workers blocked for renderer checks. Both 417→418 upgrade rehearsals pass separately; these simulations do not certify an installed phone, authenticated playback or actual reminders. The first 137-gate pass occurred during development; final frozen checks and release details are recorded separately.

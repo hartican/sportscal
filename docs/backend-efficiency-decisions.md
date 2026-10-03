@@ -537,3 +537,8 @@ Calendar-only MotoGP merges preserve existing verified result status, completion
 ## Shanghai participation checkpoint — 4 October 2026 Sydney
 
 The 3 October dated organiser article confirms Sinner has withdrawn and explicitly names Alcaraz and Djokovic in the field. These reviewed journey facts preserve canonical identities and genuine check dates; de Minaur remains an expectation because this article does not confirm him. A source-labelled participation update appears in Sinner’s existing Follow profile. No match, clock, score, reminder, source permission or full-event coverage is inferred. The later owner-approved Follow favourites/Match Centre navigation remains authoritative. No migration, database change, new scheduler or source request per user. Regression: validate-tennis-journeys.js and validate-athletes-browser.js.
+
+
+## Skiing calendar integrity — 4 October 2026
+
+The four-record dated FIS calendar review runs through the existing cards owner, full and ordinary quick projection paths. It performs zero new provider/AI calls, adds no scheduler or migration, preflights both surfaces, preserves later sporting observations and unchanged review timestamps, and cannot derive notification clocks from venue dates. Existing budgets and one-owner scheduling remain. Regression: validate-skiing-calendar-review.js and normal production gates.

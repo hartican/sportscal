@@ -46,7 +46,11 @@
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
     const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`;
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
-    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + " (Sydney time)";
+    // Venue calendar dates cannot establish Sydney dates without a race start.
+    const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
+    if(venueCalendar){day=fullDate=event.displayDateLabel;}
+    const scheduleLabel = venueCalendar ? [day,time].join(' · ') : schedule;
+    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? ' · Sydney start TBC' : " (Sydney time)");
     // Explicit source status only: duration heuristics must not claim completion.
     const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
     let status = "";
@@ -63,7 +67,7 @@
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:date?(range?day:dated(date)):'DATE TBC',time,label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
+    return Object.freeze({day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC',time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:scheduleLabel, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
   return Object.freeze({presentation,tournamentPhase});
 });

@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, "..");
 require('./validate-motogp-scoped-retention');
 require('./validate-nrlw-reviewed-finals');
 require('./validate-nrlw-season-review');
+require('./validate-skiing-calendar-review');
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 const schedule = readJson("data/canonical/fiba-women-sailgp-motogp-2026.json");
 const taxonomy = require("../config/canonical-sports-taxonomy");

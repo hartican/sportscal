@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T21:02:11.495Z",
+  "generatedAt": "2026-10-03T21:46:13.638Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -252,11 +252,11 @@
       "id": "sport:skiing",
       "slug": "skiing",
       "label": "Skiing",
-      "fixtureCount": 0,
+      "fixtureCount": 4,
       "hasStandings": false,
-      "groupingMode": "competition-date",
-      "coverageStatus": "unavailable",
-      "freshAt": "2026-10-01T17:44:40.377Z",
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-03T21:46:13.638Z",
       "chunkPath": "data/code-inspector/skiing.json"
     },
     {

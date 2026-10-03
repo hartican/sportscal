@@ -69,8 +69,9 @@
     }
     // A reviewed venue-calendar label is a planning aid while kickoff is
     // unknown. An explicitly confirmed exact start owns the Sydney date.
-    if(value.timingProvenance?.precision==='competition-stage-calendar' && normalized.timePrecision==='exact' && Number.isFinite(+exact) && value.scheduleStatus==='confirmed' && value.timeTbc!==true && value.startTimeTbc!==true){
+    if(['competition-stage-calendar','venue-calendar'].includes(value.timingProvenance?.precision) && normalized.timePrecision==='exact' && Number.isFinite(+exact) && value.scheduleStatus==='confirmed' && value.timeTbc!==true && value.startTimeTbc!==true){
       delete normalized.displayDateLabel;
+      if(value.timingProvenance.precision==='venue-calendar' && value.timingProvenance.sourceLocalDate===value.timingProvenance.sourceLocalEndDate && value.endDate===value.timingProvenance.sourceLocalEndDate)delete normalized.endDate;
     }
     // Persisted live snapshots can retain date-only metadata after the provider
     // has explicitly confirmed an exact sporting start. Reconcile that group

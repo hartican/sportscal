@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="417">
+<meta name="app-shell-version" content="418">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=417" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=418" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=417"></script>
+<script src="assets/js/app-shell-runtime.js?v=418"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13142,7 +13142,7 @@ function eventLocationLabel(ev){
 function eventTimeLabel(ev){
   if(ev.timePrecision==="estimated")return `Approx. ${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==="follows")return "Follows prior match";
-  if(ev.dateOnly)return `${["completed","finished","final"].includes(ev.status)?"Completed":ev.displayTime || "Session times vary"} · ${eventLocationLabel(ev)}`;
+  if(ev.dateOnly)return `${["completed","finished","final"].includes(ev.status)?"Completed":ev.timingProvenance?.precision==='venue-calendar'?'Time TBC':ev.displayTime || "Session times vary"} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==='not-before'){
     const timing=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
     return timing.time==='TIME TBC'?'Time TBC':`${timing.time} (Sydney time) · ${eventLocationLabel(ev)}`;
@@ -14082,6 +14082,7 @@ function focusPendingNotificationEvent(){
 }
 
 function codeInspectorCoverageCopy(code){
+  if(code.id==='sport:skiing'&&code.coverageStatus==='partial')return 'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.';
   if(['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'].includes(code.id))return 'Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
   if(code.id==='competition:wsl-championship-tour')return 'WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed.';
   if(code.id==='competition:sailgp'&&code.coverageStatus==='partial')return 'SailGP coverage is partial: published race days only. Season teams may be listed; individual event entries and future session times may be unconfirmed.';
@@ -14336,7 +14337,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=413').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=418').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -15182,7 +15183,7 @@ function compactFixtureName(ev){
     .replace(/Alexander Zverev/g,'Zverev').replace(/Alejandro Tabilo/g,'Tabilo');
 }
 function compactFallbackTiming(ev){
-  if(ev.timePrecision==='not-before')return NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
+  if(ev.timePrecision==='not-before'||ev.timingProvenance?.precision==='venue-calendar')return NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
   if(ev.displayDateLabel)return ev.displayDateLabel;
   const shortDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))
     ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short'}).format(new Date(`${value}T00:00:00Z`)).replace(/Sept/g,'Sep').replace(/, /g,' ') : 'Date TBC';
@@ -15257,7 +15258,7 @@ function buildCompactCardSummary(ev){
   else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
-  const timing=ev.timePrecision==='not-before'?NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule:ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
+  const timing=ev.timePrecision==='not-before'||ev.timingProvenance?.precision==='venue-calendar'?NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule:ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
   const format=compactFixtureFormat(ev);const tennisCompetition=ev.competitionName||ev.majorEventName||String(ev.summary||'').split(' · ')[0];const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${tennisCompetition?' · '+tennisCompetition:''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
   if(activeTab === 'feed'){
@@ -17113,7 +17114,7 @@ function buildFixtureFallbackCard(event, options = {}){
   timing.className = "compact-card-meta";
   const fallbackClock = ev.time && !ev.timeTbc && !ev.startTimeTbc && !ev.dateOnly
     ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME TBC";
-  timing.textContent = [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
+  timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
   if(activeTab === 'feed')copy.appendChild(buildFixtureTimingGroup(ev));
   copy.append(title, timing);

@@ -218,6 +218,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/lib/skiing-calendar-review.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -402,6 +403,18 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--skiing-calendar-review')){
+    console.log(JSON.stringify(require('./lib/skiing-calendar-review').applyRetained()));
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=skiing'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-skiing-calendar-review.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json'],['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Four reviewed Skiing calendar cards projected by the canonical owner; no provider requests.');return;
+  }
   if(process.argv.includes('--epl-timing-review')){
     console.log(JSON.stringify(require('./lib/epl-kickoff-certainty').applyRetained()));
     for(const args of [

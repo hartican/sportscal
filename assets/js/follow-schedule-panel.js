@@ -13,6 +13,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
   const fixtures=available.filter(f=>NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  if(code.id==='sport:skiing'&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){
     renderCodeInspectorPlayers(panel, codeInspectorChunk.fixtures || []);
@@ -30,7 +31,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
   const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
-  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','competition:dakar','competition:le-mans'].includes(code.id);
+  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
   const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
