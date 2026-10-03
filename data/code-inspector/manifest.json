@@ -207,7 +207,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-03T11:47:20.014Z",
+      "freshAt": "2026-10-03T21:46:13.638Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },
