@@ -273,6 +273,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.estimatedStartTimeUtc?{estimatedStartTimeUtc:event.estimatedStartTimeUtc,timelineSortTimeUtc:event.timelineSortTimeUtc,timingProvenance:event.timingProvenance}:{}),
     detailsExpectedAt: event.detailsExpectedAt || extra.detailsExpectedAt || null,
     schedulingWindow: event.schedulingWindow || extra.schedulingWindow || null,
+    ...(event.resultStatus ? { resultStatus:event.resultStatus } : {}),
     roundNumber: Number.isInteger(event.roundNumber) ? event.roundNumber : null,
     roundLabel,
     stage,

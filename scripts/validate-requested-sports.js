@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
+require('./validate-motogp-scoped-retention');
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 const schedule = readJson("data/canonical/fiba-women-sailgp-motogp-2026.json");
 const taxonomy = require("../config/canonical-sports-taxonomy");

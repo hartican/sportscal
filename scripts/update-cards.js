@@ -637,6 +637,20 @@ async function runMain() {
     for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-tennis-feed-parents","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
+  if(process.argv.includes('--representative-context')){
+    for(const args of [
+      ['scripts/apply-representative-metadata.js','feeds/incoming/events.json'],
+      ['scripts/apply-representative-metadata.js','data/events.json','data/events.js'],
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=nrl,motogp,motorsport'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-representative-competition-grouping.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed.js','data/events.json'],
+      ['scripts/qa-storyline-spoilers.js','data/events.json'],
+    ])runStep(args);
+    console.log('Existing representative fixture context published through the canonical owner; no source refresh performed.');return;
+  }
   if(process.argv.includes('--rugby-identities')){
     for(const step of [
       ['scripts/apply-reviewed-fixture-timing.js','--ids=rugby-australia-new-zealand-2026-10-17'],

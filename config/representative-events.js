@@ -39,12 +39,26 @@
     ]),
   });
 
+  // Reviewed existing Australian pool fixtures; never infer a competition from
+  // a national-team name or apply this context to another tournament edition.
+  const worldCupRounds = Object.freeze({
+    "rlwc-australia-new-zealand-2026":1,
+    "rlwc-australia-fiji-2026":2,
+    "rlwc-australia-cook-islands-2026":3,
+  });
+
   const metadataByEventId = Object.freeze(Object.fromEntries(Object.entries(EVENTS_BY_SPORT)
     .flatMap(([representativeSportKey, eventIds]) => eventIds.map(eventId => [eventId, Object.freeze({
       competitionScope:"international",
       isInternational:true,
       representativeCountryCodes:Object.freeze(["AUS"]),
       representativeSportKey,
+      ...(worldCupRounds[eventId] ? {
+        competitionId:"competition:rugby-league-world-cup:2026",
+        competitionName:"Rugby League World Cup",
+        roundNumber:worldCupRounds[eventId],
+        roundLabel:`Rugby League World Cup Round ${worldCupRounds[eventId]}`,
+      } : {}),
     })]))));
 
   function metadataForEventId(eventId){

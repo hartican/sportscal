@@ -248,10 +248,15 @@ function main(){
     const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
     cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
   });
+  const retained = (feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
+  // A scoped MotoGP refresh owns its cards only. Normalising retained raw
+  // provider IDs here can silently change unrelated tennis source identities.
+  const motogpOnly = process.argv.includes('--motogp-only');
   const next = normalizeFeed({
     ...feed,
-    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],
+    events:motogpOnly ? cards : [...retained, ...cards],
   });
+  if (motogpOnly) next.events = [...retained, ...next.events];
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);
   writeJson(outputPath, next);

@@ -92,6 +92,7 @@ assert.equal(registry.canonicalId("team:nrl:national:new-zealand"), "team:nrl:ki
 assert.equal(registry.canonicalId("team:netball:national:australia"), "team:netball:diamonds");
 
 if (!assetsOnly){
+  require('./validate-representative-competition-grouping');
   const feed = JSON.parse(fs.readFileSync(path.join(ROOT, "data/events.json"), "utf8"));
   const majorEvents = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"));
   const audited = [];
