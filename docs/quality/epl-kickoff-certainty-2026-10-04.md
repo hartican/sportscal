@@ -1,6 +1,6 @@
 # EPL kickoff certainty — 4 October 2026
 
-Status: local implementation and release checks pass; GitHub publication, normal production deployment and hosted verification are pending. This is a timing/reminder integrity repair, not EPL or Football MVP certification.
+Status: **shipped** on GitHub main and production as `17521c492a392d4e4ed1c72566c8b91773c3406f`, shell **417**. Normal production run [37154475182](https://github.com/hartican/sportscal/actions/runs/37154475182) passes all 137 safety commands and both read-only publication inputs. Independent READY/project/release metadata/three aliases agree at 2026-10-03T21:21:02.939Z; ten served hashes match the immutable deployment inventory. This is a timing/reminder integrity repair, not EPL or Football MVP certification.
 
 ## Problem and outcome
 
@@ -42,12 +42,16 @@ Public paging moves 853→837 records, 43→42 pages because publication crosses
 
 The first fallback browser run failed on missing Approx.; the log is preserved and the final repaired run passes. The first comparison's Brighton alias mismatch is preserved separately; the corrected known primary alias reconciles70/70. A guessed absent performance-check filename failed; the actual existing feed-performance gate passed, with 8 critical requests unchanged and gzip growth 0.71% under the unchanged 1.25% cap. The original final-gate helper's shell 416 label was corrected to 417 in metadata; check outputs were not rewritten. Browser case labels likewise explicitly separate published and controlled observations.
 
-Evidence root: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/epl-kickoff-certainty-20261004/`. `comparison.json`, `baseline-certainty.json`, `preservation-final.json`, `browser-local.json`, failure logs, both profile and upgrade logs; sibling final/source-only137-gate inventories. Publication/control/served/hosted evidence will be added after normal release.
+Evidence root: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/epl-kickoff-certainty-20261004/`. `comparison.json`, `baseline-certainty.json`, `preservation-final.json`, `browser-local.json`, failure logs, both profile and upgrade logs; sibling final/source-only137-gate inventories. `independent-current-proof.json`, `served-proof.json`, `browser-hosted.json` and the downloaded normal release artifact add production evidence. The built public/server owner boundary remains sealed; 1201 input files remain exact against the prior app package.
 
 ## Business value, cost and next gate
 
 Business value: reduce misleading future-start certainty and mistimed reminders; maintain dependable Football planning with understandable degraded states. Verified correctness is high confidence within this declared season/window. Evidence does not establish a reliable undocumented live/non-playing raw-status mapping.
 
-New service cash cost A$0. No additional provider call, browser poll, scheduler, database or owner routine. Actual development/check timing is retained in logs; no per-task token, dollar saving or long-term cost estimate is invented. Dependency: existing primary fixture identity, dated official notices and canonical publication/cache controls. Acceptance: exact identity/week/UTC match qualifies; mismatch remains approximate; original facts, OFF and activity survive; required gates and exact-SHA deployment pass before live status is claimed.
+New service cash cost A$0. No additional provider call, browser poll, scheduler, database or owner routine. Actual development/check timing is retained in logs; no per-task token, dollar saving or long-term cost estimate is invented. Dependency: existing primary fixture identity, dated official notices and canonical publication/cache controls. Acceptance: exact identity/week/UTC match qualifies; mismatch remains approximate; original facts, OFF and activity survive; required gates and exact-SHA deployment pass before live status is claimed; this scoped module passes those checks.
 
 Act now because a real false-confirmation/reminder path was reproduced. Continue EPL acceptance with source-live/status semantics and actual viewing/rights/physical gates; review the next announced window once released through this existing queue. Do not certify the league on this timing repair. Target stays ≥13/16 families; 0/16 and0/3 Football pilots certified. Passwords/iCloud work remains parked; no new subscription, league or commercial launch.
+
+## Production scope and remaining gates
+
+The hosted renderer suite passes the same 144 cases: 72 actual served confirmed/provisional records and 72 controlled changed-clock/TBC cases. APIs are intercepted as unavailable and workers blocked, so this is actual hosted asset/renderer proof with separately disclosed synthetic inputs. Two separate read-only public API operations (participant schedule and two selected live fixtures) verify real deployed server interpretation; their observed records and limits are saved in `api-read-proof.json`. No signed-in session, source refresh, customer reminder, authenticated playback or physical phone was used.

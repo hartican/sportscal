@@ -1,6 +1,6 @@
 # CTO current decision checkpoint — 4 October 2026
 
-This is the current synthesis of the original audit and dated deliveries, not another backlog. [The authoritative queue](../cto-delivery-plan.md) owns sequencing. The master Markdown/HTML report retains all 51 numbered chapters, original diagrams and historical failures. Live app fc5df199, shell 416, remains the last released app; reviewed main 0b98d317 additionally contains documentation. This checkpoint changes reports only.
+This is the current synthesis of the original audit and dated deliveries, not another backlog. [The authoritative queue](../cto-delivery-plan.md) owns sequencing. The master Markdown/HTML report retains all 51 numbered chapters, original diagrams and historical failures. Current live app 17521c49, shell 417, adds the [verified EPL kickoff-certainty repair](epl-kickoff-certainty-2026-10-04.md), normal release 37154475182. The original report-only checkpoint and dated source inventory remain below; this update does not claim new sport certification.
 
 ## Recommended course
 
@@ -31,9 +31,9 @@ The following reconciles original F01–F17 against saved evidence. “Scoped re
 | F07 False completeness | Separate evidence contract shipped; legacy catalogue label is not certification | [Anti-false-pass audit](coverage-certification-integrity-2026-10-03.md); current six-gate contract still certifies zero. Full evidence must be inspected, not merely linked |
 | F08 NRL/AFL reference regressions | Named cases repaired; family quality unverified | [Finals and retained results](nrlw-finals-integrity-2026-10-03.md), [NRLW ladder](nrlw-ladder-2026-10-04.md), [qualified timing](qualified-timing-2026-10-03.md). No assumed-perfect reference |
 | F09 Canonical release failure | Several reproduced QA/build defects repaired; ordinary success still open | [Deferred-source gate repair](deferred-directory-qa-2026-10-04.md). Latest ordinary run 37146184945 failed before publication; next successful ordinary invocation must supply proof |
-| F10 Installed-update uncertainty | Browser upgrades pass; physical acceptance open | [Latest two-engine 415→416 evidence](profile-source-context-2026-10-04.md); no actual iPhone close/reopen/push proof |
+| F10 Installed-update uncertainty | Browser upgrades pass; physical acceptance open | [Latest two-engine 416→417 evidence](epl-kickoff-certainty-2026-10-04.md); no actual iPhone close/reopen/push proof |
 | F11 Coupling/test rework | Partial extraction and meaningful integration gains; debt remains | [API initialization](feed-authentication-initialization-2026-10-03.md), [profile progressive content](profile-progressive-content-2026-10-04.md), 137 normal commands. No whole-shell rewrite or measured general productivity gain |
-| F12 Cricket viewing provenance | Affected release gate passes; wider viewing quality unverified | Current normal release 37151431175 passes Australian viewing gate; [dated Rugby/Cricket review](rugby-cricket-viewing-2026-10-02.md). Do not infer all fixtures/playback are verified |
+| F12 Cricket viewing provenance | Affected release gate passes; wider viewing quality unverified | Current normal release 37154475182 passes Australian viewing gate; [dated Rugby/Cricket review](rugby-cricket-viewing-2026-10-02.md). Do not infer all fixtures/playback are verified |
 | F13 Unqualified telemetry | Reporting qualification implemented; actual cohort absent | [Invited-account readout](invited-account-readout-2026-10-04.md), tested membership/cutoff/QA exclusions. No real cohort query or retention claim |
 | F14 Backend security gaps | Specific boundaries/guards improved; whole security status unverified | [Chat-admin confirmation](chat-admin-confirmation-2026-10-04.md), [68/68 direct erasure guards](reminder-erasure-guards-2026-10-04.md). Leaked-password protection/plan and full indirect paths remain separate |
 | F15 Complete erasure/privacy | Rehearsals and guards implemented; end-to-end acceptance open | [Operator runbook](../account-erasure-runbook.md), [recovery limits](recovery-rehearsal-2026-10-01.md). No real customer erasure or full residual-cache certificate |
@@ -42,7 +42,7 @@ The following reconciles original F01–F17 against saved evidence. “Scoped re
 
 ## Competition-aware current inventory
 
-Fresh local read at main 0b98d317, 4 October Sydney, using the existing non-mutating audit. The underlying sporting files are unchanged from live fc5df199. “Records” includes actual matches, sessions, tournament/stage context and retained history; it is not a number of supported fixtures or independently verified competitions. Competition groups include unclassified/undated groups where present. Counts cannot measure user demand, provider accuracy or polish. All sixteen carried families remain in the denominator.
+Fresh local read at main 0b98d317, 4 October Sydney, using the existing non-mutating audit. The underlying sporting facts match live fc5df199; subsequent 17521c49 changes scheduling interpretation/provenance and preserves all identities, clocks, results, viewing and 92 table rows. The published paging cutoff advances under the unchanged 14-day policy. “Records” includes actual matches, sessions, tournament/stage context and retained history; it is not a number of supported fixtures or independently verified competitions. Competition groups include unclassified/undated groups where present. Counts cannot measure user demand, provider accuracy or polish. All sixteen carried families remain in the denominator.
 
 | Carried family | Unique projected records | In-scope competition groups | Full certification |
 |---|---:|---:|---|
