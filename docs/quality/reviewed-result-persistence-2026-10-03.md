@@ -16,7 +16,7 @@ The selected writer validates all retained feed surfaces and the canonical ledge
 
 The participant schedule owner validates the dated unavailable-result evidence (exact fixture, source, hash and unpublished winner cell). A later settled fixture skips an older non-final reviewed schedule entirely, retaining final facts and source dates. The two existing owners and schedulers remain; there is no new database migration, production database write, reminder replay, provider polling, retry or service.
 
-Cards now explain unavailable results with their actual checked date and an official-source link, including fallback rendering. WRC retains its appropriate FIA classification language; tennis/MotoGP do not inherit FIA attribution. Confirmed results have no unavailable notice. AFLW's numeric score and the tennis set/tie-break table respect spoilers. A factual recap avoids the decimal-goal punctuation that caused premature sentence truncation. Shell 405 and the deferred Follow panel query are deliberately versioned for this presentation change.
+Cards now explain unavailable results with their actual checked date and an official-source link, including fallback rendering. WRC retains its appropriate FIA classification language; tennis/MotoGP do not inherit FIA attribution. Confirmed results have no unavailable notice. AFLW's numeric score and the tennis set/tie-break table respect spoilers. A factual recap avoids the decimal-goal punctuation that caused premature sentence truncation. Shell 406 and the deferred Follow panel query are deliberately versioned for this presentation change.
 
 ## Verification and cost boundary
 
@@ -24,7 +24,7 @@ Actual temporary writers cover both complete feed surfaces, exact unrelated rete
 
 The real-clock result-completeness check passes. Sixty-eight affected Chromium/WebKit cases cover both finals, mobile/desktop, day/night, Feed/Schedule, spoiler choices and the actual pending card. Initial browser assertions expected the raw source score string; inspection showed correct AFL numeric and tennis set-table representations. The corrected assertions compare those actual numerical cells and tie-break superscript, without weakening spoiler checks. Earlier failed logs remain.
 
-The exact full release run and both-engine 404→405 installed-shell rehearsals are required before publication; their final outcome is recorded separately. Older runs failed on a real due-result gap, canonical rebuild omission and a brittle literal FIA source-code assertion. None is a passed gate or reusable waiver.
+The exact full release run and both-engine 405→406 installed-shell rehearsals against the independently verified current production are required before publication; their final outcome is recorded separately. Older runs failed on a real due-result gap, canonical rebuild omission and a brittle literal FIA source-code assertion. None is a passed gate or reusable waiver.
 
 Business value: users can read confirmed results and distinguish missing results without fabricated completion; a rebuild preserves a known match and saved identity. Added purchases: A$0. Owner time: no new decision or recurring routine. Development/compute savings are unmeasured. Source timing, replay access, whole-event coverage, provider permissions, physical devices and cohort repeat use remain open. Certification stays 0/16 families and 0/3 Football pilots.
 
