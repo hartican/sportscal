@@ -13,7 +13,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   try{
     const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block',timezoneId:'Australia/Sydney'});
     await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
-    await page.route('https://**/*',r=>new URL(r.request().url()).origin===new URL(base).origin?r.continue():r.abort());
+    await page.route('https://**/*',r=>new URL(r.request().url()).origin===new URL(base).origin?r.fallback():r.abort());
     await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:['sport:nrlw']})));
     await page.goto(base,{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>startupFunnelFinished&&!startupCoordinator.isHydrating());
