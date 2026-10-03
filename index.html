@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="409">
+<meta name="app-shell-version" content="410">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=409" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=410" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=409"></script>
+<script src="assets/js/app-shell-runtime.js?v=410"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10796,7 +10796,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=400").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=410").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 
 async function loadFootballDirectoryData(){
@@ -13825,6 +13825,11 @@ async function openStandingsFixturesForEvent(event){
   const scope=scheduleScopeForEvent(event);saveFollowBrowse({scheduleScope:scope,sportId:'sport:'+NOTHINGSPORTS_SURFACE_CATEGORY.category(event),categoryId:''});
   if(scope.tournamentId&&['tennis','wimbledon'].includes(event.key)){await loadTennisScheduleUi();tennisSelectedEdition=scope.tournamentId;}
   await openCodeInspector(scope.codeId);return true;
+}
+
+function availableCodeInspectorChunk(codeId){
+  if (codeInspectorChunk?.code?.id === codeId) return Promise.resolve(codeInspectorChunk);
+  return codeInspectorChunkLoading?.codeId === codeId ? codeInspectorChunkLoading : null;
 }
 
 async function loadCodeInspectorChunk(codeId){

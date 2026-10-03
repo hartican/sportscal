@@ -151,8 +151,12 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       const codeId=fixture&&typeof root.codeIdForEvent==='function'?root.codeIdForEvent(fixture):`sport:${sportKey}`;
       const code=(manifest?.codes||codeInspectorManifest?.codes||[]).find(c=>c.id===codeId||c.slug===sportKey);
       if(!code){status.textContent='Standings are not published for this competition yet.';return;}
-      if(!profileStandingsChunks.has(code.id))profileStandingsChunks.set(code.id,fetchJson(code.chunkPath).catch(error=>{profileStandingsChunks.delete(code.id);throw error;}));
-      const chunk=await profileStandingsChunks.get(code.id);if(!section.isConnected)return;
+      const available=typeof root.availableCodeInspectorChunk==='function'?root.availableCodeInspectorChunk(code.id):null;
+      if(!available&&!profileStandingsChunks.has(code.id))profileStandingsChunks.set(code.id,fetchJson(code.chunkPath).catch(error=>{profileStandingsChunks.delete(code.id);throw error;}));
+      const chunk=await(available||profileStandingsChunks.get(code.id));if(!section.isConnected)return;
+      if(chunk?.schemaVersion!=='code-inspector-chunk.v1'||chunk?.code?.id!==code.id||(chunk.standings!==undefined&&!Array.isArray(chunk.standings))){
+        profileStandingsChunks.delete(code.id);throw new Error('Invalid profile standings source');
+      }
       const all=chunk.standings||[];
       const relevant=new Set(fixture?.competitionId?[fixture.competitionId]:all.filter(row=>[record.id,record.currentTeamId].includes(row.participantId)).map(row=>row.competitionId));
       const standings=all.filter(row=>relevant.has(row.competitionId));
