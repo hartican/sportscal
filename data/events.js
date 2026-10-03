@@ -198609,7 +198609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "broadcaster": "",
+    "broadcaster": "Australian viewing unconfirmed",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -198617,6 +198617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "viewingOptions": [],
     "sourceEventIds": [
+      "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
       "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
     ],
     "consensusTags": []

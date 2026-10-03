@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-03T01:14:42.660Z",
+  "generatedAt": "2026-10-03T01:19:47.902Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -147,7 +147,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-03T01:14:42.660Z",
+      "freshAt": "2026-10-03T01:19:47.902Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

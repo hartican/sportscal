@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160-20261003011442660",
-  "publishedAt": "2026-10-03T01:14:42.660Z",
+  "version": "editorial-publication-20261002220046047-20261002221452379-20261002224635538-20261002235253528-20261002235357462-20261002235455723-20261003000014862-20261003000052754-20261003000424160-20261003011442660-20261003011947902",
+  "publishedAt": "2026-10-03T01:19:47.902Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -198613,7 +198613,7 @@
       "highlightEligible": false,
       "briefingEligible": false,
       "catchupEligible": false,
-      "broadcaster": "",
+      "broadcaster": "Australian viewing unconfirmed",
       "participantSlots": [],
       "participantCountryCodes": [],
       "representativeCountryCodes": [],
@@ -198621,6 +198621,7 @@
       "broadcasts": [],
       "viewingOptions": [],
       "sourceEventIds": [
+        "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
         "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
       ],
       "consensusTags": []
