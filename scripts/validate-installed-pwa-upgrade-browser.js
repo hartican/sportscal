@@ -199,7 +199,7 @@ const server=http.createServer((req,res)=>{
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>typeof userPreferences!=='undefined' && !startupCoordinator.isHydrating(),null,{timeout:60000});
     const savedSelection=await page.evaluate(()=>{
-      const next=clonePreferences(userPreferences);next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+      const next=clonePreferences(userPreferences);next.onboardingComplete=true;next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
       savePreferences(next);
       sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'}));
       return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds};
@@ -272,7 +272,8 @@ const server=http.createServer((req,res)=>{
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
       const before=await upgraded.evaluate(choices);
-      await upgraded.evaluate(()=>{activeTab='follow';renderAll();});
+      await upgraded.evaluate(()=>{closeSettings();activeTab='follow';followHomeView='favourites';renderAll();});
+      await upgraded.getByRole('button',{name:'Browse sports',exact:true}).click();
       await upgraded.locator('.follow-navigation').waitFor();
       assert.equal(await upgraded.evaluate(choices),before,'first Follow open offline retains follows, spoiler, appearance and notification choices');
       const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/const url='(assets\/js\/follow-presentation-ui\.js\?v=\d+)'/)[1];

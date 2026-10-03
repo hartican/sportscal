@@ -425,3 +425,5 @@ Everything is the default Match Centre view, sourced from the shared published N
 Regression: validate-match-centre.js, validate-match-centre-browser.js, validate-follow-favourites-browser.js, validate-follow-policy-parity.js, validate-automatic-reminders.js.
 
 Further 3 October organiser checks: the Tokyo order of play independently verifies Alcaraz–Arnaldi, Round of 16, Colosseum, not before 12:30 pm local. The China WTA draw independently verifies Sabalenka–Bartunkova, Round of 32, with individual day/court/time unpublished. A confirmed undated next pairing remains profile-visible using its labelled tournament context for retention; neither tournament dates nor the draw create a start or reminder clock. Djokovic's quarterfinal context records the undecided opponent separately, without a fabricated fixture.
+
+Offline first-use correction: when the deferred favourites interface cannot load, its shell fallback retains My athletes & teams, Browse sports and Retry. The already cached directory remains reachable without altering follows or notification choices. Installed-browser regression follows the new favourites landing before opening Browse sports.
