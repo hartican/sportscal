@@ -403,6 +403,16 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--canonical-family-repair')){
+    console.log(JSON.stringify(require('./lib/canonical-family-repair').apply()));
+    for(const args of [
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-canonical-sports.js'],['scripts/validate-canonical-family-repair.js'],
+      ['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Existing canonical family references repaired; fixture facts and source clocks unchanged, no provider requests.');return;
+  }
   if(process.argv.includes('--skiing-calendar-review')){
     console.log(JSON.stringify(require('./lib/skiing-calendar-review').applyRetained()));
     for(const args of [

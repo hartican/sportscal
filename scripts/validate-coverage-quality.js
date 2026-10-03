@@ -2,6 +2,7 @@
 'use strict';
 const assert=require('node:assert/strict'),{audit,projectionDigest}=require('./audit-coverage-quality');
 const contract=require('../config/quality/coverage-contract.json');
+require('./validate-canonical-family-repair');
 const baseline=audit();
 assert.equal(baseline.summary.carriedFamilies,16);assert.equal(baseline.summary.requiredFamilies,13);
 assert.equal(baseline.summary.pilotTotal,3);
@@ -92,3 +93,80 @@ assert(europeanRun(wrongPhase).families[0].competitions[0].certificationFailures
 const ambiguous=structuredClone(european);ambiguous.certifications.push(structuredClone(ambiguous.certifications[0]));
 assert(audit({contract:ambiguous,manifest:{codes:[{slug:'test'}]},read:()=>({fixtures:league})}).families[0].competitions[0].certificationFailures.includes('ambiguous-certification'));
 console.log('Coverage proof: declared season/phase, source/identity, projection continuity, evidence references, live clocks and positive certification passed.');
+
+// Real retained calendars are reviewed records, never substitute match data.
+const uclRow=baseline.families.find(f=>f.id==='football').competitions.find(c=>c.id==='competition:uefa-champions-league');
+assert.equal(uclRow.fixtures,156,'legacy inventory retains all records');
+assert.equal(uclRow.matchRecords,151,'144 league-phase plus seven retained qualifying matches');
+assert.equal(uclRow.calendarContexts,5);
+assert.equal(uclRow.undated,5,'raw unknown Sydney dates remain visible');
+assert.equal(uclRow.invalidFootballIdentity,5,'raw unknown-team diagnostics remain visible');
+assert.equal(uclRow.undatedFixtures,0);
+assert.equal(uclRow.invalidFootballMatchIdentity,0);
+assert.equal(uclRow.calendarContextsInDeclaredWindow,5);
+assert.deepEqual(uclRow.calendarContextFailures,[]);
+assert.equal(uclRow.leaguePhaseFixtures,144);
+assert.deepEqual(uclRow.certificationFailures,['missing-certification'],'correct record semantics do not certify a pilot');
+assert.equal(uclRow.projectionDigest,projectionDigest(require('../data/code-inspector/champions-league.json').fixtures),'every context stays in the fact fingerprint');
+
+const retainedCalendar=structuredClone(require('../data/code-inspector/champions-league.json').fixtures.find(f=>!f.date));
+const review={...structuredClone(contract.reviewedCalendarContexts[0]),competitionId:'ucl',recordIds:['calendar:test']};
+const calendar={...retainedCalendar,id:'calendar:test',competitionId:'ucl',sourceEventIds:['calendar:test']};
+function calendarsRun(fixtures,{reviewChange=()=>{},proofChange=()=>{},copies=[]}={}){
+ const c=structuredClone(european);c.reviewedCalendarContexts=[structuredClone(review)];reviewChange(c.reviewedCalendarContexts[0]);
+ const p=proof('ucl',[...fixtures,...copies]);p.expectedFixtures=new Set(fixtures.map(f=>f.id)).size;
+ p.expectedCalendarContexts=1;p.expectedMatchFixtures=fixtures.length-1;proofChange(p);c.certifications=[p];
+ const m={codes:[{slug:'test'}]};if(copies.length){c.families[0].codes.push('overlap');m.codes.push({slug:'overlap'});}
+ return audit({contract:c,manifest:m,read:slug=>({fixtures:slug==='overlap'?copies:fixtures}),now:'2026-10-03T23:00:00Z'});
+}
+const calendarRow=r=>r.families[0].competitions[0];
+assert.equal(calendarsRun([...league,calendar]).summary.pilotCertified,1,'controlled reviewed calendars can coexist with complete explicitly reconciled match evidence');
+assert.equal(calendarsRun([...league,calendar],{copies:[calendar]}).summary.pilotCertified,1,'equal overlapping contexts deduplicate');
+assert(calendarRow(calendarsRun(league)).certificationFailures.includes('missing-reviewed-calendar-context'),'a reviewed planning record cannot disappear silently');
+assert(calendarRow(calendarsRun([...league,calendar],{proofChange:p=>{delete p.expectedCalendarContexts;}})).certificationFailures.includes('unreconciled-record-kinds'));
+assert(calendarRow(calendarsRun([...league,calendar],{proofChange:p=>{p.expectedMatchFixtures=145;}})).certificationFailures.includes('unreconciled-record-kinds'));
+assert(calendarRow(calendarsRun([...league.slice(1),{...calendar,season:'2026/27',stage:'League phase'}])).certificationFailures.includes('league-phase-fixture-count'),'a context cannot replace a missing league-phase match');
+assert(calendarRow(calendarsRun([calendar])).certificationFailures.includes('no-window-fixtures'),'a calendar alone cannot certify fixture coverage');
+
+const badCalendars=[
+ {...calendar,competitionId:'wrong'},
+ {...calendar,schedulingWindow:null},
+ {...calendar,schedulingWindow:{...calendar.schedulingWindow,startsOn:'2027-02-30'}},
+ {...calendar,schedulingWindow:{...calendar.schedulingWindow,endsOn:'2027-01-01'}},
+ {...calendar,schedulingWindow:{...calendar.schedulingWindow,timeZone:'Mars/Olympus'}},
+ {...calendar,timingProvenance:{...calendar.timingProvenance,timeZone:'Australia/Sydney'}},
+ {...calendar,timingProvenance:{...calendar.timingProvenance,observedAt:'2026-10-04T00:00:00Z'}},
+ {...calendar,timingProvenance:{...calendar.timingProvenance,observedAt:'2026-02-30T00:00:00Z'}},
+ {...calendar,timingProvenance:{...calendar.timingProvenance,observedAt:'2026-10-03'}},
+ {...calendar,timingProvenance:null},
+ {...calendar,sourceUrl:'https://example.com/unreviewed'},
+ {...calendar,displayDateLabel:42},
+ {...calendar,participantIds:['home','away']},
+ {...calendar,participants:['Home','Away']},
+ {...calendar,participantSlots:[{label:'TBC'}]},
+ {...calendar,date:'2027-02-16'},
+ {...calendar,startTimeUtc:'2027-02-16T20:00:00Z'},
+ {...calendar,homeScore:0,awayScore:0},
+ {...calendar,score:'0-0'},
+ {...calendar,status:'completed'}
+];
+for(const changed of badCalendars){
+ const result=calendarsRun([...league,changed]);
+ assert.equal(result.summary.pilotCertified,0,'malformed or match-like calendars fail closed');
+ assert(result.families[0].competitions.some(c=>c.certificationFailures.includes('invalid-calendar-context')));
+}
+const unreviewed={...calendar,id:'unreviewed-stage'};
+const unknownCalendar=calendarRow(calendarsRun([...league,unreviewed]));
+assert.equal(unknownCalendar.calendarContexts,0,'a source precision label alone cannot grant an exemption');
+assert(unknownCalendar.certificationFailures.includes('undated-fixtures'));
+assert(unknownCalendar.certificationFailures.includes('invalid-football-identity'));
+assert(unknownCalendar.certificationFailures.includes('invalid-calendar-context'));
+const missingMatch={...league[0],date:null,participantIds:[],timingProvenance:calendar.timingProvenance};
+assert(calendarRow(calendarsRun([missingMatch,...league.slice(1),calendar])).certificationFailures.includes('invalid-football-identity'),'an ordinary missing matchup cannot disguise itself as a reviewed calendar');
+assert(calendarRow(calendarsRun([...league,calendar],{reviewChange:r=>{r.evidence=['missing-review.md'];}})).certificationFailures.includes('invalid-calendar-context'));
+for(const evidence of [null,'docs/quality/ucl-stage-calendar-integrity-2026-10-03.md',[]])assert(calendarRow(calendarsRun([...league,calendar],{reviewChange:r=>{r.evidence=evidence;}})).certificationFailures.includes('invalid-calendar-context'));
+for(const recordIds of [null,[],[''],calendar.id])assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.recordIds=recordIds;}}),'malformed registration cannot change record scope');
+assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.recordIds=[calendar.id,calendar.id];}}),/Duplicate reviewed calendar/);
+assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.competitionId='unreviewed';}}),/explicitly reviewed pilot/);
+assert(calendarRow(calendarsRun([...league,calendar],{copies:[{...calendar,participantIds:['home','away']}]})).certificationFailures.includes('conflicting-projections'),'all overlapping views remain bound');
+console.log('Record semantics: 151 actual UCL matches and five retained calendars; raw gaps, strict context validation, explicit counts and full certification gates preserved.');
