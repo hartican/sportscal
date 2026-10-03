@@ -3,6 +3,7 @@
 const assert=require("node:assert/strict"),{createLiveFixtureHandler}=require("../lib/live-fixture-handler");
 const response=()=>({headers:{},setHeader(key,value){this.headers[key]=value;},status(code){this.statusCode=code;return this;},json(body){this.body=body;return this;},end(){this.ended=true;}});
 async function main(){
+  require('./validate-live-fixture-initialization-boundary').run();
   const secret="a-test-only-server-secret-at-least-32-characters";
   const handler=createLiveFixtureHandler({environment:{FIXTURE_REFRESH_SECRET:secret},sources:()=>[],refresh:async()=>({refreshed:[],failed:[],skipped:[]}),read:async()=>({revision:"revision-two",stale:false,sources:[{source_id:"test",fixtures:[{id:"fixture",status:"live"}]}]})});
   let res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{}},res);assert.equal(res.statusCode,401);
@@ -10,8 +11,20 @@ async function main(){
   res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);
   res=response();await handler({url:"/api/fixtures",method:"GET",headers:{}},res);assert.equal(res.body.sources.flatMap(source=>source.fixtures).find(event=>event.id==='fixture').status,"live");assert.equal(res.headers["Cache-Control"],"public, max-age=0, s-maxage=30, stale-while-revalidate=300");assert(res.body.generatedAt);assert.equal(res.body.maxAgeSeconds,30);
   const revision=res.body.revision;
-  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}],read:async()=>({revision:'empty',sources:[],stale:false})});
+  let libraryBuilds=0,libraryReads=0;
+  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>{libraryBuilds++;return [{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}];},read:async()=>{libraryReads++;return {revision:'empty',sources:[],stale:false};}});
+  assert.equal(libraryBuilds,0,'factory construction does not build the catalogue');
   res=response();await libraryHandler({url:'/api/fixtures',headers:{}},res);assert(res.body.sources.flatMap(source=>source.fixtures).some(event=>event.id==='known-before-server-refresh'),'a first failed or partial server lookup cannot hide fixtures in the verified library');
+  assert.equal(libraryBuilds,1);assert.equal(libraryReads,1);
+  const libraryRevision=res.body.revision,libraryEtag=res.headers.ETag;
+  res=response();await libraryHandler({url:'/api/feed?route=fixtures',headers:{'if-none-match':libraryEtag}},res);assert.equal(res.statusCode,304);assert.equal(libraryBuilds,1,'warm reader reuses the same published catalogue');assert.equal(libraryReads,2,'valid conditional read retains snapshot validation');
+  res=response();await libraryHandler({url:'/api/fixtures?athlete=%3Cscript%3E&revision='+libraryRevision,headers:{}},res);assert.equal(res.statusCode,400,'an invalid athlete cannot bypass input validation with a valid fixture revision');assert.equal(libraryReads,2,'invalid athlete is rejected before another snapshot lookup');
+  const refreshOnly=createLiveFixtureHandler({environment:{FIXTURE_REFRESH_SECRET:secret},publishedFixtures:()=>{throw Error('Published catalogue is deliberately unavailable');},sources:()=>[],refresh:async()=>({refreshed:[],failed:[],skipped:[]})});
+  res=response();await refreshOnly({url:'/api/feed?route=fixture-refresh',method:'POST',headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200,'authorised refresh remains independent of public catalogue construction');
+  let failedBuilds=0;
+  const recoveringLibrary=createLiveFixtureHandler({publishedFixtures:()=>{if(++failedBuilds===1)throw Error('Synthetic first construction failure');return [];},read:async()=>({revision:'recovered',sources:[],stale:false})});
+  res=response();await recoveringLibrary({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,503,'a failed lazy catalogue returns the bounded existing unavailable diagnostic');
+  res=response();await recoveringLibrary({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,200);assert.equal(failedBuilds,2,'failed construction is not cached permanently');
   res=response();await handler({url:`/api/fixtures?revision=${revision}`,method:"GET",headers:{}},res);assert.equal(res.statusCode,304);
   res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures?ids=missing-static-id",headers:{}},res);assert.equal(res.statusCode,200);assert.equal(res.body.stale,true);assert.equal(res.body.maxAgeSeconds,300);assert(!JSON.stringify(res.body).includes(secret));
   const scopedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],read:async()=>({revision:'scoped',stale:false,sources:[{source_id:'test',fixtures:[{id:'followed',status:'live'},{id:'unfollowed',status:'live'}]}]})});

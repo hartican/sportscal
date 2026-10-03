@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Shared fixture API admission and initialization — 4 October 2026
+
+The existing shared handler checks refresh method/authentication/maintenance and public fixture/athlete input before constructing published sporting data. Its first valid public read lazily creates the same immutable library/viewing projection and hash; later reads reuse it. Protected refresh does not require this presentation catalogue. Invalid athlete identities reject before database reads or a conditional 304; failed library construction is not cached. The existing source owners, 60-ID/200-character bounds, database deadline, snapshot cache, observation/hash rules, last-good fallback and valid validators remain.
+
+Thirteen real fresh-process parent API rejection paths retain status/cache/diagnostics with zero sporting reads/imports or service requests. Valid full-library/fixed-clock responses remain exact against baseline. Local cold-process timing/CPU/RSS demonstrate avoided rejection work, not actual user/cloud latency, abuse, quota or cash savings. The regression runs through the existing live API gate. No scheduler, schema, credentials, source request, retry, browser shell or owner routine change. [Evidence and acceptance](quality/live-fixture-initialization-2026-10-04.md).
+
 ## Confirmed chat administrator identity — 4 October 2026
 
 The existing `CHAT_ADMIN_EMAILS` allowlist grants chat administration only to a non-anonymous fresh Auth user with a valid, non-future `email_confirmed_at`. Generic `confirmed_at` can describe phone confirmation and cannot verify the allowlisted email. Missing, null, invalid or future email confirmation fails closed. The existing per-request Auth read, erasure guard, confirmed administrators, membership/guest capabilities and separate owner-console app-metadata role remain authoritative. No new account lookup, client claim, role-management routine, database policy, scheduler or shell change. Regression: actual-handler confirmation/foreign-room/email-picker/share-management cases in `validate-private-fixture-chat.js`, including existing confirmed-admin and disabled/rotated guest checks.
