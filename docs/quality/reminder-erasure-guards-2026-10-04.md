@@ -1,6 +1,6 @@
 # Reminder account-erasure guards — 4 October 2026
 
-Status: production database repair verified, 68/68 references guarded; GitHub publication and exact app release verification are pending. Full account erasure and the wider CTO programme remain open.
+Status: published on GitHub and verified live at `2f2707f2526de1409609dfd7e4922685be3e57bd`, shell 413; production database direct guard coverage is 68/68. Full account erasure and the wider CTO programme remain open.
 
 A fresh read-only production inventory at 2026-10-03T18:29:06Z reports 68 direct Auth references, two unguarded: `nothingsports_reminder_intents.user_id` and `nothingsports_reminder_account_checks.user_id`. Those tables arrived after the original blanket guard migration. This is a verified schema defect, not evidence of customer abuse. The operator correctly refuses to proceed; the older 64-reference receipt remains dated history.
 
@@ -24,3 +24,5 @@ Nine selected existing isolated checks passed before this focused repair. Four c
 Raw advisors, catalog grants/policies, sentinel inventories, official docs, isolated checks and release evidence are saved under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27`. No real account was created, frozen, banned or erased; no reminder replay, invitation, key rotation, subscription or extra scheduler. Certification remains 0/3 Football pilots and 0/16 families, target at least 13/16.
 
 Production migration `20261003184156` succeeded. The fresh read-only inventory reports 68/68 guarded references, no unsupported references or unknown Storage ownership for the absent sentinel. Both triggers are enabled AFTER INSERT OR UPDATE with the exact user_id binding; the guard function body hash is unchanged. Advisor categories/counts stay unchanged. Final 134 local commands passed in 128,286 ms; after aligning the filename with the actual server migration ledger, the two affected validators are rechecked. Schema-fingerprint changes retain the existing operation-review stop. No real customer lifecycle was executed.
+
+Exact [production run 37145296035](https://github.com/hartican/sportscal/actions/runs/37145296035) passes 134 cloud commands and both credentialed read-only inputs. Independent READY `dpl_8KXWhDpWF1JNCvzXBum4Th6QXHKk`, correct project/SHA/three aliases and six served hashes agree. All 1,257 app/data files remain byte-identical to preceding 83296113; no shell/cache epoch, source clock or customer state change. No full erasure or device certification follows. Later documentation-only main publication is separate.
