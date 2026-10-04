@@ -1,6 +1,6 @@
 # NFL table recovery and bounded source acceptance — 4 October 2026
 
-Status: implemented, source-observed and locally validated; production proof pending. This closes a concrete table loss, not full American Football or Ice Hockey certification. Six-gate certification remains 0/16 carried families and 0/3 Football pilots; target at least 13/16.
+Status: published and production-verified at b06a3423 / shell 429. This closes a concrete table loss, not full American Football or Ice Hockey certification. Six-gate certification remains 0/16 carried families and 0/3 Football pilots; target at least 13/16.
 
 ## User outcome and architecture
 
@@ -9,6 +9,8 @@ The existing NFL standings importer looked under child division tables; the curr
 The canonical `update-cards.js --quick --source=nfl-standings --local-only -p` route performs the initial recovery. Ordinary quick refresh adds one request to an endpoint already used by the full owner, with the existing fifteen-second deadline and no retry; full refresh retains its one existing twenty-second request. No new provider, scheduler, browser request per user, credential, database migration, purchase or owner checklist. This is an explicit additional daily source request, not a claimed zero-request change. Generic quick failures enter the existing exception report; optional full failures retain last-good standings with a warning.
 
 Complete known-team, season, regular-season, conference, statistic and seed validation precedes persistence. Partial/malformed responses and HTTP failures retain the exact existing table and date. Unchanged checks write no new table facts or aggregate directory clock; current check receipts stay in the existing refresh report. A valid correction receives its own actual observation. Fixture records, identity/action keys, scheduling, participant roles, existing results, personal follows/exclusions and reminder OFF choices keep their ownership.
+
+NFL profile tables also retain conference-specific Seed/W-L-T/PCT context; their local reveal keeps global Results OFF.
 
 The shared known-fixture patch function was moved without semantic changes into a small module reused by F1 and quick owners. F1 no longer imports the full quick orchestration module. This follows the previous deployment-inventory finding; immutable release inputs will establish which traced files disappear. No cold-start improvement is claimed without measurement.
 
@@ -30,8 +32,20 @@ Saved source bodies, hashes, red reproduction, owner logs, reconciliation, brows
 
 ## Acceptance and next work
 
-Before publication: mandatory normal release gates, Chromium/WebKit source/render/privacy checks, real 428→429 cached-shell rehearsals, scoped GitHub main publication, exact-SHA READY/project/alias/metadata/served-byte proof and hosted rendering. Browser automation is not physical phone, account, reminder/push or playback proof.
+Normal release gates, Chromium/WebKit source/render/privacy checks, real 428→429 cached-shell rehearsals, scoped GitHub main publication, exact-SHA READY/project/alias/metadata/served-byte proof and hosted rendering pass. Browser automation is not physical phone, account, reminder/push or playback proof.
 
 Business value: users can understand current club records instead of an empty table, and can distinguish current seed positions from qualification. Effort: one bounded engineering module, actual runtime saved in gate evidence; A$0 subscription cost, one existing-source request per ordinary quick run, no extra owner decisions. Why act: a complete valid table was demonstrably discarded. Accept when the 32 source rows render correctly under both conference headings with privacy, dated provenance and normal live proof. Wider fixture completeness, Australian viewing, participant/player context, rights and ordinary unattended operation remain separate gates.
 
 Next: continue the weakest carried windows and remaining Football acceptance. NFL's later January coverage and individual fixture observation dates remain explicit gaps; NHL/CHL wider source and viewing/result completeness are still partial/unverified. Do not repeat accepted table or blocked source checks without drift or a new evidence path. Passwords/iCloud stays parked.
+
+## Verified production delivery
+
+App `b06a34238eb2f77c49ae2b651e2c0819a5a58caa`, shell **429**, is published on GitHub main and live through [normal release 37197282648](https://github.com/hartican/sportscal/actions/runs/37197282648). Independently verified READY deployment `dpl_DLTfoeDMJ7exMMaYBmFTCaYu6tMd`, correct project `prj_NAMl47QVLbPUfsMmap59JIpchOPD`, exact releaseGitSha, all three production aliases, fifteen affected/retained served hashes and **48 local / 48 hosted browser cases** agree. Both genuine 428→429 Chromium/WebKit rehearsals retain the new table, Results privacy, source dates, existing follows/exclusions/Remind OFF, update and offline behavior. This is browser evidence; real phone, account, playback and push remain unverified.
+
+All 145 normal safety commands pass locally and in the successful cloud workflow, including existing protected read-only publication and erasure-preflight inputs. The first attempt stopped at the compressed-startup budget (1.26% versus the unchanged 1.25% limit). Moving the sport-specific note into existing manifest data and table styling into its optional module brings final growth to **1.24%**, with **8→8 critical requests**. The failed attempt is retained; no gate is waived and no page-speed improvement is inferred.
+
+Immutable inventory changes from **1,444 to 1,431 inputs**: ten changed, fourteen removed and **1,421 exactly unchanged**. All fourteen specifically identified CLI/refresh-owner dependency inputs are removed by the shared-patch extraction; one pure helper replaces the coupling. Repository owners are retained. No function cold-start measurement is available.
+
+Regression additionally rejects older/equal-clock conflicting table observations. The nineteen parser controls, two stale/conflict controls, real quick persistence, full-builder handoff, source failure, valid later correction and unchanged owner rerun pass. Hosted rendering checks include two engines/four widths/real themes, the 32-row main table and profile-local reveal with global Results still OFF. Both provided season-specific source destinations return HTTP 200; destination contents/playback are not certified.
+
+No new subscription, API credential, scheduler, database change, reminder replay, customer operation or owner decision. Ordinary future canonical success and all six-gate/cross-sport/commercial/cohort acceptance remain separate.
