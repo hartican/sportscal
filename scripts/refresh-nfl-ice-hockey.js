@@ -171,27 +171,7 @@ function nhlTeamName(team){
 }
 
 function nhlFixture(game){
-  const local = isoParts(game?.startTimeUTC);
-  const state = String(game?.gameState || "").toUpperCase();
-  const completed = ["FINAL", "OFF"].includes(state);
-  const slots = [game?.awayTeam, game?.homeTeam].filter(Boolean).map((team, index) => ({
-    participantId:`team:nhl:${String(team.abbrev || team.id || "").toLowerCase()}`,
-    label:nhlTeamName(team), homeAway:index === 0 ? "away" : "home",
-    score:completed && ((typeof team.score === "number" && Number.isInteger(team.score)) || (typeof team.score === "string" && /^\d+$/.test(team.score))) && Number(team.score)>=0 ? Number(team.score) : null,
-    logoUrl:team.logo || null,
-  }));
-  if(completed && (slots.length!==2 || slots.some(slot=>slot.score==null))) throw new Error("NHL: invalid paired final scores");
-  return {
-    id:`fixture:nhl:${game.id}`, sportDomainId:"sport:ice-hockey", competitionId:"competition:nhl",
-    name:`${slots[0]?.label || "TBC"} v ${slots[1]?.label || "TBC"}`,
-    date:local.date || game?.gameDate || null, time:local.time, startTimeUtc:game?.startTimeUTC || null,
-    venue:nhlName(game?.venue) || null, status:completed ? "completed" : "upcoming",
-    scheduleStatus:game?.gameScheduleState === "OK" && game?.startTimeUTC ? "confirmed" : "provisional",
-    roundLabel:Number(game?.gameType) === 3 ? "Playoffs" : Number(game?.gameType) === 1 ? "Preseason" : "Regular season",
-    participantSlots:slots,
-    sourceUrl:game?.gameCenterLink ? `https://www.nhl.com${game.gameCenterLink}` : null,
-    ticketUrl:game?.ticketsLink || null,
-  };
+  return require('./lib/nhl-results').fixture(game);
 }
 
 const CHL_COUNTRY_CODES = Object.freeze({
@@ -254,17 +234,20 @@ async function buildChl({fetchSource=fetchJson,fetchPage=fetchText,clock=()=>new
   };
 }
 
-async function buildNhl(){
+async function buildNhl({fetchSource=fetchJson,fetchChl=buildChl,clock=()=>new Date(),previous=fs.existsSync(ICE_HOCKEY_PATH)?JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8')):null}={}){
+  const facts=require('./lib/nhl-results');
+  let tableCheckedAt;
   const [standingsPayload, chl] = await Promise.all([
-    fetchJson("https://api-web.nhle.com/v1/standings/now"),
-    buildChl(),
+    (async()=>{const payload=await fetchSource(facts.TABLE_URL);tableCheckedAt=clock().toISOString();return payload;})(),
+    fetchChl(),
   ]);
   const currentStandings = standingsPayload?.standings || [];
   const abbreviations = Array.from(new Set(currentStandings.map(entry => nhlName(entry.teamAbbrev)).filter(Boolean))).sort();
   const clubResults = await mapLimit(abbreviations, 6, async abbreviation => {
+    let scheduleCheckedAt;
     const [roster, schedule] = await Promise.all([
-      fetchJson(`https://api-web.nhle.com/v1/roster/${abbreviation}/current`),
-      fetchJson(`https://api-web.nhle.com/v1/club-schedule-season/${abbreviation}/${NHL_SEASON}`),
+      fetchSource(`https://api-web.nhle.com/v1/roster/${abbreviation}/current`),
+      (async()=>{const payload=await fetchSource(`https://api-web.nhle.com/v1/club-schedule-season/${abbreviation}/${NHL_SEASON}`);scheduleCheckedAt=clock().toISOString();return payload;})(),
     ]);
     const standing = currentStandings.find(entry => nhlName(entry.teamAbbrev) === abbreviation) || {};
     const teamId = `team:nhl:${abbreviation.toLowerCase()}`;
@@ -287,18 +270,14 @@ async function buildNhl(){
         sourceRefs:["https://www.nhl.com/info/teams/", `https://www.nhl.com/${abbreviation.toLowerCase()}/roster`],
       },
       players,
-      fixtures:(schedule.games || []).map(nhlFixture),
+      abbreviation,schedule,observedAt:scheduleCheckedAt,
     };
   });
-  const fixtureMap = new Map(clubResults.flatMap(result => result.fixtures).map(fixture => [fixture.id, fixture]));
-  const publishedStandingsSeason = String(currentStandings[0]?.seasonId || "");
-  const currentSeasonStandingsPublished = publishedStandingsSeason === NHL_SEASON;
-  const standings = (currentSeasonStandingsPublished ? currentStandings : []).map(entry => ({
-    participantId:`team:nhl:${nhlName(entry.teamAbbrev).toLowerCase()}`,
-    conference:entry.conferenceName || null, division:entry.divisionName || null,
-    gamesPlayed:entry.gamesPlayed ?? null, wins:entry.wins ?? null, losses:entry.losses ?? null,
-    otLosses:entry.otLosses ?? null, points:entry.points ?? null, goalDifferential:entry.goalDifferential ?? null,
-  }));
+  const teams=clubResults.map(result=>result.team),base=previous||{fixtures:[],standings:[],sourceStatus:{}};
+  const fixtures=facts.parseClubSchedules(clubResults.map(({abbreviation,schedule,observedAt})=>({abbreviation,payload:schedule,observedAt})),{teams,now:clock(),previousFixtures:base.fixtures.filter(f=>f.competitionId==='competition:nhl')});
+  const standings=facts.parseStandings(standingsPayload,{teams,fixtures:facts.mergeFixtures(base,fixtures),checkedAt:tableCheckedAt,now:clock()});
+  const retained=facts.merge(base,{fixtures,standings}),currentSeasonStandingsPublished=true;
+  const publishedStandingsSeason=NHL_SEASON;
   return {
     schemaVersion:"team-sport-directory.v1", sportKey:"ice-hockey",
     generatedAt:standingsPayload.standingsDateTimeUtc || new Date().toISOString(), season:NHL_SEASON,
@@ -313,9 +292,9 @@ async function buildNhl(){
     ],
     teams:[...clubResults.map(result => result.team), ...chl.teams],
     players:[...clubResults.flatMap(result => result.players), ...chl.players],
-    fixtures:[...fixtureMap.values(), ...chl.fixtures].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
-    standings:[...standings, ...chl.standings],
-    sourceStatus:{ nhl:{ rosterEndpoint:"current", rosterSeason:null, standingsStatus:currentSeasonStandingsPublished ? "published" : "not-started", latestPublishedStandingsSeason:publishedStandingsSeason || null }, chl:chl.sourceStatus },
+    fixtures:[...retained.fixtures.filter(f=>f.competitionId==='competition:nhl'), ...chl.fixtures].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
+    standings:[...retained.standings.filter(r=>r.competitionId==='competition:nhl'), ...chl.standings],
+    sourceStatus:{ nhl:{ ...retained.sourceStatus.nhl,rosterEndpoint:"current", rosterSeason:null }, chl:chl.sourceStatus },
   };
 }
 
@@ -373,4 +352,4 @@ if(require.main===module)main().catch(error => {
   console.error(error.stack || error.message);
   process.exitCode = 1;
 });
-module.exports={buildNfl,buildChl,chlFixture,nhlFixture,validate};
+module.exports={buildNfl,buildNhl,buildChl,chlFixture,nhlFixture,validate};

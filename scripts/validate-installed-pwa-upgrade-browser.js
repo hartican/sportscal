@@ -42,7 +42,7 @@ async function assertCachedCanonicalResults(page){
 }
 async function assertCachedFootballStatus(page){
   const nfl=await page.evaluate(async()=>{
-    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=430');
+    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=434');
     const document=await(await fetch('/data/code-inspector/american-football.json')).json();
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
     try{
@@ -74,11 +74,13 @@ async function assertCachedFootballStatus(page){
       codeInspectorChunk=code;activeTab='follow';userPreferences.showSpoilers=true;
       const panel=document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
       const table=panel.querySelector('.chl-club-records-table'),visible=buildCodeInspectorFixture(fixture).textContent;
+      const nhlRecords={text:panel.textContent,final:buildCodeInspectorFixture(final).textContent,labels:final.resultLabels,checkedAt:final.scoreCheckedAt,rows:code.standings.filter(r=>r.competitionId==='competition:nhl').length,pastTiming:FEED_CONTROLS.timingState({...final,status:'upcoming'},new Date(Date.parse(final.startTimeUtc)+3600000))?.key};
       userPreferences.showSpoilers=false;standingsRevealApproved=false;const hidden=buildCodeInspectorFixture(fixture);panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
-      return {nhlViewing,records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],coverage:code.coverageStatus};
+      return {nhlRecords,nhlViewing,records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],coverage:code.coverageStatus};
     }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;activeTab=tab;}
   });
   assert.deepEqual(hockey.nhlViewing,{subscriptionVisible:true,qualified:1344,excluded:65,final:[{provider:'disney',url:'https://www.disneyplus.com/en-au/welcome/espn-sports',purpose:'replay',replayVerified:false,rightsScope:'competition',linkScope:'sport',verifiedAt:'2026-10-04T14:47:13.000Z'}],expired:[]},'upgraded/offline NHL cached projections and runtime retain scope, original date and honest replay');
+  assert.equal(hockey.nhlRecords.rows,32);assert(hockey.nhlRecords.text.includes('OT/SO losses'));assert(hockey.nhlRecords.final.includes('After overtime'));assert.deepEqual(hockey.nhlRecords.labels,['After overtime']);assert.equal(hockey.nhlRecords.checkedAt,require('../data/canonical/ice-hockey-directory.v1.json').fixtures.find(f=>f.id==='fixture:nhl:2026020001').scoreCheckedAt);assert.equal(hockey.nhlRecords.pastTiming,'awaiting-update','cached hockey cannot infer live from a scheduled clock');
   assert.equal(hockey.records,24);assert.deepEqual(hockey.headers,['Team','P','W','L','GF','GA']);assert(hockey.visible.includes(hockey.expected),'cached CHL final shows its supplied zero');assert(!hockey.hidden.includes(hockey.expected)&&hockey.hiddenResults===0&&hockey.hiddenTables===0,'cached CHL Results OFF remains private');assert.equal(hockey.calendars.length,12);assert(hockey.calendars.every(f=>f.start===null&&f.time===null&&!f.participants.length));assert.equal(hockey.coverage,'partial');assert.deepEqual(hockey.asOf,[require('../data/canonical/ice-hockey-directory.v1.json').standings.find(r=>r.competitionId==='competition:chl').asOf]);
   const season=await page.evaluate(async()=>{
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();

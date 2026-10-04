@@ -33173,7 +33173,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/fla-vs-car/2026/09/29/2026020001",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-car/2026/09/29/2026020001",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-car/2026/09/29/2026020001",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020002",
@@ -33204,7 +33218,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-tor/2026/09/29/2026020002",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-tor/2026/09/29/2026020002",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-tor/2026/09/29/2026020002",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020003",
@@ -33235,7 +33261,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-bos/2026/09/29/2026020003",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-bos/2026/09/29/2026020003",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-bos/2026/09/29/2026020003",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020004",
@@ -33266,7 +33304,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/van-vs-edm/2026/09/29/2026020004",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/van-vs-edm/2026/09/29/2026020004",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/van-vs-edm/2026/09/29/2026020004",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020005",
@@ -33297,7 +33349,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-vgk/2026/09/29/2026020005",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-vgk/2026/09/29/2026020005",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-vgk/2026/09/29/2026020005",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020006",
@@ -33328,7 +33392,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/pit-vs-phi/2026/09/30/2026020006",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/pit-vs-phi/2026/09/30/2026020006",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/pit-vs-phi/2026/09/30/2026020006",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020008",
@@ -33359,7 +33435,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyi-vs-tor/2026/09/30/2026020008",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nyi-vs-tor/2026/09/30/2026020008",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/nyi-vs-tor/2026/09/30/2026020008",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020007",
@@ -33390,7 +33478,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/lak-vs-col/2026/09/30/2026020007",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/lak-vs-col/2026/09/30/2026020007",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/lak-vs-col/2026/09/30/2026020007",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020009",
@@ -33421,7 +33521,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-njd/2026/10/01/2026020009",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/phi-vs-njd/2026/10/01/2026020009",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/phi-vs-njd/2026/10/01/2026020009",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020010",
@@ -33452,7 +33566,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyr/2026/10/01/2026020010",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyr/2026/10/01/2026020010",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyr/2026/10/01/2026020010",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020011",
@@ -33483,7 +33609,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/buf-vs-cbj/2026/10/01/2026020011",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/buf-vs-cbj/2026/10/01/2026020011",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/buf-vs-cbj/2026/10/01/2026020011",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020012",
@@ -33514,7 +33652,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-nsh/2026/10/01/2026020012",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/min-vs-nsh/2026/10/01/2026020012",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/min-vs-nsh/2026/10/01/2026020012",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020014",
@@ -33545,7 +33695,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-cgy/2026/10/01/2026020014",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-cgy/2026/10/01/2026020014",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-cgy/2026/10/01/2026020014",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020013",
@@ -33576,7 +33738,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-uta/2026/10/01/2026020013",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-uta/2026/10/01/2026020013",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-uta/2026/10/01/2026020013",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020015",
@@ -33607,7 +33781,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/edm-vs-van/2026/10/01/2026020015",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/edm-vs-van/2026/10/01/2026020015",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/edm-vs-van/2026/10/01/2026020015",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020016",
@@ -33638,7 +33824,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/fla-vs-sjs/2026/10/01/2026020016",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-sjs/2026/10/01/2026020016",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-sjs/2026/10/01/2026020016",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020017",
@@ -33669,7 +33869,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-det/2026/10/02/2026020017",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-det/2026/10/02/2026020017",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-det/2026/10/02/2026020017",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020018",
@@ -33700,7 +33912,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-car/2026/10/02/2026020018",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-car/2026/10/02/2026020018",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-car/2026/10/02/2026020018",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020019",
@@ -33731,7 +33955,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/bos-vs-wpg/2026/10/02/2026020019",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/bos-vs-wpg/2026/10/02/2026020019",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/bos-vs-wpg/2026/10/02/2026020019",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020020",
@@ -33762,7 +34000,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-dal/2026/10/02/2026020020",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/stl-vs-dal/2026/10/02/2026020020",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/stl-vs-dal/2026/10/02/2026020020",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020021",
@@ -33793,7 +34043,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-vgk/2026/10/02/2026020021",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ana-vs-vgk/2026/10/02/2026020021",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/ana-vs-vgk/2026/10/02/2026020021",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020022",
@@ -33824,7 +34086,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-buf/2026/10/03/2026020022",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-buf/2026/10/03/2026020022",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-buf/2026/10/03/2026020022",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020023",
@@ -33855,7 +34129,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-tor/2026/10/03/2026020023",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ott-vs-tor/2026/10/03/2026020023",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/ott-vs-tor/2026/10/03/2026020023",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020024",
@@ -33886,7 +34172,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-tbl/2026/10/03/2026020024",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-tbl/2026/10/03/2026020024",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-tbl/2026/10/03/2026020024",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020025",
@@ -33917,7 +34215,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/03/2026020025",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/03/2026020025",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/03/2026020025",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020026",
@@ -33948,7 +34260,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-pit/2026/10/03/2026020026",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-pit/2026/10/03/2026020026",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-pit/2026/10/03/2026020026",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020027",
@@ -33979,7 +34305,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-cbj/2026/10/03/2026020027",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-cbj/2026/10/03/2026020027",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-cbj/2026/10/03/2026020027",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020028",
@@ -34010,7 +34348,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-edm/2026/10/03/2026020028",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-edm/2026/10/03/2026020028",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-edm/2026/10/03/2026020028",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020029",
@@ -34041,7 +34391,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/10/03/2026020029",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/10/03/2026020029",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/10/03/2026020029",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020030",
@@ -34072,7 +34434,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/dal-vs-nsh/2026/10/03/2026020030",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/dal-vs-nsh/2026/10/03/2026020030",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/dal-vs-nsh/2026/10/03/2026020030",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020031",
@@ -34103,7 +34477,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/bos-vs-min/2026/10/03/2026020031",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/bos-vs-min/2026/10/03/2026020031",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/bos-vs-min/2026/10/03/2026020031",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020032",
@@ -34134,7 +34520,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-col/2026/10/03/2026020032",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/stl-vs-col/2026/10/03/2026020032",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/stl-vs-col/2026/10/03/2026020032",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020033",
@@ -34165,7 +34563,19 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-van/2026/10/03/2026020033",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-van/2026/10/03/2026020033",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "REG",
+      "resultLabels": [],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-van/2026/10/03/2026020033",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020034",
@@ -34196,7 +34606,21 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/lak-vs-sjs/2026/10/03/2026020034",
-      "ticketUrl": null
+      "ticketUrl": null,
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/lak-vs-sjs/2026/10/03/2026020034",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule",
+      "resultOutcomeType": "OT",
+      "resultLabels": [
+        "After overtime"
+      ],
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/lak-vs-sjs/2026/10/03/2026020034",
+      "resultSourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "scoreCheckedAt": "2026-10-04T16:57:01.279Z"
     },
     {
       "id": "fixture:nhl:2026020035",
@@ -34227,7 +34651,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
-      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7AA7FAA?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7AA7FAA?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020036",
@@ -34258,7 +34689,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-nyr/2026/10/04/2026020036",
-      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D6443F?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM2&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803"
+      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D6443F?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM2&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-nyr/2026/10/04/2026020036",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020037",
@@ -34289,7 +34727,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/fla-vs-ana/2026/10/04/2026020037",
-      "ticketUrl": "https://www.ticketmaster.com/event/090064EA188F542E?brand=ducks&artistid=805893&wt.mc_id=NHL_TEAM_ANA_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_ANA&utm_content=SCHEDULE_GM1"
+      "ticketUrl": "https://www.ticketmaster.com/event/090064EA188F542E?brand=ducks&artistid=805893&wt.mc_id=NHL_TEAM_ANA_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_ANA&utm_content=SCHEDULE_GM1",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-ana/2026/10/04/2026020037",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020038",
@@ -34320,7 +34765,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-sea/2026/10/04/2026020038",
-      "ticketUrl": "https://www.ticketmaster.com/event/0F0064C4A033A21E?brand=seattlekraken&artistid=2763657&wt.mc_id=NHL_TEAM_SEA_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SEA&utm_content=SCHEDULE_GM1"
+      "ticketUrl": "https://www.ticketmaster.com/event/0F0064C4A033A21E?brand=seattlekraken&artistid=2763657&wt.mc_id=NHL_TEAM_SEA_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SEA&utm_content=SCHEDULE_GM1",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-sea/2026/10/04/2026020038",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020039",
@@ -34351,7 +34803,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/vgk-vs-van/2026/10/04/2026020039",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F086BB43?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F086BB43?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/vgk-vs-van/2026/10/04/2026020039",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020040",
@@ -34382,7 +34841,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-tbl/2026/10/05/2026020040",
-      "ticketUrl": "https://www.ticketmaster.com/event/0D0064F8CF249D61?brand=tblightning&artistid=806028&landing=s&wt.mc_id=NHL_TEAM_TBL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_TBL&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/0D0064F8CF249D61?brand=tblightning&artistid=806028&landing=s&wt.mc_id=NHL_TEAM_TBL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_TBL&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/phi-vs-tbl/2026/10/05/2026020040",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020041",
@@ -34413,7 +34879,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-bos/2026/10/05/2026020041",
-      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4EC799C?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4EC799C?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ott-vs-bos/2026/10/05/2026020041",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020042",
@@ -34444,7 +34917,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-pit/2026/10/05/2026020042",
-      "ticketUrl": "https://www.ticketmaster.com/event/160064EAF574B896?brand=penguins&artistid=806005&wt.mc_id=NHL_TEAM_PIT_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PIT&utm_content=SCHEDULE_GM2&camefrom=NHLPENGUINS_WEB_SCHEDULE"
+      "ticketUrl": "https://www.ticketmaster.com/event/160064EAF574B896?brand=penguins&artistid=806005&wt.mc_id=NHL_TEAM_PIT_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PIT&utm_content=SCHEDULE_GM2&camefrom=NHLPENGUINS_WEB_SCHEDULE",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-pit/2026/10/05/2026020042",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020043",
@@ -34475,7 +34955,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sjs-vs-dal/2026/10/05/2026020043",
-      "ticketUrl": "https://www.ticketmaster.com/event/0C0064EDDB82A477?brand=dallas_stars&wt.mc_id=NHL_TEAM_DAL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DAL&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/0C0064EDDB82A477?brand=dallas_stars&wt.mc_id=NHL_TEAM_DAL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DAL&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sjs-vs-dal/2026/10/05/2026020043",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:chl:1a7ccbdac3737e2e2123f998",
@@ -34814,7 +35301,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-tor/2026/10/06/2026020044",
-      "ticketUrl": "https://www.ticketmaster.ca/event/100064FECCD2F7B3?brand=torontomapleleafs&artistid=806033&wt.mc_id=NHL_TEAM_TOR_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_TOR&utm_content=SCHEDULE_GM4"
+      "ticketUrl": "https://www.ticketmaster.ca/event/100064FECCD2F7B3?brand=torontomapleleafs&artistid=806033&wt.mc_id=NHL_TEAM_TOR_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_TOR&utm_content=SCHEDULE_GM4",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-tor/2026/10/06/2026020044",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020045",
@@ -34845,7 +35339,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-mtl/2026/10/06/2026020045",
-      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAA28703?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM1"
+      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAA28703?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM1",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/car-vs-mtl/2026/10/06/2026020045",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020046",
@@ -34876,7 +35377,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-det/2026/10/06/2026020046",
-      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7AF7FAC?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7AF7FAC?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ott-vs-det/2026/10/06/2026020046",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020047",
@@ -34907,7 +35415,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-njd/2026/10/06/2026020047",
-      "ticketUrl": "https://www.ticketmaster.com/event/020064F0918F9C46?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_GM2&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/020064F0918F9C46?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_GM2&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-njd/2026/10/06/2026020047",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020049",
@@ -34938,7 +35453,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-buf/2026/10/06/2026020049",
-      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB0D7F53?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB0D7F53?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/min-vs-buf/2026/10/06/2026020049",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020048",
@@ -34969,7 +35491,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyi-vs-nyr/2026/10/06/2026020048",
-      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D64441?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM3&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803"
+      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D64441?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM3&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nyi-vs-nyr/2026/10/06/2026020048",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020050",
@@ -35000,7 +35529,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-chi/2026/10/06/2026020050",
-      "ticketUrl": "https://www.ticketmaster.com/event/040064F0902A779A?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_GM1"
+      "ticketUrl": "https://www.ticketmaster.com/event/040064F0902A779A?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_GM1",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/stl-vs-chi/2026/10/06/2026020050",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020051",
@@ -35031,7 +35567,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/vgk-vs-sea/2026/10/06/2026020051",
-      "ticketUrl": "https://www.ticketmaster.com/event/0F0064C4A03AA22C?brand=seattlekraken&artistid=2763657&wt.mc_id=NHL_TEAM_SEA_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SEA&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/0F0064C4A03AA22C?brand=seattlekraken&artistid=2763657&wt.mc_id=NHL_TEAM_SEA_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SEA&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/vgk-vs-sea/2026/10/06/2026020051",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020052",
@@ -35062,7 +35605,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/fla-vs-lak/2026/10/06/2026020052",
-      "ticketUrl": "https://www.nhl.com/kings/tickets/single-game-tickets"
+      "ticketUrl": "https://www.nhl.com/kings/tickets/single-game-tickets",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/fla-vs-lak/2026/10/06/2026020052",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:chl:27f291d3bd65525d537f2420",
@@ -35313,7 +35863,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/pit-vs-wsh/2026/10/07/2026020053",
-      "ticketUrl": "https://www.ticketmaster.com/event/150064F03458E273?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM1&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca1007pp"
+      "ticketUrl": "https://www.ticketmaster.com/event/150064F03458E273?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM1&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca1007pp",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/pit-vs-wsh/2026/10/07/2026020053",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020054",
@@ -35344,7 +35901,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/col-vs-wpg/2026/10/07/2026020054",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006505D0ACAFE3?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.ca/event/11006505D0ACAFE3?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/col-vs-wpg/2026/10/07/2026020054",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020055",
@@ -35375,7 +35939,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/edm-vs-ana/2026/10/07/2026020055",
-      "ticketUrl": "https://www.ticketmaster.com/event/090064EA1908558F?brand=ducks&artistid=805893&wt.mc_id=NHL_TEAM_ANA_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_ANA&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/090064EA1908558F?brand=ducks&artistid=805893&wt.mc_id=NHL_TEAM_ANA_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_ANA&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/edm-vs-ana/2026/10/07/2026020055",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020056",
@@ -35406,7 +35977,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-bos/2026/10/08/2026020056",
-      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4F179B1?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4F179B1?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-bos/2026/10/08/2026020056",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020057",
@@ -35437,7 +36015,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/dal-vs-buf/2026/10/08/2026020057",
-      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB127F68?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB127F68?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/dal-vs-buf/2026/10/08/2026020057",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020058",
@@ -35468,7 +36053,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-mtl/2026/10/08/2026020058",
-      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAA6870A?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAA6870A?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-mtl/2026/10/08/2026020058",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020059",
@@ -35499,7 +36091,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-ott/2026/10/08/2026020059",
-      "ticketUrl": "https://www.ticketmaster.ca/event/310064EDBB565CED?brand=ottawasenators&artistid=805997&landing=s&wt.mc_id=NHL_TEAM_OTT_SGT_PG_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_OTT&utm_content=SGT_PG_GM1&utm_source=sens_website&utm_medium=schedule&utm_campaign=100826_phi"
+      "ticketUrl": "https://www.ticketmaster.ca/event/310064EDBB565CED?brand=ottawasenators&artistid=805997&landing=s&wt.mc_id=NHL_TEAM_OTT_SGT_PG_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_OTT&utm_content=SGT_PG_GM1&utm_source=sens_website&utm_medium=schedule&utm_campaign=100826_phi",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/phi-vs-ott/2026/10/08/2026020059",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020060",
@@ -35530,7 +36129,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-tbl/2026/10/08/2026020060",
-      "ticketUrl": "https://www.ticketmaster.com/event/0D0064F8CF289D6F?brand=tblightning&artistid=806028&landing=s&wt.mc_id=NHL_TEAM_TBL_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_TBL&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/0D0064F8CF289D6F?brand=tblightning&artistid=806028&landing=s&wt.mc_id=NHL_TEAM_TBL_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_TBL&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/min-vs-tbl/2026/10/08/2026020060",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020061",
@@ -35561,7 +36167,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/van-vs-car/2026/10/08/2026020061",
-      "ticketUrl": "https://www.ticketmaster.com/event/2D0064F4BD51D16D?brand=carolinahurricanes&artistid=805908&wt.mc_id=NHL_TEAM_CAR_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_CAR&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/2D0064F4BD51D16D?brand=carolinahurricanes&artistid=805908&wt.mc_id=NHL_TEAM_CAR_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_CAR&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/van-vs-car/2026/10/08/2026020061",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020062",
@@ -35592,7 +36205,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-nyi/2026/10/08/2026020062",
-      "ticketUrl": "https://www.ticketmaster.com/event/300064E2D250619C?brand=nyislanders&artistid=805986&wt.mc_id=NHL_TEAM_NYI_SCHEDULE_GM2&utm_source=nyi_website&utm_medium=schedulepage&utm_campaign=NHL_TEAM_NYI&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/300064E2D250619C?brand=nyislanders&artistid=805986&wt.mc_id=NHL_TEAM_NYI_SCHEDULE_GM2&utm_source=nyi_website&utm_medium=schedulepage&utm_campaign=NHL_TEAM_NYI&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/chi-vs-nyi/2026/10/08/2026020062",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020063",
@@ -35623,7 +36243,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sjs-vs-stl/2026/10/08/2026020063",
-      "ticketUrl": "https://www.ticketmaster.com/event/060064EECDE41AE7?brand=blues&artistid=806025&wt.mc_id=NHL_TEAM_STL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_STL&utm_content=SCHEDULE_GM1"
+      "ticketUrl": "https://www.ticketmaster.com/event/060064EECDE41AE7?brand=blues&artistid=806025&wt.mc_id=NHL_TEAM_STL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_STL&utm_content=SCHEDULE_GM1",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sjs-vs-stl/2026/10/08/2026020063",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020064",
@@ -35654,7 +36281,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/col-vs-cgy/2026/10/08/2026020064",
-      "ticketUrl": "https://www.ticketmaster.ca/event/110064FBA5A45410?brand=calgaryflames&artistid=805907&wt.mc_id=NHL_TEAM_CGY_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_CGY&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.ca/event/110064FBA5A45410?brand=calgaryflames&artistid=805907&wt.mc_id=NHL_TEAM_CGY_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_CGY&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/col-vs-cgy/2026/10/08/2026020064",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020065",
@@ -35685,7 +36319,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tor-vs-vgk/2026/10/08/2026020065",
-      "ticketUrl": "https://tix.axs.com/c8egKQAAAADI0LbuAgAAAADw%2fv%2f%2f%2fwD%2f%2f%2f%2f%2fEnZlZ2FzZ29sZGVua25pZ2h0cwD%2f%2f%2f%2f%2f%2f%2f%2f%2f%2fw%3d%3d"
+      "ticketUrl": "https://tix.axs.com/c8egKQAAAADI0LbuAgAAAADw%2fv%2f%2f%2fwD%2f%2f%2f%2f%2fEnZlZ2FzZ29sZGVua25pZ2h0cwD%2f%2f%2f%2f%2f%2f%2f%2f%2f%2fw%3d%3d",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/tor-vs-vgk/2026/10/08/2026020065",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020066",
@@ -35716,7 +36357,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-det/2026/10/09/2026020066",
-      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7B47FB2?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM4"
+      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7B47FB2?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM4",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-det/2026/10/09/2026020066",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020067",
@@ -35747,7 +36395,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-wsh/2026/10/09/2026020067",
-      "ticketUrl": "https://www.ticketmaster.com/event/150064F0345BE27A?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM2&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca109nr"
+      "ticketUrl": "https://www.ticketmaster.com/event/150064F0345BE27A?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM2&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca109nr",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-wsh/2026/10/09/2026020067",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020068",
@@ -35778,7 +36433,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/pit-vs-cbj/2026/10/09/2026020068",
-      "ticketUrl": "https://www.ticketmaster.com/event/050064EDDA9ED4E7?brand=bluejackets&artistid=805927&wt.mc_id=NHL_TEAM_CBJ_SCHEDULE_GM3&utm_source=web_schedule_club&utm_medium=NHL.com&utm_campaign=single_game_tickets&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/050064EDDA9ED4E7?brand=bluejackets&artistid=805927&wt.mc_id=NHL_TEAM_CBJ_SCHEDULE_GM3&utm_source=web_schedule_club&utm_medium=NHL.com&utm_campaign=single_game_tickets&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/pit-vs-cbj/2026/10/09/2026020068",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020069",
@@ -35809,7 +36471,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-wpg/2026/10/09/2026020069",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006505CB3AA935?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.ca/event/11006505CB3AA935?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ana-vs-wpg/2026/10/09/2026020069",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020070",
@@ -35840,7 +36509,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-bos/2026/10/10/2026020070",
-      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4F579BC?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM4"
+      "ticketUrl": "https://www.ticketmaster.com/event/010064EDC4F579BC?brand=bostonbruins&artistid=805902&wt.mc_id=NHL_TEAM_BOS_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BOS&utm_content=SCHEDULE_GM4",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/phi-vs-bos/2026/10/10/2026020070",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020071",
@@ -35871,7 +36547,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/van-vs-njd/2026/10/10/2026020071",
-      "ticketUrl": "https://www.ticketmaster.com/event/020064F091959C53?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_GM3&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/020064F091959C53?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_GM3&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/van-vs-njd/2026/10/10/2026020071",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020072",
@@ -35902,7 +36585,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/edm-vs-sjs/2026/10/10/2026020072",
-      "ticketUrl": "https://www.ticketmaster.com/event/1C0064E79AB89B46?brand=sharks&artistid=806018&wt.mc_id=NHL_TEAM_SJS_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SJS&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/1C0064E79AB89B46?brand=sharks&artistid=806018&wt.mc_id=NHL_TEAM_SJS_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SJS&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/edm-vs-sjs/2026/10/10/2026020072",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020073",
@@ -35933,7 +36623,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-fla/2026/10/10/2026020073",
-      "ticketUrl": "https://www.nhl.com/panthers/tickets/"
+      "ticketUrl": "https://www.nhl.com/panthers/tickets/",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/min-vs-fla/2026/10/10/2026020073",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020074",
@@ -35964,7 +36661,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-buf/2026/10/10/2026020074",
-      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB197FA5?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM4"
+      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB197FA5?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM4",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/uta-vs-buf/2026/10/10/2026020074",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020075",
@@ -35995,7 +36699,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/det-vs-mtl/2026/10/10/2026020075",
-      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAAB8710?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.ca/event/310064FACAAB8710?lang=en-ca&brand=canadiens&artistid=805975&wt.mc_id=NHL_TEAM_MTL_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_MTL&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/det-vs-mtl/2026/10/10/2026020075",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020076",
@@ -36026,7 +36737,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-ott/2026/10/10/2026020076",
-      "ticketUrl": "https://www.ticketmaster.ca/event/31006507E8FC3415?brand=ottawasenators&artistid=805997&landing=s&wt.mc_id=NHL_TEAM_OTT_SGT_PG_GM2&"
+      "ticketUrl": "https://www.ticketmaster.ca/event/31006507E8FC3415?brand=ottawasenators&artistid=805997&landing=s&wt.mc_id=NHL_TEAM_OTT_SGT_PG_GM2&",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/nsh-vs-ott/2026/10/10/2026020076",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020077",
@@ -36057,7 +36775,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/dal-vs-pit/2026/10/10/2026020077",
-      "ticketUrl": "https://www.ticketmaster.com/event/160064EAF579B899?brand=penguins&artistid=806005&wt.mc_id=NHL_TEAM_PIT_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PIT&utm_content=SCHEDULE_GM3&camefrom=NHLPENGUINS_WEB_SCHEDULE"
+      "ticketUrl": "https://www.ticketmaster.com/event/160064EAF579B899?brand=penguins&artistid=806005&wt.mc_id=NHL_TEAM_PIT_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PIT&utm_content=SCHEDULE_GM3&camefrom=NHLPENGUINS_WEB_SCHEDULE",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/dal-vs-pit/2026/10/10/2026020077",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020078",
@@ -36088,7 +36813,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-chi/2026/10/10/2026020078",
-      "ticketUrl": "https://www.ticketmaster.com/event/040064F0902F77A3?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/040064F0902F77A3?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/car-vs-chi/2026/10/10/2026020078",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020079",
@@ -36119,7 +36851,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cbj-vs-stl/2026/10/10/2026020079",
-      "ticketUrl": "https://www.ticketmaster.com/event/060064EECDEB1AF5?brand=blues&artistid=806025&wt.mc_id=NHL_TEAM_STL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_STL&utm_content=SCHEDULE_GM2"
+      "ticketUrl": "https://www.ticketmaster.com/event/060064EECDEB1AF5?brand=blues&artistid=806025&wt.mc_id=NHL_TEAM_STL_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_STL&utm_content=SCHEDULE_GM2",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/cbj-vs-stl/2026/10/10/2026020079",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020080",
@@ -36150,7 +36889,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tor-vs-col/2026/10/10/2026020080",
-      "ticketUrl": "https://avs.social/2627_SCHEDULE_GM3"
+      "ticketUrl": "https://avs.social/2627_SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/tor-vs-col/2026/10/10/2026020080",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020081",
@@ -36181,7 +36927,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyi/2026/10/10/2026020081",
-      "ticketUrl": "https://www.ticketmaster.com/event/300064E2D25561A1?brand=nyislanders&artistid=805986&wt.mc_id=NHL_TEAM_NYI_SCHEDULE_GM3&utm_source=nyi_website&utm_medium=schedulepage&utm_campaign=NHL_TEAM_NYI&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/300064E2D25561A1?brand=nyislanders&artistid=805986&wt.mc_id=NHL_TEAM_NYI_SCHEDULE_GM3&utm_source=nyi_website&utm_medium=schedulepage&utm_campaign=NHL_TEAM_NYI&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyi/2026/10/10/2026020081",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020082",
@@ -36212,7 +36965,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-cgy/2026/10/10/2026020082",
-      "ticketUrl": "https://www.ticketmaster.ca/event/110064FBA5AA5429?brand=calgaryflames&artistid=805907&wt.mc_id=NHL_TEAM_CGY_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_CGY&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.ca/event/110064FBA5AA5429?brand=calgaryflames&artistid=805907&wt.mc_id=NHL_TEAM_CGY_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_CGY&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/ana-vs-cgy/2026/10/10/2026020082",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020083",
@@ -36243,7 +37003,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/lak-vs-vgk/2026/10/10/2026020083",
-      "ticketUrl": "https://tix.axs.com/c8egKQAAAAAGL7fuAgAAAACm%2fv%2f%2f%2fwD%2f%2f%2f%2f%2fEnZlZ2FzZ29sZGVua25pZ2h0cwD%2f%2f%2f%2f%2f%2f%2f%2f%2f%2fw%3d%3d"
+      "ticketUrl": "https://tix.axs.com/c8egKQAAAAAGL7fuAgAAAACm%2fv%2f%2f%2fwD%2f%2f%2f%2f%2fEnZlZ2FzZ29sZGVua25pZ2h0cwD%2f%2f%2f%2f%2f%2f%2f%2f%2f%2fw%3d%3d",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/lak-vs-vgk/2026/10/10/2026020083",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020084",
@@ -36274,7 +37041,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-wsh/2026/10/11/2026020084",
-      "ticketUrl": "https://www.ticketmaster.com/event/150064F0345FE283?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM3&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca1011sk"
+      "ticketUrl": "https://www.ticketmaster.com/event/150064F0345FE283?brand=capitals&artistid=806039&wt.mc_id=NHL_TEAM_WSH_SCHEDULE_GM3&utm_source=club_schedule&utm_medium=web_organic&utm_campaign=2627sgb_ca1011sk",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/sea-vs-wsh/2026/10/11/2026020084",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020085",
@@ -36305,7 +37079,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/van-vs-nyr/2026/10/11/2026020085",
-      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D74443?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM4&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803"
+      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D74443?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM4&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/van-vs-nyr/2026/10/11/2026020085",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020086",
@@ -36336,7 +37117,14 @@
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/11/2026020086",
-      "ticketUrl": "https://www.ticketmaster.com/event/300064EEEEA3E165?brand=flyers&artistid=806000&wt.mc_id=NHL_TEAM_PHI_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PHI&utm_content=SCHEDULE_GM3"
+      "ticketUrl": "https://www.ticketmaster.com/event/300064EEEEA3E165?brand=flyers&artistid=806000&wt.mc_id=NHL_TEAM_PHI_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PHI&utm_content=SCHEDULE_GM3",
+      "sourceName": "NHL",
+      "sourceType": "official-schedule",
+      "sourceCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusCheckedAt": "2026-10-04T16:57:01.719Z",
+      "statusSourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/11/2026020086",
+      "statusSourceName": "NHL",
+      "statusSourceType": "official-schedule"
     },
     {
       "id": "fixture:nhl:2026020087",
@@ -76444,355 +77232,931 @@
   "standings": [
     {
       "participantId": "team:nhl:edm",
+      "displayName": "Edmonton Oilers",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 1,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 1,
       "division": "Pacific",
+      "divisionRank": 1,
       "gamesPlayed": 3,
       "wins": 2,
       "losses": 0,
       "otLosses": 1,
       "points": 5,
-      "goalDifferential": 3
+      "goalsFor": 17,
+      "goalsAgainst": 14,
+      "goalDifferential": 3,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:col",
+      "displayName": "Colorado Avalanche",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 2,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 2,
       "division": "Central",
+      "divisionRank": 1,
       "gamesPlayed": 2,
       "wins": 2,
       "losses": 0,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 9
+      "goalsFor": 14,
+      "goalsAgainst": 5,
+      "goalDifferential": 9,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:uta",
+      "displayName": "Utah Mammoth",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 3,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 3,
       "division": "Central",
+      "divisionRank": 2,
       "gamesPlayed": 2,
       "wins": 2,
       "losses": 0,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 9
+      "goalsFor": 10,
+      "goalsAgainst": 1,
+      "goalDifferential": 9,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:min",
+      "displayName": "Minnesota Wild",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 4,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 4,
       "division": "Central",
+      "divisionRank": 3,
       "gamesPlayed": 2,
       "wins": 2,
       "losses": 0,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 5
+      "goalsFor": 7,
+      "goalsAgainst": 2,
+      "goalDifferential": 5,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:pit",
+      "displayName": "Pittsburgh Penguins",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 5,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 1,
       "division": "Metropolitan",
+      "divisionRank": 1,
       "gamesPlayed": 2,
       "wins": 2,
       "losses": 0,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 8
+      "goalsFor": 13,
+      "goalsAgainst": 5,
+      "goalDifferential": 8,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:sjs",
+      "displayName": "San Jose Sharks",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 6,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 5,
       "division": "Pacific",
+      "divisionRank": 2,
       "gamesPlayed": 2,
       "wins": 2,
       "losses": 0,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 2
+      "goalsFor": 9,
+      "goalsAgainst": 7,
+      "goalDifferential": 2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:nyr",
+      "displayName": "New York Rangers",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 7,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 2,
       "division": "Metropolitan",
+      "divisionRank": 2,
       "gamesPlayed": 3,
       "wins": 2,
       "losses": 1,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 3
+      "goalsFor": 7,
+      "goalsAgainst": 4,
+      "goalDifferential": 3,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:van",
+      "displayName": "Vancouver Canucks",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 8,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 6,
       "division": "Pacific",
+      "divisionRank": 3,
       "gamesPlayed": 3,
       "wins": 2,
       "losses": 1,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 2
+      "goalsFor": 17,
+      "goalsAgainst": 15,
+      "goalDifferential": 2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:bos",
+      "displayName": "Boston Bruins",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 9,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 3,
       "division": "Atlantic",
+      "divisionRank": 1,
       "gamesPlayed": 3,
       "wins": 2,
       "losses": 1,
       "otLosses": 0,
       "points": 4,
-      "goalDifferential": 1
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifferential": 1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:mtl",
+      "displayName": "Montréal Canadiens",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 10,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 4,
       "division": "Atlantic",
+      "divisionRank": 2,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 0,
       "otLosses": 1,
       "points": 3,
-      "goalDifferential": 0
+      "goalsFor": 8,
+      "goalsAgainst": 8,
+      "goalDifferential": 0,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:fla",
+      "displayName": "Florida Panthers",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 11,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 5,
       "division": "Atlantic",
+      "divisionRank": 3,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 0,
       "otLosses": 1,
       "points": 3,
-      "goalDifferential": 0
+      "goalsFor": 4,
+      "goalsAgainst": 4,
+      "goalDifferential": 0,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:car",
+      "displayName": "Carolina Hurricanes",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 12,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 6,
       "division": "Metropolitan",
+      "divisionRank": 3,
       "gamesPlayed": 3,
       "wins": 1,
       "losses": 1,
       "otLosses": 1,
       "points": 3,
-      "goalDifferential": -3
+      "goalsFor": 5,
+      "goalsAgainst": 8,
+      "goalDifferential": -3,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:ana",
+      "displayName": "Anaheim Ducks",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 13,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 7,
       "division": "Pacific",
+      "divisionRank": 4,
       "gamesPlayed": 1,
       "wins": 1,
       "losses": 0,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 1
+      "goalsFor": 4,
+      "goalsAgainst": 3,
+      "goalDifferential": 1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:ott",
+      "displayName": "Ottawa Senators",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 14,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 7,
       "division": "Atlantic",
+      "divisionRank": 4,
       "gamesPlayed": 1,
       "wins": 1,
       "losses": 0,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 1
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "goalDifferential": 1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:nyi",
+      "displayName": "New York Islanders",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 15,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 8,
       "division": "Metropolitan",
+      "divisionRank": 4,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 5
+      "goalsFor": 7,
+      "goalsAgainst": 2,
+      "goalDifferential": 5,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:sea",
+      "displayName": "Seattle Kraken",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 16,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 8,
       "division": "Pacific",
+      "divisionRank": 5,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 3
+      "goalsFor": 7,
+      "goalsAgainst": 4,
+      "goalDifferential": 3,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:vgk",
+      "displayName": "Vegas Golden Knights",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 17,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 9,
       "division": "Pacific",
+      "divisionRank": 6,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 2
+      "goalsFor": 8,
+      "goalsAgainst": 6,
+      "goalDifferential": 2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:wsh",
+      "displayName": "Washington Capitals",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 18,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 9,
       "division": "Metropolitan",
+      "divisionRank": 5,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 1
+      "goalsFor": 6,
+      "goalsAgainst": 5,
+      "goalDifferential": 1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:cbj",
+      "displayName": "Columbus Blue Jackets",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 19,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 10,
       "division": "Metropolitan",
+      "divisionRank": 6,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": 0
+      "goalsFor": 7,
+      "goalsAgainst": 7,
+      "goalDifferential": 0,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:stl",
+      "displayName": "St. Louis Blues",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 20,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 10,
       "division": "Central",
+      "divisionRank": 4,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -1
+      "goalsFor": 5,
+      "goalsAgainst": 6,
+      "goalDifferential": -1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:nsh",
+      "displayName": "Nashville Predators",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 21,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 11,
       "division": "Central",
+      "divisionRank": 5,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -1
+      "goalsFor": 3,
+      "goalsAgainst": 4,
+      "goalDifferential": -1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:buf",
+      "displayName": "Buffalo Sabres",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 22,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 11,
       "division": "Atlantic",
+      "divisionRank": 5,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -2
+      "goalsFor": 7,
+      "goalsAgainst": 9,
+      "goalDifferential": -2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:tbl",
+      "displayName": "Tampa Bay Lightning",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 23,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 12,
       "division": "Atlantic",
+      "divisionRank": 6,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -2
+      "goalsFor": 4,
+      "goalsAgainst": 6,
+      "goalDifferential": -2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:njd",
+      "displayName": "New Jersey Devils",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 24,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 13,
       "division": "Metropolitan",
+      "divisionRank": 7,
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -5
+      "goalsFor": 3,
+      "goalsAgainst": 8,
+      "goalDifferential": -5,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:tor",
+      "displayName": "Toronto Maple Leafs",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 25,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 14,
       "division": "Atlantic",
+      "divisionRank": 7,
       "gamesPlayed": 3,
       "wins": 1,
       "losses": 2,
       "otLosses": 0,
       "points": 2,
-      "goalDifferential": -1
+      "goalsFor": 6,
+      "goalsAgainst": 7,
+      "goalDifferential": -1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:phi",
+      "displayName": "Philadelphia Flyers",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 26,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 15,
       "division": "Metropolitan",
+      "divisionRank": 8,
       "gamesPlayed": 3,
       "wins": 0,
       "losses": 1,
       "otLosses": 2,
       "points": 2,
-      "goalDifferential": -9
+      "goalsFor": 4,
+      "goalsAgainst": 13,
+      "goalDifferential": -9,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:wpg",
+      "displayName": "Winnipeg Jets",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 27,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 12,
       "division": "Central",
+      "divisionRank": 6,
       "gamesPlayed": 1,
       "wins": 0,
       "losses": 0,
       "otLosses": 1,
       "points": 1,
-      "goalDifferential": -1
+      "goalsFor": 3,
+      "goalsAgainst": 4,
+      "goalDifferential": -1,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:lak",
+      "displayName": "Los Angeles Kings",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 28,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 13,
       "division": "Pacific",
+      "divisionRank": 7,
       "gamesPlayed": 2,
       "wins": 0,
       "losses": 1,
       "otLosses": 1,
       "points": 1,
-      "goalDifferential": -5
+      "goalsFor": 8,
+      "goalsAgainst": 13,
+      "goalDifferential": -5,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:det",
+      "displayName": "Detroit Red Wings",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 29,
+      "rankScope": "league",
       "conference": "Eastern",
+      "conferenceRank": 16,
       "division": "Atlantic",
+      "divisionRank": 8,
       "gamesPlayed": 1,
       "wins": 0,
       "losses": 1,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -2
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "goalDifferential": -2,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:dal",
+      "displayName": "Dallas Stars",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 30,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 14,
       "division": "Central",
+      "divisionRank": 7,
       "gamesPlayed": 2,
       "wins": 0,
       "losses": 2,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -5
+      "goalsFor": 1,
+      "goalsAgainst": 6,
+      "goalDifferential": -5,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:cgy",
+      "displayName": "Calgary Flames",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 31,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 15,
       "division": "Pacific",
+      "divisionRank": 8,
       "gamesPlayed": 2,
       "wins": 0,
       "losses": 2,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -8
+      "goalsFor": 2,
+      "goalsAgainst": 10,
+      "goalDifferential": -8,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:nhl:chi",
+      "displayName": "Chicago Blackhawks",
+      "competitionId": "competition:nhl",
+      "competitionName": "National Hockey League",
+      "season": "20262027",
+      "rank": 32,
+      "rankScope": "league",
       "conference": "Western",
+      "conferenceRank": 16,
       "division": "Central",
+      "divisionRank": 8,
       "gamesPlayed": 3,
       "wins": 0,
       "losses": 3,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -10
+      "goalsFor": 5,
+      "goalsAgainst": 15,
+      "goalDifferential": -10,
+      "asOf": "2026-10-04T16:57:02Z",
+      "sourceCheckedAt": "2026-10-04T16:57:02.531Z",
+      "sourceDate": "2026-10-04",
+      "sourcePublishedAt": "2026-10-04T16:57:02Z",
+      "sourceName": "NHL",
+      "sourceType": "official-standings",
+      "sourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "tableNote": "Published NHL league positions and records; playoff qualification is not inferred."
     },
     {
       "participantId": "team:chl:104c3b90fcb6da8e653c05eb",

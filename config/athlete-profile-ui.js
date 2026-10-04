@@ -182,6 +182,13 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
           const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);
           continue;
         }
+        if(competition==='competition:nhl'&&rows.every(row=>row.rankScope==='league')){
+          const records=table(['League pos','Team','W-L-OT','Pts','P'],[...rows].sort((a,b)=>a.rank-b.rank).map(e=>[e.rank,e.displayName,`${e.wins}-${e.losses}-${e.otLosses}`,e.points,e.gamesPlayed]),'NHL league standings · 2026/27');
+          records.firstChild.classList.add('profile-standings-table');section.append(records);
+          const note=document.createElement('p');note.textContent=`${first.tableNote} Table published ${new Date(first.asOf).toLocaleDateString('en-AU',{timeZone:'Australia/Sydney'})} · NHL. OT includes overtime and shootout losses.`;section.append(note);
+          const stale=rows.find(row=>row.stale);if(stale){const warning=document.createElement('p');warning.textContent=stale.staleNote;section.append(warning);}
+          const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);continue;
+        }
         const label=document.createElement('p');label.textContent=[first.competitionName||competition?.replace(/^competition:/,'').replaceAll('-',' '),first.roundLabel,first.asOf?'As of '+new Date(first.asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');
         const standingsTable=table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[root.NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(e),e.displayName,e.points??e.ladderPoints,e.played]),label.textContent);
         standingsTable.firstChild.classList.add('profile-standings-table');section.append(label,standingsTable);

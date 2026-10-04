@@ -157,7 +157,7 @@ function renderCodeInspectorStandings(panel, code){
         const losses = entry.lost ?? entry.losses ?? entry.stats?.losses;
         const draws = entry.drawn;
         const points = entry.ladderPoints ?? entry.points ?? entry.stats?.points;
-        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, competitionId==='competition:nhl'&&entry.otLosses!=null?`${entry.otLosses} OT/SO losses`:null, points != null ? `${points} pts` : null, competitionId==='competition:nhl'&&entry.goalsFor!=null?`${entry.goalsFor} GF · ${entry.goalsAgainst} GA · ${entry.goalDifferential>0?'+':''}${entry.goalDifferential} GD`:null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
         row.append(label, facts);
         list.appendChild(row);
       });
