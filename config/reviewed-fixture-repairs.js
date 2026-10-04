@@ -12,6 +12,13 @@
   'rugby-new-zealand-australia-2026-10-10':{name:'All Blacks v Wallabies',displayTitleCompact:'All Blacks v Wallabies',startTimeUtc:'2026-10-10T06:10:00.000Z',venue:'Eden Park, Auckland',competitionName:'Bledisloe Cup',roundLabel:'First Test',sourceUrl:'https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/',sourceName:'Eden Park'},
   'fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be':{roundLabel:'Grand Final',stage:'Grand Final',isFinals:true,competitionName:'Super Rugby AUS',venue:'Scotch College Playing Fields, Swanbourne, Perth',venueProvenance:{kind:'official',checkedAt:'2026-10-02T08:24:48.810Z',sourceUrl:'https://www.rugby.com.au/news/hmp-joc-return-boost-force-grand-final-scotch-2026930'},sourceUrl:'https://www.rugby.com.au/news/force-waratahs-rat-park-superrugby-aus-report-2026927'}
  };
- function facts(id){return records[id]||null;}
- return {facts};
+ // Cached manual seeds cannot regain unsupported dates during offline startup.
+ // This withholds claims; it is not a source check or a WSL identity alias.
+ function cachedCalendarNote(event){
+  const index=['calendar-nothingsport-manual-seed-big-wave-nazare-2026','calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026'].indexOf(event?.id||event?.eventId);
+  if(index<0||event.calendarNote||event.sourceType!=='personal-calendar'||event.sourceTrust!=='unverified'||!['upcoming','scheduled'].includes(event.status)||event.score||event.result)return null;
+  return {name:(index?'Pipe Masters':'Nazaré Big Wave')+' — unconfirmed listing',displayTitleCompact:(index?'Pipe Masters':'Nazaré Big Wave')+' — unconfirmed listing',date:null,endDate:null,time:null,startDate:null,startTimeUtc:null,endTimeUtc:null,estimatedStartTimeUtc:null,timelineSortTimeUtc:null,sessionStartTimeUtc:null,notBeforeTimeUtc:null,dateStatus:'tbc',scheduleStatus:'tbc',timePrecision:'unknown',timeTbc:true,startTimeTbc:true,dateOnly:false,cardKind:'calendar-note',expected:null,round:'all',narrativeType:'all',consensusTags:[],broadcaster:'Australian viewing unconfirmed',broadcastOptions:[],broadcasterIds:[],broadcasts:[],viewingOptions:[],fullSpiel:'This saved listing has no verified date, start time or Australian viewing. Refresh online for the organiser notes.',calendarNote:{state:'unconfirmed',cacheRecovery:true,sourceUrl:'https://www.worldsurfleague.com/events/'+(index?'2026/ct?all=1':'2027/bwt?all=1')}};
+ }
+ function facts(id,event){return records[id]||cachedCalendarNote(event)||null;}
+ return {facts,cachedCalendarNote};
 });

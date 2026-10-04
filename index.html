@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="438">
+<meta name="app-shell-version" content="439">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=438" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=439" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=438"></script>
+<script src="assets/js/app-shell-runtime.js?v=439"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -14135,16 +14135,6 @@ function focusPendingNotificationEvent(){
   return true;
 }
 
-function codeInspectorCoverageCopy(code){
-  if(code.coverageNote)return code.coverageNote;
-  if(code.id==='sport:skiing'&&code.coverageStatus==='partial')return 'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.';
-  if(['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'].includes(code.id))return 'Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
-  if(code.id==='competition:wsl-championship-tour')return 'WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed.';
-  if(code.id==='competition:sailgp'&&code.coverageStatus==='partial')return 'SailGP coverage is partial: published race days only. Season teams may be listed; individual event entries and future session times may be unconfirmed.';
-  if (code.coverageStatus === "complete") return "Complete official published coverage is available for this code.";
-  if (code.coverageStatus === "partial") return "Published coverage is partial. This view shows every available fixture, but does not claim a complete schedule.";
-  return "No reliable fixture schedule is currently published for this code. This honest unavailable state will update when source-backed coverage exists.";
-}
 
 function codeInspectorGroupLabel(fixture, groupingMode){
   if (groupingMode === "stage") return FOLLOW_FIRST?.normalizedFixtureGroupLabel?.(fixture.stage) || "Other fixtures";
@@ -14157,19 +14147,6 @@ function codeInspectorGroupLabel(fixture, groupingMode){
   return `${competition} · ${fixture.date || "Date TBC"}`;
 }
 
-function formatInspectorDetailsExpectedAt(value){
-  if (!value) return "";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "";
-  const formatted = new Intl.DateTimeFormat("en-AU", {
-    timeZone: "Australia/Sydney",
-    weekday: "short",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  }).format(date);
-  return `Details likely known by ${formatted}.`;
-}
 
 function inspectorFixtureIsResult(fixture){
   return ["completed", "finished", "final"].includes(String(fixture.status || "").toLowerCase());
@@ -14345,7 +14322,7 @@ function codeInspectorParticipantMark(slot, fixture){
 function buildCodeInspectorFixture(fixture){
   const slots=fixture.participantSlots || [];
   const canonical=canonicalFeedFixtureForInspector(fixture);
-  const event=canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
+  const event=fixture.calendarNote&&canonical?.sourceTrust!=='verified'?{...canonical,...fixture}:canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
     participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
     participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),
     status:inspectorFixtureIsResult(fixture)?'finished':fixture.status || 'scheduled',
@@ -14392,7 +14369,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=434').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=439').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -17075,6 +17052,8 @@ function ensureFantasyUi(){
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
+  if(NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS.cachedCalendarNote(ev))ev=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(ev);
+  if(ev.calendarNote?.state==='unconfirmed')return buildFixtureFallbackCard(ev,options);
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
   if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
@@ -17141,12 +17120,13 @@ function buildFixtureFallbackCard(event, options = {}){
   timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
   if(activeTab === 'feed')copy.appendChild(buildFixtureTimingGroup(ev));
-  copy.append(title, timing);
+  copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));
+  if(ev.calendarNote){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=ev.fullSpiel;const source=document.createElement('a');source.href=ev.calendarNote.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Organiser calendar';const links=document.createElement('div');links.className='event-card-secondary-actions';links.append(source,buildFeedScheduleLink(ev));copy.append(note,links);}
   if(activeTab !== 'feed'){
     const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
     if(phase)copy.appendChild(buildEventTimingStateChip(ev,phase));
   }
-  card.append(copy,buildFeedScheduleLink(ev));
+  card.append(copy,...(ev.calendarNote?[]:[buildFeedScheduleLink(ev)]));
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
   return card;

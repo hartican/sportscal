@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Retained Surfing note integrity — 5 October 2026
+
+The full/daily canonical owner qualifies exactly two existing manual seeds from retained dated organiser evidence; no provider request is added. Complete both-surface preflight precedes writes. An unchanged scoped rerun preserves bytes and makes no publication or check. Retain original import/status dates and activity IDs; clear unsupported active timing/viewing/stakes rather than create an estimated window. Known legacy cached readers withhold the same claims without creating fresh evidence. Keep later independently verified observations, normal exception/release ownership and all existing budgets. No scheduler, polling, API, database operation, retry, purchase or recurring owner routine. Regression: validate-surf-calendar-notes.js through the existing seeded-Surf gate; actual cached-browser upgrade/offline and normal release checks.
+
 ## Retained fixture-source repair — 5 October 2026
 
 Preview research cannot replace fixture source dates. The existing full and quick cards owner restores only missing F1 source tuples from the matching retained canonical edition. Validate the source map once per invocation and both documents before writes; preserve later changed/live/final facts and already supplied sources. A scoped unchanged rerun makes no publication or provider request. This adds no source call, browser poll, retry, scheduler, API, database write, subscription or recurring owner task. Existing budgets and exception ownership remain.

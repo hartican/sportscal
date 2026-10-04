@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261004094657031-20261004205143528-20261004220723621",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261004094657031-20261004205143528-20261004220723621-20261004224631466-20261004224939209-20261004225541191-20261004230016140-20261004230646626",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-04T22:07:23.621Z",
+  "publishedAt": "2026-10-04T23:06:46.626Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -195,11 +195,6 @@
         "count": 1,
         "firstEventDate": "2026-11-05",
         "lastEventDate": "2026-11-05"
-      },
-      "big-wave": {
-        "count": 2,
-        "firstEventDate": "2027-01-22",
-        "lastEventDate": "2027-02-07"
       },
       "ski": {
         "count": 4,

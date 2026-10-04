@@ -234,6 +234,7 @@ function buildSteps({ localOnly = false } = {}) {
   ), discoverCanonicalFixtureBundles()),
   ["scripts/lib/f1-source-provenance.js"],
   ["scripts/lib/skiing-calendar-review.js"],
+  ["scripts/lib/surf-calendar-notes.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -420,6 +421,18 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--surf-calendar-notes')){
+    const repaired=require('./lib/surf-calendar-notes').applyRetained();console.log(JSON.stringify(repaired));
+    if(!repaired.some(surface=>surface.changed.length)&&!process.argv.includes('--rebuild')){console.log('Surf notes unchanged; no publication or source check.');return;}
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=surf'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-surf-calendar-notes.js'],['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-follow-policy-parity.js'],['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Two retained Surf notes corrected through canonical owner; no provider request.');return;
+  }
   if(process.argv.includes('--canonical-family-repair')){
     console.log(JSON.stringify(require('./lib/canonical-family-repair').apply()));
     for(const args of [

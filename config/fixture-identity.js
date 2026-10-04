@@ -44,7 +44,7 @@
     const text = input => typeof input === "string" ? input : "";
     const normalized = {...value, key:sportKey(value)};
     const reviewed=globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS || (typeof require==='function'?require('./reviewed-fixture-repairs'):null);
-    const reviewedFacts=reviewed?.facts(canonicalFixtureId(value.id||value.eventId))||{};
+    const reviewedFacts=reviewed?.facts(canonicalFixtureId(value.id||value.eventId),value)||{};
     // A reviewed computed window never replaces a confirmed end. An explicit
     // null still clears the obsolete window of a reviewed multi-day fixture.
     Object.assign(normalized,reviewedFacts);
