@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="425">
+<meta name="app-shell-version" content="426">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=425" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=426" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=425"></script>
+<script src="assets/js/app-shell-runtime.js?v=426"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -12865,7 +12865,7 @@ function firstEventValue(ev, keys){
 function spoilerFactsForEvent(ev){
   const labels = firstEventValue(ev, SPOILER_FIELDS.labels);
   return {
-    score: firstEventValue(ev, SPOILER_FIELDS.score),
+    score: firstEventValue(ev, SPOILER_FIELDS.score) ?? CARD_RESULTS?.canonicalScoreline?.(ev) ?? null,
     outcome: firstEventValue(ev, SPOILER_FIELDS.outcome),
     recap: firstEventValue(ev, SPOILER_FIELDS.recap),
     thumbnail: firstEventValue(ev, SPOILER_FIELDS.thumbnail),

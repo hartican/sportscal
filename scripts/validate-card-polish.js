@@ -15,6 +15,28 @@ const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), h
 const userStateSchema = JSON.parse(fs.readFileSync("schemas/user-state.schema.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 
+// Exercise the actual shared fact reader: canonical Schedule/Feed records
+// can retain only result.scorelineText rather than flat score fields.
+const resultVm=require("node:vm");
+const actualFunction=name=>{const start=html.indexOf("function "+name+"("),end=html.indexOf("\n}\n",start)+2;assert(start>=0&&end>start);return html.slice(start,end);};
+const spoilerFields=html.slice(html.indexOf("const SPOILER_FIELDS = "),html.indexOf("\n\nconst DEFAULT_FIRST_RUN_SELECTOR_IDS"));
+const reader=resultVm.createContext({getActual:()=>null,CARD_RESULTS:results});
+resultVm.runInContext(spoilerFields+"\n"+actualFunction("firstEventValue")+"\n"+actualFunction("spoilerFactsForEvent"),reader);
+const scoreFact=event=>{reader.event=event;return resultVm.runInContext("spoilerFactsForEvent(event).score",reader);};
+for(const [slug,id] of [["nrl","event:nrl:129990101"],["afl","event:afl:cd_m20260140001"],["aflw","event:aflw:cd_m20262640101"]]){
+ const fixture=require("../data/code-inspector/"+slug+".json").fixtures.find(f=>f.id===id),before=JSON.stringify(fixture);
+ assert(fixture?.result?.status==="completed");
+ assert.equal(scoreFact(fixture),fixture.result.scorelineText,"Actual "+slug+": nested canonical result reaches the shared card reader");
+ assert.equal(JSON.stringify(fixture),before,"Presentation cannot rewrite sporting facts or source dates");
+ assert.equal(scoreFact({...fixture,score:"newer supplied score"}),"newer supplied score","Existing flat observations retain precedence");
+ for(const status of ["scheduled","upcoming","live","unknown","postponed","cancelled","abandoned","suspended"])
+  assert.equal(scoreFact({...fixture,status}),null,"A non-final state cannot borrow the stale nested final: "+status);
+ for(const result of [null,[],{status:"live",scorelineText:fixture.result.scorelineText},{status:"completed",scorelineText:42},{status:"completed",scorelineText:"   "}])
+  assert.equal(scoreFact({...fixture,result}),null,"Malformed/non-final canonical objects cannot create a score");
+ const zero={...fixture,result:{...fixture.result,scorelineText:fixture.name+" — 0-0"}};
+ assert.equal(results.scoreLine(zero,zero.name,{score:scoreFact(zero)}),"0-0","Zero finals are supplied facts, not an empty result");
+}
+
 assert.equal(results.scoreLine({ homeScore: 30, awayScore: 34 }, "Raiders v Broncos", {}), "30-34");
 assert.equal(results.scoreLine({ name: "Raiders v Broncos" }, "Raiders v Broncos", { score: "v — 30-34" }), "30-34");
 assert.equal(results.scoreLine({ scoreDisplay: "21-18" }, "Raiders v Broncos", { score: "Raiders v Broncos — 21-18" }), "21-18");

@@ -8,6 +8,30 @@ const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedCanonicalResults(page){
+  const observations=await page.evaluate(async()=>{
+    const rows=[],beforePreferences=JSON.stringify(userPreferences),priorTab=activeTab;
+    try{
+      activeTab='follow';
+      for(const [slug,id] of [['nrl','event:nrl:129990101'],['afl','event:afl:cd_m20260140001'],['aflw','event:aflw:cd_m20262640101']]){
+        const code=await(await fetch('/data/code-inspector/'+slug+'.json')).json(),fixture=code.fixtures.find(f=>f.id===id),before=JSON.stringify(fixture);
+        userPreferences.showSpoilers=true;
+        const visible=buildCodeInspectorFixture(fixture).textContent;
+        userPreferences.showSpoilers=false;
+        const hidden=buildCodeInspectorFixture(fixture);
+        rows.push({slug,expected:fixture.result.scorelineText.split('—').at(-1).trim(),visible,hidden:hidden.textContent,hiddenResultNodes:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,nonFinalScore:spoilerFactsForEvent({...fixture,status:'upcoming'}).score,unchanged:JSON.stringify(fixture)===before});
+      }
+    }finally{userPreferences=JSON.parse(beforePreferences);activeTab=priorTab;}
+    return {rows,preferencesPreserved:JSON.stringify(userPreferences)===beforePreferences};
+  });
+  assert(observations.preferencesPreserved,'Cached result checks preserve the saved Results choice');
+  for(const row of observations.rows){
+    assert(row.visible.includes(row.expected),'Upgraded/offline '+row.slug+' shows the supplied canonical final with Results on');
+    assert(!row.hidden.includes(row.expected)&&row.hiddenResultNodes===0,'Upgraded/offline '+row.slug+' keeps Results off private');
+    assert.equal(row.nonFinalScore,null,'Cached upcoming records cannot borrow an old nested final');
+    assert(row.unchanged,'Cached presentation preserves sporting facts and source clocks');
+  }
+}
 async function assertCachedFootballStatus(page){
   const season=await page.evaluate(async()=>{
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
@@ -265,6 +289,7 @@ const server=http.createServer((req,res)=>{
       assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
+      await assertCachedCanonicalResults(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
@@ -310,6 +335,7 @@ const server=http.createServer((req,res)=>{
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
+    await assertCachedCanonicalResults(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
@@ -347,6 +373,6 @@ const server=http.createServer((req,res)=>{
     await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

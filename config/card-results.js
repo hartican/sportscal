@@ -19,6 +19,14 @@
     return null;
   }
 
+  function canonicalScoreline(event){
+    const result = event?.result;
+    if (!/^(completed|finished|past)$/.test(event?.status || "")
+      || !result || Array.isArray(result) || typeof result !== "object"
+      || result.status !== "completed" || typeof result.scorelineText !== "string") return null;
+    return result.scorelineText.trim() || null;
+  }
+
   function scoreLine(event, displayTitle, result){
     const structured = structuredScore(event);
     const original = String(structured || result?.score || result?.outcome || "").trim();
@@ -87,5 +95,5 @@
     if(reverseDisplay){names.reverse();sets.forEach(set=>set.scores.reverse());}
     return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
   }
-  return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });
+  return Object.freeze({ VERSION, structuredScore, canonicalScoreline, scoreLine, tennisSets });
 });
