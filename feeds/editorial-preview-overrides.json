@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+  "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -621,7 +621,7 @@
       "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -637,11 +637,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -678,7 +678,7 @@
       "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -694,11 +694,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -741,7 +741,7 @@
       "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
@@ -762,11 +762,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -775,7 +775,7 @@
       "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -791,11 +791,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -804,7 +804,7 @@
       "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -820,11 +820,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -833,18 +833,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -853,18 +853,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -873,18 +873,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -893,18 +893,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -913,18 +913,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     },
@@ -933,18 +933,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
         "needsPreviewRefresh": false
       }
     }

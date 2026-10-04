@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-10-04T05:03:13.074Z",
+  "updatedAt": "2026-10-04T05:52:16.390Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -1510,7 +1510,7 @@
       "name": "Premier League current Premier League table",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:25:48.312Z"
+      "checkedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "source:rolling:competition-nrl-premiership-2026:ladder",
@@ -1524,7 +1524,7 @@
       "name": "Formula 1 current driver standings",
       "url": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.507Z"
+      "checkedAt": "2026-10-04T05:50:20.765Z"
     },
     {
       "id": "source:rolling:afl:finals-bracket",
@@ -1538,7 +1538,7 @@
       "name": "Premier League current 2026/27 table",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:25:48.312Z"
+      "checkedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "source:depth:epl:season-guide",
@@ -2483,21 +2483,21 @@
       "name": "WRC official 2026 calendar",
       "url": "https://www.wrc.com/en/calendar",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:59.730Z"
+      "checkedAt": "2026-10-04T05:49:31.163Z"
     },
     {
       "id": "source:rolling:wrc:driver-standings",
       "name": "FIA World Rally Championship driver standings",
       "url": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:59.730Z"
+      "checkedAt": "2026-10-04T05:49:31.163Z"
     },
     {
       "id": "source:rolling:wrc:stan-sport",
       "name": "Stan Sport WRC coverage",
       "url": "https://www.stan.com.au/watch/sport/motorsport/wrc",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:59.730Z"
+      "checkedAt": "2026-10-04T05:49:31.163Z"
     },
     {
       "id": "source:rolling:nrlw:nrlw-schedule",
@@ -2770,7 +2770,7 @@
       "name": "AFLW current AFLW table",
       "url": "https://www.afl.com.au/aflw/ladder",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:00:02.000Z"
+      "checkedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640401:fixture",
@@ -2819,7 +2819,7 @@
       "name": "Formula 1 constructors standings",
       "url": "https://www.formula1.com/en/results/2026/team",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.507Z"
+      "checkedAt": "2026-10-04T05:50:20.765Z"
     },
     {
       "id": "source:rolling:f1:circuit:italy",
@@ -3057,56 +3057,56 @@
       "name": "AFLW fixture record for Gold Coast SUNS v St Kilda",
       "url": "https://www.afl.com.au/aflw/matches/8942",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640801:fixture",
       "name": "AFLW fixture record for Carlton v Hawthorn",
       "url": "https://www.afl.com.au/aflw/matches/8943",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640802:fixture",
       "name": "AFLW fixture record for Richmond v Geelong Cats",
       "url": "https://www.afl.com.au/aflw/matches/8945",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640803:fixture",
       "name": "AFLW fixture record for GWS GIANTS v Essendon",
       "url": "https://www.afl.com.au/aflw/matches/8946",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640804:fixture",
       "name": "AFLW fixture record for Western Bulldogs v St Kilda",
       "url": "https://www.afl.com.au/aflw/matches/8944",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640805:fixture",
       "name": "AFLW fixture record for Brisbane Lions v Gold Coast SUNS",
       "url": "https://www.afl.com.au/aflw/matches/8947",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640806:fixture",
       "name": "AFLW fixture record for Port Adelaide v Adelaide Crows",
       "url": "https://www.afl.com.au/aflw/matches/8948",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640807:fixture",
       "name": "AFLW fixture record for North Melbourne v Sydney Swans",
       "url": "https://www.afl.com.au/aflw/matches/8949",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640808:fixture",
@@ -3120,7 +3120,7 @@
       "name": "AFLW fixture record for West Coast Eagles v Fremantle",
       "url": "https://www.afl.com.au/aflw/matches/8953",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:fiba-women:fiba-results-september-6",
@@ -3708,7 +3708,7 @@
       "name": "NBL official schedule",
       "url": "https://schedule.nbl.com.au/nbl",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:26.127Z"
+      "checkedAt": "2026-10-04T05:50:24.161Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1",
@@ -3736,21 +3736,21 @@
       "name": "Formula 1 published session record for Bahrain GP (Malaysia) · Practice 1",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:54.774Z"
+      "checkedAt": "2026-10-04T05:51:14.001Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-bahrain-practice-2",
       "name": "Formula 1 published session record for Bahrain GP (Malaysia) · Practice 2",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:54.774Z"
+      "checkedAt": "2026-10-04T05:51:14.001Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-bahrain-practice-3",
       "name": "Formula 1 published session record for Bahrain GP (Malaysia) · Practice 3",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:54.774Z"
+      "checkedAt": "2026-10-04T05:51:14.001Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-bahrain-qualifying",
@@ -3771,441 +3771,441 @@
       "name": "AFLW fixture record for Western Bulldogs v Essendon",
       "url": "https://www.afl.com.au/aflw/matches/8951",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-singapore-practice-1",
       "name": "Formula 1 published session record for Singapore GP · Practice 1",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-singapore-sprint-qualifying",
       "name": "Formula 1 published session record for Singapore GP · Sprint Qualifying",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640902:fixture",
       "name": "AFLW fixture record for St Kilda v Collingwood",
       "url": "https://www.afl.com.au/aflw/matches/8952",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640903:fixture",
       "name": "AFLW fixture record for Port Adelaide v West Coast Eagles",
       "url": "https://www.afl.com.au/aflw/matches/8955",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640904:fixture",
       "name": "AFLW fixture record for Geelong Cats v GWS GIANTS",
       "url": "https://www.afl.com.au/aflw/matches/8954",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640905:fixture",
       "name": "AFLW fixture record for Richmond v Adelaide Crows",
       "url": "https://www.afl.com.au/aflw/matches/8958",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-singapore-sprint",
       "name": "Formula 1 published session record for Singapore GP · Sprint",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640906:fixture",
       "name": "AFLW fixture record for Gold Coast SUNS v Melbourne",
       "url": "https://www.afl.com.au/aflw/matches/8956",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128973:fixture",
       "name": "Premier League fixture record for Arsenal v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-32",
       "name": "Formula 1 published session record for Singapore GP · Qualifying",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128974:fixture",
       "name": "Premier League fixture record for Aston Villa v Brentford",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128975:fixture",
       "name": "Premier League fixture record for Chelsea v Bournemouth",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128979:fixture",
       "name": "Premier League fixture record for Ipswich Town v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128982:fixture",
       "name": "Premier League fixture record for Sunderland v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128981:fixture",
       "name": "Premier League fixture record for Manchester United v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640907:fixture",
       "name": "AFLW fixture record for North Melbourne v Fremantle",
       "url": "https://www.afl.com.au/aflw/matches/8957",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640908:fixture",
       "name": "AFLW fixture record for Hawthorn v Brisbane Lions",
       "url": "https://www.afl.com.au/aflw/matches/8959",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262640909:fixture",
       "name": "AFLW fixture record for Sydney Swans v Carlton",
       "url": "https://www.afl.com.au/aflw/matches/8960",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:f1:session:evt-33",
       "name": "Formula 1 published session record for Singapore GP · Race",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128977:fixture",
       "name": "Premier League fixture record for Crystal Palace v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128978:fixture",
       "name": "Premier League fixture record for Hull City v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128980:fixture",
       "name": "Premier League fixture record for Liverpool v Manchester City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128976:fixture",
       "name": "Premier League fixture record for Coventry City v Newcastle United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641001:fixture",
       "name": "AFLW fixture record for Melbourne v Richmond",
       "url": "https://www.afl.com.au/aflw/matches/8961",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641002:fixture",
       "name": "AFLW fixture record for Adelaide Crows v Gold Coast SUNS",
       "url": "https://www.afl.com.au/aflw/matches/8962",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641003:fixture",
       "name": "AFLW fixture record for Carlton v Western Bulldogs",
       "url": "https://www.afl.com.au/aflw/matches/8964",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641004:fixture",
       "name": "AFLW fixture record for Brisbane Lions v Port Adelaide",
       "url": "https://www.afl.com.au/aflw/matches/8963",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641005:fixture",
       "name": "AFLW fixture record for West Coast Eagles v Geelong Cats",
       "url": "https://www.afl.com.au/aflw/matches/8966",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128986:fixture",
       "name": "Premier League fixture record for Everton v Chelsea",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128984:fixture",
       "name": "Premier League fixture record for Brentford v Liverpool",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128987:fixture",
       "name": "Premier League fixture record for Fulham v Hull City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128989:fixture",
       "name": "Premier League fixture record for Manchester City v Ipswich Town",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128990:fixture",
       "name": "Premier League fixture record for Newcastle United v Aston Villa",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641006:fixture",
       "name": "AFLW fixture record for Collingwood v Sydney Swans",
       "url": "https://www.afl.com.au/aflw/matches/8965",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641007:fixture",
       "name": "AFLW fixture record for GWS GIANTS v Hawthorn",
       "url": "https://www.afl.com.au/aflw/matches/8967",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641008:fixture",
       "name": "AFLW fixture record for Essendon v North Melbourne",
       "url": "https://www.afl.com.au/aflw/matches/8968",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641009:fixture",
       "name": "AFLW fixture record for Fremantle v St Kilda",
       "url": "https://www.afl.com.au/aflw/matches/8969",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128983:fixture",
       "name": "Premier League fixture record for Bournemouth v Sunderland",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128985:fixture",
       "name": "Premier League fixture record for Brighton & Hove Albion v Crystal Palace",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128988:fixture",
       "name": "Premier League fixture record for Leeds United v Manchester United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128991:fixture",
       "name": "Premier League fixture record for Nottingham Forest v Arsenal",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128992:fixture",
       "name": "Premier League fixture record for Tottenham Hotspur v Coventry City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128973",
       "name": "Premier League match record for Arsenal v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128974",
       "name": "Premier League match record for Aston Villa v Brentford",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128975",
       "name": "Premier League match record for Chelsea v Bournemouth",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128979",
       "name": "Premier League match record for Ipswich Town v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128982",
       "name": "Premier League match record for Sunderland v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128981",
       "name": "Premier League match record for Manchester United v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128977",
       "name": "Premier League match record for Crystal Palace v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128978",
       "name": "Premier League match record for Hull City v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128980",
       "name": "Premier League match record for Liverpool v Manchester City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128976",
       "name": "Premier League match record for Coventry City v Newcastle United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128986",
       "name": "Premier League match record for Everton v Chelsea",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128984",
       "name": "Premier League match record for Brentford v Liverpool",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128987",
       "name": "Premier League match record for Fulham v Hull City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128989",
       "name": "Premier League match record for Manchester City v Ipswich Town",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128990",
       "name": "Premier League match record for Newcastle United v Aston Villa",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128983",
       "name": "Premier League match record for Bournemouth v Sunderland",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128985",
       "name": "Premier League match record for Brighton & Hove Albion v Crystal Palace",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128988",
       "name": "Premier League match record for Leeds United v Manchester United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128991",
       "name": "Premier League match record for Nottingham Forest v Arsenal",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128992",
       "name": "Premier League match record for Tottenham Hotspur v Coventry City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
@@ -4408,238 +4408,238 @@
       "name": "AFLW fixture record for Port Adelaide v Collingwood",
       "url": "https://www.afl.com.au/aflw/matches/8970",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-united-states-practice-1",
       "name": "Formula 1 published session record for United States GP · Practice 1",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128999:fixture",
       "name": "Premier League fixture record for Ipswich Town v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-united-states-practice-2",
       "name": "Formula 1 published session record for United States GP · Practice 2",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641102:fixture",
       "name": "AFLW fixture record for St Kilda v Brisbane Lions",
       "url": "https://www.afl.com.au/aflw/matches/8971",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641103:fixture",
       "name": "AFLW fixture record for Geelong Cats v Fremantle",
       "url": "https://www.afl.com.au/aflw/matches/8974",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641104:fixture",
       "name": "AFLW fixture record for Gold Coast SUNS v Richmond",
       "url": "https://www.afl.com.au/aflw/matches/8972",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641105:fixture",
       "name": "AFLW fixture record for Western Bulldogs v Melbourne",
       "url": "https://www.afl.com.au/aflw/matches/8973",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128994:fixture",
       "name": "Premier League fixture record for Aston Villa v Manchester City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128993:fixture",
       "name": "Premier League fixture record for Arsenal v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128996:fixture",
       "name": "Premier League fixture record for Coventry City v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128995:fixture",
       "name": "Premier League fixture record for Chelsea v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-united-states-practice-3",
       "name": "Formula 1 published session record for United States GP · Practice 3",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:rolling:f1:session:evt-34",
       "name": "Formula 1 published session record for United States GP · Qualifying",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641106:fixture",
       "name": "AFLW fixture record for Sydney Swans v West Coast Eagles",
       "url": "https://www.afl.com.au/aflw/matches/8977",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641107:fixture",
       "name": "AFLW fixture record for North Melbourne v Adelaide Crows",
       "url": "https://www.afl.com.au/aflw/matches/8979",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128999",
       "name": "Premier League match record for Ipswich Town v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128994",
       "name": "Premier League match record for Aston Villa v Manchester City",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128993",
       "name": "Premier League match record for Arsenal v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128996",
       "name": "Premier League match record for Coventry City v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128995",
       "name": "Premier League match record for Chelsea v Tottenham Hotspur",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641108:fixture",
       "name": "AFLW fixture record for Hawthorn v Essendon",
       "url": "https://www.afl.com.au/aflw/matches/8976",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641109:fixture",
       "name": "AFLW fixture record for Carlton v GWS GIANTS",
       "url": "https://www.afl.com.au/aflw/matches/8975",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128997:fixture",
       "name": "Premier League fixture record for Crystal Palace v Newcastle United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-128998:fixture",
       "name": "Premier League fixture record for Hull City v Brentford",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129000:fixture",
       "name": "Premier League fixture record for Liverpool v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129001:fixture",
       "name": "Premier League fixture record for Manchester United v Bournemouth",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129002:fixture",
       "name": "Premier League fixture record for Sunderland v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-35",
       "name": "Formula 1 published session record for United States GP · Race",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128997",
       "name": "Premier League match record for Crystal Palace v Newcastle United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-128998",
       "name": "Premier League match record for Hull City v Brentford",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129000",
       "name": "Premier League match record for Liverpool v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129001",
       "name": "Premier League match record for Manchester United v Bournemouth",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129002",
       "name": "Premier League match record for Sunderland v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:fixture-research:evt_84:0",
@@ -4688,7 +4688,7 @@
       "name": "AFLW fixture record for Geelong Cats v Western Bulldogs",
       "url": "https://www.afl.com.au/aflw/matches/8978",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:fixture-research:evt_84:2",
@@ -4709,14 +4709,14 @@
       "name": "Formula 1 published session record for Mexico City GP · Practice 1",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-mexico-practice-2",
       "name": "Formula 1 published session record for Mexico City GP · Practice 2",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:fixture-research:evt_84:4",
@@ -4737,133 +4737,133 @@
       "name": "AFLW fixture record for St Kilda v Port Adelaide",
       "url": "https://www.afl.com.au/aflw/matches/8984",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641203:fixture",
       "name": "AFLW fixture record for Richmond v North Melbourne",
       "url": "https://www.afl.com.au/aflw/matches/8980",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641204:fixture",
       "name": "AFLW fixture record for Brisbane Lions v Carlton",
       "url": "https://www.afl.com.au/aflw/matches/8981",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641205:fixture",
       "name": "AFLW fixture record for West Coast Eagles v Hawthorn",
       "url": "https://www.afl.com.au/aflw/matches/8982",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129006:fixture",
       "name": "Premier League fixture record for Chelsea v Manchester United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129004:fixture",
       "name": "Premier League fixture record for Bournemouth v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129005:fixture",
       "name": "Premier League fixture record for Brentford v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129007:fixture",
       "name": "Premier League fixture record for Coventry City v Sunderland",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129008:fixture",
       "name": "Premier League fixture record for Hull City v Ipswich Town",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129010:fixture",
       "name": "Premier League fixture record for Manchester City v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129006",
       "name": "Premier League match record for Chelsea v Manchester United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129004",
       "name": "Premier League match record for Bournemouth v Leeds United",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129005",
       "name": "Premier League match record for Brentford v Nottingham Forest",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129007",
       "name": "Premier League match record for Coventry City v Sunderland",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129008",
       "name": "Premier League match record for Hull City v Ipswich Town",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129010",
       "name": "Premier League match record for Manchester City v Brighton & Hove Albion",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129012:fixture",
       "name": "Premier League fixture record for Tottenham Hotspur v Crystal Palace",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-f1-2026-mexico-practice-3",
       "name": "Formula 1 published session record for Mexico City GP · Practice 3",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:26:19.573Z"
+      "checkedAt": "2026-10-04T05:50:20.817Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129012",
       "name": "Premier League match record for Tottenham Hotspur v Crystal Palace",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
@@ -5122,84 +5122,84 @@
       "name": "Premier League fixture record for Aston Villa v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-36",
       "name": "Formula 1 published session record for Mexico City GP · Qualifying",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641206:fixture",
       "name": "AFLW fixture record for GWS GIANTS v Gold Coast SUNS",
       "url": "https://www.afl.com.au/aflw/matches/8983",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641207:fixture",
       "name": "AFLW fixture record for Essendon v Collingwood",
       "url": "https://www.afl.com.au/aflw/matches/8986",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641208:fixture",
       "name": "AFLW fixture record for Adelaide Crows v Melbourne",
       "url": "https://www.afl.com.au/aflw/matches/8985",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:event-aflw-cd-m20262641209:fixture",
       "name": "AFLW fixture record for Fremantle v Sydney Swans",
       "url": "https://www.afl.com.au/aflw/matches/8987",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:24:55.409Z"
+      "checkedAt": "2026-10-04T05:49:24.432Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129009:fixture",
       "name": "Premier League fixture record for Liverpool v Arsenal",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:rolling:f1:session:evt-37",
       "name": "Formula 1 published session record for Mexico City GP · Race",
       "url": "https://www.formula1.com/en/results/2026/races",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:20.628Z"
+      "checkedAt": "2026-10-04T05:51:14.341Z"
     },
     {
       "id": "source:rolling:epl-2026-27-129011:fixture",
       "name": "Premier League fixture record for Newcastle United v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T04:29:14.662Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129003",
       "name": "Premier League match record for Aston Villa v Fulham",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129009",
       "name": "Premier League match record for Liverpool v Arsenal",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     },
     {
       "id": "source:depth:epl:match:epl-2026-27-129011",
       "name": "Premier League match record for Newcastle United v Everton",
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:02:49.740Z"
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     }
   ],
   "narrativeFacts": [
@@ -6581,7 +6581,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6594,7 +6594,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6607,7 +6607,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6620,7 +6620,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6633,7 +6633,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6646,7 +6646,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6659,7 +6659,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6672,7 +6672,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6789,7 +6789,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6906,7 +6906,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6919,7 +6919,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6932,7 +6932,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6945,7 +6945,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -6958,7 +6958,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7023,7 +7023,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7036,7 +7036,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7049,7 +7049,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7062,7 +7062,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7075,7 +7075,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7088,7 +7088,7 @@
       "sourceIds": [
         "source:rolling:competition-premier-league-2026-27:ladder"
       ],
-      "observedAt": "2026-10-04T04:25:48.312Z",
+      "observedAt": "2026-10-04T05:49:56.383Z",
       "expiresAt": null
     },
     {
@@ -7179,7 +7179,7 @@
       "sourceIds": [
         "source:rolling:f1:driver-standings"
       ],
-      "observedAt": "2026-10-04T04:26:19.507Z",
+      "observedAt": "2026-10-04T05:50:20.765Z",
       "expiresAt": null
     },
     {
@@ -7192,7 +7192,7 @@
       "sourceIds": [
         "source:rolling:f1:driver-standings"
       ],
-      "observedAt": "2026-10-04T04:26:19.507Z",
+      "observedAt": "2026-10-04T05:50:20.765Z",
       "expiresAt": null
     },
     {
@@ -7205,7 +7205,7 @@
       "sourceIds": [
         "source:rolling:f1:driver-standings"
       ],
-      "observedAt": "2026-10-04T04:26:19.507Z",
+      "observedAt": "2026-10-04T05:50:20.765Z",
       "expiresAt": null
     },
     {
@@ -12828,7 +12828,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-10-04T04:24:59.730Z",
+      "observedAt": "2026-10-04T05:49:31.163Z",
       "expiresAt": null
     },
     {
@@ -12841,7 +12841,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-10-04T04:24:59.730Z",
+      "observedAt": "2026-10-04T05:49:31.163Z",
       "expiresAt": null
     },
     {
@@ -12854,7 +12854,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-10-04T04:24:59.730Z",
+      "observedAt": "2026-10-04T05:49:31.163Z",
       "expiresAt": null
     },
     {
@@ -12867,7 +12867,7 @@
       "subjectIds": [
         "subject:rolling:wrc:2026"
       ],
-      "observedAt": "2026-10-04T04:24:59.730Z",
+      "observedAt": "2026-10-04T05:49:31.163Z",
       "expiresAt": null
     },
     {
@@ -14059,7 +14059,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14072,7 +14072,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14099,7 +14099,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14112,7 +14112,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14139,7 +14139,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14152,7 +14152,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14207,7 +14207,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14220,7 +14220,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14275,7 +14275,7 @@
       "sourceIds": [
         "source:rolling:f1:constructors"
       ],
-      "observedAt": "2026-10-04T04:26:19.507Z",
+      "observedAt": "2026-10-04T05:50:20.765Z",
       "expiresAt": null
     },
     {
@@ -14301,7 +14301,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14314,7 +14314,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14341,7 +14341,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14354,7 +14354,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14376,12 +14376,12 @@
       "subjectIds": [
         "subject:rolling:team-aflw-cd-t8467"
       ],
-      "statement": "Geelong Cats are 2nd after 8 matches, with 7 wins and 28 ladder points in the current AFLW table.",
+      "statement": "Geelong Cats are 3rd after 8 matches, with 7 wins and 28 ladder points in the current AFLW table.",
       "dimension": "form",
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14394,7 +14394,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14421,7 +14421,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14429,12 +14429,12 @@
       "subjectIds": [
         "subject:rolling:team-aflw-cd-t8097"
       ],
-      "statement": "Collingwood are 17th after 7 matches, with 1 wins and 4 ladder points in the current AFLW table.",
+      "statement": "Collingwood are 17th after 8 matches, with 1 wins and 4 ladder points in the current AFLW table.",
       "dimension": "form",
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14461,7 +14461,7 @@
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14469,12 +14469,12 @@
       "subjectIds": [
         "subject:rolling:team-aflw-cd-t7386"
       ],
-      "statement": "Melbourne are 3rd after 7 matches, with 6 wins and 24 ladder points in the current AFLW table.",
+      "statement": "Melbourne are 2nd after 8 matches, with 7 wins and 28 ladder points in the current AFLW table.",
       "dimension": "form",
       "sourceIds": [
         "source:rolling:competition-aflw-2026:ladder"
       ],
-      "observedAt": "2026-10-04T04:00:02.000Z",
+      "observedAt": "2026-10-04T05:48:34.000Z",
       "expiresAt": null
     },
     {
@@ -14879,7 +14879,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640709:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14893,7 +14893,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640801:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14907,7 +14907,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640802:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14921,7 +14921,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640803:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14935,7 +14935,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640804:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14949,7 +14949,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640805:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14963,7 +14963,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640806:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -14977,7 +14977,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640807:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -15005,7 +15005,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640809:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -17308,7 +17308,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17321,7 +17321,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17334,7 +17334,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17347,7 +17347,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17360,7 +17360,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17373,7 +17373,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17386,7 +17386,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17399,7 +17399,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17412,7 +17412,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17425,7 +17425,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17438,7 +17438,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17451,7 +17451,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17464,7 +17464,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17477,7 +17477,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17490,7 +17490,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17503,7 +17503,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17516,7 +17516,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17529,7 +17529,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17542,7 +17542,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17555,7 +17555,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17568,7 +17568,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-1"
       ],
-      "observedAt": "2026-10-04T05:02:54.774Z",
+      "observedAt": "2026-10-04T05:51:14.001Z",
       "expiresAt": null
     },
     {
@@ -17581,7 +17581,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-2"
       ],
-      "observedAt": "2026-10-04T05:02:54.774Z",
+      "observedAt": "2026-10-04T05:51:14.001Z",
       "expiresAt": null
     },
     {
@@ -17594,7 +17594,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17607,7 +17607,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17620,7 +17620,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17633,7 +17633,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17646,7 +17646,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17659,7 +17659,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17672,7 +17672,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17685,7 +17685,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17698,7 +17698,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-3"
       ],
-      "observedAt": "2026-10-04T05:02:54.774Z",
+      "observedAt": "2026-10-04T05:51:14.001Z",
       "expiresAt": null
     },
     {
@@ -17711,7 +17711,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17724,7 +17724,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17737,7 +17737,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17750,7 +17750,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17776,7 +17776,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17789,7 +17789,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17802,7 +17802,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -17815,7 +17815,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -18050,7 +18050,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640901:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18063,7 +18063,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-singapore-practice-1"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -18128,7 +18128,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-singapore-sprint-qualifying"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -18142,7 +18142,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640902:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18156,7 +18156,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640903:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18170,7 +18170,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640904:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18184,7 +18184,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640905:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18249,7 +18249,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-singapore-sprint"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -18263,7 +18263,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640906:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18329,7 +18329,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128973:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18342,7 +18342,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-32"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -18356,7 +18356,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128974:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18370,7 +18370,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128975:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18384,7 +18384,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128979:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18398,7 +18398,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128982:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18412,7 +18412,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128981:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18426,7 +18426,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640907:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18440,7 +18440,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640908:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18506,7 +18506,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262640909:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18571,7 +18571,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-33"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -18585,7 +18585,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128977:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18599,7 +18599,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128978:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18613,7 +18613,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128980:fixture"
       ],
-      "observedAt": "2026-10-04T05:02:49.740Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18627,7 +18627,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128976:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18745,7 +18745,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641001:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18811,7 +18811,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641002:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18825,7 +18825,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641003:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18839,7 +18839,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641004:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18905,7 +18905,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641005:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -18971,7 +18971,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128986:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18985,7 +18985,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128984:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -18999,7 +18999,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128987:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19013,7 +19013,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128989:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19027,7 +19027,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128990:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19041,7 +19041,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641006:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -19055,7 +19055,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641007:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -19121,7 +19121,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641008:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -19187,7 +19187,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641009:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -19201,7 +19201,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128983:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19215,7 +19215,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128985:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19229,7 +19229,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128988:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19243,7 +19243,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128991:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -19257,7 +19257,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128992:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25517,7 +25517,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641101:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25530,7 +25530,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-1"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -25544,7 +25544,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128999:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25557,7 +25557,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-2"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -25571,7 +25571,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641102:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25585,7 +25585,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641103:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25599,7 +25599,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641104:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25613,7 +25613,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641105:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25627,7 +25627,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128994:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25641,7 +25641,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128993:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25655,7 +25655,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128996:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25669,7 +25669,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128995:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -25682,7 +25682,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-3"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -25695,7 +25695,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-34"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -25709,7 +25709,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641106:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -25723,7 +25723,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641107:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -26186,7 +26186,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641108:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -26200,7 +26200,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641109:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -26214,7 +26214,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128997:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -26228,7 +26228,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-128998:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -26242,7 +26242,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129000:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -26256,7 +26256,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129001:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -26270,7 +26270,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129002:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -26283,7 +26283,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-35"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -26771,7 +26771,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -26784,7 +26784,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -26915,7 +26915,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -26928,7 +26928,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -26942,7 +26942,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641201:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -27306,7 +27306,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -27319,7 +27319,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -27373,7 +27373,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641202:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -27387,7 +27387,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641203:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -27401,7 +27401,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641204:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -27415,7 +27415,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641205:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -27429,7 +27429,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129006:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27443,7 +27443,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129004:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27457,7 +27457,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129005:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27471,7 +27471,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129007:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27485,7 +27485,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129008:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27499,7 +27499,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129010:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27823,7 +27823,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129012:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -27836,7 +27836,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-3"
       ],
-      "observedAt": "2026-10-04T04:26:19.573Z",
+      "observedAt": "2026-10-04T05:50:20.817Z",
       "expiresAt": null
     },
     {
@@ -27892,7 +27892,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -28627,7 +28627,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -28640,7 +28640,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -28653,7 +28653,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -28666,7 +28666,7 @@
       "subjectIds": [
         "subject:rolling:nbl:2026-27"
       ],
-      "observedAt": "2026-10-04T04:26:26.127Z",
+      "observedAt": "2026-10-04T05:50:24.161Z",
       "expiresAt": null
     },
     {
@@ -28680,7 +28680,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129003:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -28693,7 +28693,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-36"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -28707,7 +28707,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641206:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -28721,7 +28721,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641207:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -28735,7 +28735,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641208:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -28749,7 +28749,7 @@
       "sourceIds": [
         "source:rolling:event-aflw-cd-m20262641209:fixture"
       ],
-      "observedAt": "2026-10-04T04:24:55.409Z",
+      "observedAt": "2026-10-04T05:49:24.432Z",
       "expiresAt": null
     },
     {
@@ -28763,7 +28763,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129009:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -28776,7 +28776,7 @@
       "sourceIds": [
         "source:rolling:f1:session:evt-37"
       ],
-      "observedAt": "2026-10-04T04:29:20.628Z",
+      "observedAt": "2026-10-04T05:51:14.341Z",
       "expiresAt": null
     },
     {
@@ -28790,7 +28790,7 @@
       "sourceIds": [
         "source:rolling:epl-2026-27-129011:fixture"
       ],
-      "observedAt": "2026-10-04T04:29:14.662Z",
+      "observedAt": "2026-10-04T05:51:11.197Z",
       "expiresAt": null
     },
     {
@@ -29582,7 +29582,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-2",
@@ -29595,7 +29595,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-11",
@@ -29608,7 +29608,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-127",
@@ -29621,7 +29621,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-23",
@@ -29634,7 +29634,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-10",
@@ -29647,7 +29647,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-34",
@@ -29660,7 +29660,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-4",
@@ -29673,7 +29673,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-nrl-322",
@@ -29790,7 +29790,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-nrl-337",
@@ -29907,7 +29907,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-7",
@@ -29920,7 +29920,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-5",
@@ -29933,7 +29933,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-41",
@@ -29946,7 +29946,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-21",
@@ -29959,7 +29959,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-nrl-321",
@@ -30024,7 +30024,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-130",
@@ -30037,7 +30037,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-29",
@@ -30050,7 +30050,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-12",
@@ -30063,7 +30063,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-8",
@@ -30076,7 +30076,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-football-epl-1",
@@ -30089,7 +30089,7 @@
         "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:25:48.312Z"
+      "updatedAt": "2026-10-04T05:49:56.383Z"
     },
     {
       "id": "thread:rolling:team-afl-cd-t60",
@@ -30185,7 +30185,7 @@
         "fact:rolling:f1:race-consequence"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:26:19.507Z"
+      "updatedAt": "2026-10-04T05:50:20.765Z"
     },
     {
       "id": "thread:rolling:afl-finals-path",
@@ -30212,7 +30212,7 @@
         "fact:depth:epl:epl-2026-27-129010:team-football-epl-131:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-2:2026-27",
@@ -30226,7 +30226,7 @@
         "fact:depth:epl:epl-2026-27-129003:team-football-epl-2:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-11:2026-27",
@@ -30240,7 +30240,7 @@
         "fact:depth:epl:epl-2026-27-129010:team-football-epl-11:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-127:2026-27",
@@ -30254,7 +30254,7 @@
         "fact:depth:epl:epl-2026-27-129004:team-football-epl-127:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-23:2026-27",
@@ -30268,7 +30268,7 @@
         "fact:depth:epl:epl-2026-27-129011:team-football-epl-23:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-10:2026-27",
@@ -30282,7 +30282,7 @@
         "fact:depth:epl:epl-2026-27-129009:team-football-epl-10:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-34:2026-27",
@@ -30296,7 +30296,7 @@
         "fact:depth:epl:epl-2026-27-129003:team-football-epl-34:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-4:2026-27",
@@ -30310,7 +30310,7 @@
         "fact:depth:epl:epl-2026-27-129006:team-football-epl-4:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-6:2026-27",
@@ -30324,7 +30324,7 @@
         "fact:depth:epl:epl-2026-27-129012:team-football-epl-6:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-15:2026-27",
@@ -30338,7 +30338,7 @@
         "fact:depth:epl:epl-2026-27-129005:team-football-epl-15:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-7:2026-27",
@@ -30352,7 +30352,7 @@
         "fact:depth:epl:epl-2026-27-129011:team-football-epl-7:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-5:2026-27",
@@ -30366,7 +30366,7 @@
         "fact:depth:epl:epl-2026-27-129007:team-football-epl-5:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-41:2026-27",
@@ -30380,7 +30380,7 @@
         "fact:depth:epl:epl-2026-27-129008:team-football-epl-41:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-21:2026-27",
@@ -30394,7 +30394,7 @@
         "fact:depth:epl:epl-2026-27-129012:team-football-epl-21:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-9:2026-27",
@@ -30408,7 +30408,7 @@
         "fact:depth:epl:epl-2026-27-129004:team-football-epl-9:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-130:2026-27",
@@ -30422,7 +30422,7 @@
         "fact:depth:epl:epl-2026-27-129005:team-football-epl-130:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-29:2026-27",
@@ -30436,7 +30436,7 @@
         "fact:depth:epl:epl-2026-27-129007:team-football-epl-29:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-12:2026-27",
@@ -30450,7 +30450,7 @@
         "fact:depth:epl:epl-2026-27-129006:team-football-epl-12:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-8:2026-27",
@@ -30464,7 +30464,7 @@
         "fact:depth:epl:epl-2026-27-129008:team-football-epl-8:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-1:2026-27",
@@ -30478,7 +30478,7 @@
         "fact:depth:epl:epl-2026-27-129009:team-football-epl-1:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:afl:close",
@@ -30496,7 +30496,7 @@
         "fact:depth:afl:event-afl-cd-m20260142409:2"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:afl:finals",
@@ -30536,7 +30536,7 @@
         "fact:depth:afl:event-afl-cd-m20260142901:4"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:cricket:bangladesh",
@@ -30554,7 +30554,7 @@
         "fact:depth:cricket:cricket-australia-bangladesh-second-test-2026:3"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:cricket:south-africa",
@@ -30575,7 +30575,7 @@
         "fact:depth:cricket:fixture-cricket-espn-1525661:3"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:cricket:england",
@@ -30611,7 +30611,7 @@
         "fact:depth:cricket:cricket-australia-england-fifth-t20-2026:3"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:depth:cricket:new-zealand",
@@ -30632,7 +30632,7 @@
         "fact:depth:cricket:evt-91:3"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:02:58.697Z"
+      "updatedAt": "2026-10-04T05:51:53.963Z"
     },
     {
       "id": "thread:rolling:team-afl-cd-t50",
@@ -30720,7 +30720,7 @@
         "fact:rolling:event-wrc-2026-round-13:viewing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:24:59.730Z"
+      "updatedAt": "2026-10-04T05:49:31.163Z"
     },
     {
       "id": "thread:rolling:nrlw:2026",
@@ -30910,7 +30910,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t7387:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t9408",
@@ -30923,7 +30923,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t9408:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8796",
@@ -30936,7 +30936,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8796:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8466",
@@ -30949,7 +30949,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8466:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t9409",
@@ -30962,7 +30962,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t9409:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8786",
@@ -30975,7 +30975,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8786:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t7887",
@@ -30988,7 +30988,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t7887:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t7889",
@@ -31001,7 +31001,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t7889:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8788",
@@ -31014,7 +31014,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8788:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t7886",
@@ -31027,7 +31027,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t7886:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t9407",
@@ -31040,7 +31040,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t9407:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8098",
@@ -31053,7 +31053,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8098:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8467",
@@ -31066,7 +31066,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8467:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t9406",
@@ -31079,7 +31079,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t9406:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8096",
@@ -31092,7 +31092,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8096:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8097",
@@ -31105,7 +31105,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8097:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t8787",
@@ -31118,7 +31118,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t8787:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:rolling:team-aflw-cd-t7386",
@@ -31131,7 +31131,7 @@
         "fact:rolling:competition-aflw-2026:team-aflw-cd-t7386:standing"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:00:02.000Z"
+      "updatedAt": "2026-10-04T05:48:34.000Z"
     },
     {
       "id": "thread:fixture-research:fixture:us-open-2026:official:ms:1222",
@@ -32002,13 +32002,14 @@
       "title": "2026–27 NBL season — current path",
       "summary": "Each 2026–27 NBL season card retains only the dated, season-qualified evidence available for that event; calendar context does not establish an unverified field or viewing deal.",
       "factIds": [
-        "fact:rolling:event-nbl-2026-27-37931e61-58ad-11f1-982d-a93048d70593:schedule",
-        "fact:rolling:event-nbl-2026-27-37931e61-58ad-11f1-982d-a93048d70593:field",
-        "fact:rolling:event-nbl-2026-27-37931e61-58ad-11f1-982d-a93048d70593:viewing",
-        "fact:rolling:event-nbl-2026-27-37931e61-58ad-11f1-982d-a93048d70593:consequence"
+        "fact:rolling:event-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447:schedule",
+        "fact:rolling:event-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447:field",
+        "fact:rolling:event-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447:viewing",
+        "fact:rolling:event-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447:consequence",
+        "fact:rolling:event-nbl-2026-27-36fd4a13-58ad-11f1-9ca2-a9a6cbaba447:result"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T04:26:26.127Z"
+      "updatedAt": "2026-10-04T05:50:24.161Z"
     }
   ],
   "audienceMemories": [],
@@ -34781,12 +34782,12 @@
         "source:rolling:wrc:driver-standings",
         "source:rolling:wrc:stan-sport"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36264,12 +36265,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640709:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36282,7 +36283,7 @@
       "hook": "Richmond and Geelong Cats met in Round 8 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
       "synopsis": "Richmond and Geelong Cats arrived at Round 8 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "hookSpoilerOn": "Geelong Cats defeated Richmond 54-20.",
-      "synopsisSpoilerOn": "Geelong Cats defeated Richmond 54-20. The current table now has Richmond 10th on 16 points and Geelong Cats 2nd on 28, keeping the result connected to the wider AFLW path.",
+      "synopsisSpoilerOn": "Geelong Cats defeated Richmond 54-20. The current table now has Richmond 10th on 16 points and Geelong Cats 3rd on 28, keeping the result connected to the wider AFLW path.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8788",
         "thread:rolling:team-aflw-cd-t8467"
@@ -36296,12 +36297,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640802:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36328,12 +36329,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640803:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36360,12 +36361,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640804:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36392,12 +36393,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640805:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36424,12 +36425,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640806:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36439,8 +36440,10 @@
         "event-aflw-cd_m20262640807"
       ],
       "researchDepth": 2,
-      "hook": "North Melbourne enter 1st and Sydney Swans 7th; a late-season contest carrying finals-position pressure.",
-      "synopsis": "North Melbourne are 1st with 28 points, while Sydney Swans are 7th with 24. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "North Melbourne and Sydney Swans met in Round 8 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "synopsis": "North Melbourne and Sydney Swans arrived at Round 8 inside a live AFLW story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "North Melbourne defeated Sydney Swans 71-16.",
+      "synopsisSpoilerOn": "North Melbourne defeated Sydney Swans 71-16. The current table now has North Melbourne 1st on 28 points and Sydney Swans 7th on 24, keeping the result connected to the wider AFLW path.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8466",
         "thread:rolling:team-aflw-cd-t9408"
@@ -36454,12 +36457,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640807:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36469,8 +36472,8 @@
         "event-aflw-cd_m20262640808"
       ],
       "researchDepth": 2,
-      "hook": "Collingwood enter 17th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Collingwood are 17th with 4 points, while Melbourne are 3rd with 24. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Collingwood enter 17th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Collingwood are 17th with 4 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8097",
         "thread:rolling:team-aflw-cd-t7386"
@@ -36484,12 +36487,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640808:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -36514,12 +36517,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640809:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37691,12 +37694,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37723,12 +37726,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37755,12 +37758,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37787,12 +37790,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37819,12 +37822,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37853,12 +37856,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-1"
       ],
-      "researchedAt": "2026-10-04T05:03:13.074Z",
+      "researchedAt": "2026-10-04T05:52:16.390Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T05:03:13.074Z"
+        "reviewedAt": "2026-10-04T05:52:16.390Z"
       }
     },
     {
@@ -37887,12 +37890,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-2"
       ],
-      "researchedAt": "2026-10-04T05:03:13.074Z",
+      "researchedAt": "2026-10-04T05:52:16.390Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T05:03:13.074Z"
+        "reviewedAt": "2026-10-04T05:52:16.390Z"
       }
     },
     {
@@ -37919,12 +37922,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37951,12 +37954,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -37985,12 +37988,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-bahrain-practice-3"
       ],
-      "researchedAt": "2026-10-04T05:03:13.074Z",
+      "researchedAt": "2026-10-04T05:52:16.390Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T05:03:13.074Z"
+        "reviewedAt": "2026-10-04T05:52:16.390Z"
       }
     },
     {
@@ -38017,12 +38020,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38049,12 +38052,12 @@
       "sourceIds": [
         "source:rolling:nbl:nbl27-schedule"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38195,12 +38198,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640901:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38226,12 +38229,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-singapore-practice-1"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       },
       "hookSpoilerOn": "Marina Bay gets just one practice session before Singapore’s first Sprint weekend begins in earnest.",
       "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday."
@@ -38288,12 +38291,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-singapore-sprint-qualifying"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       },
       "hookSpoilerOn": "Singapore’s first Sprint grid will be decided on Friday, after only one practice at Marina Bay.",
       "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday."
@@ -38320,12 +38323,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640902:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38350,12 +38353,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640903:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38365,8 +38368,8 @@
         "event-aflw-cd_m20262640904"
       ],
       "researchDepth": 2,
-      "hook": "Geelong Cats enter 2nd and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Geelong Cats are 2nd with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 9: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Geelong Cats enter 3rd and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Geelong Cats are 3rd with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 9: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8467",
         "thread:rolling:team-aflw-cd-t7889"
@@ -38380,12 +38383,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640904:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38410,12 +38413,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640905:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38470,12 +38473,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-singapore-sprint"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       },
       "hookSpoilerOn": "The first Singapore Sprint adds a second race to Formula 1’s Marina Bay weekend.",
       "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday."
@@ -38487,8 +38490,8 @@
         "event-aflw-cd_m20262640906"
       ],
       "researchDepth": 2,
-      "hook": "Gold Coast SUNS enter 4th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Gold Coast SUNS are 4th with 24 points, while Melbourne are 3rd with 24. That makes this more than a date in Round 9: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Gold Coast SUNS enter 4th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Gold Coast SUNS are 4th with 24 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 9: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8786",
         "thread:rolling:team-aflw-cd-t7386"
@@ -38502,12 +38505,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640906:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38562,12 +38565,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-32"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       },
       "hookSpoilerOn": "Marina Bay’s first Sprint Saturday places Grand Prix qualifying after a race on the same day.",
       "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday."
@@ -38594,12 +38597,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640907:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38624,12 +38627,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640908:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38683,12 +38686,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640909:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38743,12 +38746,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-33"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       },
       "hookSpoilerOn": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
       "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday."
@@ -38818,8 +38821,8 @@
         "event-aflw-cd_m20262641001"
       ],
       "researchDepth": 2,
-      "hook": "Melbourne enter 3rd and Richmond 10th; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Melbourne are 3rd with 24 points, while Richmond are 10th with 16. That makes this more than a date in Round 10: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Melbourne enter 2nd and Richmond 10th; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Melbourne are 2nd with 28 points, while Richmond are 10th with 16. That makes this more than a date in Round 10: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t7386",
         "thread:rolling:team-aflw-cd-t8788"
@@ -38833,12 +38836,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641001:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38892,12 +38895,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641002:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38922,12 +38925,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641003:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38952,12 +38955,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641004:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -38996,8 +38999,8 @@
         "event-aflw-cd_m20262641005"
       ],
       "researchDepth": 2,
-      "hook": "West Coast Eagles enter 12th and Geelong Cats 2nd; a late-season contest carrying finals-position pressure.",
-      "synopsis": "West Coast Eagles are 12th with 12 points, while Geelong Cats are 2nd with 28. That makes this more than a date in Round 10: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "West Coast Eagles enter 12th and Geelong Cats 3rd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "West Coast Eagles are 12th with 12 points, while Geelong Cats are 3rd with 28. That makes this more than a date in Round 10: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8787",
         "thread:rolling:team-aflw-cd-t8467"
@@ -39011,12 +39014,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641005:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -39070,12 +39073,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641006:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -39100,12 +39103,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641007:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -39159,12 +39162,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641008:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -39218,12 +39221,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641009:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -41974,12 +41977,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641101:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42005,12 +42008,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-1"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42036,12 +42039,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-2"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42066,12 +42069,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641102:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42081,8 +42084,8 @@
         "event-aflw-cd_m20262641103"
       ],
       "researchDepth": 2,
-      "hook": "Geelong Cats enter 2nd and Fremantle 8th; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Geelong Cats are 2nd with 28 points, while Fremantle are 8th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Geelong Cats enter 3rd and Fremantle 8th; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Geelong Cats are 3rd with 28 points, while Fremantle are 8th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8467",
         "thread:rolling:team-aflw-cd-t7886"
@@ -42096,12 +42099,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641103:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42126,12 +42129,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641104:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42141,8 +42144,8 @@
         "event-aflw-cd_m20262641105"
       ],
       "researchDepth": 2,
-      "hook": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Western Bulldogs are 6th with 24 points, while Melbourne are 3rd with 24. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Western Bulldogs enter 6th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Western Bulldogs are 6th with 24 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t7387",
         "thread:rolling:team-aflw-cd-t7386"
@@ -42156,12 +42159,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641105:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42187,12 +42190,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-united-states-practice-3"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42218,12 +42221,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-34"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42248,12 +42251,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641106:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42278,12 +42281,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641107:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42640,12 +42643,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641108:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42670,12 +42673,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641109:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -42701,12 +42704,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-35"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43005,8 +43008,8 @@
         "event-aflw-cd_m20262641201"
       ],
       "researchDepth": 2,
-      "hook": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Geelong Cats are 2nd with 28 points, while Western Bulldogs are 6th with 24. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Geelong Cats enter 3rd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Geelong Cats are 3rd with 28 points, while Western Bulldogs are 6th with 24. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8467",
         "thread:rolling:team-aflw-cd-t7387"
@@ -43020,12 +43023,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641201:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43167,12 +43170,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43198,12 +43201,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43228,12 +43231,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641202:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43258,12 +43261,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641203:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43288,12 +43291,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641204:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43318,12 +43321,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641205:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43378,12 +43381,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-f1-2026-mexico-practice-3"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43410,12 +43413,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262640801:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43441,12 +43444,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-36"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43471,12 +43474,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641206:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43501,12 +43504,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641207:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43516,8 +43519,8 @@
         "event-aflw-cd_m20262641208"
       ],
       "researchDepth": 2,
-      "hook": "Adelaide Crows enter 11th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "synopsis": "Adelaide Crows are 11th with 12 points, while Melbourne are 3rd with 24. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Adelaide Crows enter 11th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Adelaide Crows are 11th with 12 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
       "threadIds": [
         "thread:rolling:team-aflw-cd-t8098",
         "thread:rolling:team-aflw-cd-t7386"
@@ -43531,12 +43534,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641208:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43561,12 +43564,12 @@
         "source:rolling:competition-aflw-2026:ladder",
         "source:rolling:event-aflw-cd-m20262641209:fixture"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -43592,12 +43595,12 @@
         "source:rolling:f1:constructors",
         "source:rolling:f1:session:evt-37"
       ],
-      "researchedAt": "2026-10-04T04:29:23.023Z",
+      "researchedAt": "2026-10-04T05:51:53.694Z",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45458,7 +45461,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45492,7 +45495,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45526,7 +45529,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45560,7 +45563,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45594,7 +45597,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45628,7 +45631,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45662,7 +45665,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45696,7 +45699,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45730,7 +45733,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T05:02:58.503Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45764,7 +45767,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45798,7 +45801,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45832,7 +45835,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45866,7 +45869,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45900,7 +45903,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45934,7 +45937,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -45968,7 +45971,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46002,7 +46005,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46036,7 +46039,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46070,7 +46073,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46104,7 +46107,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46138,7 +46141,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46172,7 +46175,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46206,7 +46209,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46240,7 +46243,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46274,7 +46277,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46308,7 +46311,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46342,7 +46345,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46376,7 +46379,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46410,7 +46413,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46444,7 +46447,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46478,7 +46481,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46512,7 +46515,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46546,7 +46549,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46580,7 +46583,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46614,7 +46617,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46648,7 +46651,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46682,7 +46685,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46716,7 +46719,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46750,7 +46753,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {
@@ -46784,7 +46787,7 @@
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-04T04:29:23.023Z"
+        "reviewedAt": "2026-10-04T05:51:53.694Z"
       }
     },
     {

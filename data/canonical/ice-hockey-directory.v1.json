@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-10-04T04:26:30Z",
+  "generatedAt": "2026-10-04T05:50:15Z",
   "season": "20262027",
   "competitions": [
     {
@@ -33695,7 +33695,7 @@
       "time": "13:00",
       "startTimeUtc": "2026-10-04T02:00:00Z",
       "venue": "Rogers Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33710,7 +33710,7 @@
           "participantId": "team:nhl:van",
           "label": "Vancouver Canucks",
           "homeAway": "home",
-          "score": 1,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
         }
       ],
@@ -33726,7 +33726,7 @@
       "time": "13:00",
       "startTimeUtc": "2026-10-04T02:00:00Z",
       "venue": "SAP Center at San Jose",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33734,14 +33734,14 @@
           "participantId": "team:nhl:lak",
           "label": "Los Angeles Kings",
           "homeAway": "away",
-          "score": 3,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg"
         },
         {
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "home",
-          "score": 4,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         }
       ],
@@ -75856,6 +75856,17 @@
       "goalDifferential": 8
     },
     {
+      "participantId": "team:nhl:sjs",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 2,
+      "losses": 0,
+      "otLosses": 0,
+      "points": 4,
+      "goalDifferential": 2
+    },
+    {
       "participantId": "team:nhl:nyr",
       "conference": "Eastern",
       "division": "Metropolitan",
@@ -75865,6 +75876,17 @@
       "otLosses": 0,
       "points": 4,
       "goalDifferential": 3
+    },
+    {
+      "participantId": "team:nhl:van",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 3,
+      "wins": 2,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 4,
+      "goalDifferential": 2
     },
     {
       "participantId": "team:nhl:bos",
@@ -75925,17 +75947,6 @@
       "participantId": "team:nhl:ott",
       "conference": "Eastern",
       "division": "Atlantic",
-      "gamesPlayed": 1,
-      "wins": 1,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 2,
-      "goalDifferential": 1
-    },
-    {
-      "participantId": "team:nhl:sjs",
-      "conference": "Western",
-      "division": "Pacific",
       "gamesPlayed": 1,
       "wins": 1,
       "losses": 0,
@@ -76043,17 +76054,6 @@
       "goalDifferential": -2
     },
     {
-      "participantId": "team:nhl:van",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 2,
-      "wins": 1,
-      "losses": 1,
-      "otLosses": 0,
-      "points": 2,
-      "goalDifferential": -1
-    },
-    {
       "participantId": "team:nhl:njd",
       "conference": "Eastern",
       "division": "Metropolitan",
@@ -76098,6 +76098,17 @@
       "goalDifferential": -1
     },
     {
+      "participantId": "team:nhl:lak",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 0,
+      "losses": 1,
+      "otLosses": 1,
+      "points": 1,
+      "goalDifferential": -5
+    },
+    {
       "participantId": "team:nhl:det",
       "conference": "Eastern",
       "division": "Atlantic",
@@ -76109,28 +76120,6 @@
       "goalDifferential": -2
     },
     {
-      "participantId": "team:nhl:lak",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 1,
-      "wins": 0,
-      "losses": 1,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": -4
-    },
-    {
-      "participantId": "team:nhl:cgy",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 1,
-      "wins": 0,
-      "losses": 1,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": -5
-    },
-    {
       "participantId": "team:nhl:dal",
       "conference": "Western",
       "division": "Central",
@@ -76140,6 +76129,17 @@
       "otLosses": 0,
       "points": 0,
       "goalDifferential": -5
+    },
+    {
+      "participantId": "team:nhl:cgy",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 0,
+      "losses": 2,
+      "otLosses": 0,
+      "points": 0,
+      "goalDifferential": -8
     },
     {
       "participantId": "team:nhl:chi",

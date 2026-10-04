@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-10-04T04:23:17.491Z",
+  "generatedAt": "2026-10-04T05:48:59.057Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -41,7 +41,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -61,8 +61,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4720",
-      "leagueName": "Afghanistan v Bangladesh Test 2026 - Men",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:bangladesh",
@@ -73,12 +73,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.tigercricket.com.bd/",
-        "https://www.cricket.com.au/matches/"
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -135,8 +135,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24286",
-      "leagueName": "Sri Lanka tour of India 2026/27",
+      "leagueId": "competition:cricket:4613",
+      "leagueName": "India v West Indies T20Is 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:india",
@@ -147,12 +147,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.espn.in/cricket/series/24286/game/1529240/india-vs-sri-lanka-3rd-t20i-24286"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -190,7 +190,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -227,7 +227,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -265,7 +265,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -285,8 +285,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24286",
-      "leagueName": "Sri Lanka tour of India 2026/27",
+      "leagueId": "competition:cricket:4718",
+      "leagueName": "Asian Games 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:sri-lanka",
@@ -297,12 +297,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://srilankacricket.lk/",
-        "https://www.espn.in/cricket/series/24286/game/1529240/india-vs-sri-lanka-3rd-t20i-24286"
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -340,7 +340,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {
@@ -410,7 +410,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
+      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
       "sourceReviewAfter": null
     },
     {

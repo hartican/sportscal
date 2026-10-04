@@ -1,8 +1,8 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-10-04T05:02:56.069Z",
+  "generatedAt": "2026-10-04T05:51:14.341Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
+  "fingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
   "entries": [
     {
       "eventId": "evt_f1_2026_bahrain_race",
@@ -28,7 +28,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "researched"
     },
     {
@@ -50,7 +50,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "researched"
     },
     {
@@ -72,7 +72,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "researched"
     },
     {
@@ -94,7 +94,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "researched"
     },
     {
@@ -116,7 +116,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "researched"
     },
     {
@@ -129,7 +129,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     },
     {
@@ -142,7 +142,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     },
     {
@@ -155,7 +155,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     },
     {
@@ -168,7 +168,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     },
     {
@@ -181,7 +181,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     },
     {
@@ -194,7 +194,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
+      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
       "generationMode": "withheld"
     }
   ]
