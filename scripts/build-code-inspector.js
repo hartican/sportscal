@@ -8,6 +8,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/code-inspector");
 const taxonomy = require("../config/canonical-sports-taxonomy");
+const canonicalStatus = require('../lib/canonical-status-observations');
 const followFirst = require("../config/follow-first");
 const fixtureIdentity = require("../config/fixture-identity");
 const nationalTeamIdentities = require("../config/national-team-identities");
@@ -279,6 +280,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
+    ...canonicalStatus.observation(event),
     scheduleStatus: timeTbc ? "tbc" : (event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional")),
     participantSlots: slots,
     participantIds:Array.isArray(event.participantIds)?event.participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
@@ -388,7 +390,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       && Boolean(secondary.scoreDisplay || secondary.result || secondary.innings?.length)
       && Number.isFinite(Date.parse(secondary.sourceCheckedAt))
       && Date.parse(secondary.sourceCheckedAt) >= (Date.parse(preferred.sourceCheckedAt) || 0);
-    const mergedEvent = previous ? {
+    let mergedEvent = previous ? {
       ...(terminalUpdate ? preferred : secondary),
       ...(terminalUpdate ? secondary : preferred),
       ...(terminalUpdate ? Object.fromEntries(["broadcaster","viewingOptions","broadcastOptions","broadcasterIds"].filter(key=>preferred[key]!=null).map(key=>[key,preferred[key]])) : {}),
@@ -397,6 +399,12 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       canonicalEventId:preferred.canonicalEventId || retainedId,
       sourceEventIds,
     } : event;
+    if(previous && (canonicalStatus.observation(secondary)||canonicalStatus.observation(preferred))){
+      const status=canonicalStatus.apply(normalizeFixture(preferred,codeId),normalizeFixture(secondary,codeId));
+      if(status.status!==preferred.status||status.statusCheckedAt!==preferred.statusCheckedAt){
+        for(const key of ['status','statusCheckedAt','statusSourceUrl'])if(status[key]!=null)mergedEvent[key]=status[key];
+      }
+    }
     const hasConfirmedParticipants = Array.isArray(event.participantSlots) && event.participantSlots.length
       || Array.isArray(event.participantIds) && event.participantIds.length;
     if (Array.isArray(event.participantIds) && event.participantIds.length && !Array.isArray(event.participantSlots)){

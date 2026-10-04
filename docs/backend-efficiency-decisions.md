@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Canonical live status publication — 4 October 2026
+
+The existing canonical fixture owner and Code/Schedule projector retain explicit official live/non-playing observations for the same exact fixture, ordered participants, competition and kickoff. HTTPS source references and valid, non-future observation dates are required; a live observation must be after kickoff. Older/equal contradictory observations, other identities and reopening settled/non-playing fixtures are rejected. Only status and its independent provenance change; editorial, scores, viewing, schedules, personal activity and their dates retain their existing ownership.
+
+Legacy regular-season canonical cards may publish those validated statuses without relaxing their other Feed validation. AFL/AFLW/NRL/NRLW match schedules join the existing Football/NBL freshness rule: after kickoff, only an explicit live observation checked within thirty minutes enters Live Now. Older/unobserved states show Awaiting match update; elapsed time cannot manufacture a final. Date-only tournament phase behaviour is unchanged.
+
+No new source, database change, browser poll, retry, scheduler or owner routine. Regressions: validate-canonical-live-status.js (frozen actual publication inputs) through the existing Code release gate, actual mounted browser freshness checks and cached 426→427 upgrade checks. The local canonical quick refresh reports absent Supabase administration as degraded; it does not prove production snapshot sync or ordinary unattended operation.
+
 ## Account changes cancel stale profile work — 4 October 2026
 
 Profile, onboarding and preference reset/undo operations bind to the account and page generation that started them. Queued old work, superseded hydration, late results/errors and old reset confirmations cannot act on a replacement account. Sign-out invalidates those operations before notification detachment; late logout acknowledgements cannot clear a replacement session. Keep the approved device-local copy after sign-out.

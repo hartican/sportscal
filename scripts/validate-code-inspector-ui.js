@@ -206,3 +206,4 @@ for (const fixture of canonicalBundle.events.filter(event => event.status === "s
 console.log(`Follow Schedule and Standings UI contract valid across ${manifest.codes.length} canonical codes.`);
 
 require('./validate-canonical-fixture-names').validate({published:true});
+require('./validate-canonical-live-status').validate();

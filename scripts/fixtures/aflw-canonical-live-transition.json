@@ -1,0 +1,203 @@
+{
+  "evidenceSnapshot": "32d4afacfebee316718e6ed5221a1b8ce8110fe4",
+  "canonical": {
+    "id": "event:aflw:cd_m20262640808",
+    "sourceId": "CD_M20262640808",
+    "sportDomainId": "sport:afl",
+    "discoverySportId": "sport:aflw",
+    "competitionId": "competition:aflw-2026",
+    "seasonLabel": "2026",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "eventType": "match",
+    "startTimeUtc": "2026-10-04T04:05:00.000Z",
+    "scheduleStatus": "confirmed",
+    "localTimezone": "Australia/Melbourne",
+    "venueName": "Victoria Park",
+    "venueCity": "Melbourne",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:aflw:cd_t8097",
+    "awayParticipantId": "team:aflw:cd_t7386",
+    "participantIds": [
+      "team:aflw:cd_t8097",
+      "team:aflw:cd_t7386"
+    ],
+    "displayName": "Collingwood v Melbourne",
+    "status": "live",
+    "broadcasters": [
+      {
+        "broadcasterId": "broadcaster:kayo",
+        "broadcasterName": "Kayo Sports",
+        "platformType": "streaming",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://kayosports.com.au/"
+      },
+      {
+        "broadcasterId": "broadcaster:foxtel",
+        "broadcasterName": "Foxtel",
+        "platformType": "subscription",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://www.foxtel.com.au/"
+      }
+    ],
+    "hasLadderImplications": true,
+    "hasFinalsImplications": true,
+    "tags": [
+      "aflw",
+      "all-fixtures",
+      "time-confirmed"
+    ],
+    "createdAt": "2026-09-04T14:23:00.839Z",
+    "updatedAt": "2026-10-04T05:49:24.432Z",
+    "source": {
+      "provider": "AFLW",
+      "sourceUrl": "https://www.afl.com.au/aflw/matches/8950",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:49:24.432Z"
+    }
+  },
+  "previous": {
+    "id": "event-aflw-cd_m20262640808",
+    "eventId": "event-aflw-cd_m20262640808",
+    "sport": "AFLW",
+    "key": "aflw",
+    "name": "Collingwood v Melbourne",
+    "displayTitleCompact": "Collingwood v Melbourne",
+    "date": "2026-10-04",
+    "time": "15:05",
+    "startTimeUtc": "2026-10-04T04:05:00.000Z",
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "expected": 4,
+    "venue": "Victoria Park, Melbourne",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "regular-season-fixture",
+    "status": "upcoming",
+    "participants": [
+      {
+        "id": "team:aflw:cd_t8097",
+        "name": "Collingwood",
+        "role": "home"
+      },
+      {
+        "id": "team:aflw:cd_t7386",
+        "name": "Melbourne",
+        "role": "away"
+      }
+    ],
+    "selectedSentence": "Collingwood enter 17th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+    "fullSpiel": "Collingwood are 17th with 4 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+    "sourceName": "AFLW current AFLW table",
+    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "sourceType": "official",
+    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": true,
+    "canonicalEventId": "event:aflw:cd_m20262640808",
+    "canonicalSourceId": "CD_M20262640808",
+    "canonicalSourceName": "AFLW",
+    "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
+    "canonicalSourceCheckedAt": "2026-10-02T21:09:08.586Z",
+    "canonicalSourceType": "official",
+    "sportDomainId": "sport:afl",
+    "competitionId": "competition:aflw-2026",
+    "participantIds": [
+      "team:aflw:cd_t8097",
+      "team:aflw:cd_t7386"
+    ],
+    "homeParticipantId": "team:aflw:cd_t8097",
+    "awayParticipantId": "team:aflw:cd_t7386",
+    "roundLabel": "Round 8",
+    "stage": null,
+    "competitionPhase": "regular-season",
+    "isFinalRegularSeasonRound": false,
+    "stakesFloor": 1,
+    "isInternational": false,
+    "competitionScope": "domestic",
+    "representativeCountryCodes": [],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "scheduleStatus": "confirmed",
+    "stakesScore": 1,
+    "sourceTrust": "verified",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:event-aflw-cd-m20262640808",
+      "researchTier": "standard",
+      "hook": "Collingwood enter 17th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsis": "Collingwood are 17th with 4 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-aflw-cd-t8097",
+        "thread:rolling:team-aflw-cd-t7386"
+      ],
+      "factIds": [
+        "fact:rolling:competition-aflw-2026:team-aflw-cd-t8097:standing",
+        "fact:rolling:competition-aflw-2026:team-aflw-cd-t7386:standing",
+        "fact:rolling:event-aflw-cd-m20262640808:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-aflw-2026:ladder",
+        "source:rolling:event-aflw-cd-m20262640808:fixture"
+      ],
+      "dimensions": [
+        "form",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-04T05:51:53.694Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Collingwood — current AFLW path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceName": "AFLW current AFLW table",
+      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Collingwood enter 17th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "hookSpoilerOn": "Collingwood enter 17th and Melbourne 2nd; a late-season contest carrying finals-position pressure.",
+      "synopsisSpoilerOff": "Collingwood are 17th with 4 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "synopsisSpoilerOn": "Collingwood are 17th with 4 points, while Melbourne are 2nd with 28. That makes this more than a date in Round 8: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+      "stakes": 1
+    },
+    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "timePrecision": "exact",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "event-aflw-cd_m20262640808"
+    ],
+    "consensusTags": [],
+    "timeTbc": false,
+    "startTimeTbc": false,
+    "dateOnly": false
+  }
+}

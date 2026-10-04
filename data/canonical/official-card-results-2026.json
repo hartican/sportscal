@@ -654,6 +654,23 @@
       "statusCheckedAt": "2026-10-03T12:29:51.669Z",
       "scoreCheckedAt": "2026-10-03T12:29:51.669Z",
       "lastReviewedAt": "2026-10-03T12:29:51.669Z"
+    },
+    {
+      "id": "evt_motogp_2026_japan",
+      "status": "completed",
+      "score": "1. Marc Marquez · 2. Jorge Martin · 3. Marco Bezzecchi",
+      "scoreDisplay": "1. Marc Marquez · 2. Jorge Martin · 3. Marco Bezzecchi",
+      "outcomeText": "Marc Marquez won the Japanese MotoGP race.",
+      "recapText": "Marc Marquez finished ahead of Jorge Martin and Marco Bezzecchi at Motegi. Official race report.",
+      "sourceName": "MotoGP official race report",
+      "sourceUrl": "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+      "sourceCheckedAt": "2026-10-04T08:35:52.000Z",
+      "resultSourceUrl": "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+      "resultSourceCheckedAt": "2026-10-04T08:35:52.000Z",
+      "scoreCheckedAt": "2026-10-04T08:35:52.000Z",
+      "statusCheckedAt": "2026-10-04T08:35:52.000Z",
+      "resultPublishedAt": "2026-10-04T08:35:52.000Z",
+      "resultStatus": "official"
     }
   ]
 }

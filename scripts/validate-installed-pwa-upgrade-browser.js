@@ -76,6 +76,11 @@ async function assertCachedFootballStatus(page){
   assert.deepEqual(compactObservation,{home:2,away:0,unknownClock:null,unknownStale:true},'upgraded/offline shared and deferred modules preserve corrected finals and unknown score freshness');
   const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
   assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
+  const referenceStatus=await page.evaluate(()=>{
+    const event={competitionId:'competition:aflw-2026',status:'live',startTimeUtc:'2026-10-04T04:05:00Z',statusCheckedAt:'2026-10-04T05:49:24.432Z'};
+    return [NOTHINGSPORTS_CARD_TIMING.presentation(event,'2026-10-04T06:00:00Z').status,NOTHINGSPORTS_CARD_TIMING.presentation(event,'2026-10-04T08:00:00Z').status,NOTHINGSPORTS_FEED_CONTROLS.timingState(event,new Date('2026-10-04T08:00:00Z')).key];
+  });
+  assert.deepEqual(referenceStatus,['LIVE','Awaiting match update','awaiting-update'],'cached/offline reference status preserves the genuine observation and cannot advertise stale play');
   const tournamentPhase=await page.evaluate(()=>{
     const event={id:'offline-phase-qa',name:'Tournament phase QA',key:'golf',cardType:'golf_tournament',dateOnly:true,date:'2026-10-01',endDate:'2026-10-04',status:'live'};
     const priorTab=activeTab;

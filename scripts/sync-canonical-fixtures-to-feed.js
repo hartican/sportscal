@@ -13,6 +13,7 @@ const {
 const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 const competitionStakes = require("../config/enrichment-engine.js");
 const { publicFixtureTitle } = require('../lib/finals-presentation');
+const canonicalStatus = require('../lib/canonical-status-observations');
 
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
 const COMPLETED_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
@@ -492,6 +493,7 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
     briefingEligible: false,
     catchupEligible: fixture.broadcasters.some(item => item.replay),
     ...canonicalMetadata(fixture),
+    ...canonicalStatus.observation(fixture),
   }, fixture);
 }
 
@@ -503,7 +505,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
   const canonicalById = new Map(canonicalBundle.events.map(event => [event.id, event]));
   const fixtures = canonicalBundle.events.filter(event =>
     sportDetailsByDomainId.has(event.sportDomainId)
-    && event.status === "scheduled"
+    && (event.status === "scheduled" || (event.status === "live" && canonicalStatus.observation(event)))
     && event.startTimeUtc
     && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
   );
@@ -531,6 +533,10 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       const next = applyCompletedCanonicalResult(card, exactFixture, participantsById);
       if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
       return next;
+    }
+    if (exactFixture && canonicalStatus.observation(exactFixture)){
+      matchedCanonicalIds.add(exactFixture.id);
+      return canonicalStatus.apply(card, exactFixture);
     }
     const fixture = fixtures.find(candidate => {
       if (matchedCanonicalIds.has(candidate.id)) return false;

@@ -173,7 +173,10 @@ function validateFeed(feed) {
     if (!(fixture && !event.sourceCheckedAt) && !isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
     if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
     if (event.sourceTrust !== undefined && !["verified", "unverified"].includes(event.sourceTrust)) errors.push(`${prefix}.sourceTrust must be verified or unverified if present.`);
-    if (event.status !== undefined && !(fixture?["upcoming","scheduled","live","completed","cancelled","postponed","abandoned"]:["upcoming", "completed"]).includes(event.status)) errors.push(`${prefix}.status must be upcoming or completed.`);
+    const observedCanonicalStatus=event.narrativeType==='regular-season-fixture' && event.canonicalEventId
+      && require('../../lib/canonical-status-observations').observation(event);
+    if (event.status !== undefined && !(fixture?["upcoming","scheduled","live","completed","cancelled","postponed","abandoned"]:["upcoming", "completed"]).includes(event.status)
+      && !observedCanonicalStatus) errors.push(`${prefix}.status is unsupported without a validated canonical fixture observation.`);
     if (event.lastReviewedAt !== undefined && !isDateTime(event.lastReviewedAt)) errors.push(`${prefix}.lastReviewedAt must be an ISO date-time string.`);
     if (event.participants !== undefined && (!Array.isArray(event.participants) || !fixture && event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
       errors.push(`${prefix}.participants must contain at least two named participants if present.`);
