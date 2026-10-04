@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Known final recovery and WRC result precision — 5 October 2026
+
+The existing NRL Grand Final and WRC Sardegna cards gain independently dated official finals through the canonical owner. Preserve all fixture/activity identities, participants, schedule facts, viewing, follows, exclusions, Remind OFF, global/per-event Results and strict mode. WRC winning crew and fractional time remain intact behind reveal; old standings keep points/ranks/date with a clear unrechecked notice. Retained projection must not regenerate unrelated copy or normalize IDs. This does not introduce admission, opt-ins, exact WRC clocks, notification replay or a new owner choice. Regression: known-final/source/privacy gates, 204 actual browser cases and 437→438 cached upgrades. No physical phone or full-family certification claim.
+
 ## Settled final source dates — 5 October 2026
 
 A settled final does not need a new score check merely because its original observation is old. The shared deferred score presentation preserves original facts/dates, retains explicit source-stale warnings and ongoing score freshness, suppresses future/invalid check dates and displays a machine-readable calendar date, year and local timezone. Missing final dates remain explicitly unavailable. This repairs actual compact Feed exposure in the three existing Football pilots without new source requests, polling, scheduler, database change, subscription or owner routine. Results OFF, strict/per-event choices and existing result-line precedence remain authoritative. Shell437 versions only the changed deferred widget/loader and existing shell. Regression: existing feed score Node/browser gates and actual Football cached upgrade/offline/resume checks. Wider viewing/rights, physical phone, ordinary operation and cohort acceptance remain separate.

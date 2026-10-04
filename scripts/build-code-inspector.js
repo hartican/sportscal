@@ -477,14 +477,14 @@ function groupingMode(fixtures){
 }
 
 function codeStandings(code,canonicalDocumentOverride){
-  const canonicalDocument=canonicalDocumentOverride||(code.id==='sport:nrlw'?canonicalNrlw:code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null);
+  const canonicalDocument=canonicalDocumentOverride||(code.id==='sport:nrlw'?canonicalNrlw:code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:code.id==='sport:wrc'?canonicalWrc:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null);
   const snapshots=new Map();
   for(const snapshot of canonicalDocument?.ladderSnapshots||[]){
     if(code.id==='sport:football' && snapshot.competitionId!=='competition:premier-league-2026-27')continue;
     if(canonicalDocument===canonicalAflNrl && code.id!=='sport:football' && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
     const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
   }
-  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,...(['sport:football','sport:nrlw'].includes(code.id)?{competitionName:(canonicalDocument.competitions||[]).find(competition=>competition.id===snapshot.competitionId)?.name}:{}),asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,...(snapshot.metadata?.tableNote?{tableNote:snapshot.metadata.tableNote}:{}),...(require('../data/canonical/football-delayed-results.v1.json').results.some(r=>r.competitionId===snapshot.competitionId)?{stale:true,staleNote:'Table awaits primary-source confirmation of delayed backup results.'}:{}),sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
+  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,...(['sport:football','sport:nrlw'].includes(code.id)?{competitionName:(canonicalDocument.competitions||[]).find(competition=>competition.id===snapshot.competitionId)?.name}:{}),asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,...(snapshot.metadata?.tableNote?{tableNote:snapshot.metadata.tableNote}:{}),...(snapshot.stale?{stale:true,staleNote:snapshot.metadata?.staleNote||snapshot.metadata?.tableNote||'Standings await source confirmation.'}:{}),...(require('../data/canonical/football-delayed-results.v1.json').results.some(r=>r.competitionId===snapshot.competitionId)?{stale:true,staleNote:'Table awaits primary-source confirmation of delayed backup results.'}:{}),sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
     ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
     : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []

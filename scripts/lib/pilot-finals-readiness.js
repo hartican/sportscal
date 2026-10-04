@@ -41,9 +41,12 @@ function assessFinals(evidence, now, graceHours){
         dueCount++;
         const result = (evidence?.results || []).find(event => aliases(event).some(alias => alias === id || alias === id.replace(/^major-match:(nrl-finals-\d{4}):/, 'major-match-$1-')));
         const scoresPresent = result && [result.homeScore, result.awayScore].every(value => Number.isInteger(value) && value >= 0);
-        const complete = fixture.status === 'completed' && result?.status === 'completed' && scoresPresent
+        const resultUrl=result?.resultSourceUrl||result?.sourceUrl,fixtureResultUrl=fixture.resultSourceUrl||fixture.sourceUrl;
+        const observed=Date.parse(fixture.scoreCheckedAt||fixture.resultSourceCheckedAt||'');
+        const independentDateValid=!result?.fixtureObservationSchema||(Number.isFinite(observed)&&observed>=start&&observed<=+now);
+        const complete = fixture.status === 'completed' && result?.status === 'completed' && scoresPresent && independentDateValid
           && fixture.homeScore === result.homeScore && fixture.awayScore === result.awayScore
-          && fixture.sourceType === 'official' && fixture.sourceUrl === result.sourceUrl && /^https:\/\/www\.nrl\.com\//.test(result.sourceUrl || '');
+          && (fixture.resultSourceType||fixture.sourceType) === 'official' && fixtureResultUrl === resultUrl && /^https:\/\/www\.nrl\.com\//.test(resultUrl || '');
         if (!complete){
           problems.push('result is overdue or differs from reviewed official result');
           overdueResults.push({id, sport:'nrl', startTimeUtc:fixture.startTimeUtc, status:fixture.status || null});

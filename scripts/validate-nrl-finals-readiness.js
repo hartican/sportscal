@@ -53,4 +53,4 @@ assert.equal(readiness.ready, false, 'completed regular season cannot hide stale
 assert.equal(readiness.overdueResultCount, baselineReadiness.overdueResultCount + 1);
 assert.equal(readiness.overdueResults.filter(event => event.id === weekOne.id).length, 1);
 assert.deepEqual(readiness.overdueResults.filter(event => event.id !== weekOne.id), baselineReadiness.overdueResults);
-console.log('NRL finals: nine slots, eight sourced results, identity-preserving joins and missing/stale/corrupt evidence rejection passed.');
+console.log('NRL finals: nine slots, dated due-result checks, identity-preserving joins and missing/stale/corrupt evidence rejection passed.');

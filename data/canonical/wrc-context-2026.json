@@ -1837,7 +1837,7 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "scheduleStatus": "date-only",
-      "status": "scheduled",
+      "status": "completed",
       "countryCode": "IT",
       "country": "Italy",
       "region": "Europe",
@@ -1864,7 +1864,17 @@
       "courseArtworkId": "sardegna-lerno-2026",
       "courseGeometryVerified": true,
       "courseGeometrySourceUrl": "https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf",
-      "venueCaption": "Stage highlight: Lerno–Sa Conchedda–Monti di Alà • SS8/11 • 24.14 km • 2026"
+      "venueCaption": "Stage highlight: Lerno–Sa Conchedda–Monti di Alà • SS8/11 • 24.14 km • 2026",
+      "result": {
+        "status": "official",
+        "driverParticipantId": "competitor:wrc:driver:oliver-solberg",
+        "coDriverParticipantId": "competitor:wrc:co-driver:elliott-edmondson",
+        "winningCrew": "Oliver Solberg / Elliott Edmondson",
+        "vehicle": "Toyota GR Yaris Rally1",
+        "totalTime": "3:24:57.0",
+        "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
+        "checkedAt": "2026-10-04T20:41:03.188Z"
+      }
     },
     {
       "id": "event:wrc:2026:round-14",
@@ -2131,7 +2141,11 @@
           "participantId": "competitor:wrc:driver:lorenzo-bertelli",
           "points": 0
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     },
     {
       "id": "ladder:wrc-co-drivers-2026",
@@ -2336,7 +2350,11 @@
           "participantId": "competitor:wrc:co-driver:siim-oja",
           "points": 0
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     },
     {
       "id": "ladder:wrc-manufacturers-2026",
@@ -2371,7 +2389,11 @@
           "participantId": "team:wrc:m-sport-ford-world-rally-team",
           "points": 152
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     }
   ],
   "eventParticipantScopes": [

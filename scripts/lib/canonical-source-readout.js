@@ -25,13 +25,15 @@ function observation(doc, now) {
   const ageHours = (now.getTime() - stamp) / 3600000;
   return {checkedAt: new Date(stamp).toISOString(), ageHours, stale: ageHours > MAX_AGE_HOURS};
 }
-function summary({quick = null, hydration = null, football = null, golf = null, now = new Date()} = {}) {
-  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}, football: {state: 'unavailable'}, golf: {state:'unavailable'}};
+function summary({quick = null, hydration = null, football = null, golf = null, knownFinals = null, now = new Date()} = {}) {
+  const result = {maxAgeHours: MAX_AGE_HOURS, quick: {state: 'unavailable'}, hydration: {state: 'unavailable'}, football: {state: 'unavailable'}, golf: {state:'unavailable'}, knownFinals:{state:'unavailable'}};
   if (quick) {
     try {
       const observed = observation(quick, now);
       if (quick.mode !== 'quick' || !Array.isArray(quick.failures) || quick.failures.length > 500 || quick.failures.some(f => typeof f !== 'string')) throw Error('invalid_quick_report');
-      result.quick = {...observed, state: 'observed', failureCount: quick.failures.length, failures: quick.failures.map(safe), aiCalls: Number.isSafeInteger(quick.aiCalls) && quick.aiCalls >= 0 ? quick.aiCalls : null};
+      if(quick.publicationState!=null&&!['candidate','blocked-rolled-back'].includes(quick.publicationState))throw Error('invalid_publication_state');
+      if(quick.publicationState==='blocked-rolled-back'&&typeof quick.blockingError!=='string')throw Error('missing_blocking_error');
+      result.quick = {...observed, state: 'observed', failureCount: quick.failures.length, failures: quick.failures.map(safe), aiCalls: Number.isSafeInteger(quick.aiCalls) && quick.aiCalls >= 0 ? quick.aiCalls : null,...(quick.publicationState?{publicationState:quick.publicationState,blockingError:quick.blockingError?safe(quick.blockingError):null}:{})};
     } catch (e) { result.quick.error = safe(e.message); }
   }
   if (hydration) {
@@ -66,6 +68,14 @@ function summary({quick = null, hydration = null, football = null, golf = null, 
     const exceptions=golf.checks.filter(row=>['failed','unpublished','not-attested'].includes(row.state)||['retained-calendar','not-attested'].includes(row.statusEvidence));
     result.golf={...observed,state:golf.checks.length?'observed':'not-checked',mode:golf.mode,observationCount:golf.checks.length,acceptedCount:golf.checks.filter(row=>row.state==='accepted').length,failureCount:golf.checks.filter(row=>row.state==='failed').length,exceptionCount:exceptions.length,exceptions:exceptions.map(row=>({...row,name:row.name?safe(row.name):null,tournamentId:row.tournamentId?safe(row.tournamentId):null})),resultsPassCount:golf.resultsPasses.length,resultsChecked:golf.resultsPasses.reduce((n,pass)=>n+pass.checked,0)};
   }catch(error){result.golf.error=safe(error.message);}}
+  const finals=knownFinals||quick?.finalResults;
+  if(finals)try{
+    const observed=observation(finals,now),api=require('./known-final-results'),urls=new Map([[api.NRL_ID,api.NRL_URL],[api.WRC_ID,require('./wrc-context').CLASSIFICATION_URLS[13]]]),seen=new Set();
+    if(finals.schemaVersion!=='known-final-results.v1'||!Array.isArray(finals.checks)||!Array.isArray(finals.failures)||finals.checks.length+finals.failures.length>2||!Number.isInteger(finals.requests)||finals.requests<0||finals.requests>2||finals.maxRequests!==2||finals.aiCalls!==0)throw Error('invalid_known_final_report');
+    for(const row of [...finals.checks,...finals.failures]){if(seen.has(row.fixtureId)||urls.get(row.fixtureId)!==row.sourceUrl)throw Error('invalid_known_final_identity');seen.add(row.fixtureId);}
+    if(finals.checks.some(row=>row.state!=='primary-final'||typeof row.changed!=='boolean'||!Number.isFinite(Date.parse(row.observedAt))||Date.parse(row.observedAt)>+now)||finals.failures.some(row=>typeof row.message!=='string'))throw Error('invalid_known_final_observation');
+    result.knownFinals={...observed,state:seen.size?'observed':'not-checked',requests:finals.requests,checks:finals.checks.map(row=>({...row})),failures:finals.failures.map(row=>({...row,message:safe(row.message)}))};
+  }catch(error){result.knownFinals.error=safe(error.message);}
   return result;
 }
 async function gh(args) {
@@ -96,7 +106,7 @@ async function collect({now = new Date(), read = gh} = {}) {
     if (artifacts.length !== 1 || artifacts[0].expired || !Number.isSafeInteger(artifacts[0].size_in_bytes) || artifacts[0].size_in_bytes > MAX_BYTES) throw Error('report_artifact_missing_expired_or_oversized');
     directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ns-canonical-readout-'));
     await read(['run', 'download', String(run.databaseId), '--repo', REPO, '--name', ARTIFACT, '--dir', directory]);
-    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), football: readReport(directory,'football-data-backup-report.json'), golf:readReport(directory,'golf-source-report.json'), now});
+    result.reports = summary({quick: readReport(directory, 'quick-results-report.json'), hydration: readReport(directory, 'tournament-hydration-report.json'), football: readReport(directory,'football-data-backup-report.json'), golf:readReport(directory,'golf-source-report.json'), knownFinals:readReport(directory,'known-final-results-report.json'), now});
     result.state = 'observed';
   } catch (e) { result.error = safe(e.message); }
   finally { if (directory) fs.rmSync(directory, {recursive: true, force: true}); }
@@ -112,6 +122,7 @@ function markdown(result) {
     if (row.state !== 'observed') { lines.push(`${label}: unavailable${row.error ? ' (' + row.error + ')' : ''}; not a zero-failure observation.`); continue; }
     lines.push(`${label}: ${row.checkedAt}${row.stale ? ' — STALE, over 36 hours old' : ''}.`);
     if (label === 'Quick source check') {
+      if(row.publicationState==='blocked-rolled-back')lines.push(`Candidate blocked and rolled back: ${row.blockingError}. Source observations below do not prove publication.`);
       lines.push(`Reported source failures: ${row.failureCount}. AI calls in this report: ${row.aiCalls === null ? 'unknown' : row.aiCalls}.`, ...row.failures.slice(0, 10).map(f => '- ' + f));
       if (row.failureCount > 10) lines.push(`${row.failureCount - 10} further failures retained in the JSON readout.`);
     } else {
@@ -126,6 +137,9 @@ function markdown(result) {
   const football=result.reports.football;
   if(football?.state==='observed'){lines.push(`Delayed Football backup: ${football.checkedAt}${football.stale?' — STALE':''}.`,...football.checks.map(row=>`${row.code}: ${row.state}, ${row.newFinals} new finals${row.calls!==null?'; '+row.calls+' provider requests':''}${row.primaryFailure?'; primary failed: '+row.primaryFailure:''}${row.backupFailure?'; backup: '+row.backupFailure:''}${row.table?.state==='unavailable'?'; table comparison unavailable':''}.`));}
   else lines.push('Delayed Football backup evidence unavailable; not a zero-failure observation.');
+  const finals=result.reports.knownFinals;
+  if(finals?.state==='observed')lines.push(`Retained final checks: ${finals.checkedAt}${finals.stale?' — STALE':''}; ${finals.requests}/2 resource requests.`,...finals.checks.map(row=>`- ${row.fixtureId}: explicit primary final observed ${row.observedAt}; ${row.changed?'changed facts':'unchanged facts keep their original dates'}.`),...finals.failures.map(row=>`- ${row.fixtureId}: ${row.message}.`));
+  else lines.push(`Retained final evidence ${finals?.state==='not-checked'?'has no eligible check in this invocation':'unavailable'}; source health is unknown.`);
   const golf=result.reports.golf;
   if(golf?.state==='observed'){
     lines.push(`Golf source observations: ${golf.checkedAt}${golf.stale?' — STALE, over 36 hours old':''}; ${golf.acceptedCount} accepted resource observations, ${golf.failureCount} failures, ${golf.exceptionCount} exceptions. These counts do not attest whole tournament completeness.`);

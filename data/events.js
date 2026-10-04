@@ -102259,15 +102259,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 13,
     "roundLabel": "Round 13",
     "narrativeType": "championship-round",
-    "status": "upcoming",
-    "selectedSentence": "Elfyn Evans carries a 17-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-    "fullSpiel": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 17 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
+    "status": "completed",
+    "selectedSentence": "WRC Rally Italia Sardegna is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "WRC Rally Italia Sardegna is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar",
     "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-04T20:41:03.188Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -102275,11 +102275,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Elfyn Evans carries a 17-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-      "hookSpoilerOn": "Elfyn Evans carries a 17-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-      "synopsisSpoilerOff": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 17 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-      "synopsisSpoilerOn": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 17 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "WRC Rally Italia Sardegna is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0 in a Toyota GR Yaris Rally1.",
+      "synopsisSpoilerOff": "WRC Rally Italia Sardegna is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1.",
       "expectedSpectacle": 7,
       "intensitySource": "computed",
       "researchDepth": 5,
@@ -102835,7 +102835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-04T20:41:03.188Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -102845,21 +102845,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "event-wrc-2026-round-13"
     ],
     "consensusTags": [],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026 WRC title pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:form",
-        "narrative:path",
-        "narrative:format"
-      ],
-      "sourceName": "WRC official 2026 calendar",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "needsPreviewRefresh": false
-    },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-wrc-2026-round-13",
@@ -102890,7 +102875,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "resultStatus": "official",
+    "score": "Oliver Solberg / Elliott Edmondson — 3:24:57.0",
+    "outcomeText": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0 in a Toyota GR Yaris Rally1.",
+    "recapText": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1.",
+    "resultLabels": [
+      "Round 13",
+      "Oliver Solberg / Elliott Edmondson",
+      "3:24:57.0",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Oliver Solberg / Elliott Edmondson",
+      "summary": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0",
+      "marginText": "3:24:57.0"
+    },
+    "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
+    "resultSourceCheckedAt": "2026-10-04T20:41:03.188Z",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "scoreCheckedAt": "2026-10-04T20:41:03.188Z",
+    "scoreFactObservedAt": "2026-10-04T20:41:03.188Z",
+    "resultPublishedAt": "2026-10-04T20:41:03.188Z"
   },
   {
     "id": "event-aflw-cd_m20262640801",
@@ -109927,8 +109933,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_84",
     "eventId": "evt_84",
     "displayTitleCompact": "Roosters v Knights",
-    "selectedSentence": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-    "fullSpiel": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+    "selectedSentence": "Roosters v Knights is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Roosters v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Accor Stadium official Grand Final programme",
     "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
     "sourceCheckedAt": "2026-09-30T22:37:31.000Z",
@@ -109939,39 +109945,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "status": "upcoming",
+    "status": "completed",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-      "hookSpoilerOn": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-      "synopsisSpoilerOff": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
-      "synopsisSpoilerOn": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
-      "arcStage": "preview",
+      "hookSpoilerOff": "Roosters v Knights is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Sydney Roosters 19, Newcastle Knights 18.",
+      "synopsisSpoilerOff": "Roosters v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "The official NRL match centre reports a 19-18 Grand Final result.",
+      "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 1,
       "intensitySource": "manual",
       "lastReviewedAt": "2026-08-13T00:00:00.000Z",
-      "researchDepth": 5,
-      "archetype": "title_decider"
+      "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Roosters v Knights",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:consequence",
-        "narrative:schedule",
-        "narrative:history",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceName": "Roosters v Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
-      "sourceCheckedAt": "2026-10-01T23:58:25.032Z",
-      "needsPreviewRefresh": false
-    },
+    "lastReviewedAt": "2026-10-04T20:40:59.577Z",
     "sourceTrust": "verified",
     "sourceType": "official",
     "editorialNarrative": {
@@ -110110,7 +110098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "editorialRefreshOnParticipants": true,
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "statusCheckedAt": "2026-08-29T19:30:00.000Z",
+    "statusCheckedAt": "2026-10-04T20:40:59.577Z",
     "venueCountryCode": "AU",
     "homeParticipantId": "team:nrl:331",
     "awayParticipantId": "team:nrl:325",
@@ -110124,7 +110112,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 19,
+    "awayScore": 18,
+    "score": "Roosters 19-18 Knights",
+    "outcomeText": "Sydney Roosters 19, Newcastle Knights 18.",
+    "recapText": "The official NRL match centre reports a 19-18 Grand Final result.",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "resultSourceName": "NRL",
+    "resultSourceType": "official",
+    "resultSourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/",
+    "resultSourceCheckedAt": "2026-10-04T20:40:59.577Z",
+    "scoreCheckedAt": "2026-10-04T20:40:59.577Z",
+    "scoreFactObservedAt": "2026-10-04T20:40:59.577Z",
+    "resultSourceUpdatedAt": "2026-10-04T13:50:31.000Z",
+    "resultPublishedAt": "2026-10-04T20:40:59.577Z",
+    "resultLabels": [
+      "Grand Final",
+      "Roosters 19-18 Knights",
+      "Official result"
+    ]
   },
   {
     "id": "evt_nbl_2026_27_36fc0fd6_58ad_11f1_8ed4_c9ba3efad88d",

@@ -40,7 +40,15 @@ async function main() {
     if(path.includes('campaign_versions')) return [{snapshot:{image:'keep-history'}}];
     throw Error('Unexpected request: '+path);
   };
-  assert.equal(await refresh.purgePast(rows,Date.parse('2026-10-02T00:00:00Z')),3,'Legacy watching entries need current source/date expiry, not a persisted end timestamp');
+  // Freeze the catalogue for this historical as-of. A later real final must
+  // not turn the October 2 future-schedule case into a completed fixture.
+  const fixturesPath=require.resolve('../lib/competition-fixtures');require(fixturesPath);const originalFixtures=require.cache[fixturesPath];
+  require.cache[fixturesPath]={...originalFixtures,exports:{...originalFixtures.exports,fixtures:()=>[
+    {id:'event:afl:cd_m20260142801',status:'completed',date:'2026-09-19',sourceCheckedAt:'2026-09-21T00:00:00Z'},
+    {id:'retained-future-schedule',sourceEventIds:['evt_84'],status:'upcoming',date:'2026-10-04',startTimeUtc:'2026-10-04T08:30:00Z',sourceCheckedAt:'2026-10-01T00:00:00Z'},
+  ]}};
+  try{assert.equal(await refresh.purgePast(rows,Date.parse('2026-10-02T00:00:00Z')),3,'Legacy watching entries need current source/date expiry, not a persisted end timestamp');}
+  finally{require.cache[fixturesPath]=originalFixtures;}
   const removed = calls.filter(c=>c.options.method==='DELETE');
   assert(!removed.some(c=>c.path.includes('keep-history')||c.path.includes('keep-delivery')));
   assert.deepEqual(removed.find(c=>c.path.includes('/storage/')).options.body.prefixes,['expired.jpg']);

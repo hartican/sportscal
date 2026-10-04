@@ -82,7 +82,7 @@ function classificationFile(directory, roundNumber){
 }
 
 async function loadClassification(round, { directory, checkedDate }){
-  if (round.endDate >= checkedDate) return null;
+  if (round.startDate > checkedDate) return null;
   const local = classificationFile(directory, round.roundNumber);
   if (directory && !local) return null;
   try {
@@ -91,7 +91,8 @@ async function loadClassification(round, { directory, checkedDate }){
       console.warn(`WRC round ${round.roundNumber} result remains pending: FIA returned a classification page for a different rally.`);
       return null;
     }
-    return parseFiaClassification(html);
+    const classification=parseFiaClassification(html,{round:round.roundNumber===13?round:undefined});
+    return classification&&!directory?{...classification,checkedAt:new Date().toISOString()}:classification;
   } catch (error){
     if (error instanceof SourceError){
       console.warn(`WRC round ${round.roundNumber} result remains pending: ${error.message}`);
@@ -141,7 +142,7 @@ async function main(){
       const retainedWithdrawal=rounds.length===13&&withdrawalVerified&&existing?.events.find(e=>e.roundNumber===14);
       const completeRecords=retainedWithdrawal?[...rounds,{roundNumber:14,name:retainedWithdrawal.displayName,startDate:retainedWithdrawal.date,endDate:retainedWithdrawal.endDate,countryCode:'SA',country:'Saudi Arabia',region:'Middle East',status:'cancelled'}]:rounds;
       base=buildWrcContext({rounds:completeRecords,standings,classifications,checkedAt});
-      for(const event of base.events){const prior=existing?.events.find(e=>e.id===event.id);if(event.result?.status==='pending'&&prior?.result?.status==='official')event.result=prior.result;}
+      for(const event of base.events){const prior=existing?.events.find(e=>e.id===event.id);if((event.result?.status==='pending'&&prior?.result?.status==='official')||(event.result?.status==='official'&&prior?.result?.status==='official'&&require('./lib/known-final-results').sameFacts(event.result,prior.result)))event.result=prior.result;}
     }
     if(!base)throw Error('Calendar-only WRC refresh requires the existing validated championship context');
     const context=coverage.applyCoverage(base,{rounds,withdrawalVerified,future,checkedAt});

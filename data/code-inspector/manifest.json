@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-04T09:46:57.031Z",
+  "generatedAt": "2026-10-04T20:51:43.528Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
@@ -48,7 +48,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-04T08:38:26.905Z",
+      "freshAt": "2026-10-04T20:51:43.528Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -73,7 +73,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-04T09:46:57.031Z",
+      "freshAt": "2026-10-04T20:51:43.528Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {

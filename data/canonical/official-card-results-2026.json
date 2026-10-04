@@ -671,6 +671,25 @@
       "statusCheckedAt": "2026-10-04T08:35:52.000Z",
       "resultPublishedAt": "2026-10-04T08:35:52.000Z",
       "resultStatus": "official"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:grand-final",
+      "status": "completed",
+      "homeScore": 19,
+      "awayScore": 18,
+      "score": "Roosters 19-18 Knights",
+      "outcomeText": "Sydney Roosters 19, Newcastle Knights 18.",
+      "recapText": "The official NRL match centre reports a 19-18 Grand Final result.",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "resultSourceName": "NRL",
+      "resultSourceType": "official",
+      "resultSourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/",
+      "resultSourceCheckedAt": "2026-10-04T20:40:59.577Z",
+      "scoreCheckedAt": "2026-10-04T20:40:59.577Z",
+      "statusCheckedAt": "2026-10-04T20:40:59.577Z",
+      "scoreFactObservedAt": "2026-10-04T20:40:59.577Z",
+      "resultSourceUpdatedAt": "2026-10-04T13:50:31.000Z",
+      "resultPublishedAt": "2026-10-04T20:40:59.577Z"
     }
   ]
 }

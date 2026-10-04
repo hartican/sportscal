@@ -13,8 +13,9 @@
  }
  function distinct(copy,earlier=[]){
   const words=s=>new Set(String(s).toLowerCase().replace(/[^a-z0-9]+/g,' ').split(/\s+/).filter(w=>w.length>2&&!['the','and','for','was','with','match'].includes(w)));
-  const seen=earlier.flatMap(s=>String(s||'').match(/[^.!?]+[.!?]*/g)||[]);
-  return (String(copy||'').match(/[^.!?]+[.!?]*/g)||[]).filter(s=>{const a=words(s);if(!a.size)return false;const duplicate=seen.some(v=>{const b=words(v);let common=0;for(const w of a)if(b.has(w))common++;return common/Math.max(a.size,b.size)>=0.72;});if(!duplicate)seen.push(s);return !duplicate;}).join(' ').replace(/\s+/g,' ').trim();
+  const sentences=s=>String(s||'').match(/(?:[^.!?]|\.(?=\d))+[.!?]*/g)||[];
+  const seen=earlier.flatMap(sentences).map(words);
+  return sentences(copy).filter(s=>{const a=words(s);if(!a.size)return false;const duplicate=seen.some(b=>{let common=0;for(const w of a)if(b.has(w))common++;return common/Math.max(a.size,b.size)>=0.72;});if(!duplicate)seen.push(a);return !duplicate;}).join(' ').replace(/\s+/g,' ').trim();
  }
  return {completed,signature,copy,distinct};
 });
