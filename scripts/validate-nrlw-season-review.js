@@ -4,6 +4,8 @@ const root=path.resolve(__dirname,'..'),read=file=>JSON.parse(fs.readFileSync(pa
 const review=read('data/canonical/nrlw-season-review.v1.json'),schedule=read('data/canonical/fiba-women-sailgp-motogp-2026.json');
 const {validateSeasonReview,validateSeasonBackfill}=require('./lib/nrlw-season-review');
 validateSeasonReview(review);validateSeasonBackfill(review,schedule);
+require('./sync-requested-sports-to-feed').validateNrlwFinals(schedule);
+const reviewedGrandFinal=schedule.events.find(e=>e.id==='event:nrlw:2026:grand-final'&&e.nrlwFinalsReviewed);
 for(const [label,mutate] of [
  ['missing round',r=>delete r.sources['7']],['missing fixture',r=>r.fixtures.pop()],
  ['duplicate fixture',r=>r.fixtures[1]=r.fixtures[0]],['wrong season',r=>r.season=2027],
@@ -20,7 +22,8 @@ for(const [label,mutate] of [['missing canonical match',s=>s.events.splice(s.eve
 const aliases=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])],added=new Set(review.addedFixtureIds);
 for(const file of ['feeds/incoming/events.json','data/events.json','data/code-inspector/nrlw.json','data/follow-schedule/nrlw.json']){
  const doc=read(file),events=doc.events||doc.fixtures;
- for(const f of review.fixtures){const matches=events.filter(e=>aliases(e).includes(f.id));assert.equal(matches.length,1,file+': unique fixture');const e=matches[0];assert.equal(e.startTimeUtc,f.startTimeUtc);assert.deepEqual(e.participantIds,f.participantIds);assert.equal(e.venue,f.venue);assert.equal(e.status,f.providerStatus==='FullTime'?'completed':'upcoming');
+ for(const f of review.fixtures){const matches=events.filter(e=>aliases(e).includes(f.id));assert.equal(matches.length,1,file+': unique fixture');const e=matches[0];assert.equal(e.startTimeUtc,f.startTimeUtc);assert.deepEqual(e.participantIds,f.participantIds);assert.equal(e.venue,f.venue);assert.equal(e.status,f.providerStatus==='FullTime'||(f.id===reviewedGrandFinal?.id)?'completed':'upcoming');
+  if(f.id===reviewedGrandFinal?.id){assert.equal(f.providerStatus,'Upcoming','frozen season evidence retains the then-upcoming final');assert.equal(e.score,reviewedGrandFinal.result.score);assert.equal(e.resultSourceCheckedAt,reviewedGrandFinal.result.checkedAt);}
   if(f.providerStatus==='FullTime'){const names=f.participantIds.map(id=>review.participants.find(p=>p.id===id).displayName);assert.equal(e.score,`${names[0]} ${f.homeScore}-${f.awayScore} ${names[1]}`);}
   if(added.has(f.id)){assert.equal(e.sourceCheckedAt,f.sourceCheckedAt);assert.equal(e.resultSourceCheckedAt,f.sourceCheckedAt);assert.equal(e.resultStatus,'official');assert.equal(e.sourceUrl,f.sourceUrl);const options=require('../config/follow-first').viewingOptions(e);assert(options.length);assert(options.every(o=>o.liveOrReplay==='replay'&&!o.replayVerified),'older destinations do not promise verified replay');}
  }
@@ -42,4 +45,4 @@ const teamFeed=buildServerFeed({events:[events.find(fixture)],userId:'nrlw-team-
 assert(teamFeed.some(fixture),'explicit women’s team admits its current regular-season match');
 assert(!build(['sport:nrl-premiership'],'2026-07-03T00:00:00Z').some(fixture),'men’s follow does not opt into women’s fixtures');
 assert(!build(['sport:nrlw'],'2026-10-03T12:00:00Z').some(e=>aliases(e).some(id=>added.has(id))),'old season fixtures do not extend Feed retention');
-console.log('NRLW season review: 71 fixtures, 70 completed matches, twelve clubs/eleven regular rounds, malformed-source rejection, both surfaces/projections, saved identities/clocks/reruns, honest replay and Follow history passed.');
+console.log('NRLW season review: dated 71 fixtures/70 completed matches plus separately reviewed current Grand Final, twelve clubs/eleven regular rounds, malformed-source rejection, both surfaces/projections, saved identities/clocks/reruns, honest replay and Follow history passed.');

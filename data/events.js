@@ -87739,140 +87739,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "id": "evt_nrlw_2026_semifinal_wests_tigers_raiders",
-    "eventId": "evt_nrlw_2026_semifinal_wests_tigers_raiders",
-    "canonicalEventId": "event:nrlw:2026:semifinal-wests-tigers-raiders",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Wests Tigers v Canberra Raiders",
-    "cardKind": "fixture",
-    "displayTitleCompact": "Wests Tigers v Canberra Raiders",
-    "date": "2026-09-18",
-    "time": "19:50",
-    "startTimeUtc": "2026-09-18T09:50:00.000Z",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Campbelltown Sports Stadium",
-    "liveWindow": 3,
-    "round": "semifinal",
-    "roundLabel": "Semi-final",
-    "roundNumber": 12,
-    "stage": "Finals Week 1",
-    "narrativeType": "all",
-    "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL official NRLW match centre",
-    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
-    "sourceCheckedAt": "2026-10-03T08:17:51.107Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
-    "resultSourceCheckedAt": "2026-10-03T08:17:51.107Z",
-    "score": "Wests Tigers 0-6 Canberra Raiders",
-    "outcomeText": "Wests Tigers 0-6 Canberra Raiders.",
-    "recapText": "Wests Tigers 0-6 Canberra Raiders. Official full-time result.",
-    "resultLabels": [
-      "Semi-final",
-      "Wests Tigers 0-6 Canberra Raiders",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Canberra Raiders",
-      "summary": "Wests Tigers 0-6 Canberra Raiders."
-    },
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:wests-tigers",
-      "team:nrlw:raiders"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:wests-tigers",
-        "name": "Wests Tigers",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:raiders",
-        "name": "Canberra Raiders",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:wests-tigers",
-        "label": "Wests Tigers"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:raiders",
-        "label": "Canberra Raiders"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Wests Tigers 0-6 Canberra Raiders.",
-      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Wests Tigers 0-6 Canberra Raiders. Official full-time result.",
-      "lastReviewedAt": "2026-10-03T08:17:51.107Z"
-    },
-    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
-    "scoreCheckedAt": "2026-10-03T08:17:51.107Z",
-    "statusCheckedAt": "2026-10-03T08:17:51.107Z",
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_nrlw_2026_semifinal_wests_tigers_raiders"
-    ],
-    "consensusTags": [
-      {
-        "label": "Knockout",
-        "confidence": 0.9,
-        "sourceUrls": [
-          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/"
-        ],
-        "method": "published-schedule.v1"
-      }
-    ],
-    "endTimeUtc": "2026-09-18T12:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
-  },
-  {
     "id": "evt_motogp_2026_austria_practice",
     "eventId": "evt_motogp_2026_austria_practice",
     "canonicalEventId": "event:motogp:2026:austria:practice",
@@ -88835,140 +88701,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
       "needsPreviewRefresh": false
     }
-  },
-  {
-    "id": "evt_nrlw_2026_semifinal_broncos_knights",
-    "eventId": "evt_nrlw_2026_semifinal_broncos_knights",
-    "canonicalEventId": "event:nrlw:2026:semifinal-broncos-knights",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Brisbane Broncos v Newcastle Knights",
-    "cardKind": "fixture",
-    "displayTitleCompact": "Brisbane Broncos v Newcastle Knights",
-    "date": "2026-09-19",
-    "time": "16:05",
-    "startTimeUtc": "2026-09-19T06:05:00.000Z",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Totally Workwear Stadium",
-    "liveWindow": 3,
-    "round": "semifinal",
-    "roundLabel": "Semi-final",
-    "roundNumber": 12,
-    "stage": "Finals Week 1",
-    "narrativeType": "all",
-    "selectedSentence": "Brisbane Broncos v Newcastle Knights is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Brisbane Broncos v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL official NRLW match centre",
-    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
-    "sourceCheckedAt": "2026-10-03T08:17:51.314Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
-    "resultSourceCheckedAt": "2026-10-03T08:17:51.314Z",
-    "score": "Brisbane Broncos 40-16 Newcastle Knights",
-    "outcomeText": "Brisbane Broncos 40-16 Newcastle Knights.",
-    "recapText": "Brisbane Broncos 40-16 Newcastle Knights. Official full-time result.",
-    "resultLabels": [
-      "Semi-final",
-      "Brisbane Broncos 40-16 Newcastle Knights",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Brisbane Broncos",
-      "summary": "Brisbane Broncos 40-16 Newcastle Knights."
-    },
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:broncos",
-      "team:nrlw:knights"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:broncos",
-        "name": "Brisbane Broncos",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:knights",
-        "name": "Newcastle Knights",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:broncos",
-        "label": "Brisbane Broncos"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:knights",
-        "label": "Newcastle Knights"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Brisbane Broncos v Newcastle Knights is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Brisbane Broncos 40-16 Newcastle Knights.",
-      "synopsisSpoilerOff": "Brisbane Broncos v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Brisbane Broncos 40-16 Newcastle Knights. Official full-time result.",
-      "lastReviewedAt": "2026-10-03T08:17:51.314Z"
-    },
-    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
-    "scoreCheckedAt": "2026-10-03T08:17:51.314Z",
-    "statusCheckedAt": "2026-10-03T08:17:51.314Z",
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_nrlw_2026_semifinal_broncos_knights"
-    ],
-    "consensusTags": [
-      {
-        "label": "Knockout",
-        "confidence": 0.9,
-        "sourceUrls": [
-          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/"
-        ],
-        "method": "published-schedule.v1"
-      }
-    ],
-    "endTimeUtc": "2026-09-19T09:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142801",
@@ -99348,140 +99080,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": []
   },
   {
-    "id": "evt_nrlw_2026_preliminary_final_roosters_raiders",
-    "eventId": "evt_nrlw_2026_preliminary_final_roosters_raiders",
-    "canonicalEventId": "event:nrlw:2026:preliminary-final-roosters-raiders",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Sydney Roosters v Canberra Raiders",
-    "cardKind": "fixture",
-    "displayTitleCompact": "Sydney Roosters v Canberra Raiders",
-    "date": "2026-09-26",
-    "time": "19:50",
-    "startTimeUtc": "2026-09-26T09:50:00.000Z",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Allianz Stadium",
-    "liveWindow": 3,
-    "round": "semifinal",
-    "roundLabel": "Preliminary Final",
-    "roundNumber": 13,
-    "stage": "Finals Week 2",
-    "narrativeType": "all",
-    "selectedSentence": "Sydney Roosters v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Roosters v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL official NRLW match centre",
-    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
-    "sourceCheckedAt": "2026-10-03T08:14:09.131Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
-    "resultSourceCheckedAt": "2026-10-03T08:14:09.131Z",
-    "score": "Sydney Roosters 20-10 Canberra Raiders",
-    "outcomeText": "Sydney Roosters 20-10 Canberra Raiders.",
-    "recapText": "Sydney Roosters 20-10 Canberra Raiders. Official full-time result.",
-    "resultLabels": [
-      "Preliminary Final",
-      "Sydney Roosters 20-10 Canberra Raiders",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Sydney Roosters",
-      "summary": "Sydney Roosters 20-10 Canberra Raiders."
-    },
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:roosters",
-      "team:nrlw:raiders"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:roosters",
-        "name": "Sydney Roosters",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:raiders",
-        "name": "Canberra Raiders",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:roosters",
-        "label": "Sydney Roosters"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:raiders",
-        "label": "Canberra Raiders"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Sydney Roosters v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Sydney Roosters 20-10 Canberra Raiders.",
-      "synopsisSpoilerOff": "Sydney Roosters v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Sydney Roosters 20-10 Canberra Raiders. Official full-time result.",
-      "lastReviewedAt": "2026-10-03T08:14:09.131Z"
-    },
-    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
-    "scoreCheckedAt": "2026-10-03T08:14:09.131Z",
-    "statusCheckedAt": "2026-10-03T08:14:09.131Z",
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_nrlw_2026_preliminary_final_roosters_raiders"
-    ],
-    "consensusTags": [
-      {
-        "label": "Knockout",
-        "confidence": 0.9,
-        "sourceUrls": [
-          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/"
-        ],
-        "method": "published-schedule.v1"
-      }
-    ],
-    "endTimeUtc": "2026-09-26T12:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
-  },
-  {
     "id": "evt_31",
     "eventId": "evt_31",
     "canonicalEventId": "event:f1:2026:azerbaijan:race",
@@ -100635,140 +100233,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
       "needsPreviewRefresh": false
     }
-  },
-  {
-    "id": "evt_nrlw_2026_preliminary_final_titans_broncos",
-    "eventId": "evt_nrlw_2026_preliminary_final_titans_broncos",
-    "canonicalEventId": "event:nrlw:2026:preliminary-final-titans-broncos",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Gold Coast Titans v Brisbane Broncos",
-    "cardKind": "fixture",
-    "displayTitleCompact": "Gold Coast Titans v Brisbane Broncos",
-    "date": "2026-09-27",
-    "time": "13:05",
-    "startTimeUtc": "2026-09-27T03:05:00.000Z",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Cbus Super Stadium",
-    "liveWindow": 3,
-    "round": "semifinal",
-    "roundLabel": "Preliminary Final",
-    "roundNumber": 13,
-    "stage": "Finals Week 2",
-    "narrativeType": "all",
-    "selectedSentence": "Gold Coast Titans v Brisbane Broncos is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Gold Coast Titans v Brisbane Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL official NRLW match centre",
-    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
-    "sourceCheckedAt": "2026-10-03T08:14:09.307Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
-    "resultSourceCheckedAt": "2026-10-03T08:14:09.307Z",
-    "score": "Gold Coast Titans 8-20 Brisbane Broncos",
-    "outcomeText": "Gold Coast Titans 8-20 Brisbane Broncos.",
-    "recapText": "Gold Coast Titans 8-20 Brisbane Broncos. Official full-time result.",
-    "resultLabels": [
-      "Preliminary Final",
-      "Gold Coast Titans 8-20 Brisbane Broncos",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Brisbane Broncos",
-      "summary": "Gold Coast Titans 8-20 Brisbane Broncos."
-    },
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:titans",
-      "team:nrlw:broncos"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:titans",
-        "name": "Gold Coast Titans",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:broncos",
-        "name": "Brisbane Broncos",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:titans",
-        "label": "Gold Coast Titans"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:broncos",
-        "label": "Brisbane Broncos"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Gold Coast Titans v Brisbane Broncos is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Gold Coast Titans 8-20 Brisbane Broncos.",
-      "synopsisSpoilerOff": "Gold Coast Titans v Brisbane Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Gold Coast Titans 8-20 Brisbane Broncos. Official full-time result.",
-      "lastReviewedAt": "2026-10-03T08:14:09.307Z"
-    },
-    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
-    "scoreCheckedAt": "2026-10-03T08:14:09.307Z",
-    "statusCheckedAt": "2026-10-03T08:14:09.307Z",
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_nrlw_2026_preliminary_final_titans_broncos"
-    ],
-    "consensusTags": [
-      {
-        "label": "Knockout",
-        "confidence": 0.9,
-        "sourceUrls": [
-          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/"
-        ],
-        "method": "published-schedule.v1"
-      }
-    ],
-    "endTimeUtc": "2026-09-27T06:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640708",
@@ -104109,9 +103573,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "Bahrain GP (Malaysia) · Practice 1 is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Bahrain GP (Malaysia) · Practice 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-    "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
+    "sourceCheckedAt": "2026-10-04T09:46:55.700Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -104421,7 +103885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
-      "checkedAt": "2026-10-04T08:37:57.816Z"
+      "checkedAt": "2026-10-04T09:46:55.700Z"
     },
     "participants": [
       {
@@ -104814,9 +104278,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "Bahrain GP (Malaysia) · Practice 2 is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Bahrain GP (Malaysia) · Practice 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-    "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2",
+    "sourceCheckedAt": "2026-10-04T09:46:55.700Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -105126,7 +104590,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2",
-      "checkedAt": "2026-10-04T08:37:57.816Z"
+      "checkedAt": "2026-10-04T09:46:55.700Z"
     },
     "participants": [
       {
@@ -106677,9 +106141,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "Bahrain GP (Malaysia) · Practice 3 is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Bahrain GP (Malaysia) · Practice 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-    "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/3",
+    "sourceCheckedAt": "2026-10-04T09:46:55.700Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -107186,7 +106650,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/3",
-      "checkedAt": "2026-10-04T08:37:57.816Z"
+      "checkedAt": "2026-10-04T09:46:55.700Z"
     },
     "score": "1. Kimi Antonelli · 2. Max Verstappen · 3. Isack Hadjar",
     "outcomeText": "Kimi Antonelli was fastest in Bahrain GP (Malaysia) · Practice 3.",
@@ -107957,9 +107421,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "Bahrain GP (Malaysia) · Qualifying is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Bahrain GP (Malaysia) · Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-    "sourceCheckedAt": "2026-09-29T23:38:21.617Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
+    "sourceCheckedAt": "2026-10-04T09:46:55.700Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -108510,7 +107974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
-      "checkedAt": "2026-10-04T08:37:57.816Z"
+      "checkedAt": "2026-10-04T09:46:55.700Z"
     },
     "score": "1. Max Verstappen · 2. Lewis Hamilton · 3. Isack Hadjar",
     "outcomeText": "Max Verstappen took pole for Bahrain GP (Malaysia) · Qualifying.",
@@ -109935,193 +109399,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_nrlw_2026_grand_final",
-    "eventId": "evt_nrlw_2026_grand_final",
-    "canonicalEventId": "event:nrlw:2026:grand-final",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Roosters v Broncos",
-    "cardKind": "fixture",
-    "displayTitleCompact": "Roosters v Broncos",
-    "date": "2026-10-04",
-    "time": "16:00",
-    "startTimeUtc": "2026-10-04T05:00:00.000Z",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Accor Stadium",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Grand Final",
-    "stage": "final",
-    "narrativeType": "all",
-    "selectedSentence": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-    "fullSpiel": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
-    "sourceName": "Accor Stadium official Grand Final programme",
-    "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-    "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:roosters",
-      "team:nrlw:broncos"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:roosters",
-        "name": "Sydney Roosters",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:broncos",
-        "name": "Brisbane Broncos",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:roosters",
-        "label": "Sydney Roosters"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:broncos",
-        "label": "Brisbane Broncos"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-      "hookSpoilerOn": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-      "synopsisSpoilerOff": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
-      "synopsisSpoilerOn": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
-      "lastReviewedAt": "2026-10-01T23:21:33.194Z",
-      "researchDepth": 5
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Roosters v Broncos",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:consequence",
-        "narrative:history"
-      ],
-      "sourceName": "Roosters v Broncos — official research 1",
-      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-      "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-01T23:21:33.194Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
-      "researchTier": "marquee",
-      "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-      "synopsis": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
-      "threadIds": [
-        "thread:fixture-research:evt_nrlw_2026_grand_final"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_nrlw_2026_grand_final:0",
-        "fact:fixture-research:evt_nrlw_2026_grand_final:1",
-        "fact:fixture-research:evt_nrlw_2026_grand_final:2",
-        "fact:fixture-research:evt_nrlw_2026_grand_final:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_nrlw_2026_grand_final:0",
-        "source:fixture-research:evt_nrlw_2026_grand_final:1",
-        "source:fixture-research:evt_nrlw_2026_grand_final:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "consequence",
-        "history"
-      ],
-      "researchedAt": "2026-10-01T23:21:33.194Z",
-      "refreshAfter": "2026-10-04T05:00:00.000Z",
-      "generationMode": "researched",
-      "phase": "preview"
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
-        ],
-        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
-        "revealed": "Roosters defeated Broncos in Grand Final."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
-        ],
-        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
-        "revealed": "Broncos defeated Roosters in Grand Final."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
-        ],
-        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
-        "revealed": "Roosters and Broncos finished level in Grand Final."
-      }
-    },
-    "statusCheckedAt": "2026-09-27T13:57:48.000Z",
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_nrlw_2026_grand_final"
-    ],
-    "consensusTags": [
-      {
-        "label": "Final",
-        "confidence": 0.9,
-        "sourceUrls": [
-          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
-        ],
-        "method": "published-schedule.v1"
-      }
-    ],
-    "startTimeTbc": false,
-    "dateOnly": false
-  },
-  {
     "id": "evt_nbl_2026_27_36fff950_58ad_11f1_8de3_37c9e1eacb09",
     "eventId": "evt_nbl_2026_27_36fff950_58ad_11f1_8de3_37c9e1eacb09",
     "canonicalEventId": "event:nbl:2026-27:36fff950-58ad-11f1-8de3-37c9e1eacb09",
@@ -110632,7 +109909,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-04T09:00:00.000Z",
-    "sessionType": "Race"
+    "sessionType": "Race",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
+    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
   },
   {
     "sport": "NRL",
@@ -209700,5 +208980,741 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "selectedSentence": "",
     "fullSpiel": ""
+  },
+  {
+    "id": "evt_nrlw_2026_grand_final",
+    "eventId": "evt_nrlw_2026_grand_final",
+    "canonicalEventId": "event:nrlw:2026:grand-final",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Roosters v Broncos",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Roosters v Broncos",
+    "date": "2026-10-04",
+    "time": "16:00",
+    "startTimeUtc": "2026-10-04T05:00:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Accor Stadium",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Grand Final",
+    "stage": "final",
+    "narrativeType": "all",
+    "selectedSentence": "Roosters v Broncos is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Roosters v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Accor Stadium official Grand Final programme",
+    "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+    "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:roosters",
+      "team:nrlw:broncos"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:roosters",
+        "name": "Sydney Roosters",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:broncos",
+        "name": "Brisbane Broncos",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:roosters",
+        "label": "Sydney Roosters"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:broncos",
+        "label": "Brisbane Broncos"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Roosters v Broncos is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Sydney Roosters beat Brisbane Broncos 30-6 to win the 2026 NRLW premiership.",
+      "synopsisSpoilerOff": "Roosters v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sydney Roosters won the Grand Final 30-6 at Accor Stadium. The verified result is available when Results are enabled.",
+      "lastReviewedAt": "2026-09-27T13:57:48.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Final",
+      "contextSignals": [
+        "official-schedule",
+        "final"
+      ],
+      "sourceName": "Accor Stadium official Grand Final programme",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-27T13:57:48.000Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
+      "researchTier": "marquee",
+      "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
+      "synopsis": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
+      "threadIds": [
+        "thread:fixture-research:evt_nrlw_2026_grand_final"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_nrlw_2026_grand_final:0",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:1",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:2",
+        "fact:fixture-research:evt_nrlw_2026_grand_final:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_nrlw_2026_grand_final:0",
+        "source:fixture-research:evt_nrlw_2026_grand_final:1",
+        "source:fixture-research:evt_nrlw_2026_grand_final:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "consequence",
+        "history"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "refreshAfter": "2026-10-04T05:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "resultEditorialBranches": {
+      "home": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Roosters defeated Broncos in Grand Final."
+      },
+      "away": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Broncos defeated Roosters in Grand Final."
+      },
+      "draw": {
+        "sourceIds": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "spoilerSafe": "Roosters v Broncos in Grand Final: the result is available to reveal.",
+        "revealed": "Roosters and Broncos finished level in Grand Final."
+      }
+    },
+    "statusCheckedAt": "2026-10-04T09:19:16.000Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_nrlw_2026_grand_final"
+    ],
+    "consensusTags": [
+      {
+        "label": "Final",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "startTimeTbc": false,
+    "dateOnly": false,
+    "roundNumber": 14,
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.nrl.com/news/2026/10/04/nrlw-decider-roosters-v-broncos/",
+    "resultSourceCheckedAt": "2026-10-04T09:19:16.000Z",
+    "score": "Sydney Roosters 30-6 Brisbane Broncos",
+    "outcomeText": "Sydney Roosters beat Brisbane Broncos 30-6 to win the 2026 NRLW premiership.",
+    "recapText": "Sydney Roosters won the Grand Final 30-6 at Accor Stadium. The verified result is available when Results are enabled.",
+    "resultLabels": [
+      "Grand Final",
+      "Sydney Roosters 30-6 Brisbane Broncos",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Sydney Roosters",
+      "summary": "Sydney Roosters beat Brisbane Broncos 30-6 to win the 2026 NRLW premiership."
+    },
+    "scoreCheckedAt": "2026-10-04T09:19:16.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_semifinal_wests_tigers_raiders",
+    "eventId": "evt_nrlw_2026_semifinal_wests_tigers_raiders",
+    "canonicalEventId": "event:nrlw:2026:semifinal-wests-tigers-raiders",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Wests Tigers v Canberra Raiders",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Wests Tigers v Canberra Raiders",
+    "date": "2026-09-18",
+    "time": "19:50",
+    "startTimeUtc": "2026-09-18T09:50:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Campbelltown Sports Stadium",
+    "liveWindow": 3,
+    "round": "semifinal",
+    "roundLabel": "Semi-final",
+    "roundNumber": 12,
+    "stage": "Finals Week 1",
+    "narrativeType": "all",
+    "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL official NRLW match centre",
+    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
+    "sourceCheckedAt": "2026-10-03T08:17:51.107Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/",
+    "resultSourceCheckedAt": "2026-10-03T08:17:51.107Z",
+    "score": "Wests Tigers 0-6 Canberra Raiders",
+    "outcomeText": "Wests Tigers 0-6 Canberra Raiders.",
+    "recapText": "Wests Tigers 0-6 Canberra Raiders. Official full-time result.",
+    "resultLabels": [
+      "Semi-final",
+      "Wests Tigers 0-6 Canberra Raiders",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Canberra Raiders",
+      "summary": "Wests Tigers 0-6 Canberra Raiders."
+    },
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:wests-tigers",
+      "team:nrlw:raiders"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:wests-tigers",
+        "name": "Wests Tigers",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:raiders",
+        "name": "Canberra Raiders",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:wests-tigers",
+        "label": "Wests Tigers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:raiders",
+        "label": "Canberra Raiders"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Wests Tigers 0-6 Canberra Raiders.",
+      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Wests Tigers 0-6 Canberra Raiders. Official full-time result.",
+      "lastReviewedAt": "2026-10-03T08:17:51.107Z"
+    },
+    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
+    "scoreCheckedAt": "2026-10-03T08:17:51.107Z",
+    "statusCheckedAt": "2026-10-03T08:17:51.107Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_nrlw_2026_semifinal_wests_tigers_raiders"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/wests-tigers-v-raiders/"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "endTimeUtc": "2026-09-18T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_nrlw_2026_semifinal_broncos_knights",
+    "eventId": "evt_nrlw_2026_semifinal_broncos_knights",
+    "canonicalEventId": "event:nrlw:2026:semifinal-broncos-knights",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Brisbane Broncos v Newcastle Knights",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Broncos v Newcastle Knights",
+    "date": "2026-09-19",
+    "time": "16:05",
+    "startTimeUtc": "2026-09-19T06:05:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Totally Workwear Stadium",
+    "liveWindow": 3,
+    "round": "semifinal",
+    "roundLabel": "Semi-final",
+    "roundNumber": 12,
+    "stage": "Finals Week 1",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Broncos v Newcastle Knights is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Broncos v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL official NRLW match centre",
+    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
+    "sourceCheckedAt": "2026-10-03T08:17:51.314Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/",
+    "resultSourceCheckedAt": "2026-10-03T08:17:51.314Z",
+    "score": "Brisbane Broncos 40-16 Newcastle Knights",
+    "outcomeText": "Brisbane Broncos 40-16 Newcastle Knights.",
+    "recapText": "Brisbane Broncos 40-16 Newcastle Knights. Official full-time result.",
+    "resultLabels": [
+      "Semi-final",
+      "Brisbane Broncos 40-16 Newcastle Knights",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Brisbane Broncos",
+      "summary": "Brisbane Broncos 40-16 Newcastle Knights."
+    },
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:broncos",
+      "team:nrlw:knights"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:broncos",
+        "name": "Brisbane Broncos",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:knights",
+        "name": "Newcastle Knights",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:broncos",
+        "label": "Brisbane Broncos"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:knights",
+        "label": "Newcastle Knights"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Brisbane Broncos v Newcastle Knights is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Brisbane Broncos 40-16 Newcastle Knights.",
+      "synopsisSpoilerOff": "Brisbane Broncos v Newcastle Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Brisbane Broncos 40-16 Newcastle Knights. Official full-time result.",
+      "lastReviewedAt": "2026-10-03T08:17:51.314Z"
+    },
+    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
+    "scoreCheckedAt": "2026-10-03T08:17:51.314Z",
+    "statusCheckedAt": "2026-10-03T08:17:51.314Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_nrlw_2026_semifinal_broncos_knights"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-1/broncos-v-knights/"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "endTimeUtc": "2026-09-19T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_nrlw_2026_preliminary_final_roosters_raiders",
+    "eventId": "evt_nrlw_2026_preliminary_final_roosters_raiders",
+    "canonicalEventId": "event:nrlw:2026:preliminary-final-roosters-raiders",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Sydney Roosters v Canberra Raiders",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Roosters v Canberra Raiders",
+    "date": "2026-09-26",
+    "time": "19:50",
+    "startTimeUtc": "2026-09-26T09:50:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Allianz Stadium",
+    "liveWindow": 3,
+    "round": "semifinal",
+    "roundLabel": "Preliminary Final",
+    "roundNumber": 13,
+    "stage": "Finals Week 2",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Roosters v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Roosters v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL official NRLW match centre",
+    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
+    "sourceCheckedAt": "2026-10-03T08:14:09.131Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/",
+    "resultSourceCheckedAt": "2026-10-03T08:14:09.131Z",
+    "score": "Sydney Roosters 20-10 Canberra Raiders",
+    "outcomeText": "Sydney Roosters 20-10 Canberra Raiders.",
+    "recapText": "Sydney Roosters 20-10 Canberra Raiders. Official full-time result.",
+    "resultLabels": [
+      "Preliminary Final",
+      "Sydney Roosters 20-10 Canberra Raiders",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Sydney Roosters",
+      "summary": "Sydney Roosters 20-10 Canberra Raiders."
+    },
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:roosters",
+      "team:nrlw:raiders"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:roosters",
+        "name": "Sydney Roosters",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:raiders",
+        "name": "Canberra Raiders",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:roosters",
+        "label": "Sydney Roosters"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:raiders",
+        "label": "Canberra Raiders"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 4,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Sydney Roosters v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Sydney Roosters 20-10 Canberra Raiders.",
+      "synopsisSpoilerOff": "Sydney Roosters v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sydney Roosters 20-10 Canberra Raiders. Official full-time result.",
+      "lastReviewedAt": "2026-10-03T08:14:09.131Z"
+    },
+    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
+    "scoreCheckedAt": "2026-10-03T08:14:09.131Z",
+    "statusCheckedAt": "2026-10-03T08:14:09.131Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_nrlw_2026_preliminary_final_roosters_raiders"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/roosters-v-raiders/"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "endTimeUtc": "2026-09-26T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_nrlw_2026_preliminary_final_titans_broncos",
+    "eventId": "evt_nrlw_2026_preliminary_final_titans_broncos",
+    "canonicalEventId": "event:nrlw:2026:preliminary-final-titans-broncos",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Gold Coast Titans v Brisbane Broncos",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Gold Coast Titans v Brisbane Broncos",
+    "date": "2026-09-27",
+    "time": "13:05",
+    "startTimeUtc": "2026-09-27T03:05:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Cbus Super Stadium",
+    "liveWindow": 3,
+    "round": "semifinal",
+    "roundLabel": "Preliminary Final",
+    "roundNumber": 13,
+    "stage": "Finals Week 2",
+    "narrativeType": "all",
+    "selectedSentence": "Gold Coast Titans v Brisbane Broncos is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Gold Coast Titans v Brisbane Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NRL official NRLW match centre",
+    "sourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
+    "sourceCheckedAt": "2026-10-03T08:14:09.307Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/",
+    "resultSourceCheckedAt": "2026-10-03T08:14:09.307Z",
+    "score": "Gold Coast Titans 8-20 Brisbane Broncos",
+    "outcomeText": "Gold Coast Titans 8-20 Brisbane Broncos.",
+    "recapText": "Gold Coast Titans 8-20 Brisbane Broncos. Official full-time result.",
+    "resultLabels": [
+      "Preliminary Final",
+      "Gold Coast Titans 8-20 Brisbane Broncos",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Brisbane Broncos",
+      "summary": "Gold Coast Titans 8-20 Brisbane Broncos."
+    },
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:titans",
+      "team:nrlw:broncos"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:titans",
+        "name": "Gold Coast Titans",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:broncos",
+        "name": "Brisbane Broncos",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:titans",
+        "label": "Gold Coast Titans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:broncos",
+        "label": "Brisbane Broncos"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 4,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Gold Coast Titans v Brisbane Broncos is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Gold Coast Titans 8-20 Brisbane Broncos.",
+      "synopsisSpoilerOff": "Gold Coast Titans v Brisbane Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Gold Coast Titans 8-20 Brisbane Broncos. Official full-time result.",
+      "lastReviewedAt": "2026-10-03T08:14:09.307Z"
+    },
+    "lastReviewedAt": "2026-10-04T04:29:21.349Z",
+    "scoreCheckedAt": "2026-10-03T08:14:09.307Z",
+    "statusCheckedAt": "2026-10-03T08:14:09.307Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_nrlw_2026_preliminary_final_titans_broncos"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.nrl.com/draw/womens-premiership/2026/finals-week-2/titans-v-broncos/"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "endTimeUtc": "2026-09-27T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   }
 ];

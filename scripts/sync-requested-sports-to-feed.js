@@ -68,25 +68,57 @@ function sportLabel(sportKey){
 
 function validateNrlwFinals(schedule){
   const review=schedule?.nrlwFinalsReview;
-  if(!review || !Array.isArray(review.fixtureIds) || review.fixtureIds.length!==4 || new Set(review.fixtureIds).size!==4)throw new Error('NRLW reviewed finals: incomplete identity collection');
+  if(!review || !Array.isArray(review.fixtureIds) || ![4,5].includes(review.fixtureIds.length) || new Set(review.fixtureIds).size!==review.fixtureIds.length)throw new Error('NRLW reviewed finals: incomplete identity collection');
   const participants=new Map(schedule.participants.map(p=>[p.id,p]));
   const finals=schedule.events.filter(e=>e.nrlwFinalsReviewed);
-  if(finals.length!==4 || finals.some(e=>!review.fixtureIds.includes(e.id)))throw new Error('NRLW reviewed finals: collection does not match its declared scope');
-  const roundCounts={12:0,13:0};
+  if(finals.length!==review.fixtureIds.length || finals.some(e=>!review.fixtureIds.includes(e.id)))throw new Error('NRLW reviewed finals: collection does not match its declared scope');
+  const grandFinal=schedule.events.find(e=>e.id==='event:nrlw:2026:grand-final');
+  if(grandFinal?.status==='completed'&&!grandFinal.nrlwFinalsReviewed)throw new Error('NRLW reviewed finals: undeclared Grand Final result');
+  const roundCounts={12:0,13:0,14:0};
   for(const event of finals){
     const source=schedule.sources[event.sourceId],result=event.result;
     const validDate=value=>typeof value==='string'&&Number.isFinite(Date.parse(value))&&Date.parse(value)<=Date.now();
     if(event.sportKey!=='nrlw'||event.competitionId!=='competition:nrlw-premiership-2026'||event.providerStatus!=='FullTime'||event.status!=='completed'||!Object.hasOwn(roundCounts,event.roundNumber))throw new Error('NRLW reviewed finals: unsupported competition, phase or status');
     roundCounts[event.roundNumber]++;
-    if(source?.type!=='official'||source.providerMatchId!==event.providerMatchId||!/^https:\/\/www\.nrl\.com\/draw\/womens-premiership\/2026\/finals-week-[12]\/[a-z-]+\/$/.test(source.url)||!validDate(source.checkedAt)||!validDate(source.providerUpdatedAt)||!validDate(event.sourceCheckedAt)||!validDate(result?.checkedAt))throw new Error('NRLW reviewed finals: invalid source observation');
-    if(event.sourceCheckedAt!==source.checkedAt||result.checkedAt!==source.checkedAt||Date.parse(source.providerUpdatedAt)>Date.parse(source.checkedAt)||event.timeTbc||event.timePrecision!=='exact'||!validDate(event.startTimeUtc))throw new Error('NRLW reviewed finals: inconsistent timing');
+    if(source?.type!=='official'||!validDate(source.checkedAt)||!validDate(event.sourceCheckedAt)||!validDate(result?.checkedAt))throw new Error('NRLW reviewed finals: invalid source observation');
+    if(event.sourceCheckedAt!==source.checkedAt||event.timeTbc||event.timePrecision!=='exact'||!validDate(event.startTimeUtc))throw new Error('NRLW reviewed finals: inconsistent timing');
+    if(event.roundNumber===14){
+      // The reviewed rendered league report supplies the final only. Keep the
+      // independent programme observation; do not invent API/update/end clocks.
+      const evidence=schedule.sources[result.sourceId];
+      const validUtc=value=>validDate(value)&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value)&&new Date(value).toISOString()===value.replace(/Z$/,value.includes('.')?'Z':'.000Z');
+      if (
+        event.id!=='event:nrlw:2026:grand-final' ||
+        event.startTimeUtc!=='2026-10-04T05:00:00.000Z' ||
+        event.venue!=='Accor Stadium' ||
+        JSON.stringify(event.participantIds)!==JSON.stringify(['team:nrlw:roosters','team:nrlw:broncos']) ||
+        result.evidenceKind!=='reviewed-official-report' ||
+        evidence?.type!=='official' ||
+        evidence.evidenceKind!=='reviewed-official-report' ||
+        evidence.observationMethod!=='manual-rendered-official-page' ||
+        evidence.url!=='https://www.nrl.com/news/2026/10/04/nrlw-decider-roosters-v-broncos/' ||
+        evidence.fixtureId!==event.id ||
+        evidence.competitionId!==event.competitionId ||
+        JSON.stringify(evidence.participantIds)!==JSON.stringify(event.participantIds) ||
+        evidence.finalStatus!=='FullTime' ||
+        evidence.homeScore!==event.homeScore ||
+        evidence.awayScore!==event.awayScore ||
+        !validUtc(evidence.checkedAt) ||
+        result.checkedAt!==evidence.checkedAt ||
+        Date.parse(evidence.checkedAt)<Date.parse(event.startTimeUtc) ||
+        result.sourceId===event.sourceId ||
+        event.providerMatchId!=null ||
+        evidence.providerMatchId!=null ||
+        evidence.providerUpdatedAt!=null
+      ) throw new Error('NRLW reviewed finals: invalid reviewed Grand Final report');
+    }else if(source.providerMatchId!==event.providerMatchId||!/^https:\/\/www\.nrl\.com\/draw\/womens-premiership\/2026\/finals-week-[12]\/[a-z-]+\/$/.test(source.url)||!validDate(source.providerUpdatedAt)||result.checkedAt!==source.checkedAt||Date.parse(source.providerUpdatedAt)>Date.parse(source.checkedAt)||result.sourceId!==event.sourceId||!event.startTimeUtc.startsWith('2026-09-'))throw new Error('NRLW reviewed finals: invalid provider final observation');
     const instant=new Date(event.startTimeUtc),date=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(instant),time=new Intl.DateTimeFormat('en-GB',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(instant);
-    if(event.date!==date||event.time!==time||!event.startTimeUtc.startsWith('2026-09-')||!event.venue)throw new Error('NRLW reviewed finals: invalid Sydney date, clock or venue');
+    if(event.date!==date||event.time!==time||!event.venue)throw new Error('NRLW reviewed finals: invalid Sydney date, clock or venue');
     if(!Array.isArray(event.participantIds)||event.participantIds.length!==2||new Set(event.participantIds).size!==2||event.participantIds.some(id=>!id.startsWith('team:nrlw:')||!participants.has(id))||![event.homeScore,event.awayScore].every(score=>Number.isInteger(score)&&score>=0)||event.homeScore===event.awayScore)throw new Error('NRLW reviewed finals: invalid participants or final scores');
     const [home,away]=event.participantIds,score=`${participants.get(home).displayName} ${event.homeScore}-${event.awayScore} ${participants.get(away).displayName}`;
-    if(result.status!=='official'||result.sourceId!==event.sourceId||result.score!==score||result.winnerParticipantId!==(event.homeScore>event.awayScore?home:away))throw new Error('NRLW reviewed finals: inconsistent result');
+    if(result.status!=='official'||result.score!==score||result.winnerParticipantId!==(event.homeScore>event.awayScore?home:away))throw new Error('NRLW reviewed finals: inconsistent result');
   }
-  if(roundCounts[12]!==2||roundCounts[13]!==2)throw new Error('NRLW reviewed finals: missing finals phase');
+  if(roundCounts[12]!==2||roundCounts[13]!==2||roundCounts[14]!==review.fixtureIds.length-4)throw new Error('NRLW reviewed finals: missing finals phase');
 }
 
 function cardForEvent(event, schedule, participantsById){

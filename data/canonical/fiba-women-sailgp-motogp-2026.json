@@ -1199,6 +1199,23 @@
       "sourceDocumentUrl": "https://www.nrl.com/draw/?competition=161&season=2026&round=10",
       "type": "official",
       "checkedAt": "2026-10-03T12:19:46.371Z"
+    },
+    "nrlw-grand-final-result-20261004": {
+      "name": "NRL official NRLW Grand Final report",
+      "url": "https://www.nrl.com/news/2026/10/04/nrlw-decider-roosters-v-broncos/",
+      "type": "official",
+      "checkedAt": "2026-10-04T09:19:16.000Z",
+      "evidenceKind": "reviewed-official-report",
+      "observationMethod": "manual-rendered-official-page",
+      "fixtureId": "event:nrlw:2026:grand-final",
+      "competitionId": "competition:nrlw-premiership-2026",
+      "participantIds": [
+        "team:nrlw:roosters",
+        "team:nrlw:broncos"
+      ],
+      "finalStatus": "FullTime",
+      "homeScore": 30,
+      "awayScore": 6
     }
   },
   "participants": [
@@ -2308,7 +2325,23 @@
         "team:nrlw:roosters",
         "team:nrlw:broncos"
       ],
-      "sourceCheckedAt": "2026-09-27T13:57:48.000Z"
+      "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+      "nrlwFinalsReviewed": true,
+      "roundNumber": 14,
+      "providerStatus": "FullTime",
+      "status": "completed",
+      "homeScore": 30,
+      "awayScore": 6,
+      "result": {
+        "status": "official",
+        "evidenceKind": "reviewed-official-report",
+        "sourceId": "nrlw-grand-final-result-20261004",
+        "checkedAt": "2026-10-04T09:19:16.000Z",
+        "score": "Sydney Roosters 30-6 Brisbane Broncos",
+        "outcomeText": "Sydney Roosters beat Brisbane Broncos 30-6 to win the 2026 NRLW premiership.",
+        "recapText": "Sydney Roosters won the Grand Final 30-6 at Accor Stadium. The verified result is available when Results are enabled.",
+        "winnerParticipantId": "team:nrlw:roosters"
+      }
     },
     {
       "id": "event:fiba-women:2026:group-china-czechia",
@@ -21111,11 +21144,12 @@
       "event:nrlw:2026:semifinal-wests-tigers-raiders",
       "event:nrlw:2026:semifinal-broncos-knights",
       "event:nrlw:2026:preliminary-final-roosters-raiders",
-      "event:nrlw:2026:preliminary-final-titans-broncos"
+      "event:nrlw:2026:preliminary-final-titans-broncos",
+      "event:nrlw:2026:grand-final"
     ],
-    "scope": "Four completed 2026 finals before the existing Grand Final; not complete regular-season coverage.",
+    "scope": "Five completed 2026 finals, including the separately reviewed Grand Final; not a fresh full-season collection or whole-family certification.",
     "observedFrom": "2026-10-03T08:14:09.131Z",
-    "observedThrough": "2026-10-03T08:17:51.314Z"
+    "observedThrough": "2026-10-04T09:19:16.000Z"
   },
   "nrlwSeasonReview": {
     "reviewPath": "data/canonical/nrlw-season-review.v1.json",

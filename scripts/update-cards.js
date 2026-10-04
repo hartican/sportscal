@@ -736,7 +736,7 @@ async function runMain() {
       ['scripts/qa-storyline-spoilers.js','data/events.json']
     ])runStep(args);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
-    console.log(`${season?'Sixty reviewed NRLW season matches':'Four reviewed NRLW finals'} published through the canonical owner; no provider refresh.`);return;
+    console.log(`${season?'Sixty reviewed NRLW season matches':'Reviewed NRLW finals'} published through the canonical owner; no provider refresh.`);return;
   }
   if(process.argv.includes('--rugby-identities')){
     for(const step of [

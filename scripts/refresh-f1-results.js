@@ -19,6 +19,14 @@ function sessionFor(name){
  return null;
 }
 async function fetchText(url){const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw new Error(`F1 source ${r.status}`);return r.text();}
+function explicitlyUnavailableRace(html,event,url){
+ const identity=String(event.canonicalEventId||'').match(/^event:f1:(\d{4}):([a-z-]+):race$/);
+ const path=url.match(/^https:\/\/www\.formula1\.com\/en\/results\/(\d{4})\/races\/\d+\/([a-z-]+)\/race-result$/);
+ if(!identity||!path||identity[1]!==path[1]||identity[2]!==path[2]||!['upcoming','scheduled','live','in_progress'].includes(event.status)||event.fixtureResults?.rows?.length)return false;
+ const heading=text(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]||'').toLowerCase();
+ const body=text(html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/i)?.[1]||'');
+ return heading.startsWith('formula 1 ')&&heading.includes(identity[2].replaceAll('-',' '))&&heading.endsWith(identity[1]+' - race result')&&/^(?:Error\s*)?No results available$/i.test(body);
+}
 function participantsForResults(rows, context){
  const key=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const participants=rows.map(row=>{
@@ -39,12 +47,16 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
   const session=sessionFor(ev.name);if(!session||['cancelled','postponed','abandoned'].includes(ev.status))continue;
   // Practice result tables can populate during the session. Allow a conservative publication delay.
   if(session.path.startsWith('practice/') && +now < +fixtureStart(ev)+90*60000)continue;
-  const url='https://www.formula1.com'+link.replace('race-result',session.path),rows=resultRows(await fetchPage(url),session.columns.length);if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)continue;
+  const url='https://www.formula1.com'+link.replace('race-result',session.path),html=await fetchPage(url),rows=resultRows(html,session.columns.length);
+  if(rows.length===0&&session.path==='race-result'&&explicitlyUnavailableRace(html,ev,url)){
+   updates.push({...ev,resultStatus:'pending',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()});continue;
+  }
+  if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)continue;
   const [position,number,driver,team]=rows[0],outcome=`${driver} ${session.verb} ${ev.name}.`;
-  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:now.toISOString()},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:now.toISOString()});
+  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',...(ev.resultStatus==='pending'?{resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()}:{}),fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:now.toISOString()},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:now.toISOString()});
  }
  return updates.map(event=>{
-  if(!event.storyline)return event;
+  if(!event.storyline||event.resultStatus==='pending')return event;
   const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
   const storyline=storylineFor(event),safe=spoilerSafeRootCopy(event,storyline);
   const next={...event,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};
@@ -52,6 +64,6 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
   return next;
  });
 }
-async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),map=new Map(updates.map(e=>[e.id,e]));doc.events=doc.events.map(e=>map.get(e.id)||e);fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${updates.length} known sessions updated.`);}
+async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),patched=require('./quick-results').patchKnown(doc.events,updates);doc.events=patched.events;fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${patched.count} known sessions updated; unchanged observations retain original dates.`);}
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1});
 module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule};

@@ -37,7 +37,24 @@ async function assertCachedFootballStatus(page){
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
     return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};
   });
-  assert.deepEqual(season,{count:71,coverage:'partial',completed:70,withdrawn:'cancelled'},'upgraded/offline projections retain the dated NRLW collection and actual WRC withdrawal');
+  assert.deepEqual(season,{count:71,coverage:'partial',completed:71,withdrawn:'cancelled'},'upgraded/offline projections retain the dated NRLW collection, separately reviewed Grand Final and actual WRC withdrawal');
+  const nrlwFinal=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/nrlw.json')).json();
+    const fixture=code.fixtures.find(f=>f.id==='event:nrlw:2026:grand-final');
+    const before=JSON.stringify(fixture),saved=JSON.stringify(userPreferences),tab=activeTab;
+    try{
+      activeTab='follow';userPreferences.showSpoilers=true;
+      const visible=buildCodeInspectorFixture(fixture).textContent;
+      userPreferences.showSpoilers=false;
+      const hidden=buildCodeInspectorFixture(fixture);
+      return {visible,hidden:hidden.textContent,hiddenResultNodes:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,sourceCheckedAt:fixture.sourceCheckedAt,resultSourceCheckedAt:fixture.resultSourceCheckedAt,unchanged:before===JSON.stringify(fixture)};
+    }finally{userPreferences=JSON.parse(saved);activeTab=tab;}
+  });
+  assert(/30\s*[-–]\s*6/.test(nrlwFinal.visible),'cached Grand Final renders the separately verified score with Results on');
+  assert(!/30\s*[-–]\s*6/.test(nrlwFinal.hidden)&&nrlwFinal.hiddenResultNodes===0,'cached Grand Final protects Results off');
+  assert.equal(nrlwFinal.sourceCheckedAt,'2026-09-27T13:57:48.000Z');
+  assert.equal(nrlwFinal.resultSourceCheckedAt,'2026-10-04T09:19:16.000Z');
+  assert(nrlwFinal.unchanged,'cached rendering cannot renew programme or result facts');
   const nrlwLadder=await page.evaluate(async()=>{
     const code=await(await fetch('/data/code-inspector/nrlw.json')).json();
     const snapshot=NOTHINGSPORTS_FEED_CARD_STANDINGS.find(s=>s.competitionId==='competition:nrlw-premiership-2026');

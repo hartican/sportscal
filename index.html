@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="427">
+<meta name="app-shell-version" content="428">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=427" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=428" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=427"></script>
+<script src="assets/js/app-shell-runtime.js?v=428"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -17087,11 +17087,12 @@ function buildEuropeanDetail(ev,kind){
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
 
 function buildFixtureResultAvailability(ev){
-  if(ev.resultStatus!=='pending')return null;
+  const pending=ev.resultStatus==='pending';
+  if(!pending&&!(ev.resultStatus==='official'&&ev.status==='completed'&&isSpoilerVisible(ev)&&!ev.delayedResultSource&&/^https:\/\//.test(ev.resultSourceUrl||'')))return null;
   const note=document.createElement('p');note.className='compact-card-meta fixture-status fixture-result-availability';note.style.gridColumn='1 / -1';
   const checked=new Date(ev.resultSourceCheckedAt||'');
-  note.textContent=(ev.key==='wrc'?'Official FIA classification pending.':'Official result unavailable')+(Number.isFinite(+checked)&&+checked<=Date.now()?' · checked '+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(checked)+' (Sydney time)':'');
-  if(/^https:\/\//.test(ev.resultSourceUrl||'')){const link=document.createElement('a');link.href=ev.resultSourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Official source';link.setAttribute('aria-label','Check official result source for '+(ev.name||'this fixture'));note.append(document.createTextNode(' · '),link);}
+  note.textContent=(pending?(ev.key==='wrc'?'Official FIA classification pending.':'Official result unavailable'):'Verified result')+(Number.isFinite(+checked)&&+checked<=Date.now()?' · checked '+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(checked)+' (Sydney time)':'');
+  if(/^https:\/\//.test(ev.resultSourceUrl||'')){const link=document.createElement('a');link.href=ev.resultSourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent=pending?'Official source':'Result source';link.setAttribute('aria-label','Check result source for '+(ev.name||'this fixture'));note.append(document.createTextNode(' · '),link);}
   return note;
 }
 

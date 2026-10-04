@@ -1,5 +1,17 @@
 # Backend efficiency decisions
 
+## Separately reviewed NRLW Grand Final — 4 October 2026
+
+The existing reviewed-finals collection admits its fifth, named 2026 Grand Final through `update-cards.js --nrlw-finals`. The official league's rendered report explicitly marks Full Time and identifies the ordered teams and final scores. Its dated manual observation is independent of the retained Accor programme source and September scheduling check. No provider match ID, provider update clock or actual match-end timestamp is inferred. The original four finals and frozen 71-fixture/70-final season receipt keep their facts and observation dates; the final does not change regular-season ladder ranks.
+
+The complete collection is validated before persistence, including exact competition, fixture, participants, kickoff, venue, explicit final status, integer scores and independent source/date agreement. An account authorisation form is not result evidence. Unchanged reruns and later verified corrections retain the existing merge rules, personal activity and Follow/spoiler/retention policies. No automatic source request, database change, scheduler, retry or recurring owner task is added. Regressions: `validate-nrlw-reviewed-finals.js`, `validate-nrlw-season-review.js` and affected browser/cache checks through the existing normal release gates. This closes one fresh final; broader source access, viewing/rights, physical-device and whole-family acceptance remain separate.
+
+## Explicit F1 result unavailability — 4 October 2026
+
+A newly due race exposed a source page explicitly reporting no results. The existing F1 owner admits a pending-result observation only from the matched season/race's official race-result URL, correct Formula 1 heading and explicit empty table. An arbitrary empty/partial response or login form cannot qualify. Keep all existing status, participants, clocks, venue and editorial; no winner or actual completion is inferred. Existing completed results cannot be retracted by an empty page. A later complete validated table clears the pending status through the same writer.
+
+The scoped F1 path reuses the existing semantic patch boundary so unchanged checks preserve fact dates, and the quick writer carries resultStatus as an owned field. Source requests, deadlines, retries, source ownership and release-completeness requirements remain unchanged. Regressions: validate-f1-session-results.js, the real offline quick owner and affected source/privacy/cache checks. This records availability, not live status, whole-event certification or confirmation of the scheduled end as actual completion.
+
 ## Canonical live status publication — 4 October 2026
 
 The existing canonical fixture owner and Code/Schedule projector retain explicit official live/non-playing observations for the same exact fixture, ordered participants, competition and kickoff. HTTPS source references and valid, non-future observation dates are required; a live observation must be after kickoff. Older/equal contradictory observations, other identities and reopening settled/non-playing fixtures are rejected. Only status and its independent provenance change; editorial, scores, viewing, schedules, personal activity and their dates retain their existing ownership.
