@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="422">
+<meta name="app-shell-version" content="423">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=422" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=423" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=422"></script>
+<script src="assets/js/app-shell-runtime.js?v=423"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8854,6 +8854,7 @@ const sessionOpenedEventIds = new Set();
 let serverSyncApplying = false;
 let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
+let serverStateSyncGeneration = 0;
 let followFeedRefreshPending = false;
 let followFeedRefreshInFlight = null;
 let followFeedRefreshTimer = null;
@@ -10275,8 +10276,37 @@ function queueServerStateSync(){
   return true;
 }
 
-async function reconcileCurrentServerState({ notify = false } = {}){
+function invalidateServerStateSyncScope(){
+  clearTimeout(serverSyncTimer);
+  serverSyncTimer = null;
+  return ++serverStateSyncGeneration;
+}
+
+function serverStateSyncScope({ accountId = serverPersistence.user?.id, generation = serverStateSyncGeneration, requireUser = true } = {}){
+  const expected = String(accountId || "");
+  const current = ({ allowEndedSession = false } = {}) => {
+    const subject = serverSyncClient?.sessionSubject?.() || "";
+    return Boolean(expected && generation === serverStateSyncGeneration
+      && (subject === expected || (allowEndedSession && !subject))
+      && (!requireUser || (serverPersistence.user?.id === expected
+        && !["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state))));
+  };
+  return {
+    accountId:expected,
+    current,
+    verify(payload){
+      if (!current()) return false;
+      if (payload?.user?.id !== expected){
+        throw Object.assign(new Error("The returned profile does not belong to this account."), { code:"user_state_identity_mismatch" });
+      }
+      return true;
+    },
+  };
+}
+
+async function reconcileCurrentServerState({ notify = false, scope = serverStateSyncScope() } = {}){
   if (!serverSyncClient || !serverPersistence.user) return null;
+  if (!scope.current()) return null;
   clearTimeout(serverSyncTimer);
   serverSyncTimer = null;
   setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
@@ -10290,7 +10320,8 @@ async function reconcileCurrentServerState({ notify = false } = {}){
     let localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
       baseUpdatedAt: baseline.updatedAt,
     });
-    let latest = await serverSyncClient.loadState();
+    let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+    if (!scope.verify(latest)) return null;
     setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
     localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
@@ -10326,11 +10357,15 @@ async function reconcileCurrentServerState({ notify = false } = {}){
         baseUpdatedAt: latest.state?.updatedAt || null,
       };
       try{
-        result = await serverSyncClient.savePatch(rebasedPatch);
+        if (!scope.current()) return null;
+        result = await serverSyncClient.savePatch(rebasedPatch, { accountId:scope.accountId });
+        if (!scope.verify(result)) return null;
         break;
       }catch(error){
+        if (!scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return null;
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
-        latest = await serverSyncClient.loadState();
+        latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+        if (!scope.verify(latest)) return null;
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
         // Keep the original edit baseline: a newer cloud value is not a local
@@ -10357,6 +10392,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
     return result;
   }catch(error){
     const signedOut = serverErrorEndsSession(error);
+    if (!scope.current({ allowEndedSession:signedOut })) return null;
     setServerPersistence({
       state: signedOut ? "signedOut" : "error",
       user: signedOut ? null : serverPersistence.user,
@@ -10370,9 +10406,10 @@ async function reconcileCurrentServerState({ notify = false } = {}){
 }
 
 function syncCurrentServerState(options = {}){
+  const scope = serverStateSyncScope();
   const run = serverSyncSequence
     .catch(() => null)
-    .then(() => reconcileCurrentServerState(options));
+    .then(() => scope.current() ? reconcileCurrentServerState({ ...options, scope }) : null);
   serverSyncSequence = run;
   return run;
 }
@@ -10477,16 +10514,19 @@ function applyServerState(state){
   }
 }
 
-async function hydrateUserMetaSeed(){
+async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
   if (!serverSyncClient || !serverPersistence.user) return null;
-  const payload = await serverSyncClient.loadMeta();
+  if (!scope.current()) return null;
+  const payload = await serverSyncClient.loadMeta({ accountId:scope.accountId });
+  if (!scope.current()) return null;
   let meta = payload?.meta || null;
   if (!meta){
     const localMeta = FOLLOW_FIRST.normalizeMeta(userPreferences.followFirst?.startupMeta);
     // Legacy accounts can have saved follows without an onboarding seed.
     // An empty seed is neither a valid metadata row nor a new follow decision.
     if (!localMeta.sports.length) return null;
-    const created = await serverSyncClient.saveMeta(localMeta);
+    const created = await serverSyncClient.saveMeta(localMeta, { accountId:scope.accountId });
+    if (!scope.current()) return null;
     meta = created?.meta || userPreferences.followFirst.startupMeta;
   }
   const seeded = FOLLOW_FIRST.applyMetaSeed(userPreferences, meta);
@@ -10495,6 +10535,9 @@ async function hydrateUserMetaSeed(){
 }
 
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
+  const generation = invalidateServerStateSyncScope();
+  const currentGeneration = () => generation === serverStateSyncGeneration;
+  let scope = null;
   if (!serverSyncClient){
     setServerPersistence({ configured: false, state: "local", message: "" });
     return serverPersistence;
@@ -10503,6 +10546,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
   try{
     if (checkStatus){
       const status = await serverSyncClient.status();
+      if (!currentGeneration()) return serverPersistence;
       if (!status.configured){
         setServerPersistence({
           configured: false,
@@ -10518,16 +10562,21 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
     const session = sessionHint === undefined
       ? await serverSyncClient.restoreSession()
       : sessionHint;
+    if (!currentGeneration()) return serverPersistence;
     if (!session){
       setServerPersistence({ state: "signedOut", user: null, message: "" });
       return serverPersistence;
     }
 
+    scope = serverStateSyncScope({ accountId:serverSyncClient.sessionSubject(), generation, requireUser:false });
+    if (!scope.current()) throw Object.assign(new Error("The account session is unavailable."), { code:"missing_session" });
+
     setServerPersistence({
       state: "syncing",
       message: "Loading your saved profile…",
     });
-    const result = await serverSyncClient.loadState();
+    const result = await serverSyncClient.loadState({ accountId:scope.accountId });
+    if (!scope.verify(result)) return serverPersistence;
     setPreferenceRecovery(result.preferenceRecovery);
     const user = result.user;
     if (result.state){
@@ -10548,7 +10597,8 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         lastSyncedAt: result.state.updatedAt,
         message: "",
       });
-      await hydrateUserMetaSeed();
+      await hydrateUserMetaSeed(scope);
+      if (!scope.current()) return serverPersistence;
       startupSessionStateBaseline = null;
       if (USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
     } else {
@@ -10558,10 +10608,13 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         updatedAt: null,
       };
       startupSessionStateBaseline = null;
-      await hydrateUserMetaSeed();
+      await hydrateUserMetaSeed(scope);
+      if (!scope.current()) return serverPersistence;
       await syncCurrentServerState();
     }
   }catch(error){
+    if (!currentGeneration()) return serverPersistence;
+    if (scope && !scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return serverPersistence;
     const unavailablePreview = error?.status === 404;
     const signedOut = serverErrorEndsSession(error);
     setServerPersistence({
@@ -21160,18 +21213,26 @@ function setPreferenceRecovery(value){
 
 let preferenceResetUiLoad = null;
 function appendPreferenceRecoverySettings(body){
+  const generation = serverStateSyncGeneration;
+  const subject = serverSyncClient?.sessionSubject?.() || "";
+  const recoveryScope = serverPersistence.user ? serverStateSyncScope() : {
+    accountId:"",
+    current:() => generation === serverStateSyncGeneration && !serverPersistence.user
+      && (serverSyncClient?.sessionSubject?.() || "") === subject,
+  };
   const placeholder = document.createElement("section");
   placeholder.className = "filter-panel preference-data-recovery";
   placeholder.innerHTML = "<h3>Data & recovery</h3><p class=\"preference-help\">Loading recovery controls…</p>";
   (body.querySelector(".preference-stack") || body).appendChild(placeholder);
   preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
-    : loadDeferredScript("config/preference-reset-ui.js?v=218").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+    : loadDeferredScript("config/preference-reset-ui.js?v=423").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
   void preferenceResetUiLoad.then(ui => {
     if (!placeholder.isConnected || !ui?.mount) return;
     placeholder.remove();
     ui.mount(body, {
       signedIn:() => Boolean(serverPersistence.user),
+      captureScope:() => recoveryScope,
       serverSync:serverSyncClient,
       recovery:() => preferenceRecovery,
       localRecovery:activeLocalPreferenceRecovery,
@@ -21208,7 +21269,7 @@ function renderAccountSettings(body){
   const dotClass = signedIn && state === "signedIn" ? " connected" : pending ? " pending" : "";
   const heading = state === "local"
     ? "Local profile"
-    : signedIn
+    : signedIn || (pending && serverPersistence.user)
       ? "Profile sync"
       : "Sign in";
   const detail = state === "local"
@@ -21216,7 +21277,7 @@ function renderAccountSettings(body){
     : state === "checking"
       ? "Checking whether server sync is available."
       : state === "requesting"
-        ? "Checking your email and password securely."
+        ? (serverPersistence.message || "Checking your email and password securely.")
         : signedIn
             ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
             : state === "error"
@@ -21266,16 +21327,22 @@ function renderAccountSettings(body){
     });
     document.getElementById("signOutAccountBtn").addEventListener("click", async () => {
       const signedOutUserId = serverPersistence.user?.id || serverSyncClient?.sessionSubject?.();
+      const generation = invalidateServerStateSyncScope();
+      setServerPersistence({ state:"requesting", message:"Signing out…" });
       try{
         await disablePushInstallation({ preserveSubscription:true });
       }catch(error){
         console.warn("Notification installation detachment failed", error);
       }
+      if (generation !== serverStateSyncGeneration) return;
+      if (serverSyncClient?.sessionSubject?.() && serverSyncClient.sessionSubject() !== signedOutUserId) return;
       try{
-        await serverSyncClient?.signOut();
+        await serverSyncClient?.signOut({ accountId:signedOutUserId });
       }catch(error){
         console.warn("Supabase sign out failed", error);
       }
+      if (generation !== serverStateSyncGeneration) return;
+      if (serverSyncClient?.sessionSubject?.() && serverSyncClient.sessionSubject() !== signedOutUserId) return;
       setServerPersistence({
         configured: true,
         state: "signedOut",

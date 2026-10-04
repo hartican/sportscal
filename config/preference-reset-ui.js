@@ -7,10 +7,24 @@
 
   const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
+  function scopedApi(api){
+    return { ...api, accountScope:api.accountScope || api.captureScope?.() };
+  }
+
+  function requireCurrent(api, result){
+    if (!api.accountScope) return;
+    if (!api.accountScope.current() || (result && !api.accountScope.verify?.(result))){
+      throw new Error("Your account changed. Reopen settings to try again.");
+    }
+  }
+
   async function reset(api){
+    api = scopedApi(api);
+    requireCurrent(api);
     const defaults = api.defaults();
     if (api.signedIn()){
-      const result = await api.serverSync.resetPreferences(defaults);
+      const result = await api.serverSync.resetPreferences(defaults, { accountId:api.accountScope?.accountId || "" });
+      requireCurrent(api, result);
       if (!result?.state) throw new Error("The server did not return the reset profile.");
       api.acceptServerResult(result);
     } else {
@@ -29,10 +43,13 @@
   }
 
   async function undo(api){
+    api = scopedApi(api);
+    requireCurrent(api);
     const active = api.signedIn() ? api.recovery() : api.localRecovery();
     if (!active) throw new Error("The seven-day recovery window has expired.");
     if (api.signedIn()){
-      const result = await api.serverSync.undoPreferencesReset(active.resetId);
+      const result = await api.serverSync.undoPreferencesReset(active.resetId, { accountId:api.accountScope?.accountId || "" });
+      requireCurrent(api, result);
       if (!result?.state) throw new Error("The server did not return the restored profile.");
       api.acceptServerResult(result);
     } else {
@@ -44,6 +61,7 @@
   }
 
   function mount(body, api){
+    api = scopedApi(api);
     const stack = body.querySelector(".preference-stack") || body;
     const active = api.signedIn() ? api.setRecovery(api.recovery()) : api.setRecovery(api.localRecovery());
     const section = document.createElement("section");

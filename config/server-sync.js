@@ -185,6 +185,7 @@
     let session = null;
     let persistSession = true;
     let refreshInFlight = null;
+    let sessionGeneration = 0;
     let feedEpoch = 0;
     const feedRequests = new Map(), feedResponses = new Map();
     function invalidateFeed(){feedEpoch += 1;feedResponses.clear();feedRequests.clear();}
@@ -261,7 +262,10 @@
     }
 
     function saveSession(next){
-      if(sessionSubject(next)!==sessionSubject(session || restoreStoredSession()))invalidateFeed();
+      if(sessionSubject(next)!==sessionSubject(session || restoreStoredSession())){
+        sessionGeneration += 1;
+        invalidateFeed();
+      }
       session = parseSession(next, now());
       if (persistSession){
         storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, session);
@@ -282,6 +286,7 @@
     });
 
     function clearSession(){
+      sessionGeneration += 1;
       invalidateFeed();
       session = null;
       refreshInFlight = null;
@@ -308,71 +313,92 @@
       return temporary;
     }
 
-    async function performSessionRefresh(previousRefreshToken = session.refreshToken){
+    function accountScopeError(){
+      return Object.assign(new Error("The account changed before this request completed."), {
+        status:409, code:"account_scope_changed",
+      });
+    }
+
+    function guardRefreshScope(scope){
+      if (scope.generation !== sessionGeneration || sessionSubject(session) !== scope.accountId) throw accountScopeError();
+    }
+
+    function refreshedStoredSession(scope){
+      guardRefreshScope(scope);
+      // Session-only sign-ins must not adopt another tab's persistent account.
+      const stored = persistSession ? storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY) : null;
+      if (stored && sessionSubject(stored) !== scope.accountId) throw accountScopeError();
+      if (stored && stored.refreshToken !== scope.refreshToken){
+        session = stored;
+        return session;
+      }
+      return session?.refreshToken !== scope.refreshToken ? session : null;
+    }
+
+    async function performSessionRefresh(scope){
+      guardRefreshScope(scope);
       const payload = await jsonRequest("/api/auth", {
         method: "POST",
-        body: JSON.stringify({ action:"refresh", refreshToken:previousRefreshToken }),
+        body: JSON.stringify({ action:"refresh", refreshToken:scope.refreshToken }),
       });
+      guardRefreshScope(scope);
+      const alreadyRefreshed = refreshedStoredSession(scope);
+      if (alreadyRefreshed) return alreadyRefreshed;
+      if (sessionSubject(payload.session) !== scope.accountId) throw accountScopeError();
       const saved = saveSession(payload.session);
-      refreshChannel?.postMessage?.({ type:"session-refreshed", previousRefreshToken, session:saved });
+      refreshChannel?.postMessage?.({ type:"session-refreshed", previousRefreshToken:scope.refreshToken, session:saved });
       return saved;
     }
 
-    async function refreshWithStorageLease(previousRefreshToken = session.refreshToken){
+    async function refreshWithStorageLease(scope){
+      guardRefreshScope(scope);
       let lease = null;
       try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
       while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== refreshOwner){
         await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
-        const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-        if (stored && stored.refreshToken !== previousRefreshToken){
-          session = stored;
-          return session;
-        }
+        const refreshed = refreshedStoredSession(scope);
+        if (refreshed) return refreshed;
         try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
       }
-      const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-      if (stored && stored.refreshToken !== previousRefreshToken){
-        session = stored;
-        return session;
-      }
-      if (session?.refreshToken !== previousRefreshToken) return session;
+      const refreshed = refreshedStoredSession(scope);
+      if (refreshed) return refreshed;
       try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:refreshOwner, expiresAt:now() + 15_000 })); }catch(_error){}
-      try{ return await performSessionRefresh(previousRefreshToken); }
+      try{ return await performSessionRefresh(scope); }
       finally{
         try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === refreshOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
       }
     }
 
-    async function coordinatedSessionRefresh(){
-      const previousRefreshToken = session.refreshToken;
+    async function coordinatedSessionRefresh(scope){
       if (globalThis.navigator?.locks?.request){
         return navigator.locks.request("nothingsport-auth-refresh", { mode:"exclusive" }, async () => {
-          const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-          if (stored && stored.refreshToken !== previousRefreshToken){
-            session = stored;
-            return session;
-          }
-          if (session?.refreshToken !== previousRefreshToken) return session;
-          return performSessionRefresh(previousRefreshToken);
+          const refreshed = refreshedStoredSession(scope);
+          return refreshed || performSessionRefresh(scope);
         });
       }
-      return refreshWithStorageLease(previousRefreshToken);
+      return refreshWithStorageLease(scope);
     }
 
     async function refreshSession(){
       if (!session?.refreshToken) return null;
-      if (refreshInFlight) return refreshInFlight;
-      refreshInFlight = (async () => {
+      const scope = { generation:sessionGeneration, accountId:sessionSubject(session), refreshToken:session.refreshToken };
+      if (refreshInFlight?.generation === scope.generation) return refreshInFlight.promise;
+      const job = { generation:scope.generation, promise:null };
+      job.promise = (async () => {
         try{
-          return await coordinatedSessionRefresh();
+          return await coordinatedSessionRefresh(scope);
         }catch(error){
+          guardRefreshScope(scope);
+          const refreshed = refreshedStoredSession(scope);
+          if (refreshed) return refreshed;
           if (terminalRefreshError(error)) clearSession();
           throw error;
         }finally{
-          refreshInFlight = null;
+          if (refreshInFlight === job) refreshInFlight = null;
         }
       })();
-      return refreshInFlight;
+      refreshInFlight = job;
+      return job.promise;
     }
 
     async function currentSession(){
@@ -382,7 +408,15 @@
       return session;
     }
 
-    async function authenticatedRequest(path, options = {}){
+    async function authenticatedRequest(path, { accountId = "", ...options } = {}){
+      const guardAccount = active => {
+        if (!accountId) return;
+        if (sessionSubject(active) === accountId && sessionSubject(session || restoreStoredSession()) === accountId) return;
+        throw Object.assign(new Error("The account changed before this request completed."), {
+          status:409, code:"account_scope_changed",
+        });
+      };
+      guardAccount(session || restoreStoredSession());
       const activeSession = await currentSession();
       if (!activeSession){
         const error = new Error("Sign in is required.");
@@ -390,6 +424,7 @@
         error.code = "missing_session";
         throw error;
       }
+      guardAccount(activeSession);
       try{
         return await jsonRequest(path, {
           ...options,
@@ -400,7 +435,9 @@
         });
       }catch(error){
         if (error.status !== 401 || !session?.refreshToken) throw error;
+        guardAccount(session);
         const refreshed = await refreshSession();
+        guardAccount(refreshed);
         return jsonRequest(path, {
           ...options,
           headers: {
@@ -498,6 +535,7 @@
         });
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
+        sessionGeneration += 1;
         const saved = saveSession(payload.session);
         if (!saved){
           const error = new Error("The sign-in response did not contain a valid session.");
@@ -514,6 +552,7 @@
         if (!payload.session) return payload;
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
+        sessionGeneration += 1;
         const saved = saveSession(payload.session);
         if (!saved){
           const error = new Error("The sign-up response did not contain a valid session.");
@@ -539,19 +578,20 @@
         const payload = await authenticatedRequest("/api/auth");
         return payload.user;
       },
-      async loadState(){
-        const payload = await authenticatedRequest("/api/user-state");
+      async loadState({ accountId = "" } = {}){
+        const payload = await authenticatedRequest("/api/user-state", { accountId });
         return {
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async loadMeta(){
-        return authenticatedRequest("/api/user-meta");
+      async loadMeta({ accountId = "" } = {}){
+        return authenticatedRequest("/api/user-meta", { accountId });
       },
-      async saveMeta(meta){
+      async saveMeta(meta, { accountId = "" } = {}){
         return authenticatedRequest("/api/user-meta", {
+          accountId,
           method:"PUT",
           body:JSON.stringify({ meta }),
         });
@@ -716,9 +756,10 @@
         }
         return payload;
       },
-      async savePatch(patch){
+      async savePatch(patch, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method: "PUT",
           body: JSON.stringify({ patch }),
         });
@@ -729,9 +770,10 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async resetPreferences(preferences){
+      async resetPreferences(preferences, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method:"POST",
           body:JSON.stringify({ action:"reset-preferences", preferences }),
         });
@@ -742,9 +784,10 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async undoPreferencesReset(resetId){
+      async undoPreferencesReset(resetId, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method:"POST",
           body:JSON.stringify({ action:"undo-preferences-reset", resetId }),
         });
@@ -755,16 +798,18 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async signOut(){
+      async signOut({ accountId = "" } = {}){
+        const generation = sessionGeneration;
         try{
           if (await currentSession()){
             await authenticatedRequest("/api/auth", {
+              accountId,
               method: "POST",
               body: JSON.stringify({ action: "logout" }),
             });
           }
         }finally{
-          clearSession();
+          if (generation === sessionGeneration && (!accountId || sessionSubject(session || restoreStoredSession()) === accountId)) clearSession();
         }
       },
       clearSession,

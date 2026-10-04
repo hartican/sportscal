@@ -139,6 +139,7 @@ async function validateActualConflictRetry(){
     return html.slice(start, end);
   }
   const orchestration = source("async function reconcileCurrentServerState(", "\nfunction syncCurrentServerState(");
+  const accountScope = source("function invalidateServerStateSyncScope(", "\nasync function reconcileCurrentServerState(");
   const preserve = source("function applyServerStatePreservingChanges(", "\nfunction queueServerStateSync(");
   const pins = source("function fixturePinAction(", "\nfunction clearAcknowledgedFixturePinCommands(");
   const clone = value => JSON.parse(JSON.stringify(value));
@@ -182,7 +183,7 @@ async function validateActualConflictRetry(){
     let writes = 0, reads = 0;
     const patches = [];
     const context = {
-      USER_STATE_SYNC:userStateSync, structuredClone, serverSyncTimer:null, fixturePinQueue:{},
+      USER_STATE_SYNC:userStateSync, structuredClone, serverSyncTimer:null, serverStateSyncGeneration:0, fixturePinQueue:{},
       serverStateBaseline:{ state:clone(baseline), updatedAt:"2026-08-12T00:00:00.000Z" },
       serverPersistence:{ state:"signedIn", user:{ id:"synthetic-account" } },
       clearTimeout(){}, currentServerStatePayload(){ return clone(device); }, emptyServerStatePayload(){ return {}; },
@@ -191,6 +192,7 @@ async function validateActualConflictRetry(){
       setServerStateBaseline(state){ context.serverStateBaseline = { state:clone(state), updatedAt:state.updatedAt }; },
       serverErrorEndsSession(error){ return error.code === "invalid_refresh_token"; }, showToast(){},
       serverSyncClient:{
+        sessionSubject(){ return "synthetic-account"; },
         async loadState(){ reads += 1; return { user:{ id:"synthetic-account" }, state:clone(cloud) }; },
         async savePatch(patch){
           writes += 1;
@@ -212,7 +214,7 @@ async function validateActualConflictRetry(){
       },
     };
     vm.createContext(context);
-    vm.runInContext(pins + "\n" + preserve + "\n" + orchestration, context);
+    vm.runInContext(pins + "\n" + preserve + "\n" + accountScope + "\n" + orchestration, context);
     if (scenario.failure){
       await assert.rejects(context.reconcileCurrentServerState(), error => error.code === scenario.failure, scenario.name);
       assert.equal(writes, scenario.failure === "user_state_conflict" ? 3 : 1, "unchanged retry cap and typed conflict requirement");
@@ -250,6 +252,6 @@ async function validateActualConflictRetry(){
   console.log(`Actual account-sync orchestration: ${scenarios.length} synthetic conflict, consent, late-edit and failure scenarios passed.`);
 }
 
-validateActualConflictRetry().then(() => {
+validateActualConflictRetry().then(() => require("./lib/user-state-account-scope-tests")()).then(() => {
   console.log("Cross-device sync valid: actual retries preserve untouched cloud choices and original local intent.");
 }).catch(error => { console.error(error); process.exitCode = 1; });

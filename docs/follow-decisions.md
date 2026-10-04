@@ -1,5 +1,14 @@
 # Follow and Feed decisions
 
+## Account changes cancel stale profile work — 4 October 2026
+
+Profile, onboarding and preference reset/undo operations bind to the account and page generation that started them. Queued old work, superseded hydration, late results/errors and old reset confirmations cannot act on a replacement account. Sign-out invalidates those operations before notification detachment; late logout acknowledgements cannot clear a replacement session. Keep the approved device-local copy after sign-out.
+
+The custom client retains its existing single coordinated refresh owner, storage lease/Web Locks, deadlines and one 401 retry. Authentication refreshes also bind to a session lifetime: old success/failure cannot replace or clear a later sign-in, and old completion cannot clear its replacement refresh job. Session-only users do not adopt another tab’s persistent identity. Decoded token subjects are cancellation labels, not authorisation; existing fresh server Auth checks and database permissions remain authoritative. Already-dispatched old-account requests cannot be recalled; their late UI results are discarded. This does not introduce per-account local storage or claim all endpoints/real two-device behavior are certified.
+
+Regression: the existing required `validate-cross-device-sync.js` now executes twelve conflict cases and thirty-six actual orchestration/client/recovery cases, with zero service/database access. Matching shell423 and reset module cache URLs receive normal upgrade rehearsals. No new API, schema, credential, scheduler, polling, retry budget or owner routine. [Evidence and limits](quality/account-operation-isolation-2026-10-04.md).
+
+
 ## Initial Browse view follows existing preferences — 4 October 2026
 
 When no Browse state exists, use the existing followed-sport ranking instead of hardcoded AFL. An explicitly selected child category is retained when its root is not explicitly selected. Record the initial view through the existing view-only save so late affinity cannot move it. Every existing saved sport/category/section/scope remains authoritative; no saved-state migration is inferred. Returning Follow still opens My athletes & teams. This changes initial browsing only: no new follow, Feed admission, Results, exclusion, reminder or remote state write. Regression: actual selector/default functions in the existing experience gate, actual first/reloaded Browse cases and retained startup/failure cases in the existing Follow browser suite.

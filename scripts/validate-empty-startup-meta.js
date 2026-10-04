@@ -2,11 +2,12 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const follow=require('../config/follow-first');
 const html=fs.readFileSync('index.html','utf8');
-const source=html.slice(html.indexOf('async function hydrateUserMetaSeed(){'),html.indexOf('\nasync function bootstrapServerPersistence('));
+const source=html.slice(html.indexOf('async function hydrateUserMetaSeed('),html.indexOf('\nasync function bootstrapServerPersistence('));
+const scope=html.slice(html.indexOf('function invalidateServerStateSyncScope('),html.indexOf('\nasync function reconcileCurrentServerState('));
 async function run({preferences,remote=null,loadError=null}={}){
  const calls={load:0,save:[],preferences:[]};
- const context={userPreferences:preferences,serverPersistence:{user:{id:'isolated-user'}},FOLLOW_FIRST:follow,serverSyncClient:{async loadMeta(){calls.load++;if(loadError)throw loadError;return{meta:remote};},async saveMeta(meta){calls.save.push(meta);return{meta};}},savePreferences(p){calls.preferences.push(p);}};
- vm.createContext(context);vm.runInContext(source+'\nthis.run=hydrateUserMetaSeed;',context);
+ const context={userPreferences:preferences,serverStateSyncGeneration:0,serverPersistence:{state:'signedIn',user:{id:'isolated-user'}},FOLLOW_FIRST:follow,serverSyncClient:{sessionSubject:()=> 'isolated-user',async loadMeta(){calls.load++;if(loadError)throw loadError;return{meta:remote};},async saveMeta(meta){calls.save.push(meta);return{meta};}},savePreferences(p){calls.preferences.push(p);}};
+ vm.createContext(context);vm.runInContext(scope+'\n'+source+'\nthis.run=hydrateUserMetaSeed;',context);
  return {result:await context.run(),calls};
 }
 (async()=>{

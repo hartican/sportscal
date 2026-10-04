@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v422";
-const SHELL_VERSION = "422";
+const CACHE_NAME = "nothingsport-shell-v423";
+const SHELL_VERSION = "423";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -57,7 +57,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=422",
+  "/assets/js/app-shell-runtime.js?v=423",
   "/config/tournament-schedule.js?v=318",
   "/assets/js/tennis-schedule-ui.js?v=379",
   "/config/tennis-journeys.js?v=368",
@@ -80,7 +80,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=218",
+  "/config/preference-reset-ui.js?v=423",
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=293",

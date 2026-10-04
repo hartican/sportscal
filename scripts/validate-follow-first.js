@@ -174,7 +174,8 @@ assert(onboardingSource.includes("startupSportsGrid") && onboardingSource.includ
 assert(onboardingSource.includes("personalisedOffersConsent") && onboardingSource.includes("startupLocationQuery"));
 assert(!/startup[^\n]{0,80}(gender|age bracket)/i.test(html), "signup must not ask for gender or age bracket");
 assert(html.includes("shouldPromptRefinement") && html.includes("firstSwipeAt"));
-assert(serverSync.includes("async loadMeta()") && serverSync.includes("async saveMeta(meta)"));
+assert.match(serverSync, /async loadMeta\s*\(/, "onboarding metadata read remains available");
+assert.match(serverSync, /async saveMeta\s*\(meta[,)]/, "onboarding metadata write remains available");
 assert(userMetaApi.includes("nothingsports_user_meta") && userMetaApi.includes("seed_hash"));
 assert(migration.includes("force row level security") && migration.includes("protect_nothingsports_offer_consent"));
 assert(migration.includes("Gender and full age brackets are intentionally not collected"));
