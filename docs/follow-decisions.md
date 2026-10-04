@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## CHL programme dates and club records — 4 October 2026
+
+Existing CHL knockout programme IDs remain source-backed calendar notes while the publisher reports TBA clubs and an unconfirmed placeholder clock. They do not expose fixture Add to Feed or reminder actions, manufactured teams, an exact kickoff or a placeholder result. Actual regular-season fixtures retain their IDs, participants, viewing dates and actions. CHL records show sourced played/wins/losses/goals with an explicit unavailable-ranking note; source dates and stale records stay visible. Schedule standings remain under Results consent, and profile-local reveals retain global Results OFF. No Follow admission, notification eligibility, exclusion, retention or broad opt-in rule changes.
+
 ## Account changes cancel stale profile work — 4 October 2026
 
 Profile, onboarding and preference reset/undo operations bind to the account and page generation that started them. Queued old work, superseded hydration, late results/errors and old reset confirmations cannot act on a replacement account. Sign-out invalidates those operations before notification detachment; late logout acknowledgements cannot clear a replacement session. Keep the approved device-local copy after sign-out.

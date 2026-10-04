@@ -177,9 +177,10 @@ function nhlFixture(game){
   const slots = [game?.awayTeam, game?.homeTeam].filter(Boolean).map((team, index) => ({
     participantId:`team:nhl:${String(team.abbrev || team.id || "").toLowerCase()}`,
     label:nhlTeamName(team), homeAway:index === 0 ? "away" : "home",
-    score:Number.isFinite(Number(team.score)) ? Number(team.score) : null,
+    score:completed && ((typeof team.score === "number" && Number.isInteger(team.score)) || (typeof team.score === "string" && /^\d+$/.test(team.score))) && Number(team.score)>=0 ? Number(team.score) : null,
     logoUrl:team.logo || null,
   }));
+  if(completed && (slots.length!==2 || slots.some(slot=>slot.score==null))) throw new Error("NHL: invalid paired final scores");
   return {
     id:`fixture:nhl:${game.id}`, sportDomainId:"sport:ice-hockey", competitionId:"competition:nhl",
     name:`${slots[0]?.label || "TBC"} v ${slots[1]?.label || "TBC"}`,
@@ -201,49 +202,21 @@ function chlTeamId(team){
   return `team:chl:${team?._entityId || team?.externalId || String(team?.shortName || "tbc").toLowerCase()}`;
 }
 
-function chlFixture(match){
-  const local = isoParts(match?.startDate);
-  const home = match?.teams?.home || {};
-  const away = match?.teams?.away || {};
-  const completed = ["finished", "final", "completed"].includes(String(match?.status || "").toLowerCase());
-  return {
-    id:`fixture:chl:${match?._entityId || match?.externalId}`,
-    sportDomainId:"sport:ice-hockey", competitionId:"competition:chl",
-    name:`${away.name || "TBC"} v ${home.name || "TBC"}`,
-    date:local.date, time:local.time, startTimeUtc:match?.startDate || null,
-    venue:match?.venue?.name || null, status:completed ? "completed" : "upcoming",
-    scheduleStatus:match?.startDateNotConfirmed === true ? "provisional" : "confirmed",
-    stage:match?.stage?.group?.name || null, roundLabel:match?.stage?.round?.name || null,
-    participantSlots:[
-      { participantId:chlTeamId(away), label:away.name || "TBC", homeAway:"away", logoUrl:away.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/${away.externalId}` : null },
-      { participantId:chlTeamId(home), label:home.name || "TBC", homeAway:"home", logoUrl:home.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/${home.externalId}` : null },
-    ],
-    sourceUrl:match?.link?.url ? `https://www.chl.hockey/en${match.link.url}` : "https://www.chl.hockey/en/schedule",
-    viewingOptions:[{ providerId:"iihf-tv", webUrl:"https://iihf.tv/", sportUrl:"https://iihf.tv/", linkScope:"sport", sourceUrl:"https://www.chl.hockey/en/fans/where-to-watch", verifiedAt:"2026-08-26T00:00:00.000Z", permalinkVerifiedAt:null }],
-  };
+function chlFixture(match,options={}){
+  const directory=JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8'));
+  return require('./lib/chl-results').parseFixture(match,{teamIds:new Set(directory.teams.filter(t=>t.leagueId==='competition:chl').map(t=>t.id)),checkedAt:new Date().toISOString(),...options});
 }
 
-async function buildChl(){
-  const schedulePageUrl = "https://www.chl.hockey/en/schedule";
-  const html = await fetchText(schedulePageUrl);
-  const seasonId = html.match(/"currentSeason":\{"_entityId":"([a-f0-9]+)"/)?.[1];
-  if (!seasonId) throw new Error("CHL current season ID was not published");
-  const scheduleUrls = Array.from(new Set([...html.matchAll(/https:\/\/www\.chl\.hockey\/api\/s3\?q=(schedule-[^'"\\]+\.json)/g)]
-    .map(match => `https://www.chl.hockey/api/s3?q=${match[1]}`)
-    .filter(url => url.includes(seasonId))));
-  if (!scheduleUrls.length) throw new Error("CHL current schedule feeds were not published");
-  const fileName = new URL(scheduleUrls[0]).searchParams.get("q");
-  const prefix = fileName.slice("schedule-".length, -`.json`.length - seasonId.length - 1);
-  const teamsUrl = `https://www.chl.hockey/api/s3?q=teams-${prefix}-${seasonId}.json`;
-  const standingsUrl = `https://www.chl.hockey/api/s3?q=teams-stats-${prefix}-${seasonId}.json`;
-  const [teamsPayload, standingsPayload, ...schedulePayloads] = await Promise.all([
-    fetchJson(teamsUrl), fetchJson(standingsUrl), ...scheduleUrls.map(fetchJson),
-  ]);
+async function buildChl({fetchSource=fetchJson,fetchPage=fetchText,clock=()=>new Date(),previous=JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8'))}={}){
+  const facts=require('./lib/chl-results'),resources=facts.discover(await fetchPage(facts.PAGE_URL));
+  const {seasonId,seasonName,teamsUrl,recordsUrl:standingsUrl,scheduleUrl}=resources;
+  const prefix=new URL(teamsUrl).searchParams.get('q').slice(6,-`.json`.length-seasonId.length-1);
+  const [teamsPayload,standingsPayload,schedulePayload]=await Promise.all([fetchSource(teamsUrl),fetchSource(standingsUrl),fetchSource(scheduleUrl)]);
   const sourceTeams = teamsPayload.data || [];
-  if (sourceTeams.length < 20) throw new Error(`CHL current field is incomplete: ${sourceTeams.length} teams`);
+  if (sourceTeams.length !== 24 || !Array.isArray(teamsPayload.errors) || teamsPayload.errors.length) throw new Error(`CHL current field is incomplete: ${sourceTeams.length} teams`);
   const rosterResults = await mapLimit(sourceTeams, 6, async team => {
     const url = `https://www.chl.hockey/api/s3?q=team-players-info-${prefix}-${seasonId}-${team._entityId}.json`;
-    const payload = await fetchJson(url);
+    const payload = await fetchSource(url);
     return { team, athletes:payload?.data?.athletes || [], url };
   });
   const teams = sourceTeams.map(team => {
@@ -268,18 +241,16 @@ async function buildChl(){
     headshotUrl:player.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/${player.externalId}` : null,
     sourceRefs:[url],
   })).filter(player => player.id && player.displayName));
-  const fixtureMap = new Map(schedulePayloads.flatMap(payload => payload.data || []).map(chlFixture).map(fixture => [fixture.id, fixture]));
-  const standings = (standingsPayload.data || []).map((entry, index) => ({
-    participantId:chlTeamId(entry), rank:index + 1,
-    gamesPlayed:entry?.stats?.matches?.played?.total ?? 0,
-    wins:entry?.stats?.matches?.won?.total ?? 0, losses:entry?.stats?.matches?.lost?.total ?? 0,
-    goalsFor:entry?.stats?.goals?.scored?.total ?? 0, goalsAgainst:entry?.stats?.goals?.conceded?.total ?? 0,
-  }));
+  const now=clock(),checkedAt=now.toISOString();
+  const fixtures=facts.parseSchedule(schedulePayload,{teams,previousFixtures:previous.fixtures.filter(f=>f.competitionId==='competition:chl'),checkedAt,now});
+  const standings=facts.parseRecords(standingsPayload,{teams,fixtures,sourceUrl:standingsUrl,checkedAt,now});
+  const retained=facts.merge(previous,{fixtures,standings});
   return {
-    seasonId, seasonName:html.match(/"currentSeason":\{[^}]*"name":"([^"]+)"/)?.[1] || "2026/27",
-    teams, players, fixtures:[...fixtureMap.values()].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || ""))), standings,
-    sourceStatus:{ rosters:players.length ? "published" : "not-yet-published", sourceTeamCount:sourceTeams.length, scheduleFeedCount:scheduleUrls.length },
-    sources:[teamsUrl, standingsUrl, ...scheduleUrls],
+    seasonId,seasonName,teams,players,
+    fixtures:retained.fixtures.filter(f=>f.competitionId==='competition:chl'),
+    standings:retained.standings.filter(r=>r.competitionId==='competition:chl'),
+    sourceStatus:{...retained.sourceStatus.chl,rosters:players.length?'published':'not-yet-published',sourceTeamCount:sourceTeams.length},
+    sources:[teamsUrl,standingsUrl,scheduleUrl],
   };
 }
 
@@ -402,4 +373,4 @@ if(require.main===module)main().catch(error => {
   console.error(error.stack || error.message);
   process.exitCode = 1;
 });
-module.exports={buildNfl,validate};
+module.exports={buildNfl,buildChl,chlFixture,nhlFixture,validate};

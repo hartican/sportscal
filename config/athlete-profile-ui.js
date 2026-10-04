@@ -163,6 +163,13 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       status.textContent=standings.length?'Standings loaded.':'Standings are not published for this competition yet.';
       for(const competition of new Set(standings.map(e=>e.competitionId))){
         const rows=standings.filter(e=>e.competitionId===competition),first=rows[0];
+        if(competition==='competition:chl'&&rows.every(row=>row.recordKind==='club-record')){
+          const records=table(['Team','P','W','L','GF','GA'],[...rows].sort((a,b)=>a.displayName.localeCompare(b.displayName)).map(e=>[e.displayName,e.gamesPlayed,e.wins,e.losses,e.goalsFor,e.goalsAgainst]),'Champions Hockey League club records · 2026/27');
+          records.firstChild.classList.add('profile-standings-table');section.append(records);
+          const note=document.createElement('p');note.textContent=`${first.tableNote} Record facts checked ${new Date(first.asOf).toLocaleDateString('en-AU',{timeZone:'Australia/Sydney'})}.`;section.append(note);
+          const stale=rows.find(row=>row.stale);if(stale){const warning=document.createElement('p');warning.textContent=stale.staleNote;section.append(warning);}
+          const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Club records source';section.append(source);continue;
+        }
         if(competition==='competition:nfl'&&rows.every(row=>row.rankScope==='conference')){
           for(const conferenceId of ['AFC','NFC']){
             const entries=rows.filter(r=>r.conferenceId===conferenceId).sort((a,b)=>a.conferenceSeed-b.conferenceSeed);

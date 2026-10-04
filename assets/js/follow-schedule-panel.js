@@ -63,6 +63,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     const rows=[...grouped.get(label)];
     if(code.id==='competition:dakar'&&codeInspectorTab!=='results')for(const note of codeInspectorChunk.scheduleNotes||[])if(rows.some(f=>f.season===note.season))rows.push({...note,restDayNote:true});
     rows.sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b)))).forEach(f=>{
+      if(f.competitionId==='competition:chl'&&f.timingProvenance?.precision==='competition-stage-calendar'&&!f.participantSlots?.length){const note=document.createElement('p');note.className='schedule-rest-note chl-programme-note';note.textContent=`${f.displayDateLabel} · ${f.stage} — teams and kickoff not announced. `;const source=document.createElement('a');source.href=f.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='CHL programme';note.append(source);list.append(note);return;}
       if(f.restDayNote){const rest=document.createElement('p');rest.className='schedule-rest-note';rest.textContent=`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(f.date)} · Rest day · ${f.venue} — no competitive stage`;list.append(rest);return;}
       const card=buildCodeInspectorFixture(f);
       if(codeInspectorTab==='results'){
@@ -100,6 +101,22 @@ function renderNflConferenceStandings(panel,rows){
     table.append(caption,thead,tbody);wrap.append(table);section.append(title,note,checked,source,wrap);panel.append(section);
   }
 }
+function renderChlClubRecords(panel,rows){
+  const section=document.createElement('section');section.className='standings-module code-inspector-published-standings';
+  const title=document.createElement('h3');title.textContent='Champions Hockey League club records';
+  const note=document.createElement('p');note.textContent=rows[0].tableNote;
+  const checked=document.createElement('p');checked.textContent=`Record facts checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(rows[0].asOf))} (Sydney)`;
+  const source=document.createElement('a');source.href=rows[0].sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Club records source';
+  const wrap=document.createElement('div');wrap.className='standings-table-wrap';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','CHL club records; scroll for all columns');
+  const table=document.createElement('table');table.className='standings-table chl-club-records-table';table.style.minWidth='400px';table.style.fontSize='0.8rem';
+  const caption=document.createElement('caption');caption.textContent='2026/27 published club records; alphabetical order';
+  const columns=[['displayName','Team'],['gamesPlayed','P'],['wins','W'],['losses','L'],['goalsFor','GF'],['goalsAgainst','GA']];
+  const thead=document.createElement('thead'),head=document.createElement('tr');for(const [,label] of columns){const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}thead.append(head);
+  const tbody=document.createElement('tbody');for(const entry of [...rows].sort((a,b)=>a.displayName.localeCompare(b.displayName))){const tr=document.createElement('tr');tr.dataset.participantId=entry.participantId;for(const [key] of columns){const cell=document.createElement(key==='displayName'?'th':'td');if(key==='displayName')cell.scope='row';cell.textContent=String(entry[key]);tr.append(cell);}tbody.append(tr);}
+  table.append(caption,thead,tbody);wrap.append(table);section.append(title,note,checked,source);
+  if(rows.some(row=>row.stale)){const stale=document.createElement('p');stale.textContent=rows.find(row=>row.stale).staleNote;section.append(stale);}
+  section.append(wrap);panel.append(section);
+}
 function renderCodeInspectorStandings(panel, code){
   if(!userPreferences.showSpoilers && !standingsRevealApproved){
     const message=document.createElement('p');message.textContent='Standings hidden while Results is off.';
@@ -118,6 +135,7 @@ function renderCodeInspectorStandings(panel, code){
       byCompetition.set(entry.competitionId, rows);
     });
     byCompetition.forEach((rows, competitionId) => {
+      if(competitionId==='competition:chl'&&rows.every(row=>row.recordKind==='club-record')){renderChlClubRecords(panel,rows);return;}
       if(competitionId==='competition:nfl'&&rows.every(row=>row.rankScope==='conference')){renderNflConferenceStandings(panel,rows);return;}
       const section = document.createElement("section");
       section.className = "standings-module code-inspector-published-standings";

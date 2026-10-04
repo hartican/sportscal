@@ -34,7 +34,7 @@ async function assertCachedCanonicalResults(page){
 }
 async function assertCachedFootballStatus(page){
   const nfl=await page.evaluate(async()=>{
-    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=429');
+    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=430');
     const document=await(await fetch('/data/code-inspector/american-football.json')).json();
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
     try{
@@ -52,6 +52,18 @@ async function assertCachedFootballStatus(page){
   assert.equal(nfl.coverage,'partial');
   assert.deepEqual(nfl.asOf,[require('../data/canonical/american-football-directory.v1.json').standings[0].asOf],'upgrade/offline table keeps the published fact observation');
   assert(nfl.unchanged,'cached standings rendering cannot mutate source facts');
+  const hockey=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:chl:0636729f7d82ee17686c2f79');
+    const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved,tab=activeTab;
+    try{
+      codeInspectorChunk=code;activeTab='follow';userPreferences.showSpoilers=true;
+      const panel=document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
+      const table=panel.querySelector('.chl-club-records-table'),visible=buildCodeInspectorFixture(fixture).textContent;
+      userPreferences.showSpoilers=false;standingsRevealApproved=false;const hidden=buildCodeInspectorFixture(fixture);panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
+      return {records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],coverage:code.coverageStatus};
+    }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;activeTab=tab;}
+  });
+  assert.equal(hockey.records,24);assert.deepEqual(hockey.headers,['Team','P','W','L','GF','GA']);assert(hockey.visible.includes(hockey.expected),'cached CHL final shows its supplied zero');assert(!hockey.hidden.includes(hockey.expected)&&hockey.hiddenResults===0&&hockey.hiddenTables===0,'cached CHL Results OFF remains private');assert.equal(hockey.calendars.length,12);assert(hockey.calendars.every(f=>f.start===null&&f.time===null&&!f.participants.length));assert.equal(hockey.coverage,'partial');assert.deepEqual(hockey.asOf,[require('../data/canonical/ice-hockey-directory.v1.json').standings.find(r=>r.competitionId==='competition:chl').asOf]);
   const season=await page.evaluate(async()=>{
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
     return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};

@@ -250,7 +250,12 @@ function normalizeFixture(event, codeId, extra = {}){
   const scoredSlots = slots.filter(slot => slot.score != null && slot.score !== "");
   const home = scoredSlots.find(slot => slot.homeAway === "home") || scoredSlots[0];
   const away = scoredSlots.find(slot => slot.homeAway === "away") || scoredSlots[1];
-  const derivedScore = home && away ? `${home.label} ${home.score}-${away.score} ${away.label}` : null;
+  // Hockey's source slots and card title are away-first. Keep scores attached
+  // to that displayed order, including the explicitly supplied final qualifier.
+  const orderedHockey=codeId==='sport:ice-hockey'&&scoredSlots.length===2;
+  const first=orderedHockey?scoredSlots[0]:home,second=orderedHockey?scoredSlots[1]:away;
+  const qualifier=orderedHockey?(event.resultLabels||[]).filter(label=>['After overtime','After shootout'].includes(label)).join(' · '):'';
+  const derivedScore = first && second ? `${first.label} ${first.score}-${second.score} ${second.label}${qualifier?' · '+qualifier:''}` : null;
   return {
     id: stableId(event),
     sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
@@ -555,7 +560,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:nbl", "sport:ice-hockey", "competition:motogp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:nbl", "competition:motogp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify({
@@ -578,6 +583,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       label: code.name,
       fixtureCount: fixtures.length,
       hasStandings:codeStandings(code).length > 0,
+      ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),
       ...(code.id==='sport:american-football'?{coverageNote:'NFL: published calendar-year fixtures and source-supplied conference standings. Later January season fixtures, viewing and wider quality checks remain partial.'}:{}),
       groupingMode: groupingMode(fixtures),
       coverageStatus,

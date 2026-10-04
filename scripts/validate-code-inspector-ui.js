@@ -9,6 +9,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 require('./validate-nrlw-ladder');
 require('./validate-nfl-standings');
+require('./validate-chl-results');
 const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));

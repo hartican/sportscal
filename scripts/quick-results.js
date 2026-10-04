@@ -74,6 +74,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
+ if(changes.some(change=>change.startsWith('CHL')))codes.add('ice-hockey');
  if(changes.some(change=>change.startsWith('LPGA')))codes.add('golf');
  if(changes.some(change=>change.startsWith('NBL')))codes.add('nbl');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
@@ -144,6 +145,15 @@ function refreshNbl(changes,{published=false}={}){
 async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
   if(source==='football'&&!offline)return refreshFootball({now});
+  if(source==='chl'&&!offline){
+   let chl;
+   try{chl=await refreshChl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`CHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   const changes=chl.changed||chl.projectionNeedsRepair?[`CHL results and club records ${chl.finals}`]:[];
+   for(const args of projectionSteps(changes))run(...args);
+   const report={mode:'quick',source,checkedAt:chl.checkedAt,changed:changes,failures:[],chl,aiCalls:0};
+   if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   return report;
+  }
   if(source==='nfl-standings'&&!offline){
    const nflStandings=await refreshNflStandings(),changes=nflStandings.changed?[`NFL standings ${nflStandings.rows}`]:[];
    for(const args of projectionSteps(changes))run(...args);
@@ -185,6 +195,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  let nflStandings=null;
  if(!offline)try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
+ let chl=null;
+ if(!offline)try{chl=await refreshChl();if(chl.changed||chl.projectionNeedsRepair)changes.push(`CHL results and club records ${chl.finals}`);}catch(error){failures.push(`CHL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;
  if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,events:official.events});changes.push(`Official results ${official.count}`);}
@@ -218,7 +230,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,aiCalls:0};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,aiCalls:0};
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}
  console.log(JSON.stringify(report));
  if(failures.length)console.warn(`::warning::Quick refresh retained last-good data for ${failures.length} failed source checks; review the refresh report.`);
@@ -232,5 +244,12 @@ async function atomicRefresh(options){
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
+async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}
+async function refreshChl(options={}){
+ const facts=require('./lib/chl-results'),filePath=options.filePath||'data/canonical/ice-hockey-directory.v1.json';
+ const result=await facts.refreshFile({filePath,fetchJson:json,fetchText:text,...options});let projectionNeedsRepair=true;
+ try{projectionNeedsRepair=!facts.projectionCurrent(read(filePath),{inspector:read('data/code-inspector/ice-hockey.json'),schedule:read('data/follow-schedule/ice-hockey.json')});}catch{}
+ return {...result,projectionNeedsRepair};
+}
 function refreshNflStandings(options={}){return require('./lib/nfl-standings').refreshFile({filePath:'data/canonical/american-football-directory.v1.json',fetchJson:json,...options});}
-module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,KEYS};
+module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,refreshChl,KEYS};
