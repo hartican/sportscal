@@ -495,3 +495,8 @@ Four already carried Skiing IDs retain their durable actions and existing opt-in
 ## NFL conference table presentation — 4 October 2026
 
 Restore the already carried NFL standings with separate AFC/NFC source-supplied seeds and sport-appropriate W/L/T/PCT/PF/PA/difference columns. Retain Results OFF, explicit session-only standings reveal, Follow admission, participant IDs, personal activity, exclusions and reminder consent. Tables are dated publisher observations, not live or final playoff qualification. NFL calendar-year coverage is partial; no new sport/competition or admission is introduced. Regression: validate-nfl-standings.js, actual two-engine mobile/desktop standings cases and installed-browser cache rehearsals.
+# Sourced Cricket innings — 4 October 2026
+
+Code/Schedule retain the supplied innings with their original score observation. Shared Feed/Schedule result presentation shows valid named totals, wickets, source overs and explicit declaration/follow-on/forfeit markers in innings order. Unknown batting identities, invalid numbers and duplicate innings cannot acquire guessed scores or teams. Incomplete details have an explicit unavailable note. Ongoing retained innings are labelled latest sourced observations, with their existing check time, never fresh live scores from elapsed time.
+
+Results OFF, event-level consent, paused coverage, compact summaries and profile-local reveal remain authoritative. This adds no Follow choice, admission, fixture/activity identity, new live request, reminder or notification policy. Regressions use actual CA41001 source/projector data, published retained records, controlled invalid/zero/multi-innings cases, and cached upgrade/offline checks.
