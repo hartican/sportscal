@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="432">
+<meta name="app-shell-version" content="433">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=432" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=433" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=432"></script>
+<script src="assets/js/app-shell-runtime.js?v=433"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16303,8 +16303,8 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
       link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
-    if(!viewingLinks.length){const text=document.createElement('span');text.className='viewing-tbc';text.textContent='Australian viewing unconfirmed';row.append(text);}
-    if(ev.competitionId==='competition:lpga-tour'&&viewingLinks.length&&viewingLinks.every(p=>p.paid)){const note=document.createElement('span');note.className='viewing-tbc';note.textContent='Subscription · check round coverage';row.append(note);}
+    const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':viewingLinks.every(p=>p.paid)&&['competition:lpga-tour','competition:nhl'].includes(ev.competitionId)?'Subscription':null;
+    if(viewingNote){const text=document.createElement('span');text.className='viewing-tbc';text.textContent=viewingNote;row.append(text);}
     actions.append(row);
   }
   if (reminder && getEventStatus(ev) === "upcoming"){

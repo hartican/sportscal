@@ -163,7 +163,8 @@
       "label": "Ice Hockey",
       "resolution": "competition-and-season",
       "providerIds": [
-        "iihf-tv"
+        "iihf-tv",
+        "disney"
       ]
     },
     {
@@ -271,6 +272,26 @@
     "competition:nfl": {
       "sourceUrl": "https://www.nfl.com/international/ways-to-watch/australia"
     },
+    "competition:nhl:2026-27": {
+      "competitionIds": [
+        "competition:nhl"
+      ],
+      "fixtureIdPattern": "^fixture-nhl-202602[0-9]{4}$",
+      "roundLabel": "Regular season",
+      "notBefore": "2026-09-29",
+      "notAfter": "2027-04-12",
+      "rightsScope": "competition",
+      "sourceUrl": "https://www.nhl.com/info/how-to-watch-by-country",
+      "verifiedAt": "2026-10-04T14:47:13.000Z",
+      "corroboratingSources": [
+        "https://www.disney.com.au/news/disney-advertising-espn-2025-upfront",
+        "https://www.disneyplus.com/en-au/welcome/espn-sports"
+      ],
+      "notes": "Reviewed Australian current-season regular-season carriage. Public ESPN sport destination; subscription required. Exact programme playback and replay availability remain unverified. Preseason, other editions and selective free carriage are excluded. Australia is excluded from NHL.TV on DAZN.",
+      "providerIds": [
+        "disney"
+      ]
+    },
     "competition:nhl": {
       "sourceUrl": "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games",
       "coverageStatus": "unverified-for-AU-2026-27"
@@ -357,6 +378,30 @@
     }
   },
   "reviewedWindows": [
+    {
+      "competitionIds": [
+        "competition:nhl"
+      ],
+      "fixtureIdPattern": "^fixture-nhl-202602[0-9]{4}$",
+      "roundLabel": "Regular season",
+      "notBefore": "2026-09-29",
+      "notAfter": "2027-04-12",
+      "rightsScope": "competition",
+      "sourceUrl": "https://www.nhl.com/info/how-to-watch-by-country",
+      "verifiedAt": "2026-10-04T14:47:13.000Z",
+      "corroboratingSources": [
+        "https://www.disney.com.au/news/disney-advertising-espn-2025-upfront",
+        "https://www.disneyplus.com/en-au/welcome/espn-sports"
+      ],
+      "notes": "Reviewed Australian current-season regular-season carriage. Public ESPN sport destination; subscription required. Exact programme playback and replay availability remain unverified. Preseason, other editions and selective free carriage are excluded. Australia is excluded from NHL.TV on DAZN.",
+      "providers": [
+        {
+          "id": "disney",
+          "url": "https://www.disneyplus.com/en-au/welcome/espn-sports",
+          "linkScope": "sport"
+        }
+      ]
+    },
     {
       "fixtureIds": ["fixture:golf:lpga:2026068", "fixture:golf:lpga:2026070"],
       "competitionIds": ["competition:lpga-tour"],
