@@ -4,6 +4,7 @@ const path = require("path");
 const { readJson, writeJson } = require("./lib/feed-utils");
 const { stakesFor, lifecycleFor } = require("./lib/storyline-card-rules");
 const { previewState } = require("./lib/editorial-preview-quality");
+const { fixtureSourceMetadata } = require("./lib/editorial-narrative");
 const {
   buildStandingsIndex,
   resolveStandingsAwareOverride,
@@ -39,7 +40,14 @@ inputs.forEach(input => {
         && override.sourceCheckedAt;
       if (lifecycleFor(event) === "completed" && !hasVerifiedResultOverride) return event;
       applied += 1;
-      return { ...event, ...resolveStandingsAwareOverride(event, override, standingsIndex) };
+      const resolved = resolveStandingsAwareOverride(event, override, standingsIndex);
+      // Research, including a withheld preview, cannot replace the source/date
+      // of fixture facts. Explicit reviewed finals retain their existing path.
+      const source = hasVerifiedResultOverride ? {} : fixtureSourceMetadata(event, {
+        name:resolved.sourceName, url:resolved.sourceUrl,
+        sourceType:resolved.sourceType, checkedAt:resolved.sourceCheckedAt,
+      });
+      return { ...event, ...resolved, ...source };
     }
     const status = lifecycleFor(event);
     const state = previewState({ ...event, status }, stakesFor(event));

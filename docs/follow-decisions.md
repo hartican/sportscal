@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Fixture sources survive preview research — 5 October 2026
+
+An empty or nonempty editorial preview keeps the existing fixture source/observation tuple. Research keeps its own nested provenance. The explicit reviewed-final path remains. Six retained upcoming F1 sessions recover missing source tuples only from exact alias/name/session/timing matches in the retained official schedule; no new source observation is implied. Preserve all sporting facts, action IDs, Follow choices, viewing, results, exclusions, Remind OFF and spoiler rules. Full/quick and the retained canonical projection share this repair; no new admission, polling or owner choice. Regression: the actual preview CLI on two real-file surfaces, strict source recovery/persistence and unchanged canonical rerun.
+
 ## Known final recovery and WRC result precision — 5 October 2026
 
 The existing NRL Grand Final and WRC Sardegna cards gain independently dated official finals through the canonical owner. Preserve all fixture/activity identities, participants, schedule facts, viewing, follows, exclusions, Remind OFF, global/per-event Results and strict mode. WRC winning crew and fractional time remain intact behind reveal; old standings keep points/ranks/date with a clear unrechecked notice. Retained projection must not regenerate unrelated copy or normalize IDs. This does not introduce admission, opt-ins, exact WRC clocks, notification replay or a new owner choice. Regression: known-final/source/privacy gates, 204 actual browser cases and 437→438 cached upgrades. No physical phone or full-family certification claim.

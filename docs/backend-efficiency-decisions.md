@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Retained fixture-source repair — 5 October 2026
+
+Preview research cannot replace fixture source dates. The existing full and quick cards owner restores only missing F1 source tuples from the matching retained canonical edition. Validate the source map once per invocation and both documents before writes; preserve later changed/live/final facts and already supplied sources. A scoped unchanged rerun makes no publication or provider request. This adds no source call, browser poll, retry, scheduler, API, database write, subscription or recurring owner task. Existing budgets and exception ownership remain.
+
 ## Retained official final recovery — 5 October 2026
 
 Full and daily canonical refresh reuse exact retained 2026 NRL Grand Final/FIA Sardegna identities. Quick adds at most two sequential official resource requests at fifteen-second deadlines/no retry within a current/recent fourteen-day correction window; full adds one NRL request and keeps the existing WRC classification owner. Explicit complete finals, ordered integer scores/registered winning crew, exact identity/date validation and newer correction evidence are required. Preserve schedule provenance, unchanged final observations and last-good data. Update only the known cards on their existing surfaces; keep unrelated editorial/IDs exact. WRC points/ranks/date stay original and visibly stale until rechecked. Blocked candidates roll back and retain an exception diagnostic; source checks never prove publication. No new provider/competition/scheduler/poll/credential/database operation/subscription/owner routine. Shared WRC formatting preserves crew and decimal time; shell438 versions the changed runtime. Regression: validate-known-final-results.js, existing source-readout/completeness/Code/cache gates and actual browser upgrades. Ordinary owner success and formal sport certification remain separate.

@@ -232,6 +232,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/lib/f1-source-provenance.js"],
   ["scripts/lib/skiing-calendar-review.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
@@ -440,6 +441,22 @@ async function runMain() {
     ])runStep(args);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     console.log('Four reviewed Skiing calendar cards projected by the canonical owner; no provider requests.');return;
+  }
+  if(process.argv.includes('--f1-provenance-review')){
+    const repaired=require('./lib/f1-source-provenance').applyRetained();
+    console.log(JSON.stringify(repaired));
+    if(!repaired.some(surface=>surface.changed.length)){
+      console.log('F1 source tuples are unchanged; retained publication and fact dates preserved.');return;
+    }
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=f1,motorsport'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-f1-source-provenance.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json'],['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Retained F1 fixture source observations restored by the canonical owner; no provider requests.');return;
   }
   if(process.argv.includes('--epl-timing-review')){
     console.log(JSON.stringify(require('./lib/epl-kickoff-certainty').applyRetained()));

@@ -240,6 +240,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}
   failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.code}`));
  }catch(error){failures.push(`LPGA: ${error.message}`);}
+ const f1Sources=require('./lib/f1-source-provenance').applyRetained();
+ if(f1Sources.some(surface=>surface.changed.length))changes.push('F1 schedule provenance');
  const skiReview=require('./lib/skiing-calendar-review').applyRetained();
  if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
