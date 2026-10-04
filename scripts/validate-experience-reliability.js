@@ -10,6 +10,37 @@ for(const event of require('../data/events.json').events.filter(e=>e.key==='f1'&
 assert(!presentation.circuitAsset({key:'f1',venue:'Unknown circuit'}));
 // Drive the real routing branch while its deferred scripts are unavailable.
 const html=fs.readFileSync('index.html','utf8'),start=html.indexOf('function renderCurrentSection(){'),end=html.indexOf('\nfunction renderTabCounts()',start);
+// Exercise the actual initial Browse default with current selector identities.
+const taxonomy=require('../config/selector-taxonomy');
+const browse={BASE_SPORT_SELECTOR_ENTITIES:taxonomy.exposedSportNodes,selectorEntityById:id=>taxonomy.byId[id],FOLLOW_FIRST:require('../config/follow-first'),followRatingAffinity:{sports:[]},userPreferences:{}};
+vm.createContext(browse);
+for(const [from,to] of [['function orderSelectorEntities(entities){','\nfunction orderSelectorEntitiesForDisplay'],['function followBrowseState(){','\nfunction saveFollowBrowse'],['function rootSportKeys(entity){','\nconst followStandingsAvailability']])vm.runInContext(html.slice(html.indexOf(from),html.indexOf(to,html.indexOf(from))),browse);
+for(const [selected,sportId,categoryId] of [[['sport:football'],'sport:football',''],[['sport:champions-league'],'sport:football','sport:champions-league'],[['sport:aflw'],'sport:afl','sport:aflw'],[['sport:f1'],'sport:motorsport','sport:f1'],[[],'sport:afl','']]){
+ browse.userPreferences={selectedSelectorEntityIds:selected,showSpoilers:false};const before=JSON.stringify(browse.userPreferences),state=browse.followBrowseState();
+ assert.equal(state.sportId,sportId,'An unused Browse view reflects the existing followed sport or legacy empty fallback');assert.equal(state.categoryId,categoryId,'An explicit child selection survives the initial Browse view');assert.equal(JSON.stringify(browse.userPreferences),before,'Reading a default cannot grant follows or change Results');
+}
+const saved={sportId:'sport:afl',categoryId:'sport:aflw',section:'teams-players',scheduleScope:{round:'Round 4'},page:2};browse.userPreferences={selectedSelectorEntityIds:['sport:football'],followBrowse:saved};assert.equal(browse.followBrowseState(),saved,'An existing complete Browse state wins over current followed-sport ranking');
+console.log('Actual first Browse defaults preserve Football/child selection, saved state, empty fallback and sporting preferences.');
+// Drive the actual UI merge with real graph/Follow migrations. Native profile
+// sections are split from preferences by savePreferences; reloading must not
+// allow an intermediate migration's empty graph to erase these sections.
+const preferenceSystem=require('../config/preference-system');
+let nativeGraph=preferenceSystem.createPreferenceGraph({profileId:'profile:reload-qa',domainIds:['sport:football'],broadcasterIds:['stan','kayo']});
+nativeGraph=preferenceSystem.setEntityFollow(nativeGraph,'team:football:epl:1','follow');
+nativeGraph=preferenceSystem.setEntityFollow(nativeGraph,'team:football:epl:2','mute');
+nativeGraph=preferenceSystem.setEntityFollow(nativeGraph,'team:football:epl:3','unfollow');
+nativeGraph.entityFollows.find(f=>f.participantId==='team:football:epl:2').followLevel='mute';
+nativeGraph=preferenceSystem.upsertCompetitionPreference(nativeGraph,'competition:uefa-champions-league',{enabled:false});
+const merge={DEFAULT_PREFERENCES:{version:26,selectedSelectorEntityIds:[],selectedBroadcasters:['stan','kayo'],pilotMeasurement:{},tennis:{},fifa:{}},activeProfileBundle:{profile:{id:nativeGraph.profileId},domainPreferences:nativeGraph.domainPreferences,competitionPreferences:nativeGraph.competitionPreferences,entityFollows:nativeGraph.entityFollows,viewingPreference:nativeGraph.viewing,learningPreference:nativeGraph.learning},FOLLOW_FIRST:require('../config/follow-first'),DISCOVERY_CATALOGUE:require('../config/discovery-catalogue'),PREFERENCE_SYSTEM:preferenceSystem,PRODUCT_EVENTS:null,PERSONALISED_FEED:null,FEED_CONTROLS:null,RATING_SYSTEM:null,LEGACY_SEEDED_DEFAULTS_VERSION:20,DEFAULT_FIRST_RUN_SELECTOR_IDS:[],BROADCASTER_LIBRARY:{stan:{},kayo:{}},uniqueArray:a=>[...new Set(a||[])],normalizeSelectorEntityIds:a=>a,legacySelectorIdsForFollowedSports:a=>a||[],selectedPreferenceDomainIds:p=>p.selectedSelectorEntityIds,normalizeThemePreference:t=>t||'system',canonicalSportKeysForSelectorIds:a=>a.map(id=>id.replace(/^sport:/,'')),taxonomySelectionForSelectorIds:a=>a,feedIntentForScope:()=> 'balanced',feedScopeForIntent:()=> 'for_you',globalThis:{NOTHINGSPORTS_FANTASY_DEADLINES:{migratePreferences:x=>x,normalizePreferences:x=>x}}};
+vm.createContext(merge);vm.runInContext(html.slice(html.indexOf('function mergePreferences(saved){'),html.indexOf('\nfunction saveActivePreferenceGraph')),merge);
+const graphChoices=g=>JSON.parse(JSON.stringify(Object.fromEntries(Object.entries(g).filter(([key])=>key!=='updatedAt'))));
+const scoped={version:26,selectedSelectorEntityIds:['sport:football'],showSpoilers:false,followFirst:{excludedMajorEventIds:['commonwealth-games'],notifications:{userChoice:false,autoRemindersEnabled:false,sportingRemindersEnabled:false}}};
+const untouched=JSON.stringify(scoped),reloaded=merge.mergePreferences(scoped);
+assert.deepEqual(graphChoices(reloaded.preferenceGraph),graphChoices(nativeGraph),'Native domain, competition, entity, viewing and learning sections survive the real migrations');assert.equal(JSON.stringify(scoped),untouched,'Hydrating native graph sections cannot mutate the caller');assert.equal(reloaded.followFirst.notifications.userChoice,false);assert.equal(reloaded.followFirst.notifications.autoRemindersEnabled,false);assert(reloaded.followFirst.excludedMajorEventIds.includes('commonwealth-games'));assert.equal(reloaded.showSpoilers,false);
+const supplied={...scoped,preferenceGraph:{entityFollows:[]}};assert.equal(merge.mergePreferences(supplied).preferenceGraph.entityFollows.length,0,'An explicitly supplied empty graph wins over retained native follows');
+const replacement={...scoped,preferenceGraph:{entityFollows:[{participantId:'team:football:epl:4',followLevel:'priority'}]}};assert.deepEqual(merge.mergePreferences(replacement).preferenceGraph.entityFollows.map(f=>f.participantId),['team:football:epl:4'],'An explicit incoming graph wins without unioning old follows');
+merge.activeProfileBundle=null;assert.equal(merge.mergePreferences(scoped).preferenceGraph.entityFollows.length,0,'A new empty profile does not invent follows');
+console.log('Actual preference merge retains native graph sections, dispositions and OFF/exclusions; explicit empty/replacement graphs retain precedence.');
 let calls=0;const context={activeTab:'follow',followHomeView:'favourites',loadAthletes:()=>{calls++;}};vm.createContext(context);vm.runInContext(html.slice(start,end),context);context.renderCurrentSection();assert.equal(calls,1);
 Object.assign(context,{followHomeView:'browse',activeInspectorCodeId:null,startupCoordinator:{isHydrating:()=>true},renderFollowView:()=>{calls++;},renderStartupFeedLoading:()=>{throw Error('Follow cannot render the Feed loading barrier');},scheduleIdentityImageRecovery(){},document:{getElementById:()=>({})}});
 context.renderCurrentSection();assert.equal(calls,2,'Browse also renders before Feed readiness');

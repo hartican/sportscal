@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="420">
+<meta name="app-shell-version" content="421">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=420" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=421" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=420"></script>
+<script src="assets/js/app-shell-runtime.js?v=421"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -9308,6 +9308,24 @@ function mergePreferences(saved){
     merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
     return merged;
   }
+  const profileGraph = activeProfileBundle && (
+    activeProfileBundle.domainPreferences?.length
+    || activeProfileBundle.competitionPreferences?.length
+    || activeProfileBundle.entityFollows?.length
+    || activeProfileBundle.viewingPreference
+    || activeProfileBundle.learningPreference
+  ) ? {
+    schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
+    profileId: activeProfileBundle.profile?.id,
+    domainPreferences: activeProfileBundle.domainPreferences || [],
+    competitionPreferences: activeProfileBundle.competitionPreferences || [],
+    entityFollows: activeProfileBundle.entityFollows || [],
+    viewing: activeProfileBundle.viewingPreference || null,
+    learning: activeProfileBundle.learningPreference || null,
+  } : null;
+  // Native graph sections must be hydrated before migrations can create a graph.
+  // An explicitly supplied graph (including an empty one) still wins.
+  if (!saved.preferenceGraph && profileGraph) saved = { ...saved, preferenceGraph: profileGraph };
   saved = FOLLOW_FIRST?.migratePreferences?.(saved) || saved;
   const savedPreferenceVersion = Number(saved.version || 0);
   saved = DISCOVERY_CATALOGUE?.migratePreferences?.(saved) || saved;
@@ -9334,21 +9352,6 @@ function mergePreferences(saved){
     && [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
       defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
     );
-  const profileGraph = activeProfileBundle && (
-    activeProfileBundle.domainPreferences?.length
-    || activeProfileBundle.competitionPreferences?.length
-    || activeProfileBundle.entityFollows?.length
-    || activeProfileBundle.viewingPreference
-    || activeProfileBundle.learningPreference
-  ) ? {
-    schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
-    profileId: activeProfileBundle.profile?.id,
-    domainPreferences: activeProfileBundle.domainPreferences || [],
-    competitionPreferences: activeProfileBundle.competitionPreferences || [],
-    entityFollows: activeProfileBundle.entityFollows || [],
-    viewing: activeProfileBundle.viewingPreference || null,
-    learning: activeProfileBundle.learningPreference || null,
-  } : null;
   const preferenceGraph = PREFERENCE_SYSTEM?.migratePreferenceGraph(saved.preferenceGraph || profileGraph, {
     preserveMutes:Number(saved.version||0)>=24,
     profileId: activeProfileBundle?.profile?.id || "profile:local",
@@ -19063,7 +19066,11 @@ function majorEventVisibilityPreferences(){
 
 
 function followBrowseState(){
-  return userPreferences.followBrowse || {sportId:'sport:afl', categoryId:'', section:'schedule', page:0};
+  if(userPreferences.followBrowse)return userPreferences.followBrowse;
+  const sport=rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2))[0];
+  const selected=new Set(userPreferences.selectedSelectorEntityIds||[]);
+  const categoryId=sport&&!selected.has(sport.id)?(sport.childIds||[]).find(id=>selected.has(id))||'':'';
+  return {sportId:sport?.id||'sport:afl',categoryId,section:'schedule',page:0};
 }
 function saveFollowBrowse(patch){
   const next=clonePreferences(userPreferences);
@@ -19134,7 +19141,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=401';
+  const url='assets/js/follow-presentation-ui.js?v=421';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);

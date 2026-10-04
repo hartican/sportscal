@@ -604,6 +604,7 @@ function renderFollowViewLoaded(){
   for(const child of [...container.children])if(child!==retainedBar)child.remove();
   container.className='follow-view';container.dataset.scrollList='follow';
   const state=followBrowseState();
+  if(!userPreferences.followBrowse)saveFollowBrowse(state);
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
   const primarySports=rankedFollowGridSports(sports);
   const primaryIds=primarySports.map(entity=>entity.id);
