@@ -2574,11 +2574,11 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:fixture-research:evt_84",
-            "researchTier": "standard",
-            "hook": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
-            "synopsis": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
-            "formCopy": "The Roosters beat the Dolphins 36–20 in their preliminary final, with Mark Nawaqanitawase running for 329 metres and Sam Walker scoring on his return from injury. Newcastle overcame Penrith 22–14 despite playing with 12 men after Phoenix Crossland’s dismissal. They conceded no second-half points; Sandon Smith’s two breakaway tries decided the match.",
-            "closingCopy": "Sandon Smith was squeezed out when the Roosters signed Daly Cherry-Evans. Now his first season at Newcastle ends against the club he left, with a chance to deny Cherry-Evans a premiership in his final NRL match. Mark Nawaqanitawase also has one game left before returning to rugby union. The Knights’ improbable revival meets a Roosters side with two farewells to finish.",
+            "researchTier": "marquee",
+            "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+            "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+            "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
             "threadIds": [
               "thread:fixture-research:evt_84"
             ],
@@ -2599,29 +2599,30 @@
               "source:fixture-research:evt_84:2",
               "source:fixture-research:evt_84:3",
               "source:fixture-research:evt_84:4",
-              "source:fixture-research:evt_84:5"
+              "source:fixture-research:evt_84:5",
+              "source:fixture-research:evt_84:6"
             ],
             "dimensions": [
               "matchup",
-              "venue",
+              "consequence",
               "schedule",
-              "form",
               "history",
+              "form",
               "path"
             ],
-            "researchedAt": "2026-09-30T22:37:31.000Z",
+            "researchedAt": "2026-10-01T23:58:25.032Z",
             "refreshAfter": "2026-10-04T08:30:00.000Z",
             "generationMode": "researched",
             "phase": "preview"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
-            "hookSpoilerOn": "Newcastle are one win from going from wooden spooners to premiers. The Roosters stand between them and a first title in 25 years.",
-            "synopsisSpoilerOff": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
-            "synopsisSpoilerOn": "Roosters and Knights meet for the premiership at Accor Stadium. The Grand Final is set for Sunday 4 October at 7:30pm Sydney time. Daylight saving begins that morning, so the kickoff is 6:30pm in Queensland. Nine and 9Now carry the match live; the stadium programme lists the NRLW decider earlier in the afternoon.",
+            "hookSpoilerOff": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "hookSpoilerOn": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "synopsisSpoilerOff": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+            "synopsisSpoilerOn": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-30T22:37:31.000Z"
+            "lastReviewedAt": "2026-10-01T23:58:25.032Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",

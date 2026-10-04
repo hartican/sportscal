@@ -43,7 +43,7 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 44, "the lazy Follow manifest must include separate gender chunks and AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
+assert.equal(manifest.sports.length, 45, "the lazy Follow manifest must include separate gender chunks and AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
 const swimming = [...(chunks.get("swimming")?.records || []),...(chunks.get("swimming-women")?.records || [])];
 assert(chunks.get("swimming").records.every(r=>r.genderCategory!=="female"));

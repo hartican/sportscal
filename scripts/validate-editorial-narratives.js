@@ -75,6 +75,10 @@ const majorEvents = readJson("data/major-events.v1.json");
 const incomingById = byIdentity(incoming.events);
 const publishedById = byIdentity(published.events);
 const majorById = byIdentity(majorEvents.events);
+const steps=require("./update-cards").buildSteps({localOnly:true});
+const applyStep=steps.findIndex(args=>args[0]==="scripts/apply-editorial-narratives.js");
+const validationStep=steps.findIndex(args=>args[0]==="scripts/validate-editorial-narratives.js");
+assert(steps.slice(applyStep+1,validationStep).some(args=>args[0]==="scripts/build-tennis-feed-parents.js"),"canonical owner must rebuild tournament projections before their editorial gate");
 const parents=require("../data/tennis-feed-parents.v1.json").parents;
 const sourceCatalogueById=byIdentity([...require("../lib/calendar-catalogue").catalogue(),...parents]);
 

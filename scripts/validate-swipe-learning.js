@@ -42,7 +42,13 @@ assert.equal(calibration.primaryTargetForEvent(piastri).targetId, "competitor:f1
 assert.equal(calibration.primaryTargetForEvent({ id: "event:cricket", key: "cricket", name: "Test match" }).targetId, "sport:cricket", "unconfigured feed cards must still learn against a bounded sport target");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect lightweight follows without a swipe calibration step");
+const setupSource=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+const setupBundle=fs.readFileSync("assets/js/settings-optional-ui.js","utf8");
+assert(/assets\/js\/settings-optional-ui\.js\?v=\d+/.test(html),"startup controls must use the actual deferred settings loader");
+for(const source of [setupSource,setupBundle]){
+  assert(source.includes('id="startupSportsGrid"') && source.includes('id="startupEventsGrid"'), "startup must collect lightweight follows without a swipe calibration step");
+  assert(!source.includes("bindHorizontalLearningSwipe("),"deferred startup must not introduce swipe calibration");
+}
 assert(!html.includes("bindHorizontalLearningSwipe("), "curated cards must not capture horizontal Tinder-style gestures");
 assert(!html.includes('aria-keyshortcuts="ArrowLeft ArrowRight'), "curated cards must not advertise swipe-key equivalents");
 const learningScoreSource = html.match(/function eventLearningScore\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";

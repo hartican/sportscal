@@ -1,4 +1,4 @@
-/* One shared layout contract for Feed, Events, Follow and NSC. */
+
 :root{--card-action-height:44px;--card-action-font-size:.75rem;--ui-gap:8px;}
 header.top{padding:calc(4px + env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) 0 max(8px,env(safe-area-inset-left));box-shadow:none;}
 header.top .header-inner{display:flex;flex-wrap:wrap;gap:0 16px;align-items:center;}
@@ -61,7 +61,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card-viewing-actions{margin:4px 0;}
 .event-card .event-card-secondary-actions:empty{display:none;}
 .event-card .event-why-it-matters,.event-card .nsc-peer-results{margin:4px 0;}
-/* L0 has its own geometry. No hero dimensions or second identity placeholder. */
+
 #listView .event-card.is-compact-row{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;box-sizing:border-box;width:100%;height:auto;min-height:48px;max-height:none;padding:0 44px 0 8px;gap:0;border-radius:10px;aspect-ratio:auto;contain-intrinsic-size:auto 48px;grid-template-columns:none;align-self:start;container:compact-row / inline-size;}
 #listView .compact-card-summary{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
 .compact-card-name{grid-column:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -87,7 +87,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .compact-card-name .team-name-with-logo{flex:1 1 0;min-width:0;gap:3px;}
 .compact-card-name .team-logo,.compact-card-name .team-name-logo-fallback{width:16px;height:16px;flex:0 0 16px;}
 .feed-card-slot[data-card-state="compact"] .feed-card-placeholder{padding:8px 44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;line-height:32px;}
-/* Text enlargement gets a readable second line instead of an invisible name. */
+
 @container compact-row (max-width:24rem){
   #listView .compact-card-summary{grid-template-columns:minmax(0,1fr);padding:4px 0;box-sizing:border-box;}
   .compact-card-stakes{grid-column:3;grid-row:1;}
@@ -121,7 +121,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .calendar-dialog h2{margin:0 0 12px;}.calendar-dialog p{font-size:.85rem;line-height:1.5;}
 .calendar-dialog .calendar-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}.calendar-dialog .btn{min-height:44px;}
 .calendar-dialog textarea{box-sizing:border-box;width:100%;min-height:80px;font-size:.75rem;}
-/* Follow keeps this track mounted; only directory content is replaced. */
+
 .follow-view{grid-template-columns:minmax(0,1fr);min-width:0;overflow-anchor:none;}
 .follow-view>*,.follow-view .football-directory,.follow-view .football-club-list{min-width:0;max-width:100%;}
 .follow-sport-bar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;align-items:stretch;max-width:100%;overflow:hidden;background:var(--bg);position:sticky;top:var(--sticky-top-bar-height,132px);z-index:12;padding:4px 0;}
@@ -154,7 +154,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .follow-view .football-directory-field input,.follow-view .football-directory-field select{min-height:44px;}
 .code-inspector-heading{padding:8px;}.code-inspector-heading-main p,.code-inspector-eyebrow{display:none;}
 .code-inspector-back{width:auto;min-height:44px;justify-self:start;}.mode-schedule{width:100%;}
-/* Shared, one-tap rating control. */
+
 .nsc-inline-rating{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin:4px 0;text-align:center;font-size:.72rem;}
 .nsc-rating-blocks{display:flex;justify-content:center;gap:8px;}
 .nsc-rating-blocks{gap:12px;}
@@ -179,7 +179,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 @keyframes nsc-epic-burst{0%{opacity:0;letter-spacing:0;transform:translate(-50%,10px) scale(.6)}35%{opacity:1}100%{opacity:0;letter-spacing:18px;transform:translate(-50%,-22px) scale(1.35)}}
 .nsc-peer-summary{font-size:.72rem;margin:0;}
 .nsc-peer-summary,.fixture-tags{flex-basis:100%;width:100%;}
-/* NSC is a page with one Back path, not a side drawer. */
+
 #nothingscoreBackdrop{background:var(--bg);padding:0;}
 #nothingscoreDrawer{position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0;box-shadow:none;transform:none;transition:none;display:flex;flex-direction:column;background:var(--bg);}
 #nothingscoreDrawer .chat-head{flex:0 0 auto;display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;border-bottom:1px solid var(--border);}
@@ -199,7 +199,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fixture-participant-links>.fixture-profile-link:focus-visible{outline-offset:-2px;border-radius:4px;}
 @media(max-width:640px){.event-card .matchup-team-logo-slot{width:100px;height:100px;}.event-card .matchup-team-logo{max-width:94px;max-height:94px;}.event-card .event-hero-mark,.events-feed-card .major-event-logo{width:100px;height:100px;}}
 
-/* One body-level viewport anchor owns both timeline controls. */
+
 #timelineTools{position:fixed;inset:auto max(12px,env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom) + var(--persistent-navigation-height,0px)) auto;transform:none;filter:none;contain:none;max-width:calc(100vw - 24px)}
 #timelineTools #jumpTodayBtn{position:static;inset:auto;transform:none;float:none;margin:0}
 .event-card.is-marquee-fixture{border-inline-start:4px solid var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 12%,var(--bg-card)),var(--bg-card) 72%)}
@@ -210,7 +210,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .tennis-catalogue-category{margin:18px 0}.tennis-catalogue-category h3{margin:8px 0}.tennis-catalogue-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border)}.tennis-catalogue-row strong,.tennis-catalogue-row small{display:block;overflow-wrap:anywhere}.tennis-catalogue-row small{color:var(--text-dim);font-size:11px}.tennis-catalogue-row .btn{max-width:140px;white-space:normal}.tennis-catalogue-category summary,.tennis-schedule-round>summary{padding:12px 0;min-height:44px;cursor:pointer}.tennis-schedule-round{border-bottom:1px solid var(--border)}
 @media(max-width:420px){.tennis-catalogue-row{grid-template-columns:minmax(0,1fr) auto}.tennis-catalogue-row>div{grid-column:1 / -1}.tennis-catalogue-row .btn{max-width:100%;text-align:left}}
 
-/* Shared Feed timing mark: normal flow reserves space for long labels. */
+
 .fixture-timing-badge{display:inline-block;width:fit-content;max-width:100%;padding:5px 8px;border:1px solid #c9cdd2;border-radius:4px;background:#f0f2f5;color:#18212b;font-size:.75rem;font-weight:800;line-height:1.3;letter-spacing:.025em;text-align:left;white-space:normal;overflow-wrap:normal;font-variant-numeric:tabular-nums;}
 #listView .event-card .fixture-timing-header{grid-column:1/-1;width:100%;min-height:32px;padding-right:76px;text-align:left;flex:0 0 auto;}
 #listView .event-card.has-fixture-timing>.event-card-disclosure{left:auto;right:44px;}
@@ -226,7 +226,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 :root[data-theme="night"] .fixture-stage-label,:root[data-theme="system"] .fixture-stage-label{color:#62c9f2;}
 @media(prefers-color-scheme:light){:root[data-theme="system"] .fixture-stage-label{color:#006b91;}}
 
-/* Feed composition: equal opponents, one clock, then the fixture's own rating. */
+
 #listView .date-heading{padding:14px 16px;margin:22px 0 12px;border-radius:5px;background:var(--text);color:var(--bg-card);font-size:clamp(1rem,2.4vw,1.35rem);font-weight:800;line-height:1.35;letter-spacing:.065em;text-align:center;overflow-wrap:normal;}
 #listView .date-heading .today-flag{color:inherit;border-color:currentColor;background:transparent;}
 #listView .event-card.feed-fixture{--fixture-left:#7c8797;--fixture-right:#7c8797;display:block;position:relative;--fixture-logo-size:96px;--fixture-space:8px;padding:48px 16px 10px;min-width:0;border:1px solid var(--border);border-radius:18px;background:var(--bg-card);overflow:hidden;}
@@ -274,7 +274,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .nsc-peer-summary{font-size:.76rem;line-height:1.35;margin:3px 0 0;color:var(--text-dim);}
 #listView .feed-fixture:not(.is-opened) .fixture-tags{display:none;}
 .fixture-access{width:100%;margin:0 0 8px;}
-/* Nation ties have no player portrait: do not reserve an empty hero frame. */
+
 #listView .feed-fixture.tennis-team-tie{min-height:0;}
 #listView .tennis-team-tie .fixture-event-caption{margin-bottom:5px;}
 #listView .tennis-team-tie .fixture-timing-group{margin:6px 0;}
@@ -305,7 +305,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture.is-compact-row .compact-card-name{width:100%;font-size:.9rem;white-space:normal;overflow:visible;}
 #listView .feed-fixture.is-compact-row :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex:0 0 48px;object-fit:contain;}
 #listView .feed-fixture.is-compact-row .compact-participant-fallback{font-size:1rem;}
-/* Bound each Schedule identity to its grid track, including unavailable artwork. */
+
 .mode-schedule .matchup-identity-row{grid-template-columns:minmax(0,1fr) minmax(54px,.85fr) minmax(0,1fr);gap:6px;}
 .mode-schedule .matchup-stage-slot{min-width:0;max-width:100%;flex-wrap:wrap;}
 .mode-schedule .matchup-team-logo-slot{width:100%;max-width:120px;padding:0;grid-template-columns:minmax(0,1fr);}
@@ -319,7 +319,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture :is(button,a):focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(prefers-reduced-motion:no-preference){.fixture-more,.fixture-providers .provider-link{transition:background-color .15s ease,box-shadow .15s ease;}}
 @media(max-width:359px){#listView .event-card.feed-fixture{padding-inline:12px;}#listView .feed-fixture .feed-matchup{grid-template-columns:minmax(0,1fr) 82px minmax(0,1fr);gap:4px;}#listView .feed-fixture .matchup-team-logo-slot{height:80px;}#listView .feed-fixture .matchup-team-name{font-size:.83rem;}}
-/* Keep all marks optically legible without changing their official artwork. */
+
 .fixture-providers .provider-action-mark[data-provider-id='nine'],.fixture-providers .provider-action-mark[data-provider-id='nine-tv'],.fixture-providers .provider-action-mark[data-provider-id='foxtel'],.fixture-providers .provider-action-mark[data-provider-id='kayo']{height:32px;padding:0;}
 #listView .feed-fixture .fixture-timing-clock{white-space:normal;}
 #listView .feed-fixture .fixture-more{font-family:inherit;font-size:.8rem;font-weight:700;}
@@ -339,10 +339,10 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .compact-matchup-middle:empty{display:none;}
 #listView .feed-fixture .editorial-l0-supplement,#listView .feed-fixture .editorial-l0-consequence{font-family:inherit;font-size:.86rem;line-height:1.55;font-weight:400;text-align:left;}
 
-/* Retry replaces the pending rating message without moving the flames. */
+
 .nsc-rating-retry{min-height:44px;min-width:44px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--soft-fill);color:var(--text);font:inherit;}
 
-/* Identity corrections use the same full-card frame; list marks remain unchanged. */
+
 #listView .feed-fixture .matchup-team-name,#listView .feed-fixture .compact-matchup-side{text-align:center;}
 #listView .feed-fixture .matchup-team-logo-slot img[src*="socceroos-symbol"]{object-fit:contain;padding:10%;box-sizing:border-box;}
 #listView .feed-fixture[style*="--fixture-accent"]::before{background:linear-gradient(160deg,transparent 70%,color-mix(in srgb,var(--fixture-accent) 7%,transparent)),linear-gradient(90deg,color-mix(in srgb,var(--fixture-left) 13%,transparent) 50%,color-mix(in srgb,var(--fixture-right) 13%,transparent) 50%);}
@@ -358,7 +358,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .parent-ongoing .tournament-parent-context{font-size:.75rem;color:var(--text-dim);}
 #listView .tennis-feed-parent>details>summary{display:none;}
 
-/* A single owner for Follow navigation keeps all sport controls reachable. */
+
 .follow-navigation{position:sticky;top:var(--sticky-top-bar-height,132px);z-index:46;background:var(--bg);border-bottom:1px solid var(--border);max-width:100%;}
 .follow-navigation .follow-sport-bar{position:static;}
 .follow-navigation-compact{display:flex;align-items:center;gap:6px;min-height:48px;}
@@ -395,7 +395,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 
 .f1-location-race{text-transform:none;}
 .f1-chequered-flag{font-size:1.1rem;line-height:1;}
-/* All fixture layouts stack the local date above the clock. */
+
 .fixture-timing-badge,
 #listView .feed-fixture .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;width:100%;}
 .fixture-timing-day,.fixture-timing-clock{display:block;font-size:inherit;font-weight:inherit;line-height:inherit;max-width:100%;}
@@ -404,14 +404,14 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture.is-compact-row .compact-matchup-side{overflow:visible;justify-content:center;align-items:center;}
 #listView .feed-fixture.is-compact-row .fixture-timing-badge{font-size:clamp(.95rem,2.8vw,1.4rem);}
 
-/* Optional fantasy enrichment: no row or space exists until verified. */
+
 .fantasy-deadline{margin:3px 0;font-size:12px;line-height:1.35;color:var(--text);opacity:.85;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere;}
 .fantasy-game-choice{display:grid;gap:6px;margin:12px 0;}
 .fantasy-game-choice select{max-width:100%;font:inherit;}
 
 .fantasy-license-note{font-size:max(12px,.75rem);line-height:1.5;}
 
-/* Favourites stay one tap away while a long sport directory is scrolled. */
+
 .follow-home-tabs{position:sticky;top:var(--sticky-top-bar-height,132px);z-index:48;display:flex;gap:6px;align-items:center;min-height:50px;padding:4px 0;background:var(--bg);border-bottom:1px solid var(--border);scroll-margin-top:var(--sticky-top-bar-height,132px)}
 .follow-home-tabs~.follow-navigation{top:calc(var(--sticky-top-bar-height,132px) + 58px)}
 .follow-home-tabs button{min-height:44px}

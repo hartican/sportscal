@@ -1,4 +1,6 @@
-const RESULT_LEAK = /\b(?:won|lost\s+(?:to|against|by)|beat|defeated|(?:was|were|is|are)\s+(?:the\s+)?(?:winner|loser)|winner\s*(?::|(?:of\s+[^.!?]{1,80}\s+)?(?:was|is)\b)|score|margin|advanced|reached|eliminated|victory|(?:became|crowned)\s+champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|(?<![\d–-])\b\d{1,3}\s*[-–]\s*\d{1,3}\b(?!\s*[-–]\s*\d)/i;
+// Qualified valid day ranges such as 2–4 October are calendar context;
+// scorelines and result words retain the ordinary spoiler protection.
+const RESULT_LEAK = /\b(?:won|lost\s+(?:to|against|by)|beat|defeated|(?:was|were|is|are)\s+(?:the\s+)?(?:winner|loser)|winner\s*(?::|(?:of\s+[^.!?]{1,80}\s+)?(?:was|is)\b)|score|margin|advanced|reached|eliminated|victory|(?:became|crowned)\s+champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|(?<![\d–-])\b(?!(?:0?[1-9]|[12]\d|3[01])\s*[-–]\s*(?:0?[1-9]|[12]\d|3[01])\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b)\d{1,3}\s*[-–]\s*\d{1,3}\b(?!\s*[-–]\s*\d)/i;
 const PREVIEW_LEAK = /\b(?:won|beat|defeated|completed|final score)\b|\blost\b(?!\s+time)/i;
 const PREVIEW_TENSE = /\b(?:[Ww]ill(?!\s+[A-Z][a-z])|[Aa]waits|[Hh]ost|[Uu]pcoming)\b/;
 const STORYLINE_OVERRIDES = require("../../config/storyline-overrides.js");

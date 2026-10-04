@@ -17,7 +17,8 @@
       "discipline": "Downhill",
       "gender": "men",
       "competitionId": "competition:fis-alpine",
-      "preview": "The official FIS calendar lists the men’s downhill at Kvitfjell on 6 March, followed by Super-G on 7 March. Race time, entries and Australian viewing are unconfirmed."
+      "preview": "The official FIS calendar lists the men’s downhill at Kvitfjell on 6 March, followed by Super-G on 7 March. Race time, entries and Australian viewing are unconfirmed.",
+      "hook": "The FIS calendar lists Kvitfjell’s men’s downhill for 6 March. Race time, entries and Australian viewing remain unconfirmed."
     },
     {
       "id": "evt_102",

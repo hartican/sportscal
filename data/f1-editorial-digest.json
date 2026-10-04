@@ -1,36 +1,9 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-10-01T17:38:38.928Z",
+  "generatedAt": "2026-10-04T05:02:56.069Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "0e3ec1611e9dbd51612828cb4a4b6a8c98cde6e2bf385ae376585da3d928b5fe",
+  "fingerprint": "6513520b510162f678426572cf7c149ab39697bd9085b9acce76bf4c0ee621b5",
   "entries": [
-    {
-      "eventId": "evt_f1_2026_bahrain_qualifying",
-      "selectedSentence": "",
-      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue.",
-      "angle": "Researched event-specific context",
-      "contextSignals": [
-        "fixture-specific",
-        "researched"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-          "sourceType": "official"
-        },
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Official fixture context",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
-      "generationMode": "researched"
-    },
     {
       "eventId": "evt_f1_2026_bahrain_race",
       "selectedSentence": "",
@@ -55,7 +28,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "researched"
     },
     {
@@ -77,7 +50,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "researched"
     },
     {
@@ -99,7 +72,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "researched"
     },
     {
@@ -121,7 +94,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "researched"
     },
     {
@@ -143,7 +116,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "researched"
     },
     {
@@ -156,7 +129,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     },
     {
@@ -169,7 +142,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     },
     {
@@ -182,7 +155,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     },
     {
@@ -195,7 +168,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     },
     {
@@ -208,7 +181,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     },
     {
@@ -221,7 +194,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-01T17:38:38.928Z",
+      "sourceCheckedAt": "2026-10-04T05:02:56.069Z",
       "generationMode": "withheld"
     }
   ]

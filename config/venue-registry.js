@@ -233,6 +233,9 @@
     "davos switzerland": "quarantine_conflicting_fixture",
     "marrakech to ouarzazate": "quarantine_conflicting_fixture",
     "nairobi to malindi": "quarantine_unverified_route",
+    // 4 October full-source inventory: retain observed names without claiming
+    // a canonical venue. These exact labels remain pending independent review.
+    ...Object.fromEntries(["Ariake Colosseum, Tokyo","Auckland","Belmore Sports Ground","Bermuda","Campbelltown Sports Stadium","Concepción","Encarnación","Eric Tweedale Stadium","Exponor service park","FMG Stadium Waikato","Gap / Monaco","Geneva","Geohex Park","Gran Canaria Stadium service park","Grobnik Circuit service park","Halifax","Jyväskylä","Loutraki","Lungomare Barcellona service park","Monaco / French Alps","Naivasha","National Tennis Center, Beijing","New York","Polytec Stadium","Portsmouth","Rio","San Francisco","Sassnitz","St George Venues Jubilee Stadium","Sydney","Tartu","Toyota Stadium service park","Umeå","Valencia"].map(name=>[normalise(name),"source_name_pending_review"])),
   });
 
   function normalise(value){

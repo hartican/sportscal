@@ -81,4 +81,21 @@ resultKnowledge.sources = structuredClone(baseline.sources);
 build({knowledge:resultKnowledge, feed:{events:[replayCards[0]]}, context:{ladderSnapshots:[]}, f1:{}, wrc:{}, requestedSports:{...requested, events:[resultFixture]}, reference});
 assert.deepEqual(validateKnowledge(resultKnowledge), []);
 assert.equal(resultKnowledge.narrativeFacts.find(fact => fact.id.endsWith(":result")).observedAt, resultFixture.result.checkedAt, "a later calendar observation cannot redate a supplied pending-result check");
+// Use a real canonical match and the real editorial writer. The table/report
+// observation belongs in editorial metadata, not on the fixture's facts.
+const editorial=require("./lib/editorial-narrative");
+const canonical=read("data/canonical/afl-nrl-2026.json");
+const pair=canonical.events.map(fixture=>({fixture,card:incoming.events.find(card=>card.canonicalEventId===fixture.id)})).find(({fixture,card})=>card&&fixture.source?.sourceUrl&&!require("../config/editorial-locks").activeFor(card)&&editorial.projectionForTarget(baseline,"feed-event",card));
+assert(pair,"regression needs an actual canonical fixture with researched context");
+const {fixture,card}=pair;
+const supplied={...card,sourceUrl:fixture.source.sourceUrl,sourceName:fixture.source.provider,sourceType:fixture.source.sourceType,sourceCheckedAt:fixture.source.checkedAt};
+const fixtureBefore=JSON.stringify(supplied);
+const fixtureProjection=editorial.projectionForTarget(baseline,"feed-event",card);
+const projected=editorial.applyToFeedEvent(supplied,fixtureProjection,editorial.indexesFor(baseline));
+for(const field of ["sourceUrl","sourceName","sourceType","sourceCheckedAt","id","canonicalEventId","startTimeUtc","status","participantIds","result"])assert.deepEqual(projected[field],supplied[field],`editorial must preserve the actual fixture ${field}`);
+assert.equal(projected.editorialPreview.sourceCheckedAt,baseline.sources.find(source=>source.id===fixtureProjection.sourceIds[0]).checkedAt,"editorial retains its own observation clock");
+const unrelatedSource=baseline.sources.find(source=>source.id===fixtureProjection.sourceIds[0]);
+assert.deepEqual(editorial.fixtureSourceMetadata({sourceUrl:supplied.sourceUrl},unrelatedSource),{sourceName:undefined,sourceUrl:supplied.sourceUrl,sourceType:undefined,sourceCheckedAt:undefined},"an incomplete fixture source cannot borrow the editorial clock/type");
+assert.equal(editorial.fixtureSourceMetadata({source:fixture.source},unrelatedSource).sourceCheckedAt,fixture.source.checkedAt,"nested canonical source retains its actual observation");
+assert.equal(JSON.stringify(supplied),fixtureBefore,"writer must not mutate canonical source input");
 console.log("Requested-sport editorial: six real producer shapes, calendar-only withholding, source-specific clocks, later-season isolation, missing/unsafe optional evidence and repeated rounds passed.");

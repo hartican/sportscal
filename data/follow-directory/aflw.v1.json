@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "aflw",
   "label": "AFLW",
-  "generatedAt": "2026-10-01T17:37:45Z",
+  "generatedAt": "2026-10-04T04:26:58.1383692Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -14743,7 +14743,7 @@
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
       "teamKind": null,
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "identityId": "competitor:aflw:lily-skinner",
       "logoUrl": null,
       "logoDarkUrl": null,

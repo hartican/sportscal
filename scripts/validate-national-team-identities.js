@@ -59,8 +59,9 @@ require("./app-shell-test-utils").assertShellModule(html,"config/national-team-i
 assert.doesNotMatch(html, /Promise\.all\(\[nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask\]\)/, "national-team identity registries must not block the first usable Feed");
 assert.match(html, /scheduleIdentityImageRecovery/, "national-team marks must patch into reserved card slots after first render");
 assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "national"\)/, "national-team broken images need an explicit no-flag fallback branch");
-assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
-assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
+const followSource=require("./app-shell-test-utils").readFollowApplicationSource();
+assert.match(followSource, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
+assert.doesNotMatch(followSource, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
 assert(serviceWorkerSource.includes(`nothingsport-shell-v${shellVersion}`), "the application-shell cache must be bumped for the identity library");
 const runtimeAsset=html.match(/<script src="(assets\/js\/app-shell-runtime\.js\?v=\d+)">/)?.[1];
 assert(runtimeAsset&&serviceWorkerSource.includes(`"/${runtimeAsset}"`), "the offline shell must cache the exact runtime carrying national identities");

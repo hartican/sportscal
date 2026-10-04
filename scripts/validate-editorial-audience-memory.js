@@ -69,7 +69,13 @@ assert.match(internalNothingscore, /PHASES = Object\.freeze\(\["heat",\s*"pulse"
 assert.doesNotMatch(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory must remain stored but invisible while the crowd-results structure is being refined");
 assert.doesNotMatch(html, /if \(state !== "compact"\)[\s\S]{0,240}buildEditorialSentiment\(ev\)/, "NSC aggregate Sentiment must not appear on event cards");
 assert.doesNotMatch(html, /buildEditorialSentiment\(record\)[\s\S]{0,120}identity\.appendChild\(sentiment\)/, "NSC aggregate Sentiment must not appear on major-event cards");
-assert.match(html, /Editorial standards/);
+// About is an existing deferred settings module; test its actual source and
+// published bundle rather than expecting removed inline copy in index.html.
+const settingsSource = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
+const settingsBundle = fs.readFileSync("assets/js/settings-optional-ui.js", "utf8");
+assert.match(settingsSource, /<summary>Editorial standards<\/summary>/);
+assert.match(settingsBundle, /<summary>Editorial standards<\/summary>/);
+assert.match(html, /assets\/js\/settings-optional-ui\.js\?v=\d+/);
 assert(!html.includes("Official sources"), "research citations must stay out of cards");
 assert(!html.includes('script src="scripts/snapshot-editorial-nothingscore.js"'), "server aggregate work must add no startup request");
 

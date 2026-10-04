@@ -100,7 +100,7 @@ check("Why it matters rejects boilerplate and only renders validated editorial",
 
 check("preference reset is protected and recoverable", () => {
   assert.doesNotMatch(html, /id="resetPreferencesBtn"/);
-  assert.match(html, /loadDeferredScript\("config\/preference-reset-ui\.js\?v=218"\)/);
+  assert.match(html, /loadDeferredScript\("config\/preference-reset-ui\.js\?v=\d+"\)/);
   assert.match(resetUiSource, /Data & recovery/);
   assert.match(resetUiSource, /Reset all preferences…/);
   assert.match(resetUiSource, /type RESET/);

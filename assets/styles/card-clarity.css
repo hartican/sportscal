@@ -1,4 +1,4 @@
-/* Identity images and brand glyphs keep their original colour. */
+
 .event-card,.major-event-card,.sport-hub,.sport-hub-banner,.code-inspector-view,.selector-entity-card{--sport-color:var(--text)!important;--importance-color:var(--text)!important}
 .matchup-format-badge{border-color:var(--border);background:var(--soft-fill,var(--bg-card));color:var(--text);text-transform:none;white-space:normal;text-align:center;font-size:.63rem;line-height:1.25;max-width:110px}
 .nsc-inline-rating .nsc-rating-block{width:44px;min-width:44px;min-height:44px;background:transparent!important;border:0;color:var(--text)!important;padding:7px!important;box-shadow:none!important}

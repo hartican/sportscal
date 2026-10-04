@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "american-football",
   "label": "American Football",
-  "generatedAt": "2026-10-01T17:37:45Z",
+  "generatedAt": "2026-10-04T04:26:58.1383692Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -3741,6 +3741,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3925350/anfernee-jennings"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4567535",
+      "displayName": "Anfernee Orji",
+      "shortName": "A. Orji",
+      "aliases": [
+        "Anfernee Orji",
+        "A. Orji"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:phi",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "LB",
+      "identityId": "athlete:nfl:4567535",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567535.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4567535/anfernee-orji"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -7630,6 +7665,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4045180/blake-gillikin"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4259619",
+      "displayName": "Blake Grupe",
+      "shortName": "B. Grupe",
+      "aliases": [
+        "Blake Grupe",
+        "B. Grupe"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:nyj",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "PK",
+      "identityId": "athlete:nfl:4259619",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4259619.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4259619/blake-grupe"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -13437,6 +13507,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3918310/carl-granderson"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4569428",
+      "displayName": "Carl Jones",
+      "shortName": "C. Jones",
+      "aliases": [
+        "Carl Jones",
+        "C. Jones"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:bal",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "LB",
+      "identityId": "athlete:nfl:4569428",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4569428.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4569428/carl-jones"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -21642,41 +21747,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "athlete:nfl:4362611",
-      "displayName": "Darian Kinnard",
-      "shortName": "D. Kinnard",
-      "aliases": [
-        "Darian Kinnard",
-        "D. Kinnard"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "OT",
-      "identityId": "athlete:nfl:4362611",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362611.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362611/darian-kinnard"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "athlete:nfl:4430330",
       "displayName": "Darien Porter",
       "shortName": "D. Porter",
@@ -22684,6 +22754,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3123076/david-njoku"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4426507",
+      "displayName": "David Ojabo",
+      "shortName": "D. Ojabo",
+      "aliases": [
+        "David Ojabo",
+        "D. Ojabo"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "NIGERIA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:no",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "DE",
+      "identityId": "athlete:nfl:4426507",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4426507.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4426507/david-ojabo"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -41563,41 +41668,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "athlete:nfl:4569680",
-      "displayName": "Jamon Johnson",
-      "shortName": "J. Johnson",
-      "aliases": [
-        "Jamon Johnson",
-        "J. Johnson"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:bal",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "LB",
-      "identityId": "athlete:nfl:4569680",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4569680.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4569680/jamon-johnson"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "athlete:nfl:4372463",
       "displayName": "Jamree Kromah",
       "shortName": "J. Kromah",
@@ -45168,6 +45238,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "athlete:nfl:3115914",
+      "displayName": "Jihad Ward",
+      "shortName": "J. Ward",
+      "aliases": [
+        "Jihad Ward",
+        "J. Ward"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:nyg",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "LB",
+      "identityId": "athlete:nfl:3115914",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3115914.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/3115914/jihad-ward"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "athlete:nfl:4689804",
       "displayName": "Jimmy Ciarlo",
       "shortName": "J. Ciarlo",
@@ -46128,7 +46233,7 @@
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
-      "currentTeamId": "team:nfl:pit",
+      "currentTeamId": "team:nfl:dal",
       "leagueId": "competition:nfl",
       "teamKind": null,
       "position": "CB",
@@ -46490,41 +46595,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4248047/john-ridgeway-iii"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4608762",
-      "displayName": "John Saunders Jr.",
-      "shortName": "J. Saunders Jr.",
-      "aliases": [
-        "John Saunders Jr.",
-        "J. Saunders Jr."
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:nyj",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "DB",
-      "identityId": "athlete:nfl:4608762",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4608762.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4608762/john-saunders-jr"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -47750,6 +47820,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4428996/jordan-burch"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4429411",
+      "displayName": "Jordan Clark",
+      "shortName": "J. Clark",
+      "aliases": [
+        "Jordan Clark",
+        "J. Clark"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:nyj",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "CB",
+      "identityId": "athlete:nfl:4429411",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429411.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4429411/jordan-clark"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -49675,6 +49780,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4682692/josh-thompson"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:2979632",
+      "displayName": "Josh Tupou",
+      "shortName": "J. Tupou",
+      "aliases": [
+        "Josh Tupou",
+        "J. Tupou"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:nyg",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "DT",
+      "identityId": "athlete:nfl:2979632",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2979632.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/2979632/josh-tupou"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -54092,6 +54232,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "athlete:nfl:4240548",
+      "displayName": "Kendrick Green",
+      "shortName": "K. Green",
+      "aliases": [
+        "Kendrick Green",
+        "K. Green"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:nyg",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "C",
+      "identityId": "athlete:nfl:4240548",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240548.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4240548/kendrick-green"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "athlete:nfl:4685441",
       "displayName": "Kendrick Law",
       "shortName": "K. Law",
@@ -55282,41 +55457,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "athlete:nfl:3047876",
-      "displayName": "KhaDarel Hodge",
-      "shortName": "K. Hodge",
-      "aliases": [
-        "KhaDarel Hodge",
-        "K. Hodge"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:sf",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "WR",
-      "identityId": "athlete:nfl:3047876",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3047876.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3047876/khadarel-hodge"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "athlete:nfl:4039029",
       "displayName": "Khalid Kareem",
       "shortName": "K. Kareem",
@@ -55799,6 +55939,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4036651/kindle-vildor"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4567410",
+      "displayName": "Kingsley Eguakun",
+      "shortName": "K. Eguakun",
+      "aliases": [
+        "Kingsley Eguakun",
+        "K. Eguakun"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:ari",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "C",
+      "identityId": "athlete:nfl:4567410",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567410.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4567410/kingsley-eguakun"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -58770,7 +58945,7 @@
       "identityId": "athlete:nfl:5080699",
       "logoUrl": null,
       "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/5080699.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5080699.png",
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
@@ -60011,6 +60186,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "athlete:nfl:4428125",
+      "displayName": "Maema Njongmeta",
+      "shortName": "M. Njongmeta",
+      "aliases": [
+        "Maema Njongmeta",
+        "M. Njongmeta"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:car",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "LB",
+      "identityId": "athlete:nfl:4428125",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428125.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4428125/maema-njongmeta"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "athlete:nfl:4429036",
       "displayName": "Major Burns",
       "shortName": "M. Burns",
@@ -60773,6 +60983,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4595348/malik-nabers"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:3115928",
+      "displayName": "Malik Turner",
+      "shortName": "M. Turner",
+      "aliases": [
+        "Malik Turner",
+        "M. Turner"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:sf",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "WR",
+      "identityId": "athlete:nfl:3115928",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3115928.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/3115928/malik-turner"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -61866,41 +62111,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "athlete:nfl:4685425",
-      "displayName": "Marvin Jones Jr.",
-      "shortName": "M. Jones Jr.",
-      "aliases": [
-        "Marvin Jones Jr.",
-        "M. Jones Jr."
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:wsh",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "LB",
-      "identityId": "athlete:nfl:4685425",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4685425.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4685425/marvin-jones-jr"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "athlete:nfl:4686472",
       "displayName": "Marvin Mims Jr.",
       "shortName": "M. Mims Jr.",
@@ -62581,7 +62791,7 @@
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
-      "currentTeamId": "team:nfl:ari",
+      "currentTeamId": "team:nfl:ne",
       "leagueId": "competition:nfl",
       "teamKind": null,
       "position": "OT",
@@ -66832,6 +67042,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4362895/nathaniel-watson"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4689989",
+      "displayName": "Natrone Brooks",
+      "shortName": "N. Brooks",
+      "aliases": [
+        "Natrone Brooks",
+        "N. Brooks"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:min",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "CB",
+      "identityId": "athlete:nfl:4689989",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4689989.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4689989/natrone-brooks"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -79099,6 +79344,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "athlete:nfl:4361651",
+      "displayName": "Tanner Ingle",
+      "shortName": "T. Ingle",
+      "aliases": [
+        "Tanner Ingle",
+        "T. Ingle"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:lar",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "S",
+      "identityId": "athlete:nfl:4361651",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4361651.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4361651/tanner-ingle"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "athlete:nfl:4917427",
       "displayName": "Tanner Koziol",
       "shortName": "T. Koziol",
@@ -86116,7 +86396,7 @@
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
-      "currentTeamId": "team:nfl:ind",
+      "currentTeamId": "team:nfl:no",
       "leagueId": "competition:nfl",
       "teamKind": null,
       "position": "RB",
@@ -86443,41 +86723,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4430218/vershon-lee"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4374148",
-      "displayName": "Viliami Fehoko Jr.",
-      "shortName": "V. Fehoko Jr.",
-      "aliases": [
-        "Viliami Fehoko Jr.",
-        "V. Fehoko Jr."
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:sf",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "DE",
-      "identityId": "athlete:nfl:4374148",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4374148.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4374148/viliami-fehoko-jr"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -88370,41 +88615,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4431353/xavier-restrepo"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4386544",
-      "displayName": "Xavier Smith",
-      "shortName": "X. Smith",
-      "aliases": [
-        "Xavier Smith",
-        "X. Smith"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:lar",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "WR",
-      "identityId": "athlete:nfl:4386544",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4386544.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4386544/xavier-smith"
       ],
       "watchPoolMember": false,
       "statusCategory": null,

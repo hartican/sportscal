@@ -7,12 +7,19 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
-assert.equal(manifest.sports.length, 44, "all exposed sports plus NBL and the published child codes require lazy chunks");
+const expectedDirectoryKeys="afl,aflw,nrl,nrlw,motorsport,f1,motogp,wrc,dakar,supercars,extreme,surf,skiing,rugby,tennis,football,cycling,cricket,surf-women,skiing-women,extreme-women,hockey-women,gymnastics-women,nba-women,cricket-women,rugby-women,football-women,tennis-women,golf-women,cycling-women,athletics-women,swimming-women,boxing-women,ice-hockey-women,nba,nbl,fiba-women,sailgp,golf,american-football,athletics,swimming,netball,ice-hockey,boxing".split(",");
+assert.deepEqual(manifest.sports.map(sport=>sport.key).sort(),expectedDirectoryKeys.sort(),"every published choice, including the existing Dakar child, needs exactly one lazy chunk; hidden supports remain separate");
 for (const supportKey of ["hockey", "multi-sport"]){
   const supportChunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${supportKey}.v1.json`), "utf8"));
   assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
 }
 manifest.sports.forEach(sport => {
+  if(sport.key==='dakar'){
+    assert.equal(sport.status,'unavailable','Calendar-only Dakar must not imply a sourced participant directory');
+    assert.equal(sport.recordCount,0,'do not invent Dakar entries');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(ROOT,sport.jsonUrl),'utf8')).records.length,0);
+    assert(fs.existsSync(path.join(ROOT,sport.jsonUrl.replace(/\.json$/,'.js'))),'Dakar retains its honest empty direct-file fallback');return;
+  }
   if(sport.key==='supercars'){
     assert.equal(sport.status,'schedule-only','Bathurst-only scope must not imply a sourced driver directory');
     assert.equal(sport.recordCount,0,'do not invent Supercars participants');

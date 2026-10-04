@@ -15,7 +15,9 @@ for(const e of pending){const projected=normalizeFixture(e,'sport:football');ass
 for(const e of confirmed){assert.equal(e.timePrecision,'exact');const p=normalizeFixture(e,'sport:football');assert.equal(p.timingProvenance.sourceUrl,e.timingProvenance.sourceUrl);assert.equal(p.timingProvenance.checkedAt,review.observedAt);}
 // Controlled replay of the dated seventy reviewed matches. Current provider
 // completion/rescheduling is allowed to advance without freezing a QA count.
-const controlled=review.fixtures.map(row=>certainty.qualify({...baseline.find(f=>String(f.canonicalSourceId||f.canonicalEventId?.split(':').at(-1)||f.id.split('-').at(-1))===String(row.sourceFixtureId)),status:'upcoming',roundNumber:row.roundNumber,participantIds:row.participantIds,startTimeUtc:row.startTimeUtc,timeTbc:false,startTimeTbc:false}));
+// Pin the synthetic replay observation too: a later real poll cannot be used
+// as a future observation when testing the original dated review clock.
+const controlled=review.fixtures.map(row=>certainty.qualify({...baseline.find(f=>String(f.canonicalSourceId||f.canonicalEventId?.split(':').at(-1)||f.id.split('-').at(-1))===String(row.sourceFixtureId)),status:'upcoming',roundNumber:row.roundNumber,participantIds:row.participantIds,startTimeUtc:row.startTimeUtc,timeTbc:false,startTimeTbc:false,sourceCheckedAt:review.observedAt}));
 assert.equal(controlled.length,70);assert(controlled.every(e=>e.scheduleStatus==='confirmed'&&policy.timing(identity.normalizeCore(e),now)),'all seventy dated reviewed clocks remain eligible in the controlled replay');
 const e=controlled[0];
 for(const mutation of [{startTimeUtc:new Date(Date.parse(e.startTimeUtc)+3600000).toISOString()},{participantIds:[...e.participantIds].reverse()},{roundNumber:38}]){const changed=certainty.qualify({...e,...mutation});assert.equal(changed.scheduleStatus,'provisional','a changed fact cannot borrow older confirmation');assert.equal(changed.timingProvenance,undefined);}

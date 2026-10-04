@@ -1,7 +1,7 @@
 {
   "schemaVersion": "coverage-report.v1",
-  "reportId": "coverage-report:2026-10-02",
-  "referenceDate": "2026-10-02",
+  "reportId": "coverage-report:2026-10-04",
+  "referenceDate": "2026-10-04",
   "generatedAt": "2026-09-30T22:37:31.000Z",
   "refreshPolicy": {
     "weeklyBreadth": true,
@@ -147,7 +147,7 @@
       "status": "loaded",
       "sourceMode": "reviewed_export",
       "observedAt": "2026-09-30T22:37:31.000Z",
-      "ageDays": 2,
+      "ageDays": 4,
       "windowStart": "2026-10-01",
       "windowEnd": "2026-10-07",
       "itemCount": 11,
@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 1064,
+    "canonicalEventsCompared": 1504,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 11,
@@ -326,7 +326,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:2x8qtt",
       "candidateId": "coverage:2x8qtt",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "NPC",
       "eventTitle": "NPC",
       "source": "stan_sport",
@@ -419,7 +419,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1rakehv",
       "candidateId": "coverage:1rakehv",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "WRC",
       "eventTitle": "WRC",
       "source": "stan_sport",
@@ -521,13 +521,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:z1pbu",
       "candidateId": "coverage:z1pbu",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "WTA 1000",
       "eventTitle": "WTA 1000",
       "source": "stan_sport",
@@ -569,6 +569,16 @@
             "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-10-02",
             "title": "China Open — WTA 1000",
             "confidence": 0.13
+          },
+          {
+            "canonicalEventId": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+            "title": "Alex de Minaur v Quentin Halys",
+            "confidence": 0
+          },
+          {
+            "canonicalEventId": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+            "title": "Carlos Alcaraz v Matteo Arnaldi",
+            "confidence": 0
           }
         ]
       },
@@ -621,13 +631,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:l93a7g",
       "candidateId": "coverage:l93a7g",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "NWSL",
       "eventTitle": "NWSL",
       "source": "stan_sport",
@@ -714,13 +724,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:jip4t3",
       "candidateId": "coverage:jip4t3",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "Premiership Rugby",
       "eventTitle": "Premiership Rugby",
       "source": "stan_sport",
@@ -807,13 +817,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:2vjyxl",
       "candidateId": "coverage:2vjyxl",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "Super Rugby AUS",
       "eventTitle": "Super Rugby AUS",
       "source": "stan_sport",
@@ -900,13 +910,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:n5ye2a",
       "candidateId": "coverage:n5ye2a",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "UCI Mountain Bike World Series",
       "eventTitle": "UCI Mountain Bike World Series",
       "source": "stan_sport",
@@ -993,13 +1003,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:kb3ey6",
       "candidateId": "coverage:kb3ey6",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "WSL",
       "eventTitle": "WSL",
       "source": "stan_sport",
@@ -1008,7 +1018,7 @@
       "startsAt": "2026-10-03T12:30:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.45,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -1031,17 +1041,11 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.45,
+        "confidence": 0,
         "reasonCodes": [
-          "competition_match"
+          "no_catalogue_match"
         ],
-        "alternatives": [
-          {
-            "canonicalEventId": "calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026",
-            "title": "WSL Margaret River Pro",
-            "confidence": 0.45
-          }
-        ]
+        "alternatives": []
       },
       "broadcastsAu": [
         {
@@ -1091,13 +1095,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1dt3qeq",
       "candidateId": "coverage:1dt3qeq",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "Australian Schoolboys/U18s",
       "eventTitle": "Australian Schoolboys/U18s",
       "source": "stan_sport",
@@ -1190,7 +1194,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1vg2ed",
       "candidateId": "coverage:1vg2ed",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "Motocross Of Nations",
       "eventTitle": "Motocross Of Nations",
       "source": "stan_sport",
@@ -1199,7 +1203,7 @@
       "startsAt": "2026-10-04T11:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.08,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "normal",
@@ -1222,16 +1226,9 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.08,
-        "reasonCodes": [
-          "same_calendar_date"
-        ],
+        "confidence": 0,
+        "reasonCodes": [],
         "alternatives": [
-          {
-            "canonicalEventId": "evt_motogp_2026_japan",
-            "title": "MotoGP Japanese Grand Prix",
-            "confidence": 0.08
-          },
           {
             "canonicalEventId": "evt_f1_2026_bahrain_practice_3",
             "title": "Bahrain GP (Malaysia) · Practice 3",
@@ -1240,6 +1237,11 @@
           {
             "canonicalEventId": "evt_f1_2026_bahrain_qualifying",
             "title": "Bahrain GP (Malaysia) · Qualifying",
+            "confidence": 0
+          },
+          {
+            "canonicalEventId": "evt_f1_2026_bahrain_race",
+            "title": "Bahrain GP (Malaysia) · Race",
             "confidence": 0
           }
         ]
@@ -1299,7 +1301,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:hc272w",
       "candidateId": "coverage:hc272w",
-      "reportId": "coverage-report:2026-10-02",
+      "reportId": "coverage-report:2026-10-04",
       "title": "WXV",
       "eventTitle": "WXV",
       "source": "stan_sport",

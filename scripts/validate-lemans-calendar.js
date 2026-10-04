@@ -27,4 +27,22 @@ if(process.argv.includes('--published')){
  const chunk=require('../data/code-inspector/lemans.json');assert.equal(chunk.fixtures.length,26);assert.equal(chunk.coverageStatus,'partial');assert(chunk.fixtures.some(e=>e.sourceEventIds?.includes('evt_80')&&e.timePrecision==='estimated'&&e.estimatedStartTimeUtc));
  const parents=require('../data/event-overviews.v1.json').events.filter(e=>e.lemansCalendar);assert.equal(parents.length,2);assert(parents.every(e=>e.fixtureIds.length===13&&art.resolve(e).kind==='venue'));
 }
+// The real programme writer normalises every retained legacy card. Empty
+// invented participant arrays must not turn two known field races into invalid
+// head-to-head records at the publication boundary.
+const programme=require('./sync-programme-fixtures-to-feed');
+const published=require('../data/events.json');
+const repaired=programme.sync(published);
+for(const id of ['evt_79','evt_80']){
+ const before=published.events.find(e=>e.id===id),after=repaired.events.find(e=>e.id===id);
+ assert(before&&after&&after.lemansCalendar,'actual legacy field-race seam required');
+ assert(!Object.hasOwn(after,'participants'),'legacy field race must retain unknown/absent participants rather than a synthetic empty matchup');
+ for(const key of ['id','status','startTimeUtc','estimatedStartTimeUtc','sourceUrl','sourceCheckedAt','outcomeText','result','score'])assert.deepEqual(after[key],before[key],id+': field serialization preserves '+key);
+}
+for(const changes of [{participants:[{name:''}]},{name:'Unknown A v Unknown B',participants:[]}]){
+ const bad=copy(published);Object.assign(bad.events.find(e=>e.id==='evt_79'),changes);
+ const result=programme.sync(bad);const row=result.events.find(e=>e.id==='evt_79');
+ assert(Object.hasOwn(row,'participants'),'malformed or head-to-head records cannot use the field omission rule');
+ assert(require('./lib/feed-utils').validateFeed(result).some(issue=>issue.includes('.participants')),'publication must still reject malformed/head-to-head participants');
+}
 console.log('Le Mans: official 26-record programme, 16 sporting cards, practice exclusion, exact start/approximate finish, TBC preservation, legacy IDs, family consent/server parity, Sarthe configuration, transparent native paths and failed-source preservation passed. Reviewed WRC withdrawal projection passed.');

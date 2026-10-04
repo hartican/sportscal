@@ -1,60 +1,47 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-10-01T17:45:12.199Z",
+  "generatedAt": "2026-10-04T05:04:11.431Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 13,
-    "passed": 13,
+    "due": 15,
+    "passed": 15,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "id": "tennis-tournament-wta-beijing-2026-2026-10-04",
       "name": "China Open — WTA 1000",
       "sport": "Tennis",
-      "date": "2026-10-02",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "wta-tour",
-        "wta_1000",
-        "active-tournament-window",
-        "hard-surface"
-      ],
-      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_f1_2026_bahrain_qualifying",
-      "name": "Bahrain GP (Malaysia) · Qualifying",
-      "sport": "Formula 1",
-      "date": "2026-10-03",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-      "issues": []
-    },
-    {
-      "id": "evt_motogp_2026_japan",
-      "name": "MotoGP Japanese Grand Prix",
-      "sport": "MotoGP",
       "date": "2026-10-04",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:schedule",
         "narrative:format",
-        "narrative:consequence"
+        "narrative:matchup",
+        "narrative:path",
+        "narrative:schedule"
       ],
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceUrl": "https://www.wtatennis.com/tournaments/china-open",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_japan",
+      "name": "MotoGP Japan Grand Prix",
+      "sport": "MotoGP",
+      "date": "2026-10-04",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:schedule",
+        "narrative:venue",
+        "narrative:format"
+      ],
+      "sourceUrl": "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
       "issues": []
     },
     {
@@ -67,9 +54,11 @@
       "contextSignals": [
         "event-specific",
         "narrative:matchup",
-        "narrative:schedule"
+        "narrative:form",
+        "narrative:consequence",
+        "narrative:history"
       ],
-      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
       "issues": []
     },
     {
@@ -81,11 +70,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
+        "narrative:venue",
+        "narrative:format",
         "narrative:schedule",
-        "narrative:form",
-        "narrative:consequence"
+        "narrative:matchup"
       ],
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "sourceUrl": "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
       "issues": []
     },
     {
@@ -98,13 +88,13 @@
       "contextSignals": [
         "event-specific",
         "narrative:matchup",
-        "narrative:venue",
+        "narrative:consequence",
         "narrative:schedule",
-        "narrative:form",
         "narrative:history",
+        "narrative:form",
         "narrative:path"
       ],
-      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
       "issues": []
     },
     {
@@ -141,6 +131,51 @@
       "issues": []
     },
     {
+      "id": "evt_motogp_2026_indonesia_qualifying",
+      "name": "MotoGP Indonesia Grand Prix · Qualifying (Q1 + Q2)",
+      "sport": "MotoGP",
+      "date": "2026-10-10",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying (Q1 + Q2)"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "issues": []
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "name": "All Blacks v Wallabies",
+      "sport": "Rugby Union",
+      "date": "2026-10-10",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:schedule",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_indonesia_sprint",
+      "name": "MotoGP Indonesia Grand Prix · Sprint",
+      "sport": "MotoGP",
+      "date": "2026-10-10",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "official-schedule",
+        "Sprint"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "issues": []
+    },
+    {
       "id": "evt_f1_2026_singapore_sprint",
       "name": "Singapore GP · Sprint",
       "sport": "Formula 1",
@@ -173,22 +208,6 @@
       "issues": []
     },
     {
-      "id": "evt_motogp_2026_indonesia",
-      "name": "MotoGP Indonesian Grand Prix",
-      "sport": "MotoGP",
-      "date": "2026-10-11",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "issues": []
-    },
-    {
       "id": "supercars-bathurst-1000-2026",
       "name": "Bathurst 1000",
       "sport": "V8 Supercars",
@@ -198,10 +217,30 @@
       "contextSignals": [
         "event-specific",
         "narrative:schedule",
+        "narrative:venue",
+        "narrative:consequence",
+        "narrative:path",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_indonesia",
+      "name": "MotoGP Indonesia Grand Prix",
+      "sport": "MotoGP",
+      "date": "2026-10-11",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
         "narrative:format",
         "narrative:consequence"
       ],
-      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "issues": []
     },
     {

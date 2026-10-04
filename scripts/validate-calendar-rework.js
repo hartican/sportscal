@@ -38,7 +38,8 @@ const prefs={followedSports:['tennis'],followFirst:{australiansOnlySportIds:['sp
 const tennis={...fixture,key:'tennis',participantIds:[],participantCountryCodes:['FR']};
 assert.equal(follow.reasonForEvent(tennis,prefs),null);
 assert.equal(follow.reasonForEvent({...tennis,participantCountryCodes:['AU']},prefs),null,'nationality does not bypass ordinary tennis player follows');
-assert(follow.reasonForEvent({...tennis,participantIds:['player:foreign']},prefs));
+assert.equal(follow.reasonForEvent({...tennis,participantIds:['player:foreign']},prefs),null,'individual tennis follows require known category/stage scope');
+assert(follow.reasonForEvent({...tennis,participantIds:['player:foreign'],tournamentLevel:'grand-slam',isKnockout:true},prefs),'explicit synthetic knockout metadata exercises the approved individual path');
 assert.equal(follow.reasonForEvent(tennis,{...prefs,followedSports:[]}),null);
 assert.deepEqual(follow.migratePreferences(follow.migratePreferences(prefs)),follow.migratePreferences(prefs));
 const docs=require('../data/major-events.v1.json');const tickets=major.visibleRecords(docs,['tennis','motorsport'],new Date('2026-09-05T00:00:00Z')).alerts;
@@ -51,5 +52,5 @@ assert(fs.readFileSync('assets/providers/bein-sports-connect.svg','utf8').includ
 const all=catalogue();assert(all.length>3000);const chosen=all.find(e=>calendar.knownDate(e));
 assert(subscriptionEvents({preferences:{}},{includedIds:[calendar.idFor(chosen)]}).some(e=>calendar.idFor(e)===calendar.idFor(chosen)));
 const html=fs.readFileSync('index.html','utf8');new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow','Match Centre']);
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow'],'retain the later approved Match Centre and Follow navigation order');
 console.log('Calendar and timeline rework: identity, DST, midnight, overnight, completion, bulk selection, follow restrictions, Tickets and provider checks passed.');

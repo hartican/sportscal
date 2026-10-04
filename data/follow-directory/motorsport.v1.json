@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "motorsport",
   "label": "Motorsport",
-  "generatedAt": "2026-10-01T17:37:45Z",
+  "generatedAt": "2026-10-04T04:26:58.1383692Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -32,12 +32,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -130,12 +132,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -164,12 +168,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -262,12 +268,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -296,12 +304,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -330,12 +340,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -364,12 +376,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -462,12 +476,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -496,12 +512,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -564,12 +582,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -628,12 +648,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -662,12 +684,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -696,12 +720,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -730,12 +756,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -828,12 +856,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -926,12 +956,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -990,12 +1022,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1058,12 +1092,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1122,12 +1158,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1190,12 +1228,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1224,12 +1264,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1258,12 +1300,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1386,12 +1430,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1420,12 +1466,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1488,12 +1536,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1586,12 +1636,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1654,12 +1706,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1688,12 +1742,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1722,12 +1778,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1790,12 +1848,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1858,12 +1918,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1892,12 +1954,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1926,12 +1990,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -1960,12 +2026,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2062,12 +2130,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2096,12 +2166,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2164,12 +2236,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2198,12 +2272,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2266,12 +2342,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2300,12 +2378,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2334,12 +2414,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2402,12 +2484,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2436,12 +2520,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2470,12 +2556,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2537,12 +2625,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2605,12 +2695,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2639,12 +2731,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2673,12 +2767,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2741,12 +2837,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2775,12 +2873,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2843,12 +2943,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2877,12 +2979,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2911,12 +3015,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2945,12 +3051,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -2979,12 +3087,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3013,12 +3123,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3047,12 +3159,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3081,12 +3195,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3115,12 +3231,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3149,12 +3267,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3183,12 +3303,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3217,12 +3339,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3251,12 +3375,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3285,12 +3411,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3319,12 +3447,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3353,12 +3483,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3387,12 +3519,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3421,12 +3555,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3455,12 +3591,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3489,12 +3627,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3523,12 +3663,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3557,12 +3699,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3591,12 +3735,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3625,12 +3771,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3659,12 +3807,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3693,12 +3843,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3727,12 +3879,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     },
     {
@@ -3761,12 +3915,14 @@
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
-        "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        "https://www.stan.com.au/watch/sport/motorsport/wrc",
+        "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+        "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-01T17:36:24.184Z",
+      "sourceCheckedAt": "2026-10-04T04:24:59.730Z",
       "sourceReviewAfter": null
     }
   ]

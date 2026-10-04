@@ -1,41 +1,41 @@
 {
-  "version": "weekend-editorial-20261003222329509-20261004030239404",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261004050322974",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-04T03:02:39.404Z",
+  "publishedAt": "2026-10-04T05:03:22.974Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
+    "dakar",
+    "sailgp",
     "wrc",
     "nfl",
+    "motogp",
+    "wsl",
+    "masters",
+    "giro",
+    "golf",
     "nba",
+    "lemans",
     "fifa",
+    "nrlw",
     "wimbledon",
     "rugby",
+    "tdf",
     "f1",
     "nrl",
     "afl",
     "cwg",
     "cricket",
     "premier-league",
+    "vuelta",
     "aflw",
     "tennis",
     "fiba-women",
-    "nrlw",
     "football",
     "supercars",
     "downhill-mtb",
     "big-wave",
     "ski",
-    "goodwood",
-    "sailgp",
-    "wsl",
-    "tdf",
-    "giro",
-    "vuelta",
-    "golf",
-    "masters",
-    "dakar",
-    "lemans",
-    "motogp"
+    "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -51,6 +51,16 @@
     "daysAhead": 362,
     "coversStandardPreloadWindow": true,
     "sports": {
+      "dakar": {
+        "count": 28,
+        "firstEventDate": "2026-01-03",
+        "lastEventDate": "2027-01-15"
+      },
+      "sailgp": {
+        "count": 46,
+        "firstEventDate": "2026-01-17",
+        "lastEventDate": "2027-09-12"
+      },
       "wrc": {
         "count": 15,
         "firstEventDate": "2026-01-22",
@@ -61,15 +71,50 @@
         "firstEventDate": "2026-02-09",
         "lastEventDate": "2026-02-09"
       },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
+      },
+      "wsl": {
+        "count": 12,
+        "firstEventDate": "2026-04-01",
+        "lastEventDate": "2026-12-08"
+      },
+      "masters": {
+        "count": 4,
+        "firstEventDate": "2026-04-09",
+        "lastEventDate": "2026-04-12"
+      },
+      "giro": {
+        "count": 21,
+        "firstEventDate": "2026-05-08",
+        "lastEventDate": "2026-05-31"
+      },
+      "golf": {
+        "count": 32,
+        "firstEventDate": "2026-05-14",
+        "lastEventDate": "2027-07-18"
+      },
       "nba": {
         "count": 172,
         "firstEventDate": "2026-06-04",
         "lastEventDate": "2027-02-14"
       },
+      "lemans": {
+        "count": 26,
+        "firstEventDate": "2026-06-10",
+        "lastEventDate": "2027-06-14"
+      },
       "fifa": {
         "count": 20,
         "firstEventDate": "2026-06-14",
         "lastEventDate": "2026-07-20"
+      },
+      "nrlw": {
+        "count": 71,
+        "firstEventDate": "2026-07-02",
+        "lastEventDate": "2026-10-04"
       },
       "wimbledon": {
         "count": 32,
@@ -80,6 +125,11 @@
         "count": 15,
         "firstEventDate": "2026-07-04",
         "lastEventDate": "2026-11-28"
+      },
+      "tdf": {
+        "count": 24,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2027-07-04"
       },
       "f1": {
         "count": 61,
@@ -111,25 +161,25 @@
         "firstEventDate": "2026-08-22",
         "lastEventDate": "2027-05-31"
       },
+      "vuelta": {
+        "count": 21,
+        "firstEventDate": "2026-08-22",
+        "lastEventDate": "2026-09-13"
+      },
       "aflw": {
         "count": 90,
         "firstEventDate": "2026-08-29",
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 20,
+        "count": 21,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-03"
+        "lastEventDate": "2026-10-04"
       },
       "fiba-women": {
         "count": 17,
         "firstEventDate": "2026-09-06",
         "lastEventDate": "2026-09-14"
-      },
-      "nrlw": {
-        "count": 71,
-        "firstEventDate": "2026-07-02",
-        "lastEventDate": "2026-10-04"
       },
       "football": {
         "count": 2,
@@ -160,56 +210,6 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
-      },
-      "sailgp": {
-        "count": 46,
-        "firstEventDate": "2026-01-17",
-        "lastEventDate": "2027-09-12"
-      },
-      "wsl": {
-        "count": 12,
-        "firstEventDate": "2026-04-01",
-        "lastEventDate": "2026-12-08"
-      },
-      "tdf": {
-        "count": 24,
-        "firstEventDate": "2026-07-05",
-        "lastEventDate": "2027-07-04"
-      },
-      "giro": {
-        "count": 21,
-        "firstEventDate": "2026-05-08",
-        "lastEventDate": "2026-05-31"
-      },
-      "vuelta": {
-        "count": 21,
-        "firstEventDate": "2026-08-22",
-        "lastEventDate": "2026-09-13"
-      },
-      "golf": {
-        "count": 32,
-        "firstEventDate": "2026-05-14",
-        "lastEventDate": "2027-07-18"
-      },
-      "masters": {
-        "count": 4,
-        "firstEventDate": "2026-04-09",
-        "lastEventDate": "2026-04-12"
-      },
-      "dakar": {
-        "count": 28,
-        "firstEventDate": "2026-01-03",
-        "lastEventDate": "2027-01-15"
-      },
-      "lemans": {
-        "count": 26,
-        "firstEventDate": "2026-06-10",
-        "lastEventDate": "2027-06-14"
-      },
-      "motogp": {
-        "count": 205,
-        "firstEventDate": "2026-02-27",
-        "lastEventDate": "2027-10-01"
       }
     }
   }

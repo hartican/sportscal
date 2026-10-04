@@ -217,6 +217,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/update-editorial-audience-memory.js", "--write"],
   ["scripts/apply-editorial-narratives.js", "--write"],
   ["scripts/prepare-result-editorial.js"],
+  // The existing cold pin bootstrap depends on the just-published projection.
+  // Refresh its owning bundle before offline/readiness validators consume it.
+  ["scripts/build-app-shell-runtime.js"],
   ["scripts/validate-major-events.js"],
   ["scripts/build-editorial-research-queue.js", "--write"],
   // Canonical fixture reconciliation can resolve placeholder identities after
@@ -236,6 +239,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-editorial-locks.js", "--published"],
   ["scripts/validate-card-coverage-corrections.js"],
+  ["scripts/build-tennis-feed-parents.js"],
   ["scripts/validate-editorial-narratives.js"],
   ["scripts/build-app-shell-runtime.js"],
   ["scripts/build-app-shell-runtime.js", "--check"],

@@ -18,9 +18,16 @@ function displayCopy(event, spoilersOn) {
       synopsis: storyline.synopsisSpoilerOff || storyline.synopsisSpoilerOn || event.fullSpiel || "",
     };
   }
-  return spoilersOn
-    ? { hook: storyline.hookSpoilerOn || event.outcomeText || "", synopsis: storyline.synopsisSpoilerOn || event.recapText || "" }
-    : { hook: storyline.hookSpoilerOff || "", synopsis: storyline.synopsisSpoilerOff || "" };
+  // Match the actual card renderer and spoiler QA's existing safe fallback.
+  if (spoilersOn) return {
+    hook:storyline.hookSpoilerOn || event.outcomeText || event.selectedSentence || "",
+    synopsis:storyline.synopsisSpoilerOn || event.recapText || event.fullSpiel || event.selectedSentence || "",
+  };
+  const title = event.displayTitleCompact || event.name || "This event";
+  return {
+    hook:storyline.hookSpoilerOff || `${title} is complete, with the result protected until you choose to reveal it.`,
+    synopsis:storyline.synopsisSpoilerOff || `${title} is complete. The key moments and result are ready when you are, without giving anything away here.`,
+  };
 }
 
 const cards = feed.events.filter(isMajorCard).map(event => {

@@ -3,7 +3,7 @@
   "year": 2026,
   "sourceUrl": "https://api.pulselive.motogp.com/motogp/v1/events?seasonYear=2026",
   "calendarUrl": "https://www.motogp.com/en/calendar/2026",
-  "checkedAt": "2026-10-03T07:03:56.198Z",
+  "checkedAt": "2026-10-04T04:26:21.292Z",
   "weekends": [
     {
       "id": "364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
@@ -1399,9 +1399,9 @@
           "id": "e7740605-7724-49d9-976a-f310fd988d52",
           "shortname": "WUP",
           "name": "Warm Up",
-          "date_start": "2026-10-04T09:40:00+0900",
-          "date_end": "2026-10-04T09:50:00+0900",
-          "status": "NOT-STARTED"
+          "date_start": "2026-10-04T09:35:00+0900",
+          "date_end": "2026-10-04T09:55:00+0900",
+          "status": "FINISHED"
         },
         {
           "id": "58ac6e5d-377c-458e-b2fd-bef398540ff6",

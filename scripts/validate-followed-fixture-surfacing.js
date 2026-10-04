@@ -265,9 +265,13 @@ assert.equal(majorEventsConfig.fixtureFromSubEvent(rawAlcarazFixture, usOpen).di
 
 assert.deepEqual(
   followFeedPolicy.followedFixtureDecision(alcarazFixture, { followed:true, followSource:"collection", now:new Date("2026-08-31T04:00:00.000Z") }),
-  { mode:"direct", include:true, label:"In Feed via follow" },
-  "a released 4/5 followed fixture must enter Feed as soon as date and opponents are known",
+  { mode:"manual", include:false, label:"Add to Feed" },
+  "the legacy match lacks category/stage scope: neither stakes nor a collection follow may manufacture that evidence",
 );
+// Explicit synthetic admission metadata exercises the approved individual
+// policy without inventing scope in the real published historical record.
+const scopedAlcaraz={...alcarazFixture,tournamentLevel:'grand-slam',isKnockout:true};
+assert.deepEqual(followFeedPolicy.followedFixtureDecision(scopedAlcaraz,{followed:true,followSource:'collection'}),{mode:'direct',include:true,label:'In Feed via follow'},'known main-draw knockout scope admits the followed player independently of stakes and timing precision');
 
 const activeTopTenFixtures = releasedTopTenFixtures.filter(event => event.date >= "2026-08-31" && ["scheduled", "live", "completed"].includes(event.status));
 const auditedTopTenFeed = buildServerFeed({
@@ -282,8 +286,8 @@ activeTopTenFixtures.forEach(fixture => {
   const decision = followFeedPolicy.followedFixtureDecision(fixture, { followed:true, followSource:"collection", now:new Date("2026-08-31T04:00:00.000Z") });
   assert.equal(
     auditedTopTenFeed.events.some(event => event.id === fixture.id),
-    decision.include,
-    `${fixture.name} must match the shared ${decision.mode} Feed rule`,
+    decision.include || Boolean(require('../config/follow-first').reasonForEvent(fixture,topTenTennisState.preferences)),
+    `${fixture.name} must match the shared individual rule or the retained broad tennis-final path`,
   );
 });
 const lowStakesTomorrow = { ...alcarazFixture, id:"fixture:test:tomorrow", eventId:"fixture:test:tomorrow", canonicalEventId:"fixture:test:tomorrow", stakesScore:2, storyline:{ stakes:2 }, date:"2026-09-01" };
@@ -307,11 +311,13 @@ assert.deepEqual(
   { mode:"immediate", include:true, label:"In Feed via follow" },
   "a rugby league elimination final qualifies through the sport-appropriate round rule",
 );
-const djokovicFixture = resolvedTennis.events.find(event => (
+const rawDjokovicFixture = resolvedTennis.events.find(event => (
   event.id === DJOKOVIC_US_OPEN_ID
   && event.participantIds.includes(DJOKOVIC_ID)
 ));
-assert(djokovicFixture, "the Men's current top 10 collection must resolve Djokovic's released US Open match");
+assert(rawDjokovicFixture, "the Men's current top 10 collection must resolve Djokovic's released US Open match");
+assert.equal(followFeedPolicy.followedFixtureDecision(rawDjokovicFixture,{followed:true,followSource:'collection'}).include,false,'a resolved legacy match without scope stays available for manual selection');
+const djokovicFixture={...rawDjokovicFixture,tournamentLevel:'grand-slam',isKnockout:true};
 
 const collectionInheritedMajorEvents = majorEventsConfig.visibleRecords({...majorEventsDocument,events:majorEventsDocument.events.map(event=>event.id==="major-event:us-open-2026"?{...event,lifecycleStatus:"active"}:event)}, {
   followedSports:[],

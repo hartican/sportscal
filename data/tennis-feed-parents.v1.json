@@ -15004,7 +15004,62 @@
         "competitor:tennis:wta:aryna-sabalenka",
         "competitor:tennis:wta:nikola-bartunkova"
       ],
-      "contestCount": 1
+      "contestCount": 1,
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",
+        "researchTier": "marquee",
+        "hook": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+        "synopsis": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+        "threadIds": [
+          "thread:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+        ],
+        "factIds": [
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:3"
+        ],
+        "sourceIds": [
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2"
+        ],
+        "dimensions": [
+          "format",
+          "matchup",
+          "path",
+          "schedule"
+        ],
+        "researchedAt": "2026-10-01T23:21:33.194Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "China Open - WTA 1000",
+        "contextSignals": [
+          "event-specific",
+          "narrative:format",
+          "narrative:matchup",
+          "narrative:path",
+          "narrative:schedule"
+        ],
+        "sourceName": "China Open - WTA 1000 — official research 1",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/china-open",
+        "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
+        "needsPreviewRefresh": false
+      },
+      "storyline": {
+        "researchDepth": 5,
+        "arcStage": "preview",
+        "hookSpoilerOff": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+        "hookSpoilerOn": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+        "synopsisSpoilerOff": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+        "synopsisSpoilerOn": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+        "lastReviewedAt": "2026-10-01T23:21:33.194Z"
+      }
     },
     {
       "id": "tennis-parent:wuhan-open:2026:main",

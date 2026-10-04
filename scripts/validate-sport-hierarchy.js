@@ -53,6 +53,34 @@ assert.deepEqual(
 );
 
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
+// Exercise the existing carried rows through the real compatibility migration.
+const carriedLineages = [
+  ["evt_dakar_2026_prologue", "competition:dakar", "discipline:motorsport:rally-raid"],
+  ["evt_giro_2026_stage_1", "competition:uci-worldtour", "discipline:cycling:road"],
+  ["evt_vuelta_2026_stage_1", "competition:uci-worldtour", "discipline:cycling:road"],
+  ["evt_golf_pga_championship_2026_round_1", "competition:golf-majors", "discipline:golf:mens"],
+  ["fixture-tennis-atp-beijing-2026-r16-de-minaur-halys", "competition:atp-tour", "discipline:tennis:professional"],
+  ["fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi", "competition:atp-tour", "discipline:tennis:professional"],
+  ["fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova", "competition:wta-tour", "discipline:tennis:professional"],
+];
+for (const [id, competition, discipline] of carriedLineages){
+  const input = feed.events.find(event => event.id === id);
+  assert(input, `${id} must be a real carried fixture`);
+  const before = JSON.stringify(input);
+  const [mapped] = migrateEvents([input]);
+  assert.equal(mapped.taxonomyCompetitionId, competition, `${id} must resolve its known competition`);
+  assert.equal(mapped.disciplineId, discipline);
+  for (const field of Object.keys(input)) {
+    if (["taxonomyVersion", "taxonomyNodeId", "taxonomySportId", "disciplineId", "taxonomyCompetitionId", "eventSeriesId", "auViewing"].includes(field)) continue;
+    assert.deepEqual(mapped[field], input[field], `${id}: compatibility must preserve ${field}`);
+  }
+  assert.equal(JSON.stringify(input), before, "migration must not mutate source fixtures");
+}
+assert.equal(compat.resolveEvent({taxonomyNodeId:"sport:golf", competitionId:"competition:golf:masters-2027"}).eventSeriesId, "event-series:masters-tournament", "known major must refine the broad Golf root");
+assert.equal(compat.resolveEvent({taxonomyNodeId:"sport:golf", competitionId:"competition:atp-tour"}).taxonomyNodeId, "sport:golf", "conflicting competition must not cross the explicit sport boundary");
+assert.equal(compat.resolveEvent({taxonomyNodeId:"sport:golf", competitionId:"competition:golf:unknown-2027"}).competitionId, null, "unknown Golf must not be invented into a men's major");
+assert.equal(compat.resolveEvent({taxonomyNodeId:"event-series:wimbledon", competitionId:"competition:wta-tour"}).eventSeriesId, "event-series:wimbledon", "explicit detailed classification remains authoritative");
+
 const migrated = migrateEvents(feed.events);
 assert.equal(migrated.length, feed.events.length, "the compatibility backfill must preserve every feed row");
 assert(migrated.every(event => event.taxonomyNodeId), "every published card must resolve to the hierarchy");

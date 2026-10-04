@@ -115,6 +115,9 @@ jobs:
           node scripts/validate-requested-sport-editorial.js
           node scripts/update-rolling-editorial-projections.js
           node scripts/validate-editorial-consequences.js
+          node scripts/validate-major-events.js
+          node scripts/validate-sport-hierarchy.js
+          node scripts/validate-editorial-sport-depth.js
           node scripts/validate-editorial-projection-identity.js
           node scripts/validate-editorial-publication.js
           node scripts/validate-current-evidence-editorial-retention.js

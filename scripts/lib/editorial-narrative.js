@@ -293,6 +293,15 @@ function editorialNarrativeFor(projection, indexes){
   };
 }
 
+function fixtureSourceMetadata(event, editorialSource){
+  const keys=["sourceName","sourceUrl","sourceType","sourceCheckedAt"];
+  if(require("../../config/editorial-locks").activeFor(event) || keys.some(key=>event[key]!=null&&event[key]!==""))return Object.fromEntries(keys.map(key=>[key,event[key]]));
+  if(event.source?.sourceUrl)return {sourceName:event.source.provider,sourceUrl:event.source.sourceUrl,sourceType:event.source.sourceType,sourceCheckedAt:event.source.checkedAt};
+  // Legacy research-only seeds retain their existing fallback until a fixture
+  // source owns them. Never mix that source into an existing source/clock pair.
+  return {sourceName:editorialSource.name,sourceUrl:editorialSource.url,sourceType:editorialSource.sourceType,sourceCheckedAt:editorialSource.checkedAt};
+}
+
 function applyToFeedEvent(event, projection, indexes){
   const locks=require("../../config/editorial-locks");
   projection=locks.projection(event,projection);
@@ -320,10 +329,7 @@ function applyToFeedEvent(event, projection, indexes){
     ...event,
     selectedSentence:narrative.hook,
     fullSpiel:narrative.synopsis,
-    sourceName:locks.activeFor(event) ? event.sourceName : primarySource.name,
-    sourceUrl:locks.activeFor(event) ? event.sourceUrl : primarySource.url,
-    sourceType:locks.activeFor(event) ? event.sourceType : primarySource.sourceType,
-    sourceCheckedAt:locks.activeFor(event) ? event.sourceCheckedAt : primarySource.checkedAt,
+    ...fixtureSourceMetadata(event,primarySource),
     lastReviewedAt:projection.researchedAt,
     editorialNarrative:narrative,
     editorialPreview:{
@@ -366,6 +372,7 @@ module.exports = {
   GENERIC_COPY,
   SUBSTANTIVE_DIMENSIONS,
   TIER_REQUIREMENTS,
+  fixtureSourceMetadata,
   applyToFeedEvent,
   applyToMajorEvent,
   editorialNarrativeFor,

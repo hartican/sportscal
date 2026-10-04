@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-10-01T17:37:45Z",
+  "generatedAt": "2026-10-04T04:26:30Z",
   "season": "20262027",
   "competitions": [
     {
@@ -1284,25 +1284,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482081",
-      "displayName": "Sean Farrell",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482081",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8482081.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8483445",
       "displayName": "Cutter Gauthier",
       "shortName": null,
@@ -1355,25 +1336,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8478421",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8478421.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480468",
-      "displayName": "James Hamblin",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480468",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8480468.png",
       "sourceRefs": [
         "https://www.nhl.com/ana/roster"
       ]
@@ -1469,25 +1431,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481754",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8481754.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8486072",
-      "displayName": "Marcus Nordmark",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486072",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8486072.png",
       "sourceRefs": [
         "https://www.nhl.com/ana/roster"
       ]
@@ -1721,25 +1664,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481461",
-      "displayName": "Corey Schueneman",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481461",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8481461.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8484859",
       "displayName": "Stian Solberg",
       "shortName": null,
@@ -1773,44 +1697,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483521",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8483521.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480808",
-      "displayName": "Jett Woo",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480808",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8480808.png",
-      "sourceRefs": [
-        "https://www.nhl.com/ana/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8476316",
-      "displayName": "Laurent Brossoit",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:ana",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8476316",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8476316.png",
       "sourceRefs": [
         "https://www.nhl.com/ana/roster"
       ]
@@ -2595,25 +2481,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8478502",
-      "displayName": "Dennis Gilbert",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:buf",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8478502",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8478502.png",
-      "sourceRefs": [
-        "https://www.nhl.com/buf/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8476891",
       "displayName": "Matt Grzelcyk",
       "shortName": null,
@@ -3070,25 +2937,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484428",
-      "displayName": "Charles Alexis Legault",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484428",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8484428.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480817",
       "displayName": "K'Andre Miller",
       "shortName": null,
@@ -3198,25 +3046,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481611",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8481611.png",
-      "sourceRefs": [
-        "https://www.nhl.com/car/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8480051",
-      "displayName": "Cayden Primeau",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:car",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8480051",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8480051.png",
       "sourceRefs": [
         "https://www.nhl.com/car/roster"
       ]
@@ -4115,6 +3944,25 @@
       ]
     },
     {
+      "id": "athlete:nhl:8484144",
+      "displayName": "Connor Bedard",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:chi",
+      "leagueId": "competition:nhl",
+      "position": "C",
+      "countryCode": "CAN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8484144",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484144.png",
+      "sourceRefs": [
+        "https://www.nhl.com/chi/roster"
+      ]
+    },
+    {
       "id": "athlete:nhl:8477479",
       "displayName": "Tyler Bertuzzi",
       "shortName": null,
@@ -4129,25 +3977,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8477479",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8477479.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484793",
-      "displayName": "Sacha Boisvert",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484793",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484793.png",
       "sourceRefs": [
         "https://www.nhl.com/chi/roster"
       ]
@@ -4376,25 +4205,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8476882",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8476882.png",
-      "sourceRefs": [
-        "https://www.nhl.com/chi/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8476952",
-      "displayName": "Dominic Toninato",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:chi",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8476952",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8476952.png",
       "sourceRefs": [
         "https://www.nhl.com/chi/roster"
       ]
@@ -5654,25 +5464,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8477946",
-      "displayName": "Dylan Larkin",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:det",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8477946",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8477946.png",
-      "sourceRefs": [
-        "https://www.nhl.com/det/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482802",
       "displayName": "Carter Mazur",
       "shortName": null,
@@ -5763,6 +5554,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8475279",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8475279.png",
+      "sourceRefs": [
+        "https://www.nhl.com/det/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8477971",
+      "displayName": "Andreas Englund",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:det",
+      "leagueId": "competition:nhl",
+      "position": "D",
+      "countryCode": "SWE",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8477971",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/DET/8477971.png",
       "sourceRefs": [
         "https://www.nhl.com/det/roster"
       ]
@@ -6181,6 +5991,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481617",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8481617.png",
+      "sourceRefs": [
+        "https://www.nhl.com/edm/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8484509",
+      "displayName": "Josh Samanski",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:edm",
+      "leagueId": "competition:nhl",
+      "position": "C",
+      "countryCode": "DEU",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8484509",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8484509.png",
       "sourceRefs": [
         "https://www.nhl.com/edm/roster"
       ]
@@ -8998,25 +8827,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8482715",
-      "displayName": "Ryan Ufko",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:nsh",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8482715",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8482715.png",
-      "sourceRefs": [
-        "https://www.nhl.com/nsh/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482482",
       "displayName": "Adam Wilsby",
       "shortName": null,
@@ -9050,6 +8860,25 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8481020",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8481020.png",
+      "sourceRefs": [
+        "https://www.nhl.com/nsh/roster"
+      ]
+    },
+    {
+      "id": "athlete:nhl:8483575",
+      "displayName": "Matt Murray",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:nsh",
+      "leagueId": "competition:nhl",
+      "position": "G",
+      "countryCode": "CAN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8483575",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8483575.png",
       "sourceRefs": [
         "https://www.nhl.com/nsh/roster"
       ]
@@ -10119,6 +9948,25 @@
       ]
     },
     {
+      "id": "athlete:nhl:8477998",
+      "displayName": "Warren Foegele",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nhl:ott",
+      "leagueId": "competition:nhl",
+      "position": "L",
+      "countryCode": "CAN",
+      "countryBasis": "official-nhl-roster",
+      "genderCategory": "male",
+      "identityId": "athlete:nhl:8477998",
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8477998.png",
+      "sourceRefs": [
+        "https://www.nhl.com/ott/roster"
+      ]
+    },
+    {
       "id": "athlete:nhl:8473512",
       "displayName": "Claude Giroux",
       "shortName": null,
@@ -10955,25 +10803,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8481019",
-      "displayName": "David Gustafsson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:pit",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8481019",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8481019.png",
-      "sourceRefs": [
-        "https://www.nhl.com/pit/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480842",
       "displayName": "Filip Hallander",
       "shortName": null,
@@ -11102,25 +10931,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8471215",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8471215.png",
-      "sourceRefs": [
-        "https://www.nhl.com/pit/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8483487",
-      "displayName": "Rutger McGroarty",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:pit",
-      "leagueId": "competition:nhl",
-      "position": "R",
-      "countryCode": "USA",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8483487",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8483487.png",
       "sourceRefs": [
         "https://www.nhl.com/pit/roster"
       ]
@@ -16902,6 +16712,25 @@
       ]
     },
     {
+      "id": "athlete:chl:6f6ef3ffd42bbd368bccb7da",
+      "displayName": "Niks FENENKO",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:50e896abe7f9760028ebd0c3",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:6f6ef3ffd42bbd368bccb7da",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446249",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-50e896abe7f9760028ebd0c3.json"
+      ]
+    },
+    {
       "id": "athlete:chl:d0119ad8ca2c73e4a60fc5d9",
       "displayName": "Radan Lenc",
       "shortName": null,
@@ -18080,6 +17909,44 @@
       ]
     },
     {
+      "id": "athlete:chl:61502577c836ef138167843b",
+      "displayName": "Jakub Lauko",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:3e2b15fb0e41329efc1f6237",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:61502577c836ef138167843b",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446210",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-3e2b15fb0e41329efc1f6237.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:4fbe5364b5a8f624576dbd55",
+      "displayName": "Ondřej Chabada",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:3e2b15fb0e41329efc1f6237",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:4fbe5364b5a8f624576dbd55",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/444968",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-3e2b15fb0e41329efc1f6237.json"
+      ]
+    },
+    {
       "id": "athlete:chl:3153d42ed1812af08254594d",
       "displayName": "Leonhard Pföderl",
       "shortName": null,
@@ -18517,6 +18384,25 @@
       ]
     },
     {
+      "id": "athlete:chl:fcd0f817f943a6d615af11ff",
+      "displayName": "Gregor Stocker",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:2e6ebca3b60eeec1da4b9e9b",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:fcd0f817f943a6d615af11ff",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446186",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-2e6ebca3b60eeec1da4b9e9b.json"
+      ]
+    },
+    {
       "id": "athlete:chl:3cebd2c480c9fc987f2d30e7",
       "displayName": "Brandon Davidson",
       "shortName": null,
@@ -18531,6 +18417,25 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:3cebd2c480c9fc987f2d30e7",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/445665",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-2e6ebca3b60eeec1da4b9e9b.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:f4f51cc02a002b6358f49a2c",
+      "displayName": "Jean-Luc Foudy",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:2e6ebca3b60eeec1da4b9e9b",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:f4f51cc02a002b6358f49a2c",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446237",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-2e6ebca3b60eeec1da4b9e9b.json"
       ]
@@ -20588,6 +20493,82 @@
       ]
     },
     {
+      "id": "athlete:chl:b49b556972e54e426d5b9418",
+      "displayName": "Arthur Dandois",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:e407e3c30bba319774cc4bea",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:b49b556972e54e426d5b9418",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446238",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-e407e3c30bba319774cc4bea.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:25e9073391cb2d3a05e6bf62",
+      "displayName": "Raphael Achermann",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:e407e3c30bba319774cc4bea",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:25e9073391cb2d3a05e6bf62",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446239",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-e407e3c30bba319774cc4bea.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:3b945ef1eea369f9211601b3",
+      "displayName": "Théo Vouardoux",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:e407e3c30bba319774cc4bea",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:3b945ef1eea369f9211601b3",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446240",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-e407e3c30bba319774cc4bea.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:b51748a3768120a60bb20883",
+      "displayName": "Loïc Mukuna",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:e407e3c30bba319774cc4bea",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:b51748a3768120a60bb20883",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446241",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-e407e3c30bba319774cc4bea.json"
+      ]
+    },
+    {
       "id": "athlete:chl:125fa1eb1ec1f03c44afcc76",
       "displayName": "Christopher Collins",
       "shortName": null,
@@ -21139,6 +21120,25 @@
       ]
     },
     {
+      "id": "athlete:chl:7c0fd326404c467d202e54ff",
+      "displayName": "Henri Kiviaho",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:93b3b3514079478af9986663",
+      "leagueId": "competition:chl",
+      "position": "GK",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:7c0fd326404c467d202e54ff",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/444571",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-93b3b3514079478af9986663.json"
+      ]
+    },
+    {
       "id": "athlete:chl:ec28ea23a7fa9cf1f3953f19",
       "displayName": "Filip Zadina",
       "shortName": null,
@@ -21652,6 +21652,44 @@
       ]
     },
     {
+      "id": "athlete:chl:069e5fadfce2e89e8c393e8a",
+      "displayName": "Niklas Aebli",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:fc04d1152903083968962750",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:069e5fadfce2e89e8c393e8a",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446246",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-fc04d1152903083968962750.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:f4325aad9e64e9a970398c19",
+      "displayName": "Noah Grünenfelder",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:fc04d1152903083968962750",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:f4325aad9e64e9a970398c19",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446247",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-fc04d1152903083968962750.json"
+      ]
+    },
+    {
       "id": "athlete:chl:74f5ea1ced416d31da4664c2",
       "displayName": "Carter Robertson",
       "shortName": null,
@@ -22160,6 +22198,25 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:72c1b1ca0ffcbda91084d35b",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446175",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-77148013ae31c768167a5d28.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:d6ce0caccefaa6fcff40f318",
+      "displayName": "Eliáš Poustka",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:77148013ae31c768167a5d28",
+      "leagueId": "competition:chl",
+      "position": "GK",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:d6ce0caccefaa6fcff40f318",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446248",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-77148013ae31c768167a5d28.json"
       ]
@@ -27062,6 +27119,82 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:47b1a71355d1aa0b9e05bc75",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446223",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-73caaf27776183ec10ea6ddc.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:d83d8e82067322b2fa1c3f99",
+      "displayName": "Olle Lundström",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:73caaf27776183ec10ea6ddc",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:d83d8e82067322b2fa1c3f99",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446234",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-73caaf27776183ec10ea6ddc.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:5f248aec6fcf6ff07a1f1784",
+      "displayName": "Felix Svensson",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:73caaf27776183ec10ea6ddc",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:5f248aec6fcf6ff07a1f1784",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446242",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-73caaf27776183ec10ea6ddc.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:7c813255caeb0e207f580d66",
+      "displayName": "Ludvig Vestman",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:73caaf27776183ec10ea6ddc",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:7c813255caeb0e207f580d66",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446243",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-73caaf27776183ec10ea6ddc.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:f8d25eb8d8db1ebe3ef9ad3b",
+      "displayName": "Leo Sundqvist",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:73caaf27776183ec10ea6ddc",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:f8d25eb8d8db1ebe3ef9ad3b",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/445485",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-73caaf27776183ec10ea6ddc.json"
       ]
@@ -32818,7 +32951,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-10-01T23:00:00Z",
       "venue": "Prudential Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32826,19 +32959,19 @@
           "participantId": "team:nhl:phi",
           "label": "Philadelphia Flyers",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
         },
         {
           "participantId": "team:nhl:njd",
           "label": "New Jersey Devils",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-njd/2026/10/01/2026020009",
-      "ticketUrl": "https://www.ticketmaster.com/event/020064F0918A9C40?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_GM1&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020010",
@@ -32849,7 +32982,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-10-01T23:00:00Z",
       "venue": "Madison Square Garden",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32857,19 +32990,19 @@
           "participantId": "team:nhl:tbl",
           "label": "Tampa Bay Lightning",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
         },
         {
           "participantId": "team:nhl:nyr",
           "label": "New York Rangers",
           "homeAway": "home",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/tbl-vs-nyr/2026/10/01/2026020010",
-      "ticketUrl": "https://www.ticketmaster.com/event/3B0064F1B1D5443B?brand=nyrangers&artistid=805991&landing=s&wt.mc_id=NHL_TEAM_NYR_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_NYR&utm_content=SCHEDULE_GM1&CAMEFROM=CFC_RANGERS_WEB_NYR_SCHED_260803"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020011",
@@ -32880,7 +33013,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-10-01T23:00:00Z",
       "venue": "Nationwide Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32888,19 +33021,19 @@
           "participantId": "team:nhl:buf",
           "label": "Buffalo Sabres",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
         },
         {
           "participantId": "team:nhl:cbj",
           "label": "Columbus Blue Jackets",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/buf-vs-cbj/2026/10/01/2026020011",
-      "ticketUrl": "https://www.ticketmaster.com/event/050064EDDA9AD4E2?brand=bluejackets&artistid=805927&wt.mc_id=NHL_TEAM_CBJ_SCHEDULE_GM1&utm_source=web_schedule_club&utm_medium=NHL.com&utm_campaign=single_game_tickets&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020012",
@@ -32911,7 +33044,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-02T00:00:00Z",
       "venue": "Bridgestone Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32919,19 +33052,19 @@
           "participantId": "team:nhl:min",
           "label": "Minnesota Wild",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
         },
         {
           "participantId": "team:nhl:nsh",
           "label": "Nashville Predators",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-nsh/2026/10/01/2026020012",
-      "ticketUrl": "https://www.ticketmaster.com/event/1B006507EFDFE412?brand=predators&artistid=805978&landing=s&wt.mc_id=NHL_TEAM_NSH_SGT_PG_GM1&utm_source=NHL.com&utm_medium=PredsWebSchedule&utm_campaign=NHL_TEAM_NSH_SGT_PG_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020014",
@@ -32942,7 +33075,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-10-02T01:00:00Z",
       "venue": "Scotiabank Saddledome",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32950,19 +33083,19 @@
           "participantId": "team:nhl:sea",
           "label": "Seattle Kraken",
           "homeAway": "away",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
         },
         {
           "participantId": "team:nhl:cgy",
           "label": "Calgary Flames",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-cgy/2026/10/01/2026020014",
-      "ticketUrl": "https://www.ticketmaster.ca/event/110064FC82C03262?brand=calgaryflames&artistid=805907&wt.mc_id=NHL_TEAM_CGY_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_CGY&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020013",
@@ -32973,7 +33106,7 @@
       "time": "11:30",
       "startTimeUtc": "2026-10-02T01:30:00Z",
       "venue": "Delta Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -32981,19 +33114,19 @@
           "participantId": "team:nhl:chi",
           "label": "Chicago Blackhawks",
           "homeAway": "away",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg"
         },
         {
           "participantId": "team:nhl:uta",
           "label": "Utah Mammoth",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-uta/2026/10/01/2026020013",
-      "ticketUrl": "https://seatgeek.com/utah-mammoth-tickets/7-9-2026-salt-lake-city-utah-delta-center-1/nhl/18242271?wid=club-web-schedule"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020015",
@@ -33004,7 +33137,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-10-02T02:00:00Z",
       "venue": "Rogers Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33012,19 +33145,19 @@
           "participantId": "team:nhl:edm",
           "label": "Edmonton Oilers",
           "homeAway": "away",
-          "score": null,
+          "score": 9,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
         },
         {
           "participantId": "team:nhl:van",
           "label": "Vancouver Canucks",
           "homeAway": "home",
-          "score": null,
+          "score": 7,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/edm-vs-van/2026/10/01/2026020015",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F07BBB34?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020016",
@@ -33035,7 +33168,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-10-02T02:00:00Z",
       "venue": "SAP Center at San Jose",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33043,19 +33176,19 @@
           "participantId": "team:nhl:fla",
           "label": "Florida Panthers",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
         },
         {
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/fla-vs-sjs/2026/10/01/2026020016",
-      "ticketUrl": "https://www.ticketmaster.com/event/1C0064E79AA99B1B?brand=sharks&artistid=806018&wt.mc_id=NHL_TEAM_SJS_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SJS&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020017",
@@ -33066,7 +33199,7 @@
       "time": "08:30",
       "startTimeUtc": "2026-10-02T22:30:00Z",
       "venue": "Little Caesars Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33074,19 +33207,19 @@
           "participantId": "team:nhl:nyr",
           "label": "New York Rangers",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
         },
         {
           "participantId": "team:nhl:det",
           "label": "Detroit Red Wings",
           "homeAway": "home",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-det/2026/10/02/2026020017",
-      "ticketUrl": "https://www.ticketmaster.com/event/080064EED7A57FA7?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020018",
@@ -33097,7 +33230,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-10-02T23:00:00Z",
       "venue": "Lenovo Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33105,19 +33238,19 @@
           "participantId": "team:nhl:wsh",
           "label": "Washington Capitals",
           "homeAway": "away",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
         },
         {
           "participantId": "team:nhl:car",
           "label": "Carolina Hurricanes",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-car/2026/10/02/2026020018",
-      "ticketUrl": "https://www.ticketmaster.com/event/2D0064F4BD4CD14D?brand=carolinahurricanes&artistid=805908&wt.mc_id=NHL_TEAM_CAR_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_CAR&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020019",
@@ -33128,7 +33261,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T00:00:00Z",
       "venue": "Canada Life Centre",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33136,19 +33269,19 @@
           "participantId": "team:nhl:bos",
           "label": "Boston Bruins",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"
         },
         {
           "participantId": "team:nhl:wpg",
           "label": "Winnipeg Jets",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/bos-vs-wpg/2026/10/02/2026020019",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006505CAB7A879?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020020",
@@ -33159,7 +33292,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-10-03T01:00:00Z",
       "venue": "American Airlines Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33167,19 +33300,19 @@
           "participantId": "team:nhl:stl",
           "label": "St. Louis Blues",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
         },
         {
           "participantId": "team:nhl:dal",
           "label": "Dallas Stars",
           "homeAway": "home",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-dal/2026/10/02/2026020020",
-      "ticketUrl": "https://www.ticketmaster.com/event/0C0064EDCDE79355?brand=dallas_stars&wt.mc_id=NHL_TEAM_DAL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DAL&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020021",
@@ -33190,7 +33323,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-10-03T02:00:00Z",
       "venue": "T-Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33198,19 +33331,19 @@
           "participantId": "team:nhl:ana",
           "label": "Anaheim Ducks",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
         },
         {
           "participantId": "team:nhl:vgk",
           "label": "Vegas Golden Knights",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ana-vs-vgk/2026/10/02/2026020021",
-      "ticketUrl": "https://tix.axs.com/c8egKQAAAABgiLbuAgAAAABG%2fv%2f%2f%2fwD%2f%2f%2f%2f%2fEnZlZ2FzZ29sZGVua25pZ2h0cwD%2f%2f%2f%2f%2f%2f%2f%2f%2f%2fw%3d%3d"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020022",
@@ -33221,7 +33354,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "KeyBank Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33229,19 +33362,19 @@
           "participantId": "team:nhl:chi",
           "label": "Chicago Blackhawks",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg"
         },
         {
           "participantId": "team:nhl:buf",
           "label": "Buffalo Sabres",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/chi-vs-buf/2026/10/03/2026020022",
-      "ticketUrl": "https://www.ticketmaster.com/event/000064EFCB087F1F?brand=sabres&artistid=805906&wt.mc_id=NHL_TEAM_BUF_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_BUF&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020023",
@@ -33252,7 +33385,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "Scotiabank Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33260,19 +33393,19 @@
           "participantId": "team:nhl:ott",
           "label": "Ottawa Senators",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
         },
         {
           "participantId": "team:nhl:tor",
           "label": "Toronto Maple Leafs",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-tor/2026/10/03/2026020023",
-      "ticketUrl": "https://www.ticketmaster.ca/event/100064FECCCDF79C?brand=torontomapleleafs&artistid=806033&wt.mc_id=NHL_TEAM_TOR_SCHEDULE_GM3&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_TOR&utm_content=SCHEDULE_GM3"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020024",
@@ -33283,7 +33416,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "Benchmark International Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33291,19 +33424,19 @@
           "participantId": "team:nhl:wsh",
           "label": "Washington Capitals",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
         },
         {
           "participantId": "team:nhl:tbl",
           "label": "Tampa Bay Lightning",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/wsh-vs-tbl/2026/10/03/2026020024",
-      "ticketUrl": "https://www.ticketmaster.com/event/0D0064F8CF209D57?brand=tblightning&artistid=806028&landing=s&wt.mc_id=NHL_TEAM_TBL_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_TBL&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020025",
@@ -33314,7 +33447,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "Xfinity Mobile Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33322,19 +33455,19 @@
           "participantId": "team:nhl:car",
           "label": "Carolina Hurricanes",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
         },
         {
           "participantId": "team:nhl:phi",
           "label": "Philadelphia Flyers",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/car-vs-phi/2026/10/03/2026020025",
-      "ticketUrl": "https://www.ticketmaster.com/event/300064EEEE90E144?brand=flyers&artistid=806000&wt.mc_id=NHL_TEAM_PHI_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PHI&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020026",
@@ -33345,7 +33478,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "PPG Paints Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33353,19 +33486,19 @@
           "participantId": "team:nhl:mtl",
           "label": "Montréal Canadiens",
           "homeAway": "away",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
         },
         {
           "participantId": "team:nhl:pit",
           "label": "Pittsburgh Penguins",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/mtl-vs-pit/2026/10/03/2026020026",
-      "ticketUrl": "https://www.ticketmaster.com/event/160064EAF5E9B973?brand=penguins&artistid=806005&wt.mc_id=NHL_TEAM_PIT_SCHEDULE_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_PIT&utm_content=SCHEDULE_GM1&camefrom=NHLPENGUINS_WEB_SCHEDULE"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020027",
@@ -33376,7 +33509,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "Nationwide Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33384,19 +33517,19 @@
           "participantId": "team:nhl:uta",
           "label": "Utah Mammoth",
           "homeAway": "away",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
         },
         {
           "participantId": "team:nhl:cbj",
           "label": "Columbus Blue Jackets",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/uta-vs-cbj/2026/10/03/2026020027",
-      "ticketUrl": "https://www.ticketmaster.com/event/050064EDB0B27FDB?brand=bluejackets&artistid=805927&wt.mc_id=NHL_TEAM_CBJ_SCHEDULE_GM2&utm_source=web_schedule_club&utm_medium=NHL.com&utm_campaign=single_game_tickets&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020028",
@@ -33407,7 +33540,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-10-03T23:00:00Z",
       "venue": "Rogers Place",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33415,19 +33548,19 @@
           "participantId": "team:nhl:sea",
           "label": "Seattle Kraken",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
         },
         {
           "participantId": "team:nhl:edm",
           "label": "Edmonton Oilers",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/sea-vs-edm/2026/10/03/2026020028",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006513A5E5A439?brand=edmontonoilers&artistid=805943&wt.mc_id=NHL_TEAM_EDM_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_EDM&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020029",
@@ -33438,7 +33571,7 @@
       "time": "10:30",
       "startTimeUtc": "2026-10-03T23:30:00Z",
       "venue": "UBS Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33446,19 +33579,19 @@
           "participantId": "team:nhl:njd",
           "label": "New Jersey Devils",
           "homeAway": "away",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
         },
         {
           "participantId": "team:nhl:nyi",
           "label": "New York Islanders",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/10/03/2026020029",
-      "ticketUrl": "https://www.ticketmaster.com/event/300064E2D24B6194?brand=nyislanders&artistid=805986&wt.mc_id=NHL_TEAM_NYI_SCHEDULE_GM1&utm_source=nyi_website&utm_medium=schedulepage&utm_campaign=NHL_TEAM_NYI&utm_content=SCHEDULE_GM1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020030",
@@ -33469,7 +33602,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-10-04T00:00:00Z",
       "venue": "Bridgestone Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33477,19 +33610,19 @@
           "participantId": "team:nhl:dal",
           "label": "Dallas Stars",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
         },
         {
           "participantId": "team:nhl:nsh",
           "label": "Nashville Predators",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/dal-vs-nsh/2026/10/03/2026020030",
-      "ticketUrl": "https://www.ticketmaster.com/event/1B006507EFE4E420?brand=predators&artistid=805978&landing=s&wt.mc_id=NHL_TEAM_NSH_SGT_PG_GM2&utm_source=NHL.com&utm_medium=PredsWebSchedule&utm_campaign=NHL_TEAM_NSH_SGT_PG_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020031",
@@ -33500,7 +33633,7 @@
       "time": "11:00",
       "startTimeUtc": "2026-10-04T00:00:00Z",
       "venue": "Grand Casino Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33508,19 +33641,19 @@
           "participantId": "team:nhl:bos",
           "label": "Boston Bruins",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"
         },
         {
           "participantId": "team:nhl:min",
           "label": "Minnesota Wild",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/bos-vs-min/2026/10/03/2026020031",
-      "ticketUrl": "https://mnwild.co/nbtcp3gl"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020032",
@@ -33531,7 +33664,7 @@
       "time": "12:00",
       "startTimeUtc": "2026-10-04T01:00:00Z",
       "venue": "Ball Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -33539,19 +33672,19 @@
           "participantId": "team:nhl:stl",
           "label": "St. Louis Blues",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
         },
         {
           "participantId": "team:nhl:col",
           "label": "Colorado Avalanche",
           "homeAway": "home",
-          "score": null,
+          "score": 6,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-col/2026/10/03/2026020032",
-      "ticketUrl": "https://avs.social/2627_SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020033",
@@ -33570,19 +33703,19 @@
           "participantId": "team:nhl:cgy",
           "label": "Calgary Flames",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
         },
         {
           "participantId": "team:nhl:van",
           "label": "Vancouver Canucks",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/cgy-vs-van/2026/10/03/2026020033",
-      "ticketUrl": "https://www.ticketmaster.ca/event/11006503F081BB3C?brand=canucks&artistid=806037&wt.mc_id=NHL_TEAM_VAN_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_VAN&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020034",
@@ -33601,19 +33734,19 @@
           "participantId": "team:nhl:lak",
           "label": "Los Angeles Kings",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg"
         },
         {
           "participantId": "team:nhl:sjs",
           "label": "San Jose Sharks",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/lak-vs-sjs/2026/10/03/2026020034",
-      "ticketUrl": "https://www.ticketmaster.com/event/1C0064E79AB19B37?brand=sharks&artistid=806018&wt.mc_id=NHL_TEAM_SJS_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_SJS&utm_content=SCHEDULE_GM2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026020035",
@@ -75668,62 +75801,117 @@
   ],
   "standings": [
     {
-      "participantId": "team:nhl:pit",
-      "conference": "Eastern",
-      "division": "Metropolitan",
-      "gamesPlayed": 1,
-      "wins": 1,
+      "participantId": "team:nhl:edm",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 3,
+      "wins": 2,
       "losses": 0,
-      "otLosses": 0,
-      "points": 2,
-      "goalDifferential": 7
+      "otLosses": 1,
+      "points": 5,
+      "goalDifferential": 3
     },
     {
       "participantId": "team:nhl:col",
       "conference": "Western",
       "division": "Central",
-      "gamesPlayed": 1,
-      "wins": 1,
+      "gamesPlayed": 2,
+      "wins": 2,
       "losses": 0,
       "otLosses": 0,
-      "points": 2,
-      "goalDifferential": 4
+      "points": 4,
+      "goalDifferential": 9
     },
     {
-      "participantId": "team:nhl:vgk",
+      "participantId": "team:nhl:uta",
       "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 1,
-      "wins": 1,
+      "division": "Central",
+      "gamesPlayed": 2,
+      "wins": 2,
       "losses": 0,
       "otLosses": 0,
-      "points": 2,
+      "points": 4,
+      "goalDifferential": 9
+    },
+    {
+      "participantId": "team:nhl:min",
+      "conference": "Western",
+      "division": "Central",
+      "gamesPlayed": 2,
+      "wins": 2,
+      "losses": 0,
+      "otLosses": 0,
+      "points": 4,
+      "goalDifferential": 5
+    },
+    {
+      "participantId": "team:nhl:pit",
+      "conference": "Eastern",
+      "division": "Metropolitan",
+      "gamesPlayed": 2,
+      "wins": 2,
+      "losses": 0,
+      "otLosses": 0,
+      "points": 4,
+      "goalDifferential": 8
+    },
+    {
+      "participantId": "team:nhl:nyr",
+      "conference": "Eastern",
+      "division": "Metropolitan",
+      "gamesPlayed": 3,
+      "wins": 2,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 4,
       "goalDifferential": 3
     },
     {
       "participantId": "team:nhl:bos",
       "conference": "Eastern",
       "division": "Atlantic",
-      "gamesPlayed": 1,
-      "wins": 1,
-      "losses": 0,
+      "gamesPlayed": 3,
+      "wins": 2,
+      "losses": 1,
       "otLosses": 0,
-      "points": 2,
-      "goalDifferential": 3
+      "points": 4,
+      "goalDifferential": 1
     },
     {
       "participantId": "team:nhl:mtl",
       "conference": "Eastern",
       "division": "Atlantic",
-      "gamesPlayed": 1,
+      "gamesPlayed": 2,
       "wins": 1,
       "losses": 0,
-      "otLosses": 0,
-      "points": 2,
-      "goalDifferential": 1
+      "otLosses": 1,
+      "points": 3,
+      "goalDifferential": 0
     },
     {
-      "participantId": "team:nhl:van",
+      "participantId": "team:nhl:fla",
+      "conference": "Eastern",
+      "division": "Atlantic",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 0,
+      "otLosses": 1,
+      "points": 3,
+      "goalDifferential": 0
+    },
+    {
+      "participantId": "team:nhl:car",
+      "conference": "Eastern",
+      "division": "Metropolitan",
+      "gamesPlayed": 3,
+      "wins": 1,
+      "losses": 1,
+      "otLosses": 1,
+      "points": 3,
+      "goalDifferential": -3
+    },
+    {
+      "participantId": "team:nhl:ana",
       "conference": "Western",
       "division": "Pacific",
       "gamesPlayed": 1,
@@ -75734,7 +75922,7 @@
       "goalDifferential": 1
     },
     {
-      "participantId": "team:nhl:fla",
+      "participantId": "team:nhl:ott",
       "conference": "Eastern",
       "division": "Atlantic",
       "gamesPlayed": 1,
@@ -75745,9 +75933,64 @@
       "goalDifferential": 1
     },
     {
-      "participantId": "team:nhl:tor",
+      "participantId": "team:nhl:sjs",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 1,
+      "wins": 1,
+      "losses": 0,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": 1
+    },
+    {
+      "participantId": "team:nhl:nyi",
       "conference": "Eastern",
-      "division": "Atlantic",
+      "division": "Metropolitan",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": 5
+    },
+    {
+      "participantId": "team:nhl:sea",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": 3
+    },
+    {
+      "participantId": "team:nhl:vgk",
+      "conference": "Western",
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": 2
+    },
+    {
+      "participantId": "team:nhl:wsh",
+      "conference": "Eastern",
+      "division": "Metropolitan",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": 1
+    },
+    {
+      "participantId": "team:nhl:cbj",
+      "conference": "Eastern",
+      "division": "Metropolitan",
       "gamesPlayed": 2,
       "wins": 1,
       "losses": 1,
@@ -75756,246 +75999,114 @@
       "goalDifferential": 0
     },
     {
-      "participantId": "team:nhl:edm",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 1,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 1,
-      "points": 1,
-      "goalDifferential": -1
-    },
-    {
-      "participantId": "team:nhl:car",
-      "conference": "Eastern",
-      "division": "Metropolitan",
-      "gamesPlayed": 1,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 1,
-      "points": 1,
-      "goalDifferential": -1
-    },
-    {
-      "participantId": "team:nhl:ana",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:buf",
-      "conference": "Eastern",
-      "division": "Atlantic",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:cgy",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:cbj",
-      "conference": "Eastern",
-      "division": "Metropolitan",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:dal",
+      "participantId": "team:nhl:stl",
       "conference": "Western",
       "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:det",
-      "conference": "Eastern",
-      "division": "Atlantic",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:min",
-      "conference": "Western",
-      "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -1
     },
     {
       "participantId": "team:nhl:nsh",
       "conference": "Western",
       "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -1
     },
     {
-      "participantId": "team:nhl:njd",
-      "conference": "Eastern",
-      "division": "Metropolitan",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:ott",
+      "participantId": "team:nhl:buf",
       "conference": "Eastern",
       "division": "Atlantic",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:sjs",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:sea",
-      "conference": "Western",
-      "division": "Pacific",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:stl",
-      "conference": "Western",
-      "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -2
     },
     {
       "participantId": "team:nhl:tbl",
       "conference": "Eastern",
       "division": "Atlantic",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -2
     },
     {
-      "participantId": "team:nhl:uta",
+      "participantId": "team:nhl:van",
       "conference": "Western",
-      "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "division": "Pacific",
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -1
     },
     {
-      "participantId": "team:nhl:wsh",
+      "participantId": "team:nhl:njd",
       "conference": "Eastern",
       "division": "Metropolitan",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
+      "gamesPlayed": 2,
+      "wins": 1,
+      "losses": 1,
       "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
+      "points": 2,
+      "goalDifferential": -5
+    },
+    {
+      "participantId": "team:nhl:tor",
+      "conference": "Eastern",
+      "division": "Atlantic",
+      "gamesPlayed": 3,
+      "wins": 1,
+      "losses": 2,
+      "otLosses": 0,
+      "points": 2,
+      "goalDifferential": -1
+    },
+    {
+      "participantId": "team:nhl:phi",
+      "conference": "Eastern",
+      "division": "Metropolitan",
+      "gamesPlayed": 3,
+      "wins": 0,
+      "losses": 1,
+      "otLosses": 2,
+      "points": 2,
+      "goalDifferential": -9
     },
     {
       "participantId": "team:nhl:wpg",
       "conference": "Western",
       "division": "Central",
-      "gamesPlayed": 0,
-      "wins": 0,
-      "losses": 0,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": 0
-    },
-    {
-      "participantId": "team:nhl:nyi",
-      "conference": "Eastern",
-      "division": "Metropolitan",
       "gamesPlayed": 1,
       "wins": 0,
-      "losses": 1,
-      "otLosses": 0,
-      "points": 0,
+      "losses": 0,
+      "otLosses": 1,
+      "points": 1,
       "goalDifferential": -1
     },
     {
-      "participantId": "team:nhl:chi",
-      "conference": "Western",
-      "division": "Central",
-      "gamesPlayed": 1,
-      "wins": 0,
-      "losses": 1,
-      "otLosses": 0,
-      "points": 0,
-      "goalDifferential": -3
-    },
-    {
-      "participantId": "team:nhl:nyr",
+      "participantId": "team:nhl:det",
       "conference": "Eastern",
-      "division": "Metropolitan",
+      "division": "Atlantic",
       "gamesPlayed": 1,
       "wins": 0,
       "losses": 1,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -3
+      "goalDifferential": -2
     },
     {
       "participantId": "team:nhl:lak",
@@ -76009,15 +76120,37 @@
       "goalDifferential": -4
     },
     {
-      "participantId": "team:nhl:phi",
-      "conference": "Eastern",
-      "division": "Metropolitan",
+      "participantId": "team:nhl:cgy",
+      "conference": "Western",
+      "division": "Pacific",
       "gamesPlayed": 1,
       "wins": 0,
       "losses": 1,
       "otLosses": 0,
       "points": 0,
-      "goalDifferential": -7
+      "goalDifferential": -5
+    },
+    {
+      "participantId": "team:nhl:dal",
+      "conference": "Western",
+      "division": "Central",
+      "gamesPlayed": 2,
+      "wins": 0,
+      "losses": 2,
+      "otLosses": 0,
+      "points": 0,
+      "goalDifferential": -5
+    },
+    {
+      "participantId": "team:nhl:chi",
+      "conference": "Western",
+      "division": "Central",
+      "gamesPlayed": 3,
+      "wins": 0,
+      "losses": 3,
+      "otLosses": 0,
+      "points": 0,
+      "goalDifferential": -10
     },
     {
       "participantId": "team:chl:9bd414328e8c2658731938a0",

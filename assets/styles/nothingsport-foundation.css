@@ -35,8 +35,7 @@ button,input,select,textarea{font:inherit}
 :where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid color-mix(in srgb,var(--ns-accent) 70%,white);outline-offset:3px}
 :where(button,.button){border-radius:var(--ns-radius-control)}
 
-/* Shared app chrome: one action accent, one control rhythm, sport colour only
-   where it identifies a code, club or athlete. */
+
 .event-card,.major-event-card,.admin-card,.admin-login,.card{border-radius:var(--ns-radius-card)}
 .date-heading .today-flag{background:var(--ns-accent);color:#16040a}
 .today-anchor{color:var(--ns-accent)}

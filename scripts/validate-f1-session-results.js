@@ -23,6 +23,19 @@ async function verify(){
  assert.equal((await updatesFor([fixture],new Date('2026-09-25T09:00:00Z'),fetchPage,context)).length,0);
  for(const html of [table(7),table(6,true),'<tbody></tbody>'])assert.equal((await updatesFor([fixture],now,async url=>url.endsWith('/races')?'<a href="/en/results/2026/races/1295/azerbaijan/race-result">Race</a>':html,context)).length,0);
  await assert.rejects(updatesFor([fixture],now,fetchPage,{participants:[]}),/Unresolved/);
+ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=require('node:child_process');
+ const published=require('../data/events.json'),actual=published.events.find(e=>e.id==='evt_f1_2026_azerbaijan_practice_3');
+ assert(actual?.fixtureResults?.sourceUrl,'actual published official practice result required');
+ const retained={...actual,status:'completed',sourceUrl:actual.fixtureResults.sourceUrl,sourceCheckedAt:actual.fixtureResults.checkedAt||actual.statusCheckedAt};
+ assert(Number.isFinite(Date.parse(retained.sourceCheckedAt)),'retained result observation must be genuine');
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-f1-last-good-'));
+ try{
+  const file=path.join(root,'events.json');fs.writeFileSync(file,JSON.stringify({...published,events:[retained]}));
+  const run=()=>cp.execFileSync(process.execPath,[path.join(__dirname,'sync-requested-sports-to-feed.js'),file],{cwd:path.join(__dirname,'..'),stdio:'pipe'});
+  run();const after=JSON.parse(fs.readFileSync(file)).events.find(e=>e.id===retained.id);
+  for(const key of ['id','canonicalEventId','startTimeUtc','participantIds','status','fixtureResults','score','outcomeText','sourceUrl','sourceCheckedAt','statusCheckedAt'])assert.deepEqual(after?.[key],retained[key],'real schedule writer cannot revoke result field '+key);
+  const bytes=JSON.stringify(after);run();const rerun=JSON.parse(fs.readFileSync(file)).events.filter(e=>e.id===retained.id);assert.equal(rerun.length,1,'actual writer rerun cannot duplicate the retained fixture');assert.equal(JSON.stringify(rerun[0]),bytes,'unchanged retained result rerun is byte-stable');
+ }finally{fs.rmSync(root,{recursive:true,force:true});}
  console.log('F1 session results: practice shape, identity, wording, timing, cancellation and malformed-source guards passed.');
 }
 // Exercise routing independently from source parsing.

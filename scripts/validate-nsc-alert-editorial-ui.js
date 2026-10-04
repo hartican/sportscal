@@ -33,8 +33,8 @@ function assertOrder(source, markers, message){
 // Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
 const cardSummary=section(html,"function buildNothingscorePeerResults", "function openNothingscoreLeaderboard");
 for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "Be the first to rate"]){assert(cardSummary.includes(marker), marker);}
-for(const tip of ["HOW'S IT GOING?", "TAP TO RATE"]){assert(cardSummary.includes(tip),tip);}
-for(const label of ["Boring","Mid","Interesting","Cooking","Epic"]){assert(cardSummary.includes(label),label);}
+for(const tip of ["Your stakes rating out of five", "fixtureStakesLabel(value)"]){assert(cardSummary.includes(tip),tip);}
+for(const label of ["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]){assert(html.includes(label),label);}
 assert(!section(html,"function buildMajorEventCard", "function buildTicketSaleCard").includes("buildNothingscoreSummary"),"Events cards omit rating inputs");
 assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
 assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');
@@ -49,7 +49,11 @@ const migration = section(preferences, "function migratePreferences(input)", "fu
 for (const key of ["sportingRemindersEnabled", "chatAlertsEnabled", "soundsEnabled", "badgesEnabled"]){
   assert.match(migration, new RegExp(`${key}:prior\\.notifications\\?\\.${key} !== false`), `${key} must preserve an explicit off choice`);
 }
-const notificationSettings = section(html, "function renderNotificationSettings(body)", "function renderSelectorOptInPrompt");
+const settingsSource=fs.readFileSync(path.join(ROOT,"config/fantasy-deadline-ui.js"),"utf8");
+assert.match(html,/assets\/js\/settings-optional-ui\.js\?v=\d+/,'settings must be loaded by the actual application');
+const notificationStart=settingsSource.indexOf("function renderNotificationSettings(body)");
+assert(notificationStart>=0,'actual deferred notification settings required');
+const notificationSettings=settingsSource.slice(notificationStart);
 for (const control of ["chatAlertsEnabled", "sportingRemindersEnabled", "notificationSoundsEnabled", "notificationBadgesEnabled"]){
   assert.match(notificationSettings, new RegExp(`id="${control}"[\\s\\S]*?!== false \\? "checked"`));
 }

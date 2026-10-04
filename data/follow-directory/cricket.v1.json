@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-09-30T11:15:20.723Z",
+  "generatedAt": "2026-10-04T04:23:17.491Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -24,8 +24,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4621",
-      "leagueName": "Zimbabwe v Australia ODIs 2026 - Men",
+      "leagueId": "competition:cricket:4568",
+      "leagueName": "South Africa v Australia Tests 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia",
@@ -36,12 +36,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.cricket.com.au/",
-        "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -61,8 +61,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4718",
-      "leagueName": "Asian Games 2026 - Men",
+      "leagueId": "competition:cricket:4720",
+      "leagueName": "Afghanistan v Bangladesh Test 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:bangladesh",
@@ -78,7 +78,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -115,7 +115,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceCheckedAt": "2026-10-02T05:00:01.034Z",
       "sourceReviewAfter": null
     },
     {
@@ -135,8 +135,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4714",
-      "leagueName": "Afghanistan v India T20s 2026 - Men",
+      "leagueId": "competition:cricket:espn:24286",
+      "leagueName": "Sri Lanka tour of India 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:india",
@@ -147,12 +147,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24286/game/1529240/india-vs-sri-lanka-3rd-t20i-24286"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -190,7 +190,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T11:15:20.723Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -210,8 +210,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4718",
-      "leagueName": "Asian Games 2026 - Men",
+      "leagueId": "competition:cricket:4715",
+      "leagueName": "Pakistan v Sri Lanka T20Is 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:pakistan",
@@ -227,7 +227,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -248,8 +248,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4567",
-      "leagueName": "South Africa v Australia ODIs 2026 - Men",
+      "leagueId": "competition:cricket:4568",
+      "leagueName": "South Africa v Australia Tests 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:south-africa",
@@ -265,7 +265,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -285,8 +285,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:3207",
-      "leagueName": "England v Sri Lanka T20s 2026 - Men",
+      "leagueId": "competition:cricket:espn:24286",
+      "leagueName": "Sri Lanka tour of India 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:sri-lanka",
@@ -297,12 +297,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://srilankacricket.lk/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24286/game/1529240/india-vs-sri-lanka-3rd-t20i-24286"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -323,8 +323,8 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4612",
-      "leagueName": "India v West Indies ODIs 2026 - Men",
+      "leagueId": "competition:cricket:4613",
+      "leagueName": "India v West Indies T20Is 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:west-indies",
@@ -340,7 +340,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:31:22.297Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {
@@ -394,8 +394,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4714",
-      "leagueName": "Afghanistan v India T20s 2026 - Men",
+      "leagueId": "competition:cricket:4720",
+      "leagueName": "Afghanistan v Bangladesh Test 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:afghanistan",
@@ -405,12 +405,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-30T03:36:03.593Z",
+      "sourceCheckedAt": "2026-10-04T04:23:17.491Z",
       "sourceReviewAfter": null
     },
     {

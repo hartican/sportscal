@@ -13,6 +13,7 @@ function validate(doc){
  for(const row of doc.events){
   const expected=scope.get(row.id);assert(expected&&!ids.has(row.id),'Unreviewed or duplicate Skiing identity');ids.add(row.id);
   assert(date(row.date)&&(!row.endDate||date(row.endDate)&&row.endDate>=row.date),'Invalid venue calendar date');
+  if(row.hook)assert(typeof row.hook==='string'&&row.hook.trim().split(/\s+/).length<=25,'Calendar hook must fit the existing card limit');
   assert(row.name&&row.dateLabel&&row.discipline&&['men','mixed'].includes(row.gender),'Incomplete Skiing calendar identity');
   assert(['competition:fis-alpine','competition:fis-freestyle'].includes(row.competitionId),'Unreviewed Skiing competition');
   assert(JSON.stringify(row.sourceRaceIds)===JSON.stringify(expected.races),'Skiing race mapping changed without identity review');
@@ -43,8 +44,14 @@ function qualify(event,{review=reviewed}={}){
  // Replace only the recognised unsourced seed preview, not reviewed editorial.
  if(row.preview&&/retained as a marquee winter-sport appointment/.test(event.fullSpiel||'')){
   const oldHook=event.selectedSentence,oldSynopsis=event.fullSpiel;
-  next.selectedSentence=row.preview;next.fullSpiel=row.preview;
-  if(event.storyline){next.storyline={...event.storyline};for(const key of ['hookSpoilerOff','hookSpoilerOn'])if(next.storyline[key]===oldHook)next.storyline[key]=row.preview;for(const key of ['synopsisSpoilerOff','synopsisSpoilerOn'])if(next.storyline[key]===oldSynopsis)next.storyline[key]=row.preview;}
+  next.selectedSentence=row.hook||row.preview;next.fullSpiel=row.preview;
+  if(event.storyline){next.storyline={...event.storyline};for(const key of ['hookSpoilerOff','hookSpoilerOn'])if(next.storyline[key]===oldHook)next.storyline[key]=row.hook||row.preview;for(const key of ['synopsisSpoilerOff','synopsisSpoilerOn'])if(next.storyline[key]===oldSynopsis)next.storyline[key]=row.preview;}
+ }
+ // Shorten only this review's recognised already-published calendar hook.
+ // Retain its full detail, facts and actual observation clock.
+ if(row.hook&&event.sourceUrl===row.sourceUrl&&event.sourceCheckedAt===review.checkedAt&&event.fullSpiel===row.preview&&event.selectedSentence===row.preview){
+  next.selectedSentence=row.hook;
+  if(event.storyline){next.storyline={...next.storyline};for(const key of ['hookSpoilerOff','hookSpoilerOn'])if(next.storyline[key]===row.preview)next.storyline[key]=row.hook;}
  }
  return next;
 }

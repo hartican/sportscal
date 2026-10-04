@@ -251,7 +251,13 @@ function main(){
   if(process.argv.includes('--nrlw-season-only'))cards.splice(0,cards.length,...cards.filter(card=>nrlwReview.addedFixtureIds.includes(card.canonicalEventId)));
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
-  const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
+  const f1Identity=event=>{
+    if(event.key!=="f1")return "";
+    const canonical=String(event.canonicalEventId||event.id||"").match(/^event:f1:2026:([a-z-]+):([a-z0-9-]+)$/);
+    const race=canonical?.[1]||String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1];
+    const type=sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "));
+    return race&&type?`${race}:${type}`:"";
+  };
   const incomingF1=new Set(cards.map(f1Identity).filter(Boolean));
   const legacyF1Ids=new Set(incomingF1.size ? Object.values(F1_LEGACY_STABLE_IDS) : []);
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
@@ -268,12 +274,12 @@ function main(){
     if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','endTimeUtc','endTimeBasis','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
   });
   cards.forEach((card,index)=>{
-    const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);
+    const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId)||existingById.get(card.id);
     if(!identity)return;
     // A published schedule cannot revoke a sourced result. Conversely, an old
     // elapsed-time completion must not drag recap copy into an upcoming card.
     const confirmed=existing?.status==='completed'&&Boolean(existing.fixtureResults?.sourceUrl||existing.resultPublishedAt);
-    const facts=confirmed?Object.fromEntries(['status','fixtureResults','resultPublishedAt','outcomeText','recapText','score','resultLabels'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]])):{};
+    const facts=confirmed?Object.fromEntries(['status','participantIds','participants','participantsConfirmed','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','sourceName','sourceUrl','sourceType','sourceCheckedAt'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]])):{};
     const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
     cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
   });

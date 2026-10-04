@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-10-01T17:37:32.698Z",
+  "generatedAt": "2026-10-04T04:26:13.406Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T17:37:32.698Z"
+      "checkedAt": "2026-10-04T04:26:13.406Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-10-01T17:37:32.698Z"
+      "checkedAt": "2026-10-04T04:26:13.406Z"
     }
   ],
   "leagues": [
@@ -9911,7 +9911,7 @@
       "sortName": "Lily Skinner",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/5939/lily-skinner",
       "sourceRefs": [
         "source:aflw:players",

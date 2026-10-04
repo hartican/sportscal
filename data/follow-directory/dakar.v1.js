@@ -1,0 +1,2 @@
+globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};
+globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS["dakar"] = {"schemaVersion":"follow-directory-chunk.v1","sportKey":"dakar","label":"Dakar Rally","generatedAt":"2026-10-04T04:26:58.1383692Z","status":"unavailable","sortBasis":"alphabetical-fallback","records":[]};

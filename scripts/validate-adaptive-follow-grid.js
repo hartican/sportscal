@@ -54,7 +54,16 @@ assert.deepEqual(affinity.map(item=>[item.sportId,item.count]),[["sport:motorspo
 
 const html = require("./app-shell-test-utils").readFollowApplicationSource();
 assert(html.includes("rankedFollowGridSports")&&html.includes(".slice(0,7)"),"Follow must rank no more than seven followed sports");
-assert(html.includes('sportKey === "nbl" ? "team"'),"NBL defaults to its separate Teams view");
+// The 3 October decision supersedes the old NBL Teams-first default.
+// Exercise the actual application filter rather than a removed literal.
+const vm=require("node:vm");
+const filterSource=html.slice(html.indexOf("function directoryFilters("),html.indexOf("function updateDirectoryFilters("));
+const directoryState={filtersBySport:{}};
+const directoryContext={readStandingsDirectorySession:()=>directoryState,normalizeExpandedTeamIds:()=>[],NOTHINGSPORTS_SURFACE_CATEGORY:{genderMatches:()=>false}};
+vm.createContext(directoryContext);vm.runInContext(filterSource,directoryContext);
+assert.equal(directoryContext.directoryFilters("nbl").entityType,"athlete","NBL opens Players under the approved individuals-first rule");
+directoryState.filtersBySport.nbl={entityType:"team"};
+assert.equal(directoryContext.directoryFilters("nbl").entityType,"team","a saved explicit Teams tab must remain authoritative");
 const ui=fs.readFileSync("assets/js/nsc-rankings-ui.js","utf8");
 assert(ui.includes("Players & athletes")&&ui.includes("Teams")&&ui.includes("Pick type"),"copy-follows must drill into teams and athletes");
 const migration=fs.readFileSync("supabase/migrations/20260916054309_rating_affinity_index.sql","utf8");

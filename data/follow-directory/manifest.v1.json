@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-01T17:37:45Z",
+  "generatedAt": "2026-10-04T04:26:58.1383692Z",
   "sports": [
     {
       "key": "afl",
@@ -65,6 +65,14 @@
       "recordCount": 78,
       "jsonUrl": "data/follow-directory/wrc.v1.json",
       "scriptUrl": "data/follow-directory/wrc.v1.js"
+    },
+    {
+      "key": "dakar",
+      "label": "Dakar Rally",
+      "status": "unavailable",
+      "recordCount": 0,
+      "jsonUrl": "data/follow-directory/dakar.v1.json",
+      "scriptUrl": "data/follow-directory/dakar.v1.js"
     },
     {
       "key": "supercars",
@@ -310,7 +318,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 2570,
+      "recordCount": 2576,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -342,7 +350,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1498,
+      "recordCount": 1505,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "nrl",
   "label": "NRL",
-  "generatedAt": "2026-09-30T08:35:08.448Z",
+  "generatedAt": "2026-10-04T04:26:58.1383692Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -4255,7 +4255,7 @@
       "currentTeamId": "team:nrl:325",
       "leagueId": "competition:nrl-premiership-2026",
       "teamKind": null,
-      "position": "Player",
+      "position": "Hooker",
       "identityId": "competitor:nrl:diesel-hagan",
       "logoUrl": null,
       "logoDarkUrl": null,

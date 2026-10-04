@@ -5,6 +5,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const {
+  fixtureSourceMetadata,
   applyToFeedEvent,
   applyToMajorEvent,
   indexesFor,
@@ -50,10 +51,7 @@ function main(){
           ...event,
           selectedSentence:narrative.hook,
           fullSpiel:narrative.synopsis,
-          sourceName:primarySource.name,
-          sourceUrl:primarySource.url,
-          sourceType:primarySource.sourceType,
-          sourceCheckedAt:primarySource.checkedAt,
+          ...fixtureSourceMetadata(event,primarySource),
           lastReviewedAt:narrative.researchedAt || event.lastReviewedAt,
           editorialPreview:{
             status:"journalistic",

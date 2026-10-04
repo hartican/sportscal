@@ -264,7 +264,33 @@ const resolvedRlwcEditorialChild = majorEvents.editorialRecordForSubEvent(drawnM
 assert.equal(resolvedRlwcEditorialChild.editorialNarrative.hook, curatedOpener.editorialNarrative.hook, "an Events-only World Cup child must retain the latest researched fixture stakes even before its matching Feed card is loaded");
 assert.equal(majorEvents.fixtureSemanticKey(fixture), majorEvents.fixtureSemanticKey(curatedOpener), "the pinned child and curated opener must share one semantic fixture identity despite different IDs and ISO precision");
 assert(html.includes("const canonicalFixtures = majorEventFeedCandidates()") && html.includes("repairSavedFixture?.(event, canonicalFixtures)") && html.includes("const current = repaired?.fixture || event"), "a pinned Events child must adopt the canonical fixture and its curated projection on the first Feed render without waiting for the lazy Events runtime");
-assert(html.includes(`"${fixture.id}":Object.freeze({`) && html.includes(`projectionId:"${curatedOpener.editorialNarrative.projectionId}"`) && html.includes(`hook:"${curatedOpener.editorialNarrative.hook}"`), "the one pre-canonical device-local pin must retain the exact validated projection without another startup request");
+const canonicalSteps=require("./update-cards").buildSteps({localOnly:true});
+const publishedEditorialStep=canonicalSteps.findIndex(args=>args[0]==="scripts/prepare-result-editorial.js");
+const firstMajorGate=canonicalSteps.findIndex(args=>args[0]==="scripts/validate-major-events.js");
+assert(canonicalSteps.slice(publishedEditorialStep+1,firstMajorGate).some(args=>args[0]==="scripts/build-app-shell-runtime.js"),"canonical owner must regenerate the source-backed cold pin before its first offline gate");
+const bootstrap = require("./build-app-shell-runtime").pinnedFixtureEditorial();
+assert.deepEqual(bootstrap[fixture.id].editorialNarrative, curatedOpener.editorialNarrative, "generated bootstrap retains the exact validated published projection");
+const vm = require("node:vm");
+const pinContext = vm.createContext({NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL:bootstrap});
+vm.runInContext(html.slice(html.indexOf("function fxAliases("), html.indexOf("const COMPETITION_CLASSIFICATION")) + ";globalThis.repair=FEED_FIXTURE_RECONCILIATION.repairSavedFixture;", pinContext);
+const oldPin = {...fixture,manualPin:true,editorialNarrative:drawnMatch.editorialNarrative};
+const oldPinBefore = JSON.stringify(oldPin);
+const coldPin = pinContext.repair(oldPin,[]).fixture;
+assert.deepEqual(JSON.parse(JSON.stringify(coldPin.editorialNarrative)),curatedOpener.editorialNarrative,"actual first-render consumer adopts current reviewed copy before canonical hydration");
+assert.equal(JSON.stringify(oldPin),oldPinBefore,"first render must not mutate saved actions");
+assert.equal(coldPin.id,oldPin.id,"copy repair preserves the saved pin identity");
+assert.deepEqual(coldPin.participantIds,oldPin.participantIds,"copy repair preserves source participants");
+assert.equal(coldPin.startTimeUtc,oldPin.startTimeUtc,"copy repair preserves the source clock");
+assert.equal(pinContext.repair(coldPin,[]).fixture,coldPin,"unchanged cold reruns retain the original object");
+assert.equal(pinContext.repair(oldPin,[curatedOpener]).fixture,curatedOpener,"loaded canonical data remains authoritative");
+for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:"completed"},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:"2026-10-03T12:00:00Z",hook:"A newer reviewed saved preview remains authoritative."}}]){
+  assert.equal(pinContext.repair(changed,[]).fixture,changed,"changed fixture facts/status and newer reviewed copy reject the older bootstrap");
+}
+const shared = require("../config/feed-fixture-reconciliation");
+const originalBootstrap=globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL;
+try{globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL=bootstrap;assert.deepEqual(shared.repairSavedFixture(oldPin,[]).fixture.editorialNarrative,curatedOpener.editorialNarrative,"shared and inline consumers agree");}
+finally{if(originalBootstrap===undefined)delete globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL;else globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL=originalBootstrap;}
+assert(!html.includes("const PINNED_FIXTURE_EDITORIAL_NARRATIVES"),"the unused duplicate cannot drift again");
 assert.equal(majorEvents.fixtureFromSubEvent({ ...drawnMatch, startTimeUtc: null }, rlwc), null, "unknown times must not materialise in Fixtures");
 assert.equal(new Set([fixture.eventId, fixture.eventId]).size, 1, "the stable child ID is the deduplication boundary");
 

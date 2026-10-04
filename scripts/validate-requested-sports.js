@@ -101,7 +101,17 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
     assert(grandFinal && grandFinal.timeTbc !== true && grandFinal.timePrecision === "exact", "NRLW Grand Final must retain its now-published exact start");
     assert.equal(grandFinal.startTimeUtc, "2026-10-04T05:00:00.000Z", "NRLW Grand Final must use Sydney daylight saving");
     assert.deepEqual(grandFinal.participantIds, ["team:nrlw:roosters", "team:nrlw:broncos"]);
-    assert.equal(grandFinal.sourceUrl, "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals");
+    // The retained programme was superseded by the dated governing-body
+    // fixture already published by the canonical owner. Inspector must carry
+    // that exact source/clock pair, not regress to the older venue programme.
+    const publishedFinal = readJson("data/events.json").events.find(event => event.canonicalEventId === grandFinal.id);
+    assert(publishedFinal, "NRLW Grand Final must reconcile to one published canonical fixture");
+    assert([
+      "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+    ].includes(grandFinal.sourceUrl), "confirmed final must retain one of its reviewed official programmes");
+    assert.equal(grandFinal.sourceUrl, publishedFinal.sourceUrl, "Inspector must retain the published fixture source");
+    assert.equal(grandFinal.sourceCheckedAt, publishedFinal.sourceCheckedAt, "Inspector must retain that source's actual observation clock");
     assert(Number.isFinite(Date.parse(grandFinal.sourceCheckedAt)), "confirmed final requires dated evidence");
   }
 }
