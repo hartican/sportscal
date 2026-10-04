@@ -28,7 +28,7 @@ Release this small, source-backed completion and presentation repair through the
 | Current projections | 71 NRLW fixtures, all 71 now completed; five individually reviewed finals | Fixture completeness does not certify viewing, rights, player data or the whole family |
 | Identity and retention | All 1,504 Feed and 1,503 incoming identities remain; 1,498 Feed records and 1,497 incoming records are exactly unchanged | The Grand Final, F1 availability and four genuine F1 provenance observations change. All participants, kickoffs and venues stay exact; NRLW scheduling dates and all four F1 final facts remain exact |
 | Table | Twelve regular-season standings rows unchanged | Finals do not alter the regular-season ladder; no renewed table date |
-| Validation | Five-final collection, independent dates, 33 malformed scenarios, later-correction and unchanged-rerun protections | Full normal gates and production proof recorded below on completion |
+| Validation | Five-final collection, independent dates, 33 malformed scenarios, later-correction and unchanged-rerun protections | Normal gates and production proof recorded below |
 | Presentation | Actual Feed/Schedule card, both browser engines, 390px, Results on/off, source link and unchanged preferences/facts | Synthetic anonymous preferences, blocked APIs/workers; not actual account, playback, physical phone or push proof |
 
 ## Newly due F1 availability gap
@@ -39,9 +39,11 @@ The real captured empty-page regression was red before this boundary, then passe
 
 ## Verification and release state
 
-Implementation and scoped canonical publication are local. Normal release gates, both cache upgrade rehearsals, GitHub publication, exact-SHA deployment and independent live verification are pending and will be appended with their actual outcomes.
+App **bc0ddda5 / shell 428** is published on GitHub main and accepted live after [normal release 37193655129](https://github.com/hartican/sportscal/actions/runs/37193655129). All 145 final local and cloud commands and the protected read-only publication/preflight checks pass. Independent evidence confirms the correct project, exact published SHA, READY production deployment and three aliases; all 27 affected served hashes match the immutable transformed inventory. Sixteen local and sixteen hosted actual-final/pending card cases pass across Chromium/WebKit, including Results privacy and rendered result-source links. Their presence and target are verified; anonymous direct NRL access returns an account form, so destination contents and playback are not certified. Both genuine 427→428 upgrade rehearsals pass with the current NRLW result, independent dates and offline privacy; the later data-only F1 fields have their separate current-card and served-byte proof. No new offline assertion for the F1 pending state is claimed. Of 1444 deployed app inputs, 74 change, 1370 remain exact and none are removed. Later report-only main publication stays separate from this live app SHA.
 
 The first broad PWA run used the same unchanged shell epoch, before the result-link change. It rejected manually seeded legacy private cache entries because no worker activation occurred; the data/privacy assertions had already passed. This is an unsuitable baseline for that upgrade-only cleanup check, not proof of a new production failure. The failed log is retained. The material link change receives a real 427→428 upgrade rehearsal; no gate is waived.
+
+The deployment inventory includes fourteen additional existing server dependency inputs after the F1 CLI reuses the quick writer. This is verified package growth, with no new browser critical requests or source calls; its cold-start cost is unmeasured. Before the next result-writer change, extract the existing known-fixture patch into a small pure module reused by both owners. This replaces coupling, costs A$0 and about one–two engineering hours, requires no owner decision, and should retain all writer regressions while removing the newly traced source owners. A wider rewrite is not justified by this evidence.
 
 ## Remaining programme
 
