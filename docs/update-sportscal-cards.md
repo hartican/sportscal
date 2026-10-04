@@ -1,0 +1,19 @@
+# Update Sportscal cards
+
+Use `node scripts/update-cards.js` and its existing scoped modes. An update includes scoped GitHub main publication and exact-commit production deployment unless explicitly local-only. Keep the existing refresh owner, source budgets, editorial holds, spoiler controls and release gates; never access preferences to refresh sporting facts.
+
+## Main advances during a run - 4 October 2026
+
+Concurrent commits to main are a recoverable integration condition, not a reason to abandon independently valid card updates or ask for another approval.
+
+1. Preserve the scoped card outputs and research in a local commit. Fetch `origin main`, then merge `origin/main` into the release branch with `git merge --no-edit origin/main`. Never force-push, reset, discard unrelated changes or choose an entire data file wholesale as ours/theirs.
+2. Retain upstream source/runtime changes and newer verified sporting facts. Resolve editorial differences only for this run's selected identities, preserving unrelated cards, stable aliases, explicit locks and queued Owner controls. A substantive source conflict without a defensible resolution is still a blocker.
+3. Resolve conflicting generated artifacts by rebuilding them from the merged canonical inputs with their existing builders. For example, rebuild `data/chat-fixtures.v1.json` with `require('./scripts/build-chat-fixture-registry').writeRegistry({rootDir:process.cwd()})`. Do not repeat provider ingestion or duplicate research merely to repair generated output. If its inputs changed, rebuild the editorial maintenance source through `node scripts/update-cards.js --adaptive-editorial --build-sources`.
+4. Run the applicable existing integrity, sporting-field preservation, spoiler, build and release gates against the combined snapshot. Keep private-control revisions and holds authoritative; a sourceRevision change requires a matching fresh control snapshot where the canonical operation requires one.
+5. Commit the resolved merge, require a clean tracked tree, and retry the ordinary `git push origin HEAD:main`. If main advances again, repeat integration with a maximum of three recovery attempts in the run. Do not relabel a validator, authorization or substantive merge failure as a harmless main race.
+6. Deploy the exact successfully published full SHA through the established serialized production pipeline. If its initial mainline check rejects a superseded SHA before deployment, integrate and publish again, then dispatch the new SHA. First establish whether an earlier deployment started or completed; never launch a competing production release or blindly retry an uncertain external outcome.
+7. Require READY production `releaseGitSha`, alias/served-byte proof and relevant live desktop/mobile rendering. Record editorial publication only after raw served sections and the pipeline inventory agree. Research or a local commit is not production proof; physical iOS Home Screen acceptance remains separate.
+
+If the bounded recovery cannot finish, preserve the local work and staged private copy, report the exact conflict/failing stage and next action, and do not claim deployment. A genuine shared safety/release failure still stops release; a card-local failure defers only that card and its direct dependants.
+
+This rule adds no scheduler, provider request, automatic force-push or gate bypass. Apply it to canonical card releases and the existing adaptive/weekend editorial task.
