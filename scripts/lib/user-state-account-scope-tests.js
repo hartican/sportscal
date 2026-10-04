@@ -98,7 +98,10 @@ async function recoveryUi(){
  }
  return results;
 }
-async function overlappingRefreshes(){
+async function overlappingRefreshes({useLease=false}={}){
+ const navigatorDescriptor=Object.getOwnPropertyDescriptor(globalThis,'navigator');
+ if(useLease)Object.defineProperty(globalThis,'navigator',{value:{},configurable:true});
+ try{
  const pending=[],requests=[],storage=memoryStorage(),token=sub=>'e30.'+Buffer.from(JSON.stringify({sub})).toString('base64url')+'.synthetic';
  const response=(json,status=200)=>new Response(JSON.stringify(json),{status,headers:{'Content-Type':'application/json'}});
  let target='A';
@@ -113,10 +116,11 @@ async function overlappingRefreshes(){
  const old=client.loadState({accountId:'A'});const oldRejected=assert.rejects(old,e=>e.code==='account_scope_changed');await until(()=>pending.length===1);
  target='B';await client.signIn('qa@example.invalid','synthetic',{persist:false});
  const first=client.loadState({accountId:'B'}),firstRejected=assert.rejects(first,e=>e.status===401);await until(()=>requests.filter(x=>x==='state').length===2);
- pending[0].resolve(response({session:{access_token:token('A'),refresh_token:'old-A-rotated',expires_in:3600}}));await oldRejected;await until(()=>pending.length===2);
+ pending[0].resolve(response({session:{access_token:token('A'),refresh_token:'old-A-rotated',expires_in:3600}}));await oldRejected;await until(()=>pending.length===2);if(useLease)assert(storage.getItem('ns_auth_refresh_lock_v1'),'old refresh completion must not remove B’s active coordination lease');
  const second=client.loadState({accountId:'B'}),secondRejected=assert.rejects(second,e=>e.status===401);await until(()=>requests.filter(x=>x==='state').length>=3);
  assert.equal(pending.length,2,'old completion must not clear the replacement refresh job');
  pending[1].resolve(response({session:{access_token:token('B'),refresh_token:'new-B-rotated',expires_in:3600}}));await Promise.all([firstRejected,secondRejected]);
- assert.equal(client.sessionSubject(),'B');assert.equal(requests.filter(x=>x==='refresh').length,2);client.clearSession();return ['SDK overlapping refresh jobs'];
+ assert.equal(client.sessionSubject(),'B');assert.equal(requests.filter(x=>x==='refresh').length,2);client.clearSession();return ['SDK overlapping refresh jobs '+(useLease?'storage lease':'Web Locks')];
+ }finally{if(useLease)Object.defineProperty(globalThis,'navigator',navigatorDescriptor);}
 }
-module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true})];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};

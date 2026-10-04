@@ -352,9 +352,10 @@
 
     async function refreshWithStorageLease(scope){
       guardRefreshScope(scope);
+      const leaseOwner = `${refreshOwner}:${scope.generation}`;
       let lease = null;
       try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
-      while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== refreshOwner){
+      while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== leaseOwner){
         await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
         const refreshed = refreshedStoredSession(scope);
         if (refreshed) return refreshed;
@@ -362,10 +363,10 @@
       }
       const refreshed = refreshedStoredSession(scope);
       if (refreshed) return refreshed;
-      try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:refreshOwner, expiresAt:now() + 15_000 })); }catch(_error){}
+      try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:leaseOwner, expiresAt:now() + 15_000 })); }catch(_error){}
       try{ return await performSessionRefresh(scope); }
       finally{
-        try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === refreshOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
+        try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === leaseOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
       }
     }
 
