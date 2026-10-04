@@ -1,6 +1,6 @@
 # NRL/AFL final facts and result observations — 4 October 2026
 
-Status: Implemented locally; normal exact-snapshot release and hosted evidence pending. Scope starts from main `5ed85a14c9439210642daf094d868d00642bd9a0` / live app `78168e8e`, shell423. This checks two men's finals, not whole competition or family certification.
+Status: Shipped `5efb22b1e2df900607a901058c7f188922131c49` through [normal release 37173340206](https://github.com/hartican/sportscal/actions/runs/37173340206); independent READY/project/metadata/three aliases and served proof at 2026-10-04T03:15:59.624Z agree. Scope starts from main `5ed85a14c9439210642daf094d868d00642bd9a0` / live app `78168e8e`, shell423. This checks two men's finals, not whole competition or family certification.
 
 ## Source agreement and reproduced defect
 
@@ -31,3 +31,9 @@ The first diagnostic attempt used a legacy non-production editorial-consequence 
 Latest ordinary refresh remains terminal failure37146184945; no newer scheduled evidence was visible during the read-only check. This scoped repair is not that acceptance proof. Passwords/iCloud remains parked under the user's carry-on instruction. Full viewing, provider permission, real account/two-device, physical phone, push and elapsed repeat use remain unverified.
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/reference-finals-acceptance-20261004`; official findings, historical reproduction, original failing diagnostic, regression, owner projection/replay, strict preservation, browser/cache and normal-release proofs remain separate.
+
+## Release closeout
+
+The final stable 138-command local gate took 138.775 seconds; normal cloud gates and protected-input checks pass.96 local and96 hosted Chromium/WebKit component cases verify both actual finals at 320/390/1280px, both themes, Feed/Schedule and Results OFF/ON. APIs are synthetic/intercepted, not customer proof. Both local genuine-worker online→current-cache→simulated outage and hosted online→current-cache checks pass at unchanged shell 423. 12 served hashes match the immutable transformed inventory: 50 changed sporting projections, 1289 unchanged deployment inputs, none removed. Private raw sources stay excluded; all six function copies remain. The final main app is independently proved READY `dpl_A9rehPKZzbxxdYWK1TWMjx5K3Dpn`. Documentation closure is separate and needs no additional app deployment.
+
+The source research/wording cap overrun, legacy regression failure, initial verifier typo, short-SHA rejection before dispatch and local dispatch-observer timeout remain disclosed. The preserved normal run handle completed; no duplicate deployment was requested. No required gate was bypassed. Local/provider/CI cash and business uplift remain unmeasured.
