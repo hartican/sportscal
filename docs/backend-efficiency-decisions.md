@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Account-sync conflicts preserve edit intent — 4 October 2026
+
+The existing user-state sync owner retries only typed `409 user_state_conflict` responses, at most three writes. Retry patches keep the original local edit baseline and compare against the newest server timestamp. Untouched remote fields cannot become local edits; temporary remote agreement cannot erase an explicit local choice. Existing fixture-pin authority remains. Compare late local edits against the actual start snapshot, before server pin normalization, so unchanged old pins are not mistaken for new user input. No new retry, polling, API, schema, Auth, scheduler or service budget is introduced. The existing production workflow now runs the actual orchestration regression in `validate-cross-device-sync.js`.
+
 ## Retained canonical source handoff — 4 October 2026
 
 The shared Code/Schedule projector may flatten supplied nested canonical provenance only when explicit flat metadata is absent. Keep the original URL/publisher/type/observation together; reject unsafe nested references and invalid/future clocks. The existing retained-data `--code-projections` owner is used, with no source request, new refresh owner, retry, scheduler, database operation or shell epoch. All existing flat provenance and non-source sporting facts remain exact; restored metadata is not new verification or commercial permission. Regression: existing canonical card/Code gates and browser conversion/privacy checks. [Evidence and limits](quality/reference-provenance-2026-10-04.md).

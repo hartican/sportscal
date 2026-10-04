@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="421">
+<meta name="app-shell-version" content="422">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=421" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=422" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=421"></script>
+<script src="assets/js/app-shell-runtime.js?v=422"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10282,6 +10282,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
   setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
   try{
     let currentState = currentServerStatePayload();
+    const stateAtSyncStart = currentState;
     const baseline = serverStateBaseline || {
       state: emptyServerStatePayload(),
       updatedAt: null,
@@ -10298,7 +10299,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
 
     if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
       if (latest.state.updatedAt !== baseline.updatedAt){
-        applyServerStatePreservingChanges(latest.state, currentState);
+        applyServerStatePreservingChanges(latest.state, stateAtSyncStart);
       }
       setServerStateBaseline(latest.state);
       setServerPersistence({
@@ -10332,7 +10333,9 @@ async function reconcileCurrentServerState({ notify = false } = {}){
         latest = await serverSyncClient.loadState();
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
-        localPatch = USER_STATE_SYNC.createPatch(latest.state || emptyServerStatePayload(), currentState, {
+        // Keep the original edit baseline: a newer cloud value is not a local
+        // change, and temporary agreement must not erase deliberate intent.
+        localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
           baseUpdatedAt: latest.state?.updatedAt || null,
         });
       }
@@ -10340,7 +10343,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
     setPreferenceRecovery(result.preferenceRecovery);
     clearAcknowledgedFixturePinCommands(result.state);
-    applyServerStatePreservingChanges(result.state, currentState);
+    applyServerStatePreservingChanges(result.state, stateAtSyncStart);
     setServerStateBaseline(result.state);
     const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
     setServerPersistence({
