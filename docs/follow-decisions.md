@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Settled final source dates — 5 October 2026
+
+A settled final does not need a new score check merely because its original observation is old. The shared deferred score presentation preserves original facts/dates, retains explicit source-stale warnings and ongoing score freshness, suppresses future/invalid check dates and displays a machine-readable calendar date, year and local timezone. Missing final dates remain explicitly unavailable. This repairs actual compact Feed exposure in the three existing Football pilots without new source requests, polling, scheduler, database change, subscription or owner routine. Results OFF, strict/per-event choices and existing result-line precedence remain authoritative. Shell437 versions only the changed deferred widget/loader and existing shell. Regression: existing feed score Node/browser gates and actual Football cached upgrade/offline/resume checks. Wider viewing/rights, physical phone, ordinary operation and cohort acceptance remain separate.
+
 ## Canonical underway score presentation — 5 October 2026
 
 A verified actual NHL LIVE response exposed a Schedule card that showed source status but omitted its valid score. Reuse the existing deferred score component for explicit underway cards in Schedule/Events and canonical named home/away pairs in Feed. Placeholder upcoming pairs cannot become scores; explicit flat/null observations retain priority and cannot mix with older slots. Names and scores remain attached to their source roles; hockey uses its source participant order. The existing global, strict and per-event Results rules govern visible and accessible score content. Freshness preserves genuine independent score/status clocks and stale cards show their existing degraded labels.
