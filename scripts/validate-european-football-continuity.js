@@ -48,6 +48,27 @@ function providerMatches(league, shortcut) {
     assert(completed, 'the retained current season supplies a confirmed completed match');
     const current = first.fixtures.find(f => f.providerFixtureId === String(completed.matchID));
 
+    const laterCheck = new Date(+baseTime + 60000);
+    const unchanged = await refresh({ outputPath, now: laterCheck, fetchImpl: fetchFor(input) });
+    assert(unchanged.payload.leagues.every(l => l.checkedAt === laterCheck.toISOString()), 'real competition checks retain their own observation');
+    for (const event of initial.payload.events) {
+      const next = unchanged.payload.events.find(e => e.id === event.id);
+      assert.equal(next.sourceCheckedAt, event.sourceCheckedAt, 'unchanged fixture retains its original fact observation');
+      if (event.status === 'completed') assert.equal(next.scoreCheckedAt, event.scoreCheckedAt, 'unchanged final retains its original result observation');
+    }
+    assert.deepEqual(JSON.parse(fs.readFileSync(outputPath)).events, unchanged.payload.events, 'retained observations survive actual persistence');
+    const {retainFixtureObservations} = require('./lib/openligadb-football');
+    const legacy = structuredClone(first);
+    for (const f of legacy.fixtures) { delete f.sourceCheckedAt; delete f.scoreCheckedAt; }
+    const migrated = retainFixtureObservations(legacy, {...legacy, checkedAt: laterCheck.toISOString()});
+    assert(migrated.fixtures.every(f => f.sourceCheckedAt === first.checkedAt), 'legacy fixtures retain the already observed collection date');
+    assert(migrated.fixtures.filter(f => f.status === 'completed').every(f => f.scoreCheckedAt === first.checkedAt), 'legacy finals cannot borrow the new collection check');
+    const venueChange = structuredClone(first); venueChange.checkedAt = laterCheck.toISOString();
+    venueChange.fixtures.find(f => f.providerFixtureId === current.providerFixtureId).venue = 'Reviewed venue correction';
+    const venueObserved = retainFixtureObservations(first, venueChange).fixtures.find(f => f.providerFixtureId === current.providerFixtureId);
+    assert.equal(venueObserved.sourceCheckedAt, laterCheck.toISOString());
+    assert.equal(venueObserved.scoreCheckedAt, current.scoreCheckedAt, 'venue correction does not redate an unchanged result');
+
     async function rejectedCase(label, mutate, now = new Date(+baseTime + 60000)) {
       fs.writeFileSync(outputPath, saved);
       const altered = structuredClone(input);
@@ -83,6 +104,7 @@ function providerMatches(league, shortcut) {
     const correctedResult = await refresh({ outputPath, now: new Date(+baseTime + 60000), fetchImpl: fetchFor(correction) });
     assert.equal(correctedResult.failures.length, 0, 'a newly checked explicit final-score correction is accepted');
     assert.equal(correctedResult.payload.events.find(e => e.id.endsWith(`:${completed.matchID}`) && e.competitionId === first.competitionId).homeScore, current.result.homeScore + 1);
+    assert.equal(correctedResult.payload.events.find(e => e.id.endsWith(`:${completed.matchID}`) && e.competitionId === first.competitionId).scoreCheckedAt, laterCheck.toISOString(), 'real correction keeps its new result observation');
 
     fs.writeFileSync(outputPath, saved);
     const rescheduled = structuredClone(input);
@@ -92,13 +114,14 @@ function providerMatches(league, shortcut) {
     const rescheduledResult = await refresh({ outputPath, now: new Date(+baseTime + 60000), fetchImpl: fetchFor(rescheduled) });
     assert.equal(rescheduledResult.failures.length, 0, 'rescheduling the same participants preserves identity');
     assert.equal(rescheduledResult.payload.events.find(e => e.id.endsWith(`:${future.matchID}`) && e.competitionId === first.competitionId).startTimeUtc, future.matchDateTimeUTC);
+    assert.equal(rescheduledResult.payload.events.find(e => e.id.endsWith(`:${future.matchID}`) && e.competitionId === first.competitionId).sourceCheckedAt, laterCheck.toISOString(), 'real reschedule keeps its new fact observation');
 
     fs.writeFileSync(outputPath, saved);
     const reordered = Object.fromEntries(Object.entries(input).map(([key, matches]) => [key, [...matches].reverse()]));
     const reorderedResult = await refresh({ outputPath, now: new Date(+baseTime + 60000), fetchImpl: fetchFor(reordered) });
     assert.equal(reorderedResult.failures.length, 0, 'provider ordering is not sporting identity');
     assert.deepEqual(reorderedResult.payload.events.map(e => e.id), initial.payload.events.map(e => e.id));
-    assert.equal(calls, 16, 'each of eight refreshes uses only the existing two provider requests');
+    assert.equal(calls, 18, 'each of nine refreshes uses only the existing two provider requests');
     console.log('European source continuity: terminal results, stable identities, matchup ownership, observation order, visible partial failures, explicit score corrections and rescheduling passed.');
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });

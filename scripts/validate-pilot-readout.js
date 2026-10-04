@@ -10,7 +10,12 @@ const { reportFromReadout, parseOptions } = require("./evaluate-pilot-readout");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
-const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: new Date(feedMeta.publishedAt) });
+// A source/table-only check can legitimately be newer than an unchanged Feed.
+// Exercise this stored-input contract at its latest observation; the real
+// operator verifier still uses its actual clock and the unchanged 15h limit.
+const observationNow = new Date(Math.max(Date.parse(canonical.generatedAt), Date.parse(feedMeta.publishedAt)));
+assert(Number.isFinite(+observationNow), 'both stored observation dates must be valid');
+const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: observationNow });
 const reviewedAflwSource = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
 assert(reviewedAflwSource, 'use an actual reviewed flat AFLW result');
 // A genuine primary refresh may add its independently valid nested result.
@@ -115,9 +120,18 @@ for (const verdict of [undefined, false, null, "true"]){
   assert.equal(unverified.operationalReady, false, "coverage counts cannot override a failed or missing readiness verdict");
 }
 const staleCanonical = {...canonical,generatedAt:"2026-01-01T00:00:00Z"};
-const staleSnapshot = buildReadinessReport({canonical:staleCanonical,feedMeta,finals:readFinalsEvidence(),now:new Date(feedMeta.publishedAt)});
+const staleSnapshot = buildReadinessReport({canonical:staleCanonical,feedMeta,finals:readFinalsEvidence(),now:observationNow});
 assert.equal(staleSnapshot.supportedFixtureCoveragePercent,100);
 assert.equal(staleSnapshot.overdueResultCount,0);
 assert.equal(staleSnapshot.ready,false);
 assert.equal(READOUT.buildMeasurementReport(inputFromReadout([{cohort:"all"}],staleSnapshot)).operationalReady,false,"stale snapshots remain attention required in the operator readout");
+for (const patch of [
+  {canonical:{...canonical,generatedAt:new Date(+observationNow+60000).toISOString()}},
+  {feedMeta:{...feedMeta,publishedAt:new Date(+observationNow+60000).toISOString()}},
+  {feedMeta:{...feedMeta,publishedAt:new Date(+observationNow-16*3600000).toISOString()}},
+]) {
+  const failed = buildReadinessReport({canonical,feedMeta,finals:readFinalsEvidence(),now:observationNow,...patch});
+  assert.equal(failed.ready,false,'future observations and a truly stale Feed still reject');
+  assert.equal(READOUT.buildMeasurementReport(inputFromReadout([{cohort:'all'}],failed)).operationalReady,false);
+}
 console.log("Operator readiness preserves failed, absent and stale-snapshot verdicts.");

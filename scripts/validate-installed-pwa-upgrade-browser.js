@@ -9,6 +9,14 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
 async function assertCachedCanonicalResults(page){
+  await page.evaluate(()=>loadDeferredScript('config/cricket-innings.js?v=431'));
+  const cricket=await page.evaluate(async()=>{
+    const f=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures.find(f=>f.id==='fixture:cricket:CA:41001'),before=JSON.stringify(f),prior=userPreferences.showSpoilers,priorTab=activeTab,states=cardViewStates;
+    try{activeTab='follow';cardViewStates={...states,[(canonicalFeedFixtureForInspector(f)||f).id]:'opened'};userPreferences.showSpoilers=true;const host=document.getElementById('listView');host.replaceChildren(buildCodeInspectorFixture(f));await Promise.resolve();const visible=host.textContent;userPreferences.showSpoilers=false;const hidden=buildCodeInspectorFixture(f);return {innings:f.innings.length,visible,hiddenTables:hidden.querySelectorAll('.cricket-innings-table').length,unchanged:before===JSON.stringify(f)};}finally{userPreferences.showSpoilers=prior;activeTab=priorTab;cardViewStates=states;}
+  });
+  assert.equal(cricket.innings,2,'upgraded/offline Cricket projection retains actual innings');
+  assert(cricket.visible.includes('165/9')&&cricket.visible.includes('102 all out')&&cricket.visible.includes('17.3'),'cached result renderer shows sourced totals and cricket overs: '+JSON.stringify(cricket));
+  assert.equal(cricket.hiddenTables,0,'cached Results OFF hides innings');assert(cricket.unchanged,'cached innings presentation does not change facts or dates');
   const observations=await page.evaluate(async()=>{
     const rows=[],beforePreferences=JSON.stringify(userPreferences),priorTab=activeTab;
     try{

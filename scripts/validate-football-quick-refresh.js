@@ -3,6 +3,28 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {refreshPremierLeagueTable,projectionSteps,retainedFeedProjectionSteps,patchKnown,retainReviewedResultEditorial}=require('./quick-results');
 const root=path.resolve(__dirname,'..'),directory=fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-quick-'));
+// Actual settled primary facts must not become 100 Feed updates after a check.
+const final=require('../feeds/incoming/events.json').events.find(e=>e.key==='premier-league'&&e.status==='completed');
+assert(final?.scoreCheckedAt&&final.resultSourceCheckedAt,'real sourced completed EPL regression');
+const rechecked={...final,scoreCheckedAt:'2026-10-04T13:37:39.383Z',sourceCheckedAt:'2026-10-04T13:37:39.383Z',resultSourceCheckedAt:'2026-10-04T13:37:39.383Z'};
+assert.equal(patchKnown([final],[rechecked]).count,0,'an unchanged primary final retains its original score observation');
+assert.deepEqual(patchKnown([final],[rechecked]).events,[final]);
+const moved={...rechecked,startTimeUtc:'2026-10-01T12:00:00.000Z'};
+assert.equal(patchKnown([final],[moved]).count,1,'a sporting schedule correction still persists');
+assert.equal(patchKnown([final],[moved]).events[0].scoreCheckedAt,final.scoreCheckedAt,'unchanged score does not acquire a schedule observation');
+assert.equal(patchKnown([final],[moved]).events[0].resultSourceCheckedAt,final.resultSourceCheckedAt,'unchanged result keeps its source/date tuple');
+const undated={...final};delete undated.scoreCheckedAt;
+assert.equal(patchKnown([undated],[rechecked]).count,1,'a genuine first score observation can fill a missing date');
+const corrected={...rechecked,homeScore:final.homeScore+1,score:`corrected ${final.homeScore+1}-${final.awayScore}`};
+assert.equal(patchKnown([final],[corrected]).count,1,'real corrected final is admitted');
+assert.equal(patchKnown([final],[corrected]).events[0].scoreCheckedAt,rechecked.scoreCheckedAt,'correction retains its actual new observation');
+const live={...final,status:'live'},liveCheck={...rechecked,status:'live'};
+assert.equal(patchKnown([live],[liveCheck]).count,1,'same-score live observation still refreshes live freshness');
+for(const key of ['sourceName','sourceUrl','resultSourceUrl','resultStatus','delayedResultSource','sourceAttribution']){
+ const changed={...rechecked,[key]:key.endsWith('Url')?'https://example.com/changed':key==='sourceAttribution'?{provider:'changed'}:'changed'};
+ assert.equal(patchKnown([final],[changed]).events[0].scoreCheckedAt,rechecked.scoreCheckedAt,key+' cannot borrow an old provider/result observation');
+}
+assert(!retainedFeedProjectionSteps(['EPL standings source check','European Football source check']).some(s=>['scripts/publish-feed.js','scripts/build-paged-feed.js','scripts/build-follow-fixtures.js'].includes(s[0])),'real source/table dates do not require unchanged Feed publication');
 (async()=>{try{
  const bundlePath=path.join(directory,'context.json');fs.copyFileSync(path.join(root,'data/canonical/afl-nrl-2026.json'),bundlePath);
  const before=fs.readFileSync(bundlePath,'utf8'),initial=JSON.parse(before),table=initial.ladderSnapshots.find(t=>t.competitionId==='competition:premier-league-2026-27');

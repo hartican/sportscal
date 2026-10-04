@@ -1,7 +1,7 @@
 'use strict';
 // Refresh entry point is scripts/update-cards.js; no separate scheduler.
 const fs=require('node:fs'),path=require('node:path');
-const {normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,COMPETITIONS}=require('./lib/openligadb-football');
+const {normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,retainFixtureObservations,COMPETITIONS}=require('./lib/openligadb-football');
 const registry=require('../config/football-openligadb-identities.json');
 const identity=require('../config/fixture-identity');
 const DEFAULT_OUTPUT=path.resolve(__dirname,'../data/providers/openligadb/football-2026-27.json');
@@ -15,10 +15,10 @@ function eventsForLeague(facts){
       name:participants.map(p=>p.name).join(' v '),participants,participantIds:participants.map(p=>p.id),homeParticipantId:participants[0].id,awayParticipantId:participants[1].id,
       venue:fixture.venue||null,venueCity:fixture.venueCity||null,...(fixture.venue?{venueSourceUrl:facts.source.url}:{}),
       startTimeUtc:fixture.startTimeUtc,timePrecision:'exact',status:fixture.status,scheduleStatus:'confirmed',gender:'men',isSenior:true,
-      sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:facts.checkedAt,
+      sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:fixture.sourceCheckedAt||facts.checkedAt,
       sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},
       footballMatchContext:require('./lib/football-match-context').matchContext(facts,fixture),
-      ...(fixture.result?{...fixture.result,score:`${participants[0].name} ${fixture.result.homeScore}-${fixture.result.awayScore} ${participants[1].name}`,scoreCheckedAt:facts.checkedAt,resultSourceUrl:facts.source.url}:{}),
+      ...(fixture.result?{...fixture.result,score:`${participants[0].name} ${fixture.result.homeScore}-${fixture.result.awayScore} ${participants[1].name}`,scoreCheckedAt:fixture.scoreCheckedAt||facts.checkedAt,resultSourceUrl:facts.source.url}:{}),
     });
   });
 }
@@ -30,8 +30,10 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
     try{
       const response=await fetchImpl(`https://api.openligadb.de/getmatchdata/${league}/2026`,{headers:{'User-Agent':'NothingSport-canonical-refresh/1.0 (+https://nothingsport.vercel.app/; contact: https://github.com/hartican)'},signal:AbortSignal.timeout(15000)});
       if(!response.ok)throw new Error(`HTTP ${response.status}`);
-      const facts=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
-      assertSnapshotContinuity(retained.get(definition.competitionId), facts);
+      const normalized=resolveLeagueIdentities(normalizeLeague(await response.json(),{league,checkedAt:now.toISOString()}),identityRegistry);
+      const prior=retained.get(definition.competitionId);
+      assertSnapshotContinuity(prior, normalized);
+      const facts=retainFixtureObservations(prior,normalized);
       retained.set(definition.competitionId,facts);
       require('./lib/football-data-backup').primary(eventsForLeague(facts),backupOptions);
       if(league==='ucl')require('./lib/football-data-backup').record({code:'CL',state:'primary',newFinals:0},{...backupOptions,now});

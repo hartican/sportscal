@@ -89,4 +89,25 @@ function assertSnapshotContinuity(previous, next) {
     if (known.status === 'completed' && fixture.status !== 'completed') fail(`fixture ${known.providerFixtureId}: confirmed result regressed`);
   }
 }
-module.exports={normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,COMPETITIONS,LICENCE};
+function retainFixtureObservations(previous, next) {
+  const known = new Map((previous?.fixtures || []).map(f => [f.providerFixtureId, f]));
+  const valid = value => Number.isFinite(Date.parse(value));
+  const facts = ['providerFixtureId','competitionId','season','stage','roundNumber','startTimeUtc','participants','venue','venueCity','status','result'];
+  const sameSource = previous?.source?.name === next.source.name && previous?.source?.url === next.source.url && previous?.source?.type === next.source.type;
+  return {...next, fixtures: next.fixtures.map(fixture => {
+    const prior = known.get(fixture.providerFixtureId), result = {...fixture, sourceCheckedAt: next.checkedAt};
+    if (sameSource && prior && facts.every(key => JSON.stringify(prior[key]) === JSON.stringify(fixture[key]))) {
+      const observed = prior.sourceCheckedAt || previous.checkedAt;
+      if (valid(observed)) result.sourceCheckedAt = observed;
+    }
+    if (fixture.status === 'completed') {
+      result.scoreCheckedAt = next.checkedAt;
+      if (sameSource && prior?.status === 'completed' && JSON.stringify(prior.participants) === JSON.stringify(fixture.participants) && JSON.stringify(prior.result) === JSON.stringify(fixture.result)) {
+        const observed = prior.scoreCheckedAt || previous.checkedAt;
+        if (valid(observed)) result.scoreCheckedAt = observed;
+      }
+    }
+    return result;
+  })};
+}
+module.exports={normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,retainFixtureObservations,COMPETITIONS,LICENCE};

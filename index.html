@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="430">
+<meta name="app-shell-version" content="432">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=430" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=432" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=430"></script>
+<script src="assets/js/app-shell-runtime.js?v=432"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10851,7 +10851,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=430").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js?v=431").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 
 async function loadFootballDirectoryData(){
@@ -12876,7 +12876,7 @@ function spoilerFactsForEvent(ev){
 
 function hasSpoilerSensitiveContent(ev, facts = spoilerFactsForEvent(ev), status = getEventStatus(ev)){
   return Boolean(
-    facts.score || facts.outcome || facts.recap || facts.thumbnail || facts.rating !== null ||
+    ev.innings?.length || facts.score || facts.outcome || facts.recap || facts.thumbnail || facts.rating !== null ||
     ((status === "past" || status === "live") && (facts.labels.length || ev.fullSpiel))
   );
 }
@@ -12892,7 +12892,7 @@ function compactResultForEvent(ev){
   const facts = spoilerFactsForEvent(ev);
   const score = facts.score === null || facts.score === undefined ? null : String(facts.score);
   const outcome = spoilerOutcomeCopy(facts.outcome);
-  if (!score && !outcome) return null;
+  if (!score && !outcome && !ev.innings?.length) return null;
   return { score, outcome: outcome ? String(outcome) : null };
 }
 
@@ -15005,45 +15005,12 @@ function buildEventCompactFooter(ev, options = {}, refreshCard = null){
   return footer;
 }
 
-function buildSpoilerFacts(ev){
-  if (!isSpoilerVisible(ev)) return null;
-  const facts = spoilerFactsForEvent(ev);
-  const wrap = document.createElement("div");
-  wrap.className = "spoiler-facts";
-
-  const addFact = (label, value) => {
-    if (value === null || value === undefined || value === "") return;
-    const fact = document.createElement("div");
-    fact.className = "spoiler-fact";
-    const title = document.createElement("strong");
-    title.textContent = label;
-    const copy = document.createElement("span");
-    copy.textContent = String(value);
-    fact.append(title, copy);
-    wrap.appendChild(fact);
-  };
-
-  const tennisResult=['tennis','wimbledon'].includes(ev.key)&&CARD_RESULTS.tennisSets(ev,ev.name,{score:facts.score})?buildCompactResult(ev,ev.name):null;
-  if(tennisResult)wrap.appendChild(tennisResult);
-  else addFact("Score", scoreLineForDisplay(ev, spoilerSafeDisplayTitle(ev), { score: facts.score }));
-  addFact("Outcome", spoilerOutcomeCopy(facts.outcome));
-  const displayedSpiel = eventSpielForDisplay(ev).trim();
-  const recapCopy = facts.recap === null || facts.recap === undefined ? "" : String(facts.recap).trim();
-  addFact("Recap", recapCopy && recapCopy !== displayedSpiel ? recapCopy : null);
-  addFact("Rating", facts.rating !== null ? actualRatingLabel(facts.rating) : null);
-  addFact("Labels", facts.labels.length ? facts.labels.join(" · ") : null);
-
-  if (facts.thumbnail){
-    const image = document.createElement("img");
-    image.className = "spoiler-thumbnail";
-    image.src = facts.thumbnail;
-    image.alt = `${ev.name} result thumbnail`;
-    image.loading = "lazy";
-    image.referrerPolicy = "no-referrer";
-    wrap.appendChild(image);
-  }
-
-  return wrap.childElementCount ? wrap : null;
+function buildCricketInnings(ev,{localReveal=false}={}){
+  if(ev.key!=='cricket'||!ev.innings?.length||!['completed','finished','past','live','ongoing','in_progress','in-progress'].includes(ev.status)||globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))return null;
+  if(globalThis.NOTHINGSPORTS_CRICKET_INNINGS)return NOTHINGSPORTS_CRICKET_INNINGS.build(ev);
+  const slot=document.createElement('div');
+  loadDeferredScript('config/cricket-innings.js?v=431').then(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.replaceChildren(NOTHINGSPORTS_CRICKET_INNINGS.build(ev)||'');}).catch(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.textContent='Innings details are unavailable.';});
+  return slot;
 }
 
 function buildCompactResult(ev, displayTitle = ""){
@@ -15064,6 +15031,7 @@ function buildCompactResult(ev, displayTitle = ""){
   score.className = "card-result-score";
   score.textContent = scoreLineForDisplay(ev, displayTitle, result);
   wrap.appendChild(score);
+  const innings=buildCricketInnings(ev);if(innings)wrap.append(innings);
   return wrap;
 }
 
@@ -17264,6 +17232,7 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
   const whyItMatters = !isMinimised ? buildEventWhyItMatters(ev) : null;
   if (whyItMatters){whyItMatters.dataset.cardArea='expanded-information';parent.appendChild(whyItMatters);}
   if (!isMinimised && state === "opened"){
+    if(isSpoilerVisible(ev)&&ev.innings?.length&&!['completed','finished','past'].includes(ev.status)){const innings=buildCricketInnings(ev);if(innings)parent.append(innings);}
     const footballContext=buildFootballMatchContext(ev);if(footballContext)parent.append(footballContext);
     const secondaryActions = document.createElement("div");
     secondaryActions.className = "event-card-secondary-actions";

@@ -70,7 +70,7 @@ Fresh local read at main 0b98d317, 4 October Sydney, using the existing non-muta
 | Tennis | 1014 | 6 | Unverified |
 | Football | 702 | 4 | Unverified |
 | Cycling | 66 | 1 | Unverified |
-| Cricket | 132 | 28 | Unverified |
+| Cricket | 140 | 33 | Partial presentation evidence: 24 retained records/47 innings, with one unresolved batting identity; fresh whole-source truth, viewing/rights/operations/device gates remain. Counts verified 5 October; competition identities include retained/provider scopes, not 33 certified competitions; no fixture added by this module |
 | Basketball | 189 | 1 | Unverified |
 | Golf | 127 | 9 | Unverified |
 | American football | 321 | 1 | Partial: 320 source records and 32 conference table rows accepted in the dated NFL delivery; January/freshness/viewing/rights gates remain |
@@ -147,3 +147,7 @@ App **b06a3423 / shell 429** is independently READY with normal release 37197282
 ## Hockey result integrity — 4 October
 
 App **87c2e8d8 / shell 430** is READY through normal release 37201360428, 17 served hashes, 64 local/64 hosted scenarios, 14,112 local/14,112 hosted card renders and both genuine upgrades. The reviewed CHL collection agrees on 780 comparisons and 120 club totals. Preserve all 1,493 raw IDs and 1,409 NHL source fixtures. Keep 48 CHL finals/24 unranked records, correct 147 displayed score orders and twelve honest programme notes distinct from whole-family certification. Last-good, original dates and interrupted-projection recovery share the existing owner, with three added daily quick calls and no service/owner routine. Full proof stays 0/16 and 0/3, target at least 13/16. [Evidence and limits](chl-result-integrity-2026-10-04.md).
+
+## Cricket retained-innings delivery — 5 October
+
+**Latest Cricket innings delivery — 5 October:** Selected/opened Cricket cards and profile-local Reveal now show named innings totals, wickets, source overs and supplied qualifiers. The existing canonical projector retains 47 innings across 24 records; 46 innings have valid batting identities, while one warm-up stays explicitly unavailable. All 140 fixture IDs and original facts/source dates remain exact. App **67061129 / shell 431** is live after [normal release 37204930617](https://github.com/hartican/sportscal/actions/runs/37204930617): 145 local/cloud gates, independent READY/project/SHA/three aliases, 16 served hashes, 194 local/194 hosted cases, 4,608 local/4,608 hosted real-fixture renders, eight local/eight hosted delayed-load cases and Chromium/WebKit cached 430→431 rehearsals pass. Deferred details retain immediate outcomes, compact summaries and Results OFF; startup stays within the unchanged budget (1.21% gzip growth, eight critical requests). No source/AI/database call, subscription or owner routine. Fresh whole-sport truth, viewing/rights, physical operation and cohort returns remain. Full proof stays 0/16 families and 0/3 Football pilots, target at least 13/16. [Evidence and limits](cricket-innings-presentation-2026-10-05.md).
