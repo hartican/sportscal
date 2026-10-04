@@ -50,7 +50,12 @@ async function assertCachedFootballStatus(page){
       const panel=window.document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
       const visible={tables:panel.querySelectorAll('table').length,rows:panel.querySelectorAll('tbody tr').length,text:panel.textContent};
       userPreferences.showSpoilers=false;standingsRevealApproved=false;panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
-      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk)};
+      const fixtures=document.fixtures.filter(f=>f.season===2026&&f.id.startsWith('fixture:nfl:'));
+      const final=fixtures.find(f=>f.status==='completed'),states=cardViewStates,tab=activeTab;
+      let finalVisible,finalHidden;try{activeTab='follow';cardViewStates={...states,[final.id]:'selected'};userPreferences.showSpoilers=true;finalVisible=buildCodeInspectorFixture(final).textContent;userPreferences.showSpoilers=false;finalHidden=buildCodeInspectorFixture(final).textContent;}finally{activeTab=tab;cardViewStates=states;}
+      const score=`${final.participantSlots.find(s=>s.homeAway==='away').score}-${final.participantSlots.find(s=>s.homeAway==='home').score}`;
+      const live=fixtures.find(f=>f.status==='live');
+      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk),fixtureProof:{fixtures:fixtures.length,regular:fixtures.filter(f=>/^Week /.test(f.roundLabel)).length,tbc:fixtures.filter(f=>f.timeTbc).length,noExactTbc:fixtures.filter(f=>f.timeTbc).every(f=>f.startTimeUtc===null&&f.time===null),finalVisible:finalVisible.includes(score),finalHidden:!finalHidden.includes(score),staleStatus:FEED_CONTROLS.timingState(live,new Date(Date.parse(live.statusCheckedAt)+31*60000)).key}};
     }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;}
   });
   assert.equal(nfl.visible.tables,2);assert.equal(nfl.visible.rows,32);
@@ -60,6 +65,7 @@ async function assertCachedFootballStatus(page){
   assert.equal(nfl.coverage,'partial');
   assert.deepEqual(nfl.asOf,[require('../data/canonical/american-football-directory.v1.json').standings[0].asOf],'upgrade/offline table keeps the published fact observation');
   assert(nfl.unchanged,'cached standings rendering cannot mutate source facts');
+  assert.deepEqual(nfl.fixtureProof,{fixtures:321,regular:272,tbc:24,noExactTbc:true,finalVisible:true,finalHidden:true,staleStatus:'awaiting-update'},'upgraded/offline NFL keeps the complete season, provisional clocks, score order and source freshness');
   const hockey=await page.evaluate(async()=>{
     const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:chl:0636729f7d82ee17686c2f79');
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved,tab=activeTab;

@@ -149,7 +149,7 @@
     const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&statusCheckedAt<=nowMs&&nowMs-statusCheckedAt<=30*60*1000;
     // Published match schedules are not live observations. A fresh explicit
     // live overlay may supersede them, but elapsed time never does.
-    if(event?.sourceAttribution?.provider==='OpenLigaDB'||/^competition:(n[bh]l$|chl$|premier-league-|uefa-(champions|europa)-league$|afl(?:w-|-premiership-)|nrl(?:w-|-premiership-))/.test(event?.competitionId||'')){
+    if(event?.sourceAttribution?.provider==='OpenLigaDB'||/^competition:(n[bfh]l$|chl$|premier-league-|uefa-(champions|europa)-league$|afl(?:w-|-premiership-)|nrl(?:w-|-premiership-))/.test(event?.competitionId||'')){
       if(nowMs>=startMs && !['completed','finished','final'].includes(status)
         && !(['live','in_progress','in-progress','ongoing'].includes(status)&&freshExplicitStatus)){
         return Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});

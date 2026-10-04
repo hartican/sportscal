@@ -253,8 +253,9 @@ function normalizeFixture(event, codeId, extra = {}){
   // Hockey's source slots and card title are away-first. Keep scores attached
   // to that displayed order, including the explicitly supplied final qualifier.
   const orderedHockey=codeId==='sport:ice-hockey'&&scoredSlots.length===2;
-  const first=orderedHockey?scoredSlots[0]:home,second=orderedHockey?scoredSlots[1]:away;
-  const qualifier=orderedHockey?(event.resultLabels||[]).filter(label=>['After overtime','After shootout'].includes(label)).join(' · '):'';
+  const awayFirst=codeId==='sport:american-football'&&scoredSlots.length===2&&/ at /.test(event.name||'')&&scoredSlots.every(s=>['home','away'].includes(s.homeAway));
+  const first=orderedHockey?scoredSlots[0]:awayFirst?away:home,second=orderedHockey?scoredSlots[1]:awayFirst?home:away;
+  const qualifier=['sport:ice-hockey','sport:american-football'].includes(codeId)&&scoredSlots.length===2?(event.resultLabels||[]).filter(label=>['After overtime','After shootout'].includes(label)).join(' · '):'';
   const derivedScore = first && second ? `${first.label} ${first.score}-${second.score} ${second.label}${qualifier?' · '+qualifier:''}` : null;
   return {
     id: stableId(event),
@@ -585,7 +586,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       fixtureCount: fixtures.length,
       hasStandings:codeStandings(code).length > 0,
       ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),
-      ...(code.id==='sport:american-football'?{coverageNote:'NFL: published calendar-year fixtures and source-supplied conference standings. Later January season fixtures, viewing and wider quality checks remain partial.'}:{}),
+      ...(code.id==='sport:american-football'?{coverageNote:'NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.'}:{}),
       groupingMode: groupingMode(fixtures),
       coverageStatus,
       freshAt,

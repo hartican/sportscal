@@ -25,7 +25,7 @@ try{
   for(const args of [
     ['--offline'],['--offline','-p'],['--offline','--european-football'],
     ['--offline','--quick','--source=football'],['--offline','--quick','--coverage-live'],
-    ['--offline','--quick','--source=nfl-standings'],['--offline','--quick','--source=chl'],['--offline','--quick','--source=nhl'],
+    ['--offline','--quick','--source=nfl-standings'],['--offline','--quick','--source=nfl'],['--offline','--quick','--source=chl'],['--offline','--quick','--source=nhl'],
     ['--offline','--quick','--code-projections','--codes=football'],
     ['--offline','--quick','--resume-from','scripts/refresh-pga-schedule.js'],
     ['--offline','--quick','--canonical-family-repair'],

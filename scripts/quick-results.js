@@ -33,30 +33,11 @@ function runProjectionSteps(steps,{editorialBaseline}={}){
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
 function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
-async function refreshNflResults(now){
- const path='data/canonical/american-football-directory.v1.json',directory=read(path);
- const response=await json(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${now.getFullYear()}&limit=1000`);
- const updates=new Map((response.events||[]).map(event=>{
-   const competition=event.competitions?.[0]||{};
-   const slots=(competition.competitors||[]).map(side=>({
-     participantId:`team:nfl:${String(side?.team?.abbreviation||side?.team?.id||'').toLowerCase()}`,
-     label:side?.team?.displayName||side?.team?.shortDisplayName||null,
-     homeAway:side?.homeAway||null,
-     ...(side?.score?.displayValue!=null||side?.score!=null?{score:String(side?.score?.displayValue??side.score)}:{}),
-   }));
-   return [`fixture:nfl:${event.id}`,{status:event?.status?.type?.completed===true?'completed':event?.status?.type?.state==='in'?'live':'upcoming',slots}];
- }));
- let count=0;
- const fixtures=directory.fixtures.map(fixture=>{
-   const update=updates.get(fixture.id);if(!update)return fixture;
-   const byId=new Map(update.slots.map(slot=>[slot.participantId,slot]));
-   const participantSlots=(fixture.participantSlots||[]).map(slot=>({...slot,...(byId.get(slot.participantId)||{})}));
-   const next={...fixture,status:update.status,participantSlots};
-   if(semantic(next)!==semantic(fixture))count++;
-   return next;
- });
- if(count)write(path,{...directory,generatedAt:response.timestamp||now.toISOString(),fixtures});
- return count;
+async function refreshNflResults(options={}){
+ const facts=require('./lib/nfl-results'),filePath=options.filePath||'data/canonical/american-football-directory.v1.json';
+ const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
+ try{projectionNeedsRepair=!facts.projectionCurrent(read(filePath),{inspector:read('data/code-inspector/american-football.json'),schedule:read('data/follow-schedule/american-football.json')});}catch{}
+ return {...result,projectionNeedsRepair};
 }
 // Keep unrelated projections byte-for-byte intact. Source ingestion and the
 // atomic preservation boundary remain independent of deployment credentials.
@@ -163,6 +144,16 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
    return report;
   }
+  if(source==='nfl'&&!offline){
+   let nfl;try{nfl=await refreshNflResults();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NFL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   const changes=nfl.changed||nfl.projectionNeedsRepair?['NFL current-season source check']:[],failures=[];let nflStandings=null;
+   try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
+   for(const args of projectionSteps(changes))run(...args);
+   const report={mode:'quick',source,checkedAt:nfl.checkedAt,changed:changes,failures,nfl,nflStandings,aiCalls:0};
+   if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   if(failures.length&&!changes.length)throw new Error('NFL checks failed; retained last-good facts.');
+   return report;
+  }
   if(source==='nfl-standings'&&!offline){
    const nflStandings=await refreshNflStandings(),changes=nflStandings.changed?[`NFL standings ${nflStandings.rows}`]:[];
    for(const args of projectionSteps(changes))run(...args);
@@ -201,7 +192,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(!offline)try{
    refreshNbl(changes);
  }catch(error){failures.push(`NBL: ${error.message}`);}
- if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
+ if(!offline)try{const result=await refreshNflResults();if(result.changed||result.projectionNeedsRepair)changes.push('NFL current-season source check');}catch(error){failures.push(`NFL: ${error.message}`);}
  let nflStandings=null;
  if(!offline)try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
  let chl=null;
@@ -269,4 +260,4 @@ async function refreshNhl(options={}){
  try{projectionNeedsRepair=!facts.projectionCurrent(read(filePath),{inspector:read('data/code-inspector/ice-hockey.json'),schedule:read('data/follow-schedule/ice-hockey.json')});}catch{}
  return {...result,projectionNeedsRepair};
 }
-module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,refreshChl,refreshNhl,KEYS};
+module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,refreshNflResults,refreshChl,refreshNhl,KEYS};

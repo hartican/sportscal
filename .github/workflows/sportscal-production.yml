@@ -60,6 +60,7 @@ jobs:
           node scripts/validate-follow-first.js
           node scripts/validate-follow-directories.js
           node scripts/validate-feed-performance.js
+          node scripts/validate-nfl-results.js
           node scripts/validate-experience-reliability.js
           node scripts/validate-cross-device-sync.js
           node scripts/validate-tennis-journey-migration.js

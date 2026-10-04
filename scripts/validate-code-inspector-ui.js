@@ -9,6 +9,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 require('./validate-nrlw-ladder');
 require('./validate-nfl-standings');
+require('./validate-nfl-results');
 require('./validate-chl-results');
 require('./validate-nhl-results');
 require('./validate-cricket-innings-presentation');

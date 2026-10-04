@@ -73,41 +73,15 @@ function nflRosterItems(payload){
   return (payload?.athletes || []).flatMap(group => group?.items || []);
 }
 
-function nflFixture(event){
-  const competition = event?.competitions?.[0] || {};
-  const sides = (competition.competitors || []).map(side => ({
-    participantId:`team:nfl:${String(side?.team?.abbreviation || side?.team?.id || "").toLowerCase()}`,
-    label:side?.team?.displayName || side?.team?.shortDisplayName || "TBC",
-    homeAway:side?.homeAway || null,
-    score:side?.score?.displayValue || side?.score || null,
-    logoUrl:side?.team?.logos?.find(logo => logo.rel?.includes("default"))?.href || side?.team?.logo || null,
-  }));
-  const local = isoParts(event?.date);
-  const completed = event?.status?.type?.completed === true;
-  return {
-    id:`fixture:nfl:${event.id}`,
-    sportDomainId:"sport:american-football",
-    competitionId:"competition:nfl",
-    name:event?.name || event?.shortName || "NFL fixture",
-    date:local.date,
-    time:local.time,
-    startTimeUtc:event?.date || null,
-    venue:competition?.venue?.fullName || null,
-    status:completed ? "completed" : "upcoming",
-    scheduleStatus:event?.timeValid === false || competition?.timeValid === false ? "provisional" : "confirmed",
-    roundLabel:event?.week?.text || (event?.week?.number ? `Week ${event.week.number}` : event?.seasonType?.name || null),
-    roundNumber:Number.isFinite(Number(event?.week?.number)) ? Number(event.week.number) : null,
-    participantSlots:sides,
-    sourceUrl:event?.links?.find(link => link.rel?.includes("summary"))?.href || null,
-  };
-}
-
-async function buildNfl({fetchSource=fetchJson}={}){
-  const [teamsPayload, leagueSchedule] = await Promise.all([
+async function buildNfl({fetchSource=fetchJson,clock=()=>new Date(),previous=fs.existsSync(NFL_PATH)?JSON.parse(fs.readFileSync(NFL_PATH,'utf8')):null}={}){
+  const facts=require('./lib/nfl-results'),responses=[];
+  const [teamsPayload] = await Promise.all([
     fetchSource("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"),
-    fetchSource(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${NFL_SEASON}&limit=1000`),
+    (async()=>{for(const route of facts.resources()){const payload=await fetchSource(route.url);responses.push({payload,observedAt:clock().toISOString()});}})(),
   ]);
   const sourceTeams = teamsPayload?.sports?.[0]?.leagues?.[0]?.teams?.map(entry => entry.team).filter(team => team?.isActive !== false) || [];
+  const fixtures=facts.parse(responses,{teams:sourceTeams.map(t=>({id:'team:nfl:'+String(t.abbreviation||'').toLowerCase(),displayName:t.displayName})),now:clock()});
+  const retained=facts.merge(previous||{fixtures:[]},fixtures);
   const teamResults = await mapLimit(sourceTeams, 6, async team => {
     const abbreviation = String(team.abbreviation || "").toLowerCase();
     const roster = await fetchSource(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${abbreviation}/roster`);
@@ -134,19 +108,18 @@ async function buildNfl({fetchSource=fetchJson}={}){
         sourceRefs:(player.links || []).filter(link => link.rel?.includes("athlete") && link.rel?.includes("desktop")).map(link => link.href).slice(0, 1),
       })),
       fixtures:[],
-      freshAt:[roster.timestamp, teamsPayload.timestamp, leagueSchedule.timestamp].filter(Boolean).sort().at(-1) || null,
+      freshAt:[roster.timestamp, teamsPayload.timestamp, responses.at(-1)?.observedAt].filter(Boolean).sort().at(-1) || null,
     };
   });
-  const fixtureMap = new Map((leagueSchedule.events || []).map(nflFixture).map(fixture => [fixture.id, fixture]));
-  const previous=fs.existsSync(NFL_PATH)?JSON.parse(fs.readFileSync(NFL_PATH,'utf8')):null;
   let standings = previous?.standings || [];
   try{
     const nflStandings=require('./lib/nfl-standings');
-    const payload=await fetchSource(nflStandings.SOURCE_URL),now=new Date();
-    standings=nflStandings.retainDates(standings,nflStandings.parse(payload,{teamIds:teamResults.map(t=>t.team.id),checkedAt:now.toISOString(),now}));
+    const payload=await fetchSource(nflStandings.SOURCE_URL),now=clock();
+    standings=nflStandings.retainDates(standings,nflStandings.withResultCoverage(nflStandings.parse(payload,{teamIds:teamResults.map(t=>t.team.id),checkedAt:now.toISOString(),now}),retained.fixtures));
   }catch(error){
     console.warn(`NFL standings unavailable; preserving teams, rosters and fixtures: ${error.message}`);
   }
+  standings=require('./lib/nfl-standings').withResultCoverage(standings,retained.fixtures);
   const freshAt = teamResults.map(result => result.freshAt).filter(Boolean).sort().at(-1) || new Date().toISOString();
   return {
     schemaVersion:"team-sport-directory.v1", sportKey:"american-football", generatedAt:freshAt,
@@ -157,7 +130,7 @@ async function buildNfl({fetchSource=fetchJson}={}){
     ],
     teams:teamResults.map(result => result.team),
     players:teamResults.flatMap(result => result.players).filter(player => player.active),
-    fixtures:[...fixtureMap.values()].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
+    fixtures:retained.fixtures.sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
     standings,
   };
 }

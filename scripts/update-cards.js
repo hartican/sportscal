@@ -460,7 +460,7 @@ async function runMain() {
   }
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
-    if(sources.length!==1||!['--source=nbl','--source=football','--source=nfl-standings','--source=chl','--source=nhl'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL standings/CHL/NHL source and live source access');
+    if(sources.length!==1||!['--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL source and live source access');
     runStep(['scripts/quick-results.js',sources[0]]);
     return;
   }

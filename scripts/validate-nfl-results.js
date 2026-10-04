@@ -1,0 +1,37 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const api=require('./lib/nfl-results'),quick=require('./quick-results'),{buildNfl}=require('./refresh-nfl-ice-hockey');
+const captured=require('./fixtures/nfl-current-season-20261005.json').resources,directory=require('../data/canonical/american-football-directory.v1.json');
+const now=new Date('2026-10-04T18:46:00.000Z'),options={teams:directory.teams,now},rows=api.parse(captured,options),clone=v=>structuredClone(v);
+assert.equal(rows.length,321);assert.equal(rows.filter(f=>f.seasonType===2).length,272);assert.equal(rows.filter(f=>f.timeTbc).length,24);
+assert.equal(rows.filter(f=>f.status==='live').length,8);assert(rows.some(f=>f.resultLabels?.includes('After overtime')),'observed Final/OT qualifier survives');assert(rows.filter(f=>f.status==='upcoming').every(f=>f.participantSlots.every(s=>!Object.hasOwn(s,'score'))));
+assert(rows.filter(f=>f.timeTbc).every(f=>f.startTimeUtc===null&&f.time===null&&f.timePrecision==='tbc'&&f.estimatedStartTimeUtc));
+let rejected=0;
+for(const mutate of [r=>r.pop(),r=>r[0].payload.events.pop(),r=>r[1].payload.events.push(clone(r[1].payload.events.find(e=>e.season.type===2))),r=>r[0].observedAt='bad',r=>r[0].observedAt='2026-10-04T23:00:00.000Z',r=>r[0].observedAt='2026-10-03T00:00:00.000Z',r=>r[0].payload.leagues[0].slug='other',r=>r[1].payload.events[0].competitions[0].competitors[0].team.abbreviation='UNKNOWN',r=>r[1].payload.events[0].competitions[0].competitors[1].homeAway='home',r=>r[0].payload.events[0].status.type.name='STATUS_UNKNOWN',r=>r[0].payload.events[0].competitions[0].status.type.state='post',r=>r[0].payload.events[0].competitions[0].competitors[0].score=null,r=>r[0].payload.events[0].competitions[0].competitors[0].score=-1,r=>r[0].payload.events[0].date='2026-02-30T17:00Z']){const responses=clone(captured);mutate(responses);assert.throws(()=>api.parse(responses,options),/NFL fixtures:/);rejected++;}
+const zero=clone(captured);zero[0].payload.events[0].competitions[0].competitors[0].score='0';assert.equal(api.parse(zero,options).find(f=>f.id==='fixture:nfl:'+zero[0].payload.events[0].id).participantSlots[0].score,0);
+const legacyIds=new Set(captured.flatMap(r=>r.payload.events).filter(e=>e.season.year===2025).map(e=>'fixture:nfl:'+e.id));
+const base={...directory,fixtures:directory.fixtures.filter(f=>legacyIds.has(f.id))};assert.equal(base.fixtures.length,30);
+const merged=api.merge(base,rows);assert.equal(merged.fixtures.length,351);assert.deepEqual(merged.fixtures.slice(0,30),base.fixtures);
+assert.deepEqual(api.merge(merged,rows),merged,'replaying the same receipt cannot acquire freshness');
+const later='2026-10-04T18:47:00.000Z',newRows=rows.map(f=>({...f,sourceCheckedAt:later,statusCheckedAt:later,...(f.scoreCheckedAt?{scoreCheckedAt:later,resultSourceCheckedAt:later}:{})}));
+const repeat=api.merge(merged,newRows);for(const f of repeat.fixtures){const old=merged.fixtures.find(r=>r.id===f.id);assert.equal(f.sourceCheckedAt,old.sourceCheckedAt);if(f.status==='completed')assert.equal(f.scoreCheckedAt,old.scoreCheckedAt);if(f.status==='live')assert.equal(f.scoreCheckedAt,later);}
+const final=rows.find(f=>f.status==='completed'),change=clone(rows);change.find(f=>f.id===final.id).status='upcoming';assert.throws(()=>api.merge(merged,change),/regress/);
+const correction=clone(newRows);correction.find(f=>f.id===final.id).participantSlots[0].score++;const corrected=api.merge(merged,correction).fixtures.find(f=>f.id===final.id);assert.equal(corrected.scoreCheckedAt,later);assert.equal(corrected.sourceCheckedAt,final.sourceCheckedAt);
+const stale=clone(rows);stale.find(f=>f.id===final.id).participantSlots[0].score++;assert.throws(()=>api.merge(merged,stale),/stale/);
+const rescheduled=clone(newRows),scheduled=rescheduled.find(f=>f.status==='upcoming'&&!f.timeTbc);scheduled.startTimeUtc=new Date(Date.parse(scheduled.startTimeUtc)+3600000).toISOString();const moved=api.merge(merged,rescheduled).fixtures.find(f=>f.id===scheduled.id);assert.equal(moved.sourceCheckedAt,later);assert.equal(moved.statusCheckedAt,rows.find(f=>f.id===scheduled.id).statusCheckedAt);
+assert(quick.projectionSteps(['NFL current-season source check']).some(s=>s[0]==='scripts/build-code-inspector.js'&&s[1]==='--codes=american-football'));
+(async()=>{
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-nfl-facts-'));try{
+  const filePath=path.join(temp,'directory.json');fs.writeFileSync(filePath,JSON.stringify(base,null,2)+'\n');let calls=0;
+  const fetchJson=async url=>{const i=api.resources().findIndex(r=>r.url===url);assert(i>=0);calls++;return captured[i].payload;};
+  const result=await quick.refreshNflResults({filePath,fetchJson,clock:()=>now});assert(result.changed);assert.equal(calls,2);
+  const first=JSON.parse(fs.readFileSync(filePath));assert.equal(first.fixtures.length,351);assert.deepEqual({...first,fixtures:base.fixtures,standings:base.standings},base,'rosters, aggregate dates and history remain exact');assert.deepEqual(first.standings.map(({stale,staleNote,...r})=>r),base.standings.map(({stale,staleNote,...r})=>r),'table facts and original dates remain exact');
+  const bytes=fs.readFileSync(filePath);assert(!(await quick.refreshNflResults({filePath,fetchJson,clock:()=>now})).changed);assert(bytes.equals(fs.readFileSync(filePath)));
+  for(const fetchJson of [async()=>{throw Error('HTTP 503');},async url=>{const i=api.resources().findIndex(r=>r.url===url),p=clone(captured[i].payload);p.events.pop();return p;}]){await assert.rejects(()=>quick.refreshNflResults({filePath,fetchJson,clock:()=>now}));assert(bytes.equals(fs.readFileSync(filePath)),'failed/partial source check preserves last-good bytes');}
+  const teams={sports:[{leagues:[{teams:directory.teams.map(t=>({team:{abbreviation:t.id.split(':').at(-1),displayName:t.displayName,shortDisplayName:t.shortName,logos:[],links:[]}}))}]}]};
+  let rosterCalls=0;await assert.rejects(()=>buildNfl({previous:base,clock:()=>now,fetchSource:async url=>{if(url.endsWith('/teams'))return teams;if(url.includes('/scoreboard?')){const payload=clone(captured[api.resources().findIndex(r=>r.url===url)].payload);payload.events.pop();return payload;}rosterCalls++;throw Error('Unexpected roster request');}}),/incomplete/);assert.equal(rosterCalls,0,'reject malformed fixture collections before expensive roster work');
+  let requests=0;const full=await buildNfl({previous:base,clock:()=>now,fetchSource:async url=>{if(url.endsWith('/teams'))return teams;if(url.includes('/scoreboard?')){requests++;return captured[api.resources().findIndex(r=>r.url===url)].payload;}if(url.includes('/standings?'))throw Error('controlled table outage');return {athletes:[]};}});
+  assert.equal(requests,2);assert.deepEqual(full.fixtures.slice().sort((a,b)=>a.id.localeCompare(b.id)),first.fixtures.slice().sort((a,b)=>a.id.localeCompare(b.id)),'full and quick share the actual facts boundary');assert.deepEqual(full.standings.map(({stale,staleNote,...r})=>r),base.standings.map(({stale,staleNote,...r})=>r));
+  console.log(`NFL results: all 272 regular/49 preseason, 30 retained history, 8 actual live/halftime, 24 provisional starts, ${rejected} rejected contracts; real full/quick persistence, zeros, reruns, corrections, reschedules and outage preservation pass.`);
+ }finally{fs.rmSync(temp,{recursive:true,force:true});}
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});
