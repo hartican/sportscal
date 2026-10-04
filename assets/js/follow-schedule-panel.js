@@ -79,6 +79,27 @@ globalThis.renderFollowSchedulePanel=function(container){
 }
 ;
 
+function renderNflConferenceStandings(panel,rows){
+  for(const conferenceId of ['AFC','NFC']){
+    const entries=rows.filter(row=>row.conferenceId===conferenceId).sort((a,b)=>a.conferenceSeed-b.conferenceSeed);
+    if(!entries.length)continue;
+    const section=document.createElement('section');section.className='standings-module code-inspector-published-standings';
+    const title=document.createElement('h3');title.textContent=`NFL ${conferenceId} standings · ${entries[0].season}`;
+    const note=document.createElement('p');note.className='standings-source-note';note.textContent=entries[0].tableNote;
+    const checked=document.createElement('p');checked.textContent=`Table facts checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(entries[0].asOf))} (Sydney) · ESPN`;
+    const source=document.createElement('a');source.href=entries[0].sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';
+    const wrap=document.createElement('div');wrap.className='standings-table-wrap';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',`NFL ${conferenceId} standings; scroll for all columns`);
+    const table=document.createElement('table');table.className='standings-table nfl-standings-table';table.style.minWidth='680px';table.style.fontSize='0.8rem';
+    const caption=document.createElement('caption');caption.textContent=`${conferenceId} source-supplied conference seeds and regular-season records`;
+    const columns=[['conferenceSeed','Seed'],['displayName','Team'],['gamesPlayed','P'],['wins','W'],['losses','L'],['ties','T'],['winPercentage','PCT'],['pointsFor','PF'],['pointsAgainst','PA'],['pointDifferential','Diff']];
+    const thead=document.createElement('thead'),head=document.createElement('tr');
+    for(const [,label] of columns){const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}thead.append(head);
+    const tbody=document.createElement('tbody');
+    for(const entry of entries){const row=document.createElement('tr');row.dataset.participantId=entry.participantId;
+      for(const [key] of columns){const cell=document.createElement(key==='displayName'?'th':'td');if(key==='displayName')cell.scope='row';cell.textContent=key==='winPercentage'?Number(entry[key]).toFixed(3):key==='pointDifferential'&&entry[key]>0?`+${entry[key]}`:String(entry[key]);row.append(cell);}tbody.append(row);}
+    table.append(caption,thead,tbody);wrap.append(table);section.append(title,note,checked,source,wrap);panel.append(section);
+  }
+}
 function renderCodeInspectorStandings(panel, code){
   if(!userPreferences.showSpoilers && !standingsRevealApproved){
     const message=document.createElement('p');message.textContent='Standings hidden while Results is off.';
@@ -97,6 +118,7 @@ function renderCodeInspectorStandings(panel, code){
       byCompetition.set(entry.competitionId, rows);
     });
     byCompetition.forEach((rows, competitionId) => {
+      if(competitionId==='competition:nfl'&&rows.every(row=>row.rankScope==='conference')){renderNflConferenceStandings(panel,rows);return;}
       const section = document.createElement("section");
       section.className = "standings-module code-inspector-published-standings";
       const title = document.createElement("h3");

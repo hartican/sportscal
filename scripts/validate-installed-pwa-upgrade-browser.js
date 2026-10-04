@@ -33,6 +33,25 @@ async function assertCachedCanonicalResults(page){
   }
 }
 async function assertCachedFootballStatus(page){
+  const nfl=await page.evaluate(async()=>{
+    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=429');
+    const document=await(await fetch('/data/code-inspector/american-football.json')).json();
+    const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
+    try{
+      codeInspectorChunk=document;userPreferences.showSpoilers=true;
+      const panel=window.document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
+      const visible={tables:panel.querySelectorAll('table').length,rows:panel.querySelectorAll('tbody tr').length,text:panel.textContent};
+      userPreferences.showSpoilers=false;standingsRevealApproved=false;panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
+      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk)};
+    }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;}
+  });
+  assert.equal(nfl.visible.tables,2);assert.equal(nfl.visible.rows,32);
+  assert(nfl.visible.text.includes('NFL AFC standings')&&nfl.visible.text.includes('NFL NFC standings'));
+  assert(nfl.visible.text.includes('not final playoff qualifications'));
+  assert.equal(nfl.hiddenTables,0);assert(nfl.hidden.includes('Results is off'));
+  assert.equal(nfl.coverage,'partial');
+  assert.deepEqual(nfl.asOf,[require('../data/canonical/american-football-directory.v1.json').standings[0].asOf],'upgrade/offline table keeps the published fact observation');
+  assert(nfl.unchanged,'cached standings rendering cannot mutate source facts');
   const season=await page.evaluate(async()=>{
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
     return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};

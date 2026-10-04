@@ -64,6 +64,6 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
   return next;
  });
 }
-async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),patched=require('./quick-results').patchKnown(doc.events,updates);doc.events=patched.events;fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${patched.count} known sessions updated; unchanged observations retain original dates.`);}
+async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),patched=require('./lib/known-fixture-patch').patchKnown(doc.events,updates);doc.events=patched.events;fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${patched.count} known sessions updated; unchanged observations retain original dates.`);}
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1});
 module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule};

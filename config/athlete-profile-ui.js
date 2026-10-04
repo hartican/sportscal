@@ -163,6 +163,17 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
       status.textContent=standings.length?'Standings loaded.':'Standings are not published for this competition yet.';
       for(const competition of new Set(standings.map(e=>e.competitionId))){
         const rows=standings.filter(e=>e.competitionId===competition),first=rows[0];
+        if(competition==='competition:nfl'&&rows.every(row=>row.rankScope==='conference')){
+          for(const conferenceId of ['AFC','NFC']){
+            const entries=rows.filter(r=>r.conferenceId===conferenceId).sort((a,b)=>a.conferenceSeed-b.conferenceSeed);
+            const title=`NFL ${conferenceId} standings · ${first.season}`;
+            const standingsTable=table(['Seed','Team','W-L-T','PCT'],entries.map(e=>[e.conferenceSeed,e.displayName,`${e.wins}-${e.losses}-${e.ties}`,Number(e.winPercentage).toFixed(3)]),title);
+            standingsTable.firstChild.classList.add('profile-standings-table');section.append(standingsTable);
+          }
+          const note=document.createElement('p');note.textContent=`${first.tableNote} Facts checked ${new Date(first.asOf).toLocaleDateString('en-AU',{timeZone:'Australia/Sydney'})} · ESPN.`;section.append(note);
+          const source=document.createElement('a');source.href=first.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);
+          continue;
+        }
         const label=document.createElement('p');label.textContent=[first.competitionName||competition?.replace(/^competition:/,'').replaceAll('-',' '),first.roundLabel,first.asOf?'As of '+new Date(first.asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');
         const standingsTable=table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[root.NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(e),e.displayName,e.points??e.ladderPoints,e.played]),label.textContent);
         standingsTable.firstChild.classList.add('profile-standings-table');section.append(label,standingsTable);

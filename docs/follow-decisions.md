@@ -487,3 +487,7 @@ Fulfil the existing source-backed standings/profile requirement with the officia
 ## Skiing calendar integrity — 4 October 2026
 
 Four already carried Skiing IDs retain their durable actions and existing opt-ins. Exact legacy classification restores their Schedule; existing Alpine/Freestyle competition metadata and a clear four-appointment partial note describe source scope. Venue calendar dates remain unknown Sydney starts until explicit verified UTC is supplied. No admission, consent, exclusion, Results or reminder policy is changed. Regression: validate-skiing-calendar-review.js, two-engine source-card/Schedule checks and normal Follow/cache gates.
+
+## NFL conference table presentation — 4 October 2026
+
+Restore the already carried NFL standings with separate AFC/NFC source-supplied seeds and sport-appropriate W/L/T/PCT/PF/PA/difference columns. Retain Results OFF, explicit session-only standings reveal, Follow admission, participant IDs, personal activity, exclusions and reminder consent. Tables are dated publisher observations, not live or final playoff qualification. NFL calendar-year coverage is partial; no new sport/competition or admission is introduced. Regression: validate-nfl-standings.js, actual two-engine mobile/desktop standings cases and installed-browser cache rehearsals.

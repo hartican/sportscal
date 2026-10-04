@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## NFL conference standings recovery — 4 October 2026
+
+One strict parser owns the existing ESPN 2026 regular-season table in full and quick canonical refreshes. Validate both complete sixteen-club conference tables against known participants, published seeds and internally consistent numeric records before persistence. Source-supplied AFC/NFC seeds are scoped to their conference, not a worldwide/global rank or final playoff qualification. Failed/partial checks keep the exact last-good table; unchanged checks preserve table fact dates and aggregate fixture collection dates. Current attempts are recorded in the existing quick refresh report and failures in its exception list.
+
+The existing daily quick owner adds one standings request to a resource already used by full refresh, at its established fifteen-second deadline/no retry. Full keeps one twenty-second standings request. No new provider, scheduler, per-user poll, credential, schema, source owner or operator routine. Source requests are explicitly +1 on quick runs; do not claim zero added calls. NFL calendar-year coverage remains partial. Regressions: validate-nfl-standings.js through the existing Code gate, validate-update-cards.js, actual published component checks and both-engine 428→429 cache rehearsals.
+
+The shared known-fixture patch boundary is extracted from quick orchestration without behavior change and reused by F1. This removes CLI-owner coupling from server dependency tracing; acceptance requires retained writer/recovery gates and measured immutable inventory, not an assumed cold-start speedup.
+
 ## Separately reviewed NRLW Grand Final — 4 October 2026
 
 The existing reviewed-finals collection admits its fifth, named 2026 Grand Final through `update-cards.js --nrlw-finals`. The official league's rendered report explicitly marks Full Time and identifies the ordered teams and final scores. Its dated manual observation is independent of the retained Accor programme source and September scheduling check. No provider match ID, provider update clock or actual match-end timestamp is inferred. The original four finals and frozen 71-fixture/70-final season receipt keep their facts and observation dates; the final does not change regular-season ladder ranks.

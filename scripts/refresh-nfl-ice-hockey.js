@@ -102,15 +102,15 @@ function nflFixture(event){
   };
 }
 
-async function buildNfl(){
+async function buildNfl({fetchSource=fetchJson}={}){
   const [teamsPayload, leagueSchedule] = await Promise.all([
-    fetchJson("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"),
-    fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${NFL_SEASON}&limit=1000`),
+    fetchSource("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"),
+    fetchSource(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${NFL_SEASON}&limit=1000`),
   ]);
   const sourceTeams = teamsPayload?.sports?.[0]?.leagues?.[0]?.teams?.map(entry => entry.team).filter(team => team?.isActive !== false) || [];
   const teamResults = await mapLimit(sourceTeams, 6, async team => {
     const abbreviation = String(team.abbreviation || "").toLowerCase();
-    const roster = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${abbreviation}/roster`);
+    const roster = await fetchSource(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${abbreviation}/roster`);
     const teamId = `team:nfl:${abbreviation}`;
     const logoUrl = team.logos?.find(logo => logo.rel?.includes("default") && !logo.rel?.includes("dark"))?.href || null;
     const logoDarkUrl = team.logos?.find(logo => logo.rel?.includes("dark"))?.href || logoUrl;
@@ -138,14 +138,12 @@ async function buildNfl(){
     };
   });
   const fixtureMap = new Map((leagueSchedule.events || []).map(nflFixture).map(fixture => [fixture.id, fixture]));
-  let standings = [];
+  const previous=fs.existsSync(NFL_PATH)?JSON.parse(fs.readFileSync(NFL_PATH,'utf8')):null;
+  let standings = previous?.standings || [];
   try{
-    const payload = await fetchJson(`https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=${NFL_SEASON}`);
-    standings = (payload?.children || []).flatMap(conference => (conference.children || []).flatMap(division => (division.standings?.entries || []).map(entry => ({
-      participantId:`team:nfl:${String(entry.team?.abbreviation || entry.team?.slug || entry.team?.id || "").toLowerCase()}`,
-      conference:conference.name || null, division:division.name || null,
-      stats:Object.fromEntries((entry.stats || []).map(stat => [stat.name || stat.abbreviation, stat.value ?? stat.displayValue])),
-    }))));
+    const nflStandings=require('./lib/nfl-standings');
+    const payload=await fetchSource(nflStandings.SOURCE_URL),now=new Date();
+    standings=nflStandings.retainDates(standings,nflStandings.parse(payload,{teamIds:teamResults.map(t=>t.team.id),checkedAt:now.toISOString(),now}));
   }catch(error){
     console.warn(`NFL standings unavailable; preserving teams, rosters and fixtures: ${error.message}`);
   }
@@ -383,7 +381,7 @@ async function main(){
   console.log(`Refreshed NFL and Ice Hockey: ${nfl.teams.length + iceHockey.teams.length} teams, ${nfl.players.length + iceHockey.players.length} players, ${nfl.fixtures.length + iceHockey.fixtures.length} fixtures.`);
 }
 
-main().catch(error => {
+if(require.main===module)main().catch(error => {
   const failureText = String(error?.stack || error?.message || error);
   const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(failureText);
   const retiredEspnRosterEndpoint = /404\s+Not Found:\s+https:\/\/site\.api\.espn\.com\/apis\/site\/v2\/sports\/football\/nfl\/teams\/[^/]+\/roster/i.test(failureText);
@@ -404,3 +402,4 @@ main().catch(error => {
   console.error(error.stack || error.message);
   process.exitCode = 1;
 });
+module.exports={buildNfl,validate};
