@@ -4996,21 +4996,21 @@
       "name": "Bathurst 1000 — official research 1",
       "url": "https://www.supercars.com/events/2026-bathurst-1000",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-04T22:29:59.987Z"
     },
     {
       "id": "source:fixture-research:supercars-bathurst-1000-2026:1",
       "name": "Bathurst 1000 — official research 2",
-      "url": "https://www.supercars.com/news/supercars-2026-calendar-announcement-release-date-rounds-printable-ticket-information-news",
+      "url": "https://www.supercars.com/news/supercars-news-2026-chaz-mostert-walkinshaw-twg-racing-toyota-bathurst-chances-engine-reliability",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-04T22:29:59.987Z"
     },
     {
       "id": "source:fixture-research:supercars-bathurst-1000-2026:2",
       "name": "Bathurst 1000 — official research 3",
-      "url": "https://www.supercars.com/news/supercars-news-2026-enduro-cup-co-driver-moves-timeline-signings-craig-lowndes-will-davison-nick-percat",
+      "url": "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
       "sourceType": "official",
-      "checkedAt": "2026-10-02T13:35:19.426Z"
+      "checkedAt": "2026-10-04T22:29:59.987Z"
     },
     {
       "id": "source:fixture-research:epl-2026-27-128980:0",
@@ -5200,6 +5200,13 @@
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
       "checkedAt": "2026-10-04T05:51:11.197Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:3",
+      "name": "Bathurst 1000 — official research 4",
+      "url": "https://www.supercars.com/news/supercars-news-2026-five-burning-bathurst-questions-chevrolet-general-motors-drivers-engine-parity",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T22:29:59.987Z"
     }
   ],
   "narrativeFacts": [
@@ -28227,12 +28234,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Race 30 starts 11:30am Sunday 11 October in Sydney time.",
+      "statement": "Race 30 is scheduled for 11:30am Sunday 11 October at Mount Panorama.",
       "dimension": "schedule",
       "sourceIds": [
         "source:fixture-research:supercars-bathurst-1000-2026:0"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28240,12 +28247,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Mount Panorama is 6.213km; the event runs 161 laps over approximately 1000km.",
+      "statement": "The circuit is 6.213km and the race runs 161 laps over approximately 1000km.",
       "dimension": "venue",
       "sourceIds": [
         "source:fixture-research:supercars-bathurst-1000-2026:0"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28253,13 +28260,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Bathurst ends the Enduro Cup; its winner and the post-enduro championship top ten qualify for the Finals.",
-      "dimension": "consequence",
+      "statement": "Mostert/Coulthard won The Bend endurance race, Wood/Evans also reached the podium, and all five Toyota Supras finished.",
+      "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:0",
         "source:fixture-research:supercars-bathurst-1000-2026:1"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28267,12 +28273,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "The Finals begin at the Gold Coast following Bathurst.",
-      "dimension": "path",
+      "statement": "Supercars approved reduced Camaro roll-cage centre-of-gravity ballast effective from Bathurst, requiring no Mustang or Supra change.",
+      "dimension": "matchup",
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:1"
+        "source:fixture-research:supercars-bathurst-1000-2026:2"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28280,12 +28286,13 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Only six endurance combinations remained unchanged from 2025.",
-      "dimension": "form",
+      "statement": "Bathurst concludes the Ryco Enduro Cup before the championship Finals.",
+      "dimension": "consequence",
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:2"
+        "source:fixture-research:supercars-bathurst-1000-2026:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:1"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28293,13 +28300,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Toyota joins Ford and Chevrolet in 2026; Mostert/Coulthard, Wood/Evans, Payne/Davison and Feeney/Percat are confirmed endurance pairings.",
-      "dimension": "matchup",
+      "statement": "Team 18's wildcard pairs seven-time Bathurst winner Lowndes with rookie Hall, twenty years after his 2006 win; GRM fields Moffat/Herne.",
+      "dimension": "history",
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:1",
-        "source:fixture-research:supercars-bathurst-1000-2026:2"
+        "source:fixture-research:supercars-bathurst-1000-2026:3"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -28307,12 +28313,12 @@
       "subjectIds": [
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
-      "statement": "Garry Rogers Motorsport returns to Bathurst through a Herne/Moffat wildcard.",
-      "dimension": "history",
+      "statement": "Chevrolet teams are rebuilding after Triple Eight's departure and have entries contesting Enduro Cup and remaining Finals places.",
+      "dimension": "form",
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:2"
+        "source:fixture-research:supercars-bathurst-1000-2026:3"
       ],
-      "observedAt": "2026-10-02T13:35:19.426Z",
+      "observedAt": "2026-10-04T22:29:59.987Z",
       "expiresAt": null
     },
     {
@@ -31910,7 +31916,7 @@
         "subject:fixture-research:supercars-bathurst-1000-2026"
       ],
       "title": "Bathurst 1000",
-      "summary": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
+      "summary": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
       "factIds": [
         "fact:fixture-research:supercars-bathurst-1000-2026:0",
         "fact:fixture-research:supercars-bathurst-1000-2026:1",
@@ -31921,7 +31927,7 @@
         "fact:fixture-research:supercars-bathurst-1000-2026:6"
       ],
       "status": "active",
-      "updatedAt": "2026-10-02T13:35:19.426Z"
+      "updatedAt": "2026-10-04T22:29:59.987Z"
     },
     {
       "id": "thread:fixture-research:epl-2026-27-128980",
@@ -45358,43 +45364,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "supercars-bathurst-1000-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-      "synopsis": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-      "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-      "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
-      "threadIds": [
-        "thread:fixture-research:supercars-bathurst-1000-2026"
-      ],
-      "factIds": [
-        "fact:fixture-research:supercars-bathurst-1000-2026:0",
-        "fact:fixture-research:supercars-bathurst-1000-2026:1",
-        "fact:fixture-research:supercars-bathurst-1000-2026:2",
-        "fact:fixture-research:supercars-bathurst-1000-2026:3",
-        "fact:fixture-research:supercars-bathurst-1000-2026:4",
-        "fact:fixture-research:supercars-bathurst-1000-2026:5",
-        "fact:fixture-research:supercars-bathurst-1000-2026:6"
-      ],
-      "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:0",
-        "source:fixture-research:supercars-bathurst-1000-2026:1",
-        "source:fixture-research:supercars-bathurst-1000-2026:2"
-      ],
-      "researchedAt": "2026-10-02T13:35:19.426Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T13:35:19.426Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
       "targetType": "feed-event",
       "targetIds": [
@@ -47702,6 +47671,44 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-30T22:50:31.966Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "supercars-bathurst-1000-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+      "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+      "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+      "closingCopy": "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list.",
+      "threadIds": [
+        "thread:fixture-research:supercars-bathurst-1000-2026"
+      ],
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:5",
+        "fact:fixture-research:supercars-bathurst-1000-2026:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:2",
+        "source:fixture-research:supercars-bathurst-1000-2026:3"
+      ],
+      "researchedAt": "2026-10-04T22:29:59.987Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-04T22:29:59.987Z"
       }
     }
   ]
