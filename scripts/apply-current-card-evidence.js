@@ -75,11 +75,13 @@ function fixtureSeed(override, checkedAt){
     storyline:{ stakes:5, intensity:5, arcStage:"preview" },
   }, override, checkedAt);
 }
-function normalizeCompletedTiming(record){
+function normalizeCompletedTiming(record, {child=false} = {}){
   if(record.status === "completed" && record.storyline && record.storyline.arcStage !== "recap"){
     const safe = `${record.name || record.displayName || 'This event'} is complete. Reveal results for the outcome.`;
     const result = record.outcomeText || record.scoreDisplay || record.score;
-    if(result) record = {...record,selectedSentence:safe,fullSpiel:safe,storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
+    // Events children publish copy in Storyline only. Feed's root copy fields
+    // are deliberately outside the strict child schema.
+    if(result) record = {...record,...(!child?{selectedSentence:safe,fullSpiel:safe}:{}),storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
   }
   if(record.status !== "completed" || record.endTimeUtc || !record.startTimeUtc) return record;
   const start = Date.parse(record.startTimeUtc);
@@ -87,15 +89,17 @@ function normalizeCompletedTiming(record){
   const hours = Math.max(0.5, Number(record.liveWindow) || 3);
   return { ...record, endTimeUtc:new Date(start + hours * 3600000).toISOString(), endTimeBasis:"scheduled-live-window" };
 }
-function applyArray(records, overrides, checkedAt, { upsert=false } = {}){
+function applyArray(records, overrides, checkedAt, { upsert=false, child=false } = {}){
   const next = records.map(record => {
     const override = overrides.find(item => matches(record, item));
-    return normalizeCompletedTiming(override ? mergeRecord(record, override, checkedAt) : record);
+    return normalizeCompletedTiming(override ? mergeRecord(record, override, checkedAt) : record,{child});
   });
   if(upsert) for(const override of overrides) if(!next.some(record => matches(record, override))) next.push(fixtureSeed(override, checkedAt));
   return next;
 }
-function applyEvidence({ check=false } = {}){
+function applyEvidence({ check=false, root=ROOT } = {}){
+  const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
+  const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
   const evidence = read("data/canonical/current-card-evidence-2026.json");
   const timings=reviewedTiming.validate(evidence.timingOverrides||[]);
   // Reviewed results are final facts, not merely score text on upcoming cards.
@@ -120,7 +124,7 @@ function applyEvidence({ check=false } = {}){
   const majorEvents = documents[TARGETS[4]];
   majorEvents.events = (majorEvents.events || []).map(event => ({
     ...event,
-    subEvents:applyArray(event.subEvents || [], evidence.resultOverrides, evidence.checkedAt),
+    subEvents:applyArray(event.subEvents || [], evidence.resultOverrides, evidence.checkedAt,{child:true}),
   }));
   feed.events=reviewedTiming.apply(feed.events,timings,{required:true});
   coverage.events=reviewedTiming.apply(coverage.events,timings);
@@ -145,7 +149,7 @@ function applyEvidence({ check=false } = {}){
     return;
   }
   for(const file of TARGETS) write(file, documents[file]);
-  applySelectedTimings();
+  applySelectedTimings({root});
   console.log("Applied reviewed fixtures, results, completion timing and broadcaster evidence.");
 }
 

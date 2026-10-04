@@ -48,3 +48,31 @@ try{
  const conflict=hashes();assert.throws(()=>restorePublishedEditorial('11c225e3beec327853dbbfdbf993cd5864299ac9',[id],{root}),/changed sporting facts/);assert.deepEqual(hashes(),conflict,'A fact mismatch on the second surface does not partly write the first');
 }finally{fs.rmSync(root,{recursive:true,force:true});}
 console.log('Current evidence editorial retention: real formerly live preview, original copy clock, repeat bytes, newer research, sporting changes, invalid/missing copy, actual two-surface persistence and failure preflight passed; no source or database requests.');
+
+// Reproduce the full refresh failure at the real file writer: completed Events
+// children share result normalisation with Feed, but have a stricter schema.
+const child=require('../data/major-events.v1.json').events.find(e=>e.id==='major-event:us-open-2026').subEvents.find(e=>e.id==='fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool');
+assert.equal(child.status,'completed');assert(child.score||child.scoreDisplay||child.outcomeText);
+const childBefore={...structuredClone(child),storyline:{...child.storyline,arcStage:'preview'}};
+const childRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-completed-child-'));
+try{
+ const documents={
+  'data/canonical/current-card-evidence-2026.json':{checkedAt:'2026-10-04T00:00:00Z',fixtureOverrides:[],resultOverrides:[],broadcastOverrides:[],timingOverrides:[]},
+  'data/canonical/afl-nrl-2026.json':{events:[]},
+  'feeds/incoming/events.json':{events:[childBefore]},
+  'data/follow-sources/coverage.v1.json':{events:[]},
+  'data/canonical/official-card-results-2026.json':{results:[]},
+  'data/major-events.v1.json':{events:[{id:'major-event:us-open-2026',subEvents:[childBefore]}]},
+ };
+ for(const [file,document]of Object.entries(documents)){fs.mkdirSync(path.dirname(path.join(childRoot,file)),{recursive:true});fs.writeFileSync(path.join(childRoot,file),JSON.stringify(document,null,2)+'\n');}
+ const run=()=>require('./apply-current-card-evidence').applyEvidence({root:childRoot});run();
+ const readChild=()=>JSON.parse(fs.readFileSync(path.join(childRoot,'data/major-events.v1.json'))).events[0].subEvents[0];
+ const after=readChild(),schema=require('../schemas/major-events.schema.json').$defs.subEvent;
+ assert.deepEqual(Object.keys(after).filter(key=>!Object.hasOwn(schema.properties,key)),[],'actual result writer must retain the strict child schema');
+ for(const key of ['id','participantIds','matchupSides','startTimeUtc','status','score','scoreDisplay','sourceUrl','sourceCheckedAt','editorialNarrative'])assert.deepEqual(after[key],childBefore[key],key+' retains its original fact or observation');
+ assert.equal(after.storyline.arcStage,'recap');assert.equal(after.storyline.hookSpoilerOff,`${after.name} is complete. Reveal results for the outcome.`);
+ const feed=JSON.parse(fs.readFileSync(path.join(childRoot,'feeds/incoming/events.json'))).events[0];
+ assert.equal(feed.selectedSentence,after.storyline.hookSpoilerOff,'Feed retains its supported safe root copy');assert.equal(feed.fullSpiel,after.storyline.synopsisSpoilerOff);
+ const hash=()=>crypto.createHash('sha256').update(fs.readFileSync(path.join(childRoot,'data/major-events.v1.json'))).digest('hex');const first=hash();run();assert.equal(hash(),first,'unchanged child writer reruns retain bytes');
+}finally{fs.rmSync(childRoot,{recursive:true,force:true});}
+console.log('Completed Events child: actual file writer preserves strict schema, spoiler-safe recap, facts, source clocks and repeat bytes while Feed keeps its supported copy fields.');
