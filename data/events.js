@@ -61698,7 +61698,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "schedulePrecision": "exact",
     "weekAnchorDate": null,
     "displayDateLabel": null,
-    "statusCheckedAt": "2026-09-22T01:40:00.000Z",
+    "statusCheckedAt": "2026-10-03T12:36:16.781Z",
     "homeScore": 89,
     "awayScore": 96,
     "score": "Fremantle v Brisbane Lions — 89-96",
@@ -61724,10 +61724,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "scorelineText": "Fremantle v Brisbane Lions — 89-96",
       "spoilerLevel": "sensitive"
     },
-    "scoreCheckedAt": "2026-09-22T01:40:00.000Z",
+    "scoreCheckedAt": "2026-10-03T12:36:16.781Z",
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "resultSourceUrl": "https://www.afl.com.au/afl/matches/9028",
+    "resultSourceCheckedAt": "2026-10-03T12:36:16.781Z"
   },
   {
     "sport": "NRL",

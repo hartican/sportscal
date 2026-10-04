@@ -47,3 +47,75 @@ const unknownMerge=overlaySnapshots([protectedLive],[{checked_at:scheduleTime,fi
  assert.equal(output.status,'completed','later alias snapshots must not reopen a confirmed result');assert.equal(output.livePlayObservedAt,null);assert.equal(output.completedAt,null);assert.deepEqual(output.score.innings.map(i=>i.runs),[297,230]);
  console.log('Match observations: score/status provenance, schedule regression, interruptions, cancellation and unordered sources passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
+
+{
+const fs=require("node:fs");
+const {applyCompletedCanonicalResult,resultObservationFields,applyRetainedResultObservations}=require("./sync-canonical-fixtures-to-feed");
+// Fixed real pre-repair inputs: later releases must not make the provenance
+// regression disappear merely by replacing the current published fixture.
+const cp = require("node:child_process"), path = require("node:path"), os = require("node:os");
+const provenanceBase = "5ed85a14c9439210642daf094d868d00642bd9a0";
+const historical = file => JSON.parse(cp.execFileSync("git", ["show", `${provenanceBase}:${file}`], { maxBuffer:32*1024*1024 }));
+const finalId = "event-afl-cd_m20260142901", finalCanonicalId = "event:afl:cd_m20260142901";
+const finalBefore = historical("data/events.json").events.find(event => event.id === finalId);
+const finalBundle = historical("data/canonical/afl-nrl-2026.json");
+const finalFixture = finalBundle.events.find(event => event.id === finalCanonicalId);
+const finalParticipants = new Map(finalBundle.participants.map(participant => [participant.id, participant]));
+assert(Date.parse(finalBefore.scoreCheckedAt) < Date.parse(finalBefore.startTimeUtc), "Actual pre-match score clock is required for this regression");
+const finalAfter = applyCompletedCanonicalResult(finalBefore, finalFixture, finalParticipants);
+assert.equal(finalAfter.scoreCheckedAt, finalFixture.source.checkedAt, "The result uses the supplied post-match observation, not the earlier schedule check");
+assert.equal(finalAfter.statusCheckedAt, finalFixture.source.checkedAt);
+assert.equal(finalAfter.resultSourceUrl, "https://www.afl.com.au/afl/matches/9028");
+for(const key of ["id","eventId","canonicalEventId","participantIds","date","time","startTimeUtc","homeScore","awayScore","sourceUrl","sourceCheckedAt","viewingOptions","editorialPreview","editorialNarrative","lastReviewedAt"])
+  assert.deepEqual(finalAfter[key], finalBefore[key], `${key}: an observation repair cannot change fixture facts, schedule/viewing dates or reviewed copy`);
+const laterFinal = {...finalFixture, source:{...finalFixture.source, checkedAt:"2026-10-04T00:00:00.000Z"}};
+assert.deepEqual(resultObservationFields(finalAfter, laterFinal), {}, "An unchanged final retains its original valid result observation");
+const knownFinal = {...finalBefore, scoreCheckedAt:"2026-10-01T17:36:14.023Z", statusCheckedAt:"2026-10-01T17:36:14.023Z"};
+assert.deepEqual(resultObservationFields(knownFinal, finalFixture), {}, "Explicit valid fact dates survive an older general schedule date");
+for(const checkedAt of ["invalid", "2026-02-30T00:00:00.000Z", "2099-01-01T00:00:00.000Z", "2026-09-22T01:40:00.000Z"])
+  assert.deepEqual(resultObservationFields(finalBefore, {...finalFixture, source:{...finalFixture.source, checkedAt}}), {}, "Invalid, future or pre-match observations cannot repair a final clock");
+assert.deepEqual(resultObservationFields(finalBefore, {...finalFixture, source:{...finalFixture.source, sourceUrl:"https://user:secret@example.test/result"}}), {}, "Embedded credentials cannot enter result provenance");
+assert.deepEqual(resultObservationFields({...finalBefore,awayScore:0}, finalFixture), {}, "A different score cannot inherit this result's source date");
+const parseRefreshOptions=require('./update-cards').parseOptions;
+for(const argv of [['--result-observations'],['--reviewed-fixtures','--result-observations'],['--reviewed-fixtures','--result-observations','--ids=x','--restore-published=x']])
+  assert.throws(()=>parseRefreshOptions(argv), /No source steps ran/, "An invalid scoped repair cannot fall through to full source refresh");
+const supplemental = {...finalFixture, result:{...finalFixture.result, source:{provider:"Independent result source",sourceUrl:"https://example.test/result",checkedAt:"2026-09-27T00:00:00.000Z"}}};
+assert.equal(resultObservationFields(finalBefore, supplemental).scoreCheckedAt, supplemental.result.source.checkedAt, "Result-specific evidence owns its observation independently of the schedule");
+const changedFinal = {...laterFinal, result:{...laterFinal.result, scorelineText:"Fremantle v Brisbane Lions — 0-96"}};
+const correctedFinal = applyCompletedCanonicalResult(finalAfter, changedFinal, finalParticipants);
+assert.equal(correctedFinal.homeScore, 0, "A real zero score correction survives");
+assert.equal(correctedFinal.scoreCheckedAt, laterFinal.source.checkedAt, "Changed facts carry their actual new observation");
+
+const provenanceRoot = fs.mkdtempSync(path.join(os.tmpdir(), "ns-final-observations-"));
+try {
+  const files = ["feeds/incoming/events.json", "data/events.json"];
+  fs.mkdirSync(path.join(provenanceRoot, "data/canonical"), {recursive:true});
+  fs.writeFileSync(path.join(provenanceRoot, "data/canonical/afl-nrl-2026.json"), JSON.stringify(finalBundle));
+  for(const file of files){
+    fs.mkdirSync(path.dirname(path.join(provenanceRoot, file)), {recursive:true});
+    const doc = historical(file), fixture = doc.events.find(event => event.id === finalId);
+    fs.writeFileSync(path.join(provenanceRoot, file), JSON.stringify({...doc,events:[fixture,{id:"unrelated",sourceCheckedAt:"2026-09-01T00:00:00Z"}]}, null, 2) + "\n");
+  }
+  const bytes = () => files.map(file => fs.readFileSync(path.join(provenanceRoot, file), "utf8"));
+  const before = bytes();
+  assert.deepEqual(applyRetainedResultObservations([finalId], {root:provenanceRoot}), {selected:1,changed:2});
+  const repaired = bytes();
+  for(const [index, raw] of repaired.entries()){
+    const old = JSON.parse(before[index]), current = JSON.parse(raw);
+    assert.deepEqual(current.events[1], old.events[1]);
+    for(const key of Object.keys(old.events[0]).filter(key => !["scoreCheckedAt","statusCheckedAt","resultSourceUrl","resultSourceCheckedAt"].includes(key)))
+      assert.deepEqual(current.events[0][key], old.events[0][key], `${key}: scoped persistence preserves every other field`);
+    assert.equal(current.events[0].scoreCheckedAt, finalFixture.source.checkedAt);
+    assert.deepEqual({...current,events:old.events}, old, "Feed publication metadata is not a result observation");
+  }
+  assert.deepEqual(applyRetainedResultObservations([finalId], {root:provenanceRoot}), {selected:1,changed:0});
+  assert.deepEqual(bytes(), repaired, "Identical reruns preserve both surface bytes");
+  const inconsistent = JSON.parse(repaired[1]);inconsistent.events[0].awayScore=0;
+  fs.writeFileSync(path.join(provenanceRoot, files[1]), JSON.stringify(inconsistent));
+  const failed = bytes();
+  assert.throws(() => applyRetainedResultObservations([finalId], {root:provenanceRoot}), /away score disagrees/);
+  assert.deepEqual(bytes(), failed, "Failure on the second surface cannot partly write the first");
+} finally {fs.rmSync(provenanceRoot, {recursive:true,force:true});}
+
+console.log("Reference final observations: real pre-match clock repair, original schedule/editorial dates, unchanged rechecks, invalid sources, zero correction, two-surface persistence and failure preflight passed.");
+}

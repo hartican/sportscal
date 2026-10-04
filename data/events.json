@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261003222329509",
-  "publishedAt": "2026-10-03T22:23:29.509Z",
+  "version": "weekend-editorial-20261003222329509-20261004030239404",
+  "publishedAt": "2026-10-04T03:02:39.404Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -61702,7 +61702,7 @@
       "schedulePrecision": "exact",
       "weekAnchorDate": null,
       "displayDateLabel": null,
-      "statusCheckedAt": "2026-09-22T01:40:00.000Z",
+      "statusCheckedAt": "2026-10-03T12:36:16.781Z",
       "homeScore": 89,
       "awayScore": 96,
       "score": "Fremantle v Brisbane Lions — 89-96",
@@ -61728,10 +61728,12 @@
         "scorelineText": "Fremantle v Brisbane Lions — 89-96",
         "spoilerLevel": "sensitive"
       },
-      "scoreCheckedAt": "2026-09-22T01:40:00.000Z",
+      "scoreCheckedAt": "2026-10-03T12:36:16.781Z",
       "timeTbc": false,
       "startTimeTbc": false,
-      "dateOnly": false
+      "dateOnly": false,
+      "resultSourceUrl": "https://www.afl.com.au/afl/matches/9028",
+      "resultSourceCheckedAt": "2026-10-03T12:36:16.781Z"
     },
     {
       "sport": "NRL",

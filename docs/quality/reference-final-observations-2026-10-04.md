@@ -1,0 +1,33 @@
+# NRL/AFL final facts and result observations — 4 October 2026
+
+Status: Implemented locally; normal exact-snapshot release and hosted evidence pending. Scope starts from main `5ed85a14c9439210642daf094d868d00642bd9a0` / live app `78168e8e`, shell423. This checks two men's finals, not whole competition or family certification.
+
+## Source agreement and reproduced defect
+
+Independent official-source retrieval at 02:53:31–02:55:01Z agrees with NS's two fixture records. [NRL match centre](https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/) and [dated NRL guide](https://www.nrl.com/news/2026/09/27/grand-final-week-2026-everything-you-need-to-know/) confirm Roosters v Knights at Accor, 4 October 19:30 AEDT, Nine/9Now; no final score was observed. [AFL match centre](https://www.afl.com.au/afl/matches/9028) explicitly confirms Full Time, Fremantle89–Brisbane96, MCG. The [AFL guide](https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start) distinguishes 26 September14:30 AEST first bounce from14:00 coverage, Seven/7plus. Exact page-retrieval timestamps and report publication timezone were not exposed; measured retrieval bounds are retained. These are dated public facts, not proof of authenticated viewing or commercial permission.
+
+The historical completed-card projector keeps filled result fields when score text is unchanged. AFL's correct89–96 final therefore kept `scoreCheckedAt` and `statusCheckedAt` from a22September schedule/story observation, four days before first bounce. Reproducing the pre-change projector confirms this. The retained canonical official match observation is dated **3October12:36:16.781Z**, after the match; it agrees with the newly checked source. That supplied date owns this correction. Today's audit lookup does not manufacture an earlier finality or whistle time.
+
+## Resulting behaviour and architecture
+
+The existing completed-result projection carries result-specific source URL and observed date plus explicit score/status dates. An unchanged final retains valid original fact dates despite later batch checks; an invalid old date can be repaired only by compatible, supplied post-start result evidence. Different scores cannot borrow that evidence. Invalid/future/pre-start timestamps and unsafe source URLs cannot qualify the repair. Changed final facts still receive their actual new observation, including zero scores. Original schedule source/date, viewing verification, preview research, sporting starts and identities remain independent.
+
+The existing canonical owner offers a bounded retained-fixture observation repair through its reviewed-fixtures route. It validates exact retained/canonical identities, participants, sporting start, completed scores and source clock on **both Feed surfaces before either write**. Missing/disagreeing facts fail closed. Only result observation fields change; no fixture admission, score change, activity migration, source fetch, database write, scheduler, retry, provider or subscription is added. An identical owner replay skips publication/rebuild and preserves all354 checked sporting/shell inputs byte for byte. Normal full/quick canonical projection uses the same repair logic.
+
+The actual mutation is one AFL record on incoming/published Feed and221-row AFL Inspector/Schedule. All1503 existing IDs on each Feed surface and every other fixture field survive. NRL217/AFLW source projections and all canonical input bundles remain exact. A structural scan of221 AFL and217 NRL records finds no remaining supplied score timestamp before kickoff; this is not independent verification of438 matches. Nine undated AFLW finals remain an existing gap.
+
+## Recommended actions and acceptance
+
+| Recommendation | Business value and evidence | Effort / dependencies | Cash / owner time | Acceptance and act/defer |
+|---|---|---|---|---|
+| Publish the result-provenance repair | Honest final checks and correct downstream reconciliation; one real reproduced pre-match clock with official fact agreement | Focused half-day engineering estimate; existing canonical result owner and public records | A$0 added services; no new owner decision or recurring checklist; model/CI cash unmeasured | Exact IDs/facts/copy, actual post-match source date, unchanged rerun, invalid-source and disagreement rejection; act now |
+| Reuse existing tests and caches | Catch recurrence without another QA workflow or shell epoch | Existing mandatory match-observations command, retained Feed/Schedule browser renderers and genuine-worker data-cache checks | Existing local/cloud runtime; no source or customer operation | Normal138-command gate, both browser engines, Results OFF/ON, accessible named controls, mobile/desktop layout and exact cached data |
+| Finish declared-window acceptance | One agreed final cannot certify NRL/AFL references or make Football monetisable | Existing six-gate queue, rights/playback/device and cohort evidence | Free tier; no purchase/outreach/invite | Keep0/16 families and0/3 Football pilots, target≥13/16. Continue selected windows; defer launch claims |
+
+Shell423, index, worker and compiled runtime remain unchanged. A new shell epoch or app-upgrade rehearsal is unnecessary for these network-first JSON data changes; genuine-worker old-to-current/offline cache evidence is the relevant check. This is not physical installed-device proof. Generic cards do not gain a new Source control or design change.
+
+The first diagnostic attempt used a legacy non-production editorial-consequence validator that reproduces an unrelated rolling-MotoGP source error under its historical script. The new observation assertions passed before that legacy failure; they now run in the existing required match-observations command. No mandatory gate is removed or waived. Research retrieval lasted90seconds; researcher drafting ran beyond its10-minute bound (12m35 total). This overrun and the initial verifier-variable typo are retained as process evidence, not claimed efficiency savings.
+
+Latest ordinary refresh remains terminal failure37146184945; no newer scheduled evidence was visible during the read-only check. This scoped repair is not that acceptance proof. Passwords/iCloud remains parked under the user's carry-on instruction. Full viewing, provider permission, real account/two-device, physical phone, push and elapsed repeat use remain unverified.
+
+Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/reference-finals-acceptance-20261004`; official findings, historical reproduction, original failing diagnostic, regression, owner projection/replay, strict preservation, browser/cache and normal-release proofs remain separate.

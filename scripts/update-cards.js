@@ -68,6 +68,9 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
+    throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
+  }
   if (argv.includes("--offline")) {
     const quickOfflineArgs = new Set(["--offline", "--quick", "--rebuild", "--local-only", "-p"]);
     if (!argv.includes("--quick") || argv.some(arg => !quickOfflineArgs.has(arg))) {
@@ -626,6 +629,8 @@ async function runMain() {
     const ids=process.argv.find(arg=>arg.startsWith('--ids='));
     if(baseline&&!ids)throw new Error('Published editorial repair requires --ids=');
     const scoped=Boolean(ids);
+    const resultObservations=process.argv.includes('--result-observations');
+    if(resultObservations && (!ids || baseline))throw new Error('Result observations require retained --ids= without editorial restoration');
     let codes=[];
     if(scoped){
       const known=new Set(JSON.parse(fs.readFileSync('data/code-inspector/manifest.json')).codes.map(code=>code.slug));
@@ -636,8 +641,13 @@ async function runMain() {
       }))];
       if(!codes.length)throw new Error('Editorial repair requires existing Code projections');
     }
+    if(resultObservations){
+      const repaired=require('./sync-canonical-fixtures-to-feed').applyRetainedResultObservations(ids.slice(6).split(','));
+      console.log(JSON.stringify(repaired));
+      if(!repaired.changed){console.log('Retained result observations already agree; no publication or rebuild needed.');return;}
+    }
     for(const args of [
-      ['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])],
+      ...(!resultObservations?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
       ...(!scoped?[['scripts/apply-national-team-identities.js','feeds/incoming/events.json']]:[]),
       ['scripts/publish-feed.js',scoped?'data/events.json':'feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ...(scoped?[['scripts/build-follow-fixtures.js']]:[]),
