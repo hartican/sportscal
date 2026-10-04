@@ -14,14 +14,16 @@ async function controls(page){
 }
 async function localPerson(page){await page.evaluate(p=>{canonicalPreferenceParticipants=[...Array.from({length:1000},(_,i)=>({id:'competitor:tennis:qa:'+i,canonicalName:'Other player '+i})),p];},person);}
 async function createPage(browser,base,{route='',api,profile=preferences}={}){
- const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[],writes=[];
+ const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[],writes=[],pendingFeedReads=new Set();
+ page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/data/feed/'))pendingFeedReads.add(r);});
+ for(const event of ['requestfinished','requestfailed'])page.on(event,r=>pendingFeedReads.delete(r));
  page.setDefaultTimeout(10000);
  page.on('pageerror',e=>{errors.push(e.message);if(process.env.FOLLOW_DEFAULT_TRACE==='1')console.error('Page error diagnostic',e.message.slice(0,300),e.stack?.slice(-700));});
  if(process.env.FOLLOW_DEFAULT_TRACE==='1')page.on('requestfailed',r=>console.error('Request failure diagnostic',r.url().slice(0,200),r.failure()));
  await page.addInitScript(p=>{if(!localStorage.getItem('ns_install_v1'))localStorage.setItem('ns_preferences_v1',JSON.stringify(p));},profile);
  if(process.env.FOLLOW_DEFAULT_TRACE==='1')await page.addInitScript(()=>{globalThis.qaNativeErrors=[];addEventListener('error',e=>qaNativeErrors.push({type:'error',message:e.message,filename:e.filename,line:e.lineno,stack:e.error?.stack}));addEventListener('unhandledrejection',e=>qaNativeErrors.push({type:'rejection',message:String(e.reason),stack:e.reason?.stack}));});
  await page.route('**/api/**',r=>{const url=new URL(r.request().url()),method=r.request().method();if(!['GET','HEAD','OPTIONS'].includes(method)&&!(method==='POST'&&url.pathname==='/api/feed'&&['athletes','match-centre'].includes(url.searchParams.get('scope'))))writes.push({path:url.pathname,method});if(url.searchParams.get('scope')==='athletes'){reads.push(url.href);return api?api(r,url):r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}return r.fulfill({status:503,json:{error:'Isolated Follow startup QA'}});});
- return{page,errors,reads,writes,goto:async()=>{await page.goto(base+route,{waitUntil:'domcontentloaded'});await ready(page);}};
+ return{page,errors,reads,writes,pendingFeedReads,goto:async()=>{await page.goto(base+route,{waitUntil:'commit'});await ready(page);}};
 }
 async function run(browser,base,engine){
  console.log(engine+': delayed module startup');
@@ -142,7 +144,9 @@ async function initialBrowse(browser,base,engine){
    // This case checks persisted choices after startup. The separate delayed
    // Feed/module cases above exercise navigation during hydration. Finish the
    // isolated summary reads before replacing their document on reload.
-   await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&!nothingscoreBatchInFlight.size&&!nothingscorePendingIds.size&&!nothingscoreBatchTimer);
+   await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&!publicFeedWarmHandle&&!nothingscoreBatchInFlight.size&&!nothingscorePendingIds.size&&!nothingscoreBatchTimer);
+   const settleDeadline=Date.now()+10000;while(ctx.pendingFeedReads.size&&Date.now()<settleDeadline)await page.waitForTimeout(50);
+   assert.equal(ctx.pendingFeedReads.size,0,'The actual background Feed response finishes before the persistence reload');
    await page.reload({waitUntil:'commit'});await ready(page);await page.locator('.follow-navigation').waitFor();
    await record('after-reload');
    assert.deepEqual(await page.evaluate(()=>({...followBrowseState()})),state,'Reload retains the chosen view through the actual profile storage');
