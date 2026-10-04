@@ -2,7 +2,7 @@
 
 ## Outcome and release boundary
 
-Six already-carried upcoming F1 sessions recover their retained official fixture source and original observation. An empty editorial preview had erased the link and replaced the fixture date with the research-run date. The real writer reproduces the defect twice with one fixture and one withheld override. The repair keeps fixture facts and research provenance separate. Local canonical, persistence, rendering and data-cache checks pass; normal cloud release and independent production proof are pending at this snapshot.
+Six already-carried upcoming F1 sessions recover their retained official fixture source and original observation. An empty editorial preview had erased the link and replaced the fixture date with the research-run date. The real writer reproduces the defect twice with one fixture and one withheld override. The repair keeps fixture facts and research provenance separate. App **15aa2d3c / shell438 unchanged** is independently live through [normal release 37239418589](https://github.com/hartican/sportscal/actions/runs/37239418589). All 147 local/cloud gates, READY/project/exact release SHA/three aliases, twenty served hashes, 288 hosted render cases and both hosted data-cache checks pass.
 
 This adds no Source control, new sporting fact or fresh provider observation. All existing fixture/activity identities, dates, clocks, results, viewing, editorial, follows, exclusions, Remind OFF and Results rules remain. The cached shell/runtime stays at 438.
 
@@ -33,6 +33,17 @@ Accept only after exact publication, all normal gates, READY/project/SHA/alias, 
 
 The read-only ordinary-owner observation still shows the 4 October scheduled failure at the older pre-repair SHA. No later natural run is yet visible; successful manual deployment is not unattended proof. Passwords/iCloud retries remain parked. No invitation, outreach, purchase or commercial launch is authorised here.
 
-Two future manual Surfing seeds also retain unsupported exact clocks/viewing and internal import copy. Current official CT evidence lists Pipe Masters on 8–20 December, conflicting with the February seed. The inspected 2027 Big Wave page is January-filtered; its empty view cannot establish whole-season absence. New Nazaré timing and identity reconciliation remain unresolved. Do not adopt third-party predicted windows, manufacture an event date or silently change WSL consent. This is the next factual coverage gap in the existing weak-window queue, not a completed repair.
+Two future manual Surfing seeds also retain unsupported exact clocks/viewing and internal import copy. Current official CT evidence lists Pipe Masters on 8–20 December, conflicting with the February seed. The first inspected 2027 Big Wave page was January-filtered; a separately recorded explicit all-months response at 22:15:00.261 UTC also supplies no Nazaré item in the captured view. Neither empty view proves an event will not occur. New Nazaré timing and identity reconciliation remain unresolved. Do not adopt third-party predicted windows, manufacture an event date or silently change WSL consent. This is the next factual coverage gap in the existing weak-window queue, not a completed repair.
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/f1-source-preservation-20261005`; source assessment captures: `surf-seed-assessment-20261005` in the same parent folder.
+
+
+## Exact production proof and closeout
+
+Published app `15aa2d3c65b16a9589591c07b9034236129c238f` is READY at `sportscal-68049y7fy-harticans-projects.vercel.app` (`dpl_Byg53WRT93W8UYUpbftjZ4iqyZo8`), project `prj_NAMl47QVLbPUfsMmap59JIpchOPD`. Independent verification at 2026-10-04T22:23:25.406Z agrees with main and production metadata; twenty served hashes match the transformed immutable inventory. Of 1432 public artifacts, 52 change, 1380 remain byte-identical, and none are removed. The six-function/three-private-input boundary remains. The local 147-gate pass took 141782 ms; tracked and supplementary new-source fingerprints are stable. Cloud workflow runs 22:16:58–22:21:07 UTC.
+
+The cached shell/runtime, startup request/byte budgets and all non-source sporting fields are unchanged. Actual browser workers replace older F1 data online; local socket-failure fallback and hosted online replacement pass separately. No new shell upgrade, physical phone, account, playback or push proof is claimed. The initial independent helper used the wrong downloaded artifact path; its failure is retained and corrected from the actual exact-SHA artifact directory, without repeating deployment or weakening a gate. A read-only GitHub inspection initially used a non-repository directory; the corrected explicit-repository read is separate.
+
+The app was published and deployed before this documentation-only closeout; queue/checkpoint/evidence edits do not change app inputs and require no further app deployment. Full certification stays 0/16 families and 0/3 Football pilots, target at least 13/16. Continue the original full programme.
+
+The first report closeout stopped on an obsolete closing-tag assumption after saving the three source documents. A resumed artifact-only rendering uses the actual single main closing boundary, retains all 51 chapter titles and three original diagrams, and does not repeat app publication or deployment.
