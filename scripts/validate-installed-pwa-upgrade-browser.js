@@ -144,6 +144,15 @@ async function assertCachedFootballStatus(page){
   const currentLpga=require('../data/canonical/pga-tour-schedule.json').lpga;
   const expectedLpga=['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].map(id=>currentLpga.find(f=>f.id===id)).map(f=>({id:f.id,providers:['kayo','foxtel'],options:[{scope:'competition',replay:false},{scope:'competition',replay:false}],participationCheckedAt:f.participationCheckedAt}));
   assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth',lpga:expectedLpga,unrelatedLpga:[]},'upgraded/offline runtime and cached projections retain honest AU viewing, LPGA token boundaries and original Golf observations');
+  const finalsDestinations=await page.evaluate(async()=>{
+    const data=await(await fetch('/data/follow-schedule/nrl.json')).json(),final=data.fixtures.find(f=>f.canonicalEventId==='evt_84');
+    const options=NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(final),controls=document.createElement('div');
+    appendEventQuickActions(controls,final,{reminder:false,chat:false});
+    return {options:options.map(o=>({id:o.providerId,url:o.webUrl,scope:o.linkScope,checkedAt:o.verifiedAt,permalink:o.permalinkVerifiedAt})),destinations:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('href'))};
+  });
+  assert.deepEqual(finalsDestinations.options.map(o=>o.id),['nine-tv','nine']);
+  assert(finalsDestinations.options.every(o=>o.url==='https://www.9now.com.au/'&&o.scope==='sport'&&o.checkedAt==='2026-09-27T13:39:49.102Z'&&o.permalink===null),'cached reader preserves general destinations and original rights evidence');
+  assert.deepEqual(finalsDestinations.destinations,['https://www.9now.com.au/','https://www.9now.com.au/'],'cached controls retain external destinations after upgrade and offline');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
@@ -212,12 +221,17 @@ const server=http.createServer((req,res)=>{
     await page.waitForFunction(()=>Boolean(navigator.serviceWorker?.controller),null,{timeout:90000});
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>typeof userPreferences!=='undefined' && !startupCoordinator.isHydrating(),null,{timeout:60000});
-    const savedSelection=await page.evaluate(()=>{
+    const savedSelection=await page.evaluate(modernBaseline=>{
       const next=clonePreferences(userPreferences);next.onboardingComplete=true;next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+      if(modernBaseline){
+        next.preferenceGraph.entityFollows=[{participantId:'team:football:epl:1',followLevel:'follow'},{participantId:'team:football:epl:2',followLevel:'mute'},{participantId:'team:football:epl:3',followLevel:'unfollow'}];
+        next.followFirst.notifications={...next.followFirst.notifications,userChoice:false,enabled:false,autoRemindersEnabled:false,sportingRemindersEnabled:false};
+      }
       savePreferences(next);acknowledgeSelectorRelease();closeSelectorOptInPrompt();closeSettings({restoreTheme:false});
       sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'}));
-      return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds};
-    });
+      return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,...(modernBaseline?{entities:userPreferences.preferenceGraph.entityFollows,reminders:userPreferences.followFirst.notifications}:{})};
+    },Number(baselineVersion)>=420);
+    const assertSavedNativeChoices=async page=>{if(savedSelection.entities){assert.deepEqual(await page.evaluate(()=>userPreferences.preferenceGraph.entityFollows),savedSelection.entities,'Actual native follows/mutes/unfollows survive cached upgrade and reload');assert.deepEqual(await page.evaluate(()=>userPreferences.followFirst.notifications),savedSelection.reminders,'Remind OFF survives cached upgrade and reload');}};
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
@@ -227,7 +241,10 @@ const server=http.createServer((req,res)=>{
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
     const upgradeNavigationLog=[];
-    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame()){upgradeNavigations++;upgradeNavigationLog.push({url:frame.url(),at:Date.now(),nextRelease});}});
+    // Count document navigations for the reload-loop gate. Follow's ordinary
+    // hash/history transitions also emit framenavigated; retain them separately.
+    const upgradeDocuments=[];upgraded.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document'&&r.frame()===upgraded.mainFrame()){upgradeNavigations++;upgradeDocuments.push({url:r.url(),at:Date.now(),nextRelease});}});
+    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame())upgradeNavigationLog.push({url:frame.url(),at:Date.now(),nextRelease});});
     if(keepOpen)await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});
     else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     const firstVersion=await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content');
@@ -253,6 +270,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
     assert.equal(await upgraded.evaluate(()=>userPreferences.theme),'day','Saved appearance must survive migration');
     const restoredSelection=await upgraded.evaluate(()=>({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds}));
+    await assertSavedNativeChoices(upgraded);
     assert.deepEqual(restoredSelection.selectors,savedSelection.selectors,'Canonical follow selections survive migration');
     // New taxonomy children (e.g. NRLW under NRL) may expand a followed code,
     // but none of its previously included sports may disappear.
@@ -292,6 +310,7 @@ const server=http.createServer((req,res)=>{
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
+    await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
       const before=await upgraded.evaluate(choices);
@@ -325,8 +344,9 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
+    await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
-    assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
+    assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

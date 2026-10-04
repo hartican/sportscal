@@ -26,14 +26,16 @@ assert(fixtures.every(row=>row.source&&row.fixture),'Actual known reference-spor
    const card=page.locator('#listView .event-card');
    const receipt=await card.evaluate(card=>({text:card.innerText,labels:[...card.querySelectorAll('[aria-label]')].map(n=>n.getAttribute('aria-label')),overflow:document.documentElement.scrollWidth>innerWidth+1,fixtureId:card.dataset.eventId}));
    const label=`${engine}/${slug}/${width}/${theme}/${mode}/${results}`;
+   const provenance=await page.evaluate(({fixture,slug})=>{const converted=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(fixture,{slug});return Object.fromEntries(['sourceUrl','sourceName','sourceType','sourceCheckedAt'].map(key=>[key,converted[key]]));},{fixture,slug});
+   for(const key of ['sourceUrl','sourceName','sourceType','sourceCheckedAt'])assert.equal(provenance[key],fixture[key],label+': browser Schedule conversion retains supplied '+key);
    assert(!receipt.text.includes('Fixture details unconfirmed'),label+': known details cannot be described as unknown');
    assert(receipt.labels.every(text=>!text.includes('Fixture details unconfirmed')),label+': accessible controls must identify the known fixture');
    assert(receipt.labels.includes('Dismiss '+source.displayName),label+': dismissal names the correct contest');
    assert(!receipt.overflow,label+': no horizontal page overflow');
    if(!results&&source.result?.scorelineText){const score=source.result.scorelineText.split('—').at(-1).trim();assert(!receipt.text.includes(score),label+': source score remains protected');}
-   observations.push({slug,id:fixture.id,width,theme,mode,results,knownTitle:source.displayName,unknownDetailLabel:false,overflow:false});
+   observations.push({slug,id:fixture.id,width,theme,mode,results,knownTitle:source.displayName,provenance,unknownDetailLabel:false,overflow:false});
   }
   if(process.env.REFERENCE_NAMES_REPORT_PATH)fs.writeFileSync(process.env.REFERENCE_NAMES_REPORT_PATH,JSON.stringify({checkedAt:new Date().toISOString(),engine,cases:observations.length,scope:'Actual affected local/hosted component renderers using public projection records; synthetic preferences, other APIs/workers isolated; no account or physical-device proof',observations},null,2)+'\n');
-  console.log(`Canonical fixture titles (${engine}): ${observations.length} actual Feed/Schedule cases preserve named accessible controls, honest known-detail labels, Results privacy and responsive layout`);
+  console.log(`Canonical fixture titles/provenance (${engine}): ${observations.length} actual Feed/Schedule cases preserve supplied source metadata, named accessible controls, honest known-detail labels, Results privacy and responsive layout`);
  }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

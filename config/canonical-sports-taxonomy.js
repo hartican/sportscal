@@ -373,6 +373,7 @@
 
   const competitionFamilies = [
     {id:"family:le-mans",sportDomainId:"sport:motorsport",slug:"le-mans-24-hours",name:"24 Hours of Le Mans",familyType:"enduranceRace",sortOrder:110,isActive:true,surfaceClassification:"major-event"},
+    {id:"family:dakar",sportDomainId:"sport:motorsport",slug:"dakar",name:"Dakar Rally",familyType:"rallyRaid",sortOrder:111,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {id:"family:giro-ditalia",sportDomainId:"sport:cycling",slug:"giro-ditalia",name:"Giro d’Italia",familyType:"stageRace",sortOrder:101,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {id:"family:vuelta-a-espana",sportDomainId:"sport:cycling",slug:"vuelta-a-espana",name:"La Vuelta",familyType:"stageRace",sortOrder:102,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},
     {id:"family:world-surf-league",sportDomainId:"sport:surf",slug:"world-surf-league",name:"World Surf League",familyType:"championship",sortOrder:34,isActive:true,surfaceClassification:"code",classificationReason:"recurring-single-code-competition"},

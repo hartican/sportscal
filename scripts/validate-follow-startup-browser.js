@@ -13,13 +13,15 @@ async function controls(page){
  const elapsed=await page.evaluate(()=>performance.now()-qaFollowTap);assert(elapsed<300,`Follow controls took ${elapsed.toFixed(0)}ms`);return elapsed;
 }
 async function localPerson(page){await page.evaluate(p=>{canonicalPreferenceParticipants=[...Array.from({length:1000},(_,i)=>({id:'competitor:tennis:qa:'+i,canonicalName:'Other player '+i})),p];},person);}
-async function createPage(browser,base,{route='',api}={}){
- const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[];
+async function createPage(browser,base,{route='',api,profile=preferences}={}){
+ const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[],writes=[];
  page.setDefaultTimeout(10000);
- page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(p=>localStorage.setItem('ns_preferences_v1',JSON.stringify(p)),preferences);
- await page.route('**/api/**',r=>{const url=new URL(r.request().url());if(url.searchParams.get('scope')==='athletes'){reads.push(url.href);return api?api(r,url):r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}return r.fulfill({status:503,json:{error:'Isolated Follow startup QA'}});});
- return{page,errors,reads,goto:async()=>{await page.goto(base+route,{waitUntil:'domcontentloaded'});await ready(page);}};
+ page.on('pageerror',e=>{errors.push(e.message);if(process.env.FOLLOW_DEFAULT_TRACE==='1')console.error('Page error diagnostic',e.message.slice(0,300),e.stack?.slice(-700));});
+ if(process.env.FOLLOW_DEFAULT_TRACE==='1')page.on('requestfailed',r=>console.error('Request failure diagnostic',r.url().slice(0,200),r.failure()));
+ await page.addInitScript(p=>{if(!localStorage.getItem('ns_install_v1'))localStorage.setItem('ns_preferences_v1',JSON.stringify(p));},profile);
+ if(process.env.FOLLOW_DEFAULT_TRACE==='1')await page.addInitScript(()=>{globalThis.qaNativeErrors=[];addEventListener('error',e=>qaNativeErrors.push({type:'error',message:e.message,filename:e.filename,line:e.lineno,stack:e.error?.stack}));addEventListener('unhandledrejection',e=>qaNativeErrors.push({type:'rejection',message:String(e.reason),stack:e.reason?.stack}));});
+ await page.route('**/api/**',r=>{const url=new URL(r.request().url()),method=r.request().method();if(!['GET','HEAD','OPTIONS'].includes(method)&&!(method==='POST'&&url.pathname==='/api/feed'&&['athletes','match-centre'].includes(url.searchParams.get('scope'))))writes.push({path:url.pathname,method});if(url.searchParams.get('scope')==='athletes'){reads.push(url.href);return api?api(r,url):r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}return r.fulfill({status:503,json:{error:'Isolated Follow startup QA'}});});
+ return{page,errors,reads,writes,goto:async()=>{await page.goto(base+route,{waitUntil:'domcontentloaded'});await ready(page);}};
 }
 async function run(browser,base,engine){
  console.log(engine+': delayed module startup');
@@ -105,9 +107,54 @@ async function run(browser,base,engine){
   assert.equal(await page.locator('.athletes-person').count(),0);assert(!/Old account response/.test(await page.locator('#listView').innerText()));assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'account switch and navigation reject late data'});
  }finally{gate.release();await page.close();}
 }
+async function initialBrowse(browser,base,engine){
+ // A real reload advances existing visit/prompt counters and the local graph's
+ // bookkeeping clock; sporting choices themselves must remain exact.
+ const choices=()=>{const p=JSON.parse(JSON.stringify(userPreferences));delete p.followBrowse;delete p.ratingPromptState;if(p.preferenceGraph)delete p.preferenceGraph.updatedAt;if(p.followFirst?.refinement){delete p.followFirst.refinement.distinctOpenCount;delete p.followFirst.refinement.lastOpenId;}return p;};
+ const cases=[
+  {label:'Football first Browse',selected:['sport:football'],sport:'sport:football',category:'sport:football'},
+  {label:'UCL child first Browse',selected:['sport:champions-league'],sport:'sport:football',category:'sport:champions-league'},
+  {label:'AFLW child first Browse',selected:['sport:aflw'],sport:'sport:afl',category:'sport:aflw'},
+  {label:'F1 child restored Browse',selected:['sport:f1'],sport:'sport:motorsport',category:'sport:f1',route:'#follow/browse'},
+  {label:'NFL no-child first Browse',selected:['sport:american-football'],sport:'sport:american-football',category:''},
+  {label:'Football club first Browse',selected:[],graph:{entityFollows:[{participantId:'team:football:epl:1',followLevel:'follow'},{participantId:'team:football:epl:2',followLevel:'mute'},{participantId:'team:football:epl:3',followLevel:'unfollow'}],competitionPreferences:[{competitionId:'competition:uefa-champions-league',enabled:false}]},sport:'sport:football',category:'sport:football',followFirst:{excludedMajorEventIds:['commonwealth-games'],notifications:{userChoice:false,enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}},
+  {label:'Saved AFLW view remains',selected:['sport:football'],saved:{sportId:'sport:afl',categoryId:'sport:aflw',section:'teams-players'},sport:'sport:afl',category:'sport:aflw'},
+  {label:'Empty preference legacy fallback',selected:[],sport:'sport:afl',category:'sport:afl-premiership'},
+ ];
+ for(const test of (process.env.FOLLOW_DEFAULT_CASE_FILTER?cases.filter(c=>c.label===process.env.FOLLOW_DEFAULT_CASE_FILTER):process.env.FOLLOW_DEFAULT_CASE_ONLY==='1'?cases.slice(0,1):cases)){
+  console.log(engine+': '+test.label);
+  const profile={version:26,onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:test.selected,...(test.graph?{preferenceGraph:test.graph}:{}),...(test.saved?{followBrowse:test.saved}:{}),...(test.followFirst?{followFirst:test.followFirst}:{})};
+  const ctx=await createPage(browser,base,{profile,route:test.route||''}),page=ctx.page;
+  const trace=[];const record=async stage=>{if(process.env.FOLLOW_DEFAULT_TRACE==='1')trace.push({stage,...await page.evaluate(()=>({graph:userPreferences.preferenceGraph,stored:JSON.parse(localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+activeProfileBundle.profile.id)),nativeErrors:globalThis.qaNativeErrors}))});};
+  try{
+   await ctx.goto();const before=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([key])=>key!=='followBrowse')))),beforeReloadChoices=JSON.stringify(await page.evaluate(choices));
+   if(test.graph){assert.deepEqual(await page.evaluate(()=>userPreferences.preferenceGraph.entityFollows.map(({participantId,followLevel})=>({participantId,followLevel}))),test.graph.entityFollows);assert.equal(await page.evaluate(()=>userPreferences.followFirst.notifications.userChoice),false);}
+   await record('initial');
+   if(!test.route){await openFollow(page);await page.getByRole('button',{name:'Browse sports',exact:true}).click();}
+   await page.locator('.follow-navigation').waitFor();
+   const state=await page.evaluate(()=>({...followBrowseState()}));assert.equal(state.sportId,test.sport,test.label);assert.equal(state.categoryId,test.category,test.label);
+   await record('after-first-browse');
+   assert.deepEqual(state,await page.evaluate(()=>JSON.parse(localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+activeProfileBundle.profile.id)).preferences.followBrowse),'Initial view persists through the existing profile storage and view-only save');
+   await record('after-persistence-read');
+   assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([key])=>key!=='followBrowse')))),before,'Browsing cannot change sporting preferences, Results, reminder intent or exclusions');
+   await page.evaluate(()=>{followRatingAffinity={sports:[{sportId:'sport:tennis',count:100,lastInteractedAt:new Date().toISOString()}]};renderFollowView();});
+   assert.deepEqual(await page.evaluate(()=>({...followBrowseState()})),state,'Late affinity cannot replace the chosen initial or saved view');
+   // This case checks persisted choices after startup. The separate delayed
+   // Feed/module cases above exercise navigation during hydration. Finish the
+   // isolated summary reads before replacing their document on reload.
+   await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&!nothingscoreBatchInFlight.size&&!nothingscorePendingIds.size&&!nothingscoreBatchTimer);
+   await page.reload({waitUntil:'commit'});await ready(page);await page.locator('.follow-navigation').waitFor();
+   await record('after-reload');
+   assert.deepEqual(await page.evaluate(()=>({...followBrowseState()})),state,'Reload retains the chosen view through the actual profile storage');
+   assert.deepEqual(await page.evaluate(choices),JSON.parse(beforeReloadChoices),'Reload retains sporting choices while existing visit counters may advance');
+   for(const width of [320,390,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),test.label+': no page overflow');}
+   assert.deepEqual(ctx.errors,[]);assert.deepEqual(ctx.writes,[],'View-only navigation cannot queue a remote state write');report.push({engine,scenario:test.label,sportId:state.sportId,categoryId:state.categoryId,preferencesPreserved:true,viewPersisted:true,reloadRetained:true,remoteWrites:0,lateAffinityStable:true,widths:[320,390,1280]});
+  }finally{if(trace.length&&process.env.FOLLOW_STARTUP_REPORT_PATH)fs.writeFileSync(process.env.FOLLOW_STARTUP_REPORT_PATH+'.trace.json',JSON.stringify({engine,scenario:test.label,trace},null,2)+'\n');await page.close();}
+ }
+}
 (async()=>{
  let server,base=process.env.QA_BASE_URL;
  if(!base){server=http.createServer((req,res)=>{const file=path.join(root,new URL(req.url,'http://localhost').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]||'application/octet-stream'});res.end(error?'':data);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));base=`http://127.0.0.1:${server.address().port}`;}
- try{for(const engine of (process.env.QA_BROWSER?[process.env.QA_BROWSER]:['chromium','webkit'])){const browser=await pw[engine].launch({headless:true});try{await run(browser,base,engine);}finally{await browser.close();}}console.log(JSON.stringify({followStartup:'passed',runs:report},null,2));}
+ try{for(const engine of (process.env.QA_BROWSER?[process.env.QA_BROWSER]:['chromium','webkit'])){const browser=await pw[engine].launch({headless:true});try{if(process.env.FOLLOW_DEFAULT_CASES_ONLY!=='1')await run(browser,base,engine);await initialBrowse(browser,base,engine);}finally{await browser.close();}}const receipt={checkedAt:new Date().toISOString(),followStartup:'passed',runs:report};if(process.env.FOLLOW_STARTUP_REPORT_PATH)fs.writeFileSync(process.env.FOLLOW_STARTUP_REPORT_PATH,JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt,null,2));}
  finally{if(server)await new Promise(r=>server.close(r));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

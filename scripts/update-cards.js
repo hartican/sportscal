@@ -68,6 +68,12 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if (argv.includes("--offline")) {
+    const quickOfflineArgs = new Set(["--offline", "--quick", "--rebuild", "--local-only", "-p"]);
+    if (!argv.includes("--quick") || argv.some(arg => !quickOfflineArgs.has(arg))) {
+      throw new Error("Only the quick refresh supports --offline. Use --quick --offline without a scoped, resumed or other route. No source steps ran.");
+    }
+  }
   return {
     localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
   };
@@ -403,6 +409,16 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--canonical-family-repair')){
+    console.log(JSON.stringify(require('./lib/canonical-family-repair').apply()));
+    for(const args of [
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-canonical-sports.js'],['scripts/validate-canonical-family-repair.js'],
+      ['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Existing canonical family references repaired; fixture facts and source clocks unchanged, no provider requests.');return;
+  }
   if(process.argv.includes('--skiing-calendar-review')){
     console.log(JSON.stringify(require('./lib/skiing-calendar-review').applyRetained()));
     for(const args of [
@@ -793,6 +809,8 @@ async function runMain() {
 }
 
 async function main(){
+  // Validate mode before creating diagnostic state or starting any source step.
+  parseOptions();
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
   const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
   process.env.FOOTBALL_DATA_RUN_DIR=directory;

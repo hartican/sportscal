@@ -21,7 +21,7 @@ async function openCalendar(page,base){
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,selectedSelectorEntityIds:['sport:football'],showSpoilers:false,version:26})));
  await page.goto(base,{waitUntil:'domcontentloaded',timeout:45000});
  await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating()&&startupFunnelFinished,null,{timeout:30000});
- await page.evaluate(()=>{activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
+ await page.evaluate(()=>openCodeInspector('sport:football',{pushHistory:false}));
  await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading,null,{timeout:15000});
  await page.locator('.follow-category-bar').getByRole('button',{name:/Champions League/}).click();
  await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='competition:uefa-champions-league'&&!codeInspectorChunkLoading,null,{timeout:15000});

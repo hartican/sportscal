@@ -215,8 +215,22 @@ function sydneyPartsFromUtc(iso){
   return { date: `${parts.year}-${parts.month}-${parts.day}`, time: `${parts.hour}:${parts.minute}` };
 }
 
+function canonicalSourceMetadata(event){
+  // Explicit flat provenance owns its facts. Do not mix in another publisher.
+  if(['sourceUrl','sourceName','sourceType','sourceCheckedAt'].some(key=>event[key]!=null&&event[key]!==''))return {};
+  const source=event.source;
+  if(!source||typeof source!=='object'||Array.isArray(source)||typeof source.sourceUrl!=='string')return {};
+  try{const url=new URL(source.sourceUrl);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)return {};}catch{return {};}
+  const fields={sourceUrl:source.sourceUrl};
+  for(const [key,input] of [['sourceName','provider'],['sourceType','sourceType']])if(typeof source[input]==='string'&&source[input].trim())fields[key]=source[input];
+  const checked=source.checkedAt,observed=Date.parse(checked),date=typeof checked==='string'?checked.slice(0,10):'';
+  if(/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(checked||'')&&Number.isFinite(observed)&&observed<=Date.now()&&new Date(date+'T00:00:00Z').toISOString().slice(0,10)===date)fields.sourceCheckedAt=checked;
+  return fields;
+}
+
 function normalizeFixture(event, codeId, extra = {}){
   event=fixtureIdentity.normalizeCore(event);
+  const sourceMetadata=canonicalSourceMetadata(event);
   // Earlier official EPL cards retained the sourced matchweek only in resultLabels.
   // Recover that exact field for existing publications; never infer it from dates.
   if(event.competitionId === 'competition:premier-league-2026-27'){
@@ -291,7 +305,8 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(codeId === "sport:wrc" && event.score ? { resultScore:event.score } : {}),
     ...(codeId === "sport:wrc" && event.outcomeText ? { resultOutcome:event.outcomeText } : {}),
     ...(codeId === "sport:wrc" && event.resultSourceUrl ? { resultSourceUrl:event.resultSourceUrl } : {}),
-    sourceUrl:event.sourceUrl || null,
+    ...sourceMetadata,
+    sourceUrl:event.sourceUrl || sourceMetadata.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
     ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext} : {}),
     ...(event.footballMatchContext ? {footballMatchContext:event.footballMatchContext} : {}),

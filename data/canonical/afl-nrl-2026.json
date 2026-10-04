@@ -669,6 +669,17 @@
       "familyType": "championship",
       "sortOrder": 70,
       "isActive": true
+    },
+    {
+      "id": "family:dakar",
+      "sportDomainId": "sport:motorsport",
+      "slug": "dakar",
+      "name": "Dakar Rally",
+      "familyType": "rallyRaid",
+      "sortOrder": 111,
+      "isActive": true,
+      "surfaceClassification": "code",
+      "classificationReason": "recurring-single-code-competition"
     }
   ],
   "competitions": [
