@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Retained canonical source handoff — 4 October 2026
+
+The shared Code/Schedule projector may flatten supplied nested canonical provenance only when explicit flat metadata is absent. Keep the original URL/publisher/type/observation together; reject unsafe nested references and invalid/future clocks. The existing retained-data `--code-projections` owner is used, with no source request, new refresh owner, retry, scheduler, database operation or shell epoch. All existing flat provenance and non-source sporting facts remain exact; restored metadata is not new verification or commercial permission. Regression: existing canonical card/Code gates and browser conversion/privacy checks. [Evidence and limits](quality/reference-provenance-2026-10-04.md).
+
 ## Canonical offline invocation boundary — 4 October 2026
 
 The existing canonical owner accepts `--offline` only with its genuine quick route and existing rebuild/local options. Full, scoped, resumed or mixed offline requests reject before diagnostic state, temporary files or source subprocesses. `--local-only` still permits source checks and suppresses publication/deployment. Normal source owners, online routes, cadence and budgets remain unchanged; no full offline source implementation, new scheduler, provider, database operation or reminder replay is added. Eight actual CLI rejection paths and retained real quick/completeness regressions run in `validate-update-cards.js`. Current 380-fixture EPL and five-fixture API agreement is dated audit evidence, not fresh app publication, unattended refresh, undocumented live statuses or certification. [Evidence and limits](quality/offline-refresh-boundary-2026-10-04.md).
