@@ -1,6 +1,6 @@
 # Account-sync conflict integrity — 4 October 2026
 
-Status: implemented locally; publication and production acceptance pending. Base `14b5606b57b482121defd1783d8ab6a09bf65c5c`, deployed baseline `99504438`, shell 421. This is the next bounded account-lifecycle outcome in the CTO queue; it does not certify Football, a whole sport or physical cross-device use.
+Status: Shipped. Exact app `d29736a34375ff659871f21549155d43dd1e3cfb` / shell 422 is published and live after [normal production 37168936833](https://github.com/hartican/sportscal/actions/runs/37168936833); independent verification at 2026-10-04T01:50:43.862Z confirms READY `dpl_5eMpnjKBdpjjSSHwtx9xkdJabsP6`, project, release metadata and three aliases. Base `14b5606b57b482121defd1783d8ab6a09bf65c5c`, deployed baseline `99504438`, shell 421. This is the next bounded account-lifecycle outcome in the CTO queue; it does not certify Football, a whole sport or physical cross-device use.
 
 ## Verified defects and repair
 
@@ -21,3 +21,7 @@ Required release proof: stable candidate checks, both genuine-worker 421→422 u
 Business value: reduce unexpected loss of saved club/viewing choices during concurrent use without another owner decision or maintenance routine. Estimated engineering effort: approximately half a day including verification; estimate, not attributable billed time. A$0 added subscription/service spend; existing CI/model cash and token savings remain unmeasured. The wider account lifecycle, source permission, playback, physical device, independent recovery and actual cohort gates stay open. Passwords/iCloud retries stay parked. Certification remains 0/16 families and 0/3 Football pilots, target ≥13/16.
 
 Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/account-sync-conflict-20261004`.
+
+## Dated release closeout
+
+Stable local 138-command verification completes in 137.376 seconds; normal cloud 138-command and protected-input gates pass. Fourteen served hashes agree with the immutable transformed inventory: three changed inputs, 1,336 unchanged and no removed files. The three raw private sources remain excluded with all six function copies retained. Six local and six hosted actual-client/native-storage cases pass with every API response intercepted; no real backend request, authenticated account, physical phone or customer-state change is claimed. Both genuine-worker 421→422 upgrade/offline/resume rehearsals preserve follow/mute/unfollow and Remind OFF. All 349 tracked data files and generated runtime remain exact. Failed/intermediate checks remain in `diagnostic-limits.json`; the first full run was intermediate, while the final stable tracked-input fingerprint is `e4033a9f249b5beb2d217a75ea3e11220c01191bd0ec481d9042ba7ef7591f25`.
