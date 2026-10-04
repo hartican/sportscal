@@ -1,6 +1,6 @@
 # Canonical final scores: reference-card repair — 4 October 2026
 
-**Status: locally validated; publication and production acceptance pending.** Reference-card review reproduced a real presentation omission on 321 completed NRL/AFL records: a correct supplied nested final existed, but expanded Feed/Schedule showed “Finished” without its score. The shared reader now accepts `result.scorelineText` only for an explicitly completed event and completed result. Existing flat supplied scores retain precedence. Compact cards retain their current summary layout; expanding reveals the score with Results on. Results off remains private.
+**Status: published to GitHub main and independently accepted in production.** Reference-card review reproduced a real presentation omission on 321 completed NRL/AFL records: a correct supplied nested final existed, but expanded Feed/Schedule showed “Finished” without its score. The shared reader now accepts `result.scorelineText` only for an explicitly completed event and completed result. Existing flat supplied scores retain precedence. Compact cards retain their current summary layout; expanding reveals the score with Results on. Results off remains private.
 
 ## Business outcome and recommendation
 
@@ -27,7 +27,7 @@ The broader renderer initially reported 32 remaining failures because eight AFL 
 
 All 216 focused local cases pass (three actual NRL/AFL/AFLW records, three widths, two themes, compact/expanded Feed and Schedule, Results off/on, both engines). Both genuine 425→426 Chromium/WebKit upgrades pass, including the new final-score/privacy checks before and after offline restart. The 145-command application candidate remains unchanged; later edits refine only the affected browser verifier and this report.
 
-Pending the normal exact-SHA publication/release, project/READY/alias/metadata/served-hash checks and hosted affected rendering. Both genuine 425→426 cached upgrade outcomes will be recorded here. The cached tests preserve native follow/mute/unfollow, Remind OFF, appearance, compact preference and actual final-score privacy through offline restart; they do not prove physical iPhone/Home Screen or push behaviour.
+App **9660541b / shell 426** is live after [normal release 37186680773](https://github.com/hartican/sportscal/actions/runs/37186680773). All 145 cloud commands and two protected read-only publication/preflight checks pass. Independent control-plane proof confirms the exact published release SHA, correct project, READY production deployment and three aliases; 22 served hashes agree with the immutable transformed release inventory. All 216 hosted actual-card cases pass in Chromium/WebKit. All 351 tracked sporting files remain exact. Both genuine 425→426 cached upgrades pass, including new final-score/privacy checks before and after offline restart. Later report-only publication is separate from the deployed app snapshot. The cached tests preserve native follow/mute/unfollow, Remind OFF, appearance, compact preference and actual final-score privacy through offline restart; they do not prove physical iPhone/Home Screen or push behaviour.
 
 ## Remaining programme gates and next outcome
 
