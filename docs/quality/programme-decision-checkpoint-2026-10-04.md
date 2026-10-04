@@ -74,7 +74,7 @@ Fresh local read at main 0b98d317, 4 October Sydney, using the existing non-muta
 | Basketball | 189 | 1 | Unverified |
 | Golf | 127 | 9 | Unverified |
 | American football | 321 | 1 | Partial: 320 source records and 32 conference table rows accepted in the dated NFL delivery; January/freshness/viewing/rights gates remain |
-| Ice hockey | 1493 | 2 | Unverified |
+| Ice hockey | 1493 | 2 | Partial: 72 CHL matches/48 finals, 24 club records and twelve distinct programme entries; 99 retained NHL displays repaired. Fresh NHL/viewing/rights/operations/device gates remain |
 | Skiing | 4 | 2 | Unverified |
 | Multi-sport | 34 | 0 | Unverified |
 | Sailing | 46 | 1 | Unverified |
@@ -143,3 +143,7 @@ Verification: eight report cases pass in Chromium/WebKit at 320/1280 widths, wit
 ## NFL table recovery — 4 October
 
 App **b06a3423 / shell 429** is independently READY with normal release 37197282648, fifteen served hashes, 48 local/48 hosted component and profile cases, and both genuine cached upgrades. All 320 canonical/321 projected fixture records remain exact. A fresh calendar-year source comparison checks 4,480 facts; 49 2026 regular finals reconcile 192 table totals. NFL source-supplied seeds remain separate by conference with Results privacy and original dates. Partial calendar wording is now explicit. One official NHL club schedule checks 88 records/528 facts only. All fourteen recorded orchestration dependencies are removed from release inputs; cold-start effect is unmeasured. No family certification, viewing/rights/real-device/ordinary-operation or cohort pass is inferred. Full proof remains 0/16 and 0/3, target at least 13/16. [Evidence and limits](nfl-standings-recovery-2026-10-04.md).
+
+## Hockey result integrity — 4 October
+
+App **87c2e8d8 / shell 430** is READY through normal release 37201360428, 17 served hashes, 64 local/64 hosted scenarios, 14,112 local/14,112 hosted card renders and both genuine upgrades. The reviewed CHL collection agrees on 780 comparisons and 120 club totals. Preserve all 1,493 raw IDs and 1,409 NHL source fixtures. Keep 48 CHL finals/24 unranked records, correct 147 displayed score orders and twelve honest programme notes distinct from whole-family certification. Last-good, original dates and interrupted-projection recovery share the existing owner, with three added daily quick calls and no service/owner routine. Full proof stays 0/16 and 0/3, target at least 13/16. [Evidence and limits](chl-result-integrity-2026-10-04.md).
