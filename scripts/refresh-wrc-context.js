@@ -4,6 +4,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
 const {
   CALENDAR_URL,
   CLASSIFICATION_URLS,
@@ -54,13 +55,21 @@ async function fetchText(url){
   let response;
   try {
     response = await fetch(url, { headers: { "user-agent": "Nothingsport-WRC-Context/1.0" }, redirect: "follow", signal: AbortSignal.timeout(20000) });
+    if (!response.ok){
+      throw new SourceError(`Source returned HTTP ${response.status} for ${url}`, { transient: isTransientSourceStatus(response.status) });
+    }
+    // Fetch resolves at headers; the same deadline may expire while reading.
+    // Both transport phases must reach the existing last-good boundary.
+    return await response.text();
   } catch (error){
-    throw new SourceError(`Network error fetching ${url}: ${error.message}`, { transient: true });
+    if (error instanceof SourceError) throw error;
+    throw new SourceError(`Network error ${response ? "reading the response body from" : "fetching"} ${url}: ${error.message}`, { transient: true });
   }
-  if (!response.ok){
-    throw new SourceError(`Source returned HTTP ${response.status} for ${url}`, { transient: isTransientSourceStatus(response.status) });
-  }
-  return response.text();
+}
+
+function calendarResponseDiagnostic(html){
+  const text=String(html || "");
+  return {bytes:Buffer.byteLength(text),sha256:crypto.createHash("sha256").update(text).digest("hex"),prerenderPresent:/<script[^>]+id="rb3-prerender-data-cache"[^>]*>/i.test(text)};
 }
 
 function classificationFile(directory, roundNumber){
@@ -112,6 +121,8 @@ async function main(){
     const revisionFile=optionValue(args,'--revision-file');
     const revisionHtml=revisionFile?fs.readFileSync(revisionFile,'utf8'):await fetchText(coverage.REVISION_URL);
     const withdrawalVerified=coverage.verifiedWithdrawal(revisionHtml);
+    const diagnostic=calendarResponseDiagnostic(calendarHtml);
+    if(!diagnostic.prerenderPresent)console.warn(`WRC calendar response diagnostic: ${JSON.stringify(diagnostic)}`);
     const rounds = parseWrcCalendar(calendarHtml,{withdrawalVerified});
     let future;
     try{
@@ -159,6 +170,7 @@ module.exports = {
   SourceError,
   assertValid,
   classificationFile,
+  calendarResponseDiagnostic,
   fetchText,
   main,
   preservedContextAfterCoreFailure,

@@ -102,6 +102,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/apply-current-card-evidence.js"],
+  ["scripts/validate-wrc-source-boundary.js"],
   ["scripts/refresh-wrc-context.js"],
   ["scripts/refresh-wrc-context.js", "--check"],
   ["scripts/validate-wrc-context.js"],

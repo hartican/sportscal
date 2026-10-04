@@ -98,6 +98,7 @@ jobs:
           node scripts/validate-result-completeness-timing.js
           node scripts/validate-motogp-venue-pilot.js
           node scripts/validate-wrc-context.js
+          node scripts/validate-wrc-source-boundary.js
           node scripts/validate-wrc-venue-coverage.js
           node scripts/validate-requested-sports.js
           node scripts/validate-sailgp-quality.js --published
