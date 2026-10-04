@@ -495,3 +495,11 @@ Four already carried Skiing IDs retain their durable actions and existing opt-in
 ## NFL conference table presentation — 4 October 2026
 
 Restore the already carried NFL standings with separate AFC/NFC source-supplied seeds and sport-appropriate W/L/T/PCT/PF/PA/difference columns. Retain Results OFF, explicit session-only standings reveal, Follow admission, participant IDs, personal activity, exclusions and reminder consent. Tables are dated publisher observations, not live or final playoff qualification. NFL calendar-year coverage is partial; no new sport/competition or admission is introduced. Regression: validate-nfl-standings.js, actual two-engine mobile/desktop standings cases and installed-browser cache rehearsals.
+
+## Reviewed tennis progression — 5 October 2026 Sydney
+
+The bounded official-PDF review updates the retained Alcaraz–Arnaldi and Sabalenka–Bartunkova matches to completed and reconciles the already completed de Minaur–Halys result. Results remain behind the existing Results control. Completed undated matches cannot remain a profile’s next appearance. Existing fixture/action IDs and independently observed schedule facts survive; a result check cannot refresh or roll back the schedule check.
+
+Two actual published ATP500 semifinals, Alcaraz–Munar (Tokyo) and de Minaur–Hurkacz (Beijing), are available in participant profiles with official not-before clocks, both 18:00 Sydney on 5 October. The conditional Beijing OOP row is resolved only against the later draw. These remain manual Feed/reminder choices; no lower-tier automatic admission is granted. Djokovic–Zverev is a confirmed quarterfinal with unresolved individual date/time; the conditional semifinal’s clock cannot supply it. Every match uses the existing shared catalogue and controls. No extra follows, migration, navigation, exclusions, Results notice or notification policy changes.
+
+This is a small reviewed-facts delivery, not full China/Tokyo or automatic Shanghai/Wuhan source certification. Regression: the existing Athletes gate invokes `validate-reviewed-tennis-results.js` for provenance, ordered results, stable IDs, retry/terminal protection, two-surface preflight, daylight saving and reminder exclusions. The existing Feed score browser gate checks all three actual reviewed finals with Results ON/OFF in both engines.

@@ -31,12 +31,15 @@ try{
  // Replay through the ordinary owner uses per-result dates, not the old batch clock.
  const row=selected[1],result=applyOfficialResults([{id:row.id,name:'Reviewed final'}],{checkedAt:evidence.checkedAt,results:[row]}).events[0];
  assert.equal(result.resultPublishedAt,row.resultPublishedAt);assert.equal(result.lastReviewedAt,row.lastReviewedAt);assert.equal(result.sourceCheckedAt,row.sourceCheckedAt);
- const doc=structuredClone(participant.validate()),pending=doc.events.find(e=>e.resultStatus==='pending');assert(pending);
+ const doc=structuredClone(participant.validate()),pending=doc.events.find(e=>e.id.includes('alcaraz-arnaldi'));assert(pending);
+ // Controlled historical availability branch after the actual draw result
+ // has arrived; it cannot be mistaken for a current publication.
+ Object.assign(pending,{status:'scheduled',resultStatus:'pending',score:null,resultSourceCheckedAt:'2026-10-03T06:30:54.629Z',resultAvailabilityEvidence:{kind:'official-draw-result-unpublished',fixtureId:pending.id,sourceUrl:pending.resultSourceUrl,checkedAt:'2026-10-03T06:30:54.629Z',sourceSha256:'3708c48a839d83d58ff943873469ec1545b7a70c3051ae8df7b0e7e4d4c751d7',matchRow:'Round of 16: C. Alcaraz [1] v M. Arnaldi',winnerCell:'unpublished'}});
  for(const change of [e=>delete e.resultAvailabilityEvidence,e=>e.resultSourceCheckedAt='2100-01-01T00:00:00Z',e=>e.score='Invented score',e=>e.resultAvailabilityEvidence.fixtureId='another-match']){const bad=structuredClone(doc);change(bad.events.find(e=>e.id===pending.id));assert.throws(()=>participant.validate(bad));}
  // A later confirmed final must survive an older reviewed availability record.
  const final={...pending,status:'completed',score:'Synthetic verified final',sourceUrl:'https://example.org/result',sourceCheckedAt:'2026-10-03T06:30:54.629Z',resultStatus:'official',resultSourceCheckedAt:'2026-10-03T06:30:54.629Z'};delete final.resultAvailabilityEvidence;
  for(const file of files.slice(0,2))fs.writeFileSync(path.join(temp,file),JSON.stringify({events:[final]}));
- participant.apply({root:temp});
+ participant.apply({root:temp,doc});
  for(const file of files.slice(0,2)){const kept=JSON.parse(fs.readFileSync(path.join(temp,file))).events.find(e=>e.id===final.id);assert.deepEqual(kept,final,'pending review never regresses a later final or its source clock');}
 }finally{fs.rmSync(temp,{recursive:true,force:true});}
 console.log('Reviewed results: actual scoped writers, ID/fact retention, pre-write rejection, idempotence, individual clocks, unavailable-result validation and later-final retention passed.');

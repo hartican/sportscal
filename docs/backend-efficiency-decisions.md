@@ -598,3 +598,9 @@ The 3 October dated organiser article confirms Sinner has withdrawn and explicit
 ## Skiing calendar integrity — 4 October 2026
 
 The four-record dated FIS calendar review runs through the existing cards owner, full and ordinary quick projection paths. It performs zero new provider/AI calls, adds no scheduler or migration, preflights both surfaces, preserves later sporting observations and unchanged review timestamps, and cannot derive notification clocks from venue dates. Existing budgets and one-owner scheduling remain. Regression: validate-skiing-calendar-review.js and normal production gates.
+
+## Retained reviewed tennis results — 5 October 2026 Sydney
+
+The existing participant-schedules route of `node scripts/update-cards.js` publishes three reviewed next pairings and independently dated result evidence for three retained matches. Completed-result admission requires a source receipt, canonical ordered participants, associated winner and oriented set scores. Both retained publication surfaces are parsed and validated before writes; retries retain observation dates and canonical actions, and stale upcoming reviews cannot reopen terminal fixtures. A draw result cannot renew the independently checked scheduling facts or invent a finish instant.
+
+The review is bounded manual source evidence; no automated ATP/WTA harvesting or new source adapter is enabled. Profiles, Feed, Events, Match Centre and reminder catalogue reuse the shared publication. Existing live-source owner, bounded refresh, permissions, account/erasure guards, and sole five-minute dispatcher remain. No new scheduler, database mutation/schema, per-user organiser request, paid feed, trial or supplier contact. Shanghai/Wuhan complete fresh permitted inputs and real app-closed phone proof remain open.

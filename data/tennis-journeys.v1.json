@@ -13,8 +13,8 @@
       "tour": "ATP",
       "scheduleReview": {
         "player": "Carlos Alcaraz",
-        "outcome": "Verified against Matteo Arnaldi, Japan Open Round of 16, Colosseum; not before 12:30 pm Tokyo on 3 October.",
-        "checkedAt": "2026-10-03T01:24:45.000Z"
+        "outcome": "Verified semifinal against Jaume Munar, Colosseum; not before 16:00 Tokyo on 5 October. ATP500 remains manual Feed/reminder only.",
+        "checkedAt": "2026-10-04T13:55:02.284Z"
       }
     },
     {
@@ -37,9 +37,9 @@
       "tour": "ATP",
       "scheduleReview": {
         "player": "Novak Djokovic",
-        "outcome": "China Open quarterfinal pairing remains open. Opponent depends on Zverev–Shang; no individual clock verified.",
-        "checkedAt": "2026-10-03T01:24:45.000Z",
-        "summary": "China Open quarterfinal · opponent and match time unpublished",
+        "outcome": "Verified China Open quarterfinal pairing with Alexander Zverev. Individual day and match time unpublished; conditional semifinal timing cannot supply this quarterfinal clock.",
+        "checkedAt": "2026-10-04T13:50:08.916Z",
+        "summary": "China Open quarterfinal v Alexander Zverev · match time unpublished",
         "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
         "validUntil": "2026-10-06"
       }
@@ -50,8 +50,8 @@
       "tour": "ATP",
       "scheduleReview": {
         "player": "Alex de Minaur",
-        "outcome": "Individually verified first court match; ATP500 is profile-visible, manual Feed only.",
-        "checkedAt": "2026-10-03T01:24:45.000Z"
+        "outcome": "Verified semifinal against Hubert Hurkacz, Capital Group Diamond; not before 15:00 Beijing on 5 October. Later draw resolves the conditional de Minaur/Rublev order-of-play row; ATP500 remains manual Feed/reminder only.",
+        "checkedAt": "2026-10-04T13:55:03.400Z"
       }
     },
     {
@@ -60,8 +60,8 @@
       "tour": "WTA",
       "scheduleReview": {
         "player": "Aryna Sabalenka",
-        "outcome": "Verified next Round of 32 pairing with Nikola Bartunkova from draw; individual day, court and clock unpublished.",
-        "checkedAt": "2026-10-03T01:24:45.000Z"
+        "outcome": "Official draw establishes the retained Round of 32 match is completed; no next individual match or new timing verified.",
+        "checkedAt": "2026-10-04T13:50:08.412Z"
       }
     }
   ],
@@ -2011,8 +2011,8 @@
     }
   ],
   "window": {
-    "from": "2026-10-04",
-    "through": "2027-10-04"
+    "from": "2026-10-05",
+    "through": "2027-10-05"
   },
   "contextOnly": true,
   "windowEditionIds": [
