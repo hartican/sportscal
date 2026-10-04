@@ -1,0 +1,40 @@
+# Football settled observations and check-only refreshes — 5 October 2026
+
+**Latest Football refresh delivery — 5 October:** Unchanged primary finals retain their original result dates instead of becoming new Feed updates. All 50 EPL finals, 288 European fixture observations and 36 European finals retain their dates; genuine table/collection checks stay separately current. All 1,503 incoming and 1,504 published records remain exact, including 47 Feed files. The repaired owner avoids 100 false EPL updates and the full Feed rebuild. A complete four-page primary EPL response agrees on 380 fixtures/2,000 facts, with only completed/upcoming states observed. App **2a308a27 / shell 432** is live after [normal release 37208517510](https://github.com/hartican/sportscal/actions/runs/37208517510): 145 local/cloud gates, independent READY/project/SHA/three aliases, 17 served hashes, 1,056 local/1,056 hosted real-card cases and both cached 431→432 browser rehearsals pass. Valid corrections, same-score live observations, delayed backup recovery, viewing/attribution and Results privacy remain. No new provider, request budget, scheduler, subscription or owner routine. Actual live/non-playing source codes, playback/rights, ordinary operation, real devices and cohort returns remain unproved. Full proof stays 0/16 families and 0/3 Football pilots, target at least 13/16. [Evidence and limits](https://github.com/hartican/sportscal/blob/main/docs/quality/football-settled-observations-2026-10-05.md).
+
+## Verified defect and repair
+
+The real scoped canonical Football owner reported 100 EPL fixture updates (50 settled finals on each Feed surface), despite unchanged participants, kickoffs, status and scores. Only score/source observations advanced. The shared patch boundary now preserves the original completed score and result source/date tuple when facts and provenance are unchanged. Real numeric corrections, status/provider/provenance changes and the first valid missing-date observation remain updates. Same-score live checks still advance freshness; no clock or unsupported source code creates live play.
+
+A related actual European path rebuilt 288 source fixture dates and 36 final score dates from the collection check. The existing complete-response owner now retains independent fixture/result observations. Venue or kickoff corrections advance fact observations while an unchanged final retains its result date. Legacy records use the already observed previous collection date, never today's check. Competition/source health, match context and table checks keep their genuine observations. Provider attribution and delayed backup remain separate.
+
+The prior red regressions and first candidate are saved. The repaired genuine scoped Football owner reports only European/EPL table source checks, zero fixture changes, zero failures and zero AI calls. A subsequent European-only canonical verification uses the same two existing endpoints. These are three deliberate acceptance invocations, not ordinary scheduled success or automatic retries; request budgets and source ownership are unchanged.
+
+## Acceptance and release
+
+| Area | Verified outcome | Limit |
+|---|---|---|
+| Primary EPL truth | All four pages/380 identities, ordered teams, rounds, kickoffs and explicit statuses agree; 2,000 compared facts include 50 paired finals | Only C/U observed; no live or non-playing endpoint contract inferred |
+| Feed persistence | All 1,503 incoming and 1,504 published objects and 47 tracked Feed files remain byte-identical | No claim of cheaper provider queries or measured startup speed |
+| European continuity | All 288 IDs/facts and original fixture dates, including 36 final score dates, remain; table and collection checks are independent | Retained-source continuity, not another independent UEFA certification |
+| Boundary controls | Actual settled final, valid zero backup results, changed final/provenance, same-score live, partial/stale failure, reschedule, legacy observations, venue-only change and actual temporary persistence pass | Controlled regressions; normal source-code and access limitations remain |
+| Readiness gate | Stored-input test uses its latest observation; future canonical, future Feed and truly 16-hour-old Feed reject. Actual-clock verifier passes | Production verifier and 15-hour safeguard are unchanged |
+| Required local release | 145 commands pass in 142,830 ms; tracked input fingerprint remains exact | Earlier 131/145 failure retained; tests initially used an older Feed time as their now |
+| Normal production release | [Run 37208517510](https://github.com/hartican/sportscal/actions/runs/37208517510) passes normal cloud checks and protected read-only publication/erasure inputs | No release waiver or hidden refresh |
+| Production binding | Exact SHA `2a308a2776ca621b7ac7c344e3170fdcbd045ee1`, correct project, READY, release metadata and three aliases agree; 17 served inputs match immutable transformed hashes | No authenticated account, actual phone or playback test |
+| Affected rendering | 52 actual EPL records (50 finals and two upcoming timing states), 612 local and 612 hosted cases; 38 actual European records, 444 local/444 hosted cases with exact retained attribution dates; both engines; compact/opened/Feed/Schedule and Results privacy pass | Mounted component checks at 390px; preceding broader EPL acceptance remains dated evidence |
+| Cached shell | Actual live shell 431 to 432, Chromium and WebKit kept-open worker/offline/resume rehearsals pass | Browser simulation is not iPhone/Home Screen or push proof |
+
+Immutable release inventory: 1432 inputs; 13 changed, 0 removed, 1419 exact versus Cricket shell 431. Shell 432 versions the genuinely changed generated table runtime; deferred Cricket/profile/Follow assets keep their existing epochs.
+
+## Business effect, effort and next action
+
+Users keep honest source dates, stable card identities and private results. Operators avoid a needless whole-Feed publication when only table/source checks occur. The verified saving is 100 false updates and 47 unchanged Feed files; cash, token savings and user latency were not measured. No purchase, subscription, data migration, browser credential, new API, source owner or recurring owner checklist. Running request budgets do not change; the three acceptance checks are one-off investigation costs.
+
+Evidence is high confidence for observed code/persistence/release and component/cache behaviour, medium for wider operational benefit, and unverified for full commercial or sport readiness. Source access, actual live/non-playing behaviour, playback/rights, ordinary unattended refresh, physical acceptance, independent recovery and invited-cohort return evidence remain separate. Passwords/iCloud remains parked.
+
+Recommended next course: reuse these accepted controls, finish remaining Football operations/viewing/rights evidence and bounded weak-sport windows, then combine the owner-dependent device/recovery checks into one short session. Five–six focused days remains an allowance for a stronger Football/core checkpoint, not whole-goal completion. Broad MVP acceptance needs several weeks and actual observation; no justified whole-programme finish date exists.
+
+Full certification remains **0/16 families and 0/3 Football pilots**, target **at least 13/16**. No new demand, coverage ranking, full sport pass, customer write, reminder replay, outreach, cohort launch or revenue is claimed.
+
+Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/epl-live-status-20261005` — persistence-proof.json; owner reports/logs and four primary page receipts; red-refresh-date.log and red-european-dates.log; release-local-gates-first.json and release-local-gates.json; real-clock-readiness.log; pwa-results.json; football-render-local.json and football-render-hosted.json; european-render-local.json and european-render-hosted.json; release-run.json; independent-current-proof.json; served-proof.json; immutable release artifact inventory.
