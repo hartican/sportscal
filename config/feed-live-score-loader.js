@@ -1,13 +1,14 @@
 (() => {
 let feedLiveScoreLoading=null;
 function installFeedLiveScore(card,event){
-  if(activeTab!=='feed')return;
-  queueLiveFixtureSnapshot();
-  const render=()=>globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(card,event,{resultsOn:userPreferences.showSpoilers,label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null});
+  const tab=activeTab;if(!['feed','follow','events'].includes(tab))return;
+  if(tab!=='feed'&&!/^(live|in-progress|in_progress|ongoing)$/.test(event.status||''))return;
+  if(tab==='feed')queueLiveFixtureSnapshot();
+  const render=()=>globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(card,event,{resultsOn:isSpoilerVisible(event),label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null});
   if(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES){render();return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
-  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=384').then(()=>loadDeferredScript('config/feed-live-scores.js?v=384')).catch(error=>{feedLiveScoreLoading=null;throw error;});
-  void feedLiveScoreLoading.then(()=>{if(card.isConnected&&activeTab==='feed'&&owner===(serverSyncClient?.sessionSubject()||'public'))render();}).catch(()=>{});
+  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=435').then(()=>loadDeferredScript('config/feed-live-scores.js?v=435')).catch(error=>{feedLiveScoreLoading=null;throw error;});
+  void feedLiveScoreLoading.then(()=>{if(card.isConnected&&activeTab===tab&&owner===(serverSyncClient?.sessionSubject()||'public'))render();}).catch(()=>{});
 };
 
 async function refreshLiveFixtureSnapshot(){

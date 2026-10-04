@@ -9,12 +9,17 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:24,onboardingComplete:true,selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis'],showSpoilers:true,fantasyDeadlines:{enabled:false}})));
  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating());
  const result=await page.evaluate(async()=>{
-  await loadDeferredScript('config/match-centre.js?v=384');await loadDeferredScript('config/feed-live-scores.js?v=384');activeTab='feed';userPreferences.showSpoilers=true;userPreferences.fantasyDeadlines.enabled=false;
+  await loadDeferredScript('config/match-centre.js?v=435');await loadDeferredScript('config/feed-live-scores.js?v=435');await ensureFeedScoreUi();activeTab='feed';userPreferences.showSpoilers=true;userPreferences.fantasyDeadlines.enabled=false;
   const date=new Date().toISOString(),event={id:'qa:feed-score',key:'tennis',name:'First v Second',date:date.slice(0,10),time:'20:00',startTimeUtc:date,status:'live',scoreCheckedAt:date,sets:[{home:6,away:4}],games:{home:2,away:1}};
   setCardState(event,'compact');const host=document.createElement('div');host.append(buildEventCard(event));document.body.append(host);
   const compact=host.querySelector('.event-card').dataset.cardState==='compact'&&host.querySelector('.feed-live-score').textContent.includes('6–4');
   userPreferences.showSpoilers=false;host.replaceChildren(buildEventCard(event));const hidden=!host.querySelector('.feed-live-score')&&!host.innerHTML.includes('6–4');
   userPreferences.showSpoilers=true;setCardState(event,'opened');host.replaceChildren(buildEventCard(event));const expanded=Boolean(host.querySelector('.feed-live-score'));
+  const previousSpoilers=eventSpoilerState,previousPolicy=userPreferences.feedControls.spoilers;
+  eventSpoilerState={[eventActionKey(event)]:{override:'hide'}};host.replaceChildren(buildEventCard(event));const localHide=!host.querySelector('.feed-live-score');
+  eventSpoilerState={[eventActionKey(event)]:{override:'show'}};userPreferences.showSpoilers=false;host.replaceChildren(buildEventCard(event));const localShow=Boolean(host.querySelector('.feed-live-score'));
+  userPreferences.feedControls.spoilers='strict';host.replaceChildren(buildEventCard(event));const strictHide=!host.querySelector('.feed-live-score');
+  eventSpoilerState=previousSpoilers;userPreferences.feedControls.spoilers=previousPolicy;userPreferences.showSpoilers=true;host.replaceChildren(buildEventCard(event));
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(host.querySelector('.event-card'),{...event,sets:[{home:7,away:5}]},{resultsOn:true});const updated=host.querySelector('.feed-live-score').textContent.includes('7–5')&&host.querySelectorAll('.feed-live-score').length===1;
   host.className='feed-card-slot';host.dataset.feedEventId=event.id;feedCardSlots.set(event.id,{event,slot:host,mounted:true});activeEvents.push(event);
   const oldFetch=window.fetch;let requestUrl='';window.fetch=async url=>{if(String(url).startsWith('/api/fixtures?')){requestUrl=String(url);return new Response(JSON.stringify({schemaVersion:'live-fixtures.v1',revision:'qa-score-refresh',sources:[{checked_at:new Date().toISOString(),fixtures:[{...event,sets:[{home:7,away:6}]}]}]}),{status:200});}return oldFetch(url);};
@@ -28,7 +33,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,corrected,{resultsOn:true});const finalCorrection=scoreHost.textContent.includes('Home 2')&&scoreHost.textContent.includes('Away 0')&&scoreHost.textContent.includes('Finished');
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,corrected,{resultsOn:false});const correctedSpoilerSafe=!scoreHost.querySelector('.feed-live-score');
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,status:'live',scoreCheckedAt:null,statusCheckedAt:stamp},{resultsOn:true});const unknownDegraded=scoreHost.textContent.includes('Last available score')&&scoreHost.textContent.includes('Awaiting source update')&&!scoreHost.textContent.includes('Live');
-  scoreHost.remove();feedCardSlots.delete(event.id);host.remove();return {compact,hidden,expanded,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded};
+  scoreHost.remove();feedCardSlots.delete(event.id);host.remove();return {compact,hidden,expanded,localHide,localShow,strictHide,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded};
  });for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
  await page.close();}
  }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}

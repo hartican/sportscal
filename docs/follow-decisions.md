@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Canonical underway score presentation — 5 October 2026
+
+A verified actual NHL LIVE response exposed a Schedule card that showed source status but omitted its valid score. Reuse the existing deferred score component for explicit underway cards in Schedule/Events and canonical named home/away pairs in Feed. Placeholder upcoming pairs cannot become scores; explicit flat/null observations retain priority and cannot mix with older slots. Names and scores remain attached to their source roles; hockey uses its source participant order. The existing global, strict and per-event Results rules govern visible and accessible score content. Freshness preserves genuine independent score/status clocks and stale cards show their existing degraded labels.
+
+This changes presentation only. Follow admission, exclusions, dismissals, saved choices, reminders, ratings and activity identity remain authoritative. Schedule/Events rendering does not start fixture polling; the existing Feed reader retains its same mounted-ID cap, visibility pause, coalescing, deadlines and account checks. Settled Schedule cards retain their existing final-result presentation. The same loader rejects late insertion after a tab/account change. Regressions: existing feed-live-score gate with actual zero/ambiguous/cleared-source controls, actual NHL card/browser and shell435 cache rehearsals. Wider sport, device, rights and repeat-use acceptance remain separate.
+
 ## CHL programme dates and club records — 4 October 2026
 
 Existing CHL knockout programme IDs remain source-backed calendar notes while the publisher reports TBA clubs and an unconfirmed placeholder clock. They do not expose fixture Add to Feed or reminder actions, manufactured teams, an exact kickoff or a placeholder result. Actual regular-season fixtures retain their IDs, participants, viewing dates and actions. CHL records show sourced played/wins/losses/goals with an explicit unavailable-ranking note; source dates and stale records stay visible. Schedule standings remain under Results consent, and profile-local reveals retain global Results OFF. No Follow admission, notification eligibility, exclusion, retention or broad opt-in rule changes.

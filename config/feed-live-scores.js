@@ -3,11 +3,11 @@
  function presentation(event,{resultsOn=false,now=Date.now(),label=id=>id}={}){
   if(!resultsOn||!model.supported(event))return null;
   const snapshot=model.compact(event),score=snapshot.score;
-  const name=id=>(event.participants||[]).find(p=>p.id===id)?.displayName||label(id);
+  const name=id=>(event.participants||[]).find(p=>p.id===id)?.displayName||(event.participantSlots||[]).find(s=>s.participantId===id)?.label||label(id);
   let text='';
   if(score.innings?.length)text=score.innings.map(i=>`${i.team||name(i.participantId)||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`).join(' · ');
   else if(score.sets?.length||score.games){const sides=[snapshot.homeParticipantId,snapshot.awayParticipantId].map(id=>id&&name(id));text=(sides.every(Boolean)?sides.join(' / ')+': ':'')+(score.sets||[]).map(s=>`${s.home??'—'}–${s.away??'—'}`).join('  ')+(score.games?` · Games ${score.games.home??'—'}–${score.games.away??'—'}`:'');}
-  else if(score.home!=null&&score.away!=null)text=`${snapshot.homeParticipantId&&name(snapshot.homeParticipantId)||'Home'} ${score.home} · ${snapshot.awayParticipantId&&name(snapshot.awayParticipantId)||'Away'} ${score.away}`;
+  else if(score.home!=null&&score.away!=null){const home=`${snapshot.homeParticipantId&&name(snapshot.homeParticipantId)||'Home'} ${score.home}`,away=`${snapshot.awayParticipantId&&name(snapshot.awayParticipantId)||'Away'} ${score.away}`;text=snapshot.sport==='ice-hockey'&&event.participantSlots?.[0]?.homeAway==='away'?`${away} · ${home}`:`${home} · ${away}`;}
   if(!text)return null;
   const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),fresh=Number.isFinite(stamp)&&stamp<=now&&now-stamp<=model.interval(event,now)*2&&!event.stale;
   const status=model.final(event)?'Finished':fresh&&/^(live|in-progress)$/.test(event.status)?'Live':model.interrupted(event)?String(event.status).replace(/-/g,' '):'Last available score';

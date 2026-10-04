@@ -34631,7 +34631,7 @@
       "time": "04:00",
       "startTimeUtc": "2026-10-04T17:00:00Z",
       "venue": "Little Caesars Arena",
-      "status": "upcoming",
+      "status": "live",
       "scheduleStatus": "confirmed",
       "roundLabel": "Regular season",
       "participantSlots": [
@@ -34639,14 +34639,14 @@
           "participantId": "team:nhl:wpg",
           "label": "Winnipeg Jets",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
         },
         {
           "participantId": "team:nhl:det",
           "label": "Detroit Red Wings",
           "homeAway": "home",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
         }
       ],
@@ -34655,10 +34655,13 @@
       "sourceName": "NHL",
       "sourceType": "official-schedule",
       "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
-      "statusCheckedAt": "2026-10-04T16:57:01.279Z",
+      "statusCheckedAt": "2026-10-04T17:44:22.161Z",
       "statusSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
       "statusSourceName": "NHL",
-      "statusSourceType": "official-schedule"
+      "statusSourceType": "official-schedule",
+      "resultSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+      "resultSourceCheckedAt": "2026-10-04T17:44:22.161Z",
+      "scoreCheckedAt": "2026-10-04T17:44:22.161Z"
     },
     {
       "id": "fixture:nhl:2026020036",

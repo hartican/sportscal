@@ -11,4 +11,12 @@ assert.equal(view({...base,cardType:'tennis_parent'},{resultsOn:true,now}),null)
 assert.equal(view({key:'nrl',homeScore:0,awayScore:4},{resultsOn:true}).text,'Home 0 · Away 4');
 assert.equal(view({key:'cricket',innings:[{team:'Australia',runs:102,wickets:2,overs:18}]},{resultsOn:true}).text,'Australia 102/2 (18 overs)');
 assert.equal(view({key:'tennis',name:'Player wins 6-4',status:'live'},{resultsOn:true}),null,'never parse editorial scores');
+const actual=require('./fixtures/nhl-live-20261005.json'),canonical={...require('./lib/nhl-results').fixture(actual.game,{checkedAt:actual.capturedAt,now:new Date(actual.capturedAt)}),key:'ice-hockey'};
+const hockey=view(canonical,{resultsOn:true,now:Date.parse(actual.capturedAt)});assert.equal(hockey.text,'Winnipeg Jets 0 · Detroit Red Wings 0');assert.equal(hockey.status,'Live');assert.equal(hockey.checkedAt,actual.capturedAt);assert.equal(view(canonical),null);
+assert.equal(view({...canonical,status:'upcoming'},{resultsOn:true}),null,'scheduled placeholder pairs cannot become sporting scores');
+assert.equal(view({...canonical,homeScore:null,awayScore:null},{resultsOn:true}),null,'an explicitly cleared observation cannot reuse older canonical slots');
+assert.equal(view({...canonical,homeScore:3},{resultsOn:true}),null,'partial flat and canonical pairs cannot be combined');
+assert.equal(view({...canonical,homeParticipantId:'another-club'},{resultsOn:true}),null,'conflicting participant identity cannot acquire a canonical score');
+for(const change of [s=>s.pop(),s=>s[0].score=null,s=>s[0].score=-1,s=>s[0].score=1.2,s=>s[0].participantId=s[1].participantId,s=>s[0].homeAway='home']){const e=structuredClone(canonical);change(e.participantSlots);assert.equal(view(e,{resultsOn:true}),null,'invalid or ambiguous canonical pair stays unavailable');}
+assert.equal(view({...canonical,homeScore:4,awayScore:1},{resultsOn:true,now:Date.parse(actual.capturedAt)}).text,'Winnipeg Jets 1 · Detroit Red Wings 4','explicit source flat scores retain priority and named orientation');
 console.log('Feed score privacy, source orientation, freshness and sport formats passed.');

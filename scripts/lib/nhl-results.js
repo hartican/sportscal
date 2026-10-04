@@ -19,23 +19,25 @@ function fixture(game,{teamIds=new Set(ABBREVS.map(a=>'team:nhl:'+a.toLowerCase(
  if(!Number.isInteger(game?.id)||String(game.id).length!==10||String(game.season)!==SEASON||![1,2,3].includes(game.gameType)||!String(game.id).startsWith('2026'+String(game.gameType).padStart(2,'0')))fail('invalid match identity, season or phase');
  instant(game.startTimeUTC);
  if(game.startTimeUTC<'2026-09-19T00:00:00Z'||game.startTimeUTC>='2027-06-12T00:00:00Z')fail('match outside reviewed season window');
- if(!['FUT','PRE','OFF','FINAL'].includes(game.gameState)||game.gameScheduleState!=='OK')fail(`match ${game.id}: unreviewed playing/schedule state ${game.gameState}/${game.gameScheduleState}; retain last-good facts`);
+ if(!['FUT','PRE','LIVE','OFF','FINAL'].includes(game.gameState)||game.gameScheduleState!=='OK')fail(`match ${game.id}: unreviewed playing/schedule state ${game.gameState}/${game.gameScheduleState}; retain last-good facts`);
  if(sourceGameDate&&leagueDay(game.startTimeUTC)!==day(sourceGameDate))fail('match does not belong to the declared league day');
- const completed=['OFF','FINAL'].includes(game.gameState),local=localParts(game.startTimeUTC);
+ const completed=['OFF','FINAL'].includes(game.gameState),live=game.gameState==='LIVE',scored=completed||live,local=localParts(game.startTimeUTC);
+ if(live&&(!checkedAt||Date.parse(game.startTimeUTC)>Date.parse(checkedAt)))fail('live play requires a genuine observation after scheduled start');
  const slots=[game.awayTeam,game.homeTeam].map((team,index)=>{
   const id='team:nhl:'+String(team?.abbrev||'').toLowerCase(),label=[name(team?.placeName),name(team?.commonName)].filter(Boolean).join(' ').trim();
   if(!teamIds.has(id)||team?.id!==PROVIDER_IDS[team?.abbrev]||!label)fail('unknown participant');
-  if(completed&&(!Number.isInteger(team.score)||team.score<0))fail('invalid paired final scores');
-  return {participantId:id,label,homeAway:index?'home':'away',score:completed?team.score:null,logoUrl:team.logo||null};
+  if(scored&&(!Number.isInteger(team.score)||team.score<0))fail('invalid paired observed scores');
+  return {participantId:id,label,homeAway:index?'home':'away',score:scored?team.score:null,logoUrl:team.logo||null};
  });
  if(slots[0].participantId===slots[1].participantId)fail('duplicate playing participant');
  if(completed&&(slots[0].score===slots[1].score||!['REG','OT','SO'].includes(game.gameOutcome?.lastPeriodType)))fail('invalid final outcome');
  if(completed&&checkedAt&&Date.parse(game.startTimeUTC)>Date.parse(checkedAt))fail('future final observation');
  if(typeof game.gameCenterLink!=='string'||!/^\/gamecenter\/[a-z0-9-]+\/\d{4}\/\d\d\/\d\d\/\d{10}$/.test(game.gameCenterLink)||!game.gameCenterLink.endsWith('/'+game.id))fail('invalid source match link');
  const sourceUrl='https://www.nhl.com'+game.gameCenterLink;
- return {id:'fixture:nhl:'+game.id,sportDomainId:'sport:ice-hockey',competitionId:'competition:nhl',name:`${slots[0].label} v ${slots[1].label}`,date:`${local.year}-${local.month}-${local.day}`,time:`${local.hour}:${local.minute}`,startTimeUtc:game.startTimeUTC,venue:name(game.venue)||null,status:completed?'completed':'upcoming',scheduleStatus:'confirmed',roundLabel:({1:'Preseason',2:'Regular season',3:'Playoffs'})[game.gameType],participantSlots:slots,sourceUrl,ticketUrl:game.ticketsLink||null,
+ return {id:'fixture:nhl:'+game.id,sportDomainId:'sport:ice-hockey',competitionId:'competition:nhl',name:`${slots[0].label} v ${slots[1].label}`,date:`${local.year}-${local.month}-${local.day}`,time:`${local.hour}:${local.minute}`,startTimeUtc:game.startTimeUTC,venue:name(game.venue)||null,status:completed?'completed':live?'live':'upcoming',scheduleStatus:'confirmed',roundLabel:({1:'Preseason',2:'Regular season',3:'Playoffs'})[game.gameType],participantSlots:slots,sourceUrl,ticketUrl:game.ticketsLink||null,
   ...(checkedAt?{sourceName:'NHL',sourceType:'official-schedule',sourceCheckedAt:checkedAt,statusCheckedAt:checkedAt,statusSourceUrl:sourceUrl,statusSourceName:'NHL',statusSourceType:'official-schedule'}:{}),
-  ...(completed?{resultOutcomeType:game.gameOutcome.lastPeriodType,resultLabels:game.gameOutcome.lastPeriodType==='REG'?[]:[game.gameOutcome.lastPeriodType==='OT'?'After overtime':'After shootout'],...(checkedAt?{resultSourceUrl:sourceUrl,resultSourceCheckedAt:checkedAt,scoreCheckedAt:checkedAt}:{})}:{})};
+  ...(scored&&checkedAt?{resultSourceUrl:sourceUrl,resultSourceCheckedAt:checkedAt,scoreCheckedAt:checkedAt}:{}),
+  ...(completed?{resultOutcomeType:game.gameOutcome.lastPeriodType,resultLabels:game.gameOutcome.lastPeriodType==='REG'?[]:[game.gameOutcome.lastPeriodType==='OT'?'After overtime':'After shootout']}:{})};
 }
 function parseWeek(payload,{requestedDate,teams,checkedAt,now=new Date(),previousFixtures=[]}={}){
  observed(checkedAt,now);day(requestedDate);const teamIds=knownTeams(teams),seen=new Set(),dates=new Set(),rows=[];
@@ -78,13 +80,16 @@ function mergeFixtures(previous,fixtures){
   const old=originals.get(row.id);if(!old)return [row.id,row];
   if(JSON.stringify(old.participantSlots.map(s=>[s.participantId,s.homeAway]))!==JSON.stringify(row.participantSlots.map(s=>[s.participantId,s.homeAway])))fail('published participant identity changed');
   if(old.status==='completed'&&row.status!=='completed')fail('cannot regress a completed match');
+  if(old.status==='live'&&row.status==='upcoming')fail('cannot regress observed play to a schedule-only match');
   let next={...old,...row};if(Object.hasOwn(old,'ticketUrl'))next.ticketUrl=old.ticketUrl;
-  if(row.status!=='completed')for(const k of ['resultLabels','resultOutcomeType','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt'])delete next[k];
-  if(meaning(old)!==meaning(next))newer(old,row.sourceCheckedAt);
+  if(row.status!=='completed')for(const k of ['resultLabels','resultOutcomeType'])delete next[k];
+  if(row.status!=='completed'&&row.status!=='live')for(const k of ['resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt'])delete next[k];
+  const freshLive=row.status==='live'&&(!old.statusCheckedAt||Date.parse(row.statusCheckedAt)>Date.parse(old.statusCheckedAt));
+  if(meaning(old)!==meaning(next)||freshLive)newer(old,row.sourceCheckedAt);
   if(scheduleMeaning(old)===scheduleMeaning(next)&&old.sourceCheckedAt)next.sourceCheckedAt=old.sourceCheckedAt;
-  if(old.status===next.status&&old.statusCheckedAt)next.statusCheckedAt=old.statusCheckedAt;
-  if(resultMeaning(old)===resultMeaning(next)&&old.resultSourceCheckedAt){next.resultSourceCheckedAt=old.resultSourceCheckedAt;next.scoreCheckedAt=old.scoreCheckedAt;}
-  if(meaning(old)===meaning(next))next=old;
+  if(old.status===next.status&&old.statusCheckedAt&&!freshLive)next.statusCheckedAt=old.statusCheckedAt;
+  if(resultMeaning(old)===resultMeaning(next)&&old.resultSourceCheckedAt&&!freshLive){next.resultSourceCheckedAt=old.resultSourceCheckedAt;next.scoreCheckedAt=old.scoreCheckedAt;}
+  if(meaning(old)===meaning(next)&&!freshLive)next=old;
   return [row.id,next];
  }));
  return [...previous.fixtures.map(f=>changes.get(f.id)||f),...fixtures.filter(f=>!originals.has(f.id))];
@@ -114,10 +119,10 @@ async function refreshFile({filePath,fetchJson,clock=()=>new Date()}={}){
  for(const route of routes){const payload=await fetchJson(route.url),now=clock();checkedAt=now.toISOString();fixtures.push(...parseWeek(payload,{...route,teams,checkedAt,now,previousFixtures:previous.fixtures.filter(f=>f.competitionId==='competition:nhl')}));}
  const table=await fetchJson(TABLE_URL),now=clock();checkedAt=now.toISOString();const merged=mergeFixtures(previous,fixtures),standings=parseStandings(table,{teams,fixtures:merged,checkedAt,now}),next=merge(previous,{fixtures,standings}),changed=JSON.stringify(next)!==JSON.stringify(previous);
  if(changed)fs.writeFileSync(filePath,JSON.stringify(next,null,2)+'\n');
- return {checkedAt,changed,sourceRequests:3,sourceUrl:'https://api-web.nhle.com/v1/schedule',windowStartsOn:routes[0].requestedDate,windowEndsOn:shiftDay(routes[1].requestedDate,6),fixtures:fixtures.length,finals:fixtures.filter(f=>f.status==='completed').length,records:standings.length,standingsStatus:next.sourceStatus.nhl.standingsStatus,retainedFactAt:next.fixtures.find(f=>f.id===fixtures[0]?.id)?.sourceCheckedAt,unreviewedPlayingStates:'Retained last-good data when the provider uses an unreviewed playing or schedule state.'};
+ return {checkedAt,changed,sourceRequests:3,sourceUrl:'https://api-web.nhle.com/v1/schedule',windowStartsOn:routes[0].requestedDate,windowEndsOn:shiftDay(routes[1].requestedDate,6),fixtures:fixtures.length,finals:fixtures.filter(f=>f.status==='completed').length,liveObservations:fixtures.filter(f=>f.status==='live').length,records:standings.length,standingsStatus:next.sourceStatus.nhl.standingsStatus,retainedFactAt:next.fixtures.find(f=>f.id===fixtures[0]?.id)?.sourceCheckedAt,unreviewedPlayingStates:'Retained last-good data when the provider uses an unreviewed playing or schedule state.'};
 }
 function projectionCurrent(directory,{inspector,schedule}={}){
- const fixtures=directory.fixtures.filter(f=>f.competitionId==='competition:nhl'),keys=['name','venue','status','scheduleStatus','roundLabel','startTimeUtc','sourceCheckedAt','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','resultLabels'];
+ const fixtures=directory.fixtures.filter(f=>f.competitionId==='competition:nhl'),keys=['name','venue','status','scheduleStatus','roundLabel','startTimeUtc','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','resultLabels'];
  for(const surface of [inspector,schedule]){if(surface?.fixtures?.filter(f=>f.competitionId==='competition:nhl').length!==fixtures.length)return false;for(const f of fixtures){const row=surface.fixtures.find(r=>r.id===f.id);if(!row||keys.some(k=>k==='startTimeUtc'?Date.parse(row[k])!==Date.parse(f[k]):JSON.stringify(row[k])!==JSON.stringify(f[k])))return false;const slots=x=>x.participantSlots.map(s=>[s.participantId,s.homeAway,s.score==null?null:String(s.score)]);if(JSON.stringify(slots(row))!==JSON.stringify(slots(f)))return false;if(f.status==='completed'){const[a,b]=f.participantSlots,label=(f.resultLabels||[]).join(' · '),score=`${a.label} ${a.score}-${b.score} ${b.label}${label?' · '+label:''}`;if(row.scoreDisplay!==score)return false;}}}
  const rows=directory.standings.filter(r=>r.competitionId==='competition:nhl'),keysTable=['rank','conferenceRank','divisionRank','gamesPlayed','wins','losses','otLosses','points','goalsFor','goalsAgainst','goalDifferential','asOf','sourceCheckedAt','sourcePublishedAt','stale'];return rows.length===32&&rows.every(r=>{const p=inspector.standings?.find(p=>p.participantId===r.participantId);return p&&keysTable.every(k=>r[k]===p[k]);});
 }
