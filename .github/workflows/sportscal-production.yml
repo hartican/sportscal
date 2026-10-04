@@ -112,6 +112,9 @@ jobs:
           node scripts/validate-marquee-communications.js
           node scripts/validate-adaptive-editorial.js
           node scripts/validate-editorial-run-readout.js
+          node scripts/validate-requested-sport-editorial.js
+          node scripts/update-rolling-editorial-projections.js
+          node scripts/validate-editorial-consequences.js
           node scripts/validate-editorial-projection-identity.js
           node scripts/validate-editorial-publication.js
           node scripts/validate-current-evidence-editorial-retention.js

@@ -244,6 +244,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-submission-state.js"],
   ["scripts/validate-nsc-client-flow.js"],
   ["scripts/validate-peer-results.js"],
+  ["scripts/validate-requested-sport-editorial.js"],
   ["scripts/validate-editorial-consequences.js"],
   ["scripts/validate-editorial-render-coverage.js"],
   ["scripts/validate-editorial-sport-depth.js"],
