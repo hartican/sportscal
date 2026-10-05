@@ -36,3 +36,8 @@ One wider run stopped at a ten-second reload-startup wait. The unchanged timeout
 The canonical local Follow route recomputed two unrelated dated audit/horizon windows; their initially clean HEAD bytes were restored and the differences retained in `unrelated-derived-window-retention.json`. No live source observation, fixture or source date was refreshed. Total model time, billable tokens and end-to-end owner effort are not separately instrumented, so no saving percentage is claimed.
 
 Key receipts: `caller-red.log`, `caller-green.json`, `follow-suite.json`, `candidate/acceptance.json`, `production/acceptance.json`, `canonical-integration.log`, `identity-and-budget-proof.json`, `cache-rehearsals.json`, `cached-module.json`, `release-local-gates.json`, `normal-release.json`, `independent-current-proof.json`, `served-proof.json` and the independent cleanup files. Ordinary unattended refresh, current match-state evidence, commercial permissions, viewing playback, physical phone, independent recovery and actual invited-user returns remain open. Passwords/iCloud retries stay parked.
+
+
+## Later keyboard delivery — 5 October
+
+Keyboard control/context repair is live at 3930ddb6/shell444. All27 unmodified production account/keyboard checks pass; physical and full Football acceptance remain open. [Current delivery](https://github.com/hartican/sportscal/blob/main/docs/quality/football-keyboard-position-2026-10-05.md).
