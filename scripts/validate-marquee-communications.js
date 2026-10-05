@@ -9,6 +9,7 @@ const comms = require("../api/comms");
 const participation = require("../api/participation");
 const webhook = require("../api/comms-webhook");
 const commsUi = require("../config/admin-comms-workspace");
+const content = require("../lib/comms-content");
 
 const ROOT = path.resolve(__dirname, "..");
 const read = file => fs.readFileSync(path.join(ROOT, file), "utf8");
@@ -106,7 +107,9 @@ async function main(){
   const dismissedSync = comms._test.syncPatch({ ...current, state:"cancelled" }, changedCandidate);
   assert.equal(dismissedSync.patch.state, "cancelled", "source sync must not silently restore a dismissed CMS item");
 
-  const bledisloe = first.candidates.find(item => item.eventId === "rugby-australia-new-zealand-2026-10-17");
+  const bledisloeSource = JSON.parse(read("data/events.json")).events.find(item => item.id === "rugby-australia-new-zealand-2026-10-17");
+  assert(bledisloeSource, "reviewed fixture retained independently of active campaign lifetime");
+  const bledisloe = content.candidate(bledisloeSource, content.postingSlots(bledisloeSource, Date.parse(first.generatedAt))[0], null, first.sourceRevision);
   const visibleLegacyDraft = {
     email:{
       subject:"5/5 stakes: Bledisloe Cup Game I, Australia v New Zealand — Sat 3:45 pm",
@@ -136,9 +139,22 @@ async function main(){
   assert.equal(merged.email.subject, visibleLegacyDraft.email.subject);
   assert.equal(merged.email.primaryCta.url, bledisloe.drafts.email.primaryCta.url);
   assert.equal(merged.email.image.publicUrl, bledisloe.drafts.email.image.publicUrl);
-  const watching = first.candidates.find(item => item.participation?.enabled === false);
+  // Exercise date-only handoffs even when the real inventory has no pending clocks.
+  const pendingDate = new Date(Date.parse(first.generatedAt) + 86400000).toISOString().slice(0, 10);
+  const watchingEvent = { id:"fixture:test:unconfirmed-marquee", name:"Unconfirmed test fixture", date:pendingDate, dateOnly:true, timePrecision:"date-only", stakesScore:5 };
+  const watching = content.candidate(watchingEvent, content.postingSlots(watchingEvent, Date.parse(first.generatedAt))[0], null, "synthetic-test");
+  assert.equal(watching.participation.enabled, false);
   assert.equal(comms._test.manualHandoffPack({ ...current, campaign_id:watching.campaignId, event_id:watching.eventId, content_hash:watching.contentHash, candidate:watching, draft_copy:watching.drafts, proposed_send_at:null }, exportTime).suggestedSendAt.utc, "", "suggestion stubs remain handoff-capable without inventing a send date");
-  assert.throws(() => participation._test.candidateFor(watching.eventId), error => error.code === "fixture_not_participating", "watching stubs must not become public participation fixtures");
+  const artifactRead = fs.readFileSync;
+  let pendingReads = 0;
+  try{
+    fs.readFileSync = function(file, ...args){
+      if(String(file) === path.join(ROOT, "data/marquee-candidates.v1.json")){ pendingReads++; return JSON.stringify({ ...first, candidates:[watching] }); }
+      return artifactRead.call(this, file, ...args);
+    };
+    assert.throws(() => participation._test.candidateFor(watching.eventId), error => error.code === "fixture_not_participating", "present date-only stubs must not become public participation fixtures");
+    assert.equal(pendingReads, 1, "the real participation guard reads the isolated pending candidate");
+  }finally{ fs.readFileSync = artifactRead; }
 
   const cookieResponse = responseCapture();
   const identity = participation._test.deviceIdentity({ headers:{} }, cookieResponse, { PARTICIPATION_SECRET:"a".repeat(64) });
