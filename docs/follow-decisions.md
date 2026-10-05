@@ -1,5 +1,12 @@
 # Follow and Feed decisions
 
+## Shared retained calendar-note qualification — 5 October 2026
+
+The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.
+
+Full/quick/scoped projection continues through `scripts/update-cards.js`; old Surf scoped calls remain compatible. Both persistent surfaces preflight before writes; unchanged scoped reruns make no publication/provider check. No added source request, scheduler, retry, database operation, subscription or owner routine. Regressions: `validate-reviewed-calendar-notes.js` through the existing seeded-Surf gate, actual mobile/desktop renderers and cached upgrade/offline rehearsals. This repairs notes and gives no whole-sport coverage credit.
+
+
 ## Fixture sources survive preview research — 5 October 2026
 
 An empty or nonempty editorial preview keeps the existing fixture source/observation tuple. Research keeps its own nested provenance. The explicit reviewed-final path remains. Six retained upcoming F1 sessions recover missing source tuples only from exact alias/name/session/timing matches in the retained official schedule; no new source observation is implied. Preserve all sporting facts, action IDs, Follow choices, viewing, results, exclusions, Remind OFF and spoiler rules. Full/quick and the retained canonical projection share this repair; no new admission, polling or owner choice. Regression: the actual preview CLI on two real-file surfaces, strict source recovery/persistence and unchanged canonical rerun.
@@ -526,3 +533,18 @@ Results OFF, event-level consent, paused coverage, compact summaries and profile
 ## NFL current-season coverage and source status — 5 October 2026
 
 The existing NFL competition gains 31 source-backed January regular-season fixtures through its current canonical owner. Preserve fixture/activity identities, follows, exclusions, manual admission, Remind OFF and Results privacy. All 24 provisional current starts keep no exact clock; planning context cannot make them notification eligible. Explicit fresh source play may show live; time passage shows Awaiting match update. For NFL away-at-home titles, displayed final scores follow the same away/home order, while canonical roles and score identity remain intact. Sourced overtime stays behind Results. No admission, retention or notification policy changes. Regression: actual source-to-screen cards, global/per-event/strict Results controls, retained IDs, NFL facts validation and both cache-upgrade engines.
+
+## Retained Cricket competition context — 5 October 2026
+
+Thirteen existing Australian fixtures recover only missing sourced series context through exact ordered participants and UTC starts. Preserve the already-published competition choice, all fixture/activity IDs, sporting facts, original observations and user choices. Explicit series follows and disabled-series exclusion precedence now agree between Code/Schedule and the published Feed catalogue; broad Cricket following still does not imply every series. Remind OFF, Results privacy, admission and retention policy are unchanged. Ambiguous contexts fail before persistence. Regression: `validate-fixture-competition-context.js` through the existing Code gate, actual publication/rerun and 312 local/312 hosted mounted cases with two Schedule journeys per environment. [Scope and release](quality/cricket-series-continuity-2026-10-05.md).
+
+## Fourth New Zealand Test calendar context — 5 October 2026
+
+The existing evt_91 gains its reviewed official Test format, five-day Sydney 4–8 January calendar window, fourth-Test label, source alias and same existing series identifier. Keep its exact kickoff, participants, all activity identities and primary/status/editorial observations. Series follow/exclusion and Remind OFF remain authoritative. No actual finish clock, broad Cricket admission, new notification eligibility or retention-policy change is inferred. Regression and scope: [fourth-Test completeness](quality/cricket-fourth-test-completeness-2026-10-05.md). A separately retained lifecycle probe identifies the first-day duration fallback; this release does not claim that boundary repaired.
+
+
+## Server Feed preserves published match phases — 5 October 2026
+
+Shared Feed normalization retains supplied status instead of replacing it with date-derived live/past labels. Missing status uses upcoming only before an exact future start and otherwise remains scheduled; a date-only window cannot create live play or completion. Existing timing presenters still qualify stale/future live observations as awaiting an update. Confirmed final/non-playing/interrupted facts, scores, IDs and source dates remain. The unchanged one-hour Match Centre completion window still requires a genuine completion/first-confirmed clock; normalization cannot re-admit an old final as unresolved play.
+
+This implements existing source authority and spoiler/admission rules, with no new product consent, source, refresh, browser shell, API schema, database write, scheduler, polling, reminder or purchase. The current caller regression covers all 86 retained Football pilot finals plus actual shared Feed/Match Centre composition and controlled phase/missing-observation cases; it accommodates later finals rather than hardcoding this count. Full-source, future live/non-playing and physical/rights/recovery/cohort acceptance stay separate. The independent multi-day retention issue remains queued. [Evidence and limits](quality/server-source-status-preservation-2026-10-05.md).

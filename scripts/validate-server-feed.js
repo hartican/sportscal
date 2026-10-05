@@ -70,6 +70,8 @@ function fetchResponse(payload, status = 200){
 }
 
 async function run(){
+  require('./validate-tennis-parent-prefilter');
+  require('./validate-server-source-status');
   const schema = JSON.parse(fs.readFileSync("schemas/server-feed-response.schema.json", "utf8"));
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");

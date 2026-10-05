@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261004234926436",
+  "version": "weekend-editorial-20261005042316475",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-04T23:49:26.436Z",
+  "publishedAt": "2026-10-05T04:23:16.475Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -40,7 +40,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-04",
+    "basisDate": "2026-10-05",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -48,7 +48,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-01",
-    "daysAhead": 362,
+    "daysAhead": 361,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -191,20 +191,10 @@
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "downhill-mtb": {
-        "count": 1,
-        "firstEventDate": "2026-11-05",
-        "lastEventDate": "2026-11-05"
-      },
       "ski": {
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
-      },
-      "goodwood": {
-        "count": 1,
-        "firstEventDate": "2027-07-10",
-        "lastEventDate": "2027-07-10"
       }
     }
   }

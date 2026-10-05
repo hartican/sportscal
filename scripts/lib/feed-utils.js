@@ -3,7 +3,7 @@ const path = require("path");
 const { spoilerContractIssues } = require("./storyline-card-rules");
 const canonicalSportsTaxonomy = require(path.resolve(__dirname, "../../config/canonical-sports-taxonomy.js"));
 const sourceTrust = require(path.resolve(__dirname, "../../config/source-trust.js"));
-const surfNotes = require('./surf-calendar-notes');
+const surfNotes = require('./reviewed-calendar-notes');
 
 const LEGACY_SPORT_KEYS = new Set([
   "wimbledon",
@@ -112,7 +112,7 @@ function normalizeCopyReview(value) {
 }
 
 function ensureEventDefaults(event, index) {
-  if(surfNotes.isUnconfirmedNote(event))event=surfNotes.qualify(event);
+  if(surfNotes.isReviewedNote(event))event=surfNotes.qualify(event);
   const id = normalizeId(event.id || event.eventId || event.name || "event-" + index);
   const copyReview = normalizeCopyReview(event.copyReview);
   return {
@@ -126,7 +126,7 @@ function ensureEventDefaults(event, index) {
     liveWindow: Number(event.liveWindow || event.calendarTemplate?.durationHours || 3),
     round: event.round || "all",
     narrativeType: event.narrativeType || event.round || "all",
-    expected: (event.cardKind==='fixture' || surfNotes.isUnconfirmedNote(event)) && event.expected==null ? null : Number(event.expected),
+    expected: (event.cardKind==='fixture' || surfNotes.isReviewedNote(event)) && event.expected==null ? null : Number(event.expected),
     replayEligible: event.replayEligible ?? Number(event.expected) >= 7,
     highlightEligible: event.highlightEligible ?? Number(event.expected) >= 6,
     briefingEligible: event.briefingEligible ?? Number(event.expected) >= 7,
@@ -150,7 +150,7 @@ function validateFeed(feed) {
   (feed.events || []).forEach((event, index) => {
     const prefix = `events[${index}]`;
     const fixture=event.cardKind==='fixture';
-    const calendarNote=surfNotes.isUnconfirmedNote(event);
+    const calendarNote=surfNotes.isReviewedNote(event);
     if(event.calendarNote && !calendarNote)errors.push(`${prefix}.calendarNote must be a reviewed unconfirmed note without sporting or viewing claims.`);
     const dateOnlyWindow=event.dateOnly===true && event.timePrecision==='date-only' && isDate(event.date) && isDate(event.endDate) && event.endDate>=event.date;
     const windowKnown=isDate(event.schedulingWindow?.startsOn)&&isDate(event.schedulingWindow?.endsOn);

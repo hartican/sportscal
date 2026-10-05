@@ -1,5 +1,12 @@
 # Backend efficiency decisions
 
+## Shared retained calendar-note qualification — 5 October 2026
+
+The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.
+
+Full/quick/scoped projection continues through `scripts/update-cards.js`; old Surf scoped calls remain compatible. Both persistent surfaces preflight before writes; unchanged scoped reruns make no publication/provider check. No added source request, scheduler, retry, database operation, subscription or owner routine. Regressions: `validate-reviewed-calendar-notes.js` through the existing seeded-Surf gate, actual mobile/desktop renderers and cached upgrade/offline rehearsals. This repairs notes and gives no whole-sport coverage credit.
+
+
 ## Retained Surfing note integrity — 5 October 2026
 
 The full/daily canonical owner qualifies exactly two existing manual seeds from retained dated organiser evidence; no provider request is added. Complete both-surface preflight precedes writes. An unchanged scoped rerun preserves bytes and makes no publication or check. Retain original import/status dates and activity IDs; clear unsupported active timing/viewing/stakes rather than create an estimated window. Known legacy cached readers withhold the same claims without creating fresh evidence. Keep later independently verified observations, normal exception/release ownership and all existing budgets. No scheduler, polling, API, database operation, retry, purchase or recurring owner routine. Regression: validate-surf-calendar-notes.js through the existing seeded-Surf gate; actual cached-browser upgrade/offline and normal release checks.
@@ -649,3 +656,25 @@ The four-record dated FIS calendar review runs through the existing cards owner,
 # Cricket innings projection — 4 October 2026
 
 The existing retained-data `update-cards.js --code-projections --codes=cricket` owner preserves supplied innings alongside the already-owned score observation. Presentation cannot renew source dates, manufacture missing batting identities or replace absent scores with zero. Source calls, persistence ownership, cadence, retries, API/database budgets and deployed credentials remain unchanged. A small shared innings module uses the existing deferred-script owner and is cached for offline use. It loads when Cricket results are presented, adding no critical startup request, API call or owner routine. The unused legacy spoiler renderer is removed after a repository/reference scan found no callers; the unchanged critical-byte budget remains enforced. Required Code QA executes the actual-source regression, and normal shell/cache/release proof remains mandatory.
+
+## Additive retained Cricket series context — 5 October 2026
+
+One Node helper reconciles source-backed missing competition context at existing full/quick publication and Code/Schedule projection boundaries. The existing representative-context route preflights both persistent surfaces and replays without publication or projection when unchanged; all 2,455 tracked files remain byte-identical on the repeated actual invocation. Use only approved provider origins, exact identities/start and genuine retained observations; keep primary/status/score dates unchanged. Existing nonempty published competition context remains authoritative. No source request, scheduler, browser polling, retry, database/schema change, credential or owner routine is added. Regression and exact release proof: [Cricket series continuity](quality/cricket-series-continuity-2026-10-05.md).
+
+## Reviewed fourth-Test calendar projection — 5 October 2026
+
+One dated record and Node helper run through existing full/quick publication, Code/Schedule and representative-context preflight. Exact fixture/start/ordered teams bind the source; preserve later nonempty facts and separately observed calendar context. No provider check, browser module, API/database/schema, credentials, retry, scheduler, polling or owner routine. Unchanged actual canonical replay leaves all 2,461 tracked/new files byte-identical. Existing budgets and shell 440 remain. Required Code QA includes the real writer/merger and guards. [Release and limits](quality/cricket-fourth-test-completeness-2026-10-05.md).
+
+
+## Shared Feed tennis reconstruction cost — 5 October 2026
+
+The shared server Feed builder selects possible tennis children once using the exact sport classifier required by the existing matcher, after merging published contest inputs. Both projected and already present parents reuse that list. Tournament identity/date matching, participation/exclusions, personal consent, actions, retention, source clocks and response shape remain unchanged. Thirty-four complete old/new mixed-catalogue response comparisons pass across the three Football pilots, Feed/Match Centre/participant modes and both copy modes; the actual caller-boundary regression protects reconstruction cost without a flaky timing threshold.
+
+Three earlier public Football requests show material server computation; a local balanced comparison measures reduced CPU, not cloud latency or cash savings. No source request, snapshot cadence, browser module/cache epoch, API/schema, authentication, database writer, retry, scheduler, subscription or owner routine changes. `validate-server-feed.js` executes `validate-tennis-parent-prefilter.js` through its existing required gate. Preserve ordinary canonical and physical-device acceptance as separate outcomes. [Evidence and limits](quality/shared-feed-tennis-computation-2026-10-05.md).
+
+
+## Server Feed preserves published match phases — 5 October 2026
+
+Shared Feed normalization retains supplied status instead of replacing it with date-derived live/past labels. Missing status uses upcoming only before an exact future start and otherwise remains scheduled; a date-only window cannot create live play or completion. Existing timing presenters still qualify stale/future live observations as awaiting an update. Confirmed final/non-playing/interrupted facts, scores, IDs and source dates remain. The unchanged one-hour Match Centre completion window still requires a genuine completion/first-confirmed clock; normalization cannot re-admit an old final as unresolved play.
+
+This implements existing source authority and spoiler/admission rules, with no new product consent, source, refresh, browser shell, API schema, database write, scheduler, polling, reminder or purchase. The current caller regression covers all 86 retained Football pilot finals plus actual shared Feed/Match Centre composition and controlled phase/missing-observation cases; it accommodates later finals rather than hardcoding this count. Full-source, future live/non-playing and physical/rights/recovery/cohort acceptance stay separate. The independent multi-day retention issue remains queued. [Evidence and limits](quality/server-source-status-preservation-2026-10-05.md).

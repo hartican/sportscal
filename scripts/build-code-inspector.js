@@ -28,6 +28,8 @@ const canonicalChampionsLeague = require("../data/canonical/uefa-champions-leagu
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const coverage = require("../data/follow-sources/coverage.v1.json");
+const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
+const restoreCricketContext=require('./lib/cricket-reviewed-context').createResolver();
 const enrichFixtureEditorial = require('../lib/fixture-editorial').createResolver(require('../data/editorial-knowledge.v1.json'),[...feed.events,...(coverage.events||[])]);
 const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
@@ -268,6 +270,8 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.calendarNote?{calendarNote:event.calendarNote,dateStatus:event.dateStatus,timePrecision:event.timePrecision,startTimeTbc:true,fullSpiel:event.fullSpiel,selectedSentence:event.selectedSentence,sourceTrust:event.sourceTrust}:{}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
+    ...(event.competitionProvenance?{competitionProvenance:event.competitionProvenance}:{}),
+    ...(event.key==='cricket'&&event.calendarProvenance?{calendarProvenance:event.calendarProvenance,numberOfDays:event.numberOfDays}:{}),
     ...(event.calendarProvenance&&['wsl','tdf','giro','vuelta'].includes(event.key)?Object.fromEntries(['calendarProvenance','grandTourCalendar','sessionType','resultCoverage'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     ...(event.format ? {format:event.format} : {}),
     ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
@@ -278,7 +282,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.dateOnly === true || event.timePrecision === "date-only"
       ? { dateOnly:true, timePrecision:"date-only" }
       : timeTbc
-        ? { timeTbc:true, timePrecision:"tbc" }
+        ? { timeTbc:true, timePrecision:event.calendarNote ? "unknown" : "tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -307,7 +311,7 @@ function normalizeFixture(event, codeId, extra = {}){
     competitionScope:event.competitionScope || null,
     isInternational:event.isInternational === true || event.competitionScope === "international",
     representativeCountryCodes:Array.isArray(event.representativeCountryCodes) ? event.representativeCountryCodes : [],
-    expected: Number(event.expected || event.stakesScore || 0),
+    expected: event.calendarNote ? null : Number(event.expected || event.stakesScore || 0),
     broadcaster: event.broadcaster || (event.broadcasters || []).map(item => item.broadcasterName).filter(Boolean).join(" / ") || null,
     viewingOptions:Array.isArray(event.viewingOptions) ? event.viewingOptions : [],
     ...(event.replayUrl ? { replayUrl:event.replayUrl } : {}),
@@ -406,7 +410,9 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       eventId:preferred.eventId || retainedId,
       canonicalEventId:preferred.canonicalEventId || retainedId,
       sourceEventIds,
-    } : event;
+    } : {...event};
+    mergedEvent=restoreCompetitionContext(mergedEvent);
+    mergedEvent=restoreCricketContext(mergedEvent);
     if(previous && (canonicalStatus.observation(secondary)||canonicalStatus.observation(preferred))){
       const status=canonicalStatus.apply(normalizeFixture(preferred,codeId),normalizeFixture(secondary,codeId));
       if(status.status!==preferred.status||status.statusCheckedAt!==preferred.statusCheckedAt){
@@ -585,7 +591,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       slug: code.slug,
       label: code.name,
       fixtureCount: fixtures.length,
-      ...(code.id==='sport:surf'?{calendarNoteCount:fixtures.filter(f=>f.calendarNote).length,scheduledFixtureCount:fixtures.filter(f=>!f.calendarNote).length}:{}),
+      ...(fixtures.some(f=>f.calendarNote)?{calendarNoteCount:fixtures.filter(f=>f.calendarNote).length,scheduledFixtureCount:fixtures.filter(f=>!f.calendarNote).length}:{}),
       hasStandings:codeStandings(code).length > 0,
       ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),
       ...(code.id==='sport:american-football'?{coverageNote:'NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.'}:{}),
@@ -604,6 +610,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const overviewFixtures=[...new Map([...codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]),...legacyOverviews].map(f=>[f.id,f])).values()];
   fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
   const coverageNotes={
+    'sport:motorsport':'Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed.',
     'sport:surf':'Surfing coverage is partial: two saved listings have no verified event identities, dates, starts or Australian viewing. These notes are not scheduled fixtures. The separate WSL calendar requires its own follow choice.',
     'sport:skiing':'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.',
     'competition:wsl-championship-tour':'WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed.',

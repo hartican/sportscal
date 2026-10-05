@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "manual-calendar-note-review.v1",
+  "reviewId": "manual-seeds-2026-10-05",
+  "events": [
+    {
+      "id": "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027",
+      "originalName": "Goodwood Festival of Speed 2027",
+      "originalDate": "2027-07-10",
+      "originalTime": "10:00",
+      "originalStart": "2027-07-10T00:00:00.000Z",
+      "name": "Goodwood Festival of Speed 2027",
+      "hook": "The organiser confirms 15–18 July in the UK; Sydney start times and Australian viewing are unconfirmed.",
+      "detail": "The organiser lists 15–18 July 2027 at Goodwood. These are UK calendar dates, not an exact Sydney start or a competitive fixture. Session times, Australian viewing and participant appearances have not been verified.",
+      "sourceUrl": "https://www.goodwood.com/grr/event-coverage/festival-of-speed/2027-fos-dates-revealed/",
+      "observedAt": "2026-10-04T23:51:32.535Z",
+      "observationBasis": "response-received",
+      "localDateWindow": {
+        "from": "2027-07-15",
+        "through": "2027-07-18",
+        "timeZone": "Europe/London"
+      },
+      "localDateLabel": "15–18 July 2027 · UK dates"
+    },
+    {
+      "id": "calendar-nothingsport-manual-seed-uci-downhill-mtb-world-cup-2026",
+      "originalName": "UCI Downhill MTB World Cup",
+      "originalDate": "2026-11-05",
+      "originalTime": "08:00",
+      "originalStart": "2026-11-04T21:00:00.000Z",
+      "name": "UCI Downhill MTB — unmatched saved listing",
+      "hook": "This saved November listing does not match a round in the organiser’s announced 2026 calendar.",
+      "detail": "The announced 2026 calendar lists fourteen weekends, ending with Lake Placid on 2–4 October. It does not match this saved November/Fort William listing. This is not a confirmed race, cancellation or result; start time and Australian viewing remain unverified.",
+      "sourceUrl": "https://www.ucimtbworldseries.com/news/whoop-uci-mountain-bike-world-series-2026-calendar-unveiled",
+      "observedAt": "2026-10-04T23:51:33.447Z",
+      "observationBasis": "response-received"
+    }
+  ]
+}

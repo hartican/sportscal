@@ -110985,7 +110985,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525659"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525659",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640901",
@@ -120747,7 +120754,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525660"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525660",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "epl-2026-27-128983",
@@ -127821,7 +127835,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525661"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525661",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_371aff1e_58ad_11f1_b4cd_0919017f2391",
@@ -134657,24 +134678,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "eventId": "calendar-nothingsport-manual-seed-uci-downhill-mtb-world-cup-2026",
     "sport": "Downhill MTB",
     "key": "downhill-mtb",
-    "name": "UCI Downhill MTB World Cup",
-    "displayTitleCompact": "UCI Downhill MTB World Cup",
-    "date": "2026-11-05",
-    "time": "08:00",
-    "startTimeUtc": "2026-11-04T21:00:00.000Z",
-    "endTimeUtc": "2026-11-05T00:00:00.000Z",
-    "broadcaster": "SuperSport",
-    "broadcastOptions": [
-      "SuperSport"
-    ],
-    "expected": 7,
-    "venue": "Fort William",
+    "name": "UCI Downhill MTB — unmatched saved listing",
+    "displayTitleCompact": "UCI Downhill MTB — unmatched saved listing",
+    "date": "",
+    "time": null,
+    "startTimeUtc": null,
+    "endTimeUtc": null,
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
+    "expected": null,
+    "venue": null,
     "liveWindow": 3,
     "round": "all",
-    "narrativeType": "race",
-    "selectedSentence": "Personal calendar event, categorised as Downhill MTB by the explicit.sportKey rule.",
-    "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Downhill MTB using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-    "sourceName": "Imported from nothingsport-manual-seed",
+    "narrativeType": "all",
+    "selectedSentence": "This saved November listing does not match a round in the organiser’s announced 2026 calendar.",
+    "fullSpiel": "The announced 2026 calendar lists fourteen weekends, ending with Lake Placid on 2–4 October. It does not match this saved November/Fort William listing. This is not a confirmed race, cancellation or result; start time and Australian viewing remain unverified.",
+    "sourceName": "Saved calendar note",
     "sourceUrl": "calendar://nothingsport-manual-seed/uci-downhill-mtb-world-cup-2026",
     "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
     "sourceType": "personal-calendar",
@@ -134684,14 +134703,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sportRule": "explicit.sportKey",
       "eventRule": "explicit.eventType"
     },
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
     "status": "upcoming",
     "sourceTrust": "unverified",
     "statusCheckedAt": "2026-08-06T09:00:00+10:00",
-    "timePrecision": "exact",
+    "timePrecision": "unknown",
     "participantIds": [],
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -134703,7 +134722,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "calendar-nothingsport-manual-seed-uci-downhill-mtb-world-cup-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "dateStatus": "tbc",
+    "schedulePrecision": "unknown",
+    "scheduleStatus": "tbc",
+    "timeTbc": true,
+    "startTimeTbc": true,
+    "dateOnly": false,
+    "cardKind": "calendar-note",
+    "displayDateLabel": "Dates TBC",
+    "participantsConfirmed": false,
+    "resultCoverage": "unconfirmed-calendar-note",
+    "importedSeedFacts": {
+      "name": "UCI Downhill MTB World Cup",
+      "date": "2026-11-05",
+      "time": "08:00",
+      "startTimeUtc": "2026-11-04T21:00:00.000Z",
+      "endTimeUtc": "2026-11-05T00:00:00.000Z",
+      "venue": "Fort William",
+      "broadcaster": "SuperSport",
+      "broadcastOptions": [
+        "SuperSport"
+      ],
+      "expected": 7,
+      "round": "all",
+      "narrativeType": "race",
+      "selectedSentence": "Personal calendar event, categorised as Downhill MTB by the explicit.sportKey rule.",
+      "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Downhill MTB using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "sourceName": "Imported from nothingsport-manual-seed",
+      "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
+      "statusCheckedAt": "2026-08-06T09:00:00+10:00"
+    },
+    "calendarNote": {
+      "reviewId": "manual-seeds-2026-10-05",
+      "state": "unconfirmed",
+      "identityStatus": "unmatched",
+      "sourceUrl": "https://www.ucimtbworldseries.com/news/whoop-uci-mountain-bike-world-series-2026-calendar-unveiled",
+      "observedAt": "2026-10-04T23:51:33.447Z",
+      "observationBasis": "response-received"
+    },
+    "endDate": null,
+    "startDate": null,
+    "estimatedStartTimeUtc": null,
+    "timelineSortTimeUtc": null,
+    "sessionStartTimeUtc": null,
+    "notBeforeTimeUtc": null,
+    "actualStartTimeUtc": null,
+    "actualEndTimeUtc": null,
+    "schedulingWindow": null
   },
   {
     "id": "evt_nbl_2026_27_3723e003_58ad_11f1_b68b_09df0c3978fa",
@@ -139993,7 +140059,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-first-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528703",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528703/australia-vs-england-1st-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_374d40eb_58ad_11f1_926c_d7c956f67204",
@@ -140948,7 +141021,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-second-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528704",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528704/australia-vs-england-2nd-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3746a5e8_58ad_11f1_8707_7d800a023985",
@@ -141553,7 +141633,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-third-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528705",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3748f8f0_58ad_11f1_bb02_b15d4ea6aed8",
@@ -143339,7 +143426,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-first-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528706",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528706/australia-vs-england-1st-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3750b552_58ad_11f1_a12d_7ddf75ccac0d",
@@ -146235,7 +146329,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-second-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528707",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528707/australia-vs-england-2nd-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "cricket-australia-england-third-t20-2026",
@@ -146347,7 +146448,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-third-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528708",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528708/australia-vs-england-3rd-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_motogp_2026_valencia_practice_1",
@@ -148437,7 +148545,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-fourth-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528709",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528709/australia-vs-england-4th-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_motogp_2026_valencia_warmup",
@@ -149623,7 +149738,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-fifth-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528710",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528710/australia-vs-england-5th-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_374bfa7a_58ad_11f1_80a5_a590ae8a6049",
@@ -154018,7 +154140,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-new-zealand-test-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528711",
+      "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528711/australia-vs-new-zealand-1st-test-24270",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3747bba2_58ad_11f1_b586_c9fe4bf38829",
@@ -160122,7 +160251,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_90"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528713",
+      "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3763a871_58ad_11f1_bb01_15ea51636534",
@@ -166097,9 +166233,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "viewingOptions": [],
     "canonicalEventId": "evt_91",
     "sourceEventIds": [
-      "evt_91"
+      "evt_91",
+      "fixture:cricket:CA:40187"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "format": "Test",
+    "matchFormat": "Test",
+    "numberOfDays": 5,
+    "endDate": "2027-01-08",
+    "roundLabel": "4th Test",
+    "competitionProvenance": {
+      "kind": "official",
+      "sourceEventId": "fixture:cricket:CA:40187",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4605/australia-v-new-zealand-tests-2026-27-men",
+      "checkedAt": "2026-10-05T01:42:02.321Z"
+    },
+    "calendarProvenance": {
+      "kind": "official",
+      "sourceEventId": "fixture:cricket:CA:40187",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4605/australia-v-new-zealand-tests-2026-27-men",
+      "checkedAt": "2026-10-05T01:42:02.321Z",
+      "fields": [
+        "format",
+        "matchFormat",
+        "numberOfDays",
+        "endDate",
+        "roundLabel"
+      ],
+      "basis": "scheduled-calendar",
+      "sourceCompetitionId": "competition:cricket:4605"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3778a221_58ad_11f1_93c2_61e38b2284ba",
@@ -205615,22 +205780,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "key": "goodwood",
     "name": "Goodwood Festival of Speed 2027",
     "displayTitleCompact": "Goodwood Festival of Speed 2027",
-    "date": "2027-07-10",
-    "time": "10:00",
-    "startTimeUtc": "2027-07-10T00:00:00.000Z",
-    "endTimeUtc": "2027-07-10T08:00:00.000Z",
-    "broadcaster": "Sky Sports / WatchESPN",
-    "broadcastOptions": [
-      "Sky Sports / WatchESPN"
-    ],
-    "expected": 7,
+    "date": "",
+    "time": null,
+    "startTimeUtc": null,
+    "endTimeUtc": null,
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcastOptions": [],
+    "expected": null,
     "venue": "Goodwood Estate, UK",
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "all",
-    "selectedSentence": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
-    "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-    "sourceName": "Imported from nothingsport-manual-seed",
+    "selectedSentence": "The organiser confirms 15–18 July in the UK; Sydney start times and Australian viewing are unconfirmed.",
+    "fullSpiel": "The organiser lists 15–18 July 2027 at Goodwood. These are UK calendar dates, not an exact Sydney start or a competitive fixture. Session times, Australian viewing and participant appearances have not been verified.",
+    "sourceName": "Saved calendar note",
     "sourceUrl": "calendar://nothingsport-manual-seed/goodwood-festival-of-speed-2027",
     "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
     "sourceType": "personal-calendar",
@@ -205640,14 +205803,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sportRule": "explicit.sportKey",
       "eventRule": "explicit.eventType"
     },
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
     "status": "upcoming",
     "sourceTrust": "unverified",
     "statusCheckedAt": "2026-08-06T09:00:00+10:00",
-    "timePrecision": "exact",
+    "timePrecision": "unknown",
     "participantIds": [],
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -205659,7 +205822,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "dateStatus": "tbc",
+    "schedulePrecision": "unknown",
+    "scheduleStatus": "tbc",
+    "timeTbc": true,
+    "startTimeTbc": true,
+    "dateOnly": false,
+    "cardKind": "calendar-note",
+    "displayDateLabel": "15–18 July 2027 · UK dates",
+    "participantsConfirmed": false,
+    "resultCoverage": "unconfirmed-calendar-note",
+    "importedSeedFacts": {
+      "name": "Goodwood Festival of Speed 2027",
+      "date": "2027-07-10",
+      "time": "10:00",
+      "startTimeUtc": "2027-07-10T00:00:00.000Z",
+      "endTimeUtc": "2027-07-10T08:00:00.000Z",
+      "venue": "Goodwood Estate, UK",
+      "broadcaster": "Sky Sports / WatchESPN",
+      "broadcastOptions": [
+        "Sky Sports / WatchESPN"
+      ],
+      "expected": 7,
+      "round": "all",
+      "narrativeType": "all",
+      "selectedSentence": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
+      "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "sourceName": "Imported from nothingsport-manual-seed",
+      "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
+      "statusCheckedAt": "2026-08-06T09:00:00+10:00"
+    },
+    "calendarNote": {
+      "reviewId": "manual-seeds-2026-10-05",
+      "state": "calendar-window",
+      "identityStatus": "confirmed-calendar",
+      "sourceUrl": "https://www.goodwood.com/grr/event-coverage/festival-of-speed/2027-fos-dates-revealed/",
+      "observedAt": "2026-10-04T23:51:32.535Z",
+      "observationBasis": "response-received",
+      "localDateWindow": {
+        "from": "2027-07-15",
+        "through": "2027-07-18",
+        "timeZone": "Europe/London"
+      },
+      "localDateLabel": "15–18 July 2027 · UK dates"
+    },
+    "endDate": null,
+    "startDate": null,
+    "estimatedStartTimeUtc": null,
+    "timelineSortTimeUtc": null,
+    "sessionStartTimeUtc": null,
+    "notBeforeTimeUtc": null,
+    "actualStartTimeUtc": null,
+    "actualEndTimeUtc": null,
+    "schedulingWindow": null
   },
   {
     "id": "evt_golf_the_open_2027",
