@@ -1,5 +1,7 @@
 # Existing manual listing source assessment — 5 October 2026
 
+**Later delivery — 5 October:** The reviewed correction is now live at 0e0204ed/shell440. [Exact release and limits](manual-calendar-note-integrity-2026-10-05.md). The original source investigation below remains dated evidence, not a new observation or whole-sport certification.
+
 This is dated source evidence for two already stored identities, not implemented correction, new competition coverage or sport certification. The initial review began at 23:47:35 UTC; successful native source captures completed by 23:51:33 UTC, within the fifteen-minute initial bound. A web-reader timeout on the no-www UCI URL is retained separately; the canonical www source returns HTTP 200. No automatic retries, canonical refresh, sporting write, purchase, scheduler or private account operation occur.
 
 | Existing record | Retained claim | Verified evidence / decision |
