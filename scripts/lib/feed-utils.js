@@ -398,6 +398,13 @@ function protectVerifiedEventFacts(primaryEvents, retainedEvents) {
       isSupersededEvent(retained, incoming)
       && sourceTrust.normaliseTrust(retained.sourceTrust, retained.sourceType) === "verified"
     ));
+    if(verifiedMatch&&incoming.competitionId==='competition:nbl'&&incoming.status==='completed'&&incoming.resultStatus==='official'
+      &&incoming.id===verifiedMatch.id&&verifiedMatch.competitionId===incoming.competitionId){
+      // Reuse the known-fixture fact/date boundary across normal publication.
+      // Incoming and published legacy sport keys do not date a different final.
+      const observed=require('./known-fixture-patch').patchKnown([verifiedMatch],[incoming]).events[0];
+      incoming={...incoming,...Object.fromEntries(['scoreCheckedAt','resultSourceCheckedAt'].filter(key=>Object.hasOwn(observed,key)).map(key=>[key,observed[key]]))};
+    }
     if (!verifiedMatch || sourceTrust.normaliseTrust(incoming.sourceTrust, incoming.sourceType) !== "unverified") return incoming;
     return sourceTrust.mergeClaims(verifiedMatch, incoming);
   });

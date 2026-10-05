@@ -34398,7 +34398,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34584,7 +34584,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34699,7 +34699,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34814,7 +34814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35374,7 +35374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35487,7 +35487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35730,7 +35730,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35845,7 +35845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36086,7 +36086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36201,7 +36201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36408,7 +36408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36900,7 +36900,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37141,7 +37141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37256,7 +37256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37371,7 +37371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39493,7 +39493,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39598,7 +39598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39863,7 +39863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39978,7 +39978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40093,7 +40093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40560,7 +40560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40801,7 +40801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40916,7 +40916,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41246,7 +41246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41451,7 +41451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -41566,7 +41566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41681,7 +41681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42394,7 +42394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42636,7 +42636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -42751,7 +42751,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42992,7 +42992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43517,7 +43517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43634,7 +43634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43749,7 +43749,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43864,7 +43864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43979,7 +43979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -44484,7 +44484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -44599,7 +44599,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -44840,7 +44840,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -44955,7 +44955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -45197,7 +45197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45312,7 +45312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45427,7 +45427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -46269,7 +46269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -46510,7 +46510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46627,7 +46627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46742,7 +46742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47115,7 +47115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47377,7 +47377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -47516,7 +47516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47631,7 +47631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47746,7 +47746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47861,7 +47861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47976,7 +47976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48217,7 +48217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -48551,7 +48551,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48666,7 +48666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48907,7 +48907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49022,7 +49022,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49137,7 +49137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49250,7 +49250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49491,7 +49491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49733,7 +49733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49848,7 +49848,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49961,7 +49961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50076,7 +50076,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50317,7 +50317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50432,7 +50432,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50557,7 +50557,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50662,7 +50662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50777,7 +50777,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -51024,7 +51024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -51288,7 +51288,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -51403,7 +51403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -51644,7 +51644,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -51885,7 +51885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52000,7 +52000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52115,7 +52115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -52230,7 +52230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53414,7 +53414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53703,7 +53703,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -53861,7 +53861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -54023,7 +54023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -54307,7 +54307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -55005,7 +55005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -56513,7 +56513,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56768,7 +56768,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -57051,7 +57051,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -57060,7 +57060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -57324,7 +57324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -57885,7 +57885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58129,7 +58129,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58247,7 +58247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -58535,7 +58535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58779,7 +58779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -59210,7 +59210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -59365,7 +59365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -59374,7 +59374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -60834,7 +60834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60952,7 +60952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61196,7 +61196,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -61506,7 +61506,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61624,7 +61624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61742,7 +61742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -61906,7 +61906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -62282,7 +62282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63809,7 +63809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Merida tests his rapid rise against Rublev’s established New York record.",
     "fullSpiel": "Daniel Merida arrived in New York ranked 39th after beginning the year outside the top 160. Andrey Rublev brought four US Open quarterfinal appearances to this second-round meeting: a useful measure of whether the Spaniard’s first ATP title in July signalled a lasting step forward.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
     "outcomeText": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
@@ -64029,7 +64029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul’s home campaign meets Prizmic’s challenge in the Grandstand.",
     "fullSpiel": "Tommy Paul brought the twentieth seed and local support into this second-round match against Dino Prizmic. Their Grandstand meeting put a place in the last 32 on the line, with the American trying to build a route towards the second week of his home major.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
     "outcomeText": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
@@ -64246,7 +64246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Duckworth and Wu meet at the point where return pressure can change the match.",
     "fullSpiel": "James Duckworth’s second-round assignment was Yibing Wu, with a place in the last 32 at stake. Court 6 offered a close view of the serve-and-return contest between the Australian and Chinese players; the official match record makes those exchanges the useful starting point for the replay.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
     "outcomeText": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
@@ -64335,7 +64335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -64344,7 +64344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -64502,7 +64502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -64511,7 +64511,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -64989,7 +64989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Popyrin faces seeded Tabilo with another Australian place in the last 32 at stake.",
     "fullSpiel": "Alexei Popyrin’s path through Grigor Dimitrov led to a second-round meeting against Alejandro Tabilo. The Chilean held the twenty-fifth seed, making this a test of whether Popyrin could carry that first-round progress further through the draw.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
     "outcomeText": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
@@ -65206,7 +65206,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Mensik and Rodionov arrive from straight-set opening wins.",
     "fullSpiel": "Jakub Mensik’s seventeenth seed met Jurij Rodionov’s opening-round momentum in this second-round match. Mensik had come through Shintaro Mochizuki in three sets, while Rodionov had done the same against Giovanni Mpetshi Perricard. The contest put two efficient starts against one another for a place in round three.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
     "outcomeText": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
@@ -65451,7 +65451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk begin their seeded doubles campaign against an American pair.",
     "fullSpiel": "Storm Hunter and Desirae Krawczyk entered as the thirteenth seeds against DJ Bennett and Ava Esposito. The Australian-American pairing had an immediate opportunity to establish itself in a draw led by Siniakova and Townsend; Bennett and Esposito stood between them and round two.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
@@ -65537,7 +65537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65546,7 +65546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -65704,7 +65704,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65713,7 +65713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -65970,7 +65970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65979,7 +65979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -66384,7 +66384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Duckworth and Peers stand on opposite sides of an Australian doubles interest.",
     "fullSpiel": "James Duckworth paired with Miomir Kecmanovic against Marcelo Melo and John Peers in the opening round. With an Australian on each side, this Court 15 meeting offered two different partnerships chasing the same place in round two.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
     "outcomeText": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
@@ -66601,7 +66601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul and Bublik revisit the third-round rivalry that went the distance a year ago.",
     "fullSpiel": "Alexander Bublik ended Tommy Paul’s 2025 US Open in five sets at this same stage. Their rematch carried that history into Louis Armstrong Stadium, where Paul was again playing for the chance to take his home campaign into the second week.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
     "outcomeText": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
@@ -67008,7 +67008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67173,7 +67173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67338,7 +67338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67494,7 +67494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67503,7 +67503,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -67661,7 +67661,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67670,7 +67670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -68179,7 +68179,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68188,7 +68188,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -68353,7 +68353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68509,7 +68509,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68518,7 +68518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -68676,7 +68676,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68685,7 +68685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -70919,7 +70919,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk face a pair fresh from the Cincinnati final.",
     "fullSpiel": "Magali Kempen and Alexandra Panova brought a Cincinnati doubles final into their second-round match with Storm Hunter and Desirae Krawczyk. The thirteenth seeds were trying to keep their own campaign moving towards a possible meeting with the top seeds.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
@@ -71445,7 +71445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Mensik and Tien bring a young rivalry into the pressure of a home major.",
     "fullSpiel": "Learner Tien faced Jakub Mensik in the third round with his best US Open run taking shape. Mensik arrived as the new mixed doubles champion alongside Karolina Muchova, giving the Czech a very different kind of New York momentum.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
     "outcomeText": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
@@ -71677,7 +71677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -71842,7 +71842,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72124,7 +72124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -72133,7 +72133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -72321,7 +72321,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72486,7 +72486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72642,7 +72642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -72651,7 +72651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -72839,7 +72839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -73180,7 +73180,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -73651,7 +73651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
@@ -74625,7 +74625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul tests the returning defending champion for a place in the quarterfinals.",
     "fullSpiel": "Carlos Alcaraz arrived with the stronger head-to-head record and a lighter workload through three rounds. Paul had taken the longer route, including a five-set encounter with Bublik. Their fourth-round meeting asked whether that match toughness could disrupt the defending champion’s increasingly assured return from a wrist injury.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
     "outcomeText": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
@@ -75922,7 +75922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk stand in the path of Siniakova and Townsend’s missing major.",
     "fullSpiel": "Katerina Siniakova and Taylor Townsend entered this third-round meeting with three different Grand Slam titles together and the US Open still to add. Storm Hunter and Desirae Krawczyk, seeded thirteenth, were the immediate obstacle to the top seeds’ quarterfinal place.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
@@ -79758,7 +79758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -79767,7 +79767,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -80745,7 +80745,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -80910,7 +80910,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -81075,7 +81075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -81425,7 +81425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82127,7 +82127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -82136,7 +82136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -84633,7 +84633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -84798,7 +84798,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85135,7 +85135,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85300,7 +85300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85652,7 +85652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87216,7 +87216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87608,7 +87608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
     "fullSpiel": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
       "event-afl-cd_m20260142802"
@@ -87685,7 +87685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142802",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -88090,7 +88090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88255,7 +88255,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88420,7 +88420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88585,7 +88585,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88845,7 +88845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
     "fullSpiel": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",
       "event-afl-cd_m20260142801"
@@ -88922,7 +88922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142801",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -89372,7 +89372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -89380,7 +89380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89390,7 +89390,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89400,7 +89400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -89409,7 +89409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-19T09:30:00.000Z",
       "teams": [
         {
@@ -89452,7 +89452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -89563,7 +89563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-19T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -89585,7 +89585,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 95,
+    "awayScore": 97,
+    "homeParticipantId": "team:nbl:melbourne-united",
+    "awayParticipantId": "team:nbl:adelaide-36ers"
   },
   {
     "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -89976,7 +89980,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -89984,7 +89988,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -89994,7 +89998,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -90004,7 +90008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -90013,7 +90017,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-19T11:30:00.000Z",
       "teams": [
         {
@@ -90056,7 +90060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -90167,7 +90171,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-19T14:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -90189,7 +90193,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 79,
+    "awayScore": 100,
+    "homeParticipantId": "team:nbl:perth-wildcats",
+    "awayParticipantId": "team:nbl:south-east-melbourne-phoenix"
   },
   {
     "id": "evt_motogp_2026_austria_sprint",
@@ -91269,7 +91277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -91444,7 +91452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -91583,7 +91591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91593,7 +91601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -91603,7 +91611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -91612,7 +91620,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-20T05:00:00.000Z",
       "teams": [
         {
@@ -91655,7 +91663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -91767,7 +91775,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-20T08:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -91789,7 +91797,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 95,
+    "awayScore": 81,
+    "homeParticipantId": "team:nbl:new-zealand-breakers",
+    "awayParticipantId": "team:nbl:illawarra-hawks"
   },
   {
     "id": "event-aflw-cd_m20262640608",
@@ -91839,7 +91851,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -92175,7 +92187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92185,7 +92197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -92195,7 +92207,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -92204,7 +92216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-20T07:00:00.000Z",
       "teams": [
         {
@@ -92247,7 +92259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -92358,7 +92370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-20T10:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -92380,7 +92392,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 111,
+    "awayScore": 90,
+    "homeParticipantId": "team:nbl:sydney-kings",
+    "awayParticipantId": "team:nbl:cairns-taipans"
   },
   {
     "id": "event-aflw-cd_m20262640609",
@@ -92430,7 +92446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -93794,7 +93810,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93804,7 +93820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -93814,7 +93830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -93823,7 +93839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-21T09:30:00.000Z",
       "teams": [
         {
@@ -93866,7 +93882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -93977,7 +93993,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-21T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -93999,7 +94015,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 96,
+    "awayScore": 91,
+    "homeParticipantId": "team:nbl:tasmania-jackjumpers",
+    "awayParticipantId": "team:nbl:south-east-melbourne-phoenix"
   },
   {
     "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
@@ -94023,7 +94043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94033,7 +94053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94043,7 +94063,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -94052,7 +94072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-22T09:30:00.000Z",
       "teams": [
         {
@@ -94095,7 +94115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -94207,7 +94227,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-22T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -94229,7 +94249,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 88,
+    "awayScore": 85,
+    "homeParticipantId": "team:nbl:brisbane-bullets",
+    "awayParticipantId": "team:nbl:new-zealand-breakers"
   },
   {
     "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -94253,7 +94277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94263,7 +94287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -94273,7 +94297,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -94282,7 +94306,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-23T09:30:00.000Z",
       "teams": [
         {
@@ -94325,7 +94349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -94436,7 +94460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-23T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -94458,7 +94482,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 93,
+    "awayScore": 87,
+    "homeParticipantId": "team:nbl:cairns-taipans",
+    "awayParticipantId": "team:nbl:tasmania-jackjumpers"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -95070,7 +95098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -95209,7 +95237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95219,7 +95247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95229,7 +95257,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -95238,7 +95266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-24T09:30:00.000Z",
       "teams": [
         {
@@ -95281,7 +95309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -95392,7 +95420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-24T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -95414,7 +95442,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 61,
+    "awayScore": 86,
+    "homeParticipantId": "team:nbl:south-east-melbourne-phoenix",
+    "awayParticipantId": "team:nbl:melbourne-united"
   },
   {
     "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
@@ -95438,7 +95470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95448,7 +95480,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -95458,7 +95490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -95467,7 +95499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-24T11:30:00.000Z",
       "teams": [
         {
@@ -95510,7 +95542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -95621,7 +95653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-24T14:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -95643,7 +95675,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 98,
+    "awayScore": 97,
+    "homeParticipantId": "team:nbl:perth-wildcats",
+    "awayParticipantId": "team:nbl:adelaide-36ers"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_2",
@@ -96255,7 +96291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -96420,7 +96456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -96585,7 +96621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -97316,7 +97352,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -97455,7 +97491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97465,7 +97501,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -97475,7 +97511,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -97484,7 +97520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-25T09:30:00.000Z",
       "teams": [
         {
@@ -97527,7 +97563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -97638,7 +97674,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-25T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -97660,7 +97696,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 103,
+    "awayScore": 95,
+    "homeParticipantId": "team:nbl:brisbane-bullets",
+    "awayParticipantId": "team:nbl:illawarra-hawks"
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-2",
@@ -97766,7 +97806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
     "fullSpiel": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-2",
       "major-match-nrl-finals-2026-preliminary-final-2"
@@ -97984,7 +98024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
     "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
     "replayEligible": true,
@@ -98170,7 +98210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -98750,7 +98790,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -98759,7 +98799,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -99149,7 +99189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -99688,7 +99728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -99696,7 +99736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99706,7 +99746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -99716,7 +99756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -99725,7 +99765,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-26T11:30:00.000Z",
       "teams": [
         {
@@ -99768,7 +99808,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -99880,7 +99920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-26T14:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -99902,7 +99942,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 97,
+    "awayScore": 93,
+    "homeParticipantId": "team:nbl:perth-wildcats",
+    "awayParticipantId": "team:nbl:new-zealand-breakers"
   },
   {
     "id": "event-aflw-cd_m20262640706",
@@ -99952,7 +99996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100117,7 +100161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100282,7 +100326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100418,7 +100462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100428,7 +100472,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -100438,7 +100482,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -100447,7 +100491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-27T06:00:00.000Z",
       "teams": [
         {
@@ -100486,11 +100530,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 2,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Adelaide 36ers v Cairns Taipans — Round 2 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Adelaide 36ers v Cairns Taipans — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Adelaide 36ers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adelaide 36ers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -100557,9 +100601,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Adelaide 36ers v Cairns Taipans — Round 2 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Adelaide 36ers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Adelaide 36ers 83, Cairns Taipans 69",
-      "synopsisSpoilerOff": "Adelaide 36ers v Cairns Taipans — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Adelaide 36ers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -100605,7 +100649,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://schedule.nbl.com.au/nbl"
     ],
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -100627,7 +100671,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 83,
+    "awayScore": 69,
+    "homeParticipantId": "team:nbl:adelaide-36ers",
+    "awayParticipantId": "team:nbl:cairns-taipans"
   },
   {
     "id": "major-match-nrl-finals-2026-preliminary-final-1",
@@ -100873,7 +100921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -101012,7 +101060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -101020,7 +101068,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101030,7 +101078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101040,7 +101088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -101049,7 +101097,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-27T08:00:00.000Z",
       "teams": [
         {
@@ -101092,7 +101140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -101203,7 +101251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-27T11:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -101225,7 +101273,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 121,
+    "awayScore": 100,
+    "homeParticipantId": "team:nbl:sydney-kings",
+    "awayParticipantId": "team:nbl:illawarra-hawks"
   },
   {
     "id": "rugby-australia-south-africa-2026-09-27",
@@ -101522,7 +101574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
-    "lastReviewedAt": "2026-10-04T08:38:26.010Z",
+    "lastReviewedAt": "2026-10-05T09:36:00.967Z",
     "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
     "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
     "replayEligible": true,
@@ -101775,7 +101827,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101785,7 +101837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -101795,7 +101847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -101804,7 +101856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-30T07:30:00.000Z",
       "teams": [
         {
@@ -101847,7 +101899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -101959,7 +102011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-30T10:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -101981,7 +102033,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 98,
+    "awayScore": 75,
+    "homeParticipantId": "team:nbl:new-zealand-breakers",
+    "awayParticipantId": "team:nbl:cairns-taipans"
   },
   {
     "id": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
@@ -102005,7 +102061,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -102015,7 +102071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -102025,7 +102081,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -102034,7 +102090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-09-30T09:30:00.000Z",
       "teams": [
         {
@@ -102077,7 +102133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -102188,7 +102244,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeUtc": "2026-09-30T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -102210,7 +102266,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 93,
+    "awayScore": 78,
+    "homeParticipantId": "team:nbl:sydney-kings",
+    "awayParticipantId": "team:nbl:brisbane-bullets"
   },
   {
     "id": "event-wrc-2026-round-13",
@@ -102946,7 +103006,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -103082,7 +103142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103092,7 +103152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -103102,7 +103162,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -103111,7 +103171,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-01T09:30:00.000Z",
       "teams": [
         {
@@ -103154,7 +103214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -103247,7 +103307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Tasmania JackJumpers 84, Melbourne United 82\",\"84-82\",\"Official NBL result.\"]"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -103287,7 +103347,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 84,
+    "awayScore": 82,
+    "homeParticipantId": "team:nbl:tasmania-jackjumpers",
+    "awayParticipantId": "team:nbl:melbourne-united"
   },
   {
     "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
@@ -104096,7 +104160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantsConfirmed": true,
     "endTimeUtc": "2026-10-02T05:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
-    "scoreCheckedAt": "2026-09-29T23:38:21.617Z",
+    "scoreCheckedAt": "2026-10-04T09:46:55.700Z",
     "sessionType": "Practice 1",
     "editorialPreview": {
       "status": "journalistic",
@@ -104111,7 +104175,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceCheckedAt": "2026-09-29T23:17:33.658Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
+    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
   },
   {
     "id": "evt_motogp_2026_japan_practice",
@@ -104801,7 +104868,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantsConfirmed": true,
     "endTimeUtc": "2026-10-02T09:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
-    "scoreCheckedAt": "2026-09-29T23:38:21.617Z",
+    "scoreCheckedAt": "2026-10-04T09:46:55.700Z",
     "sessionType": "Practice 2",
     "editorialPreview": {
       "status": "journalistic",
@@ -104816,7 +104883,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceCheckedAt": "2026-09-29T23:17:33.658Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2",
+    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
   },
   {
     "id": "event-aflw-cd_m20262640802",
@@ -104866,7 +104936,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -105007,7 +105077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105017,7 +105087,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105027,7 +105097,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -105036,7 +105106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-02T09:30:00.000Z",
       "teams": [
         {
@@ -105079,7 +105149,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -105172,7 +105242,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Illawarra Hawks 114, Adelaide 36ers 92\",\"114-92\",\"Official NBL result.\"]"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -105212,7 +105282,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 114,
+    "awayScore": 92,
+    "homeParticipantId": "team:nbl:illawarra-hawks",
+    "awayParticipantId": "team:nbl:adelaide-36ers"
   },
   {
     "id": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
@@ -105236,7 +105310,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105246,7 +105320,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -105256,7 +105330,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -105265,7 +105339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-02T11:30:00.000Z",
       "teams": [
         {
@@ -105308,7 +105382,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -105401,7 +105475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Perth Wildcats 92, South East Melbourne Phoenix 88\",\"92-88\",\"Official NBL result.\"]"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -105441,7 +105515,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "homeScore": 92,
+    "awayScore": 88,
+    "homeParticipantId": "team:nbl:perth-wildcats",
+    "awayParticipantId": "team:nbl:south-east-melbourne-phoenix"
   },
   {
     "id": "evt_motogp_2026_japan_practice_2",
@@ -105890,7 +105968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -106662,7 +106740,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kimi Antonelli was fastest in Bahrain GP (Malaysia) · Practice 3.",
     "recapText": "Kimi Antonelli was fastest in Bahrain GP (Malaysia) · Practice 3. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Isack Hadjar (Red Bull Racing).",
     "resultPublishedAt": "2026-10-04T04:29:19.739Z",
-    "scoreCheckedAt": "2026-10-03T11:47:24.695Z",
+    "scoreCheckedAt": "2026-10-04T09:46:55.700Z",
     "endTimeUtc": "2026-10-03T05:30:00.000Z",
     "sessionType": "Practice 3",
     "editorialPreview": {
@@ -106678,7 +106756,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
       "sourceCheckedAt": "2026-09-29T23:17:33.658Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/3",
+    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
   },
   {
     "id": "event-aflw-cd_m20262640804",
@@ -106728,7 +106809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107032,7 +107113,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107173,7 +107254,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -107181,7 +107262,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107191,7 +107272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -107201,7 +107282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -107210,7 +107291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-03T07:30:00.000Z",
       "teams": [
         {
@@ -107253,7 +107334,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -107346,7 +107427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Brisbane Bullets 99, Tasmania JackJumpers 109\",\"99-109\",\"Official NBL result.\"]"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -107371,6 +107452,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winner": "Tasmania JackJumpers",
       "summary": "Brisbane Bullets 99, Tasmania JackJumpers 109"
     },
+    "endTimeUtc": "2026-10-03T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -107385,8 +107468,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
     },
-    "endTimeUtc": "2026-10-03T10:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "homeScore": 99,
+    "awayScore": 109,
+    "homeParticipantId": "team:nbl:brisbane-bullets",
+    "awayParticipantId": "team:nbl:tasmania-jackjumpers"
   },
   {
     "id": "evt_f1_2026_bahrain_qualifying",
@@ -107986,7 +108071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Max Verstappen took pole for Bahrain GP (Malaysia) · Qualifying.",
     "recapText": "Max Verstappen took pole for Bahrain GP (Malaysia) · Qualifying. 1. Max Verstappen (Red Bull Racing); 2. Lewis Hamilton (Ferrari); 3. Isack Hadjar (Red Bull Racing).",
     "resultPublishedAt": "2026-10-04T04:29:19.739Z",
-    "scoreCheckedAt": "2026-10-03T11:47:24.695Z",
+    "scoreCheckedAt": "2026-10-04T09:46:55.700Z",
     "endTimeUtc": "2026-10-03T09:00:00.000Z",
     "sessionType": "Qualifying",
     "editorialPreview": {
@@ -108003,7 +108088,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
       "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
+    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
   },
   {
     "id": "event-aflw-cd_m20262640806",
@@ -108053,7 +108141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -108194,7 +108282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-05T09:29:24.738Z"
       },
       {
         "providerId": "disney",
@@ -108202,7 +108290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108212,7 +108300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108222,7 +108310,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -108231,7 +108319,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-03T09:30:00.000Z",
       "teams": [
         {
@@ -108274,7 +108362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -108367,7 +108455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "recap",
       "resultSignature": "[\"completed\",\"Melbourne United 95, Cairns Taipans 107\",\"95-107\",\"Official NBL result.\"]"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -108392,6 +108480,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winner": "Cairns Taipans",
       "summary": "Melbourne United 95, Cairns Taipans 107"
     },
+    "endTimeUtc": "2026-10-03T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -108406,8 +108496,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
       "needsPreviewRefresh": false
     },
-    "endTimeUtc": "2026-10-03T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "homeScore": 95,
+    "awayScore": 107,
+    "homeParticipantId": "team:nbl:melbourne-united",
+    "awayParticipantId": "team:nbl:cairns-taipans"
   },
   {
     "id": "tennis-tournament-wta-beijing-2026-2026-10-04",
@@ -108708,7 +108800,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -108849,7 +108941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108859,7 +108951,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -108869,7 +108961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -108878,7 +108970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-04T04:00:00.000Z",
       "teams": [
         {
@@ -108921,7 +109013,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -108980,20 +109072,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
-      "needsPreviewRefresh": false
-    },
     "lastReviewedAt": "2026-10-01T17:38:41.192Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -109023,7 +109101,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -109036,10 +109114,29 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "South East Melbourne Phoenix 113, Illawarra Hawks 96",
     "recapText": "Official NBL result.",
     "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
-    "resultSourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "resultSourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "endTimeUtc": "2026-10-04T07:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
-    "scoreCheckedAt": "2026-10-04T08:38:16.794Z"
+    "scoreCheckedAt": "2026-10-05T09:29:24.738Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026–27 NBL season — current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+      "needsPreviewRefresh": false
+    },
+    "homeScore": 113,
+    "awayScore": 96,
+    "resultStatus": "official",
+    "homeParticipantId": "team:nbl:south-east-melbourne-phoenix",
+    "awayParticipantId": "team:nbl:illawarra-hawks"
   },
   {
     "id": "event-aflw-cd_m20262640808",
@@ -109089,7 +109186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -109142,19 +109239,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Collingwood — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
@@ -109202,7 +109286,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-04T08:38:10.035Z",
     "canonicalResultScoreline": "Collingwood v Melbourne — 21-42",
     "endTimeUtc": "2026-10-04T07:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Collingwood — current AFLW path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceName": "AFLW current AFLW table",
+      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_motogp_2026_japan",
@@ -109382,6 +109479,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007"
     ],
+    "resultLabels": [
+      "Grand Prix",
+      "1. Marc Marquez · 2. Jorge Martin · 3. Marco Bezzecchi",
+      "Official result"
+    ],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "MotoGP Japanese Grand Prix",
@@ -109397,12 +109499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
       "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Grand Prix",
-      "1. Marc Marquez · 2. Jorge Martin · 3. Marco Bezzecchi",
-      "Official result"
-    ]
+    }
   },
   {
     "id": "evt_nbl_2026_27_36fff950_58ad_11f1_8de3_37c9e1eacb09",
@@ -109426,7 +109523,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109436,7 +109533,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -109446,7 +109543,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-05T09:29:24.738Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -109455,7 +109552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-05T09:29:24.738Z",
       "beforeKickoff": "2026-10-04T06:00:00.000Z",
       "teams": [
         {
@@ -109498,7 +109595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -109552,25 +109649,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 5,
       "hookSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Adelaide 36ers 72, New Zealand Breakers 91",
+      "hookSpoilerOn": "Adelaide 36ers 72, New Zealand Breakers 88",
       "synopsisSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
-      "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-01T17:38:41.192Z",
     "editorialNarrative": {
@@ -109601,7 +109684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-05T09:29:24.738Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -109610,14 +109693,33 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "startTimeTbc": false,
     "dateOnly": false,
-    "score": "72-91",
-    "outcomeText": "Adelaide 36ers 72, New Zealand Breakers 91",
+    "score": "72-88",
+    "outcomeText": "Adelaide 36ers 72, New Zealand Breakers 88",
     "recapText": "Official NBL result.",
     "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
-    "resultSourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "resultSourceCheckedAt": "2026-10-05T09:29:24.738Z",
     "endTimeUtc": "2026-10-04T09:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
-    "scoreCheckedAt": "2026-10-04T08:38:16.794Z"
+    "scoreCheckedAt": "2026-10-05T09:29:24.738Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026–27 NBL season — current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+      "needsPreviewRefresh": false
+    },
+    "homeScore": 72,
+    "awayScore": 88,
+    "resultStatus": "official",
+    "homeParticipantId": "team:nbl:adelaide-36ers",
+    "awayParticipantId": "team:nbl:new-zealand-breakers"
   },
   {
     "id": "event-aflw-cd_m20262640809",
@@ -109667,7 +109769,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -109720,19 +109822,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "West Coast Eagles — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
@@ -109780,7 +109869,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-04T08:38:10.035Z",
     "canonicalResultScoreline": "West Coast Eagles v Fremantle — 39-27",
     "endTimeUtc": "2026-10-04T09:05:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "West Coast Eagles — current AFLW path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceName": "AFLW current AFLW table",
+      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_f1_2026_bahrain_race",
@@ -109819,14 +109921,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Race",
     "stage": "Race",
     "narrativeType": "all",
-    "selectedSentence": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-    "fullSpiel": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
-    "sourceName": "Formula 1 and FIA confirm Bahrain Grand Prix relocation to Malaysia",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-    "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+    "selectedSentence": "Bahrain GP (Malaysia) · Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bahrain GP (Malaysia) · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
+    "sourceCheckedAt": "2026-10-05T09:29:00.400Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:f1",
     "discoverySportId": "sport:f1",
     "competitionId": "competition:formula-one",
@@ -109843,12 +109945,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "stakes": 5,
       "intensity": 5,
       "intensitySource": "computed",
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-      "hookSpoilerOn": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-      "synopsisSpoilerOff": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
-      "synopsisSpoilerOn": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
+      "hookSpoilerOff": "Bahrain GP (Malaysia) · Race is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Max Verstappen won Bahrain GP (Malaysia) · Race.",
+      "synopsisSpoilerOff": "Bahrain GP (Malaysia) · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Max Verstappen won Bahrain GP (Malaysia) · Race. 1. Max Verstappen (Red Bull Racing); 2. Kimi Antonelli (Mercedes); 3. Lewis Hamilton (Ferrari).",
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
@@ -109900,10 +110002,45 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "preview"
     },
     "sourceRefs": [
-      "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf"
+      "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
+      "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result"
     ],
     "statusCheckedAt": "2026-09-29T23:38:21.617Z",
-    "participantIds": [],
+    "participantIds": [
+      "competitor:f1:max-verstappen",
+      "team:f1:red-bull-racing",
+      "competitor:f1:kimi-antonelli",
+      "team:f1:mercedes",
+      "competitor:f1:lewis-hamilton",
+      "team:f1:ferrari",
+      "competitor:f1:charles-leclerc",
+      "competitor:f1:isack-hadjar",
+      "competitor:f1:oscar-piastri",
+      "team:f1:mclaren",
+      "competitor:f1:liam-lawson",
+      "team:f1:racing-bulls",
+      "competitor:f1:fernando-alonso",
+      "team:f1:aston-martin",
+      "competitor:f1:lando-norris",
+      "competitor:f1:arvid-lindblad",
+      "competitor:f1:nico-hulkenberg",
+      "team:f1:audi",
+      "competitor:f1:lance-stroll",
+      "competitor:f1:franco-colapinto",
+      "team:f1:alpine",
+      "competitor:f1:oliver-bearman",
+      "team:f1:haas",
+      "competitor:f1:esteban-ocon",
+      "competitor:f1:pierre-gasly",
+      "competitor:f1:carlos-sainz",
+      "team:f1:williams",
+      "competitor:f1:gabriel-bortoleto",
+      "competitor:f1:sergio-perez",
+      "team:f1:cadillac",
+      "competitor:f1:george-russell",
+      "competitor:f1:alexander-albon",
+      "competitor:f1:valtteri-bottas"
+    ],
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
@@ -109916,9 +110053,429 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "dateOnly": false,
     "endTimeUtc": "2026-10-04T09:00:00.000Z",
     "sessionType": "Race",
-    "resultStatus": "pending",
+    "resultStatus": "official",
     "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
-    "resultSourceCheckedAt": "2026-10-04T09:46:55.700Z"
+    "resultSourceCheckedAt": "2026-10-05T09:29:00.400Z",
+    "score": "1. Max Verstappen · 2. Kimi Antonelli · 3. Lewis Hamilton",
+    "outcomeText": "Max Verstappen won Bahrain GP (Malaysia) · Race.",
+    "recapText": "Max Verstappen won Bahrain GP (Malaysia) · Race. 1. Max Verstappen (Red Bull Racing); 2. Kimi Antonelli (Mercedes); 3. Lewis Hamilton (Ferrari).",
+    "resultPublishedAt": "2026-10-05T09:29:00.400Z",
+    "scoreCheckedAt": "2026-10-05T09:29:00.400Z",
+    "fixtureResults": {
+      "schemaVersion": "fixture-results.v1",
+      "columns": [
+        "Pos",
+        "No",
+        "Driver",
+        "Car",
+        "Laps",
+        "Time / retired",
+        "Points"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen",
+          "Red Bull Racing",
+          "55",
+          "1:47:14.808",
+          "25"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli",
+          "Mercedes",
+          "55",
+          "+2.307s",
+          "18"
+        ],
+        [
+          "3",
+          "44",
+          "Lewis Hamilton",
+          "Ferrari",
+          "55",
+          "+4.919s",
+          "15"
+        ],
+        [
+          "4",
+          "16",
+          "Charles Leclerc",
+          "Ferrari",
+          "55",
+          "+7.258s",
+          "12"
+        ],
+        [
+          "5",
+          "6",
+          "Isack Hadjar",
+          "Red Bull Racing",
+          "55",
+          "+8.571s",
+          "10"
+        ],
+        [
+          "6",
+          "81",
+          "Oscar Piastri",
+          "McLaren",
+          "55",
+          "+9.454s",
+          "8"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson",
+          "Racing Bulls",
+          "55",
+          "+12.753s",
+          "6"
+        ],
+        [
+          "8",
+          "14",
+          "Fernando Alonso",
+          "Aston Martin",
+          "55",
+          "+13.372s",
+          "4"
+        ],
+        [
+          "9",
+          "1",
+          "Lando Norris",
+          "McLaren",
+          "55",
+          "+13.993s",
+          "2"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad",
+          "Racing Bulls",
+          "55",
+          "+15.928s",
+          "1"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg",
+          "Audi",
+          "55",
+          "+17.404s",
+          "0"
+        ],
+        [
+          "12",
+          "18",
+          "Lance Stroll",
+          "Aston Martin",
+          "55",
+          "+18.052s",
+          "0"
+        ],
+        [
+          "13",
+          "43",
+          "Franco Colapinto",
+          "Alpine",
+          "55",
+          "+18.997s",
+          "0"
+        ],
+        [
+          "14",
+          "87",
+          "Oliver Bearman",
+          "Haas F1 Team",
+          "55",
+          "+22.305s",
+          "0"
+        ],
+        [
+          "15",
+          "31",
+          "Esteban Ocon",
+          "Haas F1 Team",
+          "55",
+          "+22.532s",
+          "0"
+        ],
+        [
+          "16",
+          "10",
+          "Pierre Gasly",
+          "Alpine",
+          "55",
+          "+23.315s",
+          "0"
+        ],
+        [
+          "17",
+          "55",
+          "Carlos Sainz",
+          "Williams",
+          "55",
+          "+25.431s",
+          "0"
+        ],
+        [
+          "18",
+          "5",
+          "Gabriel Bortoleto",
+          "Audi",
+          "55",
+          "+28.233s",
+          "0"
+        ],
+        [
+          "19",
+          "11",
+          "Sergio Perez",
+          "Cadillac",
+          "55",
+          "+29.310s",
+          "0"
+        ],
+        [
+          "20",
+          "63",
+          "George Russell",
+          "Mercedes",
+          "49",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "23",
+          "Alexander Albon",
+          "Williams",
+          "41",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "77",
+          "Valtteri Bottas",
+          "Cadillac",
+          "7",
+          "DNF",
+          "0"
+        ]
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
+      "checkedAt": "2026-10-05T09:29:00.400Z"
+    },
+    "participants": [
+      {
+        "id": "competitor:f1:max-verstappen",
+        "name": "Max Verstappen",
+        "displayName": "Max Verstappen",
+        "countryCode": "NL"
+      },
+      {
+        "id": "team:f1:red-bull-racing",
+        "name": "Red Bull Racing",
+        "displayName": "Red Bull Racing",
+        "countryCode": "AT"
+      },
+      {
+        "id": "competitor:f1:kimi-antonelli",
+        "name": "Kimi Antonelli",
+        "displayName": "Kimi Antonelli",
+        "countryCode": "IT"
+      },
+      {
+        "id": "team:f1:mercedes",
+        "name": "Mercedes",
+        "displayName": "Mercedes",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:f1:lewis-hamilton",
+        "name": "Lewis Hamilton",
+        "displayName": "Lewis Hamilton",
+        "countryCode": "GB"
+      },
+      {
+        "id": "team:f1:ferrari",
+        "name": "Ferrari",
+        "displayName": "Ferrari",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:f1:charles-leclerc",
+        "name": "Charles Leclerc",
+        "displayName": "Charles Leclerc",
+        "countryCode": "MC"
+      },
+      {
+        "id": "competitor:f1:isack-hadjar",
+        "name": "Isack Hadjar",
+        "displayName": "Isack Hadjar",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:oscar-piastri",
+        "name": "Oscar Piastri",
+        "displayName": "Oscar Piastri",
+        "countryCode": "AU"
+      },
+      {
+        "id": "team:f1:mclaren",
+        "name": "McLaren",
+        "displayName": "McLaren",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:liam-lawson",
+        "name": "Liam Lawson",
+        "displayName": "Liam Lawson",
+        "countryCode": "NZ"
+      },
+      {
+        "id": "team:f1:racing-bulls",
+        "name": "Racing Bulls",
+        "displayName": "Racing Bulls",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:f1:fernando-alonso",
+        "name": "Fernando Alonso",
+        "displayName": "Fernando Alonso",
+        "countryCode": "ES"
+      },
+      {
+        "id": "team:f1:aston-martin",
+        "name": "Aston Martin",
+        "displayName": "Aston Martin",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:lando-norris",
+        "name": "Lando Norris",
+        "displayName": "Lando Norris",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:arvid-lindblad",
+        "name": "Arvid Lindblad",
+        "displayName": "Arvid Lindblad",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:nico-hulkenberg",
+        "name": "Nico Hulkenberg",
+        "displayName": "Nico Hulkenberg",
+        "countryCode": "DE"
+      },
+      {
+        "id": "team:f1:audi",
+        "name": "Audi",
+        "displayName": "Audi",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:f1:lance-stroll",
+        "name": "Lance Stroll",
+        "displayName": "Lance Stroll",
+        "countryCode": "CA"
+      },
+      {
+        "id": "competitor:f1:franco-colapinto",
+        "name": "Franco Colapinto",
+        "displayName": "Franco Colapinto",
+        "countryCode": "AR"
+      },
+      {
+        "id": "team:f1:alpine",
+        "name": "Alpine",
+        "displayName": "Alpine",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:oliver-bearman",
+        "name": "Oliver Bearman",
+        "displayName": "Oliver Bearman",
+        "countryCode": "GB"
+      },
+      {
+        "id": "team:f1:haas",
+        "name": "Haas F1 Team",
+        "displayName": "Haas F1 Team",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:f1:esteban-ocon",
+        "name": "Esteban Ocon",
+        "displayName": "Esteban Ocon",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:pierre-gasly",
+        "name": "Pierre Gasly",
+        "displayName": "Pierre Gasly",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:carlos-sainz",
+        "name": "Carlos Sainz",
+        "displayName": "Carlos Sainz",
+        "countryCode": "ES"
+      },
+      {
+        "id": "team:f1:williams",
+        "name": "Williams",
+        "displayName": "Williams",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:gabriel-bortoleto",
+        "name": "Gabriel Bortoleto",
+        "displayName": "Gabriel Bortoleto",
+        "countryCode": "BR"
+      },
+      {
+        "id": "competitor:f1:sergio-perez",
+        "name": "Sergio Perez",
+        "displayName": "Sergio Perez",
+        "countryCode": "MX"
+      },
+      {
+        "id": "team:f1:cadillac",
+        "name": "Cadillac",
+        "displayName": "Cadillac",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:f1:george-russell",
+        "name": "George Russell",
+        "displayName": "George Russell",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:alexander-albon",
+        "name": "Alexander Albon",
+        "displayName": "Alexander Albon",
+        "countryCode": "TH"
+      },
+      {
+        "id": "competitor:f1:valtteri-bottas",
+        "name": "Valtteri Bottas",
+        "displayName": "Valtteri Bottas",
+        "countryCode": "FI"
+      }
+    ],
+    "participantsConfirmed": true
   },
   {
     "sport": "NRL",
@@ -109948,8 +110505,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "status": "completed",
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Roosters v Knights is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Sydney Roosters 19, Newcastle Knights 18.",
+      "hookSpoilerOff": "Roosters v Knights in Grand Final: the result is available to reveal.",
+      "hookSpoilerOn": "Roosters defeated Knights in Grand Final.",
       "synopsisSpoilerOff": "Roosters v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "The official NRL match centre reports a 19-18 Grand Final result.",
       "arcStage": "recap",
@@ -110004,7 +110561,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-01T23:58:25.032Z",
       "refreshAfter": "2026-10-04T08:30:00.000Z",
       "generationMode": "researched",
-      "phase": "preview"
+      "phase": "preview",
+      "hookSpoilerOn": "Roosters defeated Knights in Grand Final.",
+      "synopsisSpoilerOn": "Roosters defeated Knights in Grand Final. The official NRL match centre reports a 19-18 Grand Final result."
     },
     "roundLabel": "Grand Final",
     "stage": "Grand Final",
@@ -110131,7 +110690,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Grand Final",
       "Roosters 19-18 Knights",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-10-04T11:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nbl_2026_27_36fc0fd6_58ad_11f1_8ed4_c9ba3efad88d",
@@ -111042,7 +111603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -111650,7 +112211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112077,7 +112638,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112228,7 +112789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112661,7 +113222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113145,7 +113706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -114789,7 +115350,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -114927,7 +115488,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -115415,7 +115976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -117268,7 +117829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -117715,7 +118276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -117853,7 +118414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118166,7 +118727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118518,7 +119079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -119683,7 +120244,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -119834,7 +120395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120166,7 +120727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120510,7 +121071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -122324,7 +122885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -123380,7 +123941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -123661,7 +124222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -123799,7 +124360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -124151,7 +124712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -125559,7 +126120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -125697,7 +126258,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -126218,7 +126779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -126575,7 +127136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -128799,7 +129360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -129403,7 +129964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -129830,7 +130391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -129968,7 +130529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -130249,7 +130810,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -132581,7 +133142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -132706,7 +133267,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133194,7 +133755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133538,7 +134099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-10-04T08:38:10.035Z",
+    "canonicalSourceCheckedAt": "2026-10-05T09:29:15.763Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -134750,8 +135311,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "selectedSentence": "Personal calendar event, categorised as Downhill MTB by the explicit.sportKey rule.",
       "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Downhill MTB using the explicit.sportKey rule and assigned the explicit.eventType event category.",
       "sourceName": "Imported from nothingsport-manual-seed",
-      "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-      "statusCheckedAt": "2026-08-06T09:00:00+10:00"
+      "sourceCheckedAt": "2026-08-06T09:00:00+10:00"
     },
     "calendarNote": {
       "reviewId": "manual-seeds-2026-10-05",
@@ -173373,7 +173933,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
       "sourceName": "Imported from nothingsport-manual-seed",
       "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-      "statusCheckedAt": "2026-08-06T09:00:00+10:00",
       "lastReviewedAt": "2026-08-14T02:56:19.695Z"
     },
     "calendarNote": {
@@ -180089,7 +180648,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
       "sourceName": "Imported from nothingsport-manual-seed",
       "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-      "statusCheckedAt": "2026-08-06T09:00:00+10:00",
       "lastReviewedAt": "2026-08-14T02:56:19.695Z"
     },
     "calendarNote": {
@@ -205850,8 +206408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "selectedSentence": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
       "fullSpiel": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
       "sourceName": "Imported from nothingsport-manual-seed",
-      "sourceCheckedAt": "2026-08-06T09:00:00+10:00",
-      "statusCheckedAt": "2026-08-06T09:00:00+10:00"
+      "sourceCheckedAt": "2026-08-06T09:00:00+10:00"
     },
     "calendarNote": {
       "reviewId": "manual-seeds-2026-10-05",
@@ -209346,7 +209903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "Roosters v Broncos is complete; the key moments are protected until you choose to reveal them.",
@@ -209355,19 +209912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Sydney Roosters won the Grand Final 30-6 at Accor Stadium. The verified result is available when Results are enabled.",
       "lastReviewedAt": "2026-09-27T13:57:48.000Z"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Final",
-      "contextSignals": [
-        "official-schedule",
-        "final"
-      ],
-      "sourceName": "Accor Stadium official Grand Final programme",
-      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-      "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-27T13:57:48.000Z",
+    "lastReviewedAt": "2026-10-05T09:29:51.279Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
@@ -209457,7 +210002,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winner": "Sydney Roosters",
       "summary": "Sydney Roosters beat Brisbane Broncos 30-6 to win the 2026 NRLW premiership."
     },
-    "scoreCheckedAt": "2026-10-04T09:19:16.000Z"
+    "scoreCheckedAt": "2026-10-04T09:19:16.000Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Final",
+      "contextSignals": [
+        "official-schedule",
+        "final"
+      ],
+      "sourceName": "Accor Stadium official Grand Final programme",
+      "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "sourceCheckedAt": "2026-09-27T13:57:48.000Z",
+      "needsPreviewRefresh": false
+    },
+    "endTimeUtc": "2026-10-04T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_semifinal_wests_tigers_raiders",
