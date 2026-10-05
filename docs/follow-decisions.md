@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Basic Football names survive fixture-read failures — 5 October 2026
+
+Saved Football teams and athletes must remain recognisable while personalised fixtures are unavailable or an older reply is correctly discarded after a background save. Project only the existing retained directory's validated IDs and display names into the existing lightweight Football index, then render known favourites before waiting for fixture details. Keep richer returned records and existing profile hydration; missing details remain visibly unavailable. Preserve the index's original dates and facts, all fixture/activity identities, exclusions, mute/unfollow, Results and Remind OFF. No guessed names, roster inference, stale-response acceptance or new admission rule.
+
+Regression: the existing Follow startup browser gate drives the actual frozen request client, native fixture session, deferred UI and overlapping save/read. It rejects the old response while retaining Arsenal, Lens and Lech Poznań, also covering an unavailable response without a second read. The account-switch case now changes the actual client's session rather than attempting to replace a frozen method. Both browser engines retain the existing navigation, profile, preference and reload checks. Hosted and installed-cache acceptance remain separately recorded; this does not certify physical Safari or whole-sport coverage.
+
 ## Follow queued reads stop with the outgoing page — 5 October 2026
 
 A cancelled membership read must not start a queued profile/membership read while its document is being replaced. Clear pending intent at `beforeunload` (WebKit cancels the read before `pagehide`) and at the existing module stop boundary. A surviving page can Refresh without a persistent unload lock; a restored cached page resumes the current Follow destination on `pageshow.persisted`. Ordinary latest-profile/account reads still coalesce and run. Known favourites, all sporting preferences, exclusion/dismissal, Results and Remind OFF remain authoritative. No source facts, identity, admission, notification or persistence rule changes.

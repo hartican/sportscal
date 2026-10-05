@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Reuse the existing Football identity index — 5 October 2026
+
+The canonical cards owner already builds the Football follow directory. Its existing directory builder now includes 1,600 retained basic ID/name pairs in the existing Football index; full, quick and scoped Follow routes share that projection. Validate the projection before writing it, preserve all older index fields and observation dates, and retain byte-identical unchanged output. The deferred UI reuses the same index request and renders basic favourites independently of personalised fixture success. No full 1.55 MB roster request, extra API/source request, retry, polling, scheduler, database operation, credential, subscription or owner routine. Personalised stale-response and account guards remain authoritative.
+
+The public JSON index grows from 10,979 to 35,085 gzip bytes; it remains outside the critical startup assets. Eight startup requests and 430,918 critical gzip bytes remain unchanged, within the frozen 430,920 ceiling. Required precache stays 3,139,440 bytes below the 3 MiB ceiling. Shell443 versions the deferred UI; the existing release owner checks canonical directory agreement, actual save/read failure behaviour, account changes and cached upgrade. Sporting snapshots and fact dates remain unchanged. Wider permissions, physical device and cohort acceptance remain separate.
+
 ## Discard queued Follow reads on navigation — 5 October 2026
 
 The deferred Follow reader clears queued intent before full-page navigation and when stopped. Cancelled old reads cannot launch replacement work in an outgoing WebKit document. Cached-page restoration uses the same existing Follow start/cache/coalescing rules; cancelled navigation leaves explicit Refresh available. No new timer, polling, retry, scheduler, API, database operation or budget. Normal active-page latest-profile/account reads remain. The existing Follow browser gate retains ordinary coalescing and adds outgoing-page and restoration cases; signed-in production acceptance remains separately recorded.

@@ -7,6 +7,13 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
+const identityIndex=require('./lib/follow-identity-index').footballIdentityIndex;
+const footballIndex=JSON.parse(fs.readFileSync(path.join(ROOT,'data/canonical/football-follow-index.v1.json'),'utf8'));
+const footballChunk=JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/football.v1.json'),'utf8'));
+assert.deepEqual(footballIndex,identityIndex(footballIndex,footballChunk),'The existing lightweight index must carry every retained basic Football identity, without new facts/dates');
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[footballChunk.records[0],footballChunk.records[0]]}),/ambiguous/,'A partial conflicting identity list cannot replace last-good names');
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[]}),/Invalid/);
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[{id:'slot:football:winner',displayName:'Winner'}]}),/ambiguous/,'Unknown future opponents are not followed identities');
 const expectedDirectoryKeys="afl,aflw,nrl,nrlw,motorsport,f1,motogp,wrc,dakar,supercars,extreme,surf,skiing,rugby,tennis,football,cycling,cricket,surf-women,skiing-women,extreme-women,hockey-women,gymnastics-women,nba-women,cricket-women,rugby-women,football-women,tennis-women,golf-women,cycling-women,athletics-women,swimming-women,boxing-women,ice-hockey-women,nba,nbl,fiba-women,sailgp,golf,american-football,athletics,swimming,netball,ice-hockey,boxing".split(",");
 assert.deepEqual(manifest.sports.map(sport=>sport.key).sort(),expectedDirectoryKeys.sort(),"every published choice, including the existing Dakar child, needs exactly one lazy chunk; hidden supports remain separate");
 for (const supportKey of ["hockey", "multi-sport"]){

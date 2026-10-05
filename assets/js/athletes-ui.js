@@ -9,7 +9,7 @@
  const valid=t=>t.profileId===profileId&&t.generation===generation&&t.owner===owner()&&t.preferences===JSON.stringify([userPreferences,eventActions])&&(activeTab==='follow'&&followHomeView==='favourites');
  const recordKey=p=>model.identity(p.id);
  const preferencesKey=()=>JSON.stringify([owner(),userPreferences,eventActions,profileId]);
- const allRecords=()=>[...records,...cardIdentityParticipants(),...(journeys?.players||[]).map(p=>({...p,sportKey:'tennis'})),...[...followDirectoryChunks.values()].flatMap(c=>[...(c.participants||[]),...(c.players||[]),...(c.records||[])])];
+ const allRecords=()=>[...records,...(footballFollowIndex?.identities||[]),...cardIdentityParticipants(),...(journeys?.players||[]).map(p=>({...p,sportKey:'tennis'})),...[...followDirectoryChunks.values()].flatMap(c=>[...(c.participants||[]),...(c.players||[]),...(c.records||[])])];
  function followed(){const prepared=FOLLOW_FIRST.migratePreferences(userPreferences),collections=followCollectionsById();return [...new Map(allRecords().filter(p=>model.individual(p)||String(p.id).startsWith('team:')).filter(p=>{const f=FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,collections,prepared);return f.followed&&(!String(p.id).startsWith('team:')||f.source==='explicit');}).map(p=>[recordKey(p),{...p,sportKey:model.sport(p),displayName:p.displayName||p.canonicalName||p.name||'Athlete'}])).values()];}
  function availableEvents(){return events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e)&&!FOLLOW_FEED_POLICY.explicitlyExcluded(e,userPreferences)&&!getEventAction(e).dismissed&&!getEventAction(e).archived);}
  function resolve(id,label,sportKey){return allRecords().find(p=>model.identity(p.id)===model.identity(id))||{id,displayName:label||'Athlete',sportKey:sportKey||model.sport({id})};}
@@ -30,7 +30,7 @@
   const t=ticket(),queryKey=preferencesKey();
   loadingKey=requestKey;loadingGeneration=generation;
   loading=(async()=>{
-   await ensureFollowCollectionDirectories();if(!valid(t))return false;
+   await ensureFollowCollectionDirectories();if(!valid(t))return false;render();
    let cursor=append?(nextCursor||0):0,next=append?[...events]:[],people=append?[...records]:[],pages=0;
    do{
     const data=serverPersistence.user?await serverSyncClient.loadFeed({cursor,limit:50,scope:'athletes',participantId:profileId||null}):await fetch(`/api/feed?scope=athletes&limit=50&cursor=${cursor}${profileId?"&participantId="+encodeURIComponent(profileId):""}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error('Athletes feed unavailable');return r.json();});
