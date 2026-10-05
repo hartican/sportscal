@@ -23,16 +23,17 @@ const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-surf-notes-'));
 try{
  const other={id:'other',key:'tennis',sourceCheckedAt:'2020-01-01T00:00:00Z'};
  for(const file of ['feeds/incoming/events.json','data/events.json']){fs.mkdirSync(path.dirname(path.join(temporary,file)),{recursive:true});fs.writeFileSync(path.join(temporary,file),JSON.stringify({events:[...seeds,other]}));}
- assert(api.applyRetained({root:temporary}).every(s=>s.changed.length===2));const paths=['feeds/incoming/events.json','data/events.json'].map(f=>path.join(temporary,f)),bytes=paths.map(f=>fs.readFileSync(f,'utf8'));
- assert(api.applyRetained({root:temporary}).every(s=>s.changed.length===0));assert.deepEqual(paths.map(f=>fs.readFileSync(f,'utf8')),bytes);assert.deepEqual(JSON.parse(bytes[0]).events.at(-1),other);
+ assert(api.applyRetained({root:temporary,selectedIds:api.surfIds}).every(s=>s.changed.length===2));const paths=['feeds/incoming/events.json','data/events.json'].map(f=>path.join(temporary,f)),bytes=paths.map(f=>fs.readFileSync(f,'utf8'));
+ assert(api.applyRetained({root:temporary,selectedIds:api.surfIds}).every(s=>s.changed.length===0));assert.deepEqual(paths.map(f=>fs.readFileSync(f,'utf8')),bytes);assert.deepEqual(JSON.parse(bytes[0]).events.at(-1),other);
  const pub=path.join(temporary,'publication.json'),out=path.join(temporary,'published.json');fs.writeFileSync(pub,JSON.stringify({...document,events:seeds.map(api.qualify)}));
  execFileSync(process.execPath,[path.join(root,'scripts/publish-feed.js'),pub,out,path.join(temporary,'meta.json'),path.join(temporary,'bundle.js'),'--preserve-known'],{cwd:root,stdio:'pipe'});
  for(const event of JSON.parse(fs.readFileSync(out)).events){assert(api.isUnconfirmedNote(event));assert.equal(event.sourceCheckedAt,seeds.find(s=>s.id===event.id).sourceCheckedAt);}
- const bad=JSON.parse(bytes[1]);bad.events.pop();bad.events.pop();fs.writeFileSync(paths[1],JSON.stringify(bad));assert.throws(()=>api.applyRetained({root:temporary}));assert.equal(fs.readFileSync(paths[0],'utf8'),bytes[0]);
+ const bad=JSON.parse(bytes[1]);bad.events.pop();bad.events.pop();fs.writeFileSync(paths[1],JSON.stringify(bad));assert.throws(()=>api.applyRetained({root:temporary,selectedIds:api.surfIds}));assert.equal(fs.readFileSync(paths[0],'utf8'),bytes[0]);
 }finally{fs.rmSync(temporary,{recursive:true,force:true});}
 if(!process.argv.includes('--unit-only'))for(const file of ['feeds/incoming/events.json','data/events.json']){
  const doc=JSON.parse(fs.readFileSync(path.join(root,file)));for(const id of api.ids){const event=doc.events.find(e=>e.id===id);assert(event);assert.deepEqual(api.qualify(event),event,`${file}: retained note repair missing`);}
 }
-assert(require('./update-cards').buildSteps({localOnly:true}).some(args=>args[0]==='scripts/lib/surf-calendar-notes.js'),'Full owner must retain the note review');
+assert(require('./update-cards').buildSteps({localOnly:true}).some(args=>args[0]==='scripts/lib/reviewed-calendar-notes.js'),'Full owner must retain the shared note review');
 const steps=require('./quick-results').projectionSteps(['Surf calendar notes']);assert(steps.some(args=>args[0]==='scripts/publish-feed.js')&&steps.some(args=>args[0]==='scripts/build-code-inspector.js'&&args[1]==='--codes=surf'),'Daily owner must publish the correct Surfing projection');
 console.log('Surf notes: strict unknown-date publication, real persistence/CLI, retained IDs/original clocks, no viewing/result/reminder fabrication, unchanged reruns and verified recovery pass.');
+require('./validate-reviewed-calendar-notes');

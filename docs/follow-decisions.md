@@ -1,5 +1,12 @@
 # Follow and Feed decisions
 
+## Shared retained calendar-note qualification — 5 October 2026
+
+The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.
+
+Full/quick/scoped projection continues through `scripts/update-cards.js`; old Surf scoped calls remain compatible. Both persistent surfaces preflight before writes; unchanged scoped reruns make no publication/provider check. No added source request, scheduler, retry, database operation, subscription or owner routine. Regressions: `validate-reviewed-calendar-notes.js` through the existing seeded-Surf gate, actual mobile/desktop renderers and cached upgrade/offline rehearsals. This repairs notes and gives no whole-sport coverage credit.
+
+
 ## Fixture sources survive preview research — 5 October 2026
 
 An empty or nonempty editorial preview keeps the existing fixture source/observation tuple. Research keeps its own nested provenance. The explicit reviewed-final path remains. Six retained upcoming F1 sessions recover missing source tuples only from exact alias/name/session/timing matches in the retained official schedule; no new source observation is implied. Preserve all sporting facts, action IDs, Follow choices, viewing, results, exclusions, Remind OFF and spoiler rules. Full/quick and the retained canonical projection share this repair; no new admission, polling or owner choice. Regression: the actual preview CLI on two real-file surfaces, strict source recovery/persistence and unchanged canonical rerun.

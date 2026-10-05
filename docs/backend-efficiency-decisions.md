@@ -1,5 +1,12 @@
 # Backend efficiency decisions
 
+## Shared retained calendar-note qualification — 5 October 2026
+
+The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.
+
+Full/quick/scoped projection continues through `scripts/update-cards.js`; old Surf scoped calls remain compatible. Both persistent surfaces preflight before writes; unchanged scoped reruns make no publication/provider check. No added source request, scheduler, retry, database operation, subscription or owner routine. Regressions: `validate-reviewed-calendar-notes.js` through the existing seeded-Surf gate, actual mobile/desktop renderers and cached upgrade/offline rehearsals. This repairs notes and gives no whole-sport coverage credit.
+
+
 ## Retained Surfing note integrity — 5 October 2026
 
 The full/daily canonical owner qualifies exactly two existing manual seeds from retained dated organiser evidence; no provider request is added. Complete both-surface preflight precedes writes. An unchanged scoped rerun preserves bytes and makes no publication or check. Retain original import/status dates and activity IDs; clear unsupported active timing/viewing/stakes rather than create an estimated window. Known legacy cached readers withhold the same claims without creating fresh evidence. Keep later independently verified observations, normal exception/release ownership and all existing budgets. No scheduler, polling, API, database operation, retry, purchase or recurring owner routine. Regression: validate-surf-calendar-notes.js through the existing seeded-Surf gate; actual cached-browser upgrade/offline and normal release checks.

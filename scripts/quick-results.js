@@ -44,12 +44,13 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
  if(changes.includes('Skiing calendar review'))codes.add('skiing');
  if(changes.includes('Surf calendar notes'))codes.add('surf');
+ if(changes.includes('Reviewed calendar notes'))['surf','motorsport'].forEach(code=>codes.add(code));
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
@@ -245,8 +246,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(f1Sources.some(surface=>surface.changed.length))changes.push('F1 schedule provenance');
  const skiReview=require('./lib/skiing-calendar-review').applyRetained();
  if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
- const surfNotes=require('./lib/surf-calendar-notes').applyRetained();
- if(surfNotes.some(surface=>surface.changed.length))changes.push('Surf calendar notes');
+ const calendarNotes=require('./lib/reviewed-calendar-notes').applyRetained();
+ if(calendarNotes.some(surface=>surface.changed.length))changes.push('Reviewed calendar notes');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
