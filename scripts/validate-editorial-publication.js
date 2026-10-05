@@ -5,12 +5,16 @@ const knowledge=JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json'));
 const feed=JSON.parse(fs.readFileSync('data/events.json'));
 const id='supercars-bathurst-1000-2026',current=feed.events.find(event=>event.id===id);
 const projection=require('./lib/editorial-narrative').projectionForTarget(knowledge,'feed-event',current);
-const old={...current,selectedSentence:'Old Mountain hook',fullSpiel:'Old context',editorialNarrative:{...current.editorialNarrative,projectionId:'projection:supercars-bathurst-1000-2026',hook:'Old Mountain hook',synopsis:'Old context',formCopy:undefined,closingCopy:undefined,researchedAt:'2026-09-24T01:50:44.155Z'},sourceCheckedAt:'2026-10-03T01:00:00Z'};
+// Keep temporal assertions relative to the real research, not a date that expires.
+const researchTime=Date.parse(current.editorialNarrative.researchedAt);
+assert(Number.isFinite(researchTime),'Published research must have a valid timestamp');
+const relativeTime=hours=>new Date(researchTime+hours*60*60*1000).toISOString();
+const old={...current,selectedSentence:'Old Mountain hook',fullSpiel:'Old context',editorialNarrative:{...current.editorialNarrative,projectionId:'projection:supercars-bathurst-1000-2026',hook:'Old Mountain hook',synopsis:'Old context',formCopy:undefined,closingCopy:undefined,researchedAt:relativeTime(-2)},sourceCheckedAt:relativeTime(1)};
 const [repaired]=publication.reconcileFullPreviews([old],knowledge);
 assert(policy.equalCopy(policy.copy(repaired),projection),'Current full research survives a newer score fetch');
 for(const key of Object.keys(old).filter(key=>!publication.fields.includes(key)))assert.deepEqual(repaired[key],old[key],key+' unchanged');
 assert.deepEqual(publication.reconcileFullPreviews([repaired],knowledge),[repaired],'Repeated publication stable');
-const newer={...repaired,editorialNarrative:{...repaired.editorialNarrative,hook:'New reviewed hook',researchedAt:'2026-10-03T02:00:00Z'}};
+const newer={...repaired,editorialNarrative:{...repaired.editorialNarrative,hook:'New reviewed hook',researchedAt:relativeTime(2)}};
 assert.deepEqual(publication.reconcileFullPreviews([newer],knowledge),[newer],'Newer editorial wins');
 for(const event of [{...old,status:'completed'},feed.events.find(event=>event.id==='evt_84')])assert.deepEqual(publication.reconcileFullPreviews([event],knowledge),[event],'Results and protected NRL copy retained');
 const copy=policy.copy(repaired),row={event_id:id,revision:0,staged_copy:copy};

@@ -1,1136 +1,17 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6",
-  "generatedAt": "2026-10-04T05:53:27.325Z",
+  "sourceRevision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901",
+  "generatedAt": "2026-10-05T04:24:28.573Z",
   "shadowMode": true,
   "summary": {
-    "stakesFiveFuture": 62,
-    "shown": 117,
-    "eligible": 117,
+    "stakesFiveFuture": 58,
+    "shown": 113,
+    "eligible": 113,
     "watching": 0,
-    "actionable": 117,
+    "actionable": 113,
     "late": 0
   },
   "candidates": [
-    {
-      "campaignId": "marquee_05d1f0357f05fd2a",
-      "campaignRevision": 1,
-      "eventId": "event:motogp:2026:japan",
-      "contentHash": "c1293a575aec1a220610c3cfaec1dc5f87a2bcc2c01962fd4cd5626aa0749529",
-      "state": "draft",
-      "actionable": true,
-      "late": false,
-      "proposedSendAt": "2026-10-03T22:00:00.000Z",
-      "posting": {
-        "kind": "day-of",
-        "at": "2026-10-03T22:00:00.000Z",
-        "estimated": false,
-        "mergedPreview": true
-      },
-      "readyForExport": true,
-      "readinessIssues": [],
-      "machineSort": {
-        "proposedSendAt": "2026-10-03T22:00:00.000Z",
-        "fixtureStartAt": "2026-10-04T05:00:00.000Z",
-        "fixtureDate": "2026-10-04"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "communityEligible": false,
-        "majorEvent": false,
-        "confirmedUtcStart": true
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-04T05:00:00.000Z",
-        "endTimeUtc": "2026-10-04T06:20:00.000Z",
-        "estimatedStartAt": null,
-        "fixtureDate": "2026-10-04",
-        "estimateBasis": "confirmed",
-        "sydneyStart": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "4:00 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "5:20 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "MotoGP official calendar and premier-class timetable",
-        "url": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
-        "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
-      },
-      "material": {
-        "title": "MotoGP Japan Grand Prix",
-        "recognisableTitle": "MotoGP Japan Grand Prix",
-        "matchupLabel": "",
-        "participants": [],
-        "sport": "MotoGP",
-        "competition": "competition:motogp",
-        "venue": "Mobility Resort Motegi",
-        "broadcaster": "Fox Sports via Kayo / Foxtel",
-        "displayDate": "2026-10-04",
-        "stakes": 5,
-        "rating": {
-          "value": 5,
-          "editorialValue": 5,
-          "rawMean": null,
-          "count": 0,
-          "source": "editorial",
-          "label": "5.0/5 editorial stakes",
-          "animationPreset": "subtle"
-        },
-        "kind": "fixture"
-      },
-      "identities": {
-        "teams": [],
-        "code": {
-          "label": "MotoGP",
-          "path": "/assets/brand/web/nothingsport-app-icon.png",
-          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
-          "provenance": {
-            "registry": "Nothing Sport",
-            "rightsStatus": "owned"
-          }
-        }
-      },
-      "live": {
-        "headline": "MotoGP Japan Grand Prix",
-        "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-        "kicker": "5.0/5 editorial stakes · MotoGP",
-        "hero": {
-          "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "teams-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle"
-      },
-      "drafts": {
-        "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-        "email": {
-          "subject": "Today: MotoGP Japan Grand Prix",
-          "preheader": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-          "headline": "MotoGP Japan Grand Prix",
-          "bodyParagraphs": [
-            "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-            "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed.",
-            "MotoGP Japan Grand Prix is Sun 4 Oct 2026 at 4:00 pm AEDT at Mobility Resort Motegi. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
-          ],
-          "timingLine": "MotoGP Japan Grand Prix: Sun 4 Oct 2026 at 4:00 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
-          "primaryCta": {
-            "label": "Set a reminder / rate / watch party",
-            "url": "https://nothingsport.vercel.app/?event=evt_motogp_2026_japan"
-          },
-          "secondaryCta": {
-            "label": "Open live countdown",
-            "url": "https://nothingsport.vercel.app/live?campaign=marquee_05d1f0357f05fd2a"
-          },
-          "image": {
-            "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "suggestedSendAt": {
-            "utc": "2026-10-03T22:00:00.000Z",
-            "sydney": {
-              "day": "Sun",
-              "weekday": "Sunday",
-              "date": "Sun 4 Oct 2026",
-              "time": "9:00 am",
-              "timezone": "AEDT"
-            }
-          },
-          "joinUrl": "https://nothingsport.vercel.app/?event=evt_motogp_2026_japan",
-          "ratingUrl": "https://nothingsport.vercel.app/?event=evt_motogp_2026_japan"
-        },
-        "instagram": {
-          "caption": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.\n\nMotoGP Japan Grand Prix is Sun 4 Oct 2026 at 4:00 pm AEDT at Mobility Resort Motegi. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
-          "image": {
-            "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "when": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "4:00 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "5:20 pm",
-          "timezone": "AEDT"
-        },
-        "live": {
-          "headline": "MotoGP Japan Grand Prix",
-          "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-          "kicker": "5.0/5 editorial stakes · MotoGP",
-          "hero": {
-            "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "teams-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle"
-        }
-      },
-      "editorial": {
-        "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-        "body": [
-          "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
-          "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed."
-        ],
-        "sourceIds": [
-          "source:fixture-research:evt_motogp_2026_japan:0",
-          "source:fixture-research:evt_motogp_2026_japan:1",
-          "source:fixture-research:evt_motogp_2026_japan:2"
-        ],
-        "researchedAt": "2026-10-01T23:21:33.194Z"
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_05d1f0357f05fd2a-c1293a575aec.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: MotoGP Japan Grand Prix. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      },
-      "channels": {
-        "email": {
-          "enabled": false
-        },
-        "social": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": true,
-        "liveUrl": "https://nothingsport.vercel.app/live?campaign=marquee_05d1f0357f05fd2a",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Ajapan?campaign=marquee_05d1f0357f05fd2a",
-        "eventUrl": "https://nothingsport.vercel.app/?event=evt_motogp_2026_japan",
-        "ratingWindow": {
-          "opensAt": "2026-10-04T06:20:00.000Z",
-          "closesAt": "2026-10-11T06:20:00.000Z"
-        }
-      }
-    },
-    {
-      "campaignId": "marquee_09ca277adb8b66c2",
-      "campaignRevision": 1,
-      "eventId": "event:nrlw:2026:grand-final",
-      "contentHash": "2311c4bc95c60c5966e3efff2572556281929faa6ff95067e60065866e76eac5",
-      "state": "draft",
-      "actionable": true,
-      "late": false,
-      "proposedSendAt": "2026-10-03T22:00:00.000Z",
-      "posting": {
-        "kind": "day-of",
-        "at": "2026-10-03T22:00:00.000Z",
-        "estimated": false,
-        "mergedPreview": true
-      },
-      "readyForExport": true,
-      "readinessIssues": [],
-      "machineSort": {
-        "proposedSendAt": "2026-10-03T22:00:00.000Z",
-        "fixtureStartAt": "2026-10-04T05:00:00.000Z",
-        "fixtureDate": "2026-10-04"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "communityEligible": false,
-        "majorEvent": false,
-        "confirmedUtcStart": true
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-04T05:00:00.000Z",
-        "endTimeUtc": "2026-10-04T08:00:00.000Z",
-        "estimatedStartAt": null,
-        "fixtureDate": "2026-10-04",
-        "estimateBasis": "confirmed",
-        "sydneyStart": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "4:00 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "7:00 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "Accor Stadium official Grand Final programme",
-        "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-        "checkedAt": "2026-09-27T13:57:48.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
-      },
-      "material": {
-        "title": "Roosters v Broncos",
-        "recognisableTitle": "Roosters v Broncos",
-        "matchupLabel": "Sydney Roosters v Brisbane Broncos",
-        "participants": [
-          "Sydney Roosters",
-          "Brisbane Broncos"
-        ],
-        "sport": "NRLW",
-        "competition": "competition:nrlw-premiership-2026",
-        "venue": "Accor Stadium",
-        "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-        "displayDate": "2026-10-04",
-        "stakes": 5,
-        "rating": {
-          "value": 5,
-          "editorialValue": 5,
-          "rawMean": null,
-          "count": 0,
-          "source": "editorial",
-          "label": "5.0/5 editorial stakes",
-          "animationPreset": "subtle"
-        },
-        "kind": "fixture"
-      },
-      "identities": {
-        "teams": [
-          {
-            "label": "Sydney Roosters",
-            "path": "/assets/identities/nrlw-roosters.svg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/identities/nrlw-roosters.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://www.nrl.com/clubs/",
-              "rightsStatus": "official-reference"
-            }
-          },
-          {
-            "label": "Brisbane Broncos",
-            "path": "/assets/identities/nrlw-broncos.svg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/identities/nrlw-broncos.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://www.nrl.com/clubs/",
-              "rightsStatus": "official-reference"
-            }
-          }
-        ],
-        "code": {
-          "label": "NRLW",
-          "path": "/assets/icons/sporticon/rugby.svg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/rugby.svg",
-          "provenance": {
-            "registry": "card-identities.v4",
-            "sourceUrl": "https://github.com/ookamiinc/sporticon",
-            "rightsStatus": "open-use"
-          }
-        }
-      },
-      "live": {
-        "headline": "Roosters v Broncos",
-        "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-        "kicker": "5.0/5 editorial stakes · NRLW",
-        "hero": {
-          "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "teams-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle"
-      },
-      "drafts": {
-        "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-        "email": {
-          "subject": "Today: Roosters v Broncos",
-          "preheader": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-          "headline": "Roosters v Broncos",
-          "bodyParagraphs": [
-            "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-            "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
-            "Roosters v Broncos is Sun 4 Oct 2026 at 4:00 pm AEDT at Accor Stadium. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
-          ],
-          "timingLine": "Roosters v Broncos: Sun 4 Oct 2026 at 4:00 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Nine / 9Now / Fox Sports / Kayo.",
-          "primaryCta": {
-            "label": "Set a reminder / rate / watch party",
-            "url": "https://nothingsport.vercel.app/?event=evt_nrlw_2026_grand_final"
-          },
-          "secondaryCta": {
-            "label": "Open live countdown",
-            "url": "https://nothingsport.vercel.app/live?campaign=marquee_09ca277adb8b66c2"
-          },
-          "image": {
-            "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "suggestedSendAt": {
-            "utc": "2026-10-03T22:00:00.000Z",
-            "sydney": {
-              "day": "Sun",
-              "weekday": "Sunday",
-              "date": "Sun 4 Oct 2026",
-              "time": "9:00 am",
-              "timezone": "AEDT"
-            }
-          },
-          "joinUrl": "https://nothingsport.vercel.app/?event=evt_nrlw_2026_grand_final",
-          "ratingUrl": "https://nothingsport.vercel.app/?event=evt_nrlw_2026_grand_final"
-        },
-        "instagram": {
-          "caption": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.\n\nRoosters v Broncos is Sun 4 Oct 2026 at 4:00 pm AEDT at Accor Stadium. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
-          "image": {
-            "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "when": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "4:00 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "7:00 pm",
-          "timezone": "AEDT"
-        },
-        "live": {
-          "headline": "Roosters v Broncos",
-          "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-          "kicker": "5.0/5 editorial stakes · NRLW",
-          "hero": {
-            "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          },
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "teams-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle"
-        }
-      },
-      "editorial": {
-        "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-        "body": [
-          "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
-          "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match."
-        ],
-        "sourceIds": [
-          "source:fixture-research:evt_nrlw_2026_grand_final:0",
-          "source:fixture-research:evt_nrlw_2026_grand_final:1",
-          "source:fixture-research:evt_nrlw_2026_grand_final:2"
-        ],
-        "researchedAt": "2026-10-01T23:21:33.194Z"
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_09ca277adb8b66c2-2311c4bc95c6.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Roosters v Broncos. Sun 4 Oct 2026 at 4:00 pm AEDT."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      },
-      "channels": {
-        "email": {
-          "enabled": false
-        },
-        "social": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": true,
-        "liveUrl": "https://nothingsport.vercel.app/live?campaign=marquee_09ca277adb8b66c2",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?campaign=marquee_09ca277adb8b66c2",
-        "eventUrl": "https://nothingsport.vercel.app/?event=evt_nrlw_2026_grand_final",
-        "ratingWindow": {
-          "opensAt": "2026-10-04T08:00:00.000Z",
-          "closesAt": "2026-10-11T08:00:00.000Z"
-        }
-      }
-    },
-    {
-      "campaignId": "marquee_19204ef3e8dc8023",
-      "campaignRevision": 1,
-      "eventId": "event:f1:2026:bahrain:race",
-      "contentHash": "29dc7af32dca8428ae7878db1bf65d159a65c61dfb3341c9cdfc3bdfd623c0b9",
-      "state": "draft",
-      "actionable": true,
-      "late": false,
-      "proposedSendAt": "2026-10-03T22:00:00.000Z",
-      "posting": {
-        "kind": "day-of",
-        "at": "2026-10-03T22:00:00.000Z",
-        "estimated": false,
-        "mergedPreview": true
-      },
-      "readyForExport": true,
-      "readinessIssues": [],
-      "machineSort": {
-        "proposedSendAt": "2026-10-03T22:00:00.000Z",
-        "fixtureStartAt": "2026-10-04T07:00:00.000Z",
-        "fixtureDate": "2026-10-04"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "communityEligible": false,
-        "majorEvent": false,
-        "confirmedUtcStart": true
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-04T07:00:00.000Z",
-        "endTimeUtc": "2026-10-04T09:00:00.000Z",
-        "estimatedStartAt": null,
-        "fixtureDate": "2026-10-04",
-        "estimateBasis": "confirmed",
-        "sydneyStart": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "6:00 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "8:00 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "Official fixture context",
-        "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-        "checkedAt": "2026-10-04T05:51:14.341Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
-      },
-      "material": {
-        "title": "Bahrain GP (Malaysia) · Race",
-        "recognisableTitle": "Bahrain GP (Malaysia) · Race",
-        "matchupLabel": "",
-        "participants": [],
-        "sport": "Formula 1",
-        "competition": "competition:formula-one",
-        "venue": "Sepang International Circuit",
-        "broadcaster": "Fox Sports via Kayo / Foxtel",
-        "displayDate": "2026-10-04",
-        "stakes": 5,
-        "rating": {
-          "value": 5,
-          "editorialValue": 5,
-          "rawMean": null,
-          "count": 0,
-          "source": "editorial",
-          "label": "5.0/5 editorial stakes",
-          "animationPreset": "subtle"
-        },
-        "kind": "fixture"
-      },
-      "identities": {
-        "teams": [],
-        "code": {
-          "label": "Formula One",
-          "path": "/assets/icons/sporticon/motorsports.svg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/motorsports.svg",
-          "provenance": {
-            "registry": "card-identities.v4",
-            "sourceUrl": "https://github.com/ookamiinc/sporticon",
-            "rightsStatus": "open-use"
-          }
-        }
-      },
-      "live": {
-        "headline": "Bahrain GP (Malaysia) · Race",
-        "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-        "kicker": "5.0/5 editorial stakes · Formula 1",
-        "hero": {
-          "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-        },
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "teams-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle"
-      },
-      "drafts": {
-        "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-        "email": {
-          "subject": "Today: Bahrain GP (Malaysia) · Race",
-          "preheader": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-          "headline": "Bahrain GP (Malaysia) · Race",
-          "bodyParagraphs": [
-            "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-            "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
-            "Bahrain GP (Malaysia) · Race is Sun 4 Oct 2026 at 6:00 pm AEDT at Sepang International Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
-          ],
-          "timingLine": "Bahrain GP (Malaysia) · Race: Sun 4 Oct 2026 at 6:00 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
-          "primaryCta": {
-            "label": "Set a reminder / rate / watch party",
-            "url": "https://nothingsport.vercel.app/?event=evt_f1_2026_bahrain_race"
-          },
-          "secondaryCta": {
-            "label": "Open live countdown",
-            "url": "https://nothingsport.vercel.app/live?campaign=marquee_19204ef3e8dc8023"
-          },
-          "image": {
-            "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-          },
-          "suggestedSendAt": {
-            "utc": "2026-10-03T22:00:00.000Z",
-            "sydney": {
-              "day": "Sun",
-              "weekday": "Sunday",
-              "date": "Sun 4 Oct 2026",
-              "time": "9:00 am",
-              "timezone": "AEDT"
-            }
-          },
-          "joinUrl": "https://nothingsport.vercel.app/?event=evt_f1_2026_bahrain_race",
-          "ratingUrl": "https://nothingsport.vercel.app/?event=evt_f1_2026_bahrain_race"
-        },
-        "instagram": {
-          "caption": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.\n\nBahrain GP (Malaysia) · Race is Sun 4 Oct 2026 at 6:00 pm AEDT at Sepang International Circuit. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
-          "image": {
-            "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-          },
-          "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-        },
-        "when": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "6:00 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "8:00 pm",
-          "timezone": "AEDT"
-        },
-        "live": {
-          "headline": "Bahrain GP (Malaysia) · Race",
-          "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-          "kicker": "5.0/5 editorial stakes · Formula 1",
-          "hero": {
-            "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-          },
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "teams-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle"
-        }
-      },
-      "editorial": {
-        "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-        "body": [
-          "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
-          "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap."
-        ],
-        "sourceIds": [
-          "source:fixture-research:evt_f1_2026_bahrain_race:0",
-          "source:fixture-research:evt_f1_2026_bahrain_race:1",
-          "source:fixture-research:evt_f1_2026_bahrain_race:2"
-        ],
-        "researchedAt": "2026-10-01T23:21:33.194Z"
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_19204ef3e8dc8023-29dc7af32dca.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Bahrain GP (Malaysia) · Race. Sun 4 Oct 2026 at 6:00 pm AEDT."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      },
-      "channels": {
-        "email": {
-          "enabled": false
-        },
-        "social": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": true,
-        "liveUrl": "https://nothingsport.vercel.app/live?campaign=marquee_19204ef3e8dc8023",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Af1%3A2026%3Abahrain%3Arace?campaign=marquee_19204ef3e8dc8023",
-        "eventUrl": "https://nothingsport.vercel.app/?event=evt_f1_2026_bahrain_race",
-        "ratingWindow": {
-          "opensAt": "2026-10-04T09:00:00.000Z",
-          "closesAt": "2026-10-11T09:00:00.000Z"
-        }
-      }
-    },
-    {
-      "campaignId": "marquee_bbba5263791772fc",
-      "campaignRevision": 1,
-      "eventId": "evt_84",
-      "contentHash": "b2b1bd46ea3ded4e0be68a14c95bbf8a8202cc8dde81d43c349c40d8d746c770",
-      "state": "draft",
-      "actionable": true,
-      "late": false,
-      "proposedSendAt": "2026-10-03T22:00:00.000Z",
-      "posting": {
-        "kind": "day-of",
-        "at": "2026-10-03T22:00:00.000Z",
-        "estimated": false,
-        "mergedPreview": true
-      },
-      "readyForExport": true,
-      "readinessIssues": [],
-      "machineSort": {
-        "proposedSendAt": "2026-10-03T22:00:00.000Z",
-        "fixtureStartAt": "2026-10-04T08:30:00.000Z",
-        "fixtureDate": "2026-10-04"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "communityEligible": false,
-        "majorEvent": false,
-        "confirmedUtcStart": true
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-04T08:30:00.000Z",
-        "endTimeUtc": "2026-10-04T11:30:00.000Z",
-        "estimatedStartAt": null,
-        "fixtureDate": "2026-10-04",
-        "estimateBasis": "confirmed",
-        "sydneyStart": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "7:30 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "10:30 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "Accor Stadium official Grand Final programme",
-        "url": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
-        "checkedAt": "2026-09-30T22:37:31.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
-      },
-      "material": {
-        "title": "NRL Grand Final: Roosters v Knights",
-        "recognisableTitle": "NRL Grand Final: Roosters v Knights",
-        "matchupLabel": "Roosters v Knights",
-        "participants": [
-          "Roosters",
-          "Knights"
-        ],
-        "sport": "NRL",
-        "competition": "competition:nrl-premiership-2026",
-        "venue": "Accor Stadium",
-        "broadcaster": "Nine, 9Now",
-        "displayDate": "2026-10-04",
-        "stakes": 5,
-        "rating": {
-          "value": 5,
-          "editorialValue": 5,
-          "rawMean": null,
-          "count": 0,
-          "source": "editorial",
-          "label": "5.0/5 editorial stakes",
-          "animationPreset": "subtle"
-        },
-        "kind": "fixture"
-      },
-      "identities": {
-        "teams": [
-          {
-            "label": "roosters",
-            "path": "https://www.nrl.com/.theme/roosters/badge.svg",
-            "publicUrl": "https://www.nrl.com/.theme/roosters/badge.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://www.nrl.com/clubs/",
-              "rightsStatus": "official-reference"
-            }
-          },
-          {
-            "label": "knights",
-            "path": "https://www.nrl.com/.theme/knights/badge-light.svg",
-            "publicUrl": "https://www.nrl.com/.theme/knights/badge-light.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://www.nrl.com/clubs/",
-              "rightsStatus": "official-reference"
-            }
-          }
-        ],
-        "code": {
-          "label": "Rugby",
-          "path": "/assets/icons/sporticon/rugby.svg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/rugby.svg",
-          "provenance": {
-            "registry": "card-identities.v4",
-            "sourceUrl": "https://github.com/ookamiinc/sporticon",
-            "rightsStatus": "open-use"
-          }
-        }
-      },
-      "live": {
-        "headline": "NRL Grand Final: Roosters v Knights",
-        "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-        "kicker": "5.0/5 editorial stakes · NRL",
-        "hero": {
-          "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-        },
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "teams-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle"
-      },
-      "drafts": {
-        "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-        "email": {
-          "subject": "Today: NRL Grand Final: Roosters v Knights",
-          "preheader": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-          "headline": "NRL Grand Final: Roosters v Knights",
-          "bodyParagraphs": [
-            "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-            "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
-            "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
-            "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
-            "Roosters v Knights is Sun 4 Oct 2026 at 7:30 pm AEDT at Accor Stadium. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
-          ],
-          "timingLine": "NRL Grand Final: Roosters v Knights: Sun 4 Oct 2026 at 7:30 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Nine, 9Now.",
-          "primaryCta": {
-            "label": "Set a reminder / rate / watch party",
-            "url": "https://nothingsport.vercel.app/?event=evt_84"
-          },
-          "secondaryCta": {
-            "label": "Open live countdown",
-            "url": "https://nothingsport.vercel.app/live?campaign=marquee_bbba5263791772fc"
-          },
-          "image": {
-            "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-          },
-          "suggestedSendAt": {
-            "utc": "2026-10-03T22:00:00.000Z",
-            "sydney": {
-              "day": "Sun",
-              "weekday": "Sunday",
-              "date": "Sun 4 Oct 2026",
-              "time": "9:00 am",
-              "timezone": "AEDT"
-            }
-          },
-          "joinUrl": "https://nothingsport.vercel.app/?event=evt_84",
-          "ratingUrl": "https://nothingsport.vercel.app/?event=evt_84"
-        },
-        "instagram": {
-          "caption": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.\n\nRoosters v Knights is Sun 4 Oct 2026 at 7:30 pm AEDT at Accor Stadium. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
-          "image": {
-            "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-          },
-          "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-        },
-        "when": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "7:30 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Sun",
-          "weekday": "Sunday",
-          "date": "Sun 4 Oct 2026",
-          "time": "10:30 pm",
-          "timezone": "AEDT"
-        },
-        "live": {
-          "headline": "NRL Grand Final: Roosters v Knights",
-          "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-          "kicker": "5.0/5 editorial stakes · NRL",
-          "hero": {
-            "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-          },
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "teams-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle"
-        }
-      },
-      "editorial": {
-        "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-        "body": [
-          "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
-          "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
-          "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
-          "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
-        ],
-        "sourceIds": [
-          "source:fixture-research:evt_84:0",
-          "source:fixture-research:evt_84:1",
-          "source:fixture-research:evt_84:2",
-          "source:fixture-research:evt_84:3",
-          "source:fixture-research:evt_84:4",
-          "source:fixture-research:evt_84:5",
-          "source:fixture-research:evt_84:6"
-        ],
-        "researchedAt": "2026-10-01T23:58:25.032Z"
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_bbba5263791772fc-b2b1bd46ea3d.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: NRL Grand Final: Roosters v Knights. Sun 4 Oct 2026 at 7:30 pm AEDT."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      },
-      "channels": {
-        "email": {
-          "enabled": false
-        },
-        "social": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": true,
-        "liveUrl": "https://nothingsport.vercel.app/live?campaign=marquee_bbba5263791772fc",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/evt_84?campaign=marquee_bbba5263791772fc",
-        "eventUrl": "https://nothingsport.vercel.app/?event=evt_84",
-        "ratingWindow": {
-          "opensAt": "2026-10-04T11:30:00.000Z",
-          "closesAt": "2026-10-11T11:30:00.000Z"
-        }
-      }
-    },
     {
       "campaignId": "marquee_fc13d522ae846e33",
       "campaignRevision": 1,
@@ -1183,7 +64,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-04T05:51:14.341Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -1400,7 +281,7 @@
       "campaignId": "marquee_3243a17456931565",
       "campaignRevision": 1,
       "eventId": "supercars-bathurst-1000-2026",
-      "contentHash": "8a24c275ec6ef46f2bc2cda818a37323de4183eadb7102106dcf95ab2039f8a7",
+      "contentHash": "51fd8a1419922b79bacfae8e57185b7b0aef6bcb5d00bd98c23bbac2f90294fb",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -1448,7 +329,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -1486,11 +367,11 @@
       },
       "live": {
         "headline": "Bathurst 1000",
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "kicker": "5.0/5 editorial stakes · V8 Supercars",
         "hero": {
-          "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+          "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1510,16 +391,16 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "email": {
           "subject": "Coming up: Bathurst 1000",
-          "preheader": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+          "preheader": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
           "headline": "Bathurst 1000",
           "bodyParagraphs": [
-            "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-            "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-            "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-            "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+            "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+            "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+            "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+            "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list.",
             "Bathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bathurst 1000: Sun 11 Oct 2026 at 11:30 am AEDT.",
@@ -1533,8 +414,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_3243a17456931565"
           },
           "image": {
-            "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+            "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1555,10 +436,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=supercars-bathurst-1000-2026"
         },
         "instagram": {
-          "caption": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.\n\nBathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.\n\nBathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+            "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1583,11 +464,11 @@
         },
         "live": {
           "headline": "Bathurst 1000",
-          "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+          "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
           "kicker": "5.0/5 editorial stakes · V8 Supercars",
           "hero": {
-            "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+            "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1608,24 +489,25 @@
         }
       },
       "editorial": {
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "body": [
-          "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-          "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-          "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-          "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name."
+          "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+          "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+          "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+          "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list."
         ],
         "sourceIds": [
           "source:fixture-research:supercars-bathurst-1000-2026:0",
           "source:fixture-research:supercars-bathurst-1000-2026:1",
-          "source:fixture-research:supercars-bathurst-1000-2026:2"
+          "source:fixture-research:supercars-bathurst-1000-2026:2",
+          "source:fixture-research:supercars-bathurst-1000-2026:3"
         ],
-        "researchedAt": "2026-10-02T13:35:19.426Z"
+        "researchedAt": "2026-10-04T22:29:59.987Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+          "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1634,8 +516,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-8a24c275ec6e.jpg",
+            "path": "/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3243a17456931565-51fd8a141992.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1716,7 +598,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -1981,7 +863,7 @@
         "name": "Official fixture context",
         "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
         "checkedAt": "2026-10-04T05:51:14.341Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2198,7 +1080,7 @@
       "campaignId": "marquee_aa9b349de75d9133",
       "campaignRevision": 1,
       "eventId": "supercars-bathurst-1000-2026",
-      "contentHash": "7e04b0f78e4cd195e0f002438a575985d66908df8440b78bc2ee5e9b705bb52c",
+      "contentHash": "f4c474d5ff8604ce86ce98382ced0ff89463a2cef3c2800131e0c7dcca43f5b4",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -2247,7 +1129,7 @@
         "name": "Supercars",
         "url": "https://www.supercars.com/events/2026-bathurst-1000",
         "checkedAt": "2026-09-24T01:50:44.155Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Bathurst 1000",
@@ -2285,11 +1167,11 @@
       },
       "live": {
         "headline": "Bathurst 1000",
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "kicker": "5.0/5 editorial stakes · V8 Supercars",
         "hero": {
-          "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+          "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2309,16 +1191,16 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "email": {
           "subject": "Today: Bathurst 1000",
-          "preheader": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+          "preheader": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
           "headline": "Bathurst 1000",
           "bodyParagraphs": [
-            "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-            "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-            "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-            "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+            "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+            "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+            "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+            "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list.",
             "Bathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bathurst 1000: Sun 11 Oct 2026 at 11:30 am AEDT.",
@@ -2332,8 +1214,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_aa9b349de75d9133"
           },
           "image": {
-            "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+            "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2354,10 +1236,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=supercars-bathurst-1000-2026"
         },
         "instagram": {
-          "caption": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.\n\nBathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.\n\nBathurst 1000 is Sun 11 Oct 2026 at 11:30 am AEDT at Mount Panorama. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+            "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2382,11 +1264,11 @@
         },
         "live": {
           "headline": "Bathurst 1000",
-          "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+          "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
           "kicker": "5.0/5 editorial stakes · V8 Supercars",
           "hero": {
-            "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+            "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2407,24 +1289,25 @@
         }
       },
       "editorial": {
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
         "body": [
-          "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-          "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-          "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-          "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name."
+          "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+          "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+          "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+          "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list."
         ],
         "sourceIds": [
           "source:fixture-research:supercars-bathurst-1000-2026:0",
           "source:fixture-research:supercars-bathurst-1000-2026:1",
-          "source:fixture-research:supercars-bathurst-1000-2026:2"
+          "source:fixture-research:supercars-bathurst-1000-2026:2",
+          "source:fixture-research:supercars-bathurst-1000-2026:3"
         ],
-        "researchedAt": "2026-10-02T13:35:19.426Z"
+        "researchedAt": "2026-10-04T22:29:59.987Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+          "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2433,8 +1316,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-7e04b0f78e4c.jpg",
+            "path": "/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_aa9b349de75d9133-f4c474d5ff86.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2516,7 +1399,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Indonesia Grand Prix",
@@ -2782,7 +1665,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3048,7 +1931,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -3342,7 +2225,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -3638,7 +2521,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -3905,7 +2788,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -4200,7 +3083,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -4493,7 +3376,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -4758,7 +3641,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -5022,7 +3905,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5287,7 +4170,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -5551,7 +4434,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -5816,7 +4699,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -6082,7 +4965,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -6348,7 +5231,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -6612,7 +5495,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -6879,7 +5762,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -7146,7 +6029,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -7411,7 +6294,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -7677,7 +6560,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -7945,7 +6828,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -8211,7 +7094,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -8475,7 +7358,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -8739,7 +7622,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-04T05:50:20.817Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -9003,7 +7886,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -9272,7 +8155,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -9539,7 +8422,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -9804,7 +8687,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -10069,7 +8952,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-04T05:50:20.817Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -10332,7 +9215,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10601,7 +9484,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -10869,7 +9752,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11131,7 +10014,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -11399,7 +10282,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -11662,7 +10545,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -11929,7 +10812,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12192,7 +11075,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -12454,7 +11337,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12717,7 +11600,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -12979,7 +11862,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -13242,7 +12125,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -13505,7 +12388,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -13768,7 +12651,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -14030,7 +12913,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -14294,7 +13177,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -14558,7 +13441,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -14821,7 +13704,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -15085,7 +13968,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -15349,7 +14232,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -15612,7 +14495,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -15876,7 +14759,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -16139,7 +15022,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -16402,7 +15285,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -16664,7 +15547,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -16927,7 +15810,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -17189,7 +16072,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -17452,7 +16335,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -17714,7 +16597,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -17977,7 +16860,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -18240,7 +17123,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -18503,7 +17386,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -18767,7 +17650,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -19031,7 +17914,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -19294,7 +18177,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -19558,7 +18441,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -19822,7 +18705,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -20086,7 +18969,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -20349,7 +19232,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -20612,7 +19495,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -20874,7 +19757,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -21137,7 +20020,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -21399,7 +20282,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -21662,7 +20545,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -21925,7 +20808,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -22188,7 +21071,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -22452,7 +21335,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -22716,7 +21599,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -22979,7 +21862,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -23243,7 +22126,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -23507,7 +22390,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -23771,7 +22654,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -24034,7 +22917,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -24297,7 +23180,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -24559,7 +23442,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -24822,7 +23705,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -25084,7 +23967,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "The 155th Open",
@@ -25347,7 +24230,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -25610,7 +24493,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -25873,7 +24756,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -26135,7 +25018,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -26399,7 +25282,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "The 155th Open",
@@ -26663,7 +25546,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -26926,7 +25809,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -27190,7 +26073,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -27454,7 +26337,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -27717,7 +26600,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -27981,7 +26864,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -28244,7 +27127,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -28507,7 +27390,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -28769,7 +27652,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -29032,7 +27915,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -29294,7 +28177,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -29557,7 +28440,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -29819,7 +28702,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -30082,7 +28965,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -30344,7 +29227,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -30607,7 +29490,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-04T05:50:21.280Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -30867,7 +29750,7 @@
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20261004055231430@2026-10-04T05:52:31.430Z:d1dbff74eda6"
+        "revision": "weekend-editorial-20261005042316475@2026-10-05T04:23:16.475Z:a9919f406901"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",

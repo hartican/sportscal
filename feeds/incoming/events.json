@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1",
-  "publishedAt": "2026-10-04T08:38:24.766Z",
+  "version": "weekend-editorial-20261005042316475",
+  "publishedAt": "2026-10-05T04:23:16.475Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -102523,12 +102523,12 @@
         "stakes": 5,
         "intensity": 5,
         "arcStage": "preview",
-        "hookSpoilerOff": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-        "hookSpoilerOn": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-        "synopsisSpoilerOff": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-        "synopsisSpoilerOn": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
+        "hookSpoilerOff": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+        "hookSpoilerOn": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+        "synopsisSpoilerOff": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+        "synopsisSpoilerOn": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
         "researchDepth": 5,
-        "lastReviewedAt": "2026-10-02T13:35:19.426Z",
+        "lastReviewedAt": "2026-10-04T22:29:59.987Z",
         "expectedSpectacle": 10,
         "intensitySource": "computed"
       },
@@ -102613,16 +102613,16 @@
         ],
         "reason": "Bathurst 1000 and Enduro Cup finale"
       },
-      "selectedSentence": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-      "fullSpiel": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
+      "selectedSentence": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+      "fullSpiel": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
         "researchTier": "marquee",
-        "hook": "Toyota joins the Mountain fight as reshuffled driver pairings chase the Great Race and the final Enduro Cup places.",
-        "synopsis": "Bathurst starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama. Its 161 laps span roughly 1000 kilometres on the 6.213km circuit and close the Ryco Enduro Cup before the championship Finals Series. The endurance title guarantees a Finals berth; the post-enduro top ten also advance. Toyota's GR Supra joins Ford and Chevrolet this season, putting reliability, driver changes and pit work under pressure over the distance.",
-        "formCopy": "Most endurance partnerships have changed for 2026: only six combinations carried over unchanged from last year. Chaz Mostert stays with Fabian Coulthard, while Ryan Wood now shares with Jaxon Evans. Matt Payne is paired with Will Davison and Broc Feeney with Nick Percat. Familiar names are therefore not always familiar units; the co-driver stints are part of the competitive picture, not a pause between star turns.",
-        "closingCopy": "Bathurst asks teams to trust somebody else with the car they have worked on all year. For supporters, a season of manufacturer loyalty becomes a very personal day of hope and nerves; Toyota's first full Supercars season adds a new side to that argument. For crews and co-drivers, execution matters as much as the headline name. Garry Rogers Motorsport's returning wildcard brings another emotional thread, with Nathan Herne and James Moffat carrying the revived team name.",
+        "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
+        "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
+        "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+        "closingCopy": "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list.",
         "threadIds": [
           "thread:fixture-research:supercars-bathurst-1000-2026"
         ],
@@ -102638,18 +102638,18 @@
         "sourceIds": [
           "source:fixture-research:supercars-bathurst-1000-2026:0",
           "source:fixture-research:supercars-bathurst-1000-2026:1",
-          "source:fixture-research:supercars-bathurst-1000-2026:2"
+          "source:fixture-research:supercars-bathurst-1000-2026:2",
+          "source:fixture-research:supercars-bathurst-1000-2026:3"
         ],
         "dimensions": [
           "schedule",
           "venue",
-          "consequence",
-          "path",
           "form",
           "matchup",
+          "consequence",
           "history"
         ],
-        "researchedAt": "2026-10-02T13:35:19.426Z",
+        "researchedAt": "2026-10-04T22:29:59.987Z",
         "refreshAfter": "2026-10-11T00:30:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
@@ -102661,15 +102661,14 @@
           "event-specific",
           "narrative:schedule",
           "narrative:venue",
-          "narrative:consequence",
-          "narrative:path",
           "narrative:form",
           "narrative:matchup",
+          "narrative:consequence",
           "narrative:history"
         ],
         "sourceName": "Bathurst 1000 — official research 1",
         "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
-        "sourceCheckedAt": "2026-10-02T13:35:19.426Z",
+        "sourceCheckedAt": "2026-10-04T22:29:59.987Z",
         "needsPreviewRefresh": false
       },
       "replayEligible": true,
@@ -102679,7 +102678,7 @@
       "timePrecision": "exact",
       "narrativeType": "all",
       "briefingEligible": true,
-      "lastReviewedAt": "2026-10-02T13:35:19.426Z"
+      "lastReviewedAt": "2026-10-04T22:29:59.987Z"
     },
     {
       "id": "event-aflw-cd_m20262640907",
