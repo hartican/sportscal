@@ -99228,7 +99228,14 @@
         "fixture-cricket-espn-1525659"
       ],
       "consensusTags": [],
-      "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+      "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+      "competitionId": "competition:cricket:espn:24203",
+      "competitionName": "Australia tour of South Africa 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1525659",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
+      }
     },
     {
       "id": "event-aflw-cd_m20262640901",
@@ -108226,7 +108233,14 @@
         "fixture-cricket-espn-1525660"
       ],
       "consensusTags": [],
-      "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+      "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+      "competitionId": "competition:cricket:espn:24203",
+      "competitionName": "Australia tour of South Africa 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1525660",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
+      }
     },
     {
       "id": "epl-2026-27-128983",
@@ -114759,7 +114773,14 @@
         "fixture-cricket-espn-1525661"
       ],
       "consensusTags": [],
-      "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+      "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+      "competitionId": "competition:cricket:espn:24203",
+      "competitionName": "Australia tour of South Africa 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1525661",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
+      }
     },
     {
       "id": "evt_nbl_2026_27_371aff1e_58ad_11f1_b4cd_0919017f2391",
@@ -126114,6 +126135,13 @@
         "synopsisSpoilerOn": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528703",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528703/australia-vs-england-1st-odi-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -127025,6 +127053,13 @@
         "synopsisSpoilerOn": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528704",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528704/australia-vs-england-2nd-odi-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -127590,6 +127625,13 @@
         "synopsisSpoilerOn": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528705",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -129257,6 +129299,13 @@
         "synopsisSpoilerOn": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528706",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528706/australia-vs-england-1st-t20i-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -131899,6 +131948,13 @@
         "synopsisSpoilerOn": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528707",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528707/australia-vs-england-2nd-t20i-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -131999,6 +132055,13 @@
         "synopsisSpoilerOn": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "researchDepth": 5
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528708",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528708/australia-vs-england-3rd-t20i-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -133879,6 +133942,13 @@
         "refreshAfter": "2026-11-29T08:15:00Z",
         "generationMode": "researched",
         "phase": "preview"
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528709",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528709/australia-vs-england-4th-t20i-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -134937,6 +135007,13 @@
         "refreshAfter": "2026-12-02T08:15:00Z",
         "generationMode": "researched",
         "phase": "preview"
+      },
+      "competitionId": "competition:cricket:espn:24273",
+      "competitionName": "England tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528710",
+        "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528710/australia-vs-england-5th-t20i-24273",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -138904,6 +138981,13 @@
         "refreshAfter": "2026-12-09T02:20:00Z",
         "generationMode": "researched",
         "phase": "preview"
+      },
+      "competitionId": "competition:cricket:espn:24270",
+      "competitionName": "New Zealand tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528711",
+        "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528711/australia-vs-new-zealand-1st-test-24270",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {
@@ -144564,6 +144648,13 @@
         "refreshAfter": "2026-12-25T23:30:00Z",
         "generationMode": "researched",
         "phase": "preview"
+      },
+      "competitionId": "competition:cricket:espn:24270",
+      "competitionName": "New Zealand tour of Australia 2026/27",
+      "competitionProvenance": {
+        "sourceEventId": "fixture:cricket:espn:1528713",
+        "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270",
+        "checkedAt": "2026-10-04T05:48:59.057Z"
       }
     },
     {

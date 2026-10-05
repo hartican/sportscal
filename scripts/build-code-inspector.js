@@ -28,6 +28,7 @@ const canonicalChampionsLeague = require("../data/canonical/uefa-champions-leagu
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const coverage = require("../data/follow-sources/coverage.v1.json");
+const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
 const enrichFixtureEditorial = require('../lib/fixture-editorial').createResolver(require('../data/editorial-knowledge.v1.json'),[...feed.events,...(coverage.events||[])]);
 const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
@@ -268,6 +269,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.calendarNote?{calendarNote:event.calendarNote,dateStatus:event.dateStatus,timePrecision:event.timePrecision,startTimeTbc:true,fullSpiel:event.fullSpiel,selectedSentence:event.selectedSentence,sourceTrust:event.sourceTrust}:{}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
+    ...(event.competitionProvenance?{competitionProvenance:event.competitionProvenance}:{}),
     ...(event.calendarProvenance&&['wsl','tdf','giro','vuelta'].includes(event.key)?Object.fromEntries(['calendarProvenance','grandTourCalendar','sessionType','resultCoverage'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     ...(event.format ? {format:event.format} : {}),
     ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
@@ -406,7 +408,8 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       eventId:preferred.eventId || retainedId,
       canonicalEventId:preferred.canonicalEventId || retainedId,
       sourceEventIds,
-    } : event;
+    } : {...event};
+    mergedEvent=restoreCompetitionContext(mergedEvent);
     if(previous && (canonicalStatus.observation(secondary)||canonicalStatus.observation(preferred))){
       const status=canonicalStatus.apply(normalizeFixture(preferred,codeId),normalizeFixture(secondary,codeId));
       if(status.status!==preferred.status||status.statusCheckedAt!==preferred.statusCheckedAt){

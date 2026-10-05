@@ -110985,7 +110985,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525659"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525659",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "event-aflw-cd_m20262640901",
@@ -120748,7 +120755,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525660"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525660",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "epl-2026-27-128983",
@@ -127822,7 +127836,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525661"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z"
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525661",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_371aff1e_58ad_11f1_b4cd_0919017f2391",
@@ -140039,7 +140060,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-first-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528703",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528703/australia-vs-england-1st-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_374d40eb_58ad_11f1_926c_d7c956f67204",
@@ -140994,7 +141022,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-second-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528704",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528704/australia-vs-england-2nd-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3746a5e8_58ad_11f1_8707_7d800a023985",
@@ -141599,7 +141634,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-third-odi-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528705",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3748f8f0_58ad_11f1_bb02_b15d4ea6aed8",
@@ -143385,7 +143427,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-first-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528706",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528706/australia-vs-england-1st-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3750b552_58ad_11f1_a12d_7ddf75ccac0d",
@@ -146281,7 +146330,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-second-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528707",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528707/australia-vs-england-2nd-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "cricket-australia-england-third-t20-2026",
@@ -146393,7 +146449,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-third-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528708",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528708/australia-vs-england-3rd-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_motogp_2026_valencia_practice_1",
@@ -148483,7 +148546,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-fourth-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528709",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528709/australia-vs-england-4th-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_motogp_2026_valencia_warmup",
@@ -149669,7 +149739,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-england-fifth-t20-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24273",
+    "competitionName": "England tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528710",
+      "sourceUrl": "https://www.espn.in/cricket/series/24273/game/1528710/australia-vs-england-5th-t20i-24273",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_374bfa7a_58ad_11f1_80a5_a590ae8a6049",
@@ -154064,7 +154141,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "cricket-australia-new-zealand-test-2026"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528711",
+      "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528711/australia-vs-new-zealand-1st-test-24270",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3747bba2_58ad_11f1_b586_c9fe4bf38829",
@@ -160168,7 +160252,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_90"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1528713",
+      "sourceUrl": "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3763a871_58ad_11f1_bb01_15ea51636534",
