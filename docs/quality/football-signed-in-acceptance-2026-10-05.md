@@ -34,3 +34,8 @@ The initial 15-minute investigation target was exceeded and a 30-minute allowanc
 Four later failures came from the harness: an expected zero-delay opt-in prompt was read too early twice, reload polled a lexical app variable before definition, and a safe request-local Feed POST was initially classified as a mutation. Each retained correction followed its real owner. The final two WebKit observations remain unresolved and separate from those harness errors. Existing model tokens, billed cash and end-to-end cost are unavailable; no cost-saving percentage is inferred.
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-signed-in-20261005`. `attempt-1.json` through `attempt-7.json`, the explicit runner/brief, failure screenshot, independent `database-cleanup.json`/SQL and `closeout.json` preserve passing checks, failed runs and release ownership. All earlier audit chapters and diagrams remain.
+
+
+## Later delivery — 5 October
+
+The queued navigation repair is live at 30273ee6/shell442 with normal release proof. The latest live Chrome journey passes; Safari again fails to show the correct saved teams. This earlier evidence remains historical; browser/Football acceptance stays open. [Current delivery and retained failure](https://github.com/hartican/sportscal/blob/main/docs/quality/football-follow-navigation-2026-10-05.md).

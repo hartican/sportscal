@@ -2,6 +2,8 @@
 
 The implementation backlog is `docs/cto-delivery-plan.md`. Sports-demand capture stays in the authoritative ignored local register; recording demand does not create an implementation commitment. Follow and backend decisions remain in their existing decision records. Do not create parallel priority lists.
 
+Owner communication — 5 October: explain work in lay terms by default. Lead with what changed, how it affects the user and what remains. Keep code, test logs, identifiers and detailed reasoning in the saved evidence unless the owner asks for technical detail. Give one recommended next action and keep progress updates brief.
+
 ## One brief per coherent change
 
 Before editing, state the intended user outcome, current evidence, files likely to change, excluded scope, acceptance checks and stop conditions. Retrieve those files and the relevant decision record first. Broaden investigation only when a concrete failure or dependency requires it. Prefer local deterministic work over model-generated facts. Never use generated editorial to fill missing scores, fixtures or rights.
