@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Reuse the existing Follow redraw boundary for focus — 5 October 2026
+
+Capture and restore control context inside the deferred Athletes module's existing redraw/animation-frame boundary. Reuse its account, route, preference and generation tickets; remember disabled manual-action focus only until the next redraw, and clear it on stop. Retain exact team identity for repeated action labels and do not take focus from another selected control. No new focus observer, interval, timer, request, retry, API, source/data change, database operation, scheduler, subscription or owner routine. Existing manual throttling, coalescing, pagination and disabled controls remain.
+
+Shell444 versions the deferred module and normal shell marker. Existing frozen startup-byte/request/precache budgets and full release ownership apply; the broader Follow suite adds nine meaningful keyboard scenarios per browser engine. Account fixtures operate on the actual frozen request client with isolated local APIs. Sports facts, dates, IDs, private state and notification budgets remain unchanged. Wider accessibility, physical device and real invited-user evidence remain separate.
+
 ## Reuse the existing Football identity index — 5 October 2026
 
 The canonical cards owner already builds the Football follow directory. Its existing directory builder now includes 1,600 retained basic ID/name pairs in the existing Football index; full, quick and scoped Follow routes share that projection. Validate the projection before writing it, preserve all older index fields and observation dates, and retain byte-identical unchanged output. The deferred UI reuses the same index request and renders basic favourites independently of personalised fixture success. No full 1.55 MB roster request, extra API/source request, retry, polling, scheduler, database operation, credential, subscription or owner routine. Personalised stale-response and account guards remain authoritative.

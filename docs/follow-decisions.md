@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Keep keyboard position when Follow updates — 5 October 2026
+
+The deferred native Follow renderer restores a control by its stable key/accessible label and exact team context. Remember a focused Refresh/Load more intent before disabling it; keep the existing disabled, throttled and coalesced read behaviour. If the last page removes Load more, move to the retained Refresh control and let the browser bring it into view. Restore only within the same account, preferences, profile, route and generation, and only while focus is on the document body after replacement. A user who moves to another control or section keeps that position. Module stop clears pending focus. This repairs lost Refresh focus and same-labelled Open match focus moving to another team; no Follow, admission, result, exclusion, dismissal, identity, retention or Remind OFF change.
+
+Regression: the existing Follow startup gate drives actual keyboard Refresh success/failure, continued/last-page loading, duplicate team controls, outside focus, route change, real request-client account change and three native profile/Back journeys in Chromium/WebKit. This is scoped keyboard proof, not complete WCAG, screen-reader, physical Safari or sport-family certification. The separate rich-profile drawer and existing source/privacy evidence remain.
+
 ## Basic Football names survive fixture-read failures — 5 October 2026
 
 Saved Football teams and athletes must remain recognisable while personalised fixtures are unavailable or an older reply is correctly discarded after a background save. Project only the existing retained directory's validated IDs and display names into the existing lightweight Football index, then render known favourites before waiting for fixture details. Keep richer returned records and existing profile hydration; missing details remain visibly unavailable. Preserve the index's original dates and facts, all fixture/activity identities, exclusions, mute/unfollow, Results and Remind OFF. No guessed names, roster inference, stale-response acceptance or new admission rule.
