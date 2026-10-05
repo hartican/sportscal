@@ -664,3 +664,10 @@ One Node helper reconciles source-backed missing competition context at existing
 ## Reviewed fourth-Test calendar projection — 5 October 2026
 
 One dated record and Node helper run through existing full/quick publication, Code/Schedule and representative-context preflight. Exact fixture/start/ordered teams bind the source; preserve later nonempty facts and separately observed calendar context. No provider check, browser module, API/database/schema, credentials, retry, scheduler, polling or owner routine. Unchanged actual canonical replay leaves all 2,461 tracked/new files byte-identical. Existing budgets and shell 440 remain. Required Code QA includes the real writer/merger and guards. [Release and limits](quality/cricket-fourth-test-completeness-2026-10-05.md).
+
+
+## Shared Feed tennis reconstruction cost — 5 October 2026
+
+The shared server Feed builder selects possible tennis children once using the exact sport classifier required by the existing matcher, after merging published contest inputs. Both projected and already present parents reuse that list. Tournament identity/date matching, participation/exclusions, personal consent, actions, retention, source clocks and response shape remain unchanged. Thirty complete old/new mixed-catalogue response comparisons pass across the three Football pilots, Feed/Match Centre/participant modes and both copy modes; the actual caller-boundary regression protects reconstruction cost without a flaky timing threshold.
+
+Three earlier public Football requests show material server computation; a local balanced comparison measures reduced CPU, not cloud latency or cash savings. No source request, snapshot cadence, browser module/cache epoch, API/schema, authentication, database writer, retry, scheduler, subscription or owner routine changes. `validate-server-feed.js` executes `validate-tennis-parent-prefilter.js` through its existing required gate. Preserve ordinary canonical and physical-device acceptance as separate outcomes. [Evidence and limits](quality/shared-feed-tennis-computation-2026-10-05.md).
