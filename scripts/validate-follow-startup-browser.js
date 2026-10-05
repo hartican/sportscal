@@ -109,6 +109,29 @@ async function run(browser,base,engine){
   assert.equal(await page.locator('.athletes-person').count(),0);assert(!/Old account response/.test(await page.locator('#listView').innerText()));assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'account switch and navigation reject late data'});
  }finally{gate.release();await page.close();}
 }
+async function queuedNavigation(browser,base,engine){
+ for(const mode of ['normal','beforeunload','pagehide']){
+  const gate=latch();let first=true;
+  const ctx=await createPage(browser,base,{api:async r=>{if(first){first=false;await gate.promise;return r.fulfill({status:503,json:{error:'Interrupted first read'}});}return r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}}),page=ctx.page;
+  console.log(engine+': queued profile read '+mode);
+  try{
+   await ctx.goto();await localPerson(page);const rootRead=page.waitForRequest(r=>{const u=new URL(r.url());return u.pathname==='/api/feed'&&u.searchParams.get('scope')==='athletes'&&!u.searchParams.get('participantId');});await openFollow(page);await rootRead;await page.locator('.athletes-heading').waitFor();await page.waitForFunction(()=>!!globalThis.NOTHINGSPORTS_ATHLETES_UI);
+   await page.getByRole('button',{name:'Open Carlos Alcaraz profile in Follow',exact:true}).click();await page.locator('.athletes-profile-back').waitFor();
+   const choices=await page.evaluate(()=>JSON.stringify([userPreferences,eventActions]));
+   assert.equal(ctx.reads.length,1,'Profile intent queues behind the actual pending membership read');
+   await page.evaluate(()=>{globalThis.qaQueued=NOTHINGSPORTS_ATHLETES_UI.refresh();});
+   if(mode!=='normal')await page.evaluate(type=>dispatchEvent(type==='pagehide'?new PageTransitionEvent(type,{persisted:true}):new Event(type,{cancelable:true})),mode);
+   gate.release();await page.evaluate(()=>qaQueued);
+   assert.equal(ctx.reads.length,mode==='normal'?2:1,'An outgoing page must not start the queued replacement read');
+   if(mode==='pagehide')await page.evaluate(()=>dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true})));
+   if(mode==='beforeunload')await page.getByRole('button',{name:'Refresh',exact:true}).click();
+   await page.waitForTimeout(150);assert.equal(ctx.reads.length,2,'A surviving or restored page can read the latest profile');
+   assert(new URL(ctx.reads[1]).searchParams.get('participantId')===person.id,'The latest profile wins');
+   assert.equal(await page.evaluate(()=>JSON.stringify([userPreferences,eventActions])),choices,'Navigation lifecycle leaves sporting and reminder choices intact');
+   assert.deepEqual(ctx.errors,[]);assert.deepEqual(ctx.writes,[]);report.push({engine,scenario:'queued profile read '+mode,reads:ctx.reads.length,choicesPreserved:true});
+  }finally{gate.release();await page.close();}
+ }
+}
 async function initialBrowse(browser,base,engine){
  // A real reload advances existing visit/prompt counters and the local graph's
  // bookkeeping clock; sporting choices themselves must remain exact.
@@ -159,6 +182,6 @@ async function initialBrowse(browser,base,engine){
 (async()=>{
  let server,base=process.env.QA_BASE_URL;
  if(!base){server=http.createServer((req,res)=>{const file=path.join(root,new URL(req.url,'http://localhost').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]||'application/octet-stream'});res.end(error?'':data);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));base=`http://127.0.0.1:${server.address().port}`;}
- try{for(const engine of (process.env.QA_BROWSER?[process.env.QA_BROWSER]:['chromium','webkit'])){const browser=await pw[engine].launch({headless:true});try{if(process.env.FOLLOW_DEFAULT_CASES_ONLY!=='1')await run(browser,base,engine);await initialBrowse(browser,base,engine);}finally{await browser.close();}}const receipt={checkedAt:new Date().toISOString(),followStartup:'passed',runs:report};if(process.env.FOLLOW_STARTUP_REPORT_PATH)fs.writeFileSync(process.env.FOLLOW_STARTUP_REPORT_PATH,JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt,null,2));}
+ try{for(const engine of (process.env.QA_BROWSER?[process.env.QA_BROWSER]:['chromium','webkit'])){const browser=await pw[engine].launch({headless:true});try{if(process.env.FOLLOW_LIFECYCLE_ONLY!=='1'){if(process.env.FOLLOW_DEFAULT_CASES_ONLY!=='1')await run(browser,base,engine);await initialBrowse(browser,base,engine);}await queuedNavigation(browser,base,engine);}finally{await browser.close();}}const receipt={checkedAt:new Date().toISOString(),followStartup:'passed',runs:report};if(process.env.FOLLOW_STARTUP_REPORT_PATH)fs.writeFileSync(process.env.FOLLOW_STARTUP_REPORT_PATH,JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt,null,2));}
  finally{if(server)await new Promise(r=>server.close(r));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

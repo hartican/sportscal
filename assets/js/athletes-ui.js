@@ -23,7 +23,7 @@
   if(loading){
    if(!queuedHydration&&loadingKey===requestKey&&loadingGeneration===generation)return loading;
    queuedOptions={force,append};
-   queuedHydration ||= loading.then(()=>{const options=queuedOptions;queuedHydration=null;queuedOptions=null;return activeTab==='follow'&&followHomeView==='favourites'?hydrate(options.force,options.append):false;});
+   queuedHydration ||= loading.then(()=>{const options=queuedOptions;queuedHydration=null;queuedOptions=null;return options&&activeTab==='follow'&&followHomeView==='favourites'?hydrate(options.force,options.append):false;});
    return queuedHydration;
   }
   if(!append&&!force&&key===preferencesKey()&&Date.now()-checked<300000)return false;
@@ -136,13 +136,19 @@
   if(key!==preferencesKey()||Date.now()-checked>=300000)void hydrate();
 
  }
- function stop(){generation++;clearInterval(timer);timer=null;}
+ function stop(){generation++;queuedOptions=null;clearInterval(timer);timer=null;}
  function navigate(tab){if(tab==='follow'){profileId='';origin=null;}else{profileId='';origin=null;matchReturn=null;}}
  function route(){
   if(location.hash==='#follow'||location.hash==='#athletes'||(location.hash.startsWith('#follow/profile/')||location.hash.startsWith('#athletes/'))){const matchOrigin=matchReturn;matchReturn=null;activeTab='follow';followHomeView='favourites';activeInspectorCodeId=null;try{profileId=history.state?.athleteProfile||decodeURIComponent(location.hash.match(/^#(?:follow\/profile|athletes)\/(.+)$/)?.[1]||'');}catch{profileId='';}if(!(model.individual(profileId)||profileId.startsWith('team:')))profileId='';if(history.state?.athleteOrigin)origin=history.state.athleteOrigin;syncTopLevelNavigationState();if(matchOrigin)restore(matchOrigin);else if(!profileId&&origin?.tab==='follow'){const saved=origin;origin=null;restore(saved);}else renderAll();return true;}
   if((activeTab==='follow'&&followHomeView==='favourites')&&origin){const saved=origin;origin=null;profileId='';stop();restore(saved);return true;}return false;
  }
  async function refresh(){if(document.hidden||(activeTab!=='follow'||followHomeView!=='favourites'))return;return hydrate();}
+ // WebKit cancels the old read before pagehide. Do not let its completion
+ // start a queued request in the outgoing document. No lasting unload flag:
+ // cancelled navigation can Refresh, and a restored page resumes normally.
+ window.addEventListener('beforeunload',()=>{queuedOptions=null;});
+ window.addEventListener('pagehide',stop);
+ window.addEventListener('pageshow',event=>{if(event.persisted)start();});
  const style=node('style');style.textContent='.athletes-heading,.athletes-actions,.athletes-featured-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.athletes-profile,.athletes-profile-fixtures,.athletes-featured{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}.athletes-person p,.athletes-profile-fixtures p{font-size:.8rem;line-height:1.5}.athletes-person small,.athletes-profile-fixtures small{color:var(--text-dim)}.athletes-profile-fixtures small{display:block;line-height:1.5;margin-top:6px}.athletes-official{display:block;padding:10px 0;color:var(--accent);font-size:.8rem}.athletes-profile-fixtures details{padding:10px 0}.athletes-coverage-gap{color:var(--text-dim)}';document.head.append(style);
  globalThis.NOTHINGSPORTS_ATHLETES_UI={start,stop,open,route,render,openMatch,navigate,refresh,buildParticipantFeedButton};
 })();

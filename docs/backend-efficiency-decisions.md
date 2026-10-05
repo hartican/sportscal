@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Discard queued Follow reads on navigation — 5 October 2026
+
+The deferred Follow reader clears queued intent before full-page navigation and when stopped. Cancelled old reads cannot launch replacement work in an outgoing WebKit document. Cached-page restoration uses the same existing Follow start/cache/coalescing rules; cancelled navigation leaves explicit Refresh available. No new timer, polling, retry, scheduler, API, database operation or budget. Normal active-page latest-profile/account reads remain. The existing Follow browser gate retains ordinary coalescing and adds outgoing-page and restoration cases; signed-in production acceptance remains separately recorded.
+
 ## Shared calendar retention boundary — 5 October 2026
 
 Use the existing card-lifecycle module for raw, server-normalized and derived-cache retention. A validated multi-day planning window sets a floor; only an explicit valid actual end on a completed record can replace it with completion evidence. Existing inferred sporting end fields and all fact/check clocks remain unchanged. Consolidate repeated lifecycle-state serialization and use the existing calendar date validator through its explicit module dependency. Keep the frozen startup-byte, request and 3 MB precache limits; no waiver.

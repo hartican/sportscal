@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Follow queued reads stop with the outgoing page — 5 October 2026
+
+A cancelled membership read must not start a queued profile/membership read while its document is being replaced. Clear pending intent at `beforeunload` (WebKit cancels the read before `pagehide`) and at the existing module stop boundary. A surviving page can Refresh without a persistent unload lock; a restored cached page resumes the current Follow destination on `pageshow.persisted`. Ordinary latest-profile/account reads still coalesce and run. Known favourites, all sporting preferences, exclusion/dismissal, Results and Remind OFF remain authoritative. No source facts, identity, admission, notification or persistence rule changes.
+
+Regression: the existing Follow startup browser gate drives the actual deferred caller with a pending root read, real profile click, failure, navigation invalidation and surviving/restored recovery in both engines. The exact native WebKit message is independently reproduced with the current request client over local HTTPS; single handled cancellation is a negative control. The hosted signed-in journey is repeated before and after publication. This is browser evidence, not physical Safari, viewing permission or whole-family certification.
+
 ## Retained multi-day calendar windows — 5 October 2026
 
 The shared browser/server card lifecycle uses a validated supplied multi-day calendar end as a retention floor, instead of shortening a Test/endurance/calendar window to a day-one duration. An explicit valid actual-end timestamp on a completed record takes precedence. The floor is planning context, not an observed finish, result, live state or reminder clock. Existing seven/fourteen elapsed-day archive/cache constants, single-day behaviour, saved/archived/pinned exemptions, identity routing and the separately enforced seven-local-calendar-day Feed timeline remain. No new consent, admission, exclusion, dismissal, Results or Remind OFF rule. Source fields and observations remain immutable.
