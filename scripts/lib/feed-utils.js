@@ -3,6 +3,7 @@ const path = require("path");
 const { spoilerContractIssues } = require("./storyline-card-rules");
 const canonicalSportsTaxonomy = require(path.resolve(__dirname, "../../config/canonical-sports-taxonomy.js"));
 const sourceTrust = require(path.resolve(__dirname, "../../config/source-trust.js"));
+const surfNotes = require('./surf-calendar-notes');
 
 const LEGACY_SPORT_KEYS = new Set([
   "wimbledon",
@@ -111,6 +112,7 @@ function normalizeCopyReview(value) {
 }
 
 function ensureEventDefaults(event, index) {
+  if(surfNotes.isUnconfirmedNote(event))event=surfNotes.qualify(event);
   const id = normalizeId(event.id || event.eventId || event.name || "event-" + index);
   const copyReview = normalizeCopyReview(event.copyReview);
   return {
@@ -124,7 +126,7 @@ function ensureEventDefaults(event, index) {
     liveWindow: Number(event.liveWindow || event.calendarTemplate?.durationHours || 3),
     round: event.round || "all",
     narrativeType: event.narrativeType || event.round || "all",
-    expected: event.cardKind==='fixture' && event.expected==null ? null : Number(event.expected),
+    expected: (event.cardKind==='fixture' || surfNotes.isUnconfirmedNote(event)) && event.expected==null ? null : Number(event.expected),
     replayEligible: event.replayEligible ?? Number(event.expected) >= 7,
     highlightEligible: event.highlightEligible ?? Number(event.expected) >= 6,
     briefingEligible: event.briefingEligible ?? Number(event.expected) >= 7,
@@ -148,22 +150,24 @@ function validateFeed(feed) {
   (feed.events || []).forEach((event, index) => {
     const prefix = `events[${index}]`;
     const fixture=event.cardKind==='fixture';
+    const calendarNote=surfNotes.isUnconfirmedNote(event);
+    if(event.calendarNote && !calendarNote)errors.push(`${prefix}.calendarNote must be a reviewed unconfirmed note without sporting or viewing claims.`);
     const dateOnlyWindow=event.dateOnly===true && event.timePrecision==='date-only' && isDate(event.date) && isDate(event.endDate) && event.endDate>=event.date;
     const windowKnown=isDate(event.schedulingWindow?.startsOn)&&isDate(event.schedulingWindow?.endsOn);
     const required = fixture?["id","eventId","key","name"]:["id", "eventId", "sport", "key", "name", "displayTitleCompact", "date", "time", "broadcaster", "expected", "liveWindow", "selectedSentence", "fullSpiel", "sourceName", "sourceUrl", "sourceCheckedAt"];
     required.forEach(field => {
-      if(field==='time' && dateOnlyWindow)return;
+      if((field==='time' && dateOnlyWindow)||calendarNote&&['date','time','expected'].includes(field))return;
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
     if (!SPORT_KEY_PATTERN.test(event.key)) errors.push(`${prefix}.key must be a lowercase key (lowercase slug with . _ -).`);
     if (!SPORT_KEYS.has(event.key)) errors.push(`${prefix}.key is not a supported sport key: ${event.key}`);
     if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
-    if (!isDate(event.date) && !(fixture && !event.date && windowKnown)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
+    if (!isDate(event.date) && !calendarNote && !(fixture && !event.date && windowKnown)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
     if (event.endDate !== undefined && event.endDate !== null && (!isDate(event.endDate) || event.endDate < event.date)) errors.push(`${prefix}.endDate must be YYYY-MM-DD on or after date.`);
-    if (!isTime(event.time) && !(fixture && !event.time && event.timePrecision !== "exact") && !(dateOnlyWindow && !event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
+    if (!isTime(event.time) && !calendarNote && !(fixture && !event.time && event.timePrecision !== "exact") && !(dateOnlyWindow && !event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
     if (event.startTimeUtc !== undefined && event.startTimeUtc !== null && !isDateTime(event.startTimeUtc)) errors.push(`${prefix}.startTimeUtc must be ISO date-time if present.`);
     if (event.endTimeUtc !== undefined && event.endTimeUtc !== null && !isDateTime(event.endTimeUtc)) errors.push(`${prefix}.endTimeUtc must be ISO date-time if present.`);
-    if (!(fixture && (event.expected==null || Number.isNaN(event.expected))) && (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 1 || Number(event.expected) > 10)) errors.push(`${prefix}.expected must be 1-10.`);
+    if (!calendarNote && !(fixture && (event.expected==null || Number.isNaN(event.expected))) && (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 1 || Number(event.expected) > 10)) errors.push(`${prefix}.expected must be 1-10.`);
     if (!Number.isFinite(Number(event.liveWindow)) || Number(event.liveWindow) <= 0 || Number(event.liveWindow) > 24) errors.push(`${prefix}.liveWindow must be > 0 and <= 24.`);
     if (event.round && !ROUNDS.has(event.round)) errors.push(`${prefix}.round must be one of ${Array.from(ROUNDS).join(", ")}.`);
     if (String(event.displayTitleCompact || "").length > 80) errors.push(`${prefix}.displayTitleCompact must be 80 chars or fewer.`);

@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Fixture sources survive preview research — 5 October 2026
+
+An empty or nonempty editorial preview keeps the existing fixture source/observation tuple. Research keeps its own nested provenance. The explicit reviewed-final path remains. Six retained upcoming F1 sessions recover missing source tuples only from exact alias/name/session/timing matches in the retained official schedule; no new source observation is implied. Preserve all sporting facts, action IDs, Follow choices, viewing, results, exclusions, Remind OFF and spoiler rules. Full/quick and the retained canonical projection share this repair; no new admission, polling or owner choice. Regression: the actual preview CLI on two real-file surfaces, strict source recovery/persistence and unchanged canonical rerun.
+
 ## Known final recovery and WRC result precision — 5 October 2026
 
 The existing NRL Grand Final and WRC Sardegna cards gain independently dated official finals through the canonical owner. Preserve all fixture/activity identities, participants, schedule facts, viewing, follows, exclusions, Remind OFF, global/per-event Results and strict mode. WRC winning crew and fractional time remain intact behind reveal; old standings keep points/ranks/date with a clear unrechecked notice. Retained projection must not regenerate unrelated copy or normalize IDs. This does not introduce admission, opt-ins, exact WRC clocks, notification replay or a new owner choice. Regression: known-final/source/privacy gates, 204 actual browser cases and 437→438 cached upgrades. No physical phone or full-family certification claim.
@@ -54,6 +58,10 @@ An explicit match status governs the existing Watch/Replay purpose. A live, sche
 ## UCL stage-calendar presentation — 3 October 2026
 
 The five existing knockout programme records keep their IDs and unconfirmed participants/kickoffs. Follow Schedule shows their separately reviewed UEFA calendar windows with an explicit Madrid-date label; those venue-calendar dates do not become Sydney match dates or start times. Calendar windows order the programme chronologically. An explicitly confirmed exact sporting start takes over the Sydney date display. The existing `sport:champions-league` selector maps exactly to `competition:uefa-champions-league`, and direct Schedule links resolve back to that selector. A missing UCL Code shows unavailable instead of advertising the broader Football schedule. Programme records remain under that existing Code, with no new Events routing, Feed admission, consent, action, rating, retention or reminder rule. Existing source and editorial clocks remain; separate timing provenance dates the calendar review. Regression: `validate-ucl-stage-calendar.js --published` and both-engine actual Schedule/calendar rendering checks.
+
+## Retained unconfirmed Surfing notes — 5 October 2026
+
+Two existing Big Wave manual seeds retain their durable IDs, explicit pins, exclusions and saved activities. Unsupported future dates, clocks, broadcaster labels and the Pipe Big Wave championship identity are withdrawn into import history. The published records and cached legacy readers show unconfirmed notes, not verified fixtures: no rating/reminder clock, calendar appointment or invented window. Broad Surfing cannot grant separate WSL consent; the verified CT Pipe event is information, never an alias or implicit opt-in. Later independently sourced facts remain protected. Source/import observations keep their original dates; organiser review receipts remain separate. Use the existing canonical full/daily owner, actual Feed/Schedule/fallback checks and cached Chromium/WebKit rehearsals. Formal sport certification and actual phone proof remain separate.
 
 ## WSL venue/calendar delivery — 3 October 2026
 

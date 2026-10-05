@@ -8,6 +8,18 @@ const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedSurfNotes(page){
+  const panel=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
+  await page.evaluate(panel=>loadDeferredScript(panel),panel);
+  assert.equal(await page.evaluate(panel=>caches.match('/'+panel).then(r=>r?.text()),panel),fs.readFileSync(path.join(root,panel.split('?')[0]),'utf8'),'First offline Schedule uses the exact current precached module');
+  const legacy=JSON.parse(baselineFile('data/events.json')).events.filter(e=>require('./lib/surf-calendar-notes').ids.includes(e.id));
+  const result=await page.evaluate(async legacy=>{
+    const fixtures=(await(await fetch('/data/code-inspector/surf.json')).json()).fixtures.filter(f=>f.calendarNote),before=JSON.stringify(userPreferences),priorTab=activeTab,checks=[];
+    try{activeTab='feed';const host=document.getElementById('listView');for(const event of [...fixtures,...legacy]){const original=JSON.stringify(event);host.replaceChildren(buildEventCard(event));const text=host.innerText;checks.push({id:event.id,text,noClock:!eventReminderTiming(NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event)),unchanged:JSON.stringify(event)===original});}return {checks,preferencesPreserved:JSON.stringify(userPreferences)===before};}finally{activeTab=priorTab;}
+  },legacy);
+  assert.equal(result.checks.length,4,'Both current notes and real archived seeds must be rehearsed');assert(result.preferencesPreserved);
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(/DATE TBC.*TIME TBC/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+}
 async function assertCachedCanonicalResults(page){
   await page.evaluate(()=>loadDeferredScript('config/cricket-innings.js?v=431'));
   const cricket=await page.evaluate(async()=>{
@@ -383,6 +395,7 @@ const server=http.createServer((req,res)=>{
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
+      await assertCachedSurfNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
@@ -429,6 +442,7 @@ const server=http.createServer((req,res)=>{
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
+    await assertCachedSurfNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});

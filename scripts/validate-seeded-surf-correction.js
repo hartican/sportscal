@@ -1,4 +1,5 @@
 'use strict';
+require('./validate-surf-calendar-notes');
 const assert=require('node:assert/strict');
 const {validateFeed,normalizeFeed}=require('./lib/feed-utils');
 const {mergeRecord}=require('./apply-current-card-evidence');
