@@ -39,3 +39,8 @@ Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-deli
 ## Later delivery — 5 October
 
 The queued navigation repair is live at 30273ee6/shell442 with normal release proof. The latest live Chrome journey passes; Safari again fails to show the correct saved teams. This earlier evidence remains historical; browser/Football acceptance stays open. [Current delivery and retained failure](https://github.com/hartican/sportscal/blob/main/docs/quality/football-follow-navigation-2026-10-05.md).
+
+
+## Later saved-team delivery — 5 October
+
+The separately reproduced missing-team path is repaired and live at 187173c8/shell443. The complete unmodified production journey passes Chrome and two fresh WebKit contexts (24 checks). Earlier failures remain historical evidence; physical and full Football readiness remain open. [Current delivery and remaining work](https://github.com/hartican/sportscal/blob/main/docs/quality/football-saved-identities-2026-10-05.md).

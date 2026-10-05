@@ -31,3 +31,8 @@ Current production is `30273ee629d3e29dfafc845e22b4ca6dc31ebb3c`, shell442, [nor
 The first 15-minute investigation ran over; a 30-minute extension was recorded at 06:04 UTC. Full preparation/model latency was not separately measured, so no total-time saving is claimed. Same-turn pagehide and zero-delay queue guards failed; beforeunload invalidation succeeded in the reduced case. The first caller probe measured unrelated later startup activity; awaiting the actual queued promise corrected the seam. Its retained baseline still fails. Debug instrumentation is removed from shipped source. Browser reload simulation and unavailable-origin warnings are retained with their limits.
 
 Key receipts: `caller-red.log`, `caller-green.json`, `cancel-beforeunload.json`, `candidate/acceptance.json`, `production/acceptance.json`, `follow-suite.json`, `cache-rehearsals.json`, `cached-module.json`, `release-local-gates.json`, `normal-release.json`, `independent-current-proof.json`, `served-proof.json` and both independent cleanup files. The programme's 51 numbered audit chapters and three diagrams remain intact. Ordinary unattended refresh, current real match states, viewing/permissions, phone, independent recovery and genuine invited-user returns remain open. Passwords/iCloud retries remain parked.
+
+
+## Later saved-team delivery — 5 October
+
+The separately reproduced missing-team path is repaired and live at 187173c8/shell443. The complete unmodified production journey passes Chrome and two fresh WebKit contexts (24 checks). Earlier failures remain historical evidence; physical and full Football readiness remain open. [Current delivery and remaining work](https://github.com/hartican/sportscal/blob/main/docs/quality/football-saved-identities-2026-10-05.md).
