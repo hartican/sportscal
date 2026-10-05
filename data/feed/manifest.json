@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20261005093601877",
-  "sourcePublishedAt": "2026-10-05T09:36:01.877Z",
+  "sourceVersion": "nothingsport-official-results-2026-09-15-v1-20261005221957118",
+  "sourcePublishedAt": "2026-10-05T22:19:57.118Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1504,
-  "eventCount": 821,
+  "eventCount": 819,
   "pages": [
     {
       "index": 0,
@@ -290,16 +290,9 @@
     {
       "index": 40,
       "path": "data/feed/page-041.json",
-      "eventCount": 20,
+      "eventCount": 19,
       "firstEventId": "event:nrlw:2026:preliminary-final-roosters-raiders",
-      "lastEventId": "event:premier-league:128967"
-    },
-    {
-      "index": 41,
-      "path": "data/feed/page-042.json",
-      "eventCount": 1,
-      "firstEventId": "event:nbl:2026-27:36e80b8c-58ad-11f1-ab03-2572c13c410b",
-      "lastEventId": "event:nbl:2026-27:36e80b8c-58ad-11f1-ab03-2572c13c410b"
+      "lastEventId": "event:nbl:2026-27:36e7aa3c-58ad-11f1-b88d-1138b8cb68ba"
     }
   ]
 }
