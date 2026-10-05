@@ -14,6 +14,7 @@ require('./validate-chl-results');
 require('./validate-nhl-results');
 require('./validate-cricket-innings-presentation');
 require('./validate-fixture-competition-context');
+require('./validate-cricket-reviewed-context');
 const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));

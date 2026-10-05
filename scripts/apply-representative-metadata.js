@@ -4,11 +4,12 @@ const fs = require("node:fs");
 const path = require("node:path");
 const registry = require("../config/representative-events.js");
 const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
+const restoreCricketContext=require('./lib/cricket-reviewed-context').createResolver();
 
 function projectDocument(document, inputPath="input"){
   const sourceEvents = Array.isArray(document) ? document : document.events;
   if (!Array.isArray(sourceEvents)) throw new Error(`${inputPath} does not contain an event list`);
-  const events=sourceEvents.map(event=>restoreCompetitionContext(registry.applyToEvent(event)));
+  const events=sourceEvents.map(event=>restoreCricketContext(restoreCompetitionContext(registry.applyToEvent(event))));
   const present=new Set(events.map(event=>String(event.eventId||event.id)));
   const missing=Object.keys(registry.metadataByEventId).filter(id=>!present.has(id));
   if(missing.length)throw new Error(`Explicit Australian representative fixtures missing from ${inputPath}: ${missing.join(", ")}`);

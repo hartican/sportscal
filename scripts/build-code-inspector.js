@@ -29,6 +29,7 @@ const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const coverage = require("../data/follow-sources/coverage.v1.json");
 const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
+const restoreCricketContext=require('./lib/cricket-reviewed-context').createResolver();
 const enrichFixtureEditorial = require('../lib/fixture-editorial').createResolver(require('../data/editorial-knowledge.v1.json'),[...feed.events,...(coverage.events||[])]);
 const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
@@ -270,6 +271,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
     ...(event.competitionProvenance?{competitionProvenance:event.competitionProvenance}:{}),
+    ...(event.key==='cricket'&&event.calendarProvenance?{calendarProvenance:event.calendarProvenance,numberOfDays:event.numberOfDays}:{}),
     ...(event.calendarProvenance&&['wsl','tdf','giro','vuelta'].includes(event.key)?Object.fromEntries(['calendarProvenance','grandTourCalendar','sessionType','resultCoverage'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     ...(event.format ? {format:event.format} : {}),
     ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
@@ -410,6 +412,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       sourceEventIds,
     } : {...event};
     mergedEvent=restoreCompetitionContext(mergedEvent);
+    mergedEvent=restoreCricketContext(mergedEvent);
     if(previous && (canonicalStatus.observation(secondary)||canonicalStatus.observation(preferred))){
       const status=canonicalStatus.apply(normalizeFixture(preferred,codeId),normalizeFixture(secondary,codeId));
       if(status.status!==preferred.status||status.statusCheckedAt!==preferred.statusCheckedAt){

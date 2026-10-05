@@ -166234,9 +166234,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "viewingOptions": [],
     "canonicalEventId": "evt_91",
     "sourceEventIds": [
-      "evt_91"
+      "evt_91",
+      "fixture:cricket:CA:40187"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "competitionId": "competition:cricket:espn:24270",
+    "competitionName": "New Zealand tour of Australia 2026/27",
+    "format": "Test",
+    "matchFormat": "Test",
+    "numberOfDays": 5,
+    "endDate": "2027-01-08",
+    "roundLabel": "4th Test",
+    "competitionProvenance": {
+      "kind": "official",
+      "sourceEventId": "fixture:cricket:CA:40187",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4605/australia-v-new-zealand-tests-2026-27-men",
+      "checkedAt": "2026-10-05T01:42:02.321Z"
+    },
+    "calendarProvenance": {
+      "kind": "official",
+      "sourceEventId": "fixture:cricket:CA:40187",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4605/australia-v-new-zealand-tests-2026-27-men",
+      "checkedAt": "2026-10-05T01:42:02.321Z",
+      "fields": [
+        "format",
+        "matchFormat",
+        "numberOfDays",
+        "endDate",
+        "roundLabel"
+      ],
+      "basis": "scheduled-calendar",
+      "sourceCompetitionId": "competition:cricket:4605"
+    }
   },
   {
     "id": "evt_nbl_2026_27_3778a221_58ad_11f1_93c2_61e38b2284ba",
