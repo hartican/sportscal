@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Retained multi-day calendar windows — 5 October 2026
+
+The shared browser/server card lifecycle uses a validated supplied multi-day calendar end as a retention floor, instead of shortening a Test/endurance/calendar window to a day-one duration. An explicit valid actual-end timestamp on a completed record takes precedence. The floor is planning context, not an observed finish, result, live state or reminder clock. Existing seven/fourteen elapsed-day archive/cache constants, single-day behaviour, saved/archived/pinned exemptions, identity routing and the separately enforced seven-local-calendar-day Feed timeline remain. No new consent, admission, exclusion, dismissal, Results or Remind OFF rule. Source fields and observations remain immutable.
+
+Regression: `validate-multiday-retention.js` through the existing required card-lifecycle gate exercises actual raw/server-normalized records, shared Feed/materialized cache, invalid/backwards days, source-completion precedence, DST endpoint conversion and saved exemptions. Shell441 carries the shared repair; ordinary fixed-budget release and both-engine 440→441 cached upgrade/offline/resume rehearsals remain required. Whole-family, physical-device, rights/recovery and repeat-use certification are separate.
+
 ## Shared retained calendar-note qualification — 5 October 2026
 
 The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.

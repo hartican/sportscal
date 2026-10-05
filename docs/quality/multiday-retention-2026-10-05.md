@@ -1,0 +1,7 @@
+# Shared multi-day retention — local release checkpoint, 5 October 2026
+
+The shared lifecycle used day one plus a short duration for exact multi-day fixtures. The actual fourth Test `evt_91` appeared in server events but had zero materialized cards on a controlled 14 January replay despite its supplied 4–8 January calendar window. The repair uses a valid supplied end-window floor and retains actual-finish evidence separately. Original sporting fields, source dates, status, IDs, preferences and Remind OFF remain; no completion or reminder time is inferred.
+
+The new regression fails before the repair and passes on raw/server-normalized data and the real Feed/materializer. The complete 5,929-record retained comparison changes 32 calendar retention interpretations: 22 Cricket, one endurance, four Golf calendars and five existing programme parents. Every single-day boundary stays identical; no source field is changed. Existing seven/fourteen elapsed-day lifecycle constants and the independent seven-local-calendar-day Feed filter remain. This does not certify source windows, actual finishes or whole sports.
+
+All release/browser/production proof is pending at this checkpoint. The first compressed-byte budget failed by 79 bytes; it was not waived. Consolidating repeated state serialization and sharing the existing calendar validator restored the unchanged budget. Detailed evidence is under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/multiday-retention-20261005`.

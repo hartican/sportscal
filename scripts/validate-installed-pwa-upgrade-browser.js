@@ -8,6 +8,21 @@ const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedMultidayRetention(page){
+  const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
+  const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
+  const result=await page.evaluate(async ({raw,normalized})=>{
+    const published=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures.find(f=>f.id===raw.id);
+    const before=JSON.stringify(userPreferences),actions=JSON.stringify(eventActions),now=new Date('2027-01-14T01:00Z');
+    const states=[raw,normalized].map(f=>NOTHINGSPORTS_CARD_LIFECYCLE.lifecycleState(f,{now}));
+    const cache=NOTHINGSPORTS_CARD_LIFECYCLE.materialize([normalized],{profileId:'cached-multiday-replay',now,enrich:()=>({cardVariant:'plain',intensity:1}),actionFor:()=>({reminderChoice:'off'})});
+    return {publishedUnchanged:JSON.stringify(published)===JSON.stringify(raw),states,cards:cache.derivedCards.length,expiry:cache.derivedCards[0]?.expiresAt,choicesPreserved:JSON.stringify(userPreferences)===before&&JSON.stringify(eventActions)===actions};
+  },{raw,normalized});
+  assert(result.publishedUnchanged&&result.choicesPreserved,'Cached retention cannot mutate source observations or saved choices');
+  assert(result.states.every(s=>s.state==='active'&&s.archivesAt==='2027-01-15T12:59:59.999Z'&&s.expiresAt==='2027-01-22T12:59:59.999Z'),'Upgraded/offline runtime honours the actual five-day calendar window on raw and server-normalized fixtures');
+  assert.equal(result.cards,1,'The cached materializer retains the actual fourth Test within its end-window week');
+  assert.equal(result.expiry,'2027-01-22T12:59:59.999Z');
+}
 async function assertCachedReviewedCalendarNotes(page){
   const panel=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
   await page.evaluate(panel=>loadDeferredScript(panel),panel);
@@ -398,6 +413,7 @@ const server=http.createServer((req,res)=>{
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
+      await assertCachedMultidayRetention(upgraded);
       await assertCachedReviewedCalendarNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
@@ -445,6 +461,7 @@ const server=http.createServer((req,res)=>{
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
+    await assertCachedMultidayRetention(upgraded);
     await assertCachedReviewedCalendarNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
@@ -483,6 +500,6 @@ const server=http.createServer((req,res)=>{
     await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});
