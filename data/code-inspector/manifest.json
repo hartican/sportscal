@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-06T20:47:09.671Z",
+  "generatedAt": "2026-10-06T22:12:49.067Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T22:12:49.067Z",
       "chunkPath": "data/code-inspector/supercars.json"
     },
     {

@@ -2368,75 +2368,6 @@
       "researchedAt": "2026-10-03T22:23:28.930Z"
     },
     {
-      "id": "supercars-bathurst-1000-2026",
-      "title": "Bathurst 1000",
-      "hook": "Toyota brings proven endurance pace; Chevrolet brings a new technical adjustment. Bathurst will test both stories over twice the distance.",
-      "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
-      "closingCopy": "Manufacturer loyalty gives this race a different emotional edge for each camp. Toyota supporters can now ask whether a new badge can become a Great Race winner; Chevrolet followers want a difficult rebuilding season to produce something worth remembering. The wildcards add a human counterpoint: seven-time winner Craig Lowndes shares Team 18's extra car with rookie Bayley Hall, twenty years after his 2006 victory, while James Moffat and Nathan Herne carry the returning Garry Rogers Motorsport name. Experience and opportunity must work together, not simply look good on an entry list.",
-      "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, covering roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend supplied a 500km reliability test; this race asks the same crews and engines to go twice as far. Chevrolet's approved ballast change applies here, but its performance effect remains unproven. Pit execution, co-driver handovers and mechanical endurance will decide whether the pre-race promise survives the full distance.",
-      "sources": [
-        "https://www.supercars.com/events/2026-bathurst-1000",
-        "https://www.supercars.com/news/supercars-news-2026-chaz-mostert-walkinshaw-twg-racing-toyota-bathurst-chances-engine-reliability",
-        "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
-        "https://www.supercars.com/news/supercars-news-2026-five-burning-bathurst-questions-chevrolet-general-motors-drivers-engine-parity"
-      ],
-      "researchDepth": 5,
-      "changeReason": "The newly approved Bathurst-effective Camaro ballast adjustment materially changes the technical storyline; add verified competitive endurance form and Chevrolet wildcard/recovery context without assuming a performance gain.",
-      "facts": [
-        {
-          "dimension": "schedule",
-          "statement": "Race 30 is scheduled for 11:30am Sunday 11 October at Mount Panorama.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "venue",
-          "statement": "The circuit is 6.213km and the race runs 161 laps over approximately 1000km.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Mostert/Coulthard won The Bend endurance race, Wood/Evans also reached the podium, and all five Toyota Supras finished.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Supercars approved reduced Camaro roll-cage centre-of-gravity ballast effective from Bathurst, requiring no Mustang or Supra change.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Bathurst concludes the Ryco Enduro Cup before the championship Finals.",
-          "sourceIndexes": [
-            0,
-            1
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Team 18's wildcard pairs seven-time Bathurst winner Lowndes with rookie Hall, twenty years after his 2006 win; GRM fields Moffat/Herne.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Chevrolet teams are rebuilding after Triple Eight's departure and have entries contesting Enduro Cup and remaining Finals places.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-04T22:29:59.987Z"
-    },
-    {
       "id": "rugby-new-zealand-australia-2026-10-10",
       "title": "All Blacks v Wallabies",
       "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
@@ -2642,6 +2573,76 @@
       "researchDepth": 5,
       "changeReason": "Restore missing required public display copy with complete sourced participant-specific preview; preserve all sporting fields.",
       "researchedAt": "2026-10-06T02:59:54.194Z"
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "title": "Bathurst 1000",
+      "hook": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
+      "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
+      "closingCopy": "Brodie Kostecki and Todd Hazelwood will race without George Commins, the engineer behind Kostecki's 2024 Bathurst win. A mountain-biking injury has ruled Commins out; DJR team manager Tom Moore takes over. Moore already knows Kostecki from their years in the same teams, so this is not a partnership built from scratch. For Ford supporters, the new tension is whether a proven contender can keep its familiar rhythm with a different voice on the radio. Toyota's first Great Race campaign and Chevrolet's revised ballast add rival ambitions, not a guarantee that any badge has the answer.",
+      "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
+      "sources": [
+        "https://www.supercars.com/events/2026-bathurst-1000",
+        "https://www.supercars.com/news/supercars-news-2026-chaz-mostert-walkinshaw-twg-racing-toyota-bathurst-chances-engine-reliability",
+        "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
+        "https://www.supercars.com/news/supercars-new-2026-djr-brodie-kostecki-change-george-commins-engineer-injury-bathurst-1000",
+        "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-weather-prediction-forecast-race-start-time"
+      ],
+      "researchDepth": 5,
+      "changeReason": "DJR's confirmed engineer substitution materially changes the pre-race storyline for Kostecki/Hazelwood. Retain the established Toyota/Chevrolet Form, replace the wildcard-focused Storyline with that development, and qualify the dated weekend shower forecast in Match Context.",
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Mostert/Coulthard won at The Bend, Wood/Evans were third, and all five Toyota Supras finished.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Supercars reduced Camaro roll-cage centre-of-gravity ballast from Bathurst, without corresponding Mustang or Supra changes.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Commins engineered Kostecki's 2024 Bathurst victory; Moore and Kostecki have worked in the same full-time teams since 2021.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Commins will miss Bathurst after a mountain-biking injury; DJR team manager Tom Moore takes over engineering for Kostecki and Hazelwood.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Race 30 is scheduled for 11 October at 11:30am at Mount Panorama, over 161 laps of the 6.213km circuit.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Bathurst concludes the Enduro Cup before the championship Finals.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Supercars' forecast updated on 6 October indicates possible Saturday and Sunday showers; rain during the race is not confirmed.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-06T22:12:30Z"
     }
   ]
 }
