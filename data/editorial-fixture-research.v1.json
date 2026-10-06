@@ -2191,67 +2191,6 @@
       "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
     },
     {
-      "id": "epl-2026-27-128980",
-      "title": "Liverpool v Manchester City",
-      "hook": "Liverpool's rebuild meets Manchester City's fight to defend both points and the legitimacy of its success.",
-      "formCopy": "Andoni Iraola is reshaping Liverpool around aggressive pressing and quicker counter-attacks. Enzo Maresca's City retain a possession-led approach, with central overloads intended to release their wide players. At Anfield, the sporting test is whether Liverpool can turn City's attempts at control into opportunities to break, rather than simply chase the ball.",
-      "closingCopy": "For Liverpool supporters, the case puts fairness alongside the familiar desire to beat a rival. For City fans, pride in their club meets scrutiny of how its success was financed. That is the emotional tension, not a claim that supporters or today's players are responsible for accounting decisions. Management face reputational and regulatory uncertainty; the players still have a match to win. City's appeal and the pending sanction process mean neither a final punishment nor a rewritten honours list should be treated as settled.",
-      "synopsis": "Liverpool host Manchester City at Anfield on Monday 12 October, 2:30am Sydney time. Beyond the points, the fixture carries the weight of the Premier League Commission's findings on City's financial reporting and spending-rule breaches between 2009/10 and 2017/18. These are not salary-cap rules. City disputes the findings and confirmed it lodged an appeal on 1 October. Sanctions remain to be decided separately. The match does not resolve that case, but it brings questions about sporting credibility into one of the league's sharpest rivalries.",
-      "sources": [
-        "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc",
-        "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
-        "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
-        "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627"
-      ],
-      "researchedAt": "2026-10-02T12:08:59.501Z",
-      "researchDepth": 5,
-      "changeReason": "Published Commission findings and newly lodged appeal change the rivalry context; complete all four distinct preview sections.",
-      "facts": [
-        {
-          "dimension": "consequence",
-          "statement": "The independent Commission found serious financial reporting and spending-rule breaches across 2009/10 to 2017/18; sanctions await a separate hearing.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Manchester City says it lodged an appeal on 1 October 2026 and disputes the findings.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "schedule",
-          "statement": "Liverpool host Manchester City on 11 October at 16:30 BST, corresponding to 12 October at 02:30 Sydney time.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "venue",
-          "statement": "The fixture is at Anfield.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Liverpool changed manager to Andoni Iraola, whose approach emphasises pressing and counter-attacking.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Enzo Maresca's Manchester City approach uses possession and central overloads to create wide attacking opportunities.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ]
-    },
-    {
       "id": "rlwc-australia-new-zealand-2026",
       "title": "Australia v New Zealand — Rugby League World Cup",
       "hook": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
@@ -2372,62 +2311,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "rugby-new-zealand-australia-2026-10-10",
-      "title": "All Blacks v Wallabies",
-      "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-      "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
-      "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
-      "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
-      "sources": [
-        "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
-        "https://www.allblacks.com/news/all-blacks/all-blacks-squad-confirmed-for-bledisloe-cup",
-        "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
-        "https://www.allblacks.com/team/all-blacks/bledisloe-cup"
-      ],
-      "researchDepth": 5,
-      "changeReason": "Add the official Australian squad's overseas-release constraint and distinguish announced squads from unconfirmed match-day selections.",
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "Australia retain their recent squad core following the South Africa meeting; Macpherson is a first-time squad selection and de Lutiis is recalled.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Tom Hooper and Taniela Tupou are unavailable outside the Regulation 9 international release window.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Codie Taylor captains New Zealand; Scott Barrett returns from injury and Shannon Frizell rejoins the squad.",
-          "sourceIndexes": [
-            1,
-            2
-          ]
-        },
-        {
-          "dimension": "schedule",
-          "statement": "The two Bledisloe Tests are on 10 October at Eden Park and 17 October in Sydney.",
-          "sourceIndexes": [
-            0,
-            1
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "New Zealand have held the Bledisloe Cup since 2003.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-03T22:23:28.930Z"
     },
     {
       "id": "fixture:cricket:espn:1525660",
@@ -2552,6 +2435,107 @@
         }
       ],
       "researchedAt": "2026-10-04T22:29:59.987Z"
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "title": "All Blacks v Wallabies",
+      "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
+      "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
+      "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
+      "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-squad-confirmed-for-bledisloe-cup",
+        "https://www.rugby.com.au/wallabies/news/macpherson-drawing-off-bledisloe-greats-ahead-of-potential-test-debut-2026105"
+      ],
+      "researchDepth": 5,
+      "changeReason": "Current official squad reports still support the published narrative. Macpherson's new profile adds background, not a confirmed selection or material change. Retain the exact published four sections.",
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Hooper and Tupou are unavailable outside the international release window; Macpherson is called up and de Lutiis recalled.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Taylor captains the All Blacks squad; Barrett returns from injury and Frizell returns from Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "New Zealand have held the Bledisloe Cup since 2003.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Macpherson's Toyota Verblitz experience included mentoring from Michael Hooper and Aaron Smith; his possible Test debut is not a confirmed starting selection.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-06T02:47:49.275Z"
+    },
+    {
+      "id": "epl-2026-27-128980",
+      "title": "Liverpool v Manchester City",
+      "hook": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
+      "formCopy": "City arrive chasing a sixth consecutive league win, while Liverpool are unbeaten in seven matches across all competitions. Andoni Iraola's energetic Liverpool rebuild meets Enzo Maresca's first City season after Pep Guardiola: one side wants to disrupt the rhythm, the other to keep its winning sequence intact. Those runs make this more than a referendum on two new managers. Liverpool must turn momentum into authority against a rival already making consistency its advantage.",
+      "closingCopy": "The financial dispute gives the rivalry a second emotional fault line. An independent Commission found serious breaches of financial reporting and spending rules; this is not a salary-cap case. City have appealed and maintain their innocence, with sanctions still to be determined separately. For Liverpool supporters, questions of competitive fairness can sharpen the contest; for City supporters, pride in the team can coexist with resistance to findings their club disputes. Management must answer institutional questions while today's players are judged on the pitch. A win at Anfield would settle neither the appeal nor that argument.",
+      "synopsis": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
+      "sources": [
+        "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+        "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc/",
+        "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+        "https://www.liverpoolfc.com/news/fixture-updates-new-dates-anfield-games-against-man-city-and-arsenal"
+      ],
+      "researchDepth": 5,
+      "changeReason": "Repair missing Form and Storyline sections with current official form and distinguish confirmed financial findings, the club's appeal and still-undetermined sanctions. Replace stale seed synopsis with a focused four-section preview.",
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "City seek a sixth consecutive league win and Liverpool are unbeaten in seven matches across all competitions.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Iraola leads Liverpool's rebuild and Maresca leads City's first season after Guardiola.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "An independent Commission found serious financial reporting and spending-rule breaches; sanctions are to be considered separately.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Manchester City lodged an appeal on 1 October and maintain their innocence.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The fixture is at Anfield on Sunday 11 October at 16:30 BST, corresponding to Monday 12 October at 02:30 AEDT.",
+          "sourceIndexes": [
+            0,
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-06T02:47:49.275Z"
     }
   ]
 }

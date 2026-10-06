@@ -112917,22 +112917,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "archetype": "international test",
       "researchDepth": 5,
-      "lastReviewedAt": "2026-10-03T22:23:28.930Z"
+      "lastReviewedAt": "2026-10-06T02:47:49.275Z"
     },
-    "lastReviewedAt": "2026-10-03T22:23:28.930Z",
+    "lastReviewedAt": "2026-10-06T02:47:49.275Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "All Blacks v Wallabies",
       "contextSignals": [
         "event-specific",
         "narrative:form",
-        "narrative:matchup",
-        "narrative:schedule",
-        "narrative:history"
+        "narrative:history",
+        "narrative:path"
       ],
       "sourceName": "All Blacks v Wallabies — official research 1",
       "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
-      "sourceCheckedAt": "2026-10-03T22:23:28.930Z",
+      "sourceCheckedAt": "2026-10-06T02:47:49.275Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -113010,22 +113009,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
         "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3",
-        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:4"
+        "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3"
       ],
       "sourceIds": [
         "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
         "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
-        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:3"
+        "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
       ],
       "dimensions": [
         "form",
-        "matchup",
-        "schedule",
-        "history"
+        "history",
+        "path"
       ],
-      "researchedAt": "2026-10-03T22:23:28.930Z",
+      "researchedAt": "2026-10-06T02:47:49.275Z",
       "refreshAfter": "2026-10-10T06:10:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
@@ -116975,14 +116971,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-    "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+    "selectedSentence": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
+    "fullSpiel": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-06T02:47:49.275Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -116993,58 +116989,61 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128980",
-      "researchTier": "standard",
-      "hook": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "synopsis": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "researchTier": "marquee",
+      "hook": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
+      "synopsis": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
+      "formCopy": "City arrive chasing a sixth consecutive league win, while Liverpool are unbeaten in seven matches across all competitions. Andoni Iraola's energetic Liverpool rebuild meets Enzo Maresca's first City season after Pep Guardiola: one side wants to disrupt the rhythm, the other to keep its winning sequence intact. Those runs make this more than a referendum on two new managers. Liverpool must turn momentum into authority against a rival already making consistency its advantage.",
+      "closingCopy": "The financial dispute gives the rivalry a second emotional fault line. An independent Commission found serious breaches of financial reporting and spending rules; this is not a salary-cap case. City have appealed and maintain their innocence, with sanctions still to be determined separately. For Liverpool supporters, questions of competitive fairness can sharpen the contest; for City supporters, pride in the team can coexist with resistance to findings their club disputes. Management must answer institutional questions while today's players are judged on the pitch. A win at Anfield would settle neither the appeal nor that argument.",
       "threadIds": [
-        "thread:depth:epl:team-football-epl-10:2026-27",
-        "thread:depth:epl:team-football-epl-11:2026-27"
+        "thread:fixture-research:epl-2026-27-128980"
       ],
       "factIds": [
-        "fact:depth:epl:team-football-epl-10:season-arc",
-        "fact:depth:epl:team-football-epl-11:season-arc",
-        "fact:depth:epl:epl-2026-27-128980:team-football-epl-10:entry-form",
-        "fact:depth:epl:epl-2026-27-128980:team-football-epl-11:entry-form",
-        "fact:depth:epl:epl-2026-27-128980:matchup"
+        "fact:fixture-research:epl-2026-27-128980:0",
+        "fact:fixture-research:epl-2026-27-128980:1",
+        "fact:fixture-research:epl-2026-27-128980:2",
+        "fact:fixture-research:epl-2026-27-128980:3",
+        "fact:fixture-research:epl-2026-27-128980:4"
       ],
       "sourceIds": [
-        "source:depth:epl:table",
-        "source:depth:epl:season-guide",
-        "source:depth:epl:fixtures",
-        "source:depth:epl:match:epl-2026-27-128980"
+        "source:fixture-research:epl-2026-27-128980:0",
+        "source:fixture-research:epl-2026-27-128980:1",
+        "source:fixture-research:epl-2026-27-128980:2",
+        "source:fixture-research:epl-2026-27-128980:3"
       ],
       "dimensions": [
-        "history",
         "form",
-        "matchup"
+        "consequence",
+        "path",
+        "schedule"
       ],
-      "researchedAt": "2026-09-30T22:50:31.966Z",
+      "researchedAt": "2026-10-06T02:47:49.275Z",
       "refreshAfter": "2026-10-11T15:30:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Liverpool — 2026/27 identity under pressure",
+      "angle": "Liverpool v Manchester City",
       "contextSignals": [
         "event-specific",
-        "narrative:history",
         "narrative:form",
-        "narrative:matchup"
+        "narrative:consequence",
+        "narrative:path",
+        "narrative:schedule"
       ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-04T05:49:56.383Z",
+      "sourceName": "Liverpool v Manchester City — official research 1",
+      "sourceUrl": "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+      "sourceCheckedAt": "2026-10-06T02:47:49.275Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
-      "researchDepth": 2,
+      "researchDepth": 5,
       "arcStage": "preview",
-      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "hookSpoilerOn": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+      "hookSpoilerOff": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
+      "hookSpoilerOn": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
+      "synopsisSpoilerOff": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
+      "synopsisSpoilerOn": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
+      "lastReviewedAt": "2026-10-06T02:47:49.275Z"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
