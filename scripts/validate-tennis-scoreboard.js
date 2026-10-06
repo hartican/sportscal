@@ -38,14 +38,18 @@ assert.throws(()=>parse(bad,'wta'),/winner/);
 const corrupt=structuredClone(source.payloads.wta);corrupt.events[0].groupings[0].competitions.find(c=>c.id==='184349').competitors[1].linescores[2].value=0;assert.throws(()=>parse(corrupt,'wta'),/winner/);
 const unknown=structuredClone(source.payloads.wta);unknown.events[0].groupings[0].competitions[0].status.type.name='STATUS_UNREVIEWED';assert.throws(()=>parse(unknown,'wta'),/state/);
 assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:'2099-01-01T00:00:00Z',now,catalogue}),/observation/);
+assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:source.checkedAt,now:new Date(+now+6*3600000+1),catalogue}),/stale observation/,'A successful fetch cannot renew a stale source timestamp');
 (async()=>{
- const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-source-'));try{
+ // The synthetic response and freshness check must share the contract clock.
+ // Real wall time would eventually expire this fixture and reject every mock.
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-source-')),realNow=Date.now;
+ Date.now=()=>+now;try{
   for(const file of ['data/events.json','feeds/incoming/events.json']){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),JSON.stringify({...require('../data/events.json'),events:[muchova]}));}
   let calls=0;const fetchImpl=async url=>{calls++;return {ok:true,status:200,headers:new Headers({date:source.checkedAt}),json:async()=>source.payloads[url.includes('/atp/')?'atp':'wta']};};
   const result=await owner.refresh({root,now,fetchImpl,catalogue});assert.equal(calls,4);assert(result.changed);assert(JSON.parse(fs.readFileSync(path.join(root,'data/events.json'))).events.some(e=>e.tennisProviderMatchId==='184351'));
   const later=new Date(+now+60000);const unchanged=owner.merge(merged,owner.parse(source.payloads.wta,{tour:'wta',checkedAt:later.toISOString(),now:later,catalogue}).fixtures,{now:later}).find(f=>f.id===updated.id);assert.equal(unchanged.scoreCheckedAt,updated.scoreCheckedAt,'Repeated source checks cannot renew unchanged official result clocks');
   const settled=owner.merge([updated],[{...final,status:'live',score:'0–0'}],{now})[0];assert.equal(settled.status,'completed','A provider replay cannot reopen a final');
   const before=fs.readFileSync(path.join(root,'data/events.json'),'utf8');await owner.refresh({root,now,fetchImpl:async()=>{throw Error('Unavailable');},catalogue});assert.equal(fs.readFileSync(path.join(root,'data/events.json'),'utf8'),before,'Outages preserve last-good fixtures');
- }finally{fs.rmSync(root,{recursive:true,force:true});}
+ }finally{Date.now=realNow;fs.rmSync(root,{recursive:true,force:true});}
  console.log('Tennis discovery, ordered results, identity/clock preservation, provisional times, placeholders and source failures verified.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
