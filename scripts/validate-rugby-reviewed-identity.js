@@ -3,6 +3,13 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('nod
 const identity=require('../config/fixture-identity'),actions=require('../config/event-action-identity'),follow=require('../config/follow-first');
 const {curated,worldRugby}=require('./fixtures/rugby-reviewed-provider-pair.json');
 const canonical=curated.id,aliases=[worldRugby.id,worldRugby.id.replace(/:/g,'-'),'fixture:rugby:ra:949625','fixture-rugby-ra-949625'];
+const normalizeObservation=require('../lib/source-observation-identity').normalize;
+const relabelled={...worldRugby,id:canonical,eventId:canonical,canonicalEventId:canonical,sourceName:'Rugby Australia official match centre'};
+const recovered=normalizeObservation(relabelled);
+assert.equal(recovered.id,worldRugby.id,'Reviewed source labels cannot erase the original discovery key');
+assert.equal(recovered.canonicalEventId,canonical,'Restoring the raw key preserves canonical actions');
+assert.equal(normalizeObservation({...relabelled,discoverySourceId:undefined}).id,canonical,'A different source without provider provenance cannot acquire a provider key');
+assert.equal(normalizeObservation({...relabelled,sourceFixtureId:'00000000-0000-0000-0000-000000000000'}).id,canonical,'Unknown provider equivalence cannot be guessed');
 for(const id of [canonical,...aliases])assert.equal(identity.canonicalFixtureId(id),canonical);
 for(const collection of [[curated,worldRugby],[worldRugby,curated]]){
  const merged=identity.mergeOverlays(collection,[]);assert.equal(merged.length,1,'one exact fixture, either source order');

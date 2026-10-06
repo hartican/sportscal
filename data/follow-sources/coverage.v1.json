@@ -23279,8 +23279,8 @@
       "fixtureObservationSchema": "fixture-observations.v1"
     },
     {
-      "id": "rugby-australia-south-africa-2026-09-27",
-      "eventId": "rugby-australia-south-africa-2026-09-27",
+      "id": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
+      "eventId": "fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945",
       "canonicalEventId": "rugby-australia-south-africa-2026-09-27",
       "key": "rugby",
       "sport": "Rugby Union",
