@@ -440,3 +440,17 @@ header.top .vector-glyph{width:20px;height:20px;}
 /* Preserve the original official square asset while giving its wordmark room. */
 .event-hero-mark[data-card-identity="brand:baycurrent-classic"]{position:relative;width:180px;height:76px;margin:4px auto;overflow:hidden;background:white;border-radius:8px;}
 .event-hero-mark[data-card-identity="brand:baycurrent-classic"] .event-brand-logo{position:absolute;width:180px;height:180px;top:50%;left:0;transform:translateY(-50%) scale(1.55);}
+.tennis-feed-parent{padding:16px!important;background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--c-tennis,#67a776);border-radius:16px;}
+.tennis-feed-parent .tournament-parent-heading{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;}
+.tennis-parent-mark{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c-tennis,#67a776) 10%,var(--panel));border-radius:12px;}
+.tennis-parent-mark img,.tennis-parent-mark svg{max-width:38px;max-height:38px;}
+.tennis-parent-title>a{display:block;font-weight:750;font-size:1rem;text-decoration:none;line-height:1.35;}
+.tennis-parent-title .tournament-parent-context{display:block;color:var(--text-dim);font-size:.76rem;margin-top:4px;}
+.tennis-parent-dates{font-size:.75rem;color:var(--text-dim);margin:12px 0;}
+.tennis-parent-next{padding:12px;border-radius:12px;background:var(--panel);font-size:.8rem;line-height:1.5;}
+.tennis-parent-next-match{margin:0;}.tennis-parent-next-match+p{margin-top:10px;}
+.tennis-parent-source{display:block;padding-top:12px;font-size:.75rem;color:var(--accent);}
+.tennis-feed-parent>details>summary{display:none;}.tennis-parent-draw-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.tennis-parent-draw-tabs [aria-selected="true"]{background:color-mix(in srgb,var(--c-tennis,#67a776) 18%,var(--panel));border-color:var(--c-tennis,#67a776);}
+.tennis-parent-draw[hidden]{display:none;}.tennis-contest-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;line-height:1.45;}
+.tennis-contest-row>span{min-width:0;}.tennis-contest-row>button{flex:none;align-self:center;}

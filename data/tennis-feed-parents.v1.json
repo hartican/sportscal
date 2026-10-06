@@ -3939,6 +3939,15 @@
       "tournamentParent": true,
       "name": "Australian Open",
       "tournamentName": "Australian Open",
+      "venueCity": "Melbourne",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:grand-slam-australian-open-2026",
       "tennisTournamentId": "tournament:tennis:grand-slam-australian-open-2026",
@@ -3986,6 +3995,15 @@
       "tournamentParent": true,
       "name": "Roland Garros",
       "tournamentName": "Roland Garros",
+      "venueCity": "Paris",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:grand-slam-roland-garros-2026",
       "tennisTournamentId": "tournament:tennis:grand-slam-roland-garros-2026",
@@ -4033,6 +4051,15 @@
       "tournamentParent": true,
       "name": "Wimbledon",
       "tournamentName": "Wimbledon",
+      "venueCity": "London",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:grand-slam-wimbledon-2026",
       "tennisTournamentId": "tournament:tennis:grand-slam-wimbledon-2026",
@@ -4080,6 +4107,15 @@
       "tournamentParent": true,
       "name": "US Open",
       "tournamentName": "US Open",
+      "venueCity": "New York",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:grand-slam-us-open-2026",
       "tennisTournamentId": "tournament:tennis:grand-slam-us-open-2026",
@@ -14172,6 +14208,15 @@
       "tournamentParent": true,
       "name": "BNP Paribas Open",
       "tournamentName": "BNP Paribas Open",
+      "venueCity": "Indian Wells",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-indian-wells-2026",
       "tennisTournamentId": "tournament:tennis:atp-indian-wells-2026",
@@ -14218,6 +14263,15 @@
       "tournamentParent": true,
       "name": "Miami Open",
       "tournamentName": "Miami Open",
+      "venueCity": "Miami",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-miami-2026",
       "tennisTournamentId": "tournament:tennis:atp-miami-2026",
@@ -14264,6 +14318,15 @@
       "tournamentParent": true,
       "name": "Rolex Monte-Carlo Masters",
       "tournamentName": "Rolex Monte-Carlo Masters",
+      "venueCity": "Monte-Carlo",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-monte-carlo-2026",
       "tennisTournamentId": "tournament:tennis:atp-monte-carlo-2026",
@@ -14310,6 +14373,15 @@
       "tournamentParent": true,
       "name": "Mutua Madrid Open",
       "tournamentName": "Mutua Madrid Open",
+      "venueCity": "Madrid",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-madrid-2026",
       "tennisTournamentId": "tournament:tennis:atp-madrid-2026",
@@ -14356,6 +14428,15 @@
       "tournamentParent": true,
       "name": "Internazionali BNL d'Italia",
       "tournamentName": "Internazionali BNL d'Italia",
+      "venueCity": "Rome",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-rome-2026",
       "tennisTournamentId": "tournament:tennis:atp-rome-2026",
@@ -14402,6 +14483,15 @@
       "tournamentParent": true,
       "name": "National Bank Open presented by Rogers",
       "tournamentName": "National Bank Open presented by Rogers",
+      "venueCity": "Montreal",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-canada-421-2026",
       "tennisTournamentId": "tournament:tennis:atp-canada-421-2026",
@@ -14448,6 +14538,15 @@
       "tournamentParent": true,
       "name": "Cincinnati Open",
       "tournamentName": "Cincinnati Open",
+      "venueCity": "Cincinnati",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-cincinnati-2026",
       "tennisTournamentId": "tournament:tennis:atp-cincinnati-2026",
@@ -14494,6 +14593,15 @@
       "tournamentParent": true,
       "name": "Rolex Shanghai Masters",
       "tournamentName": "Rolex Shanghai Masters",
+      "venueCity": "Shanghai",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-shanghai-2026",
       "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
@@ -14540,6 +14648,15 @@
       "tournamentParent": true,
       "name": "Rolex Paris Masters",
       "tournamentName": "Rolex Paris Masters",
+      "venueCity": "Paris",
+      "tournamentLevel": "atp_masters_1000",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_masters_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-paris-2026",
       "tennisTournamentId": "tournament:tennis:atp-paris-2026",
@@ -14586,6 +14703,15 @@
       "tournamentParent": true,
       "name": "Qatar TotalEnergies Open",
       "tournamentName": "Qatar TotalEnergies Open",
+      "venueCity": "Doha",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-doha-2026",
       "tennisTournamentId": "tournament:tennis:wta-doha-2026",
@@ -14632,6 +14758,15 @@
       "tournamentParent": true,
       "name": "Dubai Duty Free Tennis Championships",
       "tournamentName": "Dubai Duty Free Tennis Championships",
+      "venueCity": "Dubai",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-dubai-2026",
       "tennisTournamentId": "tournament:tennis:wta-dubai-2026",
@@ -14678,6 +14813,15 @@
       "tournamentParent": true,
       "name": "BNP Paribas Open",
       "tournamentName": "BNP Paribas Open",
+      "venueCity": "Indian Wells",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-indian-wells-2026",
       "tennisTournamentId": "tournament:tennis:wta-indian-wells-2026",
@@ -14724,6 +14868,15 @@
       "tournamentParent": true,
       "name": "Miami Open",
       "tournamentName": "Miami Open",
+      "venueCity": "Miami",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-miami-2026",
       "tennisTournamentId": "tournament:tennis:wta-miami-2026",
@@ -14770,6 +14923,15 @@
       "tournamentParent": true,
       "name": "Mutua Madrid Open",
       "tournamentName": "Mutua Madrid Open",
+      "venueCity": "Madrid",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-madrid-2026",
       "tennisTournamentId": "tournament:tennis:wta-madrid-2026",
@@ -14816,6 +14978,15 @@
       "tournamentParent": true,
       "name": "Internazionali BNL d'Italia",
       "tournamentName": "Internazionali BNL d'Italia",
+      "venueCity": "Rome",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-rome-2026",
       "tennisTournamentId": "tournament:tennis:wta-rome-2026",
@@ -14862,6 +15033,15 @@
       "tournamentParent": true,
       "name": "National Bank Open presented by Rogers",
       "tournamentName": "National Bank Open presented by Rogers",
+      "venueCity": "Toronto",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-toronto-806-2026",
       "tennisTournamentId": "tournament:tennis:wta-toronto-806-2026",
@@ -14908,6 +15088,15 @@
       "tournamentParent": true,
       "name": "Cincinnati Open",
       "tournamentName": "Cincinnati Open",
+      "venueCity": "Cincinnati",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-cincinnati-2026",
       "tennisTournamentId": "tournament:tennis:wta-cincinnati-2026",
@@ -14954,6 +15143,15 @@
       "tournamentParent": true,
       "name": "China Open",
       "tournamentName": "China Open",
+      "venueCity": "Beijing",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-beijing-2026",
       "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
@@ -15072,6 +15270,15 @@
       "tournamentParent": true,
       "name": "Wuhan Open",
       "tournamentName": "Wuhan Open",
+      "venueCity": "Wuhan",
+      "tournamentLevel": "wta_1000",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_1000"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-wuhan-2026",
       "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
@@ -15118,6 +15325,15 @@
       "tournamentParent": true,
       "name": "Mubadala Citi DC Open",
       "tournamentName": "Mubadala Citi DC Open",
+      "venueCity": "Washington",
+      "tournamentLevel": "atp_500",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-washington-2026",
       "tennisTournamentId": "tournament:tennis:atp-washington-2026",
@@ -15164,6 +15380,15 @@
       "tournamentParent": true,
       "name": "Japan Open Tennis Championships",
       "tournamentName": "Japan Open Tennis Championships",
+      "venueCity": "Tokyo",
+      "tournamentLevel": "atp_500",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-tokyo-2026",
       "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
@@ -15241,6 +15466,15 @@
       "tournamentParent": true,
       "name": "Swiss Indoors Basel",
       "tournamentName": "Swiss Indoors Basel",
+      "venueCity": "Basel",
+      "tournamentLevel": "atp_500",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-basel-2026",
       "tennisTournamentId": "tournament:tennis:atp-basel-2026",
@@ -15287,6 +15521,15 @@
       "tournamentParent": true,
       "name": "Mubadala DC Open",
       "tournamentName": "Mubadala DC Open",
+      "venueCity": "Washington",
+      "tournamentLevel": "wta_500",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-washington-2026",
       "tennisTournamentId": "tournament:tennis:wta-washington-2026",
@@ -15333,6 +15576,15 @@
       "tournamentParent": true,
       "name": "Berlin Tennis Open",
       "tournamentName": "Berlin Tennis Open",
+      "venueCity": "Berlin",
+      "tournamentLevel": "wta_500",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-berlin-2026",
       "tennisTournamentId": "tournament:tennis:wta-berlin-2026",
@@ -15379,6 +15631,15 @@
       "tournamentParent": true,
       "name": "Bad Homburg Open",
       "tournamentName": "Bad Homburg Open",
+      "venueCity": "Bad Homburg",
+      "tournamentLevel": "wta_500",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_500"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-bad-homburg-2026",
       "tennisTournamentId": "tournament:tennis:wta-bad-homburg-2026",
@@ -15425,6 +15686,15 @@
       "tournamentParent": true,
       "name": "Nitto ATP Finals",
       "tournamentName": "Nitto ATP Finals",
+      "venueCity": "Turin",
+      "tournamentLevel": "atp_finals",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_finals"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:atp-finals-2026",
       "tennisTournamentId": "tournament:tennis:atp-finals-2026",
@@ -15471,6 +15741,15 @@
       "tournamentParent": true,
       "name": "WTA Finals Indian Wells",
       "tournamentName": "WTA Finals Indian Wells",
+      "venueCity": "Indian Wells",
+      "tournamentLevel": "wta_finals",
+      "tourCategories": [
+        {
+          "tour": "WTA",
+          "level": "wta_finals"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:wta-finals-2026",
       "tennisTournamentId": "tournament:tennis:wta-finals-2026",
@@ -15517,6 +15796,15 @@
       "tournamentParent": true,
       "name": "Davis Cup Finals",
       "tournamentName": "Davis Cup Finals",
+      "venueCity": "Bologna",
+      "tournamentLevel": "team_competition",
+      "tourCategories": [
+        {
+          "tour": "TEAM",
+          "level": "team_competition"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:davis-cup-finals-2026",
       "tennisTournamentId": "tournament:tennis:davis-cup-finals-2026",
@@ -15622,6 +15910,15 @@
       "tournamentParent": true,
       "name": "Billie Jean King Cup Finals",
       "tournamentName": "Billie Jean King Cup Finals",
+      "venueCity": "Shenzhen",
+      "tournamentLevel": "team_competition",
+      "tourCategories": [
+        {
+          "tour": "TEAM",
+          "level": "team_competition"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
       "tennisTournamentId": "tournament:tennis:bjk-cup-finals-2026",
@@ -15971,6 +16268,15 @@
       "tournamentParent": true,
       "name": "United Cup",
       "tournamentName": "United Cup",
+      "venueCity": "Perth / Sydney",
+      "tournamentLevel": "team_competition",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "team_competition"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2026,
       "tournamentId": "tournament:tennis:united-cup-2026",
       "tennisTournamentId": "tournament:tennis:united-cup-2026",
@@ -16018,6 +16324,15 @@
       "tournamentParent": true,
       "name": "Australian Open",
       "tournamentName": "Australian Open",
+      "venueCity": "Melbourne",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2027,
       "tournamentId": "tournament:tennis:grand-slam-australian-open-2027",
       "tennisTournamentId": "tournament:tennis:grand-slam-australian-open-2027",
@@ -16065,6 +16380,15 @@
       "tournamentParent": true,
       "name": "Wimbledon",
       "tournamentName": "Wimbledon",
+      "venueCity": "London",
+      "tournamentLevel": "grand_slam",
+      "tourCategories": [
+        {
+          "tour": "BOTH",
+          "level": "grand_slam"
+        }
+      ],
+      "sourceCheckedAt": null,
       "season": 2027,
       "tournamentId": "tournament:tennis:grand-slam-wimbledon-2027",
       "tennisTournamentId": "tournament:tennis:grand-slam-wimbledon-2027",
@@ -16100,6 +16424,99 @@
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
       "contestCount": 0
+    },
+    {
+      "id": "tennis-parent:china-open:2026:tournament:tennis:atp-beijing-2026",
+      "eventId": "tennis-parent:china-open:2026:tournament:tennis:atp-beijing-2026",
+      "canonicalEventId": "tennis-parent:china-open:2026:tournament:tennis:atp-beijing-2026",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "cardType": "tennis_parent",
+      "tournamentParent": true,
+      "name": "China Open",
+      "tournamentName": "China Open",
+      "venueCity": "Beijing",
+      "tournamentLevel": "atp_500",
+      "tourCategories": [
+        {
+          "tour": "ATP",
+          "level": "atp_500"
+        }
+      ],
+      "sourceCheckedAt": "2026-10-06T06:51:36.852Z",
+      "season": 2026,
+      "tournamentId": "tournament:tennis:atp-beijing-2026",
+      "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+      "tournamentIds": [
+        "tournament:tennis:atp-beijing-2026"
+      ],
+      "eventFamilyId": "china-open",
+      "competitionId": "competition:atp-tour",
+      "phaseId": null,
+      "tour": "ATP",
+      "representedTours": [
+        "ATP"
+      ],
+      "date": "2026-09-30",
+      "endDate": "2026-10-06",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "timeTbc": true,
+      "schedulingWindow": {},
+      "timingProvisional": false,
+      "dateLabel": null,
+      "status": "upcoming",
+      "venue": "Beijing, CHN",
+      "sourceUrl": "https://www.atptour.com/en/news/beijing-2026-entry-list",
+      "sourceName": "Tournament calendar",
+      "sourceType": "published",
+      "participationEvidence": [],
+      "excludedParticipantIds": [],
+      "participantIds": [
+        "athlete:tennis:novak-djokovic",
+        "competitor:tennis:atp:alexander-zverev",
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:quentin-halys",
+        "competitor:tennis:atp:hubert-hurkacz"
+      ],
+      "expected": 5,
+      "sourceParticipation": [
+        {
+          "participantId": "athlete:tennis:novak-djokovic",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-zverev",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "athlete:tennis:alex-de-minaur",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:quentin-halys",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:hubert-hurkacz",
+          "draw": "singles",
+          "active": true
+        }
+      ],
+      "participantsConfirmed": true,
+      "sourceParticipantIds": [
+        "athlete:tennis:novak-djokovic",
+        "competitor:tennis:atp:alexander-zverev",
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:quentin-halys",
+        "competitor:tennis:atp:hubert-hurkacz"
+      ],
+      "contestCount": 4
     }
   ]
 }

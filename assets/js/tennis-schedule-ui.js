@@ -17,7 +17,7 @@ function renderTennisMajorEvents(container){
   const helper=NOTHINGSPORTS_TOURNAMENT_SCHEDULE;
   function row(t){
     const family=helper.family(t),card=document.createElement('div');card.className='follow-event-family tennis-catalogue-row';card.dataset.eventFamilyId=family;card.dataset.edition=t.tournamentId;
-    const copy=document.createElement('div'),title=document.createElement('strong'),dates=document.createElement('small');title.textContent=`${t.name} ${t.season}`;dates.textContent=`${t.startDate} – ${t.endDate}`;copy.append(title,dates);
+    const copy=document.createElement('div'),title=document.createElement('strong'),dates=document.createElement('small');title.textContent=helper.displayLabel(t);dates.textContent=`${t.startDate} – ${t.endDate}`;copy.append(title,dates);
     const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-event-family-toggle';toggle.dataset.eventFamilyLabel=t.name;const followed=userPreferences.followFirst.followedMajorEventIds.includes(family);toggle.textContent=`${followed?'Unfollow':'Follow'} ${t.name}`;toggle.setAttribute('aria-pressed',String(followed));toggle.onclick=()=>{toggleMajorEventFollow(family);};
     const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Schedule';open.onclick=async()=>{tennisSelectedEdition=t.tournamentId;await openCodeInspector('sport:tennis');};card.append(copy,toggle,open);return card;
   }
@@ -73,7 +73,7 @@ function renderTennisTournamentSchedule(panel,fixtures){
     const pending=document.createElement('p');pending.textContent='Loading tournament editions…';panel.append(pending);void loadTennisTournamentCatalogue().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{pending.textContent='Tournament catalogue unavailable. Try opening Schedule again.';});return;
   }
   const groups=NOTHINGSPORTS_TOURNAMENT_SCHEDULE.groups(fixtures,tennisTournamentCatalogue.tournaments);
-  for(const t of tennisTournamentCatalogue.tournaments)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:`${t.name} ${t.season}`,startDate:t.startDate,endDate:t.endDate,fixtures:[]});
+  for(const t of tennisTournamentCatalogue.tournaments)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:NOTHINGSPORTS_TOURNAMENT_SCHEDULE.displayLabel(t),startDate:t.startDate,endDate:t.endDate,fixtures:[]});
   groups.sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
   const today=formatDateKey(nowAEST());
   const current=groups.filter(g=>g.endDate>=today);const latest=groups.filter(g=>g.endDate<today).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];

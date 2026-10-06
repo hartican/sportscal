@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="451">
+<meta name="app-shell-version" content="452">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=451" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=452" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=424">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=451">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=452">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=451"></script>
+<script src="assets/js/app-shell-runtime.js?v=452"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8762,15 +8762,15 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=451').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=451')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=452').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=452')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
-  await loadDeferredScript('config/athletes.js?v=451');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=451');
+  await loadDeferredScript('config/athletes.js?v=452');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=452');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -14342,7 +14342,7 @@ function codeInspectorStandingsSportKey(code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=318').then(()=>loadDeferredScript('config/tennis-journeys.js?v=368')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=379')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=452').then(()=>loadDeferredScript('config/tennis-journeys.js?v=368')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=452')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -16881,60 +16881,11 @@ function loadTennisFeedContests(){
 }
 const tennisFeedOpenParents=new Set();
 function buildTennisFeedParent(parent){
+  if(globalThis.NOTHINGSPORTS_TENNIS_PARENT_UI)return NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent);
   const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
-  const details=document.createElement('details'),summary=document.createElement('summary'),timing=document.createElement('span');
-  const ongoing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(parent,nowAEST());
-  card.classList.toggle('parent-ongoing',ongoing);
-  const heading=document.createElement('div');heading.className='tournament-parent-heading';
-  const link=buildFeedScheduleLink(parent);link.textContent=ongoing?({'Billie Jean King Cup Finals':'BJK Cup Finals'}[parent.name]||parent.name):`${parent.name} ${parent.season}`;
-  timing.className='tournament-parent-context';timing.textContent=ongoing?'Ongoing':NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);
-  const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost';toggle.textContent='⌄';toggle.setAttribute('aria-label',`Expand ${parent.name} schedule`);
-  heading.append(link,timing,toggle);card.append(heading);details.append(summary);card.append(details);
-  toggle.onclick=()=>{details.open=!details.open;toggle.setAttribute('aria-expanded',String(details.open));};
-  const body=document.createElement('div');body.className='tennis-parent-contests';details.append(body);
-  let loaded=false;
-  async function paint(){
-    body.replaceChildren();body.textContent='Loading contests…';
-    try{
-      const doc=await loadTennisFeedContests();
-      if(doc.fixtures.some(f=>f.rubbers?.length))await loadDeferredScript('assets/js/tennis-tie-details.js?v=305');
-      if(!card.isConnected)return;
-      const fixtures=NOTHINGSPORTS_TENNIS_FEED.reconcile({...parent,childContests:doc.fixtures.filter(e=>NOTHINGSPORTS_TENNIS_FEED.matches(parent,e))},activeEvents).childContests;
-      body.replaceChildren();
-      if(!fixtures.length){body.textContent='Contests will appear as reliable schedules become available.';return;}
-      const groups=new Map();
-      for(const f of fixtures){const label=f.contestUnit==='tie'||f.tour==='TEAM'?'Team ties':/doubles/i.test([f.eventType,f.matchType,f.name].join(' '))?'Doubles':/women|wta/i.test([f.eventType,f.matchType,f.gender,f.tour].join(' '))?'Women’s singles':'Men’s singles';if(!groups.has(label))groups.set(label,[]);groups.get(label).push(f);}
-      for(const [label,fixtures]of groups){
-        const section=document.createElement('section'),heading=document.createElement('h3');heading.textContent=label;section.append(heading);body.append(section);
-        let count=0;fixtures.sort((a,b)=>String(a.date||'9999').localeCompare(String(b.date||'9999'))||String(a.time||'').localeCompare(String(b.time||'')));
-        function more(){
-          for(const fixture of fixtures.slice(count,count+20)){
-            const ev=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(fixture,'tennis'),row=document.createElement('div');row.className='tennis-contest-row';
-            row.dataset.eventId=String(ev.eventId||ev.id);const copy=document.createElement('span');renderEventTitleIdentity(copy,ev,spoilerSafeDisplayTitle(ev));copy.append(document.createTextNode(` · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+(ev.timePrecision==='not-before'?'Not before ':'')+ev.time:''}`));row.append(copy);
-            const excluded=FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences);
-            const action=getEventAction(ev),automatic=!excluded&&Boolean(automaticEventFollowReason(ev)),visible=!excluded&&!action.dismissed&&!action.archived&&(automatic||action.addedToFixtures);
-            const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=visible?'In Feed':excluded?'Excluded':'Add to Feed';button.disabled=excluded;
-            button.onclick=()=>{
-              if(visible){pendingNotificationEventId=String(ev.eventId||ev.id);if(!activeEvents.some(e=>String(e.eventId||e.id)===pendingNotificationEventId))activeEvents.push(ev);renderAll({preserveViewport:true});focusPendingNotificationEvent();return;}
-              const next=updateEventAction(ev,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...ev,manualPin:true},dismissed:false,archived:false,pinState:'added',pinRevision:(Number(action.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});
-              queueFixturePinCommand(eventActionKey(ev),next);renderAll({preserveViewport:true});
-            };row.append(button);
-            if(action.addedToFixtures){const remove=document.createElement('button');remove.type='button';remove.className='btn ghost';remove.textContent='Remove';remove.setAttribute('aria-label',`Remove manual selection for ${spoilerSafeDisplayTitle(ev)}`);remove.onclick=()=>{const next=updateEventAction(ev,{addedToFixtures:false,pinState:'removed',pinRevision:(Number(action.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});queueFixturePinCommand(eventActionKey(ev),next);void paint();renderAll({preserveViewport:true});};row.append(remove);}
-            if(fixture.rubbers?.length)row.append(NOTHINGSPORTS_TENNIS_TIE_DETAILS.build(fixture,{showResults:isSpoilerVisible(ev)}));
-            section.append(row);
-          }
-          count+=20;
-          if(count<fixtures.length){const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent='More contests';button.onclick=()=>{button.remove();more();};section.append(button);}
-        }more();
-      }
-    }catch(error){loaded=false;body.textContent='Contests could not load. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>void paint();body.append(retry);}
-  }
-  summary.addEventListener('click',()=>{if(details.open)tennisFeedOpenParents.delete(parent.id);else tennisFeedOpenParents.add(parent.id);});
-  details.open=tennisFeedOpenParents.has(parent.id);
-  details.addEventListener('toggle',()=>{if(!card.isConnected)return;toggle.setAttribute('aria-expanded',String(details.open));if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
-  toggle.setAttribute('aria-expanded',String(details.open));return card;
+  const title=document.createElement('h3');title.textContent=parent.name;const dates=document.createElement('p');dates.textContent=NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);card.append(title,dates);
+  const load=()=>loadDeferredScript('assets/js/tennis-parent-ui.js?v=452').then(()=>{if(card.isConnected)card.replaceWith(NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent));}).catch(()=>{const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry tournament details';retry.onclick=()=>{retry.remove();void load();};card.append(retry);});void load();return card;
 }
-
 function buildOngoingTournamentParent(ev){
   const card=document.createElement('article');card.className='event-card tennis-feed-parent parent-ongoing';card.dataset.eventId=ev.eventId||ev.id;card.dataset.scrollKey=`event:calendar:${ev.eventId||ev.id}`;
   const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);card.classList.add('parent-tinted');}

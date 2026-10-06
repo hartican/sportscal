@@ -65,11 +65,11 @@
       if(!t.tournamentId||!t.season||!t.sourceUrl)continue;
       let key=parentKey(t);let prior=groups.get(key);
       if(prior && (prior.date!==t.startDate||prior.endDate!==t.endDate)){key=parentKey({...t,phaseId:t.tournamentId});prior=groups.get(key);}
-      if(prior){prior.tournamentIds.push(t.tournamentId);prior.representedTours=[...new Set([...prior.representedTours,...(t.representedTours||[t.tour])])];continue;}
+      if(prior){prior.tournamentIds.push(t.tournamentId);prior.representedTours=[...new Set([...prior.representedTours,...(t.representedTours||[t.tour])])];prior.tourCategories.push({tour:t.tour,level:t.level});continue;}
       const window=t.schedulingWindow||{};
       const date=t.startDate||window.startsOn||null,endDate=t.endDate||window.endsOn||date;
       groups.set(key,{id:key,eventId:key,canonicalEventId:key,key:'tennis',sport:'Tennis',sportDomainId:'sport:tennis',cardType:'tennis_parent',tournamentParent:true,
-        name:t.name,tournamentName:t.name,season:t.season,tournamentId:t.tournamentId,tennisTournamentId:t.tournamentId,tournamentIds:[t.tournamentId],eventFamilyId:schedule.family(t),competitionId:t.competitionId,
+        name:t.name,tournamentName:t.name,venueCity:t.city,tournamentLevel:t.level,tourCategories:[{tour:t.tour,level:t.level}],sourceCheckedAt:t.sourceCheckedAt||null,season:t.season,tournamentId:t.tournamentId,tennisTournamentId:t.tournamentId,tournamentIds:[t.tournamentId],eventFamilyId:schedule.family(t),competitionId:t.competitionId,
         phaseId:t.phaseId||t.stageId||null,tour:t.tour,representedTours:t.representedTours||[t.tour],date,endDate,dateOnly:true,timePrecision:date?'date-only':'tbc',timeTbc:true,
         schedulingWindow:window,timingProvisional:t.timingProvisional===true||!t.startDate,dateLabel:t.dateLabel||window.label||(!date?'Dates to be confirmed':null),
         status:'upcoming',venue:[t.city,t.countryCode].filter(Boolean).join(', '),sourceUrl:t.sourceUrl,sourceName:t.sourceName||'Tournament calendar',sourceType:t.sourceType||'published',

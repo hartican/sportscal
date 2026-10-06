@@ -4578,6 +4578,29 @@
       "taxonomySportId": "sport:tennis",
       "disciplineId": "discipline:tennis:professional",
       "baselineEligible": true
+    },
+    {
+      "providerId": "atp-beijing-2026",
+      "name": "China Open",
+      "tour": "ATP",
+      "representedTours": [
+        "ATP"
+      ],
+      "level": "atp_500",
+      "startDate": "2026-09-30",
+      "endDate": "2026-10-06",
+      "city": "Beijing",
+      "countryCode": "CHN",
+      "surface": "hard",
+      "sourceUrl": "https://www.atptour.com/en/news/beijing-2026-entry-list",
+      "sourceCheckedAt": "2026-10-06T06:51:36.852Z",
+      "season": 2026,
+      "tournamentId": "tournament:tennis:atp-beijing-2026",
+      "providerAlias": "atp:tournament:atp-beijing-2026",
+      "competitionId": "competition:atp-tour",
+      "taxonomySportId": "sport:tennis",
+      "disciplineId": "discipline:tennis:professional",
+      "baselineEligible": false
     }
   ]
 }

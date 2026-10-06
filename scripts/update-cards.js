@@ -276,6 +276,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-experience-reliability.js"],
   ["scripts/validate-golf-source-observations.js"],
   ["scripts/validate-golf-tracked-scope.js"],
+  ["scripts/validate-tennis-repair.js"],
   ["scripts/validate-canonical-source-readout.js"],
   ["scripts/validate-worker-fallback.js"],
   ["scripts/validate-feed-filter-pagination.js"],
@@ -522,11 +523,12 @@ async function runMain() {
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }
-  if(process.argv.includes('--programme-reconciliation')){
+  if(process.argv.includes('--programme-reconciliation')||process.argv.includes('--tennis-quality')){
     for(const args of [
+      ['scripts/refresh-tennis-catalogue.js'],
       ['scripts/build-code-inspector.js','--codes=nrl,tennis'],
       ['scripts/build-tennis-feed-parents.js'],
-      ['scripts/build-tournament-horizon.js'],
+      ['scripts/build-tournament-horizon.js'],['scripts/build-tennis-journeys.js'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-programme-reconciliation.js','--published'],
       ['scripts/validate-tennis-feed-normalisation.js'],
     ])runStep(args);
