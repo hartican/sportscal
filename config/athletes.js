@@ -6,14 +6,22 @@
  function role(key){key=String(key||'').replace(/-women$/,'');return ['tennis','wimbledon','football','soccer','afl','aflw','nrl','nrlw','rugby','rugby-union','nba','nbl','nfl','nhl','ice-hockey','cricket','basketball','netball','hockey','fiba'].includes(key)?'Player':['f1','wrc','motorsport','supercars'].includes(key)?'Driver':key==='motogp'?'Rider':key==='golf'?'Golfer':'Athlete';}
  function participantIds(event){return [...new Set([...(event.participantIds||[]),...(event.participants||[]).map(p=>p.id),...(event.participantSlots||[]).map(p=>p.participantId),...(event.matchupSides||[]).flatMap(s=>(s.players||[]).map(p=>p.id)),event.homeParticipantId,event.awayParticipantId].filter(Boolean))];}
  const involves=(event,id)=>participantIds(event).some(p=>identity(p)===identity(id));
+ const SYDNEY_DATE=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
  function list(records,activeIds,includeTeams=false){
   const keys=new Set([...activeIds].filter(id=>individual(id)||includeTeams&&String(id).startsWith('team:')).map(identity)),seen=new Set();
   return records.filter(p=>individual(p)||includeTeams&&String(p.id).startsWith('team:')).filter(p=>{const key=identity(p.id);if(!keys.has(key)||seen.has(key))return false;seen.add(key);return true;}).map(p=>({...p,sportKey:sport(p),displayName:p.displayName||p.canonicalName||p.name||'Followed athlete'})).sort((a,b)=>a.displayName.localeCompare(b.displayName));
  }
  function next(events,id,now=Date.now()){
+  const day=SYDNEY_DATE.format(new Date(now));
   const tees=events.filter(e=>e.cardType==='golf_appearance'&&involves(e,id)&&Date.parse(e.startTimeUtc)>=now&&!/^(completed|cancelled|postponed|suspended)$/.test(e.status||''));
-  return events.filter(e=>(e.cardType!=='golf_appearance'||Date.parse(e.startTimeUtc)>=now)&&!tees.some(t=>t.parentEventId===e.id)&&involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now))||e.participantsConfirmed===true&&!e.date&&!e.startTimeUtc&&e.schedulingWindow?.endsOn>=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now))||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))
+  return events.filter(e=>(e.cardType!=='golf_appearance'||Date.parse(e.startTimeUtc)>=now)&&!tees.some(t=>t.parentEventId===e.id)&&involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=day||e.participantsConfirmed===true&&!e.date&&!e.startTimeUtc&&e.schedulingWindow?.endsOn>=day||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))
    .sort((a,b)=>{const fresh=e=>/^(live|in-progress)$/.test(e.status||'')&&Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=now&&now-Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=1800000;return Number(fresh(b))-Number(fresh(a))||(Date.parse(a.startTimeUtc||a.date)||Infinity)-(Date.parse(b.startTimeUtc||b.date)||Infinity);})[0]||null;
+ }
+ // Partition once so sorting a large Follow list never rescans the catalogue.
+ function indexNext(events,now=Date.now()){
+  const buckets=new Map();
+  for(const event of events)for(const id of new Set(participantIds(event).map(identity))){const bucket=buckets.get(id)||[];bucket.push(event);buckets.set(id,bucket);}
+  return new Map([...buckets].map(([id,bucket])=>[id,next(bucket,id,now)]));
  }
  function currentContext(document,id,day,preferences){
   const player=document?.players?.find(p=>identity(p.id)===identity(id));if(!player)return null;
@@ -36,5 +44,5 @@
   const checked=Date.parse(event.sourceCheckedAt||event.canonicalSourceCheckedAt||event.lastVerifiedAt||'');
   return Number.isFinite(checked)&&checked<=+now&&/^https:\/\//.test(event.sourceUrl||event.scheduleSourceUrl||'')?'published':'unverified';
  }
- return {identity,individual,sport,role,participantIds,involves,list,next,currentContext,timingState};
+ return {identity,individual,sport,role,participantIds,involves,list,next,indexNext,currentContext,timingState};
 });

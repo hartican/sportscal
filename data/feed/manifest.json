@@ -1,311 +1,311 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "weekend-editorial-20261006025955005-20261006041237839-20261006041421979-20261006041800788",
-  "sourcePublishedAt": "2026-10-06T04:18:00.788Z",
+  "sourceVersion": "weekend-editorial-20261006025955005-20261006041237839-20261006041421979-20261006041800788-20261006095104285-20261006100438208-20261006100927874",
+  "sourcePublishedAt": "2026-10-06T10:09:27.874Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 1538,
-  "eventCount": 853,
+  "inputEventCount": 1539,
+  "eventCount": 854,
   "pages": [
     {
       "index": 0,
       "path": "data/feed/page-001.json",
       "eventCount": 20,
       "firstEventId": "fixture:mlb:849834",
-      "lastEventId": "fixture:mlb:849832"
+      "lastEventId": "event:f1:2026:singapore:sprint-qualifying"
     },
     {
       "index": 1,
       "path": "data/feed/page-002.json",
       "eventCount": 20,
-      "firstEventId": "fixture:mlb:849837",
-      "lastEventId": "event:premier-league:128979"
+      "firstEventId": "fixture:mlb:849832",
+      "lastEventId": "event:premier-league:128975"
     },
     {
       "index": 2,
       "path": "data/feed/page-003.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128982",
-      "lastEventId": "rlwc-australia-new-zealand-2026"
+      "firstEventId": "event:premier-league:128979",
+      "lastEventId": "event:nbl:2026-27:36fd506c-58ad-11f1-a57f-6d6fb61b331b"
     },
     {
       "index": 3,
       "path": "data/feed/page-004.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262641001",
-      "lastEventId": "event:nbl:2026-27:371032f3-58ad-11f1-a72d-69c2b72ae0a9"
+      "firstEventId": "rlwc-australia-new-zealand-2026",
+      "lastEventId": "event:aflw:cd_m20262641008"
     },
     {
       "index": 4,
       "path": "data/feed/page-005.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262641009",
-      "lastEventId": "event:motogp:2026:australia:sprint"
+      "firstEventId": "event:nbl:2026-27:371032f3-58ad-11f1-a72d-69c2b72ae0a9",
+      "lastEventId": "event:aflw:cd_m20262641102"
     },
     {
       "index": 5,
       "path": "data/feed/page-006.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262641103",
-      "lastEventId": "rlwc-australia-fiji-2026"
+      "firstEventId": "event:motogp:2026:australia:sprint",
+      "lastEventId": "event:aflw:cd_m20262641109"
     },
     {
       "index": 6,
       "path": "data/feed/page-007.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128997",
-      "lastEventId": "event:aflw:cd_m20262641203"
+      "firstEventId": "rlwc-australia-fiji-2026",
+      "lastEventId": "event:motogp:2026:malaysia:qualifying"
     },
     {
       "index": 7,
       "path": "data/feed/page-008.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262641204",
-      "lastEventId": "event:motogp:2026:malaysia:warmup"
+      "firstEventId": "event:aflw:cd_m20262641203",
+      "lastEventId": "event:aflw:cd_m20262641207"
     },
     {
       "index": 8,
       "path": "data/feed/page-009.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:374fd3d1-58ad-11f1-945e-cbcb1725dbfe",
-      "lastEventId": "event:motogp:2026:qatar:practice-2"
+      "firstEventId": "event:motogp:2026:malaysia:warmup",
+      "lastEventId": "event:nbl:2026-27:3723d03c-58ad-11f1-9032-15ea51636534"
     },
     {
       "index": 9,
       "path": "data/feed/page-010.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129019",
-      "lastEventId": "event:wrc:2026:round-14"
+      "firstEventId": "event:motogp:2026:qatar:practice-2",
+      "lastEventId": "event:motogp:2026:qatar"
     },
     {
       "index": 10,
       "path": "data/feed/page-011.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:37541928-58ad-11f1-86bd-87c06d92085a",
-      "lastEventId": "event:sailgp:2026:dubai-day-1"
+      "firstEventId": "event:wrc:2026:round-14",
+      "lastEventId": "event:motogp:2026:portugal:practice-1"
     },
     {
       "index": 11,
       "path": "data/feed/page-012.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2026:portugal:practice",
-      "lastEventId": "event:nbl:2026-27:37514d45-58ad-11f1-917b-0f009f2e4d02"
+      "firstEventId": "event:sailgp:2026:dubai-day-1",
+      "lastEventId": "event:f1:2026:las-vegas:race"
     },
     {
       "index": 12,
       "path": "data/feed/page-013.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:374c5a9d-58ad-11f1-8829-1daf76a0ede8",
-      "lastEventId": "event:f1:2026:qatar:practice-3"
+      "firstEventId": "event:nbl:2026-27:37514d45-58ad-11f1-917b-0f009f2e4d02",
+      "lastEventId": "event:motogp:2026:valencia:sprint"
     },
     {
       "index": 13,
       "path": "data/feed/page-014.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129039",
-      "lastEventId": "event:premier-league:129046"
+      "firstEventId": "event:f1:2026:qatar:practice-3",
+      "lastEventId": "event:premier-league:129045"
     },
     {
       "index": 14,
       "path": "data/feed/page-015.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129047",
-      "lastEventId": "event:premier-league:129057"
+      "firstEventId": "event:premier-league:129046",
+      "lastEventId": "event:premier-league:129056"
     },
     {
       "index": 15,
       "path": "data/feed/page-016.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129058",
-      "lastEventId": "event:premier-league:129067"
+      "firstEventId": "event:premier-league:129057",
+      "lastEventId": "event:premier-league:129066"
     },
     {
       "index": 16,
       "path": "data/feed/page-017.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129068",
-      "lastEventId": "event:premier-league:129080"
+      "firstEventId": "event:premier-league:129067",
+      "lastEventId": "event:premier-league:129079"
     },
     {
       "index": 17,
       "path": "data/feed/page-018.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129081",
-      "lastEventId": "event:nbl:2026-27:379201a1-58ad-11f1-a7bf-ede76c1d904d"
+      "firstEventId": "event:premier-league:129080",
+      "lastEventId": "event:nbl:2026-27:3770b91e-58ad-11f1-9efe-a362560fc147"
     },
     {
       "index": 18,
       "path": "data/feed/page-019.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129084",
-      "lastEventId": "event:premier-league:129108"
+      "firstEventId": "event:nbl:2026-27:379201a1-58ad-11f1-a7bf-ede76c1d904d",
+      "lastEventId": "event:dakar:2027:prologue"
     },
     {
       "index": 19,
       "path": "data/feed/page-020.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:3791ec9a-58ad-11f1-8e37-819ec06531e4",
-      "lastEventId": "event:premier-league:129113"
+      "firstEventId": "event:premier-league:129108",
+      "lastEventId": "event:dakar:2027:stage-4"
     },
     {
       "index": 20,
       "path": "data/feed/page-021.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129114",
-      "lastEventId": "event:nbl:2026-27:37876f5f-58ad-11f1-b7ed-b5c487635207"
+      "firstEventId": "event:premier-league:129113",
+      "lastEventId": "event:nbl:2026-27:3784706a-58ad-11f1-962d-09df0c3978fa"
     },
     {
       "index": 21,
       "path": "data/feed/page-022.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:3784d7da-58ad-11f1-88d9-53622f199a68",
-      "lastEventId": "event:premier-league:129131"
+      "firstEventId": "event:nbl:2026-27:37876f5f-58ad-11f1-b7ed-b5c487635207",
+      "lastEventId": "event:premier-league:129130"
     },
     {
       "index": 22,
       "path": "data/feed/page-023.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129132",
-      "lastEventId": "event:premier-league:129140"
+      "firstEventId": "event:premier-league:129131",
+      "lastEventId": "event:premier-league:129139"
     },
     {
       "index": 23,
       "path": "data/feed/page-024.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129141",
-      "lastEventId": "event:premier-league:129150"
+      "firstEventId": "event:premier-league:129140",
+      "lastEventId": "event:premier-league:129149"
     },
     {
       "index": 24,
       "path": "data/feed/page-025.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129151",
-      "lastEventId": "event:premier-league:129162"
+      "firstEventId": "event:premier-league:129150",
+      "lastEventId": "event:premier-league:129161"
     },
     {
       "index": 25,
       "path": "data/feed/page-026.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:3799258e-58ad-11f1-9453-39f5f9ac4ced",
-      "lastEventId": "event:nbl:2026-27:379eac2d-58ad-11f1-90d4-d98e318e0a1e"
+      "firstEventId": "event:premier-league:129162",
+      "lastEventId": "event:nbl:2026-27:37c1c5ea-58ad-11f1-956b-892c4438c413"
     },
     {
       "index": 26,
       "path": "data/feed/page-027.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:379fc3fc-58ad-11f1-9644-736e6b79ac99",
-      "lastEventId": "event:premier-league:129189"
+      "firstEventId": "event:nbl:2026-27:379eac2d-58ad-11f1-90d4-d98e318e0a1e",
+      "lastEventId": "event:premier-league:129188"
     },
     {
       "index": 27,
       "path": "data/feed/page-028.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129190",
-      "lastEventId": "evt_102"
+      "firstEventId": "event:premier-league:129189",
+      "lastEventId": "f1-australian-gp-2027-date-watch"
     },
     {
       "index": 28,
       "path": "data/feed/page-029.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2027:qatar:qualifying",
-      "lastEventId": "event:premier-league:129218"
+      "firstEventId": "evt_102",
+      "lastEventId": "event:premier-league:129217"
     },
     {
       "index": 29,
       "path": "data/feed/page-030.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129219",
-      "lastEventId": "event:premier-league:129226"
+      "firstEventId": "event:premier-league:129218",
+      "lastEventId": "event:premier-league:129225"
     },
     {
       "index": 30,
       "path": "data/feed/page-031.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129227",
-      "lastEventId": "event:motogp:2027:united-states:sprint"
+      "firstEventId": "event:premier-league:129226",
+      "lastEventId": "event:motogp:2027:united-states:race"
     },
     {
       "index": 31,
       "path": "data/feed/page-032.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129243",
-      "lastEventId": "event:premier-league:129261"
+      "firstEventId": "event:motogp:2027:united-states:sprint",
+      "lastEventId": "event:premier-league:129260"
     },
     {
       "index": 32,
       "path": "data/feed/page-033.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129262",
-      "lastEventId": "event:premier-league:129273"
+      "firstEventId": "event:premier-league:129261",
+      "lastEventId": "event:sailgp:2027:halifax-day-1"
     },
     {
       "index": 33,
       "path": "data/feed/page-034.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129274",
-      "lastEventId": "event:premier-league:129287"
+      "firstEventId": "event:premier-league:129273",
+      "lastEventId": "event:premier-league:129286"
     },
     {
       "index": 34,
       "path": "data/feed/page-035.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129288",
-      "lastEventId": "event:sailgp:2027:new-york-day-2"
+      "firstEventId": "event:premier-league:129287",
+      "lastEventId": "event:sailgp:2027:new-york-day-1"
     },
     {
       "index": 35,
       "path": "data/feed/page-036.json",
       "eventCount": 20,
-      "firstEventId": "event:lemans:2027:freepractice1",
-      "lastEventId": "event:golf:us-open-2027:round-3"
+      "firstEventId": "event:sailgp:2027:new-york-day-2",
+      "lastEventId": "event:golf:us-open-2027:round-2"
     },
     {
       "index": 36,
       "path": "data/feed/page-037.json",
       "eventCount": 20,
-      "firstEventId": "event:golf:us-open-2027:round-4",
-      "lastEventId": "event:sailgp:2027:portsmouth-day-2"
+      "firstEventId": "event:golf:us-open-2027:round-3",
+      "lastEventId": "event:sailgp:2027:portsmouth-day-1"
     },
     {
       "index": 37,
       "path": "data/feed/page-038.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2027:great-britain:qualifying",
-      "lastEventId": "event:motogp:2027:portugal:race"
+      "firstEventId": "event:sailgp:2027:portsmouth-day-2",
+      "lastEventId": "event:motogp:2027:portugal:qualifying"
     },
     {
       "index": 38,
       "path": "data/feed/page-039.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2027:portugal:sprint",
-      "lastEventId": "event:aflw:cd_m20262640808"
+      "firstEventId": "event:motogp:2027:portugal:race",
+      "lastEventId": "event:nbl:2026-27:36fdee6b-58ad-11f1-ac5d-19f7d3a187d4"
     },
     {
       "index": 39,
       "path": "data/feed/page-040.json",
       "eventCount": 20,
-      "firstEventId": "event:motogp:2026:japan",
-      "lastEventId": "tennis-tournament-wta-beijing-2026-2026-10-02"
+      "firstEventId": "event:aflw:cd_m20262640808",
+      "lastEventId": "event:nbl:2026-27:36fd4a13-58ad-11f1-9ca2-a9a6cbaba447"
     },
     {
       "index": 40,
       "path": "data/feed/page-041.json",
       "eventCount": 20,
-      "firstEventId": "fixture:mlb:849844",
-      "lastEventId": "fixture:mlb:849843"
+      "firstEventId": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "lastEventId": "fixture:mlb:849851"
     },
     {
       "index": 41,
       "path": "data/feed/page-042.json",
       "eventCount": 20,
-      "firstEventId": "event:nbl:2026-27:36f8c608-58ad-11f1-aa0e-2bbb920071b5",
-      "lastEventId": "event:aflw:cd_m20262640704"
+      "firstEventId": "fixture:mlb:849843",
+      "lastEventId": "event:aflw:cd_m20262640703"
     },
     {
       "index": 42,
       "path": "data/feed/page-043.json",
-      "eventCount": 13,
-      "firstEventId": "event:f1:2026:azerbaijan:practice-3",
+      "eventCount": 14,
+      "firstEventId": "event:aflw:cd_m20262640704",
       "lastEventId": "event:nbl:2026-27:36e7aa3c-58ad-11f1-b88d-1138b8cb68ba"
     }
   ]

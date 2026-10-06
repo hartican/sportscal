@@ -429,7 +429,11 @@ const server=http.createServer((req,res)=>{
     let profileCacheVerified=false;
     if(candidateProfilePath){
       const profile=await upgraded.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Candidate profile module unavailable');return response.text();},candidateProfilePath);
-      assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
+    assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
+      for(const prefix of ['config/athletes.js','assets/js/athletes-ui.js']){
+        const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(new RegExp(prefix.replaceAll('.','\\.')+'\\?v=\\d+'))[0];
+        assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),url),fs.readFileSync(path.join(root,prefix),'utf8'),'The upgraded offline cache retains the exact current Follow module');
+      }
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);

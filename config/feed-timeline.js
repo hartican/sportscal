@@ -23,7 +23,7 @@
     // Keep authoritative states across repeated browser normalisation. In
     // particular, completed follows-time matches have no exact start to infer.
     const raw=String(event.status||'').toLowerCase();
-    return ['completed','finished','final','cancelled','canceled','postponed','suspended','stumps','interrupted','rain-delay','break','abandoned'].includes(raw)?raw:status(event,now);
+    return ['live','in-progress','in_progress','ongoing','completed','finished','final','cancelled','canceled','postponed','suspended','stumps','interrupted','rain-delay','break','abandoned'].includes(raw)?raw:status(event,now);
   }
   function groups(events,now=new Date()){
     const today=calendar.sydneyDay(now),result={retainedPast:[],today:[],future:[],unknown:[]};

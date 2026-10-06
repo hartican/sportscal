@@ -862,6 +862,121 @@
       "viewingOptions": [],
       "timingVerified": true,
       "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
+      "eventId": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
+      "canonicalEventId": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "name": "Karolina Muchova v Naomi Osaka",
+      "cardKind": "fixture",
+      "contestUnit": "match",
+      "competitionId": "competition:tennis:wta-beijing-2026",
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+      "eventFamilyId": "china-open",
+      "tournamentName": "China Open",
+      "tournamentLevel": "1000",
+      "tour": "WTA",
+      "eventType": "womens-singles",
+      "genderCategory": "female",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "date": "2026-10-06",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "unresolved",
+      "timingVerified": false,
+      "scheduleStatus": "unconfirmed",
+      "timeTbc": true,
+      "status": "live",
+      "participantIds": [
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:naomi-osaka"
+      ],
+      "homeParticipantId": "competitor:tennis:wta:karolina-muchova",
+      "awayParticipantId": "competitor:tennis:wta:naomi-osaka",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:karolina-muchova",
+          "name": "Karolina Muchova",
+          "countryCode": "CZ"
+        },
+        {
+          "id": "competitor:tennis:wta:naomi-osaka",
+          "name": "Naomi Osaka",
+          "countryCode": "JP"
+        }
+      ],
+      "venue": "Beijing, China",
+      "venueCity": "Beijing",
+      "venueCountry": "China",
+      "sourceName": "WTA official China Open match centre",
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1020/beijing/2026/scores/LS014",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceCheckedAt": "2026-10-06T10:03:54.489Z",
+      "canonicalSourceCheckedAt": "2026-10-06T10:03:54.489Z",
+      "statusCheckedAt": "2026-10-06T09:57:18Z",
+      "scoreCheckedAt": "2026-10-06T09:57:18Z",
+      "score": "7–5, 1–6, 6–6",
+      "sets": [
+        {
+          "home": 7,
+          "away": 5
+        },
+        {
+          "home": 1,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 6
+        }
+      ],
+      "statusEvidence": {
+        "kind": "official-match-page-status",
+        "fixtureId": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1020/beijing/2026/scores/LS014",
+        "checkedAt": "2026-10-06T09:57:18Z",
+        "sourceSha256": "95e83be8fc50b83dfe6bb62534b6655806a9e499f3f7f282cc52de1db105e1bc",
+        "tournamentId": "1020",
+        "season": 2026,
+        "matchId": "LS014",
+        "providerStatus": "P",
+        "providerParticipantIds": [
+          "322191",
+          "319998"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:karolina-muchova",
+          "competitor:tennis:wta:naomi-osaka"
+        ],
+        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · 6 October 2026",
+        "score": "7-5,1-6,6-6",
+        "scoreState": "in-progress"
+      },
+      "timingEvidence": {
+        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · Tue 06 Oct 2026",
+        "clockAssociation": "Official named match page publishes the date only; no exact or not-before match clock verified."
+      },
+      "liveWindow": 3,
+      "createdAt": "2026-10-06T09:50:51.444Z",
+      "scoreDisplay": "7–5, 1–6, 6–6",
+      "selectedSentence": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
+      "fullSpiel": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
+        "synopsisSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status."
+      },
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": []
     }
   ],
   "reviews": [

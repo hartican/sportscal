@@ -88,7 +88,7 @@ async function run(browser,base,engine){
  try{
   await page.route('**/data/tennis-journeys.v1.json*',async r=>{await gate.promise;await r.continue();});await ctx.goto();
   await page.evaluate(()=>{canonicalPreferenceParticipants=[];followDirectoryChunks.clear();});await openFollow(page);await controls(page);await page.locator('.athletes-heading').waitFor();
-  assert.match(await page.locator('#listView').innerText(),/Checking published fixtures/);assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()));
+  assert.match(await page.locator('#listView').innerText(),/Updating/);assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()));
   apiGate.release();await page.waitForTimeout(100);assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()),'unresolved saved follows cannot flash an empty list');
   gate.release();await page.locator('.athletes-person').first().waitFor();assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'unknown first response never flashes empty follows'});
  }finally{gate.release();apiGate.release();await page.close();}
@@ -119,7 +119,9 @@ async function queuedNavigation(browser,base,engine){
   const ctx=await createPage(browser,base,{api:async r=>{if(first){first=false;await gate.promise;return r.fulfill({status:503,json:{error:'Interrupted first read'}});}return r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}}),page=ctx.page;
   console.log(engine+': queued profile read '+mode);
   try{
-   await ctx.goto();await localPerson(page);const rootRead=page.waitForRequest(r=>{const u=new URL(r.url());return u.pathname==='/api/feed'&&u.searchParams.get('scope')==='athletes'&&!u.searchParams.get('participantId');});await openFollow(page);await rootRead;await page.locator('.athletes-heading').waitFor();await page.waitForFunction(()=>!!globalThis.NOTHINGSPORTS_ATHLETES_UI);
+   // Let the existing five-second startup refresh run on Feed before the
+   // controlled lifecycle test; it is a separate owner-triggered read.
+   await ctx.goto();await localPerson(page);await page.waitForTimeout(5100);const rootRead=page.waitForRequest(r=>{const u=new URL(r.url());return u.pathname==='/api/feed'&&u.searchParams.get('scope')==='athletes'&&!u.searchParams.get('participantId');});await openFollow(page);await rootRead;await page.locator('.athletes-heading').waitFor();await page.waitForFunction(()=>!!globalThis.NOTHINGSPORTS_ATHLETES_UI);
    await page.getByRole('button',{name:'Open Carlos Alcaraz profile in Follow',exact:true}).click();await page.locator('.athletes-profile-back').waitFor();
    const choices=await page.evaluate(()=>JSON.stringify([userPreferences,eventActions]));
    assert.equal(ctx.reads.length,1,'Profile intent queues behind the actual pending membership read');
@@ -129,7 +131,7 @@ async function queuedNavigation(browser,base,engine){
    assert.equal(ctx.reads.length,mode==='normal'?2:1,'An outgoing page must not start the queued replacement read');
    if(mode==='pagehide')await page.evaluate(()=>dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true})));
    if(mode==='beforeunload')await page.getByRole('button',{name:'Refresh',exact:true}).click();
-   await page.waitForTimeout(150);assert.equal(ctx.reads.length,2,'A surviving or restored page can read the latest profile');
+   await page.waitForTimeout(150);assert.equal(ctx.reads.length,2,'A surviving or restored page can read the latest profile: '+ctx.reads.join(' | '));
    assert(new URL(ctx.reads[1]).searchParams.get('participantId')===person.id,'The latest profile wins');
    assert.equal(await page.evaluate(()=>JSON.stringify([userPreferences,eventActions])),choices,'Navigation lifecycle leaves sporting and reminder choices intact');
    assert.deepEqual(ctx.errors,[]);assert.deepEqual(ctx.writes,[]);report.push({engine,scenario:'queued profile read '+mode,reads:ctx.reads.length,choicesPreserved:true});

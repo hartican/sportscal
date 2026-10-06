@@ -7,7 +7,9 @@
  let account=owner(),key='',checked=0,events=[],records=[],generation=0,timer=null,loading=null,loadingKey='',loadingGeneration=0,queuedHydration=null,queuedOptions=null,lastManual=0,journeys=null,journeyLoading=null,journeysPending=false,origin=null,profileId='',notice='',matchReturn=null;
  const ticket=()=>({generation,owner:owner(),profileId,preferences:JSON.stringify([userPreferences,eventActions])});
  const valid=t=>t.profileId===profileId&&t.generation===generation&&t.owner===owner()&&t.preferences===JSON.stringify([userPreferences,eventActions])&&(activeTab==='follow'&&followHomeView==='favourites');
- let pendingFocus=null;
+ let pendingFocus=null,selection=null;
+ function deadline(promise,ms=10000){let timeout;return Promise.race([promise,new Promise((_,reject)=>{timeout=setTimeout(()=>reject(Error('Schedule read timed out')),ms);})]).finally(()=>clearTimeout(timeout));}
+ function selectFixtures(){const eligible=availableEvents(),all=events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e));return {next:model.indexNext(eligible),hidden:all.length===eligible.length?null:model.indexNext(all),reasons:new Map(),followContext:null};}
  const focusContext=element=>{const key=element?.dataset?.athletesFocusKey||element?.getAttribute('aria-label');return key?{key,participantId:element.closest('.athletes-person')?.dataset.athleteId||null}:null;};
  function rememberFocus(button){if(document.activeElement===button)pendingFocus={context:focusContext(button),ticket:ticket()};}
  function restoreFocus(panel,context,t){if(!context)return;requestAnimationFrame(()=>{if(!valid(t)||!panel.isConnected||document.activeElement!==document.body)return;const target=[...panel.querySelectorAll('[aria-label],[data-athletes-focus-key]')].find(element=>{const current=focusContext(element);return current?.key===context.key&&current.participantId===context.participantId;})||(context.key==='load-more'?panel.querySelector('.athletes-heading button'):null);target?.focus();});}
@@ -34,15 +36,18 @@
   const t=ticket(),queryKey=preferencesKey();
   loadingKey=requestKey;loadingGeneration=generation;
   loading=(async()=>{
-   await ensureFollowCollectionDirectories();if(!valid(t))return false;render();
+   await Promise.resolve();if(!valid(t))return false;render();
+   // Identity enrichment is optional: it never owns the schedule loading state.
+   const sources=[footballFollowIndex,canonicalPreferenceParticipants,...followDirectoryChunks.values()];
+   void deadline(ensureFollowCollectionDirectories()).then(()=>{const current=[footballFollowIndex,canonicalPreferenceParticipants,...followDirectoryChunks.values()];if(valid(t)&&(current.length!==sources.length||current.some((source,i)=>source!==sources[i])))render();}).catch(()=>{});
    let cursor=append?(nextCursor||0):0,next=append?[...events]:[],people=append?[...records]:[],pages=0;
    do{
-    const data=serverPersistence.user?await serverSyncClient.loadFeed({cursor,limit:50,scope:'athletes',participantId:profileId||null}):await fetch(`/api/feed?scope=athletes&limit=50&cursor=${cursor}${profileId?"&participantId="+encodeURIComponent(profileId):""}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error('Athletes feed unavailable');return r.json();});
+    const data=serverPersistence.user?await deadline(serverSyncClient.loadFeed({cursor,limit:50,scope:'athletes',participantId:profileId||null})):await fetch(`/api/feed?scope=athletes&limit=50&cursor=${cursor}${profileId?"&participantId="+encodeURIComponent(profileId):""}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error('Athletes feed unavailable');return r.json();});
     if(!valid(t))return false;next.push(...(data.events||[]));people.push(...(data.athletes||[]));const prior=cursor;cursor=data.pagination?.nextCursor??null;pages++;if(cursor!==null&&(cursor<=prior||pages>=40))throw Error('Athletes pagination is incomplete');
    }while(false);
    nextCursor=cursor;
    if(!valid(t))return false;events=[...new Map((profileId?[...events,...next]:next).map(e=>[e.canonicalEventId||e.eventId||e.id,e])).values()];records=people.length?people:records;key=queryKey;checked=Date.now();notice='';return true;
-  })().catch(()=>{if(valid(t))notice='Showing available information. Refresh to check for updates.';return false;}).finally(()=>{loading=null;if(valid(t))render();});
+  })().catch(()=>{if(valid(t))notice='Showing available information. Refresh to check for updates.';return false;}).finally(()=>{loading=null;if(activeTab==='follow'&&followHomeView==='favourites')render();});
   return loading;
  }
  function snapshotOrigin(trigger){
@@ -81,10 +86,17 @@
   if(record.sportKey==='tennis')return {url:'https://www.atptour.com/en/scores/current',label:'Official tennis schedules'};
   const url=record.sourceUrl||record.metadata?.sourceUrl||record.sourceRefs?.[0];return url?{url,label:'Official information'}:null;
  }
- function schedule(host,record){
-  const event=model.next(availableEvents(),record.id);
+ function schedule(host,record,{compact=false}={}){
+  const event=selection.next.get(recordKey(record));
+  if(compact){
+   if(event){host.append(node('p',spoilerSafeDisplayTitle(event)||event.name,'athletes-next-match'),node('p',[event.eventName||event.tournamentName||event.competitionName,event.roundLabel||event.round].filter(Boolean).join(' · ')),node('p',(/^(live|in-progress)$/.test(event.status||'')?(Date.parse(event.statusCheckedAt||event.livePlayObservedAt||'')<=Date.now()&&Date.now()-Date.parse(event.statusCheckedAt||event.livePlayObservedAt||'')<=1800000?'Live · ':'Last reported live · '):'')+timing(event)));
+    if(event.cardType==='golf_appearance'){const partners=(event.participants||[]).filter(p=>model.identity(p.id)!==recordKey(record)).map(p=>p.displayName||p.name);host.append(node('p',['Tee '+event.tee,partners.length?'Paired with '+partners.join(' and '):null].filter(Boolean).join(' · '),'athletes-tee-partners'));}
+    const actions=node('div',null,'athletes-actions'),button=node('button','Open match','btn');button.type='button';button.setAttribute('aria-label','Open match');button.onclick=()=>openMatch(event,button);actions.append(button,buildParticipantFeedButton(event));appendEventQuickActions(actions,event,{chat:false,viewing:false,reminder:Boolean(getEventAction(event).reminderRequested)||reminderCanBeScheduled(eventReminderTiming(event))});host.append(actions);
+   }else{const context=model.currentContext(journeys,record.id,formatDateKey(nowAEST()),userPreferences),review=journeys?.players.find(p=>recordKey(p)===recordKey(record))?.scheduleReview;if(context)host.append(node('p',context.edition.name+' · Participation verified'));if(review?.summary&&review.validUntil>=formatDateKey(nowAEST()))host.append(node('p',review.summary));host.append(node('p',selection.hidden?.get(recordKey(record))?'Fixture hidden':loading||!checked?notice?'Schedule unavailable':'Schedule pending':nextCursor!==null?'Schedule not loaded':'No published '+(record.sportKey.startsWith('tennis')?'match':'fixture'),'athletes-coverage-gap'));}
+   return;
+  }
   if(!event){const context=model.currentContext(journeys,record.id,formatDateKey(nowAEST()),userPreferences);if(context){host.append(node('p',context.edition.name+' · '+({'official_entry':'Entry verified','official_participation':'Participation verified','official_qualification':'Qualification verified'}[context.participation.evidenceKind]||'Participation verified')),node('small',context.window.startDate+' – '+context.window.endDate+' · tournament dates'));}const review=journeys?.players.find(p=>recordKey(p)===recordKey(record))?.scheduleReview;if(review?.summary&&review.validUntil>=formatDateKey(nowAEST())){host.append(node('p',review.summary));const link=node('a',(review.sourceLabel||'Official draw')+' · checked '+new Date(review.checkedAt).toLocaleString('en-AU'),'athletes-official');link.href=review.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';host.append(link);}
-  const hidden=model.next(events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e)),record.id);host.append(node('p',hidden?'No upcoming fixture to show. Removed fixtures stay hidden.':loading||!checked?notice?'Schedule is temporarily unavailable. Refresh to try again.':'Checking published fixtures…':context?.review?'NS has not verified this player’s next match details.':'NS has not verified the next '+(record.sportKey==='tennis'?'match':'fixture')+'.','athletes-coverage-gap'));}
+  const hidden=selection.hidden?.get(recordKey(record));host.append(node('p',hidden?'No upcoming fixture to show. Removed fixtures stay hidden.':loading||!checked?notice?'Schedule is temporarily unavailable. Refresh to try again.':'Checking published fixtures…':context?.review?'NS has not verified this player’s next match details.':'NS has not verified the next '+(record.sportKey==='tennis'?'match':'fixture')+'.','athletes-coverage-gap'));}
   else{
    const title=node('p',spoilerSafeDisplayTitle(event)||event.name,'athletes-next-match');host.append(title,node('p',[event.eventName||event.tournamentName||event.competitionName,event.roundLabel||event.round,event.venue,event.court,timing(event)].filter(Boolean).join(' · ')));
    if(event.cardType==='golf_appearance'){const partners=(event.participants||[]).filter(p=>model.identity(p.id)!==recordKey(record)).map(p=>p.displayName||p.name);host.append(node('p',['Tee '+event.tee,partners.length?'Paired with '+partners.join(' and '):null].filter(Boolean).join(' · '),'athletes-tee-partners'));}
@@ -93,12 +105,12 @@
    const actions=node('div',null,'athletes-actions');
    {const button=node('button','Open match','btn');button.type='button';button.setAttribute('aria-label','Open match');button.onclick=()=>openMatch(event,button);actions.append(button,buildParticipantFeedButton(event));appendEventQuickActions(actions,event,{chat:false,viewing:false});}
    if(model.timingState(event)!=='published')actions.append(node('span','Reminder timing needs verification'));
-   host.append(actions);const readiness=node('small','Device notification readiness has not been checked.');host.append(readiness);const settings=userPreferences.followFirst?.notifications||{};if(settings.enabled===false||settings.sportingRemindersEnabled===false)readiness.textContent='Sporting notifications are off in Settings.';else if(typeof Notification==='undefined'||Notification.permission!=='granted')readiness.textContent='Device notifications are not enabled. Use Notifications in Settings.';else{void navigator.serviceWorker?.getRegistration().then(r=>r?.pushManager?.getSubscription()).then(subscription=>{if(readiness.isConnected)readiness.textContent=subscription?'Device permission and push subscription are present. Delivery still requires an enabled installation.':'Device notifications need setup in Settings.';}).catch(()=>{});}
+   host.append(actions);
   }
-  const source=official(record);if(source){const a=node('a',source.label,'athletes-official');a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';host.append(a);}
+  const source=event?.sourceUrl?null:official(record);if(source){const a=node('a',source.label,'athletes-official');a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';host.append(a);}
  }
  function buildParticipantFeedButton(event){
-  const action=getEventAction(event),visible=Boolean(eventFollowReason(event))&&!action.dismissed&&!action.archived;
+  const action=getEventAction(event),context=selection||{reasons:new Map()};context.followContext ||= buildFollowEligibilityContext();if(!context.reasons.has(event))context.reasons.set(event,eventFollowReason(event,context.followContext));const visible=Boolean(context.reasons.get(event))&&!action.dismissed&&!action.archived;
   const button=node('button',visible?'In Feed':'Add to Feed','btn ghost');button.type='button';button.disabled=visible||FOLLOW_FEED_POLICY.explicitlyExcluded(event,userPreferences);
   button.onclick=()=>{const latest=getEventAction(event);const next=updateEventAction(event,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...event,manualPin:true},dismissed:false,archived:false,pinState:'added',pinRevision:(Number(latest.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});queueFixturePinCommand(eventActionKey(event),next);activeEvents=mergeCanonicalEventPages(activeEvents,[event]);button.textContent='In Feed';button.disabled=true;};return button;
  }
@@ -126,18 +138,19 @@
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(account!==owner()){generation++;records=[];events=[];key='';checked=0;profileId='';origin=null;account=owner();}
   const panel=document.getElementById('listView'),focus=panel.contains(document.activeElement)?focusContext(document.activeElement):document.activeElement===document.body&&pendingFocus&&valid(pendingFocus.ticket)?pendingFocus.context:null;pendingFocus=null;panel.className='athletes-hub';panel.replaceChildren();restoreFocus(panel,focus,ticket());
-  const heading=node('div',null,'athletes-heading');heading.append(node('h2','My athletes & teams'));const refresh=node('button','Refresh','btn ghost');refresh.type='button';refresh.dataset.athletesFocusKey='refresh';refresh.onclick=async()=>{if(Date.now()-lastManual<10000)return;lastManual=Date.now();rememberFocus(refresh);refresh.disabled=true;await hydrate(true);};heading.append(refresh);panel.append(heading);buildFollowHomeTabs(panel);
-  if(notice)panel.append(node('p',notice));else if(loading||!checked){const status=node('p','Checking published fixtures…');status.setAttribute('role','status');panel.append(status);}
+  const heading=node('div',null,'athletes-heading');const refresh=node('button','Refresh','btn ghost');refresh.type='button';refresh.dataset.athletesFocusKey='refresh';refresh.setAttribute('aria-busy',String(Boolean(loading)));refresh.onclick=async()=>{if(Date.now()-lastManual<10000)return;lastManual=Date.now();rememberFocus(refresh);refresh.disabled=true;await hydrate(true);};heading.append(refresh);panel.append(heading);buildFollowHomeTabs(panel);
+  if(notice)panel.append(node('p',notice));else if(loading){const status=node('small','Updating…');status.setAttribute('role','status');heading.prepend(status);}
+  selection=selectFixtures();
   const route=location.hash.match(/^#(?:follow\/profile|athletes)\/(.+)$/);if(route){try{profileId=decodeURIComponent(route[1]);}catch{profileId='';}}
   if(profileId){profile(panel,resolve(profileId),ticket());return;}
-  const people=followed();people.sort((a,b)=>{const next=p=>model.next(availableEvents(),p.id),rank=p=>{const e=next(p);return e&&/^(live|in-progress)$/.test(e.status)?0:e&&Number.isFinite(Date.parse(e.startTimeUtc))?1:2;};return rank(a)-rank(b)||(Date.parse(next(a)?.startTimeUtc)||Infinity)-(Date.parse(next(b)?.startTimeUtc)||Infinity)||a.displayName.localeCompare(b.displayName);});
+  const people=followed(),next=p=>selection.next.get(recordKey(p)),rank=p=>{const e=next(p);return e&&/^(live|in-progress)$/.test(e.status)?0:e&&Number.isFinite(Date.parse(e.startTimeUtc))?1:2;};people.sort((a,b)=>rank(a)-rank(b)||(Date.parse(next(a)?.startTimeUtc)||Infinity)-(Date.parse(next(b)?.startTimeUtc)||Infinity)||a.displayName.localeCompare(b.displayName));
   if(!people.length&&checked&&!loading){const saved=(userPreferences.preferenceGraph?.entityFollows||[]).some(f=>['follow','priority'].includes(f.followLevel))||(userPreferences.followFirst?.collectionFollows||[]).length;panel.append(node('p',saved?journeysPending?'Loading followed identities…':'Followed identities are temporarily unavailable. Refresh to try again.':'Follow athletes to see their published fixtures here.'));}
-  for(const record of people){const card=node('article',null,'athletes-person');card.dataset.athleteId=record.id;const name=node('button',record.displayName,'athletes-name');name.type='button';name.setAttribute('aria-label',`Open ${record.displayName} profile in Follow`);name.onclick=()=>open(record.id,record.displayName,record.sportKey,name);card.append(name,node('small',(record.id.startsWith('team:')?'Team':model.role(record.sportKey))+' · '+record.sportKey.replace(/-/g,' ')));schedule(card,record);panel.append(card);}
+  for(const record of people){const card=node('article',null,'athletes-person');card.dataset.athleteId=record.id;const name=node('button',record.displayName,'athletes-name');name.type='button';name.setAttribute('aria-label',`Open ${record.displayName} profile in Follow`);name.onclick=()=>open(record.id,record.displayName,record.sportKey,name);card.append(name);schedule(card,record,{compact:true});panel.append(card);}
   if(nextCursor!==null){const more=node('button','Load more favourites','btn ghost');more.dataset.athletesFocusKey='load-more';more.onclick=async()=>{rememberFocus(more);more.disabled=true;await hydrate(false,true);};panel.append(more);}
 
  }
  function start(){
-  if((activeTab!=='follow'||followHomeView!=='favourites'))return;if(!checked&&account===owner())events=activeEvents.filter(e=>eventFollowReason(e));render();
+  if((activeTab!=='follow'||followHomeView!=='favourites'))return;if(!checked&&account===owner())events=activeEvents;render();
   if(!journeys&&!journeysPending){journeysPending=true;void loadJourneys().then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))render();}).catch(()=>{}).finally(()=>{journeysPending=false;});}
   if(key!==preferencesKey()||Date.now()-checked>=300000)void hydrate();
 
@@ -155,6 +168,6 @@
  window.addEventListener('beforeunload',()=>{queuedOptions=null;});
  window.addEventListener('pagehide',stop);
  window.addEventListener('pageshow',event=>{if(event.persisted)start();});
- const style=node('style');style.textContent='.athletes-heading,.athletes-actions,.athletes-featured-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.athletes-profile,.athletes-profile-fixtures,.athletes-featured{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}.athletes-person p,.athletes-profile-fixtures p{font-size:.8rem;line-height:1.5}.athletes-person small,.athletes-profile-fixtures small{color:var(--text-dim)}.athletes-profile-fixtures small{display:block;line-height:1.5;margin-top:6px}.athletes-official{display:block;padding:10px 0;color:var(--accent);font-size:.8rem}.athletes-profile-fixtures details{padding:10px 0}.athletes-coverage-gap{color:var(--text-dim)}';document.head.append(style);
+ const style=node('style');style.textContent='.athletes-heading,.athletes-actions,.athletes-featured-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.athletes-heading{justify-content:flex-end}.athletes-profile,.athletes-profile-fixtures,.athletes-featured{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}.athletes-person p,.athletes-profile-fixtures p{font-size:.8rem;line-height:1.5}.athletes-person small,.athletes-profile-fixtures small{color:var(--text-dim)}.athletes-profile-fixtures small{display:block;line-height:1.5;margin-top:6px}.athletes-official{display:block;padding:10px 0;color:var(--accent);font-size:.8rem}.athletes-profile-fixtures details{padding:10px 0}.athletes-coverage-gap{color:var(--text-dim)}';document.head.append(style);
  globalThis.NOTHINGSPORTS_ATHLETES_UI={start,stop,open,route,render,openMatch,navigate,refresh,buildParticipantFeedButton};
 })();

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-06T04:18:00.788Z",
+  "generatedAt": "2026-10-06T10:09:27.874Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -161,11 +161,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 1019,
+      "fixtureCount": 1020,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T04:18:00.788Z",
+      "freshAt": "2026-10-06T10:09:27.874Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

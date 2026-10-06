@@ -32,6 +32,10 @@ assert(!output(preferences,[event],{userState:{preferences,event_user_state:{[ev
 const duplicate={...people[1],id:'competitor:tennis:atp:novak-djokovic'};
 assert.equal(model.list([...people,duplicate],new Set(ids)).length,4,'canonical athlete aliases deduplicate');
 assert(model.involves(event,duplicate.id));assert.equal(model.next([{...event,status:'completed'},event],ids[0],+now).id,event.id);
+const golfParent={id:'qa:golf:parent',cardKind:'fixture',date:'2026-10-03',participantIds:[ids[2]],status:'scheduled'},tee={...golfParent,id:'qa:golf:tee',parentEventId:golfParent.id,cardType:'golf_appearance',startTimeUtc:'2026-10-03T03:00:00Z'};
+const indexedFixtures=[...reviewed.events,event,{...event,id:'qa:completed',status:'completed'},golfParent,tee];
+const indexed=model.indexNext(indexedFixtures,+now);
+for(const id of new Set([...ids,...indexedFixtures.flatMap(model.participantIds)]))assert.equal(indexed.get(model.identity(id))||null,model.next(indexedFixtures,id,+now),'indexed lookup preserves aliases, terminal results, golf pairings and next-fixture ordering');
 assert.equal(model.next([{...event,status:'cancelled'}],ids[0],+now),null);
 const journeys=require('../data/tennis-journeys.v1.json');
 const china=model.currentContext(journeys,'competitor:tennis:atp:novak-djokovic','2026-10-03',preferences);assert.equal(china.edition.name,'China Open');assert.equal(china.review.nsCoverage,'unavailable');assert.equal(china.review.reuseCleared,false);

@@ -15182,7 +15182,9 @@
       "excludedParticipantIds": [],
       "participantIds": [
         "competitor:tennis:wta:aryna-sabalenka",
-        "competitor:tennis:wta:nikola-bartunkova"
+        "competitor:tennis:wta:nikola-bartunkova",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:naomi-osaka"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -15195,14 +15197,26 @@
           "participantId": "competitor:tennis:wta:nikola-bartunkova",
           "draw": "singles",
           "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:karolina-muchova",
+          "draw": "womens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:naomi-osaka",
+          "draw": "womens-singles",
+          "active": true
         }
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
         "competitor:tennis:wta:aryna-sabalenka",
-        "competitor:tennis:wta:nikola-bartunkova"
+        "competitor:tennis:wta:nikola-bartunkova",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:naomi-osaka"
       ],
-      "contestCount": 1,
+      "contestCount": 2,
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",

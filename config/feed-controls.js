@@ -135,9 +135,17 @@
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
     if(["cancelled","canceled","postponed","abandoned","suspended"].includes(status))return null;
     const start = eventStart(event);
-    if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
+    if(!start){
+      if(event?.tournamentParent||event?.cardKind==='event'||event?.cardType==='tournament_overview'||event?.dateOnly&&event?.endDate)return null;
+      // A dated live observation is independent of a published start clock.
+      // Never invent that clock, or turn an old live observation into upcoming.
+      if(!['live','in_progress','in-progress','ongoing'].includes(status))return null;
+      const checked=Date.parse(event?.statusCheckedAt||event?.statusSource?.checkedAt||event?.livePlayObservedAt||'');
+      const fresh=Number.isFinite(checked)&&checked<=+reference&&+reference-checked<=30*60*1000&&event?.sourceStale!==true&&event?.stale!==true&&/^https:\/\//.test(event?.statusSourceUrl||event?.statusSource?.sourceUrl||event?.sourceUrl||'');
+      return fresh?Object.freeze({key:'live-now',label:'Live Now',ariaLabel:'Live now'}):Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+    }
     const startMs = start.getTime();
     // Result publication is editorial metadata, not event timing. A delayed
     // score update must never make a days-old fixture look "Just Finished".

@@ -12,6 +12,21 @@ function validate(doc=document){
   assert(/^https:\/\//.test(e.resultSourceUrl)&&Number.isFinite(Date.parse(e.resultSourceCheckedAt))&&Date.parse(e.resultSourceCheckedAt)<=Date.now(),'pending results require a dated source observation');
   assert(proof&&proof.kind==='official-draw-result-unpublished'&&proof.fixtureId===e.id&&proof.sourceUrl===e.resultSourceUrl&&proof.checkedAt===e.resultSourceCheckedAt&&typeof proof.matchRow==='string'&&proof.matchRow.length>0&&proof.winnerCell==='unpublished'&&/^[a-f0-9]{64}$/.test(proof.sourceSha256),'pending result requires the reviewed match row and unpublished winner cell');
  }
+ for(const e of doc.events.filter(e=>e.status==='live')){
+  const proof=e.statusEvidence;
+  assert(proof&&proof.kind==='official-match-page-status'&&proof.fixtureId===e.id&&proof.sourceUrl===e.sourceUrl&&/^[a-f0-9]{64}$/.test(proof.sourceSha256),'live review requires the exact official match receipt');
+  assert(proof.providerStatus==='P'&&proof.scoreState==='in-progress','score text and generic JSON-LD scheduled status cannot establish live or final status');
+  assert.deepEqual(proof.participantIds,[e.homeParticipantId,e.awayParticipantId]);
+  assert.deepEqual(e.participantIds,proof.participantIds);
+  assert(proof.providerParticipantIds?.length===2&&proof.providerParticipantIds.every(id=>/^\d+$/.test(id)));
+  assert(e.sourceUrl===`https://www.wtatennis.com/tournaments/${proof.tournamentId}/beijing/${proof.season}/scores/${proof.matchId}`,'the receipt must identify the named match, edition and organiser');
+  assert(e.statusCheckedAt===proof.checkedAt&&e.scoreCheckedAt===proof.checkedAt&&Number.isFinite(Date.parse(proof.checkedAt))&&Date.parse(proof.checkedAt)<=Date.now());
+  assert(!e.winnerParticipantId&&!e.result&&!e.actualEndTimeUtc&&!e.completedAt,'live observations cannot supply a winner or finish');
+  const sets=String(proof.score).split(',').map(s=>s.split('-').map(Number));
+  assert(sets.length>=1&&sets.length<=3&&sets.every(s=>s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0&&n<=7)));
+  assert.deepEqual(e.sets,sets.map(([home,away])=>({home,away})), 'partial sets retain official participant order');
+  assert(e.score===sets.map(s=>s.join('–')).join(', ')&&e.scoreDisplay===e.score);
+ }
  for(const e of doc.events.filter(e=>['completed','finished','final'].includes(e.status))){
   const proof=e.resultEvidence;
   assert.equal(e.resultStatus,'official','completed reviewed matches require an official result');
