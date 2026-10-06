@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Compact tennis browsing and Follow profiles — 7 October 2026
+
+The owner-approved visual pass retains current fixtures as the first tournament content and collapses published past matches. Use consistent name/city/tour/category/edition, readable tournament dates and sourced artwork or the existing tennis glyph. Follow profiles show next match, competition/round and timing before optional venue/source checks and device-alert setup. Source links and notification settings remain accessible; setup disclosure alone cannot enable alerts. Follows, rankings, Feed admission, saved actions, exclusions, Results OFF, Remind OFF and source clocks stay unchanged. Regression: actual tournament presentation and current-fixture profile browser suites, source-failure recovery and both-engine cache upgrades.
+
 ## Keep keyboard position when Follow updates — 5 October 2026
 
 The deferred native Follow renderer restores a control by its stable key/accessible label and exact team context. Remember a focused Refresh/Load more intent before disabling it; keep the existing disabled, throttled and coalesced read behaviour. If the last page removes Load more, move to the retained Refresh control and let the browser bring it into view. Restore only within the same account, preferences, profile, route and generation, and only while focus is on the document body after replacement. A user who moves to another control or section keeps that position. Module stop clears pending focus. This repairs lost Refresh focus and same-labelled Open match focus moving to another team; no Follow, admission, result, exclusion, dismissal, identity, retention or Remind OFF change.

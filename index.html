@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="457">
+<meta name="app-shell-version" content="458">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=457" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=458" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=424">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=453">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=458">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=457"></script>
+<script src="assets/js/app-shell-runtime.js?v=458"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8762,7 +8762,7 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=454').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=456')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=454').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=458')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
@@ -8770,7 +8770,7 @@ async function openAthleteProfile(id,label,sportKey,trigger){
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
   await loadDeferredScript('config/athletes.js?v=454');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=456');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=458');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -13418,13 +13418,12 @@ function renderFeedControls(){
 function renderPreferenceSummary(){
   const container = document.getElementById("preferenceSummary");
   if (!container) return;
-  const feedVersion = readStorage(STORAGE_KEYS.lastFeedVersion, null) || "bundled";
   const publishedAt = readStorage(STORAGE_KEYS.lastFeedPublishedAt, null);
   const publishedDate = publishedAt ? new Date(publishedAt) : null;
   const publishedCopy = publishedDate && !Number.isNaN(publishedDate.getTime())
     ? publishedDate.toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
     : "bundled copy";
-  container.innerHTML = `<span class="summary-chip" title="This is when the published feed was generated, not when this browser last checked it.">Feed generated ${publishedCopy} · ${feedVersion}</span>`;
+  container.innerHTML = `<span class="summary-chip" title="This is when the published feed was generated, not when this browser last checked it.">Published ${publishedCopy}</span>`;
 }
 
 function discoveryNodeById(nodeId){
@@ -16884,7 +16883,7 @@ function buildTennisFeedParent(parent){
   if(globalThis.NOTHINGSPORTS_TENNIS_PARENT_UI)return NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent);
   const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
   const title=document.createElement('h3');title.textContent=parent.name;const dates=document.createElement('p');dates.textContent=NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);card.append(title,dates);
-  const load=()=>loadDeferredScript('assets/js/tennis-parent-ui.js?v=455').then(()=>{if(card.isConnected)card.replaceWith(NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent));}).catch(()=>{const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry tournament details';retry.onclick=()=>{retry.remove();void load();};card.append(retry);});void load();return card;
+  const load=()=>loadDeferredScript('assets/js/tennis-parent-ui.js?v=458').then(()=>{if(card.isConnected)card.replaceWith(NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent));}).catch(()=>{const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry tournament details';retry.onclick=()=>{retry.remove();void load();};card.append(retry);});void load();return card;
 }
 function buildOngoingTournamentParent(ev){
   const card=document.createElement('article');card.className='event-card tennis-feed-parent parent-ongoing';card.dataset.eventId=ev.eventId||ev.id;card.dataset.scrollKey=`event:calendar:${ev.eventId||ev.id}`;

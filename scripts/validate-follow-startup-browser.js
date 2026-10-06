@@ -18,7 +18,7 @@ async function fixtureAccount(page,id){
  assert.equal(await page.evaluate(()=>serverSyncClient.sessionSubject()),id,'The actual frozen request client must adopt the fixture account');
 }
 async function createPage(browser,base,{route='',api,profile=preferences}={}){
- const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[],writes=[],pendingFeedReads=new Set();
+ const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:844}}),errors=[],reads=[],readOwners=[],writes=[],pendingFeedReads=new Set();
  page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/data/feed/'))pendingFeedReads.add(r);});
  for(const event of ['requestfinished','requestfailed'])page.on(event,r=>pendingFeedReads.delete(r));
  page.setDefaultTimeout(10000);
@@ -26,8 +26,8 @@ async function createPage(browser,base,{route='',api,profile=preferences}={}){
  if(process.env.FOLLOW_DEFAULT_TRACE==='1')page.on('requestfailed',r=>console.error('Request failure diagnostic',r.url().slice(0,200),r.failure()));
  await page.addInitScript(p=>{if(!localStorage.getItem('ns_install_v1'))localStorage.setItem('ns_preferences_v1',JSON.stringify(p));},profile);
  if(process.env.FOLLOW_DEFAULT_TRACE==='1')await page.addInitScript(()=>{globalThis.qaNativeErrors=[];addEventListener('error',e=>qaNativeErrors.push({type:'error',message:e.message,filename:e.filename,line:e.lineno,stack:e.error?.stack}));addEventListener('unhandledrejection',e=>qaNativeErrors.push({type:'rejection',message:String(e.reason),stack:e.reason?.stack}));});
- await page.route('**/api/**',r=>{const url=new URL(r.request().url()),method=r.request().method();if(!['GET','HEAD','OPTIONS'].includes(method)&&!(method==='POST'&&url.pathname==='/api/feed'&&['athletes','match-centre'].includes(url.searchParams.get('scope'))))writes.push({path:url.pathname,method});if(url.searchParams.get('scope')==='athletes'){reads.push(url.href);return api?api(r,url):r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}return r.fulfill({status:503,json:{error:'Isolated Follow startup QA'}});});
- return{page,errors,reads,writes,pendingFeedReads,goto:async()=>{await page.goto(base+route,{waitUntil:'commit'});await ready(page);}};
+ await page.route('**/api/**',r=>{const url=new URL(r.request().url()),method=r.request().method();if(!['GET','HEAD','OPTIONS'].includes(method)&&!(method==='POST'&&url.pathname==='/api/feed'&&['athletes','match-centre'].includes(url.searchParams.get('scope'))))writes.push({path:url.pathname,method});if(url.searchParams.get('scope')==='athletes'){reads.push(url.href);const token=r.request().headers().authorization?.replace(/^Bearer /,'');readOwners.push(token?JSON.parse(Buffer.from(token.split('.')[1],'base64url').toString()).sub:null);return api?api(r,url):r.fulfill({json:{events:[],athletes:[person],pagination:{nextCursor:null}}});}return r.fulfill({status:503,json:{error:'Isolated Follow startup QA'}});});
+ return{page,errors,reads,readOwners,writes,pendingFeedReads,goto:async()=>{await page.goto(base+route,{waitUntil:'commit'});await ready(page);}};
 }
 async function run(browser,base,engine){
  console.log(engine+': delayed module startup');
@@ -179,9 +179,10 @@ async function keyboardRetention(browser,base,engine){
    }else{
     await page.locator(`.athletes-person[data-athlete-id="${ids[2]}"]`).getByRole('button',{name:'Open match',exact:true}).focus();
     await page.evaluate(mode=>{NOTHINGSPORTS_ATHLETES_UI.start();if(mode==='route change')activateTopLevelTab('events');if(['outside focus','route change'].includes(mode))document.querySelector('.tabs [data-tab=events]').focus();if(mode==='account change'){serverSyncClient.clearSession();const token='x.'+btoa(JSON.stringify({sub:'keyboard-new-owner'}))+'.unsigned';localStorage.setItem(NOTHINGSPORTS_SERVER_SYNC.PERSISTENT_SESSION_STORAGE_KEY,JSON.stringify({accessToken:token,refreshToken:'local-qa-only',expiresAt:Date.now()+3600000}));serverPersistence.user={id:'keyboard-new-owner'};}},mode);
+    if(mode==='account change')await page.evaluate(async()=>{NOTHINGSPORTS_ATHLETES_UI.start();await NOTHINGSPORTS_ATHLETES_UI.refresh();});
     await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
     const focus=await page.evaluate(()=>({team:document.activeElement.closest('.athletes-person')?.dataset.athleteId,outside:document.activeElement===document.querySelector('.tabs [data-tab=events]'),body:document.activeElement===document.body,owner:serverSyncClient.sessionSubject(),tab:activeTab}));
-    if(mode==='same team')assert.equal(focus.team,ids[2],'Repeated Open match labels retain the exact team context');else if(mode==='account change'){assert.equal(focus.owner,'keyboard-new-owner');assert(focus.body,'An old account cannot restore its control into the new session');}else assert(focus.outside,'A deferred restoration cannot take focus back from outside navigation');if(mode==='route change')assert.equal(focus.tab,'events');assert.equal(ctx.reads.length,1,'A same-data redraw does not add a fixture read');
+    if(mode==='same team')assert.equal(focus.team,ids[2],'Repeated Open match labels retain the exact team context');else if(mode==='account change'){assert.equal(focus.owner,'keyboard-new-owner');assert(focus.body,'An old account cannot restore its control into the new session');}else assert(focus.outside,'A deferred restoration cannot take focus back from outside navigation');if(mode==='route change')assert.equal(focus.tab,'events');if(mode==='account change'){assert.equal(ctx.reads.length,2,'A replacement account gets exactly one owned fixture read');assert.equal(ctx.readOwners.at(-1),'keyboard-new-owner','The replacement read uses the actual new session');}else assert.equal(ctx.reads.length,1,'A same-account redraw does not add a fixture read');
    }
    if(mode==='last page')assert(await page.evaluate(()=>{const r=document.activeElement.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight;}),'The last-page replacement control must be visible in the shorter viewport');assert.equal(await page.evaluate(choices),before);assert.deepEqual(ctx.errors,[]);assert.deepEqual(ctx.writes,[]);report.push({engine,scenario:'keyboard '+mode,choicesPreserved:true,reads:ctx.reads.length});
   }finally{await page.close();}
