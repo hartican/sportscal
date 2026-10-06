@@ -2051,13 +2051,12 @@
     }
   ],
   "window": {
-    "from": "2026-10-06",
-    "through": "2027-10-06"
+    "from": "2026-10-07",
+    "through": "2027-10-07"
   },
   "contextOnly": true,
   "windowEditionIds": [
     "tennis-edition:china-open:2026",
-    "tennis-edition:japan-open:2026",
     "tennis-edition:shanghai-masters:2026",
     "tennis-edition:wuhan-open:2026",
     "tennis-edition:vienna:2026",

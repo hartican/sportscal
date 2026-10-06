@@ -124,6 +124,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-tennis-context.js"],
   ["scripts/build-tennis-context.js", "--check"],
   ["scripts/apply-reviewed-participant-fixtures.js"],
+  ["scripts/refresh-tennis-scoreboard.js"],
+  ["scripts/validate-tennis-scoreboard.js"],
   ["scripts/validate-country-flags.js"],
   ["scripts/validate-national-team-identities.js", "--assets-only"],
   ["scripts/refresh-football-directory.js", "--prune-removed"],
@@ -743,6 +745,10 @@ async function runMain() {
     console.log(JSON.stringify({mode:"live",...result}));
     if(result.failed.length)process.exitCode=1;
     return;
+  }
+  if(process.argv.includes('--tennis-current')){
+    for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/refresh-tennis-scoreboard.js"],["scripts/publish-feed.js","data/events.json","data/events.json","data/feed-meta.json","data/events.js","--preserve-known"],["scripts/build-follow-fixtures.js"],["scripts/build-paged-feed.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-tennis-journeys.js"],["scripts/build-app-shell-runtime.js"],["scripts/version-generated-shell.js"],["scripts/validate-tennis-scoreboard.js"],["scripts/validate-athletes.js"]])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
   }
   if(process.argv.includes("--participant-schedules")){
     for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/publish-feed.js","data/events.json","data/events.json","data/feed-meta.json","data/events.js","--preserve-known"],["scripts/build-follow-fixtures.js"],["scripts/build-paged-feed.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-tennis-journeys.js"],["scripts/build-app-shell-runtime.js"],["scripts/validate-athletes.js"]])runStep(args);

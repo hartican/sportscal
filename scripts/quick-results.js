@@ -49,7 +49,7 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
@@ -62,7 +62,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('EPL standings')))codes.add('football');
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
-  if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
+  if(changes.some(change=>change.startsWith('US Open')||change.startsWith('Current tennis')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('MLB')))codes.add('baseball');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
  if(changes.some(change=>/^(CHL|NHL)/.test(change)))codes.add('ice-hockey');
@@ -242,6 +242,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    const clean=value=>JSON.stringify(value,(key,v)=>['statusUpdatedAt','capturedAt','updatedAt','checkedAt','generatedAt'].includes(key)?undefined:v);
    if(clean(next)!==clean(major)){write(majorPath,next);write('feeds/provider-exports/tennis/us-open-2026-official-schedule.json',snapshot);changes.push('US Open schedule/results');}
  }catch(error){failures.push(`tennis: ${error.message}`);}
+ let tennisCurrent=null;
+ if(!offline)try{tennisCurrent=await require('../lib/tennis-scoreboard').refresh({now});if(tennisCurrent.changed)changes.push('Current tennis source discovery');failures.push(...tennisCurrent.failures.map(f=>`Tennis ${f.tour}: ${f.message}`));}catch(error){failures.push(`Current tennis: ${error.message}`);}
  if(!offline)try{
    await refreshPremierLeagueTable(changes,{now});
  }catch(error){failures.push(`EPL standings: ${error.message}`);}
@@ -264,7 +266,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,nhl,finalResults,aiCalls:0,publicationState:'candidate'};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
  // Keep exception evidence outside the rolled-back data surfaces even when
  // result completeness blocks this candidate before publication.
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}

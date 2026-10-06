@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261006025955005-20261006041237839-20261006041421979-20261006041800788-20261006095104285-20261006100438208-20261006100927874-20261006121310941-20261006122257921",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261006164636672",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-06T12:22:57.921Z",
+  "publishedAt": "2026-10-06T16:46:36.672Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -173,9 +173,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 26,
+        "count": 201,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-06"
+        "lastEventDate": "2026-10-08"
       },
       "fiba-women": {
         "count": 17,

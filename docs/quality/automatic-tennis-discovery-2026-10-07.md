@@ -1,0 +1,13 @@
+# Automatic current tennis discovery — 7 October 2026
+
+Phase 1 of the remaining repair programme. Local implementation and verification are complete; production evidence is recorded separately after deployment.
+
+The full, scoped and daily quick canonical owners now discover confirmed singles pairings and source-reported results from the bounded free ESPN edition registry. This refresh found 184 confirmed matches across Beijing ATP/WTA, Tokyo ATP, Shanghai ATP and Wuhan WTA. Unknown opponents and byes remain reported source gaps. The next Muchova–Bartunkova quarterfinal now reaches Feed through an existing women’s top-ten collection follow without manual addition. Publisher planning timestamps remain unresolved, with no reminder eligibility. No crowd/Heat prediction is invented.
+
+Existing match/action identity, ordered player scores, original organiser timing and independently reviewed viewing survive updates. A publisher result can close a retained live match; it cannot reopen a final. ESPN links are labelled as publisher sources. Replayed unchanged final facts retain their original observation. Exact suspended observations are publishable without being called completed. Failed responses preserve last-good data.
+
+Validation: 154 local production safety contracts passed, including the canonical refresh/result-completeness pipeline. Actual newly discovered fixture rehearsal passed in Chromium and WebKit at 390 and 1280 pixels: automatic collection Feed admission, Results OFF, no unresolved-time reminder, profile round-trip, concise Follow rows, and dismissal. Both engines passed a cached 455→456 shell upgrade rehearsal. Source merge tests cover retained competition/viewing identity, side reversal, terminal regression, invalid states/winners, source failure, exclusion and no-follow admission.
+
+The canonical quick maintenance check also refreshed existing AFL/NRL, NHL and published results. It retained last-good live-coverage data without local server credentials and retained CHL data on an unreviewed source state; neither is reported as a successful new source check.
+
+Still required: the shared live owner must refresh this source between daily releases, Match Centre must discover currently playing matches before selecting membership, and the remaining tennis/Follow visual pass must be reviewed against the US Open reference. This release does not establish every worldwide edition, exact organiser starts, Australian viewing for unreviewed matches, broadcaster playback, physical iPhone behaviour or delivered push. The user accepted verified release proof as sufficient with physical-device limits disclosed.

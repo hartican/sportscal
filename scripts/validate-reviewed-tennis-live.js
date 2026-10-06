@@ -11,7 +11,8 @@ const {catalogue}=require('../lib/calendar-catalogue'),pipeline=require('../lib/
 const {expandedFollowEntityIds}=require('../lib/follow-fixture-resolver');
 const preferences={version:27,onboardingComplete:true,selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]},followFirst:{collectionFollows:['collection:tennis:womens-top-10'],notifications:{enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}};
 assert(expandedFollowEntityIds({preferences}).has(fixture.homeParticipantId),'The existing women’s top-ten collection includes Muchova');
-const now=new Date(fixture.statusCheckedAt),events=catalogue(),state={preferences};
+// Rehearse this retained live observation at its own date; current publication may now be final.
+const now=new Date(fixture.statusCheckedAt),events=[...catalogue().filter(e=>(e.canonicalEventId||e.eventId||e.id)!==id),fixture],state={preferences};
 const controls=require('../config/feed-controls'),timeline=require('../config/feed-timeline');
 assert.equal(controls.timingState({dateOnly:true,endDate:'2026-10-11',status:'live',key:'golf',cardType:'golf_tournament'},now),null,'Tournament calendar phases do not become clockless match observations');
 assert.equal(controls.timingState(fixture,now).key,'live-now','A fresh sourced live match does not require an invented start time');

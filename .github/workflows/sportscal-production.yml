@@ -57,6 +57,7 @@ jobs:
           node scripts/validate-football-directory.js
           node scripts/validate-feed-live-scores.js
           node scripts/validate-athletes.js
+          node scripts/validate-tennis-scoreboard.js
           node scripts/validate-reviewed-tennis-live.js
           node scripts/validate-follow-first.js
           node scripts/validate-follow-directories.js

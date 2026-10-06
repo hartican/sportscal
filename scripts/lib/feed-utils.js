@@ -179,8 +179,14 @@ function validateFeed(feed) {
     if (event.sourceTrust !== undefined && !["verified", "unverified"].includes(event.sourceTrust)) errors.push(`${prefix}.sourceTrust must be verified or unverified if present.`);
     const observedCanonicalStatus=event.narrativeType==='regular-season-fixture' && event.canonicalEventId
       && require('../../lib/canonical-status-observations').observation(event);
+    // This suspended fact belongs to the exact bounded publisher match, not an inferred clock.
+    const suspendedTennis=fixture&&event.key==='tennis'&&event.status==='suspended'
+      &&event.sourceType==='reputable'&&event.statusSourceName==='ESPN'
+      &&/^(atp|wta)$/.test(event.tennisProviderTour||'')&&/^\d+$/.test(event.tennisProviderMatchId||'')
+      &&event.statusSourceUrl===`https://www.espn.com/tennis/matchstats?gameId=${event.tennisProviderMatchId}`
+      &&isDateTime(event.statusCheckedAt)&&Date.parse(event.statusCheckedAt)<=Date.now();
     if (event.status !== undefined && !(fixture?["upcoming","scheduled","live","completed","cancelled","postponed","abandoned"]:["upcoming", "completed"]).includes(event.status)
-      && !observedCanonicalStatus) errors.push(`${prefix}.status is unsupported without a validated canonical fixture observation.`);
+      && !observedCanonicalStatus && !suspendedTennis) errors.push(`${prefix}.status is unsupported without a validated canonical fixture observation.`);
     if (event.lastReviewedAt !== undefined && !isDateTime(event.lastReviewedAt)) errors.push(`${prefix}.lastReviewedAt must be an ISO date-time string.`);
     if (event.participants !== undefined && (!Array.isArray(event.participants) || !fixture && event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
       errors.push(`${prefix}.participants must contain at least two named participants if present.`);

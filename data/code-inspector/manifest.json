@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-06T12:22:57.921Z",
+  "generatedAt": "2026-10-06T16:46:36.672Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -11,7 +11,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T04:18:00.788Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/baseball.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -47,7 +47,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -60,7 +60,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-06T04:18:00.788Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -72,7 +72,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -87,7 +87,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -113,7 +113,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -153,7 +153,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -161,11 +161,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 1020,
+      "fixtureCount": 1195,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T12:22:57.921Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -177,7 +177,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -201,7 +201,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -238,7 +238,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T04:18:00.788Z",
+      "freshAt": "2026-10-06T16:45:27.617Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {
@@ -264,7 +264,7 @@
       "coverageNote": "NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "chunkPath": "data/code-inspector/ice-hockey.json"
     },
     {
@@ -444,7 +444,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
@@ -471,7 +471,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T16:46:36.672Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }

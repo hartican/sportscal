@@ -101,7 +101,7 @@
    const title=node('p',spoilerSafeDisplayTitle(event)||event.name,'athletes-next-match');host.append(title,node('p',[event.eventName||event.tournamentName||event.competitionName,event.roundLabel||event.round,event.venue,event.court,timing(event)].filter(Boolean).join(' · ')));
    if(event.cardType==='golf_appearance'){const partners=(event.participants||[]).filter(p=>model.identity(p.id)!==recordKey(record)).map(p=>p.displayName||p.name);host.append(node('p',['Tee '+event.tee,partners.length?'Paired with '+partners.join(' and '):null].filter(Boolean).join(' · '),'athletes-tee-partners'));}
    if(event.sourceCheckedAt)host.append(node('small','Checked '+new Date(event.sourceCheckedAt).toLocaleString('en-AU',{timeZone:'Australia/Sydney'})));
-   if(event.sourceUrl){const link=node('a','Official match source','athletes-official');link.href=event.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';host.append(link);}
+   if(event.sourceUrl){const link=node('a',event.sourceType==='official'?'Official match source':(event.sourceName||'Published')+' match source','athletes-official');link.href=event.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';host.append(link);}
    const actions=node('div',null,'athletes-actions');
    {const button=node('button','Open match','btn');button.type='button';button.setAttribute('aria-label','Open match');button.onclick=()=>openMatch(event,button);actions.append(button,buildParticipantFeedButton(event));appendEventQuickActions(actions,event,{chat:false,viewing:false});}
    if(model.timingState(event)!=='published')actions.append(node('span','Reminder timing needs verification'));
