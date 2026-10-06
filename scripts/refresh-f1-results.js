@@ -53,7 +53,15 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
   }
   if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)continue;
   const [position,number,driver,team]=rows[0],outcome=`${driver} ${session.verb} ${ev.name}.`;
-  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',...(ev.resultStatus==='pending'?{resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()}:{}),fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:now.toISOString()},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:now.toISOString()});
+  // The fetch clock is not a new final observation when the complete official
+  // table is unchanged. Repair legacy pre-session clocks only from this table's
+  // own retained observation, never a schedule announcement or collection date.
+  const validObservation=value=>Number.isFinite(Date.parse(value))&&Date.parse(value)>=+fixtureStart(ev)&&Date.parse(value)<=+now;
+  const sameFinal=ev.status==='completed'&&ev.fixtureResults?.sourceUrl===url
+   &&JSON.stringify(ev.fixtureResults.columns)===JSON.stringify(session.columns)
+   &&JSON.stringify(ev.fixtureResults.rows)===JSON.stringify(rows);
+  const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||now.toISOString();
+  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
  }
  return updates.map(event=>{
   if(!event.storyline||event.resultStatus==='pending')return event;

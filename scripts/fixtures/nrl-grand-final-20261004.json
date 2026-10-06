@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-10-04T20:15:20.588Z",
+  "match": {
+    "matchId": "20261113110",
+    "matchMode": "Post",
+    "matchState": "FullTime",
+    "updated": "2026-10-04T13:50:31Z",
+    "roundNumber": 31,
+    "roundTitle": "Grand Final",
+    "startTime": "2026-10-04T08:30:00Z",
+    "url": "https://www.nrl.com/draw/nrl-premiership/2026/grand-final/game-1/",
+    "homeTeam": {
+      "teamId": 500001,
+      "name": "Sydney Roosters",
+      "score": 19
+    },
+    "awayTeam": {
+      "teamId": 500003,
+      "name": "Newcastle Knights",
+      "score": 18
+    }
+  }
+}

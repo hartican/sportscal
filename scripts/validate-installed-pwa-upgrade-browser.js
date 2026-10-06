@@ -8,6 +8,36 @@ const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(__dirname,'..');
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedMultidayRetention(page){
+  const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
+  const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
+  const result=await page.evaluate(async ({raw,normalized})=>{
+    const published=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures.find(f=>f.id===raw.id);
+    const before=JSON.stringify(userPreferences),actions=JSON.stringify(eventActions),now=new Date('2027-01-14T01:00Z');
+    const states=[raw,normalized].map(f=>NOTHINGSPORTS_CARD_LIFECYCLE.lifecycleState(f,{now}));
+    const cache=NOTHINGSPORTS_CARD_LIFECYCLE.materialize([normalized],{profileId:'cached-multiday-replay',now,enrich:()=>({cardVariant:'plain',intensity:1}),actionFor:()=>({reminderChoice:'off'})});
+    return {publishedUnchanged:JSON.stringify(published)===JSON.stringify(raw),states,cards:cache.derivedCards.length,expiry:cache.derivedCards[0]?.expiresAt,choicesPreserved:JSON.stringify(userPreferences)===before&&JSON.stringify(eventActions)===actions};
+  },{raw,normalized});
+  assert(result.publishedUnchanged&&result.choicesPreserved,'Cached retention cannot mutate source observations or saved choices');
+  assert(result.states.every(s=>s.state==='active'&&s.archivesAt==='2027-01-15T12:59:59.999Z'&&s.expiresAt==='2027-01-22T12:59:59.999Z'),'Upgraded/offline runtime honours the actual five-day calendar window on raw and server-normalized fixtures');
+  assert.equal(result.cards,1,'The cached materializer retains the actual fourth Test within its end-window week');
+  assert.equal(result.expiry,'2027-01-22T12:59:59.999Z');
+}
+async function assertCachedReviewedCalendarNotes(page){
+  const panel=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
+  await page.evaluate(panel=>loadDeferredScript(panel),panel);
+  assert.equal(await page.evaluate(panel=>caches.match('/'+panel).then(r=>r?.text()),panel),fs.readFileSync(path.join(root,panel.split('?')[0]),'utf8'),'First offline Schedule uses the exact current precached module');
+  const api=require('./lib/reviewed-calendar-notes'),legacy=JSON.parse(baselineFile('data/events.json')).events.filter(e=>api.ids.includes(e.id));
+  // MTB has no carried Code. Exercise its retained renderer without inventing one.
+  const mtb=require('../data/events.json').events.find(e=>e.id===api.manualIds[1]);
+  const result=await page.evaluate(async ({legacy,mtb})=>{
+    const fixtures=(await Promise.all(['surf','motorsport'].map(async slug=>(await(await fetch('/data/code-inspector/'+slug+'.json')).json()).fixtures.filter(f=>f.calendarNote)))).flat();
+    const before=JSON.stringify(userPreferences),priorTab=activeTab,checks=[];
+    try{activeTab='feed';const host=document.getElementById('listView');for(const [origin,records] of [['current-code',fixtures],['retained-mtb-mount',[mtb]],['archived-baseline',legacy]])for(const event of records){const original=JSON.stringify(event);host.replaceChildren(buildEventCard(event));checks.push({id:event.id,origin,text:host.innerText,hasWindow:!!event.calendarNote?.localDateWindow,noClock:!eventReminderTiming(NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event)),unchanged:JSON.stringify(event)===original});}return {checks,preferencesPreserved:JSON.stringify(userPreferences)===before};}finally{activeTab=priorTab;}
+  },{legacy,mtb});
+  assert.equal(result.checks.length,8,'Three carried notes, separately mounted MTB and four actual archived records must be rehearsed');assert(result.preferencesPreserved);
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time TBC/s.test(check.text):/DATE TBC.*TIME TBC/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+}
 async function assertCachedCanonicalResults(page){
   await page.evaluate(()=>loadDeferredScript('config/cricket-innings.js?v=431'));
   const cricket=await page.evaluate(async()=>{
@@ -41,8 +71,15 @@ async function assertCachedCanonicalResults(page){
   }
 }
 async function assertCachedFootballStatus(page){
-  const nfl=await page.evaluate(async()=>{
-    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=430');
+  const settled=await page.evaluate(async()=>{
+    await loadDeferredScript('config/match-centre.js?v=435');await loadDeferredScript('config/feed-live-scores.js?v=437');
+    const code=await(await fetch('/data/code-inspector/football.json')).json(),host=document.createElement('div');document.body.append(host);
+    try{return ['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>{const fixture=code.fixtures.find(f=>f.competitionId===id&&f.status==='completed'),before=JSON.stringify(fixture);NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:true});const shown={text:host.textContent,date:host.querySelector('time')?.dateTime};NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:false});return {id,shown,explicitStale:Boolean(fixture.stale),checkedAt:fixture.scoreCheckedAt,hidden:!host.querySelector('.feed-live-score'),unchanged:before===JSON.stringify(fixture)};});}finally{host.remove();}
+  });
+  for(const final of settled){assert(final.shown.text.includes('Finished')&&final.shown.text.includes('Update needed')===final.explicitStale,'cached settled final does not expire with elapsed age');assert.equal(final.shown.date,final.checkedAt,'cached calendar date retains original final observation');assert(/\b20\d{2}\b/.test(final.shown.text),'cached source check includes its year');assert(final.hidden&&final.unchanged,'cached source-date detail preserves privacy and facts');}
+  const priorLive=JSON.parse(baselineFile('data/code-inspector/american-football.json')).fixtures.find(f=>f.status==='live')||require('./fixtures/nfl-retained-live-observation.json').fixture;
+  const nfl=await page.evaluate(async priorLive=>{
+    await loadDeferredScript('assets/js/follow-schedule-panel.js?v=434');
     const document=await(await fetch('/data/code-inspector/american-football.json')).json();
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
     try{
@@ -50,9 +87,18 @@ async function assertCachedFootballStatus(page){
       const panel=window.document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
       const visible={tables:panel.querySelectorAll('table').length,rows:panel.querySelectorAll('tbody tr').length,text:panel.textContent};
       userPreferences.showSpoilers=false;standingsRevealApproved=false;panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
-      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk)};
+      const fixtures=document.fixtures.filter(f=>f.season===2026&&f.id.startsWith('fixture:nfl:'));
+      const final=fixtures.find(f=>f.status==='completed'),states=cardViewStates,tab=activeTab;
+      let finalVisible,finalHidden;try{activeTab='follow';cardViewStates={...states,[final.id]:'selected'};userPreferences.showSpoilers=true;finalVisible=buildCodeInspectorFixture(final).textContent;userPreferences.showSpoilers=false;finalHidden=buildCodeInspectorFixture(final).textContent;}finally{activeTab=tab;cardViewStates=states;}
+      const score=`${final.participantSlots.find(s=>s.homeAway==='away').score}-${final.participantSlots.find(s=>s.homeAway==='home').score}`;
+      // Ordinary source progress may finish every live game between releases.
+      // Keep checking real published final facts and the actual retained prior
+      // live observation's stale transition; never manufacture a current live game.
+      const live=fixtures.find(f=>f.status==='live')||priorLive;
+      if(!live?.statusCheckedAt)throw Error('Cached NFL freshness check requires an actual current or baseline live observation');
+      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk),fixtureProof:{fixtures:fixtures.length,regular:fixtures.filter(f=>/^Week /.test(f.roundLabel)).length,tbc:fixtures.filter(f=>f.timeTbc).length,noExactTbc:fixtures.filter(f=>f.timeTbc).every(f=>f.startTimeUtc===null&&f.time===null),finalVisible:finalVisible.includes(score),finalHidden:!finalHidden.includes(score),staleStatus:FEED_CONTROLS.timingState(live,new Date(Date.parse(live.statusCheckedAt)+31*60000)).key}};
     }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;}
-  });
+  },priorLive);
   assert.equal(nfl.visible.tables,2);assert.equal(nfl.visible.rows,32);
   assert(nfl.visible.text.includes('NFL AFC standings')&&nfl.visible.text.includes('NFL NFC standings'));
   assert(nfl.visible.text.includes('not final playoff qualifications'));
@@ -60,18 +106,46 @@ async function assertCachedFootballStatus(page){
   assert.equal(nfl.coverage,'partial');
   assert.deepEqual(nfl.asOf,[require('../data/canonical/american-football-directory.v1.json').standings[0].asOf],'upgrade/offline table keeps the published fact observation');
   assert(nfl.unchanged,'cached standings rendering cannot mutate source facts');
+  assert.deepEqual(nfl.fixtureProof,{fixtures:321,regular:272,tbc:24,noExactTbc:true,finalVisible:true,finalHidden:true,staleStatus:'awaiting-update'},'upgraded/offline NFL keeps the complete season, provisional clocks, score order and source freshness');
   const hockey=await page.evaluate(async()=>{
     const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:chl:0636729f7d82ee17686c2f79');
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved,tab=activeTab;
+    const nhl=code.fixtures.filter(f=>f.competitionId==='competition:nhl');
+    const final=nhl.find(f=>f.id==='fixture:nhl:2026020001');
+    const nhlViewing={subscriptionVisible:buildCodeInspectorFixture(final).querySelector('.fixture-providers')?.textContent.includes('Subscription'),qualified:nhl.filter(f=>FOLLOW_FIRST.viewingOptions(f).some(o=>o.providerId==='disney')).length,
+      excluded:nhl.filter(f=>f.roundLabel==='Preseason'&&FOLLOW_FIRST.viewingOptions(f).length===0).length,
+      final:FOLLOW_FIRST.viewingOptions(final).map(o=>({provider:o.providerId,url:o.url,purpose:o.liveOrReplay,replayVerified:o.replayVerified,rightsScope:o.rightsScope,linkScope:o.linkScope,verifiedAt:o.verifiedAt})),
+      expired:FOLLOW_FIRST.viewingOptions({...final,startTimeUtc:'2027-04-11T14:00:00Z',date:'2027-04-12'}).map(o=>o.providerId)};
+
     try{
       codeInspectorChunk=code;activeTab='follow';userPreferences.showSpoilers=true;
       const panel=document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
       const table=panel.querySelector('.chl-club-records-table'),visible=buildCodeInspectorFixture(fixture).textContent;
+      const nhlRecords={text:panel.textContent,final:buildCodeInspectorFixture(final).textContent,labels:final.resultLabels,checkedAt:final.scoreCheckedAt,rows:code.standings.filter(r=>r.competitionId==='competition:nhl').length,pastTiming:FEED_CONTROLS.timingState({...final,status:'upcoming'},new Date(Date.parse(final.startTimeUtc)+3600000))?.key};
       userPreferences.showSpoilers=false;standingsRevealApproved=false;const hidden=buildCodeInspectorFixture(fixture);panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
-      return {records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],coverage:code.coverageStatus};
+      return {nhlRecords,nhlViewing,records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],coverage:code.coverageStatus};
     }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;activeTab=tab;}
   });
+  assert.deepEqual(hockey.nhlViewing,{subscriptionVisible:true,qualified:1344,excluded:65,final:[{provider:'disney',url:'https://www.disneyplus.com/en-au/welcome/espn-sports',purpose:'replay',replayVerified:false,rightsScope:'competition',linkScope:'sport',verifiedAt:'2026-10-04T14:47:13.000Z'}],expired:[]},'upgraded/offline NHL cached projections and runtime retain scope, original date and honest replay');
+  assert.equal(hockey.nhlRecords.rows,32);assert(hockey.nhlRecords.text.includes('OT/SO losses'));assert(hockey.nhlRecords.final.includes('After overtime'));assert.deepEqual(hockey.nhlRecords.labels,['After overtime']);assert.equal(hockey.nhlRecords.checkedAt,require('../data/canonical/ice-hockey-directory.v1.json').fixtures.find(f=>f.id==='fixture:nhl:2026020001').scoreCheckedAt);assert.equal(hockey.nhlRecords.pastTiming,'awaiting-update','cached hockey cannot infer live from a scheduled clock');
   assert.equal(hockey.records,24);assert.deepEqual(hockey.headers,['Team','P','W','L','GF','GA']);assert(hockey.visible.includes(hockey.expected),'cached CHL final shows its supplied zero');assert(!hockey.hidden.includes(hockey.expected)&&hockey.hiddenResults===0&&hockey.hiddenTables===0,'cached CHL Results OFF remains private');assert.equal(hockey.calendars.length,12);assert(hockey.calendars.every(f=>f.start===null&&f.time===null&&!f.participants.length));assert.equal(hockey.coverage,'partial');assert.deepEqual(hockey.asOf,[require('../data/canonical/ice-hockey-directory.v1.json').standings.find(r=>r.competitionId==='competition:chl').asOf]);
+  const priorNhlLive=JSON.parse(baselineFile('data/code-inspector/ice-hockey.json')).fixtures.find(f=>f.id==='fixture:nhl:2026020035'&&f.status==='live')||require('./fixtures/nhl-retained-live-observation.json').fixture;
+  const nhlLive=await page.evaluate(async priorNhlLive=>{
+    await loadDeferredScript('config/feed-live-score-loader.js?v=437');await loadDeferredScript('config/match-centre.js?v=435');await loadDeferredScript('config/feed-live-scores.js?v=437');
+    const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:nhl:2026020035'),saved=JSON.stringify(userPreferences),tab=activeTab,spoilers=eventSpoilerState,queue=queueLiveFixtureSnapshot;let queued=0;
+    const host=document.createElement('div');host.className='event-card';document.body.append(host);
+    try{activeTab='follow';queueLiveFixtureSnapshot=()=>queued++;eventSpoilerState={};userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='standard';NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...fixture,key:'ice-hockey'});
+      if(fixture.status==='completed')host.replaceChildren(buildCodeInspectorFixture(fixture));
+      const visible=host.textContent;userPreferences.showSpoilers=false;NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...fixture,key:'ice-hockey'});if(fixture.status==='completed')host.replaceChildren(buildCodeInspectorFixture(fixture));const hidden=host.querySelectorAll('.feed-live-score,.card-result-line,.spoiler-facts').length===0;
+      userPreferences.showSpoilers=true;host.replaceChildren();NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...priorNhlLive,key:'ice-hockey'});
+      const retainedVisible=host.textContent,retainedExpected=priorNhlLive.participantSlots.map(s=>`${s.label} ${s.score}`).join(' · ');
+      userPreferences.showSpoilers=false;NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...priorNhlLive,key:'ice-hockey'});
+      const historical={status:priorNhlLive.status,visible:retainedVisible.includes(retainedExpected),hidden:!host.querySelector('.feed-live-score'),stale:NOTHINGSPORTS_CARD_TIMING.presentation(priorNhlLive,new Date(Date.parse(priorNhlLive.statusCheckedAt)+31*60000)).status};
+      return {visible,hidden,queued,historical,status:fixture.status,scoreAt:fixture.scoreCheckedAt,statusAt:fixture.statusCheckedAt,stale:NOTHINGSPORTS_CARD_TIMING.presentation(fixture,new Date(Date.parse(fixture.statusCheckedAt)+31*60000)).status,expected:fixture.status==='completed'?fixture.participantSlots.map(s=>s.score).join('-'):fixture.participantSlots.map(s=>`${s.label} ${s.score}`).join(' · ')};
+    }finally{host.remove();queueLiveFixtureSnapshot=queue;activeTab=tab;eventSpoilerState=spoilers;userPreferences=JSON.parse(saved);}
+  },priorNhlLive);
+  assert(nhlLive.visible.includes(nhlLive.expected)&&nhlLive.hidden,'upgraded/offline Schedule presents the sourced paired score and hides it with Results OFF');assert.equal(nhlLive.queued,0,'offline Schedule never queues fixture polling');assert.equal(nhlLive.stale,nhlLive.status==='completed'?'FINISHED':'Awaiting match update','completed and underway observations retain their actual lifecycle');assert.equal(nhlLive.scoreAt,require('../data/canonical/ice-hockey-directory.v1.json').fixtures.find(f=>f.id==='fixture:nhl:2026020035').scoreCheckedAt);
+  assert.deepEqual(nhlLive.historical,{status:'live',visible:true,hidden:true,stale:'Awaiting match update'},'actual archived live observation retains its paired score, privacy and stale transition');
   const season=await page.evaluate(async()=>{
     const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
     return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};
@@ -351,6 +425,8 @@ const server=http.createServer((req,res)=>{
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
+      await assertCachedMultidayRetention(upgraded);
+      await assertCachedReviewedCalendarNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
@@ -397,6 +473,8 @@ const server=http.createServer((req,res)=>{
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
+    await assertCachedMultidayRetention(upgraded);
+    await assertCachedReviewedCalendarNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
       const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
@@ -434,6 +512,6 @@ const server=http.createServer((req,res)=>{
     await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,cricketStatusCacheVerified:true,matchCentreCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

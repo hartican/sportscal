@@ -32,7 +32,9 @@ const shanghai=doc.editions.find(e=>e.id==='tennis-edition:shanghai-masters:2026
 const sinner=shanghai.participation.find(p=>p.playerId.includes('jannik-sinner'));
 assert.equal(sinner.status,'withdrawn');assert.equal(sinner.evidenceKind,'official_withdrawal');
 for(const name of ['carlos-alcaraz','novak-djokovic'])assert.equal(shanghai.participation.find(p=>p.playerId.includes(name)).status,'confirmed');
-const deMinaur=shanghai.participation.find(p=>p.playerId.includes('alex-de-minaur'));assert.equal(deMinaur.status,'very_likely');assert.equal(deMinaur.verifiedAt,'2026-10-02','an article that omits a player cannot renew their evidence');
+const deMinaur=shanghai.participation.find(p=>p.playerId.includes('alex-de-minaur'));assert.equal(deMinaur.status,'confirmed');assert.equal(deMinaur.verifiedAt,'2026-10-06');
+const drawSource=doc.sources.find(s=>s.id===deMinaur.sourceIds[0]);assert.equal(drawSource.scope,'entry');assert(/\/5014\/mds\.pdf$/.test(drawSource.url)&&/^[a-f0-9]{64}$/.test(drawSource.sourceSha256),'draw entry has a genuine retained PDF receipt');
+assert(!shanghai.fixtures&&!shanghai.startTimeUtc,'a draw bye or unresolved opponent cannot manufacture a match or clock');
 const undocumentedWithdrawal=clone(register);undocumentedWithdrawal.editions.find(e=>e.id===shanghai.id).participation.find(p=>p.playerId===sinner.playerId).sourceIds=['shanghai-atp-calendar-2026'];assert.throws(()=>validate(undocumentedWithdrawal),/Withdrawal needs official evidence/);
 assert.equal(require('../config/athletes').currentContext(doc,sinner.playerId,'2026-10-07',prefs),null,'withdrawal cannot establish active tournament participation');
 for(const e of doc.editions){assert.equal(reminders.automatic(e,prefs),false);assert.equal(reminders.timing(e),null);}

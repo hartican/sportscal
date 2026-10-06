@@ -110,7 +110,7 @@ const permittedViewingTbcNames = new Set([
   "Billie Jean King Cup Finals — Team competition", "2027 PGA Championship",
   "WSL Margaret River Pro", "UCI Downhill MTB World Cup",
   "Kvitfjell — Men's Downhill World Cup", "Kvitfjell — Men's Super-G World Cup",
-  "Shahdag — Moguls World Cup Finals", "Shahdag — Freestyle World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
+  "Shahdag — Moguls World Cup Finals", "Shahdag — Freestyle World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill",
 ]);
 const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
 const unconfirmedGrandTourRights=event=>['tdf','giro','vuelta'].includes(event.key)&&event.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&/^https:\/\/(?:www\.)?(?:letour.fr|giroditalia.it|lavuelta.es)\//.test(event.calendarProvenance?.sourceUrl||'');
@@ -129,8 +129,14 @@ const reviewedLemansSessions=new Map(require('../data/canonical/lemans-calendar.
 const unconfirmedLemansRights=event=>{const r=reviewedLemansSessions.get(event.canonicalEventId);return event.key==='lemans'&&event.lemansCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&r&&event.date===r.date&&event.name===r.name&&event.sessionType===r.sessionType&&event.calendarProvenance?.sourceUrl===r.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===r.calendarProvenance.checkedAt;};
 const reviewedParticipantFixtures=new Map(require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.map(e=>[e.canonicalEventId,e]));
 const unconfirmedParticipantRights=event=>{const reviewed=reviewedParticipantFixtures.get(event.canonicalEventId),schedule=event.scheduleProvenance;return reviewed&&event.broadcaster==='Australian viewing unconfirmed'&&(schedule?.sourceUrl||event.sourceUrl)===reviewed.sourceUrl&&(schedule?.checkedAt||event.sourceCheckedAt)===reviewed.sourceCheckedAt&&event.startTimeUtc===reviewed.startTimeUtc&&JSON.stringify(event.participantIds)===JSON.stringify(reviewed.participantIds)&&(!schedule||(schedule.startTimeUtc===reviewed.startTimeUtc&&JSON.stringify(schedule.participantIds)===JSON.stringify(reviewed.participantIds)));};
-const unreviewedViewingCards=unresolvedPublishedCards.filter(event => !(permittedViewingTbcNames.has(event.name) || unconfirmedParticipantRights(event) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event) || unconfirmedDakarRights(event) || unconfirmedLemansRights(event)));
+const unconfirmedSurfNote=require('./lib/reviewed-calendar-notes').isReviewedNote;
+const unreviewedViewingCards=unresolvedPublishedCards.filter(event => !(permittedViewingTbcNames.has(event.name) || unconfirmedSurfNote(event) || unconfirmedParticipantRights(event) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event) || unconfirmedDakarRights(event) || unconfirmedLemansRights(event)));
 assert(!unreviewedViewingCards.length, `unreviewed cards cannot silently lose viewing metadata: ${unreviewedViewingCards.map(event => event.name).join(", ")}`);
+for(const event of unresolvedPublishedCards.filter(unconfirmedSurfNote)){
+  assert(!unconfirmedSurfNote({...event,id:'unreviewed-surf-note'}),'Unknown identities cannot reuse the Surf viewing review');
+  assert(!unconfirmedSurfNote({...event,date:'2027-01-22'}),'An unsupported appointment cannot reuse unknown-viewing review');
+  assert(!unconfirmedSurfNote({...event,viewingOptions:[{providerId:'espn'}]}),'Unverified viewing claims cannot reuse the review');
+}
 const resultWithSchedule=events.find(event=>event.scheduleProvenance&&unconfirmedParticipantRights(event));
 if(resultWithSchedule){
   assert(!unconfirmedParticipantRights({...resultWithSchedule,scheduleProvenance:{...resultWithSchedule.scheduleProvenance,checkedAt:'2100-01-01T00:00:00Z'}}),'a result cannot invent a schedule/viewing observation');

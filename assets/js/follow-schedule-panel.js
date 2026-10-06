@@ -1,3 +1,14 @@
+function codeInspectorCoverageCopy(code){
+  if(code.coverageNote)return code.coverageNote;
+  if(code.id==='sport:skiing'&&code.coverageStatus==='partial')return 'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.';
+  if(['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'].includes(code.id))return 'Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
+  if(code.id==='competition:wsl-championship-tour')return 'WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed.';
+  if(code.id==='competition:sailgp'&&code.coverageStatus==='partial')return 'SailGP coverage is partial: published race days only. Season teams may be listed; individual event entries and future session times may be unconfirmed.';
+  if (code.coverageStatus === "complete") return "Complete official published coverage is available for this code.";
+  if (code.coverageStatus === "partial") return "Published coverage is partial. This view shows every available fixture, but does not claim a complete schedule.";
+  return "No reliable fixture schedule is currently published for this code. This honest unavailable state will update when source-backed coverage exists.";
+}
+
 globalThis.renderFollowSchedulePanel=function(container){
   const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
   if(!code){container.textContent='Loading schedule…';return;}
@@ -13,7 +24,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
   const fixtures=available.filter(f=>NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
-  if(code.id==='sport:skiing'&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
+  if(['sport:skiing','sport:surf'].includes(code.id)&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){
     renderCodeInspectorPlayers(panel, codeInspectorChunk.fixtures || []);
@@ -157,7 +168,7 @@ function renderCodeInspectorStandings(panel, code){
         const losses = entry.lost ?? entry.losses ?? entry.stats?.losses;
         const draws = entry.drawn;
         const points = entry.ladderPoints ?? entry.points ?? entry.stats?.points;
-        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, competitionId==='competition:nhl'&&entry.otLosses!=null?`${entry.otLosses} OT/SO losses`:null, points != null ? `${points} pts` : null, competitionId==='competition:nhl'&&entry.goalsFor!=null?`${entry.goalsFor} GF · ${entry.goalsAgainst} GA · ${entry.goalDifferential>0?'+':''}${entry.goalDifferential} GD`:null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
         row.append(label, facts);
         list.appendChild(row);
       });

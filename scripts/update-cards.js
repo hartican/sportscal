@@ -102,6 +102,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/apply-current-card-evidence.js"],
+  ["scripts/refresh-known-final-results.js", "--nrl-only"],
   ["scripts/validate-wrc-source-boundary.js"],
   ["scripts/refresh-wrc-context.js"],
   ["scripts/refresh-wrc-context.js", "--check"],
@@ -231,7 +232,9 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/lib/f1-source-provenance.js"],
   ["scripts/lib/skiing-calendar-review.js"],
+  ["scripts/lib/reviewed-calendar-notes.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -418,6 +421,19 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--calendar-notes')||process.argv.includes('--surf-calendar-notes')){
+    const notes=require('./lib/reviewed-calendar-notes'),surfOnly=!process.argv.includes('--calendar-notes');
+    const repaired=notes.applyRetained({selectedIds:surfOnly?notes.surfIds:notes.ids});console.log(JSON.stringify(repaired));
+    if(!repaired.some(surface=>surface.changed.length)&&!process.argv.includes('--rebuild')){console.log('Calendar notes unchanged; no publication or source check.');return;}
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js',surfOnly?'--codes=surf':'--codes=surf,motorsport'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-surf-calendar-notes.js'],['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-follow-policy-parity.js'],['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Reviewed retained calendar notes corrected through canonical owner; no provider request.');return;
+  }
   if(process.argv.includes('--canonical-family-repair')){
     console.log(JSON.stringify(require('./lib/canonical-family-repair').apply()));
     for(const args of [
@@ -440,6 +456,22 @@ async function runMain() {
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     console.log('Four reviewed Skiing calendar cards projected by the canonical owner; no provider requests.');return;
   }
+  if(process.argv.includes('--f1-provenance-review')){
+    const repaired=require('./lib/f1-source-provenance').applyRetained();
+    console.log(JSON.stringify(repaired));
+    if(!repaired.some(surface=>surface.changed.length)){
+      console.log('F1 source tuples are unchanged; retained publication and fact dates preserved.');return;
+    }
+    for(const args of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=f1,motorsport'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-f1-source-provenance.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json'],['scripts/validate-startup-budget.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Retained F1 fixture source observations restored by the canonical owner; no provider requests.');return;
+  }
   if(process.argv.includes('--epl-timing-review')){
     console.log(JSON.stringify(require('./lib/epl-kickoff-certainty').applyRetained()));
     for(const args of [
@@ -460,7 +492,7 @@ async function runMain() {
   }
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
-    if(sources.length!==1||!['--source=nbl','--source=football','--source=nfl-standings','--source=chl'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL standings/CHL source and live source access');
+    if(sources.length!==1||!['--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
     runStep(['scripts/quick-results.js',sources[0]]);
     return;
   }
@@ -710,12 +742,19 @@ async function runMain() {
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
   if(process.argv.includes('--representative-context')){
+    // Validate both surfaces before mutation; an unchanged review is not a publication.
+    const project=require('./apply-representative-metadata').projectDocument;
+    const inputs=['feeds/incoming/events.json','data/events.json'].map(file=>({file,document:JSON.parse(fs.readFileSync(file,'utf8'))}));
+    const outputs=inputs.map(({file,document})=>project(document,file));
+    if(inputs.every(({document},index)=>JSON.stringify(document)===JSON.stringify(outputs[index]))){
+      console.log('Existing representative/competition context already agrees; no publication, projection or source check.');return;
+    }
     for(const args of [
       ['scripts/apply-representative-metadata.js','feeds/incoming/events.json'],
       ['scripts/apply-representative-metadata.js','data/events.json','data/events.js'],
       ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js','--codes=nrl,motogp,motorsport'],
+      ['scripts/build-code-inspector.js','--codes=nrl,motogp,motorsport,cricket'],
       ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-representative-competition-grouping.js'],
       ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed.js','data/events.json'],

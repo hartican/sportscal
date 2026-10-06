@@ -23,7 +23,12 @@ function validate(doc=document){
   assert(Array.isArray(e.sets)&&e.sets.length>=2&&e.sets.length<=5&&e.sets.every(s=>Number.isInteger(s.home)&&Number.isInteger(s.away)&&s.home>=0&&s.away>=0&&s.home!==s.away),'reviewed result requires oriented set scores');
   assert.deepEqual(proof.sets,e.sets,'result score must agree with its reviewed evidence');
   const homeWins=e.sets.filter(s=>s.home>s.away).length,awayWins=e.sets.length-homeWins;
-  assert(homeWins!==awayWins&&e.winnerParticipantId===(homeWins>awayWins?e.homeParticipantId:e.awayParticipantId),'reviewed straight result winner must agree with the set scores');
+  if(e.resultCode==='RET'){
+   assert(proof.resultCode==='RET'&&proof.retiredParticipantId===e.retiredParticipantId&&e.participantIds.includes(e.retiredParticipantId)&&e.retiredParticipantId!==e.winnerParticipantId&&/\bRET\b/.test(e.score),'retirement requires the explicitly published marker and retiring opponent');
+  }else{
+   assert(!e.resultCode&&!e.retiredParticipantId&&!proof.resultCode,'unreviewed result codes cannot establish completion');
+   assert(homeWins!==awayWins&&e.winnerParticipantId===(homeWins>awayWins?e.homeParticipantId:e.awayParticipantId),'reviewed straight result winner must agree with the set scores');
+  }
   assert(e.score&&e.scoreDisplay===e.score&&e.result===e.score,'result displays must share the reviewed score');
   assert.equal(e.scoreCheckedAt,e.resultSourceCheckedAt,'score observation must use the result check, not the retained timing check');
   assert.equal(e.statusCheckedAt,e.resultSourceCheckedAt,'completion must use the result observation');

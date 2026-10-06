@@ -207,6 +207,11 @@ function cardForEvent(event, schedule, participantsById){
       resultStatus:result.status,
       resultSourceUrl:resultSource.url,
       resultSourceCheckedAt:result.checkedAt,
+      ...(event.sportKey === 'nbl' && result.status === 'official' ? {
+        scoreCheckedAt:result.checkedAt,
+        homeScore:result.homeScore,awayScore:result.awayScore,
+        homeParticipantId:event.participantIds[0],awayParticipantId:event.participantIds[1],
+      } : {}),
       ...(result.status === "official" ? {
         score:result.score,
         outcomeText:result.outcomeText,

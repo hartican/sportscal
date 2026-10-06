@@ -131,6 +131,11 @@
     "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]), tokenBoundaries:true }),
     "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], null),
     "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], null),
+    "competition:nhl:2026-27":viewingRights(["competition:nhl"], ["disney"], "https://www.disneyplus.com/en-au/welcome/espn-sports", {sourceIsProvider:true,
+      fixtureIdPattern:"^fixture-nhl-202602[0-9]{4}$", roundLabel:"Regular season",
+      notBefore:"2026-09-28T14:00:00.000Z", notAfter:"2027-04-11T13:59:59.999Z", matchPriority:3,
+      liveOrReplay:"live", verifiedAt:"2026-10-04T14:47:13.000Z"
+    }),
     "competition:nhl":viewingRights(["competition:nhl", "nhl"], [], "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games", { coverageStatus:"unverified", rightsScope:"competition" }),
     "competition:chl":viewingRights(["competition:chl", "champions-hockey-league"], ["iihf-tv"], "https://www.chl.hockey/en/fans/where-to-watch", { sourceIsProvider:false, providerUrls:Object.freeze({ "iihf-tv":"https://iihf.tv/" }) }),
     "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], null, { notAfter:"2026-12-31T23:59:59.999Z" }),
@@ -779,6 +784,8 @@
       .sort((left, right) => (Number(right.matchPriority) || 0) - (Number(left.matchPriority) || 0))
       .filter(rights => {
         if (rights.eventKeys && eventKey && !rights.eventKeys.includes(eventKey)) return false;
+        // Edition rules bind an exact competition, canonical source ID and phase.
+        if (rights.fixtureIdPattern && (!rights.competitionAliases.includes(event?.competitionId) || !new RegExp(rights.fixtureIdPattern).test(String(event?.canonicalEventId || event?.id || event?.eventId || "").replace(/:/g,"-")) || rights.roundLabel !== event?.roundLabel)) return false;
         if ((rights.notBefore || rights.notAfter) && (!Number.isFinite(eventTime) || (rights.notBefore && eventTime < Date.parse(rights.notBefore)) || (rights.notAfter && eventTime > Date.parse(rights.notAfter)))) return false;
         return true;
       });

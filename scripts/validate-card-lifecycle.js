@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const lifecycle = require("../config/card-lifecycle.js");
+require("./validate-multiday-retention");
 
 const now = new Date("2026-07-20T12:00:00.000Z");
 const recent = { id: "recent", status: "completed", startTimeUtc: "2026-07-17T10:00:00.000Z", endTimeUtc: "2026-07-17T12:00:00.000Z", name: "Recent" };

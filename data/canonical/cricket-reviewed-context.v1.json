@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "cricket-reviewed-context.v1",
+  "scope": "Existing fourth New Zealand Test only; additive reviewed calendar facts, no new competition or fixture.",
+  "records": [
+    {
+      "eventId": "evt_91",
+      "sourceEventId": "fixture:cricket:CA:40187",
+      "participantIds": [
+        "team:cricket:australia",
+        "team:cricket:new-zealand"
+      ],
+      "startTimeUtc": "2027-01-03T23:30:00.000Z",
+      "competitionId": "competition:cricket:espn:24270",
+      "competitionName": "New Zealand tour of Australia 2026/27",
+      "format": "Test",
+      "numberOfDays": 5,
+      "endDate": "2027-01-08",
+      "roundLabel": "4th Test",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4605/australia-v-new-zealand-tests-2026-27-men",
+      "checkedAt": "2026-10-05T01:42:02.321Z",
+      "sourceResponseSha256": "e43651839daf4ace15ad6131038f87c3b48c3bc7592d002f89e9855186d50f26",
+      "sourceCompetitionId": "competition:cricket:4605",
+      "sourceEndTimeUtc": "2027-01-08T11:00:00Z"
+    }
+  ]
+}

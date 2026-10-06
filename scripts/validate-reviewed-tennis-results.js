@@ -3,19 +3,22 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {validate,apply}=require('./apply-reviewed-participant-fixtures'),doc=validate(),policy=require('../config/fixture-reminder-policy'),model=require('../config/athletes');
 const clone=()=>structuredClone(doc),finals=doc.events.filter(e=>e.status==='completed');
-assert.equal(finals.length,3);
+assert.equal(finals.length,6);
 assert.deepEqual(finals.find(e=>e.id.includes('sabalenka-bartunkova')).sets,[{home:4,away:6},{home:3,away:6}],'winner-first draw scores must orient to Sabalenka home');
 for(const mutate of [e=>{e.resultEvidence.fixtureId='wrong';},e=>{e.resultEvidence.sourceSha256='missing';},e=>{e.resultSourceCheckedAt=new Date(Date.now()+86400000).toISOString();},e=>{e.resultEvidence.participantIds.reverse();},e=>{e.winnerParticipantId='competitor:tennis:atp:someone-else';},e=>{e.sets[0].home=99;},e=>{e.scoreCheckedAt=e.sourceCheckedAt;},e=>{delete e.resultEvidence;},e=>{e.resultStatus='pending';}]){
  const bad=clone();mutate(bad.events[0]);assert.throws(()=>validate(bad),'unverified or misassociated completion must fail');
 }
-const instant=Date.parse('2026-10-04T14:00:00Z'),nexts=doc.events.filter(e=>e.round==='semifinal');
+const instant=Date.parse('2026-10-06T02:11:00Z'),nexts=doc.events.filter(e=>e.status==='scheduled');
 assert.equal(nexts.length,2);
 for(const e of nexts){
- assert.equal(e.startTimeUtc,'2026-10-05T07:00:00.000Z');assert.equal(e.timePrecision,'not-before');
- assert.equal(new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(e.startTimeUtc)),'18:00','Sydney daylight saving conversion');
+ assert.equal(e.timePrecision,'not-before');
+ assert.equal(new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(e.startTimeUtc)),e.tournamentName==='Japan Open'?'20:00':'22:00','Sydney daylight saving conversion');
  assert.equal(model.next(doc.events,e.homeParticipantId,instant)?.id,e.id);
- assert.equal(policy.automaticEventScope(e),false,'ATP500 semifinal cannot become automatic ON');assert(policy.timing(e,instant),'manual timing remains available');
+ assert.equal(policy.automaticEventScope(e),false,'ATP500 final cannot become automatic ON');assert(policy.timing(e,instant),'manual timing remains available');
 }
+assert.equal(model.next(doc.events,'athlete:tennis:alex-de-minaur',instant)?.id,nexts.find(e=>e.id.includes('djokovic-de-minaur')).id,'both followed finalists share one canonical next fixture');
+const retirement=doc.events.find(e=>e.resultCode==='RET');assert(retirement);assert.equal(retirement.retiredParticipantId,retirement.awayParticipantId);assert.equal(model.next([retirement],retirement.homeParticipantId,instant),null,'a retirement is terminal, including an unfinished set');
+for(const mutate of [e=>{delete e.resultEvidence.resultCode;},e=>{e.retiredParticipantId=e.winnerParticipantId;},e=>{e.resultCode='DEF';}]){const bad=clone();mutate(bad.events.find(e=>e.resultCode==='RET'));assert.throws(()=>validate(bad),'unverified terminal codes fail before publication');}
 const djokovic=doc.events.find(e=>e.id.includes('djokovic-zverev'));
 assert.equal(djokovic.round,'quarterfinal');assert.equal(djokovic.startTimeUtc,null);assert.equal(djokovic.date,null);assert.equal(policy.timing(djokovic,instant),null,'conditional semifinal clock cannot time a quarterfinal');
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-review-'));

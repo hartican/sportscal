@@ -64,6 +64,42 @@ const foreign={...unknown,viewingOptions:[{providerId:'seven',rightsScope:'fixtu
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567'}),[],'undated fixtures do not inherit time-bounded ODI rights');
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567',startTimeUtc:'2027-09-24T00:00:00Z'}),[],'UTC-only observations obey season bounds');
 assert.deepEqual(follow.viewingOptions({key:'netball',competitionId:'competition:netball',startTimeUtc:'2027-09-01T00:00:00Z'}).map(o=>o.providerId),['stan','nine'],'other dated rights use actual UTC timing');
+// Real retained NHL rows, including zero-score final; viewing never changes facts.
+const hockey=require('../data/code-inspector/ice-hockey.json').fixtures;
+const nhl=hockey.filter(f=>f.competitionId==='competition:nhl');
+const regular=nhl.filter(f=>f.roundLabel==='Regular season'),preseason=nhl.filter(f=>f.roundLabel==='Preseason');
+assert.equal(regular.length,1344);assert.equal(preseason.length,65);
+const nhlFixture=regular.find(f=>f.id==='fixture:nhl:2026020035');assert(nhlFixture);
+for(const f of regular){
+ const enriched=review(f),options=follow.viewingOptions(enriched);
+ assert.deepEqual(options.map(o=>o.providerId),['disney'],'reviewed current NHL regular season has AU destination');
+ assert(options.every(o=>o.url==='https://www.disneyplus.com/en-au/welcome/espn-sports'&&o.rightsScope==='competition'&&o.linkScope==='sport'&&o.territory==='AU'&&o.accessType==='subscription'&&!o.replayVerified));
+ assert.equal(options[0].verifiedAt,'2026-10-04T14:47:13.000Z','source review date is fixed, not a refreshed fixture date');
+ assert.equal(options[0].liveOrReplay,f.status==='completed'?'replay':'live');
+ assert.deepEqual(sporting(enriched),sporting(f),'all NHL sporting IDs, facts and original clocks survive');
+ assert.deepEqual(review(enriched),enriched,'unchanged NHL enrichment is idempotent');
+ assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['disney'],'browser resolver handles retained source rows without a competing refresh');
+}
+for(const f of preseason)assert.deepEqual(providers(f),[],'regular-season evidence does not confer preseason access');
+const reviewedNhl=review(nhlFixture);
+for(const mutation of [
+ {competitionId:'competition:chl'},{competitionId:'competition:nhl-reserves'},{roundLabel:'Preseason'},{roundLabel:null},
+ {id:'fixture:nhl:2027020035',canonicalEventId:'fixture:nhl:2027020035',sourceEventIds:['fixture:nhl:2027020035']},
+ {id:'unknown',canonicalEventId:'unknown',sourceEventIds:[]},
+ {startTimeUtc:'2027-04-11T14:00:00Z',date:'2027-04-12'},
+ {startTimeUtc:'2026-09-28T13:59:59Z',date:'2026-09-28'},
+ {startTimeUtc:null,date:null},{startTimeUtc:'invalid',date:'2026-10-05'}
+]){
+ const changed={...reviewedNhl,...mutation};
+ // CHL's separately reviewed destination is preserved; expired NHL never restores Disney.
+ assert(!follow.viewingOptions(review(changed)).some(o=>o.providerId==='disney'),'exact NHL competition, phase, source season and date bound access');
+ assert(!follow.viewingOptions(changed).some(o=>o.providerId==='disney'),'old cached competition options cannot bypass current scope');
+}
+const independentlyReviewed={...preseason[0],viewingOptions:[{providerId:'seven',rightsScope:'fixture',sourceUrl:'https://example.test/official-nhl-fixture',verifiedAt:'2026-10-01T00:00:00Z'}]};
+assert.deepEqual(providers(independentlyReviewed),['seven'],'independent fixture evidence survives NHL fallback');
+const nhlRule=audit.reviewedWindows.find(r=>r.competitionIds?.includes('competition:nhl'));
+const nhlRights=follow.COMPETITION_VIEWING_RIGHTS['competition:nhl:2026-27'];
+assert(nhlRule&&nhlRights);assert.equal(nhlRights.fixtureIdPattern,nhlRule.fixtureIdPattern);assert.equal(nhlRights.roundLabel,nhlRule.roundLabel);
 for(const rule of audit.reviewedWindows){assert(Number.isFinite(Date.parse(rule.verifiedAt)));assert(Date.parse(rule.notBefore)<Date.parse(rule.notAfter));assert(/^https:\/\//.test(rule.sourceUrl));assert(rule.fixtureIds?.length||rule.competitionIds?.length);}
 if(process.argv.includes('--published')){
  const strip=options=>options.map(({reviewId,...o})=>o);
@@ -76,7 +112,12 @@ if(process.argv.includes('--published')){
   assert.deepEqual(f.viewingOptions,review(f).viewingOptions,`${folder}/golf: reviewed competition evidence reaches the published projection`);
   assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['kayo','foxtel']);
  }
+ for(const folder of ['code-inspector','follow-schedule']){
+  const fixtures=require(`../data/${folder}/ice-hockey.json`).fixtures.filter(f=>f.competitionId==='competition:nhl');
+  assert.equal(fixtures.length,1409);
+  for(const f of fixtures){assert.deepEqual(f.viewingOptions,review(f).viewingOptions,`${folder}/${f.id}: NHL review survives canonical projection`);assert.equal(follow.viewingOptions(f).some(o=>o.providerId==='disney'),f.roundLabel==='Regular season');}
+ }
  const feed=require('../data/events.json').events;
  for(const f of feed.filter(f=>f.key==='rugby'||f.viewingOptions?.some(o=>o.reviewId==='au-viewing-20261002')))assert.deepEqual(f.viewingOptions,review(f).viewingOptions,'published cards retain evidence and original dates');
 }
-console.log('Reviewed AU viewing: free/paid ordering, exact competitions, three Tests, two LPGA windows, exclusions, expiry, original facts/dates, honest replay and both projections passed.');
+console.log('Reviewed AU viewing: free/paid ordering, exact competitions, three Tests, two LPGA windows, 1344 NHL regular-season fixtures and 65 preseason exclusions, expiry, original facts/dates, honest replay and both projections passed.');

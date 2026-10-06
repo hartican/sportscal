@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261004094657031-20261004140757837-20261004141247030",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261005221957118-20261006021003059-20261006021314441-20261006021342407-20261006021546855",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-04T14:12:47.030Z",
+  "publishedAt": "2026-10-06T02:15:46.855Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -40,7 +40,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-04",
+    "basisDate": "2026-10-06",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -48,7 +48,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-01",
-    "daysAhead": 362,
+    "daysAhead": 360,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -172,9 +172,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 23,
+        "count": 25,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-05"
+        "lastEventDate": "2026-10-06"
       },
       "fiba-women": {
         "count": 17,
@@ -191,25 +191,10 @@
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "downhill-mtb": {
-        "count": 1,
-        "firstEventDate": "2026-11-05",
-        "lastEventDate": "2026-11-05"
-      },
-      "big-wave": {
-        "count": 2,
-        "firstEventDate": "2027-01-22",
-        "lastEventDate": "2027-02-07"
-      },
       "ski": {
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
-      },
-      "goodwood": {
-        "count": 1,
-        "firstEventDate": "2027-07-10",
-        "lastEventDate": "2027-07-10"
       }
     }
   }

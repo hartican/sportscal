@@ -33,39 +33,24 @@ function runProjectionSteps(steps,{editorialBaseline}={}){
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
 function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
-async function refreshNflResults(now){
- const path='data/canonical/american-football-directory.v1.json',directory=read(path);
- const response=await json(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${now.getFullYear()}&limit=1000`);
- const updates=new Map((response.events||[]).map(event=>{
-   const competition=event.competitions?.[0]||{};
-   const slots=(competition.competitors||[]).map(side=>({
-     participantId:`team:nfl:${String(side?.team?.abbreviation||side?.team?.id||'').toLowerCase()}`,
-     label:side?.team?.displayName||side?.team?.shortDisplayName||null,
-     homeAway:side?.homeAway||null,
-     ...(side?.score?.displayValue!=null||side?.score!=null?{score:String(side?.score?.displayValue??side.score)}:{}),
-   }));
-   return [`fixture:nfl:${event.id}`,{status:event?.status?.type?.completed===true?'completed':event?.status?.type?.state==='in'?'live':'upcoming',slots}];
- }));
- let count=0;
- const fixtures=directory.fixtures.map(fixture=>{
-   const update=updates.get(fixture.id);if(!update)return fixture;
-   const byId=new Map(update.slots.map(slot=>[slot.participantId,slot]));
-   const participantSlots=(fixture.participantSlots||[]).map(slot=>({...slot,...(byId.get(slot.participantId)||{})}));
-   const next={...fixture,status:update.status,participantSlots};
-   if(semantic(next)!==semantic(fixture))count++;
-   return next;
- });
- if(count)write(path,{...directory,generatedAt:response.timestamp||now.toISOString(),fixtures});
- return count;
+async function refreshNflResults(options={}){
+ const facts=require('./lib/nfl-results'),filePath=options.filePath||'data/canonical/american-football-directory.v1.json';
+ const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
+ try{projectionNeedsRepair=!facts.projectionCurrent(read(filePath),{inspector:read('data/code-inspector/american-football.json'),schedule:read('data/follow-schedule/american-football.json')});}catch{}
+ return {...result,projectionNeedsRepair};
 }
 // Keep unrelated projections byte-for-byte intact. Source ingestion and the
 // atomic preservation boundary remain independent of deployment credentials.
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Current card evidence|Skiing calendar review)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
+ if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
+ if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
  if(changes.includes('Skiing calendar review'))codes.add('skiing');
+ if(changes.includes('Surf calendar notes'))codes.add('surf');
+ if(changes.includes('Reviewed calendar notes'))['surf','motorsport'].forEach(code=>codes.add(code));
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
@@ -74,7 +59,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
- if(changes.some(change=>change.startsWith('CHL')))codes.add('ice-hockey');
+ if(changes.some(change=>/^(CHL|NHL)/.test(change)))codes.add('ice-hockey');
  if(changes.some(change=>change.startsWith('LPGA')))codes.add('golf');
  if(changes.some(change=>change.startsWith('NBL')))codes.add('nbl');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
@@ -144,7 +129,28 @@ function refreshNbl(changes,{published=false}={}){
 }
 async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
+  if(source==='known-finals'&&!offline){
+   const owner=require('./lib/known-final-results'),finalResults=await owner.refresh({now});
+   if(process.env.KNOWN_FINAL_RESULTS_REPORT){fs.mkdirSync(require('node:path').dirname(process.env.KNOWN_FINAL_RESULTS_REPORT),{recursive:true});write(process.env.KNOWN_FINAL_RESULTS_REPORT,finalResults);}
+   const projected=owner.projectRetained();
+   const changes=[...new Set([...finalResults.changed.map(c=>c.startsWith('NRL')?'NRL':'WRC'),...projected.changes])].map(c=>`Known finals ${c}`);
+   const report={mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:finalResults.failures.map(f=>`Known final ${f.fixtureId}: ${f.message}`),finalResults,aiCalls:0,publicationState:'candidate'};
+   if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   for(const args of retainedFeedProjectionSteps(changes))run(...args);
+   run('scripts/verify-result-completeness.js','data/events.json');
+   if(finalResults.failures.length)throw new Error('Known final source checks failed; retained last-good facts.');
+   return report;
+  }
   if(source==='football'&&!offline)return refreshFootball({now});
+  if(source==='nhl'&&!offline){
+   let nhl;
+   try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   const changes=nhl.changed||nhl.projectionNeedsRepair?[`NHL results and standings ${nhl.finals}`]:[];
+   for(const args of projectionSteps(changes))run(...args);
+   const report={mode:'quick',source,checkedAt:nhl.checkedAt,changed:changes,failures:[],nhl,aiCalls:0};
+   if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   return report;
+  }
   if(source==='chl'&&!offline){
    let chl;
    try{chl=await refreshChl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`CHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
@@ -152,6 +158,16 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    for(const args of projectionSteps(changes))run(...args);
    const report={mode:'quick',source,checkedAt:chl.checkedAt,changed:changes,failures:[],chl,aiCalls:0};
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   return report;
+  }
+  if(source==='nfl'&&!offline){
+   let nfl;try{nfl=await refreshNflResults();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NFL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   const changes=nfl.changed||nfl.projectionNeedsRepair?['NFL current-season source check']:[],failures=[];let nflStandings=null;
+   try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
+   for(const args of projectionSteps(changes))run(...args);
+   const report={mode:'quick',source,checkedAt:nfl.checkedAt,changed:changes,failures,nfl,nflStandings,aiCalls:0};
+   if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
+   if(failures.length&&!changes.length)throw new Error('NFL checks failed; retained last-good facts.');
    return report;
   }
   if(source==='nfl-standings'&&!offline){
@@ -192,11 +208,15 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(!offline)try{
    refreshNbl(changes);
  }catch(error){failures.push(`NBL: ${error.message}`);}
- if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
+ if(!offline)try{const result=await refreshNflResults();if(result.changed||result.projectionNeedsRepair)changes.push('NFL current-season source check');}catch(error){failures.push(`NFL: ${error.message}`);}
  let nflStandings=null;
  if(!offline)try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
  let chl=null;
  if(!offline)try{chl=await refreshChl();if(chl.changed||chl.projectionNeedsRepair)changes.push(`CHL results and club records ${chl.finals}`);}catch(error){failures.push(`CHL: ${error.message}`);}
+ let nhl=null;
+ if(!offline)try{nhl=await refreshNhl();if(nhl.changed||nhl.projectionNeedsRepair)changes.push(`NHL results and standings ${nhl.finals}`);}catch(error){failures.push(`NHL: ${error.message}`);}
+ let finalResults=null;
+ if(!offline){const owner=require('./lib/known-final-results');finalResults=await owner.refresh({now});if(process.env.KNOWN_FINAL_RESULTS_REPORT){fs.mkdirSync(require('node:path').dirname(process.env.KNOWN_FINAL_RESULTS_REPORT),{recursive:true});write(process.env.KNOWN_FINAL_RESULTS_REPORT,finalResults);}failures.push(...finalResults.failures.map(f=>`Known final ${f.fixtureId}: ${f.message}`));const projected=owner.projectRetained();for(const code of projected.changes)changes.push(`Known finals ${code}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;
  if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,events:official.events});changes.push(`Official results ${official.count}`);}
@@ -222,26 +242,33 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   if(result.changed){write(path,result.document);changes.push(`LPGA ${result.changed}`);}
   failures.push(...result.failures.map(f=>`LPGA ${f.id}: ${f.code}`));
  }catch(error){failures.push(`LPGA: ${error.message}`);}
+ const f1Sources=require('./lib/f1-source-provenance').applyRetained();
+ if(f1Sources.some(surface=>surface.changed.length))changes.push('F1 schedule provenance');
  const skiReview=require('./lib/skiing-calendar-review').applyRetained();
  if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
+ const calendarNotes=require('./lib/reviewed-calendar-notes').applyRetained();
+ if(calendarNotes.some(surface=>surface.changed.length))changes.push('Reviewed calendar notes');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,nhl,finalResults,aiCalls:0,publicationState:'candidate'};
+ // Keep exception evidence outside the rolled-back data surfaces even when
+ // result completeness blocks this candidate before publication.
+ if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,aiCalls:0};
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}
  console.log(JSON.stringify(report));
  if(failures.length)console.warn(`::warning::Quick refresh retained last-good data for ${failures.length} failed source checks; review the refresh report.`);
  if(failures.length&&!changes.length&&!offline)throw new Error('Quick sources failed; preserved last-known-good data.');
  return {changes,failures};
 }
-async function atomicRefresh(options){
+async function atomicRefresh(options,{refreshOperation=refresh}={}){
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
  const runtime='assets/js/app-shell-runtime.js',runtimeBefore=fs.existsSync(runtime)?fs.readFileSync(runtime):null;
  collect('data');collect('feeds');
- try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);throw error;}
+ try{return await refreshOperation(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);if(process.env.QUICK_RESULTS_REPORT){let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,{...report,publicationState:'blocked-rolled-back',blockingError:error.message});}throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}
@@ -252,4 +279,10 @@ async function refreshChl(options={}){
  return {...result,projectionNeedsRepair};
 }
 function refreshNflStandings(options={}){return require('./lib/nfl-standings').refreshFile({filePath:'data/canonical/american-football-directory.v1.json',fetchJson:json,...options});}
-module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,refreshChl,KEYS};
+async function refreshNhl(options={}){
+ const facts=require('./lib/nhl-results'),filePath=options.filePath||'data/canonical/ice-hockey-directory.v1.json';
+ const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
+ try{projectionNeedsRepair=!facts.projectionCurrent(read(filePath),{inspector:read('data/code-inspector/ice-hockey.json'),schedule:read('data/follow-schedule/ice-hockey.json')});}catch{}
+ return {...result,projectionNeedsRepair};
+}
+module.exports={nblStandingsChanged,patchKnown,retainReviewedResultEditorial,runProjectionSteps,refresh,atomicRefresh,refreshPremierLeagueTable,projectionSteps,nblProjectionSteps,retainedFeedProjectionSteps,refreshNflStandings,refreshNflResults,refreshChl,refreshNhl,KEYS};

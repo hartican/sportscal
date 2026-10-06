@@ -1,6 +1,6 @@
 {
   "schemaVersion": "tennis-journey-register.v1",
-  "reviewedAt": "2026-10-04",
+  "reviewedAt": "2026-10-06",
   "initialWindow": {
     "from": "2026-10-02",
     "through": "2027-10-02"
@@ -210,6 +210,15 @@
       "summary": "The dated organiser article explicitly names Alcaraz and Djokovic in the field; no individual match or start time is published.",
       "verifiedAt": "2026-10-04",
       "publishedAt": "2026-10-03"
+    },
+    {
+      "id": "shanghai-main-draw-2026-10-06",
+      "url": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+      "title": "Official Shanghai main draw, released 5 October 22:25 China",
+      "scope": "entry",
+      "verifiedAt": "2026-10-06",
+      "sourceSha256": "ba95097d0fb8cb97d818c88742a6abfc88de386c7720766f4743c0253617404f",
+      "checkedAt": "2026-10-06T02:10:01.325661+00:00"
     }
   ],
   "editions": [
@@ -336,11 +345,11 @@
           "playerId": "competitor:tennis:atp:carlos-alcaraz",
           "status": "confirmed",
           "evidenceKind": "official_entry",
-          "reason": "Named in the organiser field announcement dated 3 October, subject to later withdrawals. Individual match and time unpublished.",
+          "reason": "Named in the official main draw with a first-round bye. The next opponent and individual playing time remain unresolved.",
           "sourceIds": [
-            "shanghai-field-2026-10-03"
+            "shanghai-main-draw-2026-10-06"
           ],
-          "verifiedAt": "2026-10-04"
+          "verifiedAt": "2026-10-06"
         },
         {
           "playerId": "competitor:tennis:atp:jannik-sinner",
@@ -356,21 +365,21 @@
           "playerId": "athlete:tennis:novak-djokovic",
           "status": "confirmed",
           "evidenceKind": "official_entry",
-          "reason": "Named in the organiser field announcement dated 3 October, subject to later withdrawals. Individual match and time unpublished.",
+          "reason": "Named in the official main draw with a first-round bye. The next opponent and individual playing time remain unresolved.",
           "sourceIds": [
-            "shanghai-field-2026-10-03"
+            "shanghai-main-draw-2026-10-06"
           ],
-          "verifiedAt": "2026-10-04"
+          "verifiedAt": "2026-10-06"
         },
         {
           "playerId": "athlete:tennis:alex-de-minaur",
-          "status": "very_likely",
-          "evidenceKind": "product_projection",
-          "reason": "Planning expectation for a major or 1000 event; individual entry has not been published.",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "reason": "Named in the official main draw with a first-round bye. The next opponent and individual playing time remain unresolved.",
           "sourceIds": [
-            "shanghai-atp-calendar-2026"
+            "shanghai-main-draw-2026-10-06"
           ],
-          "verifiedAt": "2026-10-02"
+          "verifiedAt": "2026-10-06"
         }
       ]
     },

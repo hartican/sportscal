@@ -192,8 +192,9 @@ function parseFiaStandings(html){
   return { drivers, coDrivers, manufacturers };
 }
 
-function parseFiaClassification(html){
+function parseFiaClassification(html,{round}={}){
   const source = String(html || "");
+  if(round){for(const date of [round.startDate,round.endDate]){const [year,month,day]=date.split('-');if(!source.includes(`${day}/${month}/${year}`))return null;}}
   const marker = source.lastIndexOf("FINAL OFFICIAL CLASSIFICATION");
   if (marker < 0) return null;
   const tableEnd = source.indexOf("</table>", marker);
@@ -281,12 +282,13 @@ function buildWrcContext({ rounds, standings, classifications = {}, checkedAt = 
   const allParticipantIds = participants.map(participant => participant.id);
   const checkedDate = checkedAt.slice(0, 10);
   const latestCompletedRound = rounds
-    .filter(round => round.status !== "cancelled" && round.endDate < checkedDate)
+    .filter(round => round.status !== "cancelled" && (round.endDate < checkedDate || classifications[round.roundNumber]?.status === "official"))
     .reduce((latest, round) => Math.max(latest, round.roundNumber), 0);
 
   const events = rounds.map(round => {
-    const isCompleted = round.status !== "cancelled" && round.endDate < checkedDate;
     const classification = classifications[round.roundNumber] || null;
+    if(classification&&round.startDate>checkedDate)throw new Error('Classification predates the retained rally');
+    const isCompleted = round.status !== "cancelled" && (classification?.status === "official" || round.endDate < checkedDate);
     const result = !isCompleted ? undefined : classification ? {
       status: "official",
       driverParticipantId: participantId("driver", classification.driver.name),
@@ -295,7 +297,7 @@ function buildWrcContext({ rounds, standings, classifications = {}, checkedAt = 
       vehicle: classification.vehicle,
       totalTime: classification.totalTime,
       sourceUrl: CLASSIFICATION_URLS[round.roundNumber],
-      checkedAt,
+      checkedAt:classification.checkedAt||checkedAt,
     } : {
       status: "pending",
       sourceUrl: CLASSIFICATION_URLS[round.roundNumber],

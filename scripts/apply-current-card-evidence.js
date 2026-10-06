@@ -41,6 +41,14 @@ function mergeRecord(record, override, checkedAt){
     timePrecision:override.startTimeUtc ? "exact" : override.timePrecision || record.timePrecision,
     stakesScore:record.stakesScore || 5,
   };
+  // A calendar/venue note supports timing, not the later official session
+  // classification. Keep both references without relabelling result facts.
+  if(record.key==='f1'&&record.status==='completed'&&record.fixtureResults?.rows?.length
+    &&!['status','score','fixtureResults','result','outcomeText','homeScore','awayScore'].some(key=>Object.hasOwn(override,key))){
+    for(const key of ['sourceName','sourceUrl','sourceType','sourceTrust','sourceCheckedAt','scoreCheckedAt','resultSourceUrl','resultSourceCheckedAt','resultPublishedAt','statusCheckedAt']){
+      if(Object.hasOwn(record,key))merged[key]=record[key];else delete merged[key];
+    }
+  }
   return retainNewerReviewedEditorial(record, merged);
 }
 function retainNewerReviewedEditorial(record, merged){

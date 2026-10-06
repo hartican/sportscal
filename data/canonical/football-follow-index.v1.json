@@ -7623,5 +7623,6407 @@
       "currentTeamId": "team:football:club:troyes",
       "leagueId": "competition:ligue-1"
     }
+  ],
+  "identities": [
+    {
+      "id": "competitor:football:espn:101451",
+      "displayName": "Régis Gurtner"
+    },
+    {
+      "id": "competitor:football:espn:102053",
+      "displayName": "Joe Gomez"
+    },
+    {
+      "id": "competitor:football:espn:102368",
+      "displayName": "Evanilson"
+    },
+    {
+      "id": "competitor:football:espn:104943",
+      "displayName": "Andy Robertson"
+    },
+    {
+      "id": "competitor:football:espn:106139",
+      "displayName": "Lewis Hall"
+    },
+    {
+      "id": "competitor:football:espn:108482",
+      "displayName": "David de Gea"
+    },
+    {
+      "id": "competitor:football:espn:108662",
+      "displayName": "Robert Sánchez"
+    },
+    {
+      "id": "competitor:football:espn:111114",
+      "displayName": "Jason Steele"
+    },
+    {
+      "id": "competitor:football:espn:111337",
+      "displayName": "David Button"
+    },
+    {
+      "id": "competitor:football:espn:112988",
+      "displayName": "Michel Diaz"
+    },
+    {
+      "id": "competitor:football:espn:113733",
+      "displayName": "Sven Ulreich"
+    },
+    {
+      "id": "competitor:football:espn:120829",
+      "displayName": "Nathaniel Brown"
+    },
+    {
+      "id": "competitor:football:espn:121007",
+      "displayName": "Ron-Robert Zieler"
+    },
+    {
+      "id": "competitor:football:espn:12172",
+      "displayName": "César Palacios"
+    },
+    {
+      "id": "competitor:football:espn:122260",
+      "displayName": "Pierre-Emerick Aubameyang"
+    },
+    {
+      "id": "competitor:football:espn:122268",
+      "displayName": "Adam Smith"
+    },
+    {
+      "id": "competitor:football:espn:122273",
+      "displayName": "Tobias Sippel"
+    },
+    {
+      "id": "competitor:football:espn:122280",
+      "displayName": "Kevin Trapp"
+    },
+    {
+      "id": "competitor:football:espn:122396",
+      "displayName": "Jens Grahl"
+    },
+    {
+      "id": "competitor:football:espn:123683",
+      "displayName": "Benjamin André"
+    },
+    {
+      "id": "competitor:football:espn:123772",
+      "displayName": "Frank Lehmann"
+    },
+    {
+      "id": "competitor:football:espn:124091",
+      "displayName": "Bruno Fernandes"
+    },
+    {
+      "id": "competitor:football:espn:125383",
+      "displayName": "Sergio Canales"
+    },
+    {
+      "id": "competitor:football:espn:126703",
+      "displayName": "Martin Dúbravka"
+    },
+    {
+      "id": "competitor:football:espn:127262",
+      "displayName": "Jordan Henderson"
+    },
+    {
+      "id": "competitor:football:espn:128521",
+      "displayName": "Timothy Chandler"
+    },
+    {
+      "id": "competitor:football:espn:129285",
+      "displayName": "Marcus Holmgren Pedersen"
+    },
+    {
+      "id": "competitor:football:espn:130877",
+      "displayName": "Karl Darlow"
+    },
+    {
+      "id": "competitor:football:espn:131634",
+      "displayName": "Wojciech Szczesny"
+    },
+    {
+      "id": "competitor:football:espn:131742",
+      "displayName": "Mathieu Gorgelin"
+    },
+    {
+      "id": "competitor:football:espn:131743",
+      "displayName": "Anthony Lopes"
+    },
+    {
+      "id": "competitor:football:espn:132233",
+      "displayName": "Marco Bizot"
+    },
+    {
+      "id": "competitor:football:espn:132659",
+      "displayName": "Pascal Gross"
+    },
+    {
+      "id": "competitor:football:espn:133259",
+      "displayName": "Leandro Cabrera"
+    },
+    {
+      "id": "competitor:football:espn:134103",
+      "displayName": "Lee Jae-Sung"
+    },
+    {
+      "id": "competitor:football:espn:134169",
+      "displayName": "Lukas Hradecky"
+    },
+    {
+      "id": "competitor:football:espn:134190",
+      "displayName": "Chris Wood"
+    },
+    {
+      "id": "competitor:football:espn:134283",
+      "displayName": "Thibaut Courtois"
+    },
+    {
+      "id": "competitor:football:espn:134947",
+      "displayName": "Kevin De Bruyne"
+    },
+    {
+      "id": "competitor:football:espn:135743",
+      "displayName": "Nemanja Matic"
+    },
+    {
+      "id": "competitor:football:espn:137397",
+      "displayName": "Formose Mendy"
+    },
+    {
+      "id": "competitor:football:espn:138213",
+      "displayName": "Oliver Baumann"
+    },
+    {
+      "id": "competitor:football:espn:138481",
+      "displayName": "Simon Moore"
+    },
+    {
+      "id": "competitor:football:espn:138563",
+      "displayName": "Vincent Sasso"
+    },
+    {
+      "id": "competitor:football:espn:138924",
+      "displayName": "Callum Wilson"
+    },
+    {
+      "id": "competitor:football:espn:139008",
+      "displayName": "João Mário"
+    },
+    {
+      "id": "competitor:football:espn:139363",
+      "displayName": "Benjamin Leroy"
+    },
+    {
+      "id": "competitor:football:espn:139744",
+      "displayName": "Jack Taylor"
+    },
+    {
+      "id": "competitor:football:espn:140033",
+      "displayName": "Tom Cairney"
+    },
+    {
+      "id": "competitor:football:espn:140624",
+      "displayName": "Jeffrey Gouweleeuw"
+    },
+    {
+      "id": "competitor:football:espn:140754",
+      "displayName": "Florian Lejeune"
+    },
+    {
+      "id": "competitor:football:espn:140791",
+      "displayName": "Koke"
+    },
+    {
+      "id": "competitor:football:espn:141438",
+      "displayName": "Mathew Ryan"
+    },
+    {
+      "id": "competitor:football:espn:142200",
+      "displayName": "Harry Kane"
+    },
+    {
+      "id": "competitor:football:espn:143100",
+      "displayName": "Pietro Terracciano"
+    },
+    {
+      "id": "competitor:football:espn:143533",
+      "displayName": "Jake Bidwell"
+    },
+    {
+      "id": "competitor:football:espn:143643",
+      "displayName": "Juanmi"
+    },
+    {
+      "id": "competitor:football:espn:144620",
+      "displayName": "Stefan Bell"
+    },
+    {
+      "id": "competitor:football:espn:144759",
+      "displayName": "Aitor Fernández"
+    },
+    {
+      "id": "competitor:football:espn:145078",
+      "displayName": "Marc Bartra"
+    },
+    {
+      "id": "competitor:football:espn:145138",
+      "displayName": "Matteo Grandi"
+    },
+    {
+      "id": "competitor:football:espn:145190",
+      "displayName": "Nicolás Tagliafico"
+    },
+    {
+      "id": "competitor:football:espn:146127",
+      "displayName": "Marcos Alonso"
+    },
+    {
+      "id": "competitor:football:espn:146335",
+      "displayName": "Marten de Roon"
+    },
+    {
+      "id": "competitor:football:espn:146679",
+      "displayName": "Daniel Muñoz"
+    },
+    {
+      "id": "competitor:football:espn:146683",
+      "displayName": "Mattia Perin"
+    },
+    {
+      "id": "competitor:football:espn:147106",
+      "displayName": "Lewis Dunk"
+    },
+    {
+      "id": "competitor:football:espn:149276",
+      "displayName": "Kevin Müller"
+    },
+    {
+      "id": "competitor:football:espn:149517",
+      "displayName": "Benjamin Lecomte"
+    },
+    {
+      "id": "competitor:football:espn:149622",
+      "displayName": "Jan Oblak"
+    },
+    {
+      "id": "competitor:football:espn:150374",
+      "displayName": "Adrián Rodríguez"
+    },
+    {
+      "id": "competitor:football:espn:150450",
+      "displayName": "Zacharie Boucher"
+    },
+    {
+      "id": "competitor:football:espn:150451",
+      "displayName": "Aïssa Mandi"
+    },
+    {
+      "id": "competitor:football:espn:152044",
+      "displayName": "Cristiano Biraghi"
+    },
+    {
+      "id": "competitor:football:espn:152270",
+      "displayName": "Geoffrey Kondogbia"
+    },
+    {
+      "id": "competitor:football:espn:152469",
+      "displayName": "Ross Barkley"
+    },
+    {
+      "id": "competitor:football:espn:152479",
+      "displayName": "Wataru Endo"
+    },
+    {
+      "id": "competitor:football:espn:153765",
+      "displayName": "Bernd Leno"
+    },
+    {
+      "id": "competitor:football:espn:154595",
+      "displayName": "Mateo Kovacic"
+    },
+    {
+      "id": "competitor:football:espn:155226",
+      "displayName": "James Tarkowski"
+    },
+    {
+      "id": "competitor:football:espn:155532",
+      "displayName": "Eric Dier"
+    },
+    {
+      "id": "competitor:football:espn:156172",
+      "displayName": "Gerard Moreno"
+    },
+    {
+      "id": "competitor:football:espn:156416",
+      "displayName": "Alexander Schwolow"
+    },
+    {
+      "id": "competitor:football:espn:156799",
+      "displayName": "Richarlison"
+    },
+    {
+      "id": "competitor:football:espn:156898",
+      "displayName": "Florian Thauvin"
+    },
+    {
+      "id": "competitor:football:espn:157073",
+      "displayName": "Harry Maguire"
+    },
+    {
+      "id": "competitor:football:espn:157688",
+      "displayName": "Kim Min-Jae"
+    },
+    {
+      "id": "competitor:football:espn:157708",
+      "displayName": "Iñigo Ruiz de Galarreta"
+    },
+    {
+      "id": "competitor:football:espn:157892",
+      "displayName": "Virgil van Dijk"
+    },
+    {
+      "id": "competitor:football:espn:157933",
+      "displayName": "Jack Butland"
+    },
+    {
+      "id": "competitor:football:espn:157974",
+      "displayName": "John Stones"
+    },
+    {
+      "id": "competitor:football:espn:158066",
+      "displayName": "Thorgan Hazard"
+    },
+    {
+      "id": "competitor:football:espn:158151",
+      "displayName": "Iván Balliu"
+    },
+    {
+      "id": "competitor:football:espn:158626",
+      "displayName": "Emiliano Martínez"
+    },
+    {
+      "id": "competitor:football:espn:159047",
+      "displayName": "Marquinhos"
+    },
+    {
+      "id": "competitor:football:espn:159135",
+      "displayName": "Odisseas Vlachodimos"
+    },
+    {
+      "id": "competitor:football:espn:159139",
+      "displayName": "Mitchell Weiser"
+    },
+    {
+      "id": "competitor:football:espn:159152",
+      "displayName": "Rani Khedira"
+    },
+    {
+      "id": "competitor:football:espn:159312",
+      "displayName": "Paul Nardi"
+    },
+    {
+      "id": "competitor:football:espn:159348",
+      "displayName": "Takumi Minamino"
+    },
+    {
+      "id": "competitor:football:espn:159443",
+      "displayName": "Jordan Pickford"
+    },
+    {
+      "id": "competitor:football:espn:159543",
+      "displayName": "Pierre-Emile Højbjerg"
+    },
+    {
+      "id": "competitor:football:espn:160115",
+      "displayName": "Lucas Digne"
+    },
+    {
+      "id": "competitor:football:espn:161715",
+      "displayName": "Nick Pope"
+    },
+    {
+      "id": "competitor:football:espn:161825",
+      "displayName": "Janis Blaswich"
+    },
+    {
+      "id": "competitor:football:espn:162111",
+      "displayName": "Markus Kolke"
+    },
+    {
+      "id": "competitor:football:espn:162162",
+      "displayName": "Willi Orbán"
+    },
+    {
+      "id": "competitor:football:espn:162386",
+      "displayName": "Mads Pedersen"
+    },
+    {
+      "id": "competitor:football:espn:162843",
+      "displayName": "John McGinn"
+    },
+    {
+      "id": "competitor:football:espn:163068",
+      "displayName": "Denis Suárez"
+    },
+    {
+      "id": "competitor:football:espn:16340",
+      "displayName": "Javi Guerra"
+    },
+    {
+      "id": "competitor:football:espn:164126",
+      "displayName": "Brice Samba"
+    },
+    {
+      "id": "competitor:football:espn:164148",
+      "displayName": "Alex Cairns"
+    },
+    {
+      "id": "competitor:football:espn:164581",
+      "displayName": "Luca Lezzerini"
+    },
+    {
+      "id": "competitor:football:espn:164826",
+      "displayName": "Nahuel Molina"
+    },
+    {
+      "id": "competitor:football:espn:165334",
+      "displayName": "Stole Dimitrievski"
+    },
+    {
+      "id": "competitor:football:espn:165424",
+      "displayName": "Frederik Ronnow"
+    },
+    {
+      "id": "competitor:football:espn:165764",
+      "displayName": "Loris Karius"
+    },
+    {
+      "id": "competitor:football:espn:166396",
+      "displayName": "Alejandro Grimaldo"
+    },
+    {
+      "id": "competitor:football:espn:166473",
+      "displayName": "Thomas Meunier"
+    },
+    {
+      "id": "competitor:football:espn:167297",
+      "displayName": "Pedro Bigas"
+    },
+    {
+      "id": "competitor:football:espn:168421",
+      "displayName": "Will Hughes"
+    },
+    {
+      "id": "competitor:football:espn:168424",
+      "displayName": "John Egan"
+    },
+    {
+      "id": "competitor:football:espn:168453",
+      "displayName": "Dodô"
+    },
+    {
+      "id": "competitor:football:espn:169213",
+      "displayName": "Bryan Cristante"
+    },
+    {
+      "id": "competitor:football:espn:169481",
+      "displayName": "Timo Becker"
+    },
+    {
+      "id": "competitor:football:espn:169532",
+      "displayName": "Kepa Arrizabalaga"
+    },
+    {
+      "id": "competitor:football:espn:169619",
+      "displayName": "Ben Wilson"
+    },
+    {
+      "id": "competitor:football:espn:169753",
+      "displayName": "Anthony Jung"
+    },
+    {
+      "id": "competitor:football:espn:169818",
+      "displayName": "Patric"
+    },
+    {
+      "id": "competitor:football:espn:170154",
+      "displayName": "Lucas Torró"
+    },
+    {
+      "id": "competitor:football:espn:170209",
+      "displayName": "Matthias Ginter"
+    },
+    {
+      "id": "competitor:football:espn:170257",
+      "displayName": "Niclas Füllkrug"
+    },
+    {
+      "id": "competitor:football:espn:170553",
+      "displayName": "Sead Kolasinac"
+    },
+    {
+      "id": "competitor:football:espn:170604",
+      "displayName": "Janik Haberer"
+    },
+    {
+      "id": "competitor:football:espn:170785",
+      "displayName": "Hakan Çalhanoglu"
+    },
+    {
+      "id": "competitor:football:espn:171701",
+      "displayName": "Lukas Kübler"
+    },
+    {
+      "id": "competitor:football:espn:172836",
+      "displayName": "Jacob Murphy"
+    },
+    {
+      "id": "competitor:football:espn:172850",
+      "displayName": "Jack Grealish"
+    },
+    {
+      "id": "competitor:football:espn:173266",
+      "displayName": "Adrien Thomasson"
+    },
+    {
+      "id": "competitor:football:espn:173749",
+      "displayName": "Matías Dituro"
+    },
+    {
+      "id": "competitor:football:espn:173817",
+      "displayName": "Domenico Berardi"
+    },
+    {
+      "id": "competitor:football:espn:173907",
+      "displayName": "Marcel Sabitzer"
+    },
+    {
+      "id": "competitor:football:espn:174521",
+      "displayName": "Patrick Drewes"
+    },
+    {
+      "id": "competitor:football:espn:174617",
+      "displayName": "Jonas Hofmann"
+    },
+    {
+      "id": "competitor:football:espn:175006",
+      "displayName": "Kevin Stöger"
+    },
+    {
+      "id": "competitor:football:espn:175887",
+      "displayName": "Marc-Oliver Kempf"
+    },
+    {
+      "id": "competitor:football:espn:176203",
+      "displayName": "Adrien Rabiot"
+    },
+    {
+      "id": "competitor:football:espn:176816",
+      "displayName": "Morgan Sanson"
+    },
+    {
+      "id": "competitor:football:espn:177545",
+      "displayName": "Marcus Bettinelli"
+    },
+    {
+      "id": "competitor:football:espn:177782",
+      "displayName": "Piotr Zielinski"
+    },
+    {
+      "id": "competitor:football:espn:177816",
+      "displayName": "Alessio Romagnoli"
+    },
+    {
+      "id": "competitor:football:espn:177821",
+      "displayName": "Mark Flekken"
+    },
+    {
+      "id": "competitor:football:espn:177927",
+      "displayName": "Juan Musso"
+    },
+    {
+      "id": "competitor:football:espn:178051",
+      "displayName": "Semi Ajayi"
+    },
+    {
+      "id": "competitor:football:espn:178077",
+      "displayName": "Christian Nørgaard"
+    },
+    {
+      "id": "competitor:football:espn:178237",
+      "displayName": "Jorge Salinas"
+    },
+    {
+      "id": "competitor:football:espn:178328",
+      "displayName": "Rubén García"
+    },
+    {
+      "id": "competitor:football:espn:178747",
+      "displayName": "José Gayà"
+    },
+    {
+      "id": "competitor:football:espn:178760",
+      "displayName": "Neal Maupay"
+    },
+    {
+      "id": "competitor:football:espn:178978",
+      "displayName": "Héctor Bellerín"
+    },
+    {
+      "id": "competitor:football:espn:178980",
+      "displayName": "Serge Gnabry"
+    },
+    {
+      "id": "competitor:football:espn:179187",
+      "displayName": "Nabil Bentaleb"
+    },
+    {
+      "id": "competitor:football:espn:179211",
+      "displayName": "Marko Dmitrovic"
+    },
+    {
+      "id": "competitor:football:espn:179233",
+      "displayName": "Fabian Schär"
+    },
+    {
+      "id": "competitor:football:espn:179358",
+      "displayName": "Lukasz Skorupski"
+    },
+    {
+      "id": "competitor:football:espn:179497",
+      "displayName": "Matz Sels"
+    },
+    {
+      "id": "competitor:football:espn:180162",
+      "displayName": "Daniel Heuer Fernandes"
+    },
+    {
+      "id": "competitor:football:espn:180174",
+      "displayName": "Gautier Lloris"
+    },
+    {
+      "id": "competitor:football:espn:180956",
+      "displayName": "Federico Bernardeschi"
+    },
+    {
+      "id": "competitor:football:espn:180998",
+      "displayName": "Robert Andrich"
+    },
+    {
+      "id": "competitor:football:espn:181133",
+      "displayName": "Laurent Abergel"
+    },
+    {
+      "id": "competitor:football:espn:181192",
+      "displayName": "Ridgeciano Haps"
+    },
+    {
+      "id": "competitor:football:espn:181288",
+      "displayName": "Germán Parreño"
+    },
+    {
+      "id": "competitor:football:espn:181312",
+      "displayName": "Tyrone Mings"
+    },
+    {
+      "id": "competitor:football:espn:181322",
+      "displayName": "Raffaele Di Gennaro"
+    },
+    {
+      "id": "competitor:football:espn:181355",
+      "displayName": "Djené"
+    },
+    {
+      "id": "competitor:football:espn:181530",
+      "displayName": "Diego Llorente"
+    },
+    {
+      "id": "competitor:football:espn:181582",
+      "displayName": "Adrien Monfray"
+    },
+    {
+      "id": "competitor:football:espn:181757",
+      "displayName": "Toni Martínez"
+    },
+    {
+      "id": "competitor:football:espn:181946",
+      "displayName": "Ruben Aguilar"
+    },
+    {
+      "id": "competitor:football:espn:182245",
+      "displayName": "Yussuf Poulsen"
+    },
+    {
+      "id": "competitor:football:espn:184118",
+      "displayName": "Seko Fofana"
+    },
+    {
+      "id": "competitor:football:espn:184550",
+      "displayName": "Michael Zetterer"
+    },
+    {
+      "id": "competitor:football:espn:185906",
+      "displayName": "Tim Kleindienst"
+    },
+    {
+      "id": "competitor:football:espn:186024",
+      "displayName": "Jeremy Toljan"
+    },
+    {
+      "id": "competitor:football:espn:186026",
+      "displayName": "Niklas Stark"
+    },
+    {
+      "id": "competitor:football:espn:186381",
+      "displayName": "Serhou Guirassy"
+    },
+    {
+      "id": "competitor:football:espn:186408",
+      "displayName": "Brendan Chardonnet"
+    },
+    {
+      "id": "competitor:football:espn:186430",
+      "displayName": "Andreas Christensen"
+    },
+    {
+      "id": "competitor:football:espn:186437",
+      "displayName": "Alessandro Deiola"
+    },
+    {
+      "id": "competitor:football:espn:186457",
+      "displayName": "Matías Moreno"
+    },
+    {
+      "id": "competitor:football:espn:186505",
+      "displayName": "Ruben Loftus-Cheek"
+    },
+    {
+      "id": "competitor:football:espn:188052",
+      "displayName": "Jonathan Tah"
+    },
+    {
+      "id": "competitor:football:espn:188230",
+      "displayName": "Alexander Sørloth"
+    },
+    {
+      "id": "competitor:football:espn:188398",
+      "displayName": "José María Giménez"
+    },
+    {
+      "id": "competitor:football:espn:189026",
+      "displayName": "Mike Maignan"
+    },
+    {
+      "id": "competitor:football:espn:189668",
+      "displayName": "Mario Pasalic"
+    },
+    {
+      "id": "competitor:football:espn:190161",
+      "displayName": "Joshua Kimmich"
+    },
+    {
+      "id": "competitor:football:espn:190974",
+      "displayName": "Kenny Tete"
+    },
+    {
+      "id": "competitor:football:espn:191102",
+      "displayName": "Samuel Gigot"
+    },
+    {
+      "id": "competitor:football:espn:191337",
+      "displayName": "Matt Grimes"
+    },
+    {
+      "id": "competitor:football:espn:191352",
+      "displayName": "Luca Waldschmidt"
+    },
+    {
+      "id": "competitor:football:espn:191360",
+      "displayName": "Sergio Herrera"
+    },
+    {
+      "id": "competitor:football:espn:191574",
+      "displayName": "Luke O'Nien"
+    },
+    {
+      "id": "competitor:football:espn:191603",
+      "displayName": "Dillon Phillips"
+    },
+    {
+      "id": "competitor:football:espn:191712",
+      "displayName": "Jordan Lefort"
+    },
+    {
+      "id": "competitor:football:espn:192015",
+      "displayName": "Ludovic Ajorque"
+    },
+    {
+      "id": "competitor:football:espn:192060",
+      "displayName": "Corentin Tolisso"
+    },
+    {
+      "id": "competitor:football:espn:192146",
+      "displayName": "Álex Valle"
+    },
+    {
+      "id": "competitor:football:espn:192430",
+      "displayName": "Einar Galilea"
+    },
+    {
+      "id": "competitor:football:espn:192570",
+      "displayName": "Marco Bleve"
+    },
+    {
+      "id": "competitor:football:espn:192672",
+      "displayName": "Steve Mounié"
+    },
+    {
+      "id": "competitor:football:espn:192893",
+      "displayName": "Daniel Cárdenas"
+    },
+    {
+      "id": "competitor:football:espn:193010",
+      "displayName": "Oliver McBurnie"
+    },
+    {
+      "id": "competitor:football:espn:193246",
+      "displayName": "Harrison Reed"
+    },
+    {
+      "id": "competitor:football:espn:193297",
+      "displayName": "Youri Tielemans"
+    },
+    {
+      "id": "competitor:football:espn:193610",
+      "displayName": "Ørjan Nyland"
+    },
+    {
+      "id": "competitor:football:espn:193919",
+      "displayName": "Hassane Kamara"
+    },
+    {
+      "id": "competitor:football:espn:193943",
+      "displayName": "Diego Rico"
+    },
+    {
+      "id": "competitor:football:espn:194115",
+      "displayName": "Dominic Solanke"
+    },
+    {
+      "id": "competitor:football:espn:194450",
+      "displayName": "James Maddison"
+    },
+    {
+      "id": "competitor:football:espn:194553",
+      "displayName": "Ezequiel Ponce"
+    },
+    {
+      "id": "competitor:football:espn:194718",
+      "displayName": "Ousmane Diallo"
+    },
+    {
+      "id": "competitor:football:espn:194801",
+      "displayName": "Harry Wilson"
+    },
+    {
+      "id": "competitor:football:espn:195032",
+      "displayName": "Augusto Batalla"
+    },
+    {
+      "id": "competitor:football:espn:195501",
+      "displayName": "Aleksandr Golovin"
+    },
+    {
+      "id": "competitor:football:espn:195790",
+      "displayName": "Carl Starfelt"
+    },
+    {
+      "id": "competitor:football:espn:196029",
+      "displayName": "Franck Honorat"
+    },
+    {
+      "id": "competitor:football:espn:196081",
+      "displayName": "Joachim Andersen"
+    },
+    {
+      "id": "competitor:football:espn:196176",
+      "displayName": "David Raya"
+    },
+    {
+      "id": "competitor:football:espn:196234",
+      "displayName": "Branco van den Boomen"
+    },
+    {
+      "id": "competitor:football:espn:196339",
+      "displayName": "David Soria"
+    },
+    {
+      "id": "competitor:football:espn:196729",
+      "displayName": "Hamari Traoré"
+    },
+    {
+      "id": "competitor:football:espn:196876",
+      "displayName": "Alisson Becker"
+    },
+    {
+      "id": "competitor:football:espn:196914",
+      "displayName": "Pere Milla"
+    },
+    {
+      "id": "competitor:football:espn:197163",
+      "displayName": "Timothy Castagne"
+    },
+    {
+      "id": "competitor:football:espn:197399",
+      "displayName": "Jefferson Lerma"
+    },
+    {
+      "id": "competitor:football:espn:197627",
+      "displayName": "Alan Browne"
+    },
+    {
+      "id": "competitor:football:espn:197717",
+      "displayName": "Dominic Calvert-Lewin"
+    },
+    {
+      "id": "competitor:football:espn:197796",
+      "displayName": "Sven Michel"
+    },
+    {
+      "id": "competitor:football:espn:198082",
+      "displayName": "Nikita Contini"
+    },
+    {
+      "id": "competitor:football:espn:198087",
+      "displayName": "Robin Gosens"
+    },
+    {
+      "id": "competitor:football:espn:198150",
+      "displayName": "Matteo Pisseri"
+    },
+    {
+      "id": "competitor:football:espn:198825",
+      "displayName": "Ollie Watkins"
+    },
+    {
+      "id": "competitor:football:espn:198832",
+      "displayName": "Mariano"
+    },
+    {
+      "id": "competitor:football:espn:200079",
+      "displayName": "Leopold Zingerle"
+    },
+    {
+      "id": "competitor:football:espn:200910",
+      "displayName": "Antonio Sivera"
+    },
+    {
+      "id": "competitor:football:espn:201123",
+      "displayName": "Fabian Bredlow"
+    },
+    {
+      "id": "competitor:football:espn:201304",
+      "displayName": "Morato"
+    },
+    {
+      "id": "competitor:football:espn:201803",
+      "displayName": "Lukas Klostermann"
+    },
+    {
+      "id": "competitor:football:espn:202099",
+      "displayName": "Breel Embolo"
+    },
+    {
+      "id": "competitor:football:espn:202232",
+      "displayName": "Joelinton"
+    },
+    {
+      "id": "competitor:football:espn:202332",
+      "displayName": "Harry Winks"
+    },
+    {
+      "id": "competitor:football:espn:202429",
+      "displayName": "Lewis Ferguson"
+    },
+    {
+      "id": "competitor:football:espn:202642",
+      "displayName": "Marvin Friedrich"
+    },
+    {
+      "id": "competitor:football:espn:203072",
+      "displayName": "Daniel James"
+    },
+    {
+      "id": "competitor:football:espn:203669",
+      "displayName": "Martin Ødegaard"
+    },
+    {
+      "id": "competitor:football:espn:203680",
+      "displayName": "Víctor García"
+    },
+    {
+      "id": "competitor:football:espn:203711",
+      "displayName": "Unai López"
+    },
+    {
+      "id": "competitor:football:espn:204320",
+      "displayName": "Lorenzo Pellegrini"
+    },
+    {
+      "id": "competitor:football:espn:204669",
+      "displayName": "Mattia Zaccagni"
+    },
+    {
+      "id": "competitor:football:espn:204679",
+      "displayName": "Victor Lindelöf"
+    },
+    {
+      "id": "competitor:football:espn:205576",
+      "displayName": "Amir Rrahmani"
+    },
+    {
+      "id": "competitor:football:espn:205653",
+      "displayName": "Justin Bijlow"
+    },
+    {
+      "id": "competitor:football:espn:205751",
+      "displayName": "Marvin Schwäbe"
+    },
+    {
+      "id": "competitor:football:espn:205916",
+      "displayName": "Janik Bachmann"
+    },
+    {
+      "id": "competitor:football:espn:205981",
+      "displayName": "Remi Matthews"
+    },
+    {
+      "id": "competitor:football:espn:206114",
+      "displayName": "Robin Zentner"
+    },
+    {
+      "id": "competitor:football:espn:206172",
+      "displayName": "Jay Da Silva"
+    },
+    {
+      "id": "competitor:football:espn:206173",
+      "displayName": "Kristoffer Ajer"
+    },
+    {
+      "id": "competitor:football:espn:206378",
+      "displayName": "Nikola Vlasic"
+    },
+    {
+      "id": "competitor:football:espn:206761",
+      "displayName": "Rico Henry"
+    },
+    {
+      "id": "competitor:football:espn:206835",
+      "displayName": "Hillel Konaté"
+    },
+    {
+      "id": "competitor:football:espn:206863",
+      "displayName": "Kevin Diks"
+    },
+    {
+      "id": "competitor:football:espn:206999",
+      "displayName": "Jean-Luc Dompé"
+    },
+    {
+      "id": "competitor:football:espn:207136",
+      "displayName": "Valentin Rongier"
+    },
+    {
+      "id": "competitor:football:espn:207369",
+      "displayName": "Bingourou Kamara"
+    },
+    {
+      "id": "competitor:football:espn:207834",
+      "displayName": "Emil Audero"
+    },
+    {
+      "id": "competitor:football:espn:208285",
+      "displayName": "Robin Koch"
+    },
+    {
+      "id": "competitor:football:espn:209579",
+      "displayName": "Álex Berenguer"
+    },
+    {
+      "id": "competitor:football:espn:209580",
+      "displayName": "Enrique Barja"
+    },
+    {
+      "id": "competitor:football:espn:209581",
+      "displayName": "Mikel Merino"
+    },
+    {
+      "id": "competitor:football:espn:209595",
+      "displayName": "Ellyes Skhiri"
+    },
+    {
+      "id": "competitor:football:espn:209746",
+      "displayName": "Alex Meret"
+    },
+    {
+      "id": "competitor:football:espn:20975",
+      "displayName": "Julio Enciso"
+    },
+    {
+      "id": "competitor:football:espn:210392",
+      "displayName": "Rolando Mandragora"
+    },
+    {
+      "id": "competitor:football:espn:210818",
+      "displayName": "Nadiem Amiri"
+    },
+    {
+      "id": "competitor:football:espn:211669",
+      "displayName": "Lionel Mpasi"
+    },
+    {
+      "id": "competitor:football:espn:211770",
+      "displayName": "Umar Sadiq"
+    },
+    {
+      "id": "competitor:football:espn:212185",
+      "displayName": "Guido Rodríguez"
+    },
+    {
+      "id": "competitor:football:espn:212330",
+      "displayName": "Patrik Schick"
+    },
+    {
+      "id": "competitor:football:espn:212478",
+      "displayName": "Oliver Burke"
+    },
+    {
+      "id": "competitor:football:espn:213050",
+      "displayName": "Fran García"
+    },
+    {
+      "id": "competitor:football:espn:213181",
+      "displayName": "Moussa Niakhaté"
+    },
+    {
+      "id": "competitor:football:espn:213535",
+      "displayName": "Moussa Diarra"
+    },
+    {
+      "id": "competitor:football:espn:213718",
+      "displayName": "Ibrahim Sangaré"
+    },
+    {
+      "id": "competitor:football:espn:214188",
+      "displayName": "Nordi Mukiele"
+    },
+    {
+      "id": "competitor:football:espn:214203",
+      "displayName": "Maximilian Eggestein"
+    },
+    {
+      "id": "competitor:football:espn:214275",
+      "displayName": "Javi Muñoz"
+    },
+    {
+      "id": "competitor:football:espn:214305",
+      "displayName": "Assane Dioussé"
+    },
+    {
+      "id": "competitor:football:espn:214375",
+      "displayName": "Emiliano Buendía"
+    },
+    {
+      "id": "competitor:football:espn:214401",
+      "displayName": "Thilo Kehrer"
+    },
+    {
+      "id": "competitor:football:espn:214412",
+      "displayName": "Iñaki Williams"
+    },
+    {
+      "id": "competitor:football:espn:214562",
+      "displayName": "Manuel Akanji"
+    },
+    {
+      "id": "competitor:football:espn:214596",
+      "displayName": "Fabián Ruiz"
+    },
+    {
+      "id": "competitor:football:espn:214689",
+      "displayName": "Pervis Estupiñán"
+    },
+    {
+      "id": "competitor:football:espn:214740",
+      "displayName": "Jean Butez"
+    },
+    {
+      "id": "competitor:football:espn:214888",
+      "displayName": "Robin Le Normand"
+    },
+    {
+      "id": "competitor:football:espn:214995",
+      "displayName": "Borja Iglesias"
+    },
+    {
+      "id": "competitor:football:espn:215035",
+      "displayName": "Florian Le Joncour"
+    },
+    {
+      "id": "competitor:football:espn:215075",
+      "displayName": "Darnell Furlong"
+    },
+    {
+      "id": "competitor:football:espn:215378",
+      "displayName": "Benjamin Pavard"
+    },
+    {
+      "id": "competitor:football:espn:215401",
+      "displayName": "Omar Alderete"
+    },
+    {
+      "id": "competitor:football:espn:215687",
+      "displayName": "Florian Sotoca"
+    },
+    {
+      "id": "competitor:football:espn:216225",
+      "displayName": "Maximilian Mittelstädt"
+    },
+    {
+      "id": "competitor:football:espn:217092",
+      "displayName": "Gianluigi Donnarumma"
+    },
+    {
+      "id": "competitor:football:espn:217225",
+      "displayName": "Yeray"
+    },
+    {
+      "id": "competitor:football:espn:217289",
+      "displayName": "Gabriel Jesus"
+    },
+    {
+      "id": "competitor:football:espn:217319",
+      "displayName": "Álex Remiro"
+    },
+    {
+      "id": "competitor:football:espn:217331",
+      "displayName": "Marcus Thuram"
+    },
+    {
+      "id": "competitor:football:espn:217538",
+      "displayName": "Manuel Locatelli"
+    },
+    {
+      "id": "competitor:football:espn:217668",
+      "displayName": "Nicolas Lemaitre"
+    },
+    {
+      "id": "competitor:football:espn:218620",
+      "displayName": "Francisco Sierralta"
+    },
+    {
+      "id": "competitor:football:espn:218703",
+      "displayName": "Carlens Arcus"
+    },
+    {
+      "id": "competitor:football:espn:218714",
+      "displayName": "Grischa Prömel"
+    },
+    {
+      "id": "competitor:football:espn:218793",
+      "displayName": "Borja Mayoral"
+    },
+    {
+      "id": "competitor:football:espn:218980",
+      "displayName": "Bernardo"
+    },
+    {
+      "id": "competitor:football:espn:218998",
+      "displayName": "Sander Berge"
+    },
+    {
+      "id": "competitor:football:espn:219153",
+      "displayName": "Vincent Marchetti"
+    },
+    {
+      "id": "competitor:football:espn:219316",
+      "displayName": "Philipp Lienhart"
+    },
+    {
+      "id": "competitor:football:espn:219362",
+      "displayName": "Daichi Kamada"
+    },
+    {
+      "id": "competitor:football:espn:219390",
+      "displayName": "Alex Palmer"
+    },
+    {
+      "id": "competitor:football:espn:219627",
+      "displayName": "Ritsu Doan"
+    },
+    {
+      "id": "competitor:football:espn:219713",
+      "displayName": "Lautaro Martínez"
+    },
+    {
+      "id": "competitor:football:espn:219725",
+      "displayName": "Sandi Lovric"
+    },
+    {
+      "id": "competitor:football:espn:21990",
+      "displayName": "Abdoulaye Faye"
+    },
+    {
+      "id": "competitor:football:espn:220474",
+      "displayName": "Haji Wright"
+    },
+    {
+      "id": "competitor:football:espn:220703",
+      "displayName": "Ramy Bensebaini"
+    },
+    {
+      "id": "competitor:football:espn:220714",
+      "displayName": "Waldemar Anton"
+    },
+    {
+      "id": "competitor:football:espn:220823",
+      "displayName": "Tom Baack"
+    },
+    {
+      "id": "competitor:football:espn:221057",
+      "displayName": "Toma Basic"
+    },
+    {
+      "id": "competitor:football:espn:221278",
+      "displayName": "Dominik Greif"
+    },
+    {
+      "id": "competitor:football:espn:221460",
+      "displayName": "Carl Klaus"
+    },
+    {
+      "id": "competitor:football:espn:221548",
+      "displayName": "Alec Georgen"
+    },
+    {
+      "id": "competitor:football:espn:221690",
+      "displayName": "Isac Lidberg"
+    },
+    {
+      "id": "competitor:football:espn:222180",
+      "displayName": "Odsonne Édouard"
+    },
+    {
+      "id": "competitor:football:espn:222300",
+      "displayName": "Sasa Lukic"
+    },
+    {
+      "id": "competitor:football:espn:222375",
+      "displayName": "Unai Simón"
+    },
+    {
+      "id": "competitor:football:espn:222529",
+      "displayName": "Mario Hermoso"
+    },
+    {
+      "id": "competitor:football:espn:222614",
+      "displayName": "Amara Conde"
+    },
+    {
+      "id": "competitor:football:espn:222628",
+      "displayName": "Denis Zakaria"
+    },
+    {
+      "id": "competitor:football:espn:222776",
+      "displayName": "Tyler Adams"
+    },
+    {
+      "id": "competitor:football:espn:222793",
+      "displayName": "Dayot Upamecano"
+    },
+    {
+      "id": "competitor:football:espn:223117",
+      "displayName": "Samuel Yohou"
+    },
+    {
+      "id": "competitor:football:espn:223120",
+      "displayName": "Ludovic Blas"
+    },
+    {
+      "id": "competitor:football:espn:223122",
+      "displayName": "Maxime López"
+    },
+    {
+      "id": "competitor:football:espn:223452",
+      "displayName": "Lewis Cook"
+    },
+    {
+      "id": "competitor:football:espn:223532",
+      "displayName": "Trent Alexander-Arnold"
+    },
+    {
+      "id": "competitor:football:espn:224044",
+      "displayName": "Albert Gudmundsson"
+    },
+    {
+      "id": "competitor:football:espn:224077",
+      "displayName": "Yoane Wissa"
+    },
+    {
+      "id": "competitor:football:espn:225426",
+      "displayName": "Ben Chilwell"
+    },
+    {
+      "id": "competitor:football:espn:225557",
+      "displayName": "Jean-Victor Makengo"
+    },
+    {
+      "id": "competitor:football:espn:225579",
+      "displayName": "Markus Schubert"
+    },
+    {
+      "id": "competitor:football:espn:225607",
+      "displayName": "Christian Pulisic"
+    },
+    {
+      "id": "competitor:football:espn:225637",
+      "displayName": "Luiz Felipe"
+    },
+    {
+      "id": "competitor:football:espn:226211",
+      "displayName": "Artem Dovbyk"
+    },
+    {
+      "id": "competitor:football:espn:227472",
+      "displayName": "Mathias Jensen"
+    },
+    {
+      "id": "competitor:football:espn:227714",
+      "displayName": "Pablo Fornals"
+    },
+    {
+      "id": "competitor:football:espn:228333",
+      "displayName": "Nikola Moro"
+    },
+    {
+      "id": "competitor:football:espn:228402",
+      "displayName": "Éder Militão"
+    },
+    {
+      "id": "competitor:football:espn:228507",
+      "displayName": "Finn Dahmen"
+    },
+    {
+      "id": "competitor:football:espn:228557",
+      "displayName": "Amadou Haidara"
+    },
+    {
+      "id": "competitor:football:espn:228707",
+      "displayName": "Jeffrey de Lange"
+    },
+    {
+      "id": "competitor:football:espn:229018",
+      "displayName": "Mikel Oyarzabal"
+    },
+    {
+      "id": "competitor:football:espn:229645",
+      "displayName": "Ademola Lookman"
+    },
+    {
+      "id": "competitor:football:espn:229744",
+      "displayName": "Ousmane Dembélé"
+    },
+    {
+      "id": "competitor:football:espn:230081",
+      "displayName": "Reinildo Mandava"
+    },
+    {
+      "id": "competitor:football:espn:230896",
+      "displayName": "Romain Del Castillo"
+    },
+    {
+      "id": "competitor:football:espn:230963",
+      "displayName": "Issa Diop"
+    },
+    {
+      "id": "competitor:football:espn:231049",
+      "displayName": "Fábio Carvalho"
+    },
+    {
+      "id": "competitor:football:espn:231050",
+      "displayName": "Raphinha"
+    },
+    {
+      "id": "competitor:football:espn:231167",
+      "displayName": "Mason Mount"
+    },
+    {
+      "id": "competitor:football:espn:231190",
+      "displayName": "Niklas Beste"
+    },
+    {
+      "id": "competitor:football:espn:231388",
+      "displayName": "Kylian Mbappé"
+    },
+    {
+      "id": "competitor:football:espn:231603",
+      "displayName": "Pepelu"
+    },
+    {
+      "id": "competitor:football:espn:231618",
+      "displayName": "Arnaut Danjuma"
+    },
+    {
+      "id": "competitor:football:espn:231692",
+      "displayName": "Jules Koundé"
+    },
+    {
+      "id": "competitor:football:espn:231697",
+      "displayName": "Eray Cömert"
+    },
+    {
+      "id": "competitor:football:espn:231826",
+      "displayName": "Lewie Coyle"
+    },
+    {
+      "id": "competitor:football:espn:231828",
+      "displayName": "Rodri"
+    },
+    {
+      "id": "competitor:football:espn:232325",
+      "displayName": "Joe Rodon"
+    },
+    {
+      "id": "competitor:football:espn:232335",
+      "displayName": "Antoine Rabillard"
+    },
+    {
+      "id": "competitor:football:espn:232803",
+      "displayName": "Aliou Dieng"
+    },
+    {
+      "id": "competitor:football:espn:233140",
+      "displayName": "Gianluca Scamacca"
+    },
+    {
+      "id": "competitor:football:espn:233241",
+      "displayName": "John Victor"
+    },
+    {
+      "id": "competitor:football:espn:233622",
+      "displayName": "Danilho Doekhi"
+    },
+    {
+      "id": "competitor:football:espn:233654",
+      "displayName": "Keinan Davis"
+    },
+    {
+      "id": "competitor:football:espn:233802",
+      "displayName": "Carles Aleñá"
+    },
+    {
+      "id": "competitor:football:espn:233937",
+      "displayName": "Lisandro Martínez"
+    },
+    {
+      "id": "competitor:football:espn:233945",
+      "displayName": "Marcos Senesi"
+    },
+    {
+      "id": "competitor:football:espn:234143",
+      "displayName": "Igor Julio"
+    },
+    {
+      "id": "competitor:football:espn:234172",
+      "displayName": "Dean Henderson"
+    },
+    {
+      "id": "competitor:football:espn:234300",
+      "displayName": "Devis Vásquez"
+    },
+    {
+      "id": "competitor:football:espn:234305",
+      "displayName": "Giacomo Satalino"
+    },
+    {
+      "id": "competitor:football:espn:234306",
+      "displayName": "Federico Chiesa"
+    },
+    {
+      "id": "competitor:football:espn:234426",
+      "displayName": "Riccardo Orsolini"
+    },
+    {
+      "id": "competitor:football:espn:234698",
+      "displayName": "Matty Cash"
+    },
+    {
+      "id": "competitor:football:espn:234757",
+      "displayName": "Jens Stage"
+    },
+    {
+      "id": "competitor:football:espn:234878",
+      "displayName": "Rúben Dias"
+    },
+    {
+      "id": "competitor:football:espn:234881",
+      "displayName": "Mathías Olivera"
+    },
+    {
+      "id": "competitor:football:espn:235072",
+      "displayName": "Carlos Soler"
+    },
+    {
+      "id": "competitor:football:espn:235662",
+      "displayName": "Alexander Isak"
+    },
+    {
+      "id": "competitor:football:espn:235693",
+      "displayName": "Igor Zubeldia"
+    },
+    {
+      "id": "competitor:football:espn:235818",
+      "displayName": "Federico Valverde"
+    },
+    {
+      "id": "competitor:football:espn:236038",
+      "displayName": "Giacomo Calo"
+    },
+    {
+      "id": "competitor:football:espn:236136",
+      "displayName": "Alessio Castro-Montes"
+    },
+    {
+      "id": "competitor:football:espn:236156",
+      "displayName": "Álvaro Odriozola"
+    },
+    {
+      "id": "competitor:football:espn:236185",
+      "displayName": "Yangel Herrera"
+    },
+    {
+      "id": "competitor:football:espn:236209",
+      "displayName": "Tammy Abraham"
+    },
+    {
+      "id": "competitor:football:espn:236210",
+      "displayName": "Fikayo Tomori"
+    },
+    {
+      "id": "competitor:football:espn:236322",
+      "displayName": "Gabriel Magalhães"
+    },
+    {
+      "id": "competitor:football:espn:236721",
+      "displayName": "Alphonso Davies"
+    },
+    {
+      "id": "competitor:football:espn:236957",
+      "displayName": "Mohamed Abdelmoneim"
+    },
+    {
+      "id": "competitor:football:espn:237055",
+      "displayName": "Jesper Karlström"
+    },
+    {
+      "id": "competitor:football:espn:238004",
+      "displayName": "Takehiro Tomiyasu"
+    },
+    {
+      "id": "competitor:football:espn:238129",
+      "displayName": "Marius Funk"
+    },
+    {
+      "id": "competitor:football:espn:238213",
+      "displayName": "Rasmus Nicolaisen"
+    },
+    {
+      "id": "competitor:football:espn:238252",
+      "displayName": "Valentin Rosier"
+    },
+    {
+      "id": "competitor:football:espn:238296",
+      "displayName": "Romano Schmid"
+    },
+    {
+      "id": "competitor:football:espn:238472",
+      "displayName": "Elliot Anderson"
+    },
+    {
+      "id": "competitor:football:espn:238520",
+      "displayName": "Timo Hübers"
+    },
+    {
+      "id": "competitor:football:espn:238525",
+      "displayName": "Lucas Höler"
+    },
+    {
+      "id": "competitor:football:espn:238527",
+      "displayName": "Florian Neuhaus"
+    },
+    {
+      "id": "competitor:football:espn:238536",
+      "displayName": "Moritz Nicolas"
+    },
+    {
+      "id": "competitor:football:espn:238544",
+      "displayName": "Gregor Kobel"
+    },
+    {
+      "id": "competitor:football:espn:238712",
+      "displayName": "Derek Cornelius"
+    },
+    {
+      "id": "competitor:football:espn:238885",
+      "displayName": "Patrick Cutrone"
+    },
+    {
+      "id": "competitor:football:espn:238886",
+      "displayName": "Xaver Schlager"
+    },
+    {
+      "id": "competitor:football:espn:238902",
+      "displayName": "Diogo Dalot"
+    },
+    {
+      "id": "competitor:football:espn:238906",
+      "displayName": "Stefan Posch"
+    },
+    {
+      "id": "competitor:football:espn:238929",
+      "displayName": "Kristijan Jakic"
+    },
+    {
+      "id": "competitor:football:espn:239349",
+      "displayName": "Matthijs de Ligt"
+    },
+    {
+      "id": "competitor:football:espn:239350",
+      "displayName": "Noussair Mazraoui"
+    },
+    {
+      "id": "competitor:football:espn:239574",
+      "displayName": "Phillipp Mwene"
+    },
+    {
+      "id": "competitor:football:espn:239905",
+      "displayName": "Gauthier Hein"
+    },
+    {
+      "id": "competitor:football:espn:240055",
+      "displayName": "Michele Di Gregorio"
+    },
+    {
+      "id": "competitor:football:espn:240109",
+      "displayName": "Aleksandar Stankovic"
+    },
+    {
+      "id": "competitor:football:espn:240233",
+      "displayName": "Achraf Hakimi"
+    },
+    {
+      "id": "competitor:football:espn:240235",
+      "displayName": "Aleix Febas"
+    },
+    {
+      "id": "competitor:football:espn:240533",
+      "displayName": "Josep Martínez"
+    },
+    {
+      "id": "competitor:football:espn:240623",
+      "displayName": "Santi Comesaña"
+    },
+    {
+      "id": "competitor:football:espn:240624",
+      "displayName": "Alfonso Herrero"
+    },
+    {
+      "id": "competitor:football:espn:240660",
+      "displayName": "Jordan Teze"
+    },
+    {
+      "id": "competitor:football:espn:241012",
+      "displayName": "Ismaïla Sarr"
+    },
+    {
+      "id": "competitor:football:espn:241029",
+      "displayName": "Yehvann Diouf"
+    },
+    {
+      "id": "competitor:football:espn:241077",
+      "displayName": "Ben White"
+    },
+    {
+      "id": "competitor:football:espn:241093",
+      "displayName": "Ethan Pinnock"
+    },
+    {
+      "id": "competitor:football:espn:241117",
+      "displayName": "Mouctar Diakhaby"
+    },
+    {
+      "id": "competitor:football:espn:241253",
+      "displayName": "Ryan Yates"
+    },
+    {
+      "id": "competitor:football:espn:241297",
+      "displayName": "Anthony Caci"
+    },
+    {
+      "id": "competitor:football:espn:241317",
+      "displayName": "Ethan Ampadu"
+    },
+    {
+      "id": "competitor:football:espn:241405",
+      "displayName": "Youssef Maleh"
+    },
+    {
+      "id": "competitor:football:espn:241414",
+      "displayName": "Alberto Paleari"
+    },
+    {
+      "id": "competitor:football:espn:241468",
+      "displayName": "Manuel Ugarte"
+    },
+    {
+      "id": "competitor:football:espn:241662",
+      "displayName": "Martin Terrier"
+    },
+    {
+      "id": "competitor:football:espn:241742",
+      "displayName": "Atakan Karazor"
+    },
+    {
+      "id": "competitor:football:espn:242007",
+      "displayName": "Aarón Martín"
+    },
+    {
+      "id": "competitor:football:espn:242580",
+      "displayName": "Iván Villar"
+    },
+    {
+      "id": "competitor:football:espn:242593",
+      "displayName": "Evan Ndicka"
+    },
+    {
+      "id": "competitor:football:espn:242710",
+      "displayName": "Juan Foyth"
+    },
+    {
+      "id": "competitor:football:espn:243386",
+      "displayName": "Harvey Barnes"
+    },
+    {
+      "id": "competitor:football:espn:243396",
+      "displayName": "Morgan Gibbs-White"
+    },
+    {
+      "id": "competitor:football:espn:243408",
+      "displayName": "Jayden Bogle"
+    },
+    {
+      "id": "competitor:football:espn:243514",
+      "displayName": "Josh Maja"
+    },
+    {
+      "id": "competitor:football:espn:243576",
+      "displayName": "Ryan Giles"
+    },
+    {
+      "id": "competitor:football:espn:243626",
+      "displayName": "Miro Muheim"
+    },
+    {
+      "id": "competitor:football:espn:243648",
+      "displayName": "Cedric Kipre"
+    },
+    {
+      "id": "competitor:football:espn:243787",
+      "displayName": "Lloyd Kelly"
+    },
+    {
+      "id": "competitor:football:espn:243844",
+      "displayName": "Sebastian Szymanski"
+    },
+    {
+      "id": "competitor:football:espn:245243",
+      "displayName": "Nayef Aguerd"
+    },
+    {
+      "id": "competitor:football:espn:245538",
+      "displayName": "Sandro Kulenovic"
+    },
+    {
+      "id": "competitor:football:espn:245637",
+      "displayName": "David Neres"
+    },
+    {
+      "id": "competitor:football:espn:245839",
+      "displayName": "Andoni Gorosabel"
+    },
+    {
+      "id": "competitor:football:espn:245916",
+      "displayName": "Justin Kluivert"
+    },
+    {
+      "id": "competitor:football:espn:245940",
+      "displayName": "Felix Götze"
+    },
+    {
+      "id": "competitor:football:espn:246309",
+      "displayName": "Josh Dasilva"
+    },
+    {
+      "id": "competitor:football:espn:246560",
+      "displayName": "Hasan Kurucay"
+    },
+    {
+      "id": "competitor:football:espn:246771",
+      "displayName": "Pascal Struijk"
+    },
+    {
+      "id": "competitor:football:espn:246825",
+      "displayName": "Azor Matusiwa"
+    },
+    {
+      "id": "competitor:football:espn:246954",
+      "displayName": "Ephron Mason-Clark"
+    },
+    {
+      "id": "competitor:football:espn:248276",
+      "displayName": "Alex Freeman"
+    },
+    {
+      "id": "competitor:football:espn:248440",
+      "displayName": "Samuele Birindelli"
+    },
+    {
+      "id": "competitor:football:espn:248633",
+      "displayName": "Moise Kean"
+    },
+    {
+      "id": "competitor:football:espn:248684",
+      "displayName": "Juampe"
+    },
+    {
+      "id": "competitor:football:espn:249299",
+      "displayName": "Alexis Mac Allister"
+    },
+    {
+      "id": "competitor:football:espn:249524",
+      "displayName": "Cody Gakpo"
+    },
+    {
+      "id": "competitor:football:espn:249663",
+      "displayName": "Facundo Medina"
+    },
+    {
+      "id": "competitor:football:espn:250166",
+      "displayName": "Gabriel Gudmundsson"
+    },
+    {
+      "id": "competitor:football:espn:250183",
+      "displayName": "Conor Bradley"
+    },
+    {
+      "id": "competitor:football:espn:250284",
+      "displayName": "Santiago Castro"
+    },
+    {
+      "id": "competitor:football:espn:250377",
+      "displayName": "Hugo Magnetti"
+    },
+    {
+      "id": "competitor:football:espn:250460",
+      "displayName": "Demba Thiam"
+    },
+    {
+      "id": "competitor:football:espn:250465",
+      "displayName": "Pedri"
+    },
+    {
+      "id": "competitor:football:espn:250543",
+      "displayName": "Kevin Danso"
+    },
+    {
+      "id": "competitor:football:espn:250672",
+      "displayName": "Filippo Delli Carri"
+    },
+    {
+      "id": "competitor:football:espn:250707",
+      "displayName": "Nicolo Casale"
+    },
+    {
+      "id": "competitor:football:espn:250758",
+      "displayName": "Bryan Reynolds"
+    },
+    {
+      "id": "competitor:football:espn:250850",
+      "displayName": "Davide Frattesi"
+    },
+    {
+      "id": "competitor:football:espn:250853",
+      "displayName": "Romain Perraud"
+    },
+    {
+      "id": "competitor:football:espn:250866",
+      "displayName": "Bryan Lasme"
+    },
+    {
+      "id": "competitor:football:espn:250936",
+      "displayName": "Boubacar Kamara"
+    },
+    {
+      "id": "competitor:football:espn:251061",
+      "displayName": "Jordan Torunarigha"
+    },
+    {
+      "id": "competitor:football:espn:251100",
+      "displayName": "Pau Torres"
+    },
+    {
+      "id": "competitor:football:espn:251141",
+      "displayName": "Pietro Pellegri"
+    },
+    {
+      "id": "competitor:football:espn:251144",
+      "displayName": "Luca Pellegrini"
+    },
+    {
+      "id": "competitor:football:espn:251388",
+      "displayName": "Nicolò Zaniolo"
+    },
+    {
+      "id": "competitor:football:espn:251400",
+      "displayName": "Eberechi Eze"
+    },
+    {
+      "id": "competitor:football:espn:251634",
+      "displayName": "Ibrahima Konaté"
+    },
+    {
+      "id": "competitor:football:espn:251658",
+      "displayName": "Sean Longstaff"
+    },
+    {
+      "id": "competitor:football:espn:252031",
+      "displayName": "Jorge Cuenca"
+    },
+    {
+      "id": "competitor:football:espn:252107",
+      "displayName": "Vinícius Júnior"
+    },
+    {
+      "id": "competitor:football:espn:252372",
+      "displayName": "Alberto Dossena"
+    },
+    {
+      "id": "competitor:football:espn:252385",
+      "displayName": "Michael Folorunsho"
+    },
+    {
+      "id": "competitor:football:espn:252389",
+      "displayName": "Kiernan Dewsbury-Hall"
+    },
+    {
+      "id": "competitor:football:espn:252477",
+      "displayName": "Yvan Neyou"
+    },
+    {
+      "id": "competitor:football:espn:252605",
+      "displayName": "Alessandro Buongiorno"
+    },
+    {
+      "id": "competitor:football:espn:252740",
+      "displayName": "Aron Donnum"
+    },
+    {
+      "id": "competitor:football:espn:252971",
+      "displayName": "Randal Kolo Muani"
+    },
+    {
+      "id": "competitor:football:espn:253173",
+      "displayName": "Ao Tanaka"
+    },
+    {
+      "id": "competitor:football:espn:253569",
+      "displayName": "Pontus Almqvist"
+    },
+    {
+      "id": "competitor:football:espn:253816",
+      "displayName": "Ron Schallenberg"
+    },
+    {
+      "id": "competitor:football:espn:253989",
+      "displayName": "Erling Haaland"
+    },
+    {
+      "id": "competitor:football:espn:254118",
+      "displayName": "Nicolás Domínguez"
+    },
+    {
+      "id": "competitor:football:espn:254320",
+      "displayName": "Jon Guridi"
+    },
+    {
+      "id": "competitor:football:espn:255272",
+      "displayName": "Edu Expósito"
+    },
+    {
+      "id": "competitor:football:espn:255355",
+      "displayName": "Ragnar Ache"
+    },
+    {
+      "id": "competitor:football:espn:255625",
+      "displayName": "Thelonius Bair"
+    },
+    {
+      "id": "competitor:football:espn:255650",
+      "displayName": "Marin Pongracic"
+    },
+    {
+      "id": "competitor:football:espn:255780",
+      "displayName": "Arnaud Bodart"
+    },
+    {
+      "id": "competitor:football:espn:255850",
+      "displayName": "Scott McTominay"
+    },
+    {
+      "id": "competitor:football:espn:255889",
+      "displayName": "Pape Gueye"
+    },
+    {
+      "id": "competitor:football:espn:255931",
+      "displayName": "Facundo Garcés"
+    },
+    {
+      "id": "competitor:football:espn:256115",
+      "displayName": "Pedro Neto"
+    },
+    {
+      "id": "competitor:football:espn:256607",
+      "displayName": "Florentino"
+    },
+    {
+      "id": "competitor:football:espn:256773",
+      "displayName": "Angel Gomes"
+    },
+    {
+      "id": "competitor:football:espn:256966",
+      "displayName": "Daiki Hashioka"
+    },
+    {
+      "id": "competitor:football:espn:257058",
+      "displayName": "Hamed Traoré"
+    },
+    {
+      "id": "competitor:football:espn:257126",
+      "displayName": "Jean-Phillipe Krasso"
+    },
+    {
+      "id": "competitor:football:espn:257206",
+      "displayName": "Dominik Szoboszlai"
+    },
+    {
+      "id": "competitor:football:espn:257237",
+      "displayName": "Andriy Lunin"
+    },
+    {
+      "id": "competitor:football:espn:257267",
+      "displayName": "Berke Özer"
+    },
+    {
+      "id": "competitor:football:espn:257287",
+      "displayName": "Edmond Tapsoba"
+    },
+    {
+      "id": "competitor:football:espn:257390",
+      "displayName": "Luis Díaz"
+    },
+    {
+      "id": "competitor:football:espn:257786",
+      "displayName": "Dávid Hancko"
+    },
+    {
+      "id": "competitor:football:espn:258100",
+      "displayName": "Tosin Aiyegun"
+    },
+    {
+      "id": "competitor:football:espn:258270",
+      "displayName": "Ayumu Seko"
+    },
+    {
+      "id": "competitor:football:espn:258307",
+      "displayName": "Bremer"
+    },
+    {
+      "id": "competitor:football:espn:258871",
+      "displayName": "Michaël Cuisance"
+    },
+    {
+      "id": "competitor:football:espn:258875",
+      "displayName": "Philipp Köhn"
+    },
+    {
+      "id": "competitor:football:espn:258917",
+      "displayName": "Rafael Leão"
+    },
+    {
+      "id": "competitor:football:espn:258923",
+      "displayName": "Giorgi Kochorashvili"
+    },
+    {
+      "id": "competitor:football:espn:258968",
+      "displayName": "Teun Koopmeiners"
+    },
+    {
+      "id": "competitor:football:espn:259481",
+      "displayName": "Donyell Malen"
+    },
+    {
+      "id": "competitor:football:espn:259486",
+      "displayName": "Eddie Nketiah"
+    },
+    {
+      "id": "competitor:football:espn:259513",
+      "displayName": "Rubén Vargas"
+    },
+    {
+      "id": "competitor:football:espn:259653",
+      "displayName": "Brenden Aaronson"
+    },
+    {
+      "id": "competitor:football:espn:259743",
+      "displayName": "Amine Gouiri"
+    },
+    {
+      "id": "competitor:football:espn:259838",
+      "displayName": "Arijanet Muric"
+    },
+    {
+      "id": "competitor:football:espn:259839",
+      "displayName": "Manu"
+    },
+    {
+      "id": "competitor:football:espn:259871",
+      "displayName": "Ricardo Mangas"
+    },
+    {
+      "id": "competitor:football:espn:259902",
+      "displayName": "Matheus Cunha"
+    },
+    {
+      "id": "competitor:football:espn:259960",
+      "displayName": "Mama Baldé"
+    },
+    {
+      "id": "competitor:football:espn:260004",
+      "displayName": "Ivan Ilic"
+    },
+    {
+      "id": "competitor:football:espn:260242",
+      "displayName": "Pol Lozano"
+    },
+    {
+      "id": "competitor:football:espn:260243",
+      "displayName": "Javier Puado"
+    },
+    {
+      "id": "competitor:football:espn:260256",
+      "displayName": "Ander Guevara"
+    },
+    {
+      "id": "competitor:football:espn:260775",
+      "displayName": "Santiago Gimenez"
+    },
+    {
+      "id": "competitor:football:espn:260902",
+      "displayName": "Unai Núñez"
+    },
+    {
+      "id": "competitor:football:espn:261054",
+      "displayName": "Junior Messias"
+    },
+    {
+      "id": "competitor:football:espn:261274",
+      "displayName": "Emanuele Valeri"
+    },
+    {
+      "id": "competitor:football:espn:261363",
+      "displayName": "Ludovit Reis"
+    },
+    {
+      "id": "competitor:football:espn:261419",
+      "displayName": "Callum Hudson-Odoi"
+    },
+    {
+      "id": "competitor:football:espn:262071",
+      "displayName": "Anastasios Douvikas"
+    },
+    {
+      "id": "competitor:football:espn:262481",
+      "displayName": "Luca Ranieri"
+    },
+    {
+      "id": "competitor:football:espn:262482",
+      "displayName": "Lucas Buades"
+    },
+    {
+      "id": "competitor:football:espn:262491",
+      "displayName": "Nahuel Tenaglia"
+    },
+    {
+      "id": "competitor:football:espn:262862",
+      "displayName": "Dejan Ljubicic"
+    },
+    {
+      "id": "competitor:football:espn:263110",
+      "displayName": "Calvin Bassey"
+    },
+    {
+      "id": "competitor:football:espn:263508",
+      "displayName": "Bayo Youssouf"
+    },
+    {
+      "id": "competitor:football:espn:263705",
+      "displayName": "Gianluca Busio"
+    },
+    {
+      "id": "competitor:football:espn:263816",
+      "displayName": "Alessio Pozzi"
+    },
+    {
+      "id": "competitor:football:espn:264078",
+      "displayName": "Pedro Díaz"
+    },
+    {
+      "id": "competitor:football:espn:264197",
+      "displayName": "Isi Palazón"
+    },
+    {
+      "id": "competitor:football:espn:264211",
+      "displayName": "Luis Milla"
+    },
+    {
+      "id": "competitor:football:espn:264484",
+      "displayName": "Gideon Mensah"
+    },
+    {
+      "id": "competitor:football:espn:265099",
+      "displayName": "Montassar Talbi"
+    },
+    {
+      "id": "competitor:football:espn:265140",
+      "displayName": "Christos Mandas"
+    },
+    {
+      "id": "competitor:football:espn:265234",
+      "displayName": "Ali Abdi"
+    },
+    {
+      "id": "competitor:football:espn:265869",
+      "displayName": "Ferran Torres"
+    },
+    {
+      "id": "competitor:football:espn:265907",
+      "displayName": "Marc Guéhi"
+    },
+    {
+      "id": "competitor:football:espn:265912",
+      "displayName": "Maxence Caqueret"
+    },
+    {
+      "id": "competitor:football:espn:265918",
+      "displayName": "Maxence Lacroix"
+    },
+    {
+      "id": "competitor:football:espn:265919",
+      "displayName": "Aurélien Tchouaméni"
+    },
+    {
+      "id": "competitor:football:espn:265923",
+      "displayName": "Melvin Bard"
+    },
+    {
+      "id": "competitor:football:espn:265926",
+      "displayName": "John Yeboah"
+    },
+    {
+      "id": "competitor:football:espn:265997",
+      "displayName": "Antonio Blanco"
+    },
+    {
+      "id": "competitor:football:espn:266565",
+      "displayName": "Ozan Kabak"
+    },
+    {
+      "id": "competitor:football:espn:266657",
+      "displayName": "Yannik Keitel"
+    },
+    {
+      "id": "competitor:football:espn:266660",
+      "displayName": "Yann Bisseck"
+    },
+    {
+      "id": "competitor:football:espn:266696",
+      "displayName": "Conor Gallagher"
+    },
+    {
+      "id": "competitor:football:espn:266839",
+      "displayName": "Josha Vagnoman"
+    },
+    {
+      "id": "competitor:football:espn:267477",
+      "displayName": "Hugo Duro"
+    },
+    {
+      "id": "competitor:football:espn:267530",
+      "displayName": "Bambo Diaby"
+    },
+    {
+      "id": "competitor:football:espn:267573",
+      "displayName": "Mitchel Bakker"
+    },
+    {
+      "id": "competitor:football:espn:267591",
+      "displayName": "Roger Brugué"
+    },
+    {
+      "id": "competitor:football:espn:268239",
+      "displayName": "Albert Sambi Lokonga"
+    },
+    {
+      "id": "competitor:football:espn:268452",
+      "displayName": "Raoul Bellanova"
+    },
+    {
+      "id": "competitor:football:espn:268591",
+      "displayName": "Romain Faivre"
+    },
+    {
+      "id": "competitor:football:espn:268641",
+      "displayName": "Iliman Ndiaye"
+    },
+    {
+      "id": "competitor:football:espn:268720",
+      "displayName": "Louis Mafouta"
+    },
+    {
+      "id": "competitor:football:espn:268870",
+      "displayName": "Ben Lhassine Kone"
+    },
+    {
+      "id": "competitor:football:espn:268951",
+      "displayName": "Chris Führich"
+    },
+    {
+      "id": "competitor:football:espn:269136",
+      "displayName": "Ermedin Demirovic"
+    },
+    {
+      "id": "competitor:football:espn:269339",
+      "displayName": "Orio Rey"
+    },
+    {
+      "id": "competitor:football:espn:269341",
+      "displayName": "Liam Kitching"
+    },
+    {
+      "id": "competitor:football:espn:269844",
+      "displayName": "Gabriel Martinelli"
+    },
+    {
+      "id": "competitor:football:espn:270173",
+      "displayName": "Antoine Mille"
+    },
+    {
+      "id": "competitor:football:espn:270186",
+      "displayName": "Semuel Pizzignacco"
+    },
+    {
+      "id": "competitor:football:espn:270190",
+      "displayName": "Wesley Fofana"
+    },
+    {
+      "id": "competitor:football:espn:270389",
+      "displayName": "Senne Lynen"
+    },
+    {
+      "id": "competitor:football:espn:270507",
+      "displayName": "Sepp van den Berg"
+    },
+    {
+      "id": "competitor:football:espn:270752",
+      "displayName": "Hidemasa Morita"
+    },
+    {
+      "id": "competitor:football:espn:270884",
+      "displayName": "Morten Frendrup"
+    },
+    {
+      "id": "competitor:football:espn:271129",
+      "displayName": "Logan Costa"
+    },
+    {
+      "id": "competitor:football:espn:271130",
+      "displayName": "Sebastiaan Bornauw"
+    },
+    {
+      "id": "competitor:football:espn:271137",
+      "displayName": "Lassine Sinayoko"
+    },
+    {
+      "id": "competitor:football:espn:271191",
+      "displayName": "Nathan Patterson"
+    },
+    {
+      "id": "competitor:football:espn:271352",
+      "displayName": "Shuto Machino"
+    },
+    {
+      "id": "competitor:football:espn:271555",
+      "displayName": "Leonardo Balerdi"
+    },
+    {
+      "id": "competitor:football:espn:271635",
+      "displayName": "Alfonso González"
+    },
+    {
+      "id": "competitor:football:espn:271769",
+      "displayName": "Carlos Augusto"
+    },
+    {
+      "id": "competitor:football:espn:271873",
+      "displayName": "Zeki Çelik"
+    },
+    {
+      "id": "competitor:football:espn:271879",
+      "displayName": "Liam Millar"
+    },
+    {
+      "id": "competitor:football:espn:272512",
+      "displayName": "Rayan Aït-Nouri"
+    },
+    {
+      "id": "competitor:football:espn:272694",
+      "displayName": "Enrico Del Prato"
+    },
+    {
+      "id": "competitor:football:espn:272745",
+      "displayName": "Michel Adopo"
+    },
+    {
+      "id": "competitor:football:espn:272867",
+      "displayName": "Torbjørn Heggem"
+    },
+    {
+      "id": "competitor:football:espn:272892",
+      "displayName": "Andrea Colpani"
+    },
+    {
+      "id": "competitor:football:espn:273021",
+      "displayName": "Daouda Traoré"
+    },
+    {
+      "id": "competitor:football:espn:273424",
+      "displayName": "Gonzalo Villar"
+    },
+    {
+      "id": "competitor:football:espn:273495",
+      "displayName": "Dwight McNeil"
+    },
+    {
+      "id": "competitor:football:espn:274016",
+      "displayName": "Dani Vivian"
+    },
+    {
+      "id": "competitor:football:espn:274197",
+      "displayName": "Lee Kang-In"
+    },
+    {
+      "id": "competitor:football:espn:274217",
+      "displayName": "Billy Gilmour"
+    },
+    {
+      "id": "competitor:football:espn:274272",
+      "displayName": "Altay Bayindir"
+    },
+    {
+      "id": "competitor:football:espn:274278",
+      "displayName": "Kaoru Mitoma"
+    },
+    {
+      "id": "competitor:football:espn:274285",
+      "displayName": "Costinha"
+    },
+    {
+      "id": "competitor:football:espn:274633",
+      "displayName": "Sven Botman"
+    },
+    {
+      "id": "competitor:football:espn:274649",
+      "displayName": "Jaka Bijol"
+    },
+    {
+      "id": "competitor:football:espn:274733",
+      "displayName": "Valentin Antov"
+    },
+    {
+      "id": "competitor:football:espn:274742",
+      "displayName": "Giorgi Mamardashvili"
+    },
+    {
+      "id": "competitor:football:espn:274745",
+      "displayName": "Khvicha Kvaratskhelia"
+    },
+    {
+      "id": "competitor:football:espn:274860",
+      "displayName": "Wouter Burger"
+    },
+    {
+      "id": "competitor:football:espn:274887",
+      "displayName": "Jonathan Burkardt"
+    },
+    {
+      "id": "competitor:football:espn:274897",
+      "displayName": "Christoph Baumgartner"
+    },
+    {
+      "id": "competitor:football:espn:275015",
+      "displayName": "Simon Sohm"
+    },
+    {
+      "id": "competitor:football:espn:275227",
+      "displayName": "Thorir Johann Helgason"
+    },
+    {
+      "id": "competitor:football:espn:275599",
+      "displayName": "Caoimhín Kelleher"
+    },
+    {
+      "id": "competitor:football:espn:275805",
+      "displayName": "Philipp Sander"
+    },
+    {
+      "id": "competitor:football:espn:275844",
+      "displayName": "Amos Pieper"
+    },
+    {
+      "id": "competitor:football:espn:275924",
+      "displayName": "Giacomo Quagliata"
+    },
+    {
+      "id": "competitor:football:espn:275987",
+      "displayName": "Nicholas Mickelson"
+    },
+    {
+      "id": "competitor:football:espn:276067",
+      "displayName": "Giorgi Tsitaishvili"
+    },
+    {
+      "id": "competitor:football:espn:276237",
+      "displayName": "Marco Brescianini"
+    },
+    {
+      "id": "competitor:football:espn:276265",
+      "displayName": "Loïs Openda"
+    },
+    {
+      "id": "competitor:football:espn:276323",
+      "displayName": "Jeong Woo-Yeong"
+    },
+    {
+      "id": "competitor:football:espn:276327",
+      "displayName": "Joshua Zirkzee"
+    },
+    {
+      "id": "competitor:football:espn:276652",
+      "displayName": "Sergio Camello"
+    },
+    {
+      "id": "competitor:football:espn:276653",
+      "displayName": "Adrián Bernabé"
+    },
+    {
+      "id": "competitor:football:espn:276654",
+      "displayName": "Tommaso Pobega"
+    },
+    {
+      "id": "competitor:football:espn:276822",
+      "displayName": "Samuele Ricci"
+    },
+    {
+      "id": "competitor:football:espn:276841",
+      "displayName": "Adrián de la Fuente"
+    },
+    {
+      "id": "competitor:football:espn:276847",
+      "displayName": "Randy Nteka"
+    },
+    {
+      "id": "competitor:football:espn:276995",
+      "displayName": "Sofiane Diop"
+    },
+    {
+      "id": "competitor:football:espn:277292",
+      "displayName": "Adrià Pedrosa"
+    },
+    {
+      "id": "competitor:football:espn:277301",
+      "displayName": "Valentin Gendrey"
+    },
+    {
+      "id": "competitor:football:espn:277383",
+      "displayName": "Yann Gboho"
+    },
+    {
+      "id": "competitor:football:espn:277385",
+      "displayName": "William Saliba"
+    },
+    {
+      "id": "competitor:football:espn:277525",
+      "displayName": "Himad Abdelli"
+    },
+    {
+      "id": "competitor:football:espn:277526",
+      "displayName": "Edwin Quarshie"
+    },
+    {
+      "id": "competitor:football:espn:277865",
+      "displayName": "Zakaria Aboukhlal"
+    },
+    {
+      "id": "competitor:football:espn:277876",
+      "displayName": "Abdel Abqar"
+    },
+    {
+      "id": "competitor:football:espn:278061",
+      "displayName": "Georginio Rutter"
+    },
+    {
+      "id": "competitor:football:espn:278210",
+      "displayName": "Éderson"
+    },
+    {
+      "id": "competitor:football:espn:278987",
+      "displayName": "Elia Caprile"
+    },
+    {
+      "id": "competitor:football:espn:279137",
+      "displayName": "Bilal Brahimi"
+    },
+    {
+      "id": "competitor:football:espn:279609",
+      "displayName": "Riki Rodríguez"
+    },
+    {
+      "id": "competitor:football:espn:279699",
+      "displayName": "Íñigo Sainz"
+    },
+    {
+      "id": "competitor:football:espn:279738",
+      "displayName": "Juan Iglesias"
+    },
+    {
+      "id": "competitor:football:espn:279904",
+      "displayName": "Ferran Jutglà"
+    },
+    {
+      "id": "competitor:football:espn:280555",
+      "displayName": "Bukayo Saka"
+    },
+    {
+      "id": "competitor:football:espn:280764",
+      "displayName": "Julián Araujo"
+    },
+    {
+      "id": "competitor:football:espn:280806",
+      "displayName": "Harvey Elliott"
+    },
+    {
+      "id": "competitor:football:espn:281122",
+      "displayName": "Felix Nmecha"
+    },
+    {
+      "id": "competitor:football:espn:281558",
+      "displayName": "Antony"
+    },
+    {
+      "id": "competitor:football:espn:281590",
+      "displayName": "Lautaro Valenti"
+    },
+    {
+      "id": "competitor:football:espn:281736",
+      "displayName": "Leo Østigard"
+    },
+    {
+      "id": "competitor:football:espn:282086",
+      "displayName": "Justin de Haas"
+    },
+    {
+      "id": "competitor:football:espn:282229",
+      "displayName": "Brian Brobbey"
+    },
+    {
+      "id": "competitor:football:espn:282289",
+      "displayName": "Lucien Agoumé"
+    },
+    {
+      "id": "competitor:football:espn:282388",
+      "displayName": "Olivier Deman"
+    },
+    {
+      "id": "competitor:football:espn:282583",
+      "displayName": "Jan Paul van Hecke"
+    },
+    {
+      "id": "competitor:football:espn:282597",
+      "displayName": "Isak Jansson"
+    },
+    {
+      "id": "competitor:football:espn:282642",
+      "displayName": "Faustino Anjorin"
+    },
+    {
+      "id": "competitor:football:espn:282643",
+      "displayName": "Folarin Balogun"
+    },
+    {
+      "id": "competitor:football:espn:282645",
+      "displayName": "Danny Ballard"
+    },
+    {
+      "id": "competitor:football:espn:282646",
+      "displayName": "Karl Hein"
+    },
+    {
+      "id": "competitor:football:espn:282647",
+      "displayName": "Ellis Simms"
+    },
+    {
+      "id": "competitor:football:espn:282672",
+      "displayName": "Pablo Ramon"
+    },
+    {
+      "id": "competitor:football:espn:282885",
+      "displayName": "Han-Noah Massengo"
+    },
+    {
+      "id": "competitor:football:espn:282978",
+      "displayName": "Hayden Hackney"
+    },
+    {
+      "id": "competitor:football:espn:283086",
+      "displayName": "Leif Davis"
+    },
+    {
+      "id": "competitor:football:espn:283139",
+      "displayName": "Khéphren Thuram"
+    },
+    {
+      "id": "competitor:football:espn:283375",
+      "displayName": "Kieron Bowie"
+    },
+    {
+      "id": "competitor:football:espn:283586",
+      "displayName": "Jake O'Brien"
+    },
+    {
+      "id": "competitor:football:espn:283626",
+      "displayName": "Osame Sahraoui"
+    },
+    {
+      "id": "competitor:football:espn:283672",
+      "displayName": "Jérémy Doku"
+    },
+    {
+      "id": "competitor:football:espn:283683",
+      "displayName": "Tom Krauss"
+    },
+    {
+      "id": "competitor:football:espn:283827",
+      "displayName": "Álvaro Fidalgo"
+    },
+    {
+      "id": "competitor:football:espn:283891",
+      "displayName": "Aihen Muñoz"
+    },
+    {
+      "id": "competitor:football:espn:283892",
+      "displayName": "Álvaro Valles"
+    },
+    {
+      "id": "competitor:football:espn:283940",
+      "displayName": "Aaron Hickey"
+    },
+    {
+      "id": "competitor:football:espn:283941",
+      "displayName": "Ander Barrenetxea"
+    },
+    {
+      "id": "competitor:football:espn:284699",
+      "displayName": "Iñigo Vicente"
+    },
+    {
+      "id": "competitor:football:espn:284702",
+      "displayName": "András Schäfer"
+    },
+    {
+      "id": "competitor:football:espn:284769",
+      "displayName": "Tajon Buchanan"
+    },
+    {
+      "id": "competitor:football:espn:284804",
+      "displayName": "Marco Carnesecchi"
+    },
+    {
+      "id": "competitor:football:espn:284822",
+      "displayName": "Odilon Kossounou"
+    },
+    {
+      "id": "competitor:football:espn:284854",
+      "displayName": "Martín Satriano"
+    },
+    {
+      "id": "competitor:football:espn:284960",
+      "displayName": "João Pedro"
+    },
+    {
+      "id": "competitor:football:espn:285088",
+      "displayName": "Abner"
+    },
+    {
+      "id": "competitor:football:espn:285150",
+      "displayName": "Eduardo Camavinga"
+    },
+    {
+      "id": "competitor:football:espn:285226",
+      "displayName": "Manu Koné"
+    },
+    {
+      "id": "competitor:football:espn:285450",
+      "displayName": "Enzo Fernández"
+    },
+    {
+      "id": "competitor:football:espn:285840",
+      "displayName": "Godson Kyeremeh"
+    },
+    {
+      "id": "competitor:football:espn:285937",
+      "displayName": "Mattia Felici"
+    },
+    {
+      "id": "competitor:football:espn:285969",
+      "displayName": "Nicolò Rovella"
+    },
+    {
+      "id": "competitor:football:espn:285975",
+      "displayName": "Félix Mambimbi"
+    },
+    {
+      "id": "competitor:football:espn:286176",
+      "displayName": "Jon Moncayola"
+    },
+    {
+      "id": "competitor:football:espn:286317",
+      "displayName": "Andrea Adorante"
+    },
+    {
+      "id": "competitor:football:espn:286369",
+      "displayName": "Luis Henrique"
+    },
+    {
+      "id": "competitor:football:espn:286433",
+      "displayName": "Egil Selvik"
+    },
+    {
+      "id": "competitor:football:espn:286582",
+      "displayName": "Konan N’Dri"
+    },
+    {
+      "id": "competitor:football:espn:286604",
+      "displayName": "André Almeida"
+    },
+    {
+      "id": "competitor:football:espn:286769",
+      "displayName": "Zakaria Eddahchouri"
+    },
+    {
+      "id": "competitor:football:espn:286815",
+      "displayName": "Ísak Jóhannesson"
+    },
+    {
+      "id": "competitor:football:espn:286828",
+      "displayName": "Nico Schlotterbeck"
+    },
+    {
+      "id": "competitor:football:espn:286831",
+      "displayName": "Michael Olise"
+    },
+    {
+      "id": "competitor:football:espn:286965",
+      "displayName": "Jarrad Branthwaite"
+    },
+    {
+      "id": "competitor:football:espn:286967",
+      "displayName": "Jack Rudoni"
+    },
+    {
+      "id": "competitor:football:espn:286972",
+      "displayName": "Iron Gomis"
+    },
+    {
+      "id": "competitor:football:espn:287078",
+      "displayName": "Hicham Boudaoui"
+    },
+    {
+      "id": "competitor:football:espn:287224",
+      "displayName": "Andrei Ratiu"
+    },
+    {
+      "id": "competitor:football:espn:287430",
+      "displayName": "El Bilal Toure"
+    },
+    {
+      "id": "competitor:football:espn:287474",
+      "displayName": "Moustapha Mbow"
+    },
+    {
+      "id": "competitor:football:espn:287576",
+      "displayName": "Paolo Gozzi Iweru"
+    },
+    {
+      "id": "competitor:football:espn:287606",
+      "displayName": "Alexandre Lauray"
+    },
+    {
+      "id": "competitor:football:espn:287673",
+      "displayName": "Corrie Ndaba"
+    },
+    {
+      "id": "competitor:football:espn:287677",
+      "displayName": "Fali Candé"
+    },
+    {
+      "id": "competitor:football:espn:287869",
+      "displayName": "Igor Jesus"
+    },
+    {
+      "id": "competitor:football:espn:288483",
+      "displayName": "Sebastian Walukiewicz"
+    },
+    {
+      "id": "competitor:football:espn:288487",
+      "displayName": "Maik Nawrocki"
+    },
+    {
+      "id": "competitor:football:espn:288540",
+      "displayName": "Abdoulaye Ndiaye"
+    },
+    {
+      "id": "competitor:football:espn:288760",
+      "displayName": "Aimar Oroz"
+    },
+    {
+      "id": "competitor:football:espn:288788",
+      "displayName": "Andrea Ghion"
+    },
+    {
+      "id": "competitor:football:espn:288896",
+      "displayName": "Gonçalo Ramos"
+    },
+    {
+      "id": "competitor:football:espn:288897",
+      "displayName": "Vitinha"
+    },
+    {
+      "id": "competitor:football:espn:288925",
+      "displayName": "Lucas Chevalier"
+    },
+    {
+      "id": "competitor:football:espn:289114",
+      "displayName": "Igor Paixão"
+    },
+    {
+      "id": "competitor:football:espn:289322",
+      "displayName": "Ramon Hendriks"
+    },
+    {
+      "id": "competitor:football:espn:289439",
+      "displayName": "Giorgi Guliashvili"
+    },
+    {
+      "id": "competitor:football:espn:289511",
+      "displayName": "Beto"
+    },
+    {
+      "id": "competitor:football:espn:289560",
+      "displayName": "Filip Stankovic"
+    },
+    {
+      "id": "competitor:football:espn:289769",
+      "displayName": "Terem Moffi"
+    },
+    {
+      "id": "competitor:football:espn:289824",
+      "displayName": "Djordje Petrovic"
+    },
+    {
+      "id": "competitor:football:espn:290030",
+      "displayName": "Abu Francis"
+    },
+    {
+      "id": "competitor:football:espn:290044",
+      "displayName": "Miguel Gutiérrez"
+    },
+    {
+      "id": "competitor:football:espn:290074",
+      "displayName": "Niccolò Corrado"
+    },
+    {
+      "id": "competitor:football:espn:290076",
+      "displayName": "Destiny Udogie"
+    },
+    {
+      "id": "competitor:football:espn:290101",
+      "displayName": "Andrew Omobamidele"
+    },
+    {
+      "id": "competitor:football:espn:290129",
+      "displayName": "Pierre Kalulu"
+    },
+    {
+      "id": "competitor:football:espn:290141",
+      "displayName": "Lilian Brassier"
+    },
+    {
+      "id": "competitor:football:espn:290230",
+      "displayName": "Giovanni Reyna"
+    },
+    {
+      "id": "competitor:football:espn:290232",
+      "displayName": "Angelo Stiller"
+    },
+    {
+      "id": "competitor:football:espn:290375",
+      "displayName": "Strahinja Pavlovic"
+    },
+    {
+      "id": "competitor:football:espn:290398",
+      "displayName": "Eric Martel"
+    },
+    {
+      "id": "competitor:football:espn:290401",
+      "displayName": "Mads Bidstrup"
+    },
+    {
+      "id": "competitor:football:espn:290412",
+      "displayName": "Immanuel Pherai"
+    },
+    {
+      "id": "competitor:football:espn:290418",
+      "displayName": "Josh Doig"
+    },
+    {
+      "id": "competitor:football:espn:290512",
+      "displayName": "Jason Ceka"
+    },
+    {
+      "id": "competitor:football:espn:290639",
+      "displayName": "Maximilian Beier"
+    },
+    {
+      "id": "competitor:football:espn:290792",
+      "displayName": "Edoardo Corvi"
+    },
+    {
+      "id": "competitor:football:espn:290802",
+      "displayName": "Johnny Cardoso"
+    },
+    {
+      "id": "competitor:football:espn:291203",
+      "displayName": "Patrick Osterhage"
+    },
+    {
+      "id": "competitor:football:espn:291281",
+      "displayName": "Jude Bellingham"
+    },
+    {
+      "id": "competitor:football:espn:291285",
+      "displayName": "Lucas Da Cunha"
+    },
+    {
+      "id": "competitor:football:espn:291405",
+      "displayName": "Bartol Franjic"
+    },
+    {
+      "id": "competitor:football:espn:291550",
+      "displayName": "Gustav Isaksen"
+    },
+    {
+      "id": "competitor:football:espn:291560",
+      "displayName": "Nadir Zortea"
+    },
+    {
+      "id": "competitor:football:espn:291609",
+      "displayName": "Bart Verbruggen"
+    },
+    {
+      "id": "competitor:football:espn:291616",
+      "displayName": "Oihan Sancet"
+    },
+    {
+      "id": "competitor:football:espn:291629",
+      "displayName": "Fábio Silva"
+    },
+    {
+      "id": "competitor:football:espn:291630",
+      "displayName": "Amad Diallo"
+    },
+    {
+      "id": "competitor:football:espn:291638",
+      "displayName": "Neco Williams"
+    },
+    {
+      "id": "competitor:football:espn:291849",
+      "displayName": "Rayan Philippe"
+    },
+    {
+      "id": "competitor:football:espn:291945",
+      "displayName": "Oliver Dovin"
+    },
+    {
+      "id": "competitor:football:espn:291982",
+      "displayName": "Rassoul Ndiaye"
+    },
+    {
+      "id": "competitor:football:espn:292062",
+      "displayName": "Piero Hincapié"
+    },
+    {
+      "id": "competitor:football:espn:292225",
+      "displayName": "Ramón Enríquez"
+    },
+    {
+      "id": "competitor:football:espn:292241",
+      "displayName": "Walid Cheddira"
+    },
+    {
+      "id": "competitor:football:espn:294228",
+      "displayName": "Pathé Ciss"
+    },
+    {
+      "id": "competitor:football:espn:294308",
+      "displayName": "Kaine Kesler Hayden"
+    },
+    {
+      "id": "competitor:football:espn:294317",
+      "displayName": "Carney Chukwuemeka"
+    },
+    {
+      "id": "competitor:football:espn:295370",
+      "displayName": "Jaden Philogene"
+    },
+    {
+      "id": "competitor:football:espn:295476",
+      "displayName": "Maduka Okoye"
+    },
+    {
+      "id": "competitor:football:espn:295515",
+      "displayName": "Fisayo Dele-Bashiru"
+    },
+    {
+      "id": "competitor:football:espn:295544",
+      "displayName": "Raphael Borges Rodrigues"
+    },
+    {
+      "id": "competitor:football:espn:296163",
+      "displayName": "Raúl García"
+    },
+    {
+      "id": "competitor:football:espn:296319",
+      "displayName": "Charles De Ketelaere"
+    },
+    {
+      "id": "competitor:football:espn:296395",
+      "displayName": "Cole Palmer"
+    },
+    {
+      "id": "competitor:football:espn:296410",
+      "displayName": "Levi Colwill"
+    },
+    {
+      "id": "competitor:football:espn:297161",
+      "displayName": "Melvin Zinga"
+    },
+    {
+      "id": "competitor:football:espn:297165",
+      "displayName": "Chrislain Matsima"
+    },
+    {
+      "id": "competitor:football:espn:297229",
+      "displayName": "Matteo Ruggeri"
+    },
+    {
+      "id": "competitor:football:espn:297300",
+      "displayName": "Devyne Rensch"
+    },
+    {
+      "id": "competitor:football:espn:297345",
+      "displayName": "Souleymane Faye"
+    },
+    {
+      "id": "competitor:football:espn:297358",
+      "displayName": "Germán Valera"
+    },
+    {
+      "id": "competitor:football:espn:297359",
+      "displayName": "Jon Pacheco"
+    },
+    {
+      "id": "competitor:football:espn:297360",
+      "displayName": "Rafa Marín"
+    },
+    {
+      "id": "competitor:football:espn:297362",
+      "displayName": "Joan García"
+    },
+    {
+      "id": "competitor:football:espn:297370",
+      "displayName": "Yéremy Pino"
+    },
+    {
+      "id": "competitor:football:espn:297371",
+      "displayName": "Beñat Turrientes"
+    },
+    {
+      "id": "competitor:football:espn:297385",
+      "displayName": "Jhoanner Chavez"
+    },
+    {
+      "id": "competitor:football:espn:297565",
+      "displayName": "Satoshi Tanaka"
+    },
+    {
+      "id": "competitor:football:espn:297751",
+      "displayName": "Oliver Sørensen"
+    },
+    {
+      "id": "competitor:football:espn:297775",
+      "displayName": "Naouirou Ahamada"
+    },
+    {
+      "id": "competitor:football:espn:297786",
+      "displayName": "Gaetano Oristanio"
+    },
+    {
+      "id": "competitor:football:espn:297828",
+      "displayName": "David Larrubia"
+    },
+    {
+      "id": "competitor:football:espn:297829",
+      "displayName": "Ilaix Moriba"
+    },
+    {
+      "id": "competitor:football:espn:298008",
+      "displayName": "Rayan Cherki"
+    },
+    {
+      "id": "competitor:football:espn:298343",
+      "displayName": "Sergio Carreira"
+    },
+    {
+      "id": "competitor:football:espn:298511",
+      "displayName": "Kandet Diawara"
+    },
+    {
+      "id": "competitor:football:espn:298524",
+      "displayName": "Jarell Quansah"
+    },
+    {
+      "id": "competitor:football:espn:299457",
+      "displayName": "Ewan Hatfout"
+    },
+    {
+      "id": "competitor:football:espn:299641",
+      "displayName": "Tino Livramento"
+    },
+    {
+      "id": "competitor:football:espn:299910",
+      "displayName": "Josko Gvardiol"
+    },
+    {
+      "id": "competitor:football:espn:300002",
+      "displayName": "Georges Mikautadze"
+    },
+    {
+      "id": "competitor:football:espn:300009",
+      "displayName": "Gabriele Artistico"
+    },
+    {
+      "id": "competitor:football:espn:300049",
+      "displayName": "Teddy Sharman-Lowe"
+    },
+    {
+      "id": "competitor:football:espn:300095",
+      "displayName": "Patrick Wimmer"
+    },
+    {
+      "id": "competitor:football:espn:300284",
+      "displayName": "Abel Bretones"
+    },
+    {
+      "id": "competitor:football:espn:300333",
+      "displayName": "Arnau Comas"
+    },
+    {
+      "id": "competitor:football:espn:300410",
+      "displayName": "Loïc Badé"
+    },
+    {
+      "id": "competitor:football:espn:300471",
+      "displayName": "Alvaro Mantilla"
+    },
+    {
+      "id": "competitor:football:espn:300853",
+      "displayName": "Tyrick Mitchell"
+    },
+    {
+      "id": "competitor:football:espn:300876",
+      "displayName": "Jesús Areso"
+    },
+    {
+      "id": "competitor:football:espn:300912",
+      "displayName": "Abde Ezzalzouli"
+    },
+    {
+      "id": "competitor:football:espn:300926",
+      "displayName": "Leo Román"
+    },
+    {
+      "id": "competitor:football:espn:300927",
+      "displayName": "Copete"
+    },
+    {
+      "id": "competitor:football:espn:300961",
+      "displayName": "Ransford-Yeboah Königsdörffer"
+    },
+    {
+      "id": "competitor:football:espn:301166",
+      "displayName": "Thierno Barry"
+    },
+    {
+      "id": "competitor:football:espn:301406",
+      "displayName": "Marc Aguado"
+    },
+    {
+      "id": "competitor:football:espn:301416",
+      "displayName": "Malik Tillman"
+    },
+    {
+      "id": "competitor:football:espn:301425",
+      "displayName": "Senne Lammens"
+    },
+    {
+      "id": "competitor:football:espn:301449",
+      "displayName": "Robin Roefs"
+    },
+    {
+      "id": "competitor:football:espn:301525",
+      "displayName": "Rodrigo Muniz"
+    },
+    {
+      "id": "competitor:football:espn:301526",
+      "displayName": "Natan"
+    },
+    {
+      "id": "competitor:football:espn:301770",
+      "displayName": "Obed Nkambadio"
+    },
+    {
+      "id": "competitor:football:espn:301894",
+      "displayName": "Igor Thiago"
+    },
+    {
+      "id": "competitor:football:espn:302002",
+      "displayName": "Tatsuhiro Sakamoto"
+    },
+    {
+      "id": "competitor:football:espn:302162",
+      "displayName": "Charly Alcaraz"
+    },
+    {
+      "id": "competitor:football:espn:302862",
+      "displayName": "Sinaly Diomande"
+    },
+    {
+      "id": "competitor:football:espn:303031",
+      "displayName": "Yuito Suzuki"
+    },
+    {
+      "id": "competitor:football:espn:303115",
+      "displayName": "Kamaldeen Sulemana"
+    },
+    {
+      "id": "competitor:football:espn:303116",
+      "displayName": "William Bøving"
+    },
+    {
+      "id": "competitor:football:espn:303296",
+      "displayName": "Lazar Samardzic"
+    },
+    {
+      "id": "competitor:football:espn:303308",
+      "displayName": "Tanner Tessmann"
+    },
+    {
+      "id": "competitor:football:espn:303444",
+      "displayName": "Malick Thiaw"
+    },
+    {
+      "id": "competitor:football:espn:303745",
+      "displayName": "Omar Marmoush"
+    },
+    {
+      "id": "competitor:football:espn:303748",
+      "displayName": "Florian Wirtz"
+    },
+    {
+      "id": "competitor:football:espn:303787",
+      "displayName": "Sebastian Nanasi"
+    },
+    {
+      "id": "competitor:football:espn:303821",
+      "displayName": "Jamal Musiala"
+    },
+    {
+      "id": "competitor:football:espn:303910",
+      "displayName": "Giuseppe Aurelio"
+    },
+    {
+      "id": "competitor:football:espn:303931",
+      "displayName": "Bobby Thomas"
+    },
+    {
+      "id": "competitor:football:espn:304019",
+      "displayName": "Tiago Tomás"
+    },
+    {
+      "id": "competitor:football:espn:304151",
+      "displayName": "Kevin Carlos"
+    },
+    {
+      "id": "competitor:football:espn:304212",
+      "displayName": "Josué Casimir"
+    },
+    {
+      "id": "competitor:football:espn:304222",
+      "displayName": "Arthur Theate"
+    },
+    {
+      "id": "competitor:football:espn:304256",
+      "displayName": "Filip Jørgensen"
+    },
+    {
+      "id": "competitor:football:espn:304258",
+      "displayName": "Sander Tangvik"
+    },
+    {
+      "id": "competitor:football:espn:304503",
+      "displayName": "Illia Zabarnyi"
+    },
+    {
+      "id": "competitor:football:espn:304512",
+      "displayName": "Nikola Stulic"
+    },
+    {
+      "id": "competitor:football:espn:304740",
+      "displayName": "El Chadaille Bitshiabu"
+    },
+    {
+      "id": "competitor:football:espn:304766",
+      "displayName": "Nick Batzner"
+    },
+    {
+      "id": "competitor:football:espn:304799",
+      "displayName": "Amadou Onana"
+    },
+    {
+      "id": "competitor:football:espn:304802",
+      "displayName": "Anton Stach"
+    },
+    {
+      "id": "competitor:football:espn:304918",
+      "displayName": "Ilan Kebbal"
+    },
+    {
+      "id": "competitor:football:espn:305545",
+      "displayName": "Pavel Sulc"
+    },
+    {
+      "id": "competitor:football:espn:305555",
+      "displayName": "Ansgar Knauff"
+    },
+    {
+      "id": "competitor:football:espn:305608",
+      "displayName": "Hugo Novoa"
+    },
+    {
+      "id": "competitor:football:espn:305684",
+      "displayName": "Adrien Truffert"
+    },
+    {
+      "id": "competitor:football:espn:305797",
+      "displayName": "Sékou Mara"
+    },
+    {
+      "id": "competitor:football:espn:305821",
+      "displayName": "Oskar Wójcik"
+    },
+    {
+      "id": "competitor:football:espn:305935",
+      "displayName": "Ismael Doukoure"
+    },
+    {
+      "id": "competitor:football:espn:305956",
+      "displayName": "Nicolas Seiwald"
+    },
+    {
+      "id": "competitor:football:espn:306055",
+      "displayName": "Eliot Matazo"
+    },
+    {
+      "id": "competitor:football:espn:306210",
+      "displayName": "Alen Sherri"
+    },
+    {
+      "id": "competitor:football:espn:306378",
+      "displayName": "Joel Schmied"
+    },
+    {
+      "id": "competitor:football:espn:306548",
+      "displayName": "Fodé Doucouré"
+    },
+    {
+      "id": "competitor:football:espn:306579",
+      "displayName": "Oier Zarraga"
+    },
+    {
+      "id": "competitor:football:espn:306935",
+      "displayName": "Mario Mitaj"
+    },
+    {
+      "id": "competitor:football:espn:306991",
+      "displayName": "Noel Futkeu"
+    },
+    {
+      "id": "competitor:football:espn:307019",
+      "displayName": "Jorge Herrando"
+    },
+    {
+      "id": "competitor:football:espn:307061",
+      "displayName": "Daniel Boloca"
+    },
+    {
+      "id": "competitor:football:espn:307069",
+      "displayName": "Carl Rushworth"
+    },
+    {
+      "id": "competitor:football:espn:307073",
+      "displayName": "Kasey McAteer"
+    },
+    {
+      "id": "competitor:football:espn:307111",
+      "displayName": "Oscar Bobb"
+    },
+    {
+      "id": "competitor:football:espn:307115",
+      "displayName": "CJ Egan-Riley"
+    },
+    {
+      "id": "competitor:football:espn:307118",
+      "displayName": "James Trafford"
+    },
+    {
+      "id": "competitor:football:espn:307263",
+      "displayName": "Bandiougou Fadiga"
+    },
+    {
+      "id": "competitor:football:espn:307270",
+      "displayName": "Jofre Carreras"
+    },
+    {
+      "id": "competitor:football:espn:307282",
+      "displayName": "Paul Nebel"
+    },
+    {
+      "id": "competitor:football:espn:307390",
+      "displayName": "Alberto Moleiro"
+    },
+    {
+      "id": "competitor:football:espn:307391",
+      "displayName": "Jamil Siebert"
+    },
+    {
+      "id": "competitor:football:espn:307419",
+      "displayName": "Ángel Fortuño"
+    },
+    {
+      "id": "competitor:football:espn:307515",
+      "displayName": "Benedict Hollerbach"
+    },
+    {
+      "id": "competitor:football:espn:307648",
+      "displayName": "Luiz Júnior"
+    },
+    {
+      "id": "competitor:football:espn:307713",
+      "displayName": "Charlie Cresswell"
+    },
+    {
+      "id": "competitor:football:espn:307870",
+      "displayName": "Chadi Riad"
+    },
+    {
+      "id": "competitor:football:espn:307905",
+      "displayName": "Enzo Boyomo"
+    },
+    {
+      "id": "competitor:football:espn:307915",
+      "displayName": "Urko Gonzalez"
+    },
+    {
+      "id": "competitor:football:espn:307971",
+      "displayName": "Ilias Koutsoupias"
+    },
+    {
+      "id": "competitor:football:espn:308006",
+      "displayName": "Adrià Altimira"
+    },
+    {
+      "id": "competitor:football:espn:308195",
+      "displayName": "Otavio"
+    },
+    {
+      "id": "competitor:football:espn:308254",
+      "displayName": "Aitor Paredes"
+    },
+    {
+      "id": "competitor:football:espn:308288",
+      "displayName": "Nicolas Galazzi"
+    },
+    {
+      "id": "competitor:football:espn:308552",
+      "displayName": "Mika Biereth"
+    },
+    {
+      "id": "competitor:football:espn:309241",
+      "displayName": "Máximo Perrone"
+    },
+    {
+      "id": "competitor:football:espn:309273",
+      "displayName": "Rasmus Højlund"
+    },
+    {
+      "id": "competitor:football:espn:309518",
+      "displayName": "Tommaso Baldanzi"
+    },
+    {
+      "id": "competitor:football:espn:309570",
+      "displayName": "Koni De Winter"
+    },
+    {
+      "id": "competitor:football:espn:309634",
+      "displayName": "Tim Breithaupt"
+    },
+    {
+      "id": "competitor:football:espn:3098291",
+      "displayName": "Sean Dulic"
+    },
+    {
+      "id": "competitor:football:espn:309838",
+      "displayName": "Ramón Terrats"
+    },
+    {
+      "id": "competitor:football:espn:309840",
+      "displayName": "Warmed Omari"
+    },
+    {
+      "id": "competitor:football:espn:310024",
+      "displayName": "Raúl Torrente"
+    },
+    {
+      "id": "competitor:football:espn:3100741",
+      "displayName": "Noé Poillion"
+    },
+    {
+      "id": "competitor:football:espn:310131",
+      "displayName": "Johan Bakayoko"
+    },
+    {
+      "id": "competitor:football:espn:310134",
+      "displayName": "Fredrik Oppegard"
+    },
+    {
+      "id": "competitor:football:espn:310216",
+      "displayName": "Radu Dragusin"
+    },
+    {
+      "id": "competitor:football:espn:3102821",
+      "displayName": "Bruno Galassi"
+    },
+    {
+      "id": "competitor:football:espn:310452",
+      "displayName": "Arda Güler"
+    },
+    {
+      "id": "competitor:football:espn:310640",
+      "displayName": "Vanderson"
+    },
+    {
+      "id": "competitor:football:espn:310709",
+      "displayName": "Daniel Svensson"
+    },
+    {
+      "id": "competitor:football:espn:310869",
+      "displayName": "Álex Pastor"
+    },
+    {
+      "id": "competitor:football:espn:310958",
+      "displayName": "Kevin Schade"
+    },
+    {
+      "id": "competitor:football:espn:311054",
+      "displayName": "Iván Romero"
+    },
+    {
+      "id": "competitor:football:espn:3113346",
+      "displayName": "Elias Etringer"
+    },
+    {
+      "id": "competitor:football:espn:311527",
+      "displayName": "Hákon Valdimarsson"
+    },
+    {
+      "id": "competitor:football:espn:311963",
+      "displayName": "Merlin Röhl"
+    },
+    {
+      "id": "competitor:football:espn:311996",
+      "displayName": "John Donald"
+    },
+    {
+      "id": "competitor:football:espn:312011",
+      "displayName": "Unai Marrero"
+    },
+    {
+      "id": "competitor:football:espn:312015",
+      "displayName": "Gerard Martín"
+    },
+    {
+      "id": "competitor:football:espn:312146",
+      "displayName": "Nico Williams"
+    },
+    {
+      "id": "competitor:football:espn:3121791",
+      "displayName": "Martin Ponsot"
+    },
+    {
+      "id": "competitor:football:espn:312338",
+      "displayName": "Haitam Abaida"
+    },
+    {
+      "id": "competitor:football:espn:3123406",
+      "displayName": "Francisco Esteban Sánchez"
+    },
+    {
+      "id": "competitor:football:espn:312392",
+      "displayName": "Yeremay Hernández"
+    },
+    {
+      "id": "competitor:football:espn:312399",
+      "displayName": "Mamadou Simbakoli"
+    },
+    {
+      "id": "competitor:football:espn:312659",
+      "displayName": "Francisco Conceição"
+    },
+    {
+      "id": "competitor:football:espn:312862",
+      "displayName": "Isak Hien"
+    },
+    {
+      "id": "competitor:football:espn:3129533",
+      "displayName": "Gabriel Kulla"
+    },
+    {
+      "id": "competitor:football:espn:313024",
+      "displayName": "Alexandre Alemão"
+    },
+    {
+      "id": "competitor:football:espn:313230",
+      "displayName": "David Affengruber"
+    },
+    {
+      "id": "competitor:football:espn:314184",
+      "displayName": "Zeno Van Den Bosch"
+    },
+    {
+      "id": "competitor:football:espn:314388",
+      "displayName": "Amine Sbaï"
+    },
+    {
+      "id": "competitor:football:espn:314403",
+      "displayName": "Saba Sazonov"
+    },
+    {
+      "id": "competitor:football:espn:314790",
+      "displayName": "Alex Scott"
+    },
+    {
+      "id": "competitor:football:espn:314858",
+      "displayName": "Andrey Santos"
+    },
+    {
+      "id": "competitor:football:espn:315213",
+      "displayName": "Anthony Oyono"
+    },
+    {
+      "id": "competitor:football:espn:315215",
+      "displayName": "Noah Cadiou"
+    },
+    {
+      "id": "competitor:football:espn:315460",
+      "displayName": "Jean Vercruysse"
+    },
+    {
+      "id": "competitor:football:espn:315530",
+      "displayName": "Dango Ouattara"
+    },
+    {
+      "id": "competitor:football:espn:316040",
+      "displayName": "Pablo Cuñat"
+    },
+    {
+      "id": "competitor:football:espn:316128",
+      "displayName": "Lucas Beraldo"
+    },
+    {
+      "id": "competitor:football:espn:316560",
+      "displayName": "Dário Essugo"
+    },
+    {
+      "id": "competitor:football:espn:316609",
+      "displayName": "Mandela Keita"
+    },
+    {
+      "id": "competitor:football:espn:317233",
+      "displayName": "Kaiki"
+    },
+    {
+      "id": "competitor:football:espn:317784",
+      "displayName": "Jon Ander Olasagasti"
+    },
+    {
+      "id": "competitor:football:espn:318063",
+      "displayName": "Jon Aramburu"
+    },
+    {
+      "id": "competitor:football:espn:318084",
+      "displayName": "Nicolás Valentini"
+    },
+    {
+      "id": "competitor:football:espn:318090",
+      "displayName": "Nilson Angulo"
+    },
+    {
+      "id": "competitor:football:espn:318181",
+      "displayName": "Federico Redondo"
+    },
+    {
+      "id": "competitor:football:espn:318284",
+      "displayName": "Facundo Buonanotte"
+    },
+    {
+      "id": "competitor:football:espn:318316",
+      "displayName": "Maxime Estève"
+    },
+    {
+      "id": "competitor:football:espn:318343",
+      "displayName": "Soufian El-Faouzi"
+    },
+    {
+      "id": "competitor:football:espn:318359",
+      "displayName": "Eiran Cashin"
+    },
+    {
+      "id": "competitor:football:espn:318390",
+      "displayName": "Tarik Muharemovic"
+    },
+    {
+      "id": "competitor:football:espn:318394",
+      "displayName": "Wisdom Amey"
+    },
+    {
+      "id": "competitor:football:espn:318577",
+      "displayName": "Nathan Ngoy"
+    },
+    {
+      "id": "competitor:football:espn:318604",
+      "displayName": "Kialonda Gaspar"
+    },
+    {
+      "id": "competitor:football:espn:318680",
+      "displayName": "Fatawu Issahaku"
+    },
+    {
+      "id": "competitor:football:espn:318773",
+      "displayName": "Roberto Fernández"
+    },
+    {
+      "id": "competitor:football:espn:318779",
+      "displayName": "Hákon Haraldsson"
+    },
+    {
+      "id": "competitor:football:espn:318785",
+      "displayName": "Beñat Prados"
+    },
+    {
+      "id": "competitor:football:espn:319161",
+      "displayName": "Antoine Mendy"
+    },
+    {
+      "id": "competitor:football:espn:319167",
+      "displayName": "Andy Diouf"
+    },
+    {
+      "id": "competitor:football:espn:319265",
+      "displayName": "Antonio Raimondo"
+    },
+    {
+      "id": "competitor:football:espn:319267",
+      "displayName": "Lukás Hornícek"
+    },
+    {
+      "id": "competitor:football:espn:319285",
+      "displayName": "Amir Richardson"
+    },
+    {
+      "id": "competitor:football:espn:319368",
+      "displayName": "Antonio Nusa"
+    },
+    {
+      "id": "competitor:football:espn:319415",
+      "displayName": "Nahuel Nicolas Noll"
+    },
+    {
+      "id": "competitor:football:espn:319431",
+      "displayName": "William Osula"
+    },
+    {
+      "id": "competitor:football:espn:319437",
+      "displayName": "Nicolò Bertola"
+    },
+    {
+      "id": "competitor:football:espn:319781",
+      "displayName": "Rubén Sánchez"
+    },
+    {
+      "id": "competitor:football:espn:320074",
+      "displayName": "Douglas Luiz"
+    },
+    {
+      "id": "competitor:football:espn:320417",
+      "displayName": "Mohamed Belloumi"
+    },
+    {
+      "id": "competitor:football:espn:320760",
+      "displayName": "Valentín Barco"
+    },
+    {
+      "id": "competitor:football:espn:320882",
+      "displayName": "Raphael Onyedika"
+    },
+    {
+      "id": "competitor:football:espn:320945",
+      "displayName": "Felix Bacher"
+    },
+    {
+      "id": "competitor:football:espn:320947",
+      "displayName": "Oussama El Azzouzi"
+    },
+    {
+      "id": "competitor:football:espn:321061",
+      "displayName": "Lasse Günther"
+    },
+    {
+      "id": "competitor:football:espn:321064",
+      "displayName": "Noah Atubolu"
+    },
+    {
+      "id": "competitor:football:espn:321098",
+      "displayName": "Mamady Diambou"
+    },
+    {
+      "id": "competitor:football:espn:321112",
+      "displayName": "Lucas Noubi"
+    },
+    {
+      "id": "competitor:football:espn:322156",
+      "displayName": "Christian Gomis"
+    },
+    {
+      "id": "competitor:football:espn:322510",
+      "displayName": "Robin Hranác"
+    },
+    {
+      "id": "competitor:football:espn:322652",
+      "displayName": "Williot Swedberg"
+    },
+    {
+      "id": "competitor:football:espn:322693",
+      "displayName": "Nediljko Labrovic"
+    },
+    {
+      "id": "competitor:football:espn:322908",
+      "displayName": "Nelson Deossa"
+    },
+    {
+      "id": "competitor:football:espn:322993",
+      "displayName": "Robbie Ure"
+    },
+    {
+      "id": "competitor:football:espn:323061",
+      "displayName": "Fabio Chiarodia"
+    },
+    {
+      "id": "competitor:football:espn:323110",
+      "displayName": "Milos Kerkez"
+    },
+    {
+      "id": "competitor:football:espn:323113",
+      "displayName": "Tijjani Noslin"
+    },
+    {
+      "id": "competitor:football:espn:323147",
+      "displayName": "Federico Gatti"
+    },
+    {
+      "id": "competitor:football:espn:323175",
+      "displayName": "Lasso Coulibaly"
+    },
+    {
+      "id": "competitor:football:espn:323702",
+      "displayName": "Gavi"
+    },
+    {
+      "id": "competitor:football:espn:323703",
+      "displayName": "Alejandro Balde"
+    },
+    {
+      "id": "competitor:football:espn:323722",
+      "displayName": "Kévin Danois"
+    },
+    {
+      "id": "competitor:football:espn:323737",
+      "displayName": "Clemens Riedel"
+    },
+    {
+      "id": "competitor:football:espn:323807",
+      "displayName": "Neil El Aynaoui"
+    },
+    {
+      "id": "competitor:football:espn:323847",
+      "displayName": "Ameen Al Dakhil"
+    },
+    {
+      "id": "competitor:football:espn:323850",
+      "displayName": "Esteban Lepaul"
+    },
+    {
+      "id": "competitor:football:espn:323970",
+      "displayName": "Julen Agirrezabala"
+    },
+    {
+      "id": "competitor:football:espn:323974",
+      "displayName": "Matìas Soulè"
+    },
+    {
+      "id": "competitor:football:espn:323975",
+      "displayName": "Fabio Miretti"
+    },
+    {
+      "id": "competitor:football:espn:323986",
+      "displayName": "Nico González"
+    },
+    {
+      "id": "competitor:football:espn:324098",
+      "displayName": "Carlos Dotor"
+    },
+    {
+      "id": "competitor:football:espn:324192",
+      "displayName": "Carlos Martín"
+    },
+    {
+      "id": "competitor:football:espn:324269",
+      "displayName": "Tom Rothe"
+    },
+    {
+      "id": "competitor:football:espn:324289",
+      "displayName": "Guillaume Restes"
+    },
+    {
+      "id": "competitor:football:espn:324393",
+      "displayName": "Antonín Kinsky"
+    },
+    {
+      "id": "competitor:football:espn:324567",
+      "displayName": "Bilal Nadir"
+    },
+    {
+      "id": "competitor:football:espn:324572",
+      "displayName": "Bradley Locko"
+    },
+    {
+      "id": "competitor:football:espn:324660",
+      "displayName": "Tom Bischof"
+    },
+    {
+      "id": "competitor:football:espn:324661",
+      "displayName": "Sadik Fofana"
+    },
+    {
+      "id": "competitor:football:espn:324811",
+      "displayName": "Hugo Gonzalez"
+    },
+    {
+      "id": "competitor:football:espn:324820",
+      "displayName": "Jobe Bellingham"
+    },
+    {
+      "id": "competitor:football:espn:324960",
+      "displayName": "Bamo Meïté"
+    },
+    {
+      "id": "competitor:football:espn:324991",
+      "displayName": "Habib Diarra"
+    },
+    {
+      "id": "competitor:football:espn:325042",
+      "displayName": "Mathys Tel"
+    },
+    {
+      "id": "competitor:football:espn:325043",
+      "displayName": "Kaito Mizuta"
+    },
+    {
+      "id": "competitor:football:espn:325056",
+      "displayName": "Lorenzo Palmisani"
+    },
+    {
+      "id": "competitor:football:espn:325330",
+      "displayName": "Axel Camblan"
+    },
+    {
+      "id": "competitor:football:espn:325553",
+      "displayName": "Willy Kambwala"
+    },
+    {
+      "id": "competitor:football:espn:325554",
+      "displayName": "Omari Forson"
+    },
+    {
+      "id": "competitor:football:espn:325555",
+      "displayName": "Alejandro Garnacho"
+    },
+    {
+      "id": "competitor:football:espn:325992",
+      "displayName": "Théo Le Bris"
+    },
+    {
+      "id": "competitor:football:espn:326187",
+      "displayName": "Charlie Hughes"
+    },
+    {
+      "id": "competitor:football:espn:326234",
+      "displayName": "Yago Alonso"
+    },
+    {
+      "id": "competitor:football:espn:326499",
+      "displayName": "Lukasz Poreba"
+    },
+    {
+      "id": "competitor:football:espn:326642",
+      "displayName": "Omri Gandelman"
+    },
+    {
+      "id": "competitor:football:espn:326766",
+      "displayName": "Adrian Gantenbein"
+    },
+    {
+      "id": "competitor:football:espn:326900",
+      "displayName": "Pablo Marín"
+    },
+    {
+      "id": "competitor:football:espn:327167",
+      "displayName": "Charlie Patino"
+    },
+    {
+      "id": "competitor:football:espn:327170",
+      "displayName": "Amario Cozier-Duberry"
+    },
+    {
+      "id": "competitor:football:espn:328011",
+      "displayName": "Jack Hinshelwood"
+    },
+    {
+      "id": "competitor:football:espn:328050",
+      "displayName": "Archie Gray"
+    },
+    {
+      "id": "competitor:football:espn:328497",
+      "displayName": "Cristhian Mosquera"
+    },
+    {
+      "id": "competitor:football:espn:328740",
+      "displayName": "Óscar Zambrano"
+    },
+    {
+      "id": "competitor:football:espn:329484",
+      "displayName": "Samson Baidoo"
+    },
+    {
+      "id": "competitor:football:espn:329489",
+      "displayName": "Elias Havel"
+    },
+    {
+      "id": "competitor:football:espn:329690",
+      "displayName": "Maghnes Akliouche"
+    },
+    {
+      "id": "competitor:football:espn:330043",
+      "displayName": "Filippo Missori"
+    },
+    {
+      "id": "competitor:football:espn:330045",
+      "displayName": "Sindre Walle Egeli"
+    },
+    {
+      "id": "competitor:football:espn:330233",
+      "displayName": "Ezechiel Banzuzi"
+    },
+    {
+      "id": "competitor:football:espn:330259",
+      "displayName": "Cristian Volpato"
+    },
+    {
+      "id": "competitor:football:espn:330271",
+      "displayName": "Jelle Van Neck"
+    },
+    {
+      "id": "competitor:football:espn:330433",
+      "displayName": "Alejandro Iturbe"
+    },
+    {
+      "id": "competitor:football:espn:330455",
+      "displayName": "Leopold Querfeld"
+    },
+    {
+      "id": "competitor:football:espn:330545",
+      "displayName": "Iván Martín"
+    },
+    {
+      "id": "competitor:football:espn:330552",
+      "displayName": "César Tárrega"
+    },
+    {
+      "id": "competitor:football:espn:330707",
+      "displayName": "Emirhan Ilkhan"
+    },
+    {
+      "id": "competitor:football:espn:330764",
+      "displayName": "Kevin"
+    },
+    {
+      "id": "competitor:football:espn:331047",
+      "displayName": "Ilias Akhomach"
+    },
+    {
+      "id": "competitor:football:espn:331057",
+      "displayName": "Fisnik Asllani"
+    },
+    {
+      "id": "competitor:football:espn:331533",
+      "displayName": "Daniel Lorenzo"
+    },
+    {
+      "id": "competitor:football:espn:331742",
+      "displayName": "Diego Villares"
+    },
+    {
+      "id": "competitor:football:espn:331770",
+      "displayName": "Rahim Alhassane"
+    },
+    {
+      "id": "competitor:football:espn:331785",
+      "displayName": "Carlos Puga"
+    },
+    {
+      "id": "competitor:football:espn:332246",
+      "displayName": "Andrés Castrín"
+    },
+    {
+      "id": "competitor:football:espn:332325",
+      "displayName": "Keke Topp"
+    },
+    {
+      "id": "competitor:football:espn:332411",
+      "displayName": "Antonio Vergara"
+    },
+    {
+      "id": "competitor:football:espn:332574",
+      "displayName": "Luca Jaquez"
+    },
+    {
+      "id": "competitor:football:espn:332613",
+      "displayName": "Marc Pubill"
+    },
+    {
+      "id": "competitor:football:espn:332684",
+      "displayName": "Zé Pedro"
+    },
+    {
+      "id": "competitor:football:espn:332689",
+      "displayName": "Rodrigo Ribeiro"
+    },
+    {
+      "id": "competitor:football:espn:332878",
+      "displayName": "Martin Adeline"
+    },
+    {
+      "id": "competitor:football:espn:332948",
+      "displayName": "Ben Gannon-Doak"
+    },
+    {
+      "id": "competitor:football:espn:332962",
+      "displayName": "Xavi Simons"
+    },
+    {
+      "id": "competitor:football:espn:333218",
+      "displayName": "Jacques Ekomie"
+    },
+    {
+      "id": "competitor:football:espn:333310",
+      "displayName": "Ernest Nuamah"
+    },
+    {
+      "id": "competitor:football:espn:333379",
+      "displayName": "Iker Benito"
+    },
+    {
+      "id": "competitor:football:espn:333400",
+      "displayName": "Arijon Ibrahimovic"
+    },
+    {
+      "id": "competitor:football:espn:333419",
+      "displayName": "Adam Wharton"
+    },
+    {
+      "id": "competitor:football:espn:333598",
+      "displayName": "Giorgio Cittadini"
+    },
+    {
+      "id": "competitor:football:espn:333845",
+      "displayName": "Louis Mouton"
+    },
+    {
+      "id": "competitor:football:espn:333925",
+      "displayName": "Edoardo Pieragnolo"
+    },
+    {
+      "id": "competitor:football:espn:333938",
+      "displayName": "Jacopo Fazzini"
+    },
+    {
+      "id": "competitor:football:espn:334163",
+      "displayName": "Enrique Salas"
+    },
+    {
+      "id": "competitor:football:espn:334268",
+      "displayName": "Juan Carlos Arana"
+    },
+    {
+      "id": "competitor:football:espn:334281",
+      "displayName": "Lucas Maronnier"
+    },
+    {
+      "id": "competitor:football:espn:334359",
+      "displayName": "Pablo Pagis"
+    },
+    {
+      "id": "competitor:football:espn:334794",
+      "displayName": "Enzo Bardeli"
+    },
+    {
+      "id": "competitor:football:espn:335240",
+      "displayName": "Patrick Beach"
+    },
+    {
+      "id": "competitor:football:espn:335877",
+      "displayName": "Mateo Del Blanco"
+    },
+    {
+      "id": "competitor:football:espn:336104",
+      "displayName": "Konstantinos Koulierakis"
+    },
+    {
+      "id": "competitor:football:espn:336460",
+      "displayName": "Hugo Larsson"
+    },
+    {
+      "id": "competitor:football:espn:336595",
+      "displayName": "Bilal El Khannouss"
+    },
+    {
+      "id": "competitor:football:espn:336634",
+      "displayName": "Pablo Barrios"
+    },
+    {
+      "id": "competitor:football:espn:336809",
+      "displayName": "Cucho Hernández"
+    },
+    {
+      "id": "competitor:football:espn:337079",
+      "displayName": "Yannick Engelhardt"
+    },
+    {
+      "id": "competitor:football:espn:337306",
+      "displayName": "Farès Chaïbi"
+    },
+    {
+      "id": "competitor:football:espn:337970",
+      "displayName": "Nico Paz"
+    },
+    {
+      "id": "competitor:football:espn:338006",
+      "displayName": "Yassin Belkhdim"
+    },
+    {
+      "id": "competitor:football:espn:338814",
+      "displayName": "Carlos Baleba"
+    },
+    {
+      "id": "competitor:football:espn:338837",
+      "displayName": "Santiago Castaneda"
+    },
+    {
+      "id": "competitor:football:espn:338852",
+      "displayName": "Mio Backhaus"
+    },
+    {
+      "id": "competitor:football:espn:338854",
+      "displayName": "Adam Daghim"
+    },
+    {
+      "id": "competitor:football:espn:338873",
+      "displayName": "Santiago Hidalgo"
+    },
+    {
+      "id": "competitor:football:espn:338876",
+      "displayName": "Jair Paula"
+    },
+    {
+      "id": "competitor:football:espn:338894",
+      "displayName": "Murillo"
+    },
+    {
+      "id": "competitor:football:espn:339198",
+      "displayName": "Christian Ordoñez"
+    },
+    {
+      "id": "competitor:football:espn:339797",
+      "displayName": "Julio Soler"
+    },
+    {
+      "id": "competitor:football:espn:339879",
+      "displayName": "Jamie Gittens"
+    },
+    {
+      "id": "competitor:football:espn:340239",
+      "displayName": "Abakar Sylla"
+    },
+    {
+      "id": "competitor:football:espn:340240",
+      "displayName": "Noah Sadiki"
+    },
+    {
+      "id": "competitor:football:espn:340583",
+      "displayName": "Junior Mwanga"
+    },
+    {
+      "id": "competitor:football:espn:340645",
+      "displayName": "Malick Fofana"
+    },
+    {
+      "id": "competitor:football:espn:340677",
+      "displayName": "Martim Neto"
+    },
+    {
+      "id": "competitor:football:espn:340744",
+      "displayName": "Alejandro Primo"
+    },
+    {
+      "id": "competitor:football:espn:340900",
+      "displayName": "Alexsandro"
+    },
+    {
+      "id": "competitor:football:espn:341367",
+      "displayName": "Orri Óskarsson"
+    },
+    {
+      "id": "competitor:football:espn:341494",
+      "displayName": "Petar Sucic"
+    },
+    {
+      "id": "competitor:football:espn:341720",
+      "displayName": "Yassine Titraoui"
+    },
+    {
+      "id": "competitor:football:espn:341736",
+      "displayName": "Gustavo Puerta"
+    },
+    {
+      "id": "competitor:football:espn:341756",
+      "displayName": "Medon Berisha"
+    },
+    {
+      "id": "competitor:football:espn:341774",
+      "displayName": "Alan Matturro"
+    },
+    {
+      "id": "competitor:football:espn:341826",
+      "displayName": "Lukas Finn Pinckert"
+    },
+    {
+      "id": "competitor:football:espn:342029",
+      "displayName": "Yehor Yarmoliuk"
+    },
+    {
+      "id": "competitor:football:espn:342654",
+      "displayName": "Maguette Gueye"
+    },
+    {
+      "id": "competitor:football:espn:342763",
+      "displayName": "Albion Rrahmani"
+    },
+    {
+      "id": "competitor:football:espn:342837",
+      "displayName": "James Abankwah"
+    },
+    {
+      "id": "competitor:football:espn:343114",
+      "displayName": "Tochukwu Nnadi"
+    },
+    {
+      "id": "competitor:football:espn:343964",
+      "displayName": "Ousmane Diomande"
+    },
+    {
+      "id": "competitor:football:espn:343990",
+      "displayName": "Enzo Leopold"
+    },
+    {
+      "id": "competitor:football:espn:343993",
+      "displayName": "Daniel Elfadli"
+    },
+    {
+      "id": "competitor:football:espn:344245",
+      "displayName": "Jirí Letácek"
+    },
+    {
+      "id": "competitor:football:espn:344518",
+      "displayName": "Augustin Delbecque"
+    },
+    {
+      "id": "competitor:football:espn:344844",
+      "displayName": "Danilo Veiga"
+    },
+    {
+      "id": "competitor:football:espn:344917",
+      "displayName": "Vasilije Adzic"
+    },
+    {
+      "id": "competitor:football:espn:345106",
+      "displayName": "Calvin Brackelmann"
+    },
+    {
+      "id": "competitor:football:espn:345152",
+      "displayName": "Joel Schingtienne"
+    },
+    {
+      "id": "competitor:football:espn:345489",
+      "displayName": "Marc Casadó"
+    },
+    {
+      "id": "competitor:football:espn:345529",
+      "displayName": "Mohamed Bamba"
+    },
+    {
+      "id": "competitor:football:espn:345873",
+      "displayName": "David Herold"
+    },
+    {
+      "id": "competitor:football:espn:345905",
+      "displayName": "Dzenan Pejcinovic"
+    },
+    {
+      "id": "competitor:football:espn:345926",
+      "displayName": "Mamadou Diop"
+    },
+    {
+      "id": "competitor:football:espn:345988",
+      "displayName": "Ngal'ayel Mukau"
+    },
+    {
+      "id": "competitor:football:espn:346210",
+      "displayName": "Quilindschy Hartman"
+    },
+    {
+      "id": "competitor:football:espn:346283",
+      "displayName": "Gaby Jean"
+    },
+    {
+      "id": "competitor:football:espn:346359",
+      "displayName": "Mouhamed Diop"
+    },
+    {
+      "id": "competitor:football:espn:346588",
+      "displayName": "António Silva"
+    },
+    {
+      "id": "competitor:football:espn:346596",
+      "displayName": "Raphael Kofler"
+    },
+    {
+      "id": "competitor:football:espn:346612",
+      "displayName": "Endrick"
+    },
+    {
+      "id": "competitor:football:espn:346619",
+      "displayName": "Derry Scherhant"
+    },
+    {
+      "id": "competitor:football:espn:346676",
+      "displayName": "Etta Eyong"
+    },
+    {
+      "id": "competitor:football:espn:346844",
+      "displayName": "Tiago Santos"
+    },
+    {
+      "id": "competitor:football:espn:347018",
+      "displayName": "Sulemana"
+    },
+    {
+      "id": "competitor:football:espn:347359",
+      "displayName": "Peque"
+    },
+    {
+      "id": "competitor:football:espn:347411",
+      "displayName": "Álex Padilla"
+    },
+    {
+      "id": "competitor:football:espn:347919",
+      "displayName": "Maximillian Oyedele"
+    },
+    {
+      "id": "competitor:football:espn:347940",
+      "displayName": "Dembo Sylla"
+    },
+    {
+      "id": "competitor:football:espn:348301",
+      "displayName": "Martial Godo"
+    },
+    {
+      "id": "competitor:football:espn:348787",
+      "displayName": "Yankuba Minteh"
+    },
+    {
+      "id": "competitor:football:espn:349185",
+      "displayName": "Remy Labeau Lascary"
+    },
+    {
+      "id": "competitor:football:espn:349733",
+      "displayName": "Ethan Nwaneri"
+    },
+    {
+      "id": "competitor:football:espn:349922",
+      "displayName": "Aljoscha Kemlein"
+    },
+    {
+      "id": "competitor:football:espn:350525",
+      "displayName": "Christian Mawissa"
+    },
+    {
+      "id": "competitor:football:espn:350947",
+      "displayName": "Diego Murillo"
+    },
+    {
+      "id": "competitor:football:espn:350961",
+      "displayName": "Joaquín Panichelli"
+    },
+    {
+      "id": "competitor:football:espn:351379",
+      "displayName": "Hugo Picard"
+    },
+    {
+      "id": "competitor:football:espn:352751",
+      "displayName": "Gabriele Calvani"
+    },
+    {
+      "id": "competitor:football:espn:353013",
+      "displayName": "Leonardo Colombo"
+    },
+    {
+      "id": "competitor:football:espn:353378",
+      "displayName": "Pape Diop"
+    },
+    {
+      "id": "competitor:football:espn:353736",
+      "displayName": "Miguel Román"
+    },
+    {
+      "id": "competitor:football:espn:354149",
+      "displayName": "Jens Hjerto Dahl"
+    },
+    {
+      "id": "competitor:football:espn:354334",
+      "displayName": "Fermín López"
+    },
+    {
+      "id": "competitor:football:espn:354646",
+      "displayName": "Dani Barcia"
+    },
+    {
+      "id": "competitor:football:espn:354865",
+      "displayName": "Tuomas Ollila"
+    },
+    {
+      "id": "competitor:football:espn:355433",
+      "displayName": "Mamadou Sarr"
+    },
+    {
+      "id": "competitor:football:espn:355503",
+      "displayName": "Carlos López"
+    },
+    {
+      "id": "competitor:football:espn:355971",
+      "displayName": "Ethan Mbappé"
+    },
+    {
+      "id": "competitor:football:espn:355980",
+      "displayName": "Jérémy Jacquet"
+    },
+    {
+      "id": "competitor:football:espn:355982",
+      "displayName": "Djaoui Cissé"
+    },
+    {
+      "id": "competitor:football:espn:355997",
+      "displayName": "Samuel Mbangula"
+    },
+    {
+      "id": "competitor:football:espn:355998",
+      "displayName": "Joseph Nonge"
+    },
+    {
+      "id": "competitor:football:espn:356000",
+      "displayName": "Dean Huijsen"
+    },
+    {
+      "id": "competitor:football:espn:356211",
+      "displayName": "Emmanuel Biumla"
+    },
+    {
+      "id": "competitor:football:espn:356213",
+      "displayName": "Arthur Atta"
+    },
+    {
+      "id": "competitor:football:espn:356295",
+      "displayName": "Chris Rigg"
+    },
+    {
+      "id": "competitor:football:espn:356358",
+      "displayName": "Benjamin Cremaschi"
+    },
+    {
+      "id": "competitor:football:espn:356379",
+      "displayName": "Lucas Bergvall"
+    },
+    {
+      "id": "competitor:football:espn:356536",
+      "displayName": "Farès Ghedjemis"
+    },
+    {
+      "id": "competitor:football:espn:356576",
+      "displayName": "Ali Dembélé"
+    },
+    {
+      "id": "competitor:football:espn:356639",
+      "displayName": "Lorenzo Amatucci"
+    },
+    {
+      "id": "competitor:football:espn:356925",
+      "displayName": "Stanis Idumbo"
+    },
+    {
+      "id": "competitor:football:espn:357030",
+      "displayName": "Kaishu Sano"
+    },
+    {
+      "id": "competitor:football:espn:357145",
+      "displayName": "Elliot Stroud"
+    },
+    {
+      "id": "competitor:football:espn:357147",
+      "displayName": "Mario Martín"
+    },
+    {
+      "id": "competitor:football:espn:357165",
+      "displayName": "Stefanos Tzimas"
+    },
+    {
+      "id": "competitor:football:espn:357337",
+      "displayName": "Jahmai Simpson-Pusey"
+    },
+    {
+      "id": "competitor:football:espn:357683",
+      "displayName": "Brajan Gruda"
+    },
+    {
+      "id": "competitor:football:espn:357801",
+      "displayName": "Konstantinos Karetsas"
+    },
+    {
+      "id": "competitor:football:espn:357858",
+      "displayName": "Rafa Rodríguez"
+    },
+    {
+      "id": "competitor:football:espn:358445",
+      "displayName": "Alexsandro Amorim"
+    },
+    {
+      "id": "competitor:football:espn:358496",
+      "displayName": "Maurice Krattenmacher"
+    },
+    {
+      "id": "competitor:football:espn:359108",
+      "displayName": "Bazoumana Touré"
+    },
+    {
+      "id": "competitor:football:espn:359154",
+      "displayName": "Iker Muñoz"
+    },
+    {
+      "id": "competitor:football:espn:359651",
+      "displayName": "Matias Fernandez-Pardo"
+    },
+    {
+      "id": "competitor:football:espn:359793",
+      "displayName": "Younes Ebnoutalib"
+    },
+    {
+      "id": "competitor:football:espn:359826",
+      "displayName": "Sebastián Boselli"
+    },
+    {
+      "id": "competitor:football:espn:359912",
+      "displayName": "Facundo Bernal"
+    },
+    {
+      "id": "competitor:football:espn:360061",
+      "displayName": "Cher Ndour"
+    },
+    {
+      "id": "competitor:football:espn:360062",
+      "displayName": "Chemsdine Talbi"
+    },
+    {
+      "id": "competitor:football:espn:360207",
+      "displayName": "Juan David Arizala"
+    },
+    {
+      "id": "competitor:football:espn:360235",
+      "displayName": "Niccolò Pisilli"
+    },
+    {
+      "id": "competitor:football:espn:360714",
+      "displayName": "Giorgi Kvernadze"
+    },
+    {
+      "id": "competitor:football:espn:361085",
+      "displayName": "Kennedy Okpala"
+    },
+    {
+      "id": "competitor:football:espn:361258",
+      "displayName": "Afonso Moreira"
+    },
+    {
+      "id": "competitor:football:espn:361434",
+      "displayName": "Vitor Reis"
+    },
+    {
+      "id": "competitor:football:espn:361468",
+      "displayName": "Gabriel Moscardo"
+    },
+    {
+      "id": "competitor:football:espn:361506",
+      "displayName": "Juan Rodríguez"
+    },
+    {
+      "id": "competitor:football:espn:361818",
+      "displayName": "Eivind Helland"
+    },
+    {
+      "id": "competitor:football:espn:361838",
+      "displayName": "Lamine Dabo"
+    },
+    {
+      "id": "competitor:football:espn:362150",
+      "displayName": "Lamine Yamal"
+    },
+    {
+      "id": "competitor:football:espn:362411",
+      "displayName": "David Odogu"
+    },
+    {
+      "id": "competitor:football:espn:362476",
+      "displayName": "Christ Makosso"
+    },
+    {
+      "id": "competitor:football:espn:362486",
+      "displayName": "Marco Palestra"
+    },
+    {
+      "id": "competitor:football:espn:362590",
+      "displayName": "Leon Avdullahu"
+    },
+    {
+      "id": "competitor:football:espn:362776",
+      "displayName": "Ebenezer Akinsanmiro"
+    },
+    {
+      "id": "competitor:football:espn:362777",
+      "displayName": "Thomas Jørgensen"
+    },
+    {
+      "id": "competitor:football:espn:362794",
+      "displayName": "Conrad Harder"
+    },
+    {
+      "id": "competitor:football:espn:362874",
+      "displayName": "Fran González"
+    },
+    {
+      "id": "competitor:football:espn:362971",
+      "displayName": "Justin Bengui Joao"
+    },
+    {
+      "id": "competitor:football:espn:363150",
+      "displayName": "Luc Zogbe"
+    },
+    {
+      "id": "competitor:football:espn:363886",
+      "displayName": "Saba Goglichidze"
+    },
+    {
+      "id": "competitor:football:espn:364080",
+      "displayName": "Ezequiel Fernández"
+    },
+    {
+      "id": "competitor:football:espn:364593",
+      "displayName": "Laurin Curda"
+    },
+    {
+      "id": "competitor:football:espn:364646",
+      "displayName": "Lúkas Petersson"
+    },
+    {
+      "id": "competitor:football:espn:364742",
+      "displayName": "Assane Diao"
+    },
+    {
+      "id": "competitor:football:espn:364746",
+      "displayName": "Adama Camara"
+    },
+    {
+      "id": "competitor:football:espn:364764",
+      "displayName": "Mathis Amougou"
+    },
+    {
+      "id": "competitor:football:espn:364892",
+      "displayName": "Mattes Hansen"
+    },
+    {
+      "id": "competitor:football:espn:364897",
+      "displayName": "Assan Ouédraogo"
+    },
+    {
+      "id": "competitor:football:espn:365160",
+      "displayName": "Mikel Amondarain"
+    },
+    {
+      "id": "competitor:football:espn:365318",
+      "displayName": "Jesse Bisiwu"
+    },
+    {
+      "id": "competitor:football:espn:365783",
+      "displayName": "Pathé Mboup"
+    },
+    {
+      "id": "competitor:football:espn:365997",
+      "displayName": "Oscar Højlund"
+    },
+    {
+      "id": "competitor:football:espn:366363",
+      "displayName": "Ilyas Ansah"
+    },
+    {
+      "id": "competitor:football:espn:366370",
+      "displayName": "Jano Horst"
+    },
+    {
+      "id": "competitor:football:espn:366509",
+      "displayName": "Kenan Yildiz"
+    },
+    {
+      "id": "competitor:football:espn:366510",
+      "displayName": "Giovanni Daffara"
+    },
+    {
+      "id": "competitor:football:espn:366823",
+      "displayName": "Livan Burcu"
+    },
+    {
+      "id": "competitor:football:espn:366828",
+      "displayName": "Jonah Sticker"
+    },
+    {
+      "id": "competitor:football:espn:367058",
+      "displayName": "Nyamekye Awortwie-Grant"
+    },
+    {
+      "id": "competitor:football:espn:367168",
+      "displayName": "Pietro Comuzzo"
+    },
+    {
+      "id": "competitor:football:espn:367320",
+      "displayName": "Edoardo Motta"
+    },
+    {
+      "id": "competitor:football:espn:367499",
+      "displayName": "Facundo González"
+    },
+    {
+      "id": "competitor:football:espn:367635",
+      "displayName": "Lorenzo Lucchesi"
+    },
+    {
+      "id": "competitor:football:espn:367690",
+      "displayName": "Luca Marianucci"
+    },
+    {
+      "id": "competitor:football:espn:368006",
+      "displayName": "Diego Mascardi"
+    },
+    {
+      "id": "competitor:football:espn:368312",
+      "displayName": "Kingstone Mutandwa"
+    },
+    {
+      "id": "competitor:football:espn:368878",
+      "displayName": "Pau Navarro"
+    },
+    {
+      "id": "competitor:football:espn:368992",
+      "displayName": "Pau Cubarsí"
+    },
+    {
+      "id": "competitor:football:espn:370758",
+      "displayName": "Zachary Athekame"
+    },
+    {
+      "id": "competitor:football:espn:371498",
+      "displayName": "Paul Argney"
+    },
+    {
+      "id": "competitor:football:espn:371500",
+      "displayName": "Kouakou Gadou"
+    },
+    {
+      "id": "competitor:football:espn:371608",
+      "displayName": "Buba Sangaré"
+    },
+    {
+      "id": "competitor:football:espn:371689",
+      "displayName": "Chuki"
+    },
+    {
+      "id": "competitor:football:espn:371973",
+      "displayName": "Milosz Piekutowski"
+    },
+    {
+      "id": "competitor:football:espn:372032",
+      "displayName": "Noah Darvich"
+    },
+    {
+      "id": "competitor:football:espn:372035",
+      "displayName": "Max Moerstedt"
+    },
+    {
+      "id": "competitor:football:espn:372260",
+      "displayName": "Mahamadou Nagida"
+    },
+    {
+      "id": "competitor:football:espn:372788",
+      "displayName": "Elias Baum"
+    },
+    {
+      "id": "competitor:football:espn:3731",
+      "displayName": "Carlos Álvarez"
+    },
+    {
+      "id": "competitor:football:espn:373992",
+      "displayName": "Klaus Suso"
+    },
+    {
+      "id": "competitor:football:espn:374621",
+      "displayName": "Ángel Pérez"
+    },
+    {
+      "id": "competitor:football:espn:374812",
+      "displayName": "Olaf Gorter"
+    },
+    {
+      "id": "competitor:football:espn:376261",
+      "displayName": "Manga Foe Ondoa"
+    },
+    {
+      "id": "competitor:football:espn:376473",
+      "displayName": "Franco Mastantuono"
+    },
+    {
+      "id": "competitor:football:espn:377170",
+      "displayName": "Idrissa Gueye"
+    },
+    {
+      "id": "competitor:football:espn:377481",
+      "displayName": "Luis Seifert"
+    },
+    {
+      "id": "competitor:football:espn:377495",
+      "displayName": "Ibrahim Traoré"
+    },
+    {
+      "id": "competitor:football:espn:377792",
+      "displayName": "Mikel Jauregizar"
+    },
+    {
+      "id": "competitor:football:espn:378369",
+      "displayName": "Reigan Heskey"
+    },
+    {
+      "id": "competitor:football:espn:379062",
+      "displayName": "Enzo Genton"
+    },
+    {
+      "id": "competitor:football:espn:379088",
+      "displayName": "Senny Mayulu"
+    },
+    {
+      "id": "competitor:football:espn:379227",
+      "displayName": "Anthony Bermont"
+    },
+    {
+      "id": "competitor:football:espn:380318",
+      "displayName": "Jacobo Ramón"
+    },
+    {
+      "id": "competitor:football:espn:380400",
+      "displayName": "Julián Vignolo"
+    },
+    {
+      "id": "competitor:football:espn:380795",
+      "displayName": "Said El Mala"
+    },
+    {
+      "id": "competitor:football:espn:381071",
+      "displayName": "Jorge Cabello"
+    },
+    {
+      "id": "competitor:football:espn:382532",
+      "displayName": "Youssef Lekhedim"
+    },
+    {
+      "id": "competitor:football:espn:383188",
+      "displayName": "Luis Engelns"
+    },
+    {
+      "id": "competitor:football:espn:384162",
+      "displayName": "Rafik Messali"
+    },
+    {
+      "id": "competitor:football:espn:384372",
+      "displayName": "Sean Steur"
+    },
+    {
+      "id": "competitor:football:espn:384380",
+      "displayName": "Abdoul Koné"
+    },
+    {
+      "id": "competitor:football:espn:384410",
+      "displayName": "Jan Leszczynski"
+    },
+    {
+      "id": "competitor:football:espn:384414",
+      "displayName": "Jonathan Asp Jensen"
+    },
+    {
+      "id": "competitor:football:espn:384482",
+      "displayName": "Gustavo Varela"
+    },
+    {
+      "id": "competitor:football:espn:384519",
+      "displayName": "Matteo Palma"
+    },
+    {
+      "id": "competitor:football:espn:385000",
+      "displayName": "Christ Tapé"
+    },
+    {
+      "id": "competitor:football:espn:386117",
+      "displayName": "Dylan Leonard"
+    },
+    {
+      "id": "competitor:football:espn:386252",
+      "displayName": "Jaydee Canvot"
+    },
+    {
+      "id": "competitor:football:espn:386256",
+      "displayName": "Christantus Uche"
+    },
+    {
+      "id": "competitor:football:espn:386384",
+      "displayName": "Yanis Zouaoui"
+    },
+    {
+      "id": "competitor:football:espn:386387",
+      "displayName": "Merwan Ifnaoui"
+    },
+    {
+      "id": "competitor:football:espn:386454",
+      "displayName": "Frederik Schmahl"
+    },
+    {
+      "id": "competitor:football:espn:386579",
+      "displayName": "Pelayo Fernández"
+    },
+    {
+      "id": "competitor:football:espn:386884",
+      "displayName": "Nathan De Cat"
+    },
+    {
+      "id": "competitor:football:espn:386989",
+      "displayName": "Christ Inao Oulaï"
+    },
+    {
+      "id": "competitor:football:espn:387036",
+      "displayName": "Riyad Idrissi"
+    },
+    {
+      "id": "competitor:football:espn:387044",
+      "displayName": "Nidal Celik"
+    },
+    {
+      "id": "competitor:football:espn:387061",
+      "displayName": "Andrija Bulatovic"
+    },
+    {
+      "id": "competitor:football:espn:38721",
+      "displayName": "Lamine Camara"
+    },
+    {
+      "id": "competitor:football:espn:387346",
+      "displayName": "Loun Srdanovic"
+    },
+    {
+      "id": "competitor:football:espn:387472",
+      "displayName": "Berkay Yilmaz"
+    },
+    {
+      "id": "competitor:football:espn:387491",
+      "displayName": "Jesús Rodriguez"
+    },
+    {
+      "id": "competitor:football:espn:387493",
+      "displayName": "Julio Díaz"
+    },
+    {
+      "id": "competitor:football:espn:387659",
+      "displayName": "Caleb Yirenkyi"
+    },
+    {
+      "id": "competitor:football:espn:387725",
+      "displayName": "Alessandro Longoni"
+    },
+    {
+      "id": "competitor:football:espn:387975",
+      "displayName": "Julian Pauli"
+    },
+    {
+      "id": "competitor:football:espn:388090",
+      "displayName": "Victor Orakpo"
+    },
+    {
+      "id": "competitor:football:espn:388239",
+      "displayName": "Sankhoun Diawara"
+    },
+    {
+      "id": "competitor:football:espn:388338",
+      "displayName": "Raúl Asencio"
+    },
+    {
+      "id": "competitor:football:espn:388601",
+      "displayName": "Jon Gorrotxategi"
+    },
+    {
+      "id": "competitor:football:espn:388602",
+      "displayName": "Chupete"
+    },
+    {
+      "id": "competitor:football:espn:388779",
+      "displayName": "Matteo Cichella"
+    },
+    {
+      "id": "competitor:football:espn:388879",
+      "displayName": "Guy Zohouri"
+    },
+    {
+      "id": "competitor:football:espn:388880",
+      "displayName": "Massimo Pessina"
+    },
+    {
+      "id": "competitor:football:espn:390031",
+      "displayName": "Cyriaque Irié"
+    },
+    {
+      "id": "competitor:football:espn:390091",
+      "displayName": "Manu González"
+    },
+    {
+      "id": "competitor:football:espn:393721",
+      "displayName": "Harold Voyer"
+    },
+    {
+      "id": "competitor:football:espn:394476",
+      "displayName": "Marius Louãr"
+    },
+    {
+      "id": "competitor:football:espn:396009",
+      "displayName": "Sascha Britschgi"
+    },
+    {
+      "id": "competitor:football:espn:396612",
+      "displayName": "Mikel Rodriguez"
+    },
+    {
+      "id": "competitor:football:espn:396620",
+      "displayName": "Naime Said Mchindra"
+    },
+    {
+      "id": "competitor:football:espn:396630",
+      "displayName": "Aladji Bamba"
+    },
+    {
+      "id": "competitor:football:espn:396751",
+      "displayName": "Alassane Diatta"
+    },
+    {
+      "id": "competitor:football:espn:397212",
+      "displayName": "Faik Sakar"
+    },
+    {
+      "id": "competitor:football:espn:397394",
+      "displayName": "Noa Boissé"
+    },
+    {
+      "id": "competitor:football:espn:397994",
+      "displayName": "Mathys Detourbet"
+    },
+    {
+      "id": "competitor:football:espn:398120",
+      "displayName": "Giorgio De Marzi"
+    },
+    {
+      "id": "competitor:football:espn:398780",
+      "displayName": "Zabi Gueu"
+    },
+    {
+      "id": "competitor:football:espn:399214",
+      "displayName": "Hennes Behrens"
+    },
+    {
+      "id": "competitor:football:espn:399219",
+      "displayName": "Luka Djuric"
+    },
+    {
+      "id": "competitor:football:espn:399248",
+      "displayName": "Justin Bourgault"
+    },
+    {
+      "id": "competitor:football:espn:399746",
+      "displayName": "Fabio Gruber"
+    },
+    {
+      "id": "competitor:football:espn:399747",
+      "displayName": "Dariusz Stalmach"
+    },
+    {
+      "id": "competitor:football:espn:400222",
+      "displayName": "Simon Eriksson"
+    },
+    {
+      "id": "competitor:football:espn:401410",
+      "displayName": "Gonçalo Oliveira"
+    },
+    {
+      "id": "competitor:football:espn:401714",
+      "displayName": "Stephan Zagadou"
+    },
+    {
+      "id": "competitor:football:espn:402890",
+      "displayName": "Otávio"
+    },
+    {
+      "id": "competitor:football:espn:403125",
+      "displayName": "Telli Siwe"
+    },
+    {
+      "id": "competitor:football:espn:403232",
+      "displayName": "Prosper Peter"
+    },
+    {
+      "id": "competitor:football:espn:403234",
+      "displayName": "Vitinha"
+    },
+    {
+      "id": "competitor:football:espn:403371",
+      "displayName": "Alejandro Rego"
+    },
+    {
+      "id": "competitor:football:espn:403528",
+      "displayName": "Paul Okon-Engstler"
+    },
+    {
+      "id": "competitor:football:espn:403578",
+      "displayName": "Dro Fernández"
+    },
+    {
+      "id": "competitor:football:espn:403843",
+      "displayName": "Emmanuel Mbemba"
+    },
+    {
+      "id": "competitor:football:espn:404832",
+      "displayName": "Brad-Hamilton Mantsounga"
+    },
+    {
+      "id": "competitor:football:espn:405703",
+      "displayName": "Elijah Odede"
+    },
+    {
+      "id": "competitor:football:espn:406191",
+      "displayName": "Ethan Meichtry"
+    },
+    {
+      "id": "competitor:football:espn:406371",
+      "displayName": "Andrik Markgraf"
+    },
+    {
+      "id": "competitor:football:espn:406466",
+      "displayName": "Ruben Müller"
+    },
+    {
+      "id": "competitor:football:espn:406832",
+      "displayName": "Davinchi"
+    },
+    {
+      "id": "competitor:football:espn:40791",
+      "displayName": "Moussa Sylla"
+    },
+    {
+      "id": "competitor:football:espn:408246",
+      "displayName": "Kennet Eichhorn"
+    },
+    {
+      "id": "competitor:football:espn:408247",
+      "displayName": "Johannes Siebeking"
+    },
+    {
+      "id": "competitor:football:espn:408251",
+      "displayName": "Alexis Vossah"
+    },
+    {
+      "id": "competitor:football:espn:408252",
+      "displayName": "Seny Koumbassa"
+    },
+    {
+      "id": "competitor:football:espn:408345",
+      "displayName": "Khalis Merah"
+    },
+    {
+      "id": "competitor:football:espn:408780",
+      "displayName": "Anis Ouzenadji"
+    },
+    {
+      "id": "competitor:football:espn:409477",
+      "displayName": "Manuel Fernández"
+    },
+    {
+      "id": "competitor:football:espn:410399",
+      "displayName": "Ernestas Lysionok"
+    },
+    {
+      "id": "competitor:football:espn:410645",
+      "displayName": "Louis Lemke"
+    },
+    {
+      "id": "competitor:football:espn:412232",
+      "displayName": "Ousmane Camara"
+    },
+    {
+      "id": "competitor:football:espn:413868",
+      "displayName": "Lorenzo Nyarko"
+    },
+    {
+      "id": "competitor:football:espn:415438",
+      "displayName": "Carlos Macià"
+    },
+    {
+      "id": "competitor:football:espn:415819",
+      "displayName": "Kareem Tunde"
+    },
+    {
+      "id": "competitor:football:espn:417336",
+      "displayName": "Raif Adam"
+    },
+    {
+      "id": "competitor:football:espn:417372",
+      "displayName": "Daniel Semedo"
+    },
+    {
+      "id": "competitor:football:espn:418536",
+      "displayName": "Adil Bourabaa"
+    },
+    {
+      "id": "competitor:football:espn:421761",
+      "displayName": "Lukas Klisys"
+    },
+    {
+      "id": "competitor:football:espn:422137",
+      "displayName": "Nico Guillén"
+    },
+    {
+      "id": "competitor:football:espn:422962",
+      "displayName": "Christian Lupo"
+    },
+    {
+      "id": "competitor:football:espn:4946",
+      "displayName": "Michael Keane"
+    },
+    {
+      "id": "competitor:football:espn:6729",
+      "displayName": "Alessandro Romano"
+    },
+    {
+      "id": "competitor:football:espn:70224",
+      "displayName": "Rodrigo Riquelme"
+    },
+    {
+      "id": "competitor:football:espn:72487",
+      "displayName": "David Brooks"
+    },
+    {
+      "id": "competitor:football:espn:7441",
+      "displayName": "Mark Travers"
+    },
+    {
+      "id": "competitor:football:espn:74630",
+      "displayName": "Rodrigo Mendoza"
+    },
+    {
+      "id": "competitor:football:espn:76762",
+      "displayName": "Luka Modric"
+    },
+    {
+      "id": "competitor:football:espn:76884",
+      "displayName": "Cristian Rivero"
+    },
+    {
+      "id": "competitor:football:espn:77072",
+      "displayName": "Mark McKenzie"
+    },
+    {
+      "id": "competitor:football:espn:84774",
+      "displayName": "Manuel Neuer"
+    },
+    {
+      "id": "competitor:football:espn:87297",
+      "displayName": "Gonzalo García"
+    },
+    {
+      "id": "competitor:football:espn:88865",
+      "displayName": "Fabio Vieira"
+    },
+    {
+      "id": "competitor:football:espn:88965",
+      "displayName": "Olivier Giroud"
+    },
+    {
+      "id": "competitor:football:espn:89216",
+      "displayName": "Francesco Rossi"
+    },
+    {
+      "id": "competitor:football:espn:92800",
+      "displayName": "Iago Aspas"
+    },
+    {
+      "id": "competitor:football:espn:93193",
+      "displayName": "Fraser Forster"
+    },
+    {
+      "id": "competitor:football:espn:93435",
+      "displayName": "Ryan Christie"
+    },
+    {
+      "id": "competitor:football:espn:93816",
+      "displayName": "Daniele Padelli"
+    },
+    {
+      "id": "competitor:football:lucas-herrington",
+      "displayName": "Lucas Herrington"
+    },
+    {
+      "id": "team:football:argentina",
+      "displayName": "Argentina"
+    },
+    {
+      "id": "team:football:belgium",
+      "displayName": "Belgium"
+    },
+    {
+      "id": "team:football:brazil",
+      "displayName": "Brazil"
+    },
+    {
+      "id": "team:football:canada",
+      "displayName": "Canada"
+    },
+    {
+      "id": "team:football:club:1-fc-union-berlin",
+      "displayName": "1. FC Union Berlin"
+    },
+    {
+      "id": "team:football:club:ac-milan",
+      "displayName": "AC Milan"
+    },
+    {
+      "id": "team:football:club:aek-athens",
+      "displayName": "AEK Athens"
+    },
+    {
+      "id": "team:football:club:aj-auxerre",
+      "displayName": "AJ Auxerre"
+    },
+    {
+      "id": "team:football:club:alaves",
+      "displayName": "Alavés"
+    },
+    {
+      "id": "team:football:club:anderlecht",
+      "displayName": "Anderlecht"
+    },
+    {
+      "id": "team:football:club:angers",
+      "displayName": "Angers"
+    },
+    {
+      "id": "team:football:club:ararat-armenia",
+      "displayName": "Ararat-Armenia"
+    },
+    {
+      "id": "team:football:club:as-monaco",
+      "displayName": "AS Monaco"
+    },
+    {
+      "id": "team:football:club:as-roma",
+      "displayName": "AS Roma"
+    },
+    {
+      "id": "team:football:club:atalanta",
+      "displayName": "Atalanta"
+    },
+    {
+      "id": "team:football:club:athletic-club",
+      "displayName": "Athletic Club"
+    },
+    {
+      "id": "team:football:club:atletico-madrid",
+      "displayName": "Atlético Madrid"
+    },
+    {
+      "id": "team:football:club:az-alkmaar",
+      "displayName": "AZ Alkmaar"
+    },
+    {
+      "id": "team:football:club:barcelona",
+      "displayName": "Barcelona"
+    },
+    {
+      "id": "team:football:club:bayer-leverkusen",
+      "displayName": "Bayer Leverkusen"
+    },
+    {
+      "id": "team:football:club:bayern-munich",
+      "displayName": "Bayern Munich"
+    },
+    {
+      "id": "team:football:club:benfica",
+      "displayName": "Benfica"
+    },
+    {
+      "id": "team:football:club:besiktas",
+      "displayName": "Beşiktaş"
+    },
+    {
+      "id": "team:football:club:bod-glimt",
+      "displayName": "Bodø/Glimt"
+    },
+    {
+      "id": "team:football:club:bologna",
+      "displayName": "Bologna"
+    },
+    {
+      "id": "team:football:club:borussia-dortmund",
+      "displayName": "Borussia Dortmund"
+    },
+    {
+      "id": "team:football:club:borussia-monchengladbach",
+      "displayName": "Borussia Mönchengladbach"
+    },
+    {
+      "id": "team:football:club:brest",
+      "displayName": "Brest"
+    },
+    {
+      "id": "team:football:club:cagliari",
+      "displayName": "Cagliari"
+    },
+    {
+      "id": "team:football:club:celje",
+      "displayName": "Celje"
+    },
+    {
+      "id": "team:football:club:celta-vigo",
+      "displayName": "Celta Vigo"
+    },
+    {
+      "id": "team:football:club:celtic",
+      "displayName": "Celtic"
+    },
+    {
+      "id": "team:football:club:club-brugge",
+      "displayName": "Club Brugge"
+    },
+    {
+      "id": "team:football:club:como",
+      "displayName": "Como"
+    },
+    {
+      "id": "team:football:club:deportivo",
+      "displayName": "Deportivo"
+    },
+    {
+      "id": "team:football:club:eintracht-frankfurt",
+      "displayName": "Eintracht Frankfurt"
+    },
+    {
+      "id": "team:football:club:elche",
+      "displayName": "Elche"
+    },
+    {
+      "id": "team:football:club:espanyol",
+      "displayName": "Espanyol"
+    },
+    {
+      "id": "team:football:club:fc-augsburg",
+      "displayName": "FC Augsburg"
+    },
+    {
+      "id": "team:football:club:fc-cologne",
+      "displayName": "FC Cologne"
+    },
+    {
+      "id": "team:football:club:fenerbahce",
+      "displayName": "Fenerbahçe"
+    },
+    {
+      "id": "team:football:club:ferencvaros",
+      "displayName": "Ferencváros"
+    },
+    {
+      "id": "team:football:club:feyenoord",
+      "displayName": "Feyenoord"
+    },
+    {
+      "id": "team:football:club:fiorentina",
+      "displayName": "Fiorentina"
+    },
+    {
+      "id": "team:football:club:frosinone",
+      "displayName": "Frosinone"
+    },
+    {
+      "id": "team:football:club:galatasaray",
+      "displayName": "Galatasaray"
+    },
+    {
+      "id": "team:football:club:genoa",
+      "displayName": "Genoa"
+    },
+    {
+      "id": "team:football:club:getafe",
+      "displayName": "Getafe"
+    },
+    {
+      "id": "team:football:club:gnk-dinamo",
+      "displayName": "GNK Dinamo"
+    },
+    {
+      "id": "team:football:club:hamburg-sv",
+      "displayName": "Hamburg SV"
+    },
+    {
+      "id": "team:football:club:hapoel-beer-sheva",
+      "displayName": "Hapoel Beer-Sheva"
+    },
+    {
+      "id": "team:football:club:internazionale",
+      "displayName": "Internazionale"
+    },
+    {
+      "id": "team:football:club:jagiellonia",
+      "displayName": "Jagiellonia Białystok"
+    },
+    {
+      "id": "team:football:club:juventus",
+      "displayName": "Juventus"
+    },
+    {
+      "id": "team:football:club:lask",
+      "displayName": "LASK"
+    },
+    {
+      "id": "team:football:club:lazio",
+      "displayName": "Lazio"
+    },
+    {
+      "id": "team:football:club:le-havre-ac",
+      "displayName": "Le Havre AC"
+    },
+    {
+      "id": "team:football:club:le-mans",
+      "displayName": "Le Mans"
+    },
+    {
+      "id": "team:football:club:lecce",
+      "displayName": "Lecce"
+    },
+    {
+      "id": "team:football:club:lech-poznan",
+      "displayName": "Lech Poznań"
+    },
+    {
+      "id": "team:football:club:lens",
+      "displayName": "Lens"
+    },
+    {
+      "id": "team:football:club:levante",
+      "displayName": "Levante"
+    },
+    {
+      "id": "team:football:club:levski-sofia",
+      "displayName": "Levski Sofia"
+    },
+    {
+      "id": "team:football:club:lille",
+      "displayName": "Lille"
+    },
+    {
+      "id": "team:football:club:lillestrom",
+      "displayName": "Lillestrøm"
+    },
+    {
+      "id": "team:football:club:lorient",
+      "displayName": "Lorient"
+    },
+    {
+      "id": "team:football:club:lyon",
+      "displayName": "Lyon"
+    },
+    {
+      "id": "team:football:club:mainz",
+      "displayName": "Mainz"
+    },
+    {
+      "id": "team:football:club:malaga",
+      "displayName": "Málaga"
+    },
+    {
+      "id": "team:football:club:marseille",
+      "displayName": "Marseille"
+    },
+    {
+      "id": "team:football:club:monza",
+      "displayName": "Monza"
+    },
+    {
+      "id": "team:football:club:n-e-c",
+      "displayName": "N.E.C."
+    },
+    {
+      "id": "team:football:club:napoli",
+      "displayName": "Napoli"
+    },
+    {
+      "id": "team:football:club:nice",
+      "displayName": "Nice"
+    },
+    {
+      "id": "team:football:club:ofi-crete",
+      "displayName": "OFI Crete"
+    },
+    {
+      "id": "team:football:club:olympiacos",
+      "displayName": "Olympiacos"
+    },
+    {
+      "id": "team:football:club:omonia",
+      "displayName": "Omonia"
+    },
+    {
+      "id": "team:football:club:osasuna",
+      "displayName": "Osasuna"
+    },
+    {
+      "id": "team:football:club:paris-fc",
+      "displayName": "Paris FC"
+    },
+    {
+      "id": "team:football:club:paris-saint-germain",
+      "displayName": "Paris Saint-Germain"
+    },
+    {
+      "id": "team:football:club:parma",
+      "displayName": "Parma"
+    },
+    {
+      "id": "team:football:club:porto",
+      "displayName": "Porto"
+    },
+    {
+      "id": "team:football:club:psv-eindhoven",
+      "displayName": "PSV Eindhoven"
+    },
+    {
+      "id": "team:football:club:racing-santander",
+      "displayName": "Racing Santander"
+    },
+    {
+      "id": "team:football:club:rayo-vallecano",
+      "displayName": "Rayo Vallecano"
+    },
+    {
+      "id": "team:football:club:rb-leipzig",
+      "displayName": "RB Leipzig"
+    },
+    {
+      "id": "team:football:club:real-betis",
+      "displayName": "Real Betis"
+    },
+    {
+      "id": "team:football:club:real-madrid",
+      "displayName": "Real Madrid"
+    },
+    {
+      "id": "team:football:club:real-sociedad",
+      "displayName": "Real Sociedad"
+    },
+    {
+      "id": "team:football:club:sabah",
+      "displayName": "Sabah"
+    },
+    {
+      "id": "team:football:club:salzburg",
+      "displayName": "Salzburg"
+    },
+    {
+      "id": "team:football:club:sassuolo",
+      "displayName": "Sassuolo"
+    },
+    {
+      "id": "team:football:club:sc-freiburg",
+      "displayName": "SC Freiburg"
+    },
+    {
+      "id": "team:football:club:sc-paderborn-07",
+      "displayName": "SC Paderborn 07"
+    },
+    {
+      "id": "team:football:club:schalke-04",
+      "displayName": "Schalke 04"
+    },
+    {
+      "id": "team:football:club:sevilla",
+      "displayName": "Sevilla"
+    },
+    {
+      "id": "team:football:club:shakhtar-donetsk",
+      "displayName": "Shakhtar Donetsk"
+    },
+    {
+      "id": "team:football:club:slavia-praha",
+      "displayName": "Slavia Praha"
+    },
+    {
+      "id": "team:football:club:slovan-bratislava",
+      "displayName": "Slovan Bratislava"
+    },
+    {
+      "id": "team:football:club:sparta-praha",
+      "displayName": "Sparta Praha"
+    },
+    {
+      "id": "team:football:club:sporting-cp",
+      "displayName": "Sporting CP"
+    },
+    {
+      "id": "team:football:club:stade-rennais",
+      "displayName": "Stade Rennais"
+    },
+    {
+      "id": "team:football:club:strasbourg",
+      "displayName": "Strasbourg"
+    },
+    {
+      "id": "team:football:club:sturm-graz",
+      "displayName": "Sturm Graz"
+    },
+    {
+      "id": "team:football:club:sv-elversberg",
+      "displayName": "SV Elversberg"
+    },
+    {
+      "id": "team:football:club:torino",
+      "displayName": "Torino"
+    },
+    {
+      "id": "team:football:club:torreense",
+      "displayName": "Torreense"
+    },
+    {
+      "id": "team:football:club:toulouse",
+      "displayName": "Toulouse"
+    },
+    {
+      "id": "team:football:club:troyes",
+      "displayName": "Troyes"
+    },
+    {
+      "id": "team:football:club:tsg-hoffenheim",
+      "displayName": "TSG Hoffenheim"
+    },
+    {
+      "id": "team:football:club:udinese",
+      "displayName": "Udinese"
+    },
+    {
+      "id": "team:football:club:union-saint-gilloise",
+      "displayName": "Union Saint-Gilloise"
+    },
+    {
+      "id": "team:football:club:valencia",
+      "displayName": "Valencia"
+    },
+    {
+      "id": "team:football:club:venezia",
+      "displayName": "Venezia"
+    },
+    {
+      "id": "team:football:club:vfb-stuttgart",
+      "displayName": "VfB Stuttgart"
+    },
+    {
+      "id": "team:football:club:viking",
+      "displayName": "Viking"
+    },
+    {
+      "id": "team:football:club:viktoria-plzen",
+      "displayName": "Viktoria Plzeň"
+    },
+    {
+      "id": "team:football:club:villarreal",
+      "displayName": "Villarreal"
+    },
+    {
+      "id": "team:football:club:werder-bremen",
+      "displayName": "Werder Bremen"
+    },
+    {
+      "id": "team:football:colombia",
+      "displayName": "Colombia"
+    },
+    {
+      "id": "team:football:egypt",
+      "displayName": "Egypt"
+    },
+    {
+      "id": "team:football:england",
+      "displayName": "England"
+    },
+    {
+      "id": "team:football:epl:1",
+      "displayName": "Arsenal"
+    },
+    {
+      "id": "team:football:epl:10",
+      "displayName": "Liverpool"
+    },
+    {
+      "id": "team:football:epl:11",
+      "displayName": "Manchester City"
+    },
+    {
+      "id": "team:football:epl:12",
+      "displayName": "Manchester United"
+    },
+    {
+      "id": "team:football:epl:127",
+      "displayName": "AFC Bournemouth"
+    },
+    {
+      "id": "team:football:epl:130",
+      "displayName": "Brentford"
+    },
+    {
+      "id": "team:football:epl:131",
+      "displayName": "Brighton & Hove Albion"
+    },
+    {
+      "id": "team:football:epl:15",
+      "displayName": "Nottingham Forest"
+    },
+    {
+      "id": "team:football:epl:2",
+      "displayName": "Aston Villa"
+    },
+    {
+      "id": "team:football:epl:21",
+      "displayName": "Tottenham Hotspur"
+    },
+    {
+      "id": "team:football:epl:23",
+      "displayName": "Newcastle United"
+    },
+    {
+      "id": "team:football:epl:29",
+      "displayName": "Sunderland"
+    },
+    {
+      "id": "team:football:epl:34",
+      "displayName": "Fulham"
+    },
+    {
+      "id": "team:football:epl:4",
+      "displayName": "Chelsea"
+    },
+    {
+      "id": "team:football:epl:41",
+      "displayName": "Hull City"
+    },
+    {
+      "id": "team:football:epl:5",
+      "displayName": "Coventry City"
+    },
+    {
+      "id": "team:football:epl:6",
+      "displayName": "Crystal Palace"
+    },
+    {
+      "id": "team:football:epl:7",
+      "displayName": "Everton"
+    },
+    {
+      "id": "team:football:epl:8",
+      "displayName": "Ipswich Town"
+    },
+    {
+      "id": "team:football:epl:9",
+      "displayName": "Leeds United"
+    },
+    {
+      "id": "team:football:france",
+      "displayName": "France"
+    },
+    {
+      "id": "team:football:mexico",
+      "displayName": "Mexico"
+    },
+    {
+      "id": "team:football:morocco",
+      "displayName": "Morocco"
+    },
+    {
+      "id": "team:football:norway",
+      "displayName": "Norway"
+    },
+    {
+      "id": "team:football:paraguay",
+      "displayName": "Paraguay"
+    },
+    {
+      "id": "team:football:portugal",
+      "displayName": "Portugal"
+    },
+    {
+      "id": "team:football:socceroos",
+      "displayName": "Socceroos"
+    },
+    {
+      "id": "team:football:spain",
+      "displayName": "Spain"
+    },
+    {
+      "id": "team:football:switzerland",
+      "displayName": "Switzerland"
+    },
+    {
+      "id": "team:football:turkiye",
+      "displayName": "Türkiye"
+    },
+    {
+      "id": "team:football:usa",
+      "displayName": "USA"
+    }
   ]
 }

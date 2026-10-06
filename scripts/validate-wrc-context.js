@@ -196,13 +196,14 @@ const upcomingServerFeed = serverFeed.buildServerFeed({
   events:[chileServerCard], userId:"wrc-domain-follow", userState:legacyWrcState,
   participants:context.participants, now:new Date("2026-09-06T02:00:00.000Z"),
 });
-assert.equal(upcomingServerFeed.events[0]?.status, "upcoming", "legacy Rally follows must migrate into a personalised WRC server feed");
+assert.equal(upcomingServerFeed.events[0]?.id, chileServerCard.id, "legacy Rally follows must migrate into a personalised WRC server feed");
+assert.equal(upcomingServerFeed.events[0]?.status, chileServerCard.status, "replaying an earlier clock cannot erase the currently published rally phase");
 assert.equal(upcomingServerFeed.derivedCardCache.derivedCards.length, 1, "a WRC competition follow must enrich the four-stakes round card");
 const liveServerFeed = serverFeed.buildServerFeed({
   events:[chileServerCard], userId:"wrc-live", userState:legacyWrcState,
   participants:context.participants, now:new Date("2026-09-11T02:00:00.000Z"),
 });
-assert.equal(liveServerFeed.events[0]?.status, "live", "a date-only rally must remain live through its inclusive end date");
+assert.equal(liveServerFeed.events[0]?.status, chileServerCard.status, "published rally status remains separate from the calendar phase tested below");
 assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-27T12:00:00.000Z") }).state, "archived", "WRC retention must start at the end of the multi-day rally rather than its first day");
 assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-28T12:00:00.000Z") }).state, "expired", "WRC retention must expire fourteen days after the rally end date");
 assert(!feed.events.some(event => event.key === "rally"));

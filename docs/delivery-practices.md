@@ -2,6 +2,8 @@
 
 The implementation backlog is `docs/cto-delivery-plan.md`. Sports-demand capture stays in the authoritative ignored local register; recording demand does not create an implementation commitment. Follow and backend decisions remain in their existing decision records. Do not create parallel priority lists.
 
+Owner communication — 5 October: explain work in lay terms by default. Lead with what changed, how it affects the user and what remains. Keep code, test logs, identifiers and detailed reasoning in the saved evidence unless the owner asks for technical detail. Give one recommended next action and keep progress updates brief.
+
 ## One brief per coherent change
 
 Before editing, state the intended user outcome, current evidence, files likely to change, excluded scope, acceptance checks and stop conditions. Retrieve those files and the relevant decision record first. Broaden investigation only when a concrete failure or dependency requires it. Prefer local deterministic work over model-generated facts. Never use generated editorial to fill missing scores, fixtures or rights.
@@ -65,3 +67,6 @@ At 02:29 UTC the complete window contained 83 runs: 77 success, four failure and
 The current evidence does not justify a CI rewrite or removing safeguards. Prioritise one coherent user outcome per release and reuse existing retained proof. Prefer a single scoped source refresh and targeted verification after the final relevant edit. Stop broadening an investigation once its explicit acceptance criterion has evidence; carry unrelated findings into the existing delivery ledger. Do not create a new production deployment for this report or its tests.
 
 The active goal counter reported 4,035,404 cumulative tokens and 33,605 goal-accounted seconds when this readout began. These cover the entire active goal, not this weekly sample or one feature; they are not billable-token or owner-time measures. Record counter snapshots at coherent phase boundaries when available, then compare like-for-like scope. Without provider billing and explicit phase boundaries, cash cost, per-feature tokens and rework hours remain unknown. Do not convert GitHub runtime or these counters into invented savings. The single readout remains an exception-review aid, not another owner-maintained tracker.
+
+
+Local browser acceptance — 5 October: run heavy browser rehearsals in sequence on this Mac. Keep existing deadlines and record any failed startup before rerunning; capture only public critical-asset timings and native errors, not credentials or API bodies. The observed concurrent startup stall remains unproved; isolated passing checks are evidence for their own run, not proof that startup flakiness is resolved. This replaces ambiguous parallel work, adds no owner tracker, and does not waive CI or browser gates.

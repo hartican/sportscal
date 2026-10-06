@@ -1,5 +1,7 @@
 # EPL current-window acceptance — 4 October 2026
 
+**Later compact acceptance — 5 October:** The current app passes the previously unasserted compact Results-ON completeness and five-state privacy checks across all 86 pilot finals. [Exact current scope and ordinary-run diagnosis](football-current-behaviour-acceptance-2026-10-05.md). The earlier source observations and broader limits below remain dated; this is not a new source check or full-pilot certification.
+
 **Recommendation:** retain the current EPL implementation and proceed to UCL/Europa source-to-screen acceptance. No new EPL card defect was found in this pass. Keep EPL actual live/non-playing behaviour, authenticated viewing, rights, ordinary canonical publication and physical-device evidence open. This is stronger dated acceptance evidence for the existing season and next viewing window, not completed Football certification or a reason to add leagues.
 
 Current production app is `a1a610cc6f48a21f804ce188b45ab6e6eedc3186`, shell 425. Documentation main `b5558d0c` adds no app changes. The [preceding full refresh/release](wrc-source-boundary-2026-10-04.md) supplies exact READY/SHA/aliases, served artifacts, 145 normal commands and both browser upgrades. This acceptance review adds no sporting refresh, deployment, API/schema change, scheduler, subscription, invitation or outreach.

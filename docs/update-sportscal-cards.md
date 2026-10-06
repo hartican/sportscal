@@ -2,6 +2,14 @@
 
 Use `node scripts/update-cards.js` and its existing scoped modes. An update includes scoped GitHub main publication and exact-commit production deployment unless explicitly local-only. Keep the existing refresh owner, source budgets, editorial holds, spoiler controls and release gates; never access preferences to refresh sporting facts.
 
+## Non-expiring editorial regression dates - 5 October 2026
+
+The mandatory publication regression derives older research, a newer sporting fetch and newer editorial timestamps from the current published research timestamp. Never use fixed calendar dates to simulate relative freshness: real updates eventually overtake them. This applies automatically on every normal validation run, across days, months and years; it changes neither production timestamps nor editorial precedence.
+
+Marquee copy and handoff regressions use isolated fixture candidates rather than requiring a named dated match to remain in the active upcoming inventory. Current inventory must still match lifecycle eligibility; pre-finish, end-boundary and explicitly completed cases remain asserted. Pending-clock participation is tested with an isolated date-only candidate even when every real fixture has a confirmed clock. These tests never rewrite the protected NRL Grand Final, its communications material or production artifacts.
+
+For this known maintenance failure, repair the test's relative chronology and run the intact assertions and remaining release gates without asking for another approval. Preserve researched copy and resume the existing release; do not repeat sports ingestion or research. Never skip, weaken or auto-accept a failed assertion. An unexplained integrity, control, authorization or production failure still requires an accurate failure report, not a claimed release.
+
 ## Main advances during a run - 4 October 2026
 
 Concurrent commits to main are a recoverable integration condition, not a reason to abandon independently valid card updates or ask for another approval.

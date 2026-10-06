@@ -3,6 +3,7 @@
 const assert=require('node:assert/strict'),path=require('node:path'),sharp=require('sharp');
 const content=require('../lib/comms-content'),ui=require('../config/admin-comms-workspace');
 const artifact=require('../data/marquee-candidates.v1.json'),sources=require('../data/comms-sources.v1.json');
+const feed=require('../data/events.json'),fixtureId=require('../config/marquee-campaigns').fixtureId;
 async function main(){
   assert.equal(artifact.schemaVersion,'marquee-candidates.v1');assert.equal(artifact.shadowMode,true);
   assert.equal(artifact.summary.shown,artifact.candidates.length);
@@ -28,9 +29,19 @@ async function main(){
     else{assert.equal(c.participation.enabled,false);assert(c.readinessIssues.includes('estimated_post_time'));}
   }
   for(const e of sources.events.filter(e=>content.eligible(e,null,now))){assert(artifact.candidates.some(c=>c.eventId===require('../config/marquee-campaigns').fixtureId(e)),'Eligible current fixture/Major Event included: '+e.name);}
-  const nrl=artifact.candidates.find(c=>c.eventId==='evt_84');assert(nrl,'Current NRL Grand Final included');
+  // Copy regressions use isolated candidates, not an assumption that a dated final stays upcoming.
+  const nrlSource=feed.events.find(e=>e.id==='evt_84');assert(nrlSource,'Protected NRL fixture retained');
+  const nrlPending={...nrlSource,status:'scheduled'},timing=content.dates(nrlPending);
+  const before=Date.parse(timing.startTimeUtc)-3600000,end=Date.parse(timing.endTimeUtc);
+  assert(Number.isFinite(before)&&Number.isFinite(end));
+  assert(content.eligible(nrlPending,null,before),'Pre-finish five-star fixture eligible');
+  assert(!content.eligible(nrlPending,null,end),'Finished fixture no longer eligible');
+  assert(!content.eligible({...nrlPending,status:'completed'},null,before),'Explicit completion wins over clock');
+  assert.equal(artifact.candidates.some(c=>c.eventId===fixtureId(nrlSource)),content.eligible(nrlSource,null,now),'Published candidate follows current lifecycle');
+  const nrl=content.candidate(nrlSource,content.postingSlots(nrlSource,before)[0],null,sources.sourceRevision);
   assert.match(nrl.drafts.hook,/wooden spooners/);assert(nrl.drafts.email.bodyParagraphs.some(p=>/36[–-]20/.test(p)));assert.equal(nrl.identities.teams.length,2);
-  const bledisloe=artifact.candidates.find(c=>c.eventId==='rugby-australia-new-zealand-2026-10-17');assert.match(bledisloe.material.recognisableTitle,/Bledisloe/);assert.equal(bledisloe.identities.teams.length,2);
+  const bledisloeSource=feed.events.find(e=>e.id==='rugby-australia-new-zealand-2026-10-17');assert(bledisloeSource,'Reviewed Bledisloe fixture retained');
+  const bledisloe=content.candidate(bledisloeSource,content.postingSlots(bledisloeSource,now)[0],null,sources.sourceRevision);assert.match(bledisloe.material.recognisableTitle,/Bledisloe/);assert.equal(bledisloe.identities.teams.length,2);
   console.log('Marquee candidates passed: '+ids.size+' post tasks, current editorial, complete generic copy, current marks and Sydney chronology.');
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

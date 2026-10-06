@@ -401,6 +401,11 @@ function main(){
       ...(curation.sports[sport.key] ? {browseGroups:curation.sports[sport.key].groups} : {}),
       ...(sport.key.startsWith("tennis") ? { collections:tennisCollections.map(collection=>({...collection,memberIds:collection.memberIds.filter(id=>records.some(record=>record.id===id))})).filter(collection=>collection.memberIds.length) } : {}),
     };
+    if(sport.key==='football'){
+      const index=require('./lib/follow-identity-index').footballIdentityIndex(readJson('data/canonical/football-follow-index.v1.json'),payload);
+      changed=writeIfChanged(path.join(ROOT,'data/canonical/football-follow-index.v1.json'),`${JSON.stringify(index,null,2)}\n`,checkOnly)||changed;
+      changed=writeIfChanged(path.join(ROOT,'data/canonical/football-follow-index.v1.js'),`globalThis.NOTHINGSPORTS_FOOTBALL_FOLLOW_INDEX = ${JSON.stringify(index)};\n`,checkOnly)||changed;
+    }
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`, checkOnly) || changed;
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;
   });

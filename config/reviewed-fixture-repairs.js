@@ -1,9 +1,7 @@
 (function(root,factory){const api=factory();root.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS=api;if(typeof module==='object')module.exports=api;})(globalThis,function(){
  'use strict';
- // Dated official evidence: docs/quality/coverage-repair-20260930.md.
  const records={
-  // Same RA949625 / WR match, checked 2 October; keep schedule and score dates separate.
-  'rugby-australia-south-africa-2026-09-27':{startTimeUtc:'2026-09-27T09:45:00.000Z',endTimeUtc:'2026-09-27T12:45:00.000Z',timingProvenance:{kind:'official',checkedAt:'2026-10-02T01:36:47.809Z',sourceUrl:'https://www.rugby.com.au/match-centre/3/2026/949625'},participantIds:['team:rugby:wallabies','team:rugby:springboks']},
+   'rugby-australia-south-africa-2026-09-27':{startTimeUtc:'2026-09-27T09:45:00.000Z',endTimeUtc:'2026-09-27T12:45:00.000Z',timingProvenance:{kind:'official',checkedAt:'2026-10-02T01:36:47.809Z',sourceUrl:'https://www.rugby.com.au/match-centre/3/2026/949625'},participantIds:['team:rugby:wallabies','team:rugby:springboks']},
   'fixture:cricket:espn:1525659':{name:'South Africa v Australia — First Test',displayTitleCompact:'South Africa v Australia — First Test',format:'Test',matchFormat:'Test',endDate:'2026-10-13',numberOfDays:5,startTimeUtc:'2026-10-09T07:30:00.000Z',venue:'Kingsmead, Durban',sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},
   'fixture:cricket:espn:1525660':{name:'South Africa v Australia — Second Test',displayTitleCompact:'South Africa v Australia — Second Test',format:'Test',matchFormat:'Test',endDate:'2026-10-22',numberOfDays:5,startTimeUtc:'2026-10-18T08:00:00.000Z',venue:"St George's Park, Gqeberha",sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},
   'fixture:cricket:espn:1525661':{name:'South Africa v Australia — Third Test',displayTitleCompact:'South Africa v Australia — Third Test',format:'Test',matchFormat:'Test',endDate:'2026-10-31',numberOfDays:5,startTimeUtc:'2026-10-27T08:30:00.000Z',venue:'Newlands, Cape Town',sourceName:'Cricket Australia',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'},
@@ -12,6 +10,15 @@
   'rugby-new-zealand-australia-2026-10-10':{name:'All Blacks v Wallabies',displayTitleCompact:'All Blacks v Wallabies',startTimeUtc:'2026-10-10T06:10:00.000Z',venue:'Eden Park, Auckland',competitionName:'Bledisloe Cup',roundLabel:'First Test',sourceUrl:'https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/',sourceName:'Eden Park'},
   'fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be':{roundLabel:'Grand Final',stage:'Grand Final',isFinals:true,competitionName:'Super Rugby AUS',venue:'Scotch College Playing Fields, Swanbourne, Perth',venueProvenance:{kind:'official',checkedAt:'2026-10-02T08:24:48.810Z',sourceUrl:'https://www.rugby.com.au/news/hmp-joc-return-boost-force-grand-final-scotch-2026930'},sourceUrl:'https://www.rugby.com.au/news/force-waratahs-rat-park-superrugby-aus-report-2026927'}
  };
- function facts(id){return records[id]||null;}
- return {facts};
+ // Cached import safeguards: docs/backend-efficiency-decisions.md.
+ function cachedCalendarNote(event){
+  const prefix='calendar-nothingsport-manual-seed-',id=event?.id||event?.eventId||'';
+  const index=id.startsWith(prefix)?['big-wave-nazare-2026','big-wave-pipe-masters-2026','goodwood-festival-of-speed-2027','uci-downhill-mtb-world-cup-2026'].indexOf(id.slice(prefix.length)):-1;
+  if(index<0||event.calendarNote||event.sourceType!=='personal-calendar'||event.sourceTrust!=='unverified'||!['upcoming','scheduled'].includes(event.status)||event.score||event.result)return null;
+  const name=['Nazaré Big Wave','Pipe Masters','Goodwood','Downhill MTB'][index]+' — unconfirmed listing';
+  const source=index<2?'https://www.worldsurfleague.com/events/'+(index?'2026/ct?all=1':'2027/bwt?all=1'):index===2?'https://www.goodwood.com/motorsport/festival-of-speed/':'https://www.ucimtbworldseries.com/';
+  return {name,displayTitleCompact:name,date:null,endDate:null,time:null,startDate:null,startTimeUtc:null,endTimeUtc:null,estimatedStartTimeUtc:null,timelineSortTimeUtc:null,sessionStartTimeUtc:null,notBeforeTimeUtc:null,actualStartTimeUtc:null,actualEndTimeUtc:null,dateStatus:'tbc',scheduleStatus:'tbc',timePrecision:'unknown',timeTbc:true,startTimeTbc:true,dateOnly:false,cardKind:'calendar-note',venue:index===3?null:event.venue,expected:null,round:'all',narrativeType:'all',consensusTags:[],broadcaster:'Australian viewing unconfirmed',broadcastOptions:[],broadcasterIds:[],broadcasts:[],viewingOptions:[],fullSpiel:'Date, start and Australian viewing are unverified. Go online for organiser notes.',calendarNote:{state:'unconfirmed',cacheRecovery:true,sourceUrl:source}};
+ }
+ function facts(id,event){return records[id]||cachedCalendarNote(event)||null;}
+ return {facts,cachedCalendarNote};
 });

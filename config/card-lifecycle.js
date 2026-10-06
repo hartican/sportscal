@@ -1,8 +1,8 @@
 (function attachNothingSportsCardLifecycle(root, factory){
-  const api = factory(root);
+  const api = factory(typeof module !== "undefined" && module.exports ? require("./calendar-export.js") : root.NOTHINGSPORTS_CALENDAR);
   root.NOTHINGSPORTS_CARD_LIFECYCLE = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(root){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(calendar){
   "use strict";
 
   const SCHEMA_VERSION = "derived-card-cache.v1";
@@ -37,44 +37,44 @@
     return 3;
   }
 
-  function eventEnd(event){
-    if (event?.endTimeUtc){
-      const parsed = new Date(event.endTimeUtc);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    const start = eventStart(event);
-    if (!start) return null;
-    return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-  }
+  const validDay = value => calendar.knownDate({date:value});
 
   function sydneyEndOfDay(dateKey){
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey || ""))) return null;
+    if (!validDay(dateKey)) return null;
     const nextDay = new Date(`${dateKey}T12:00:00Z`);
     nextDay.setUTCDate(nextDay.getUTCDate() + 1);
-    const start = (root.NOTHINGSPORTS_CALENDAR || require("./calendar-export.js")).eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
-    return start ? new Date(start.getTime() - 1) : null;
+    const start = calendar.eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
+    return start ? new Date(+start - 1) : null;
   }
 
   function retentionEnd(event){
-    const exactEnd = eventEnd(event);
-    if (exactEnd) return exactEnd;
-    if ((event?.dateOnly === true || event?.timePrecision === "date-only") && /^\d{4}-\d{2}-\d{2}$/.test(String(event?.endDate || ""))){
-      return new Date(`${event.endDate}T23:59:59.999Z`);
-    }
+    const start = eventStart(event);
+    let end = new Date(event?.endTimeUtc || "");
+    if (Number.isNaN(+end)) end = start ? new Date(+start + inferredDurationHours(event) * 3600000) : null;
+    if (!end && (event?.dateOnly === true || event?.timePrecision === "date-only") && validDay(event?.endDate)) end = new Date(`${event.endDate}T23:59:59.999Z`);
     const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
-    if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return sydneyEndOfDay(event.date);
-    return null;
+    if (!end && !Number.isNaN(+timeline)) end = new Date(+timeline + inferredDurationHours(event) * 3600000);
+    if (!end) end = sydneyEndOfDay(event?.date);
+    const firstDay = event?.date || event?.startDate;
+    if (event?.endDate > firstDay && validDay(firstDay) && validDay(event.endDate)){
+      // A supplied calendar window is a retention floor, never an observed finish.
+      const actual = new Date(event.actualEndTimeUtc || "");
+      if (["completed","finished","final"].includes(String(event.status || "").toLowerCase())
+          && /T/.test(event.actualEndTimeUtc || "") && start && +actual >= +start) return actual;
+      const windowEnd = sydneyEndOfDay(event.endDate);
+      if (!end || +end < +windowEnd) end = windowEnd;
+    }
+    return end;
   }
 
   function expiresAtForEvent(event){
     const end = retentionEnd(event);
-    return end ? new Date(end.getTime() + RETENTION_MS) : null;
+    return end ? new Date(+end + RETENTION_MS) : null;
   }
 
   function archivesAtForEvent(event){
     const end = retentionEnd(event);
-    return end ? new Date(end.getTime() + ARCHIVE_MS) : null;
+    return end ? new Date(+end + ARCHIVE_MS) : null;
   }
 
   function isSavedAction(action = {}){
@@ -92,27 +92,16 @@
   } = {}){
     const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
-    if (!end || Number.isNaN(reference.getTime())){
-      return {
-        state: "active",
-        saved: Boolean(saved),
-        archivesAt: archivesAtForEvent(event)?.toISOString() || null,
-        expiresAt: expiresAtForEvent(event)?.toISOString() || null,
-      };
-    }
-    const ageMs = reference.getTime() - end.getTime();
-    const state = saved
-      ? "saved"
-      : ageMs > RETENTION_MS
-        ? "expired"
-        : ageMs > ARCHIVE_MS
-          ? "archived"
-          : "active";
+    const ageMs = reference - (end || NaN);
+    const state = !Number.isFinite(ageMs) ? "active"
+      : saved ? "saved"
+      : ageMs > RETENTION_MS ? "expired"
+      : ageMs > ARCHIVE_MS ? "archived" : "active";
     return {
       state,
       saved: Boolean(saved),
-      archivesAt: new Date(end.getTime() + ARCHIVE_MS).toISOString(),
-      expiresAt: new Date(end.getTime() + RETENTION_MS).toISOString(),
+      archivesAt: end ? new Date(+end + ARCHIVE_MS).toISOString() : null,
+      expiresAt: end ? new Date(+end + RETENTION_MS).toISOString() : null,
     };
   }
 

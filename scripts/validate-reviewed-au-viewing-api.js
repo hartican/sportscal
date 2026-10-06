@@ -17,5 +17,15 @@ const unknown=rows.find(f=>f.competitionName==='Top 14 2027' && f.date>='2026-10
  }
  assert.equal(fixtures.length,6,'known, unknown and Golf fixture identities survive without duplicates');
  const cached=response();await handler({method:'GET',url:'/api/fixtures',headers:{'if-none-match':r.headers.ETag}},cached);assert.equal(cached.statusCode,304,'unchanged sporting and viewing revisions retain cache semantics');assert.equal(reads,2,'one existing read per request');
- console.log('Reviewed AU viewing API: retained Rugby/Cricket/Golf snapshot facts, competition-scoped LPGA presentation, unknown-state protection, one read and unchanged revision caching passed.');
+ const hockey=require('../data/code-inspector/ice-hockey.json').fixtures;
+ const nhl=[hockey.find(f=>f.id==='fixture:nhl:2026020035'),hockey.find(f=>f.id==='fixture:nhl:2026020001'),hockey.find(f=>f.id==='fixture:nhl:2026010063')];assert(nhl.every(Boolean));
+ let nhlReads=0;const nhlHandler=createLiveFixtureHandler({clock:()=>new Date('2026-10-03T14:00:00Z'),publishedFixtures:()=>nhl,read:async()=>{nhlReads++;return {revision:'unchanged-nhl-primary',stale:false,sources:[{source_id:'nhl-primary',fixtures:nhl}]};}});
+ const live=response();await nhlHandler({method:'GET',url:'/api/fixtures',headers:{}},live);assert.equal(live.statusCode,200);assert.equal(nhlReads,1);assert.equal(live.body.sources[0].fixtures.length,3);
+ for(const f of live.body.sources[0].fixtures){
+  const original=nhl.find(row=>row.id===f.id);assert(original);
+  for(const field of ['id','canonicalEventId','sourceEventIds','startTimeUtc','date','status','sourceCheckedAt','scoreCheckedAt','participantSlots','scoreDisplay'])assert.deepEqual(f[field]??null,original[field]??null,`NHL API preserves ${field}`);
+  const options=follow.viewingOptions(f);assert.deepEqual(options.map(o=>o.providerId),original.roundLabel==='Regular season'?['disney']:[]);assert(options.every(o=>o.rightsScope==='competition'&&o.linkScope==='sport'&&!o.replayVerified));
+ }
+ const nhlCached=response();await nhlHandler({method:'GET',url:'/api/fixtures',headers:{'if-none-match':live.headers.ETag}},nhlCached);assert.equal(nhlCached.statusCode,304);assert.equal(nhlReads,2,'viewing enrichment adds no snapshot query');
+ console.log('Reviewed AU viewing API: retained Rugby/Cricket/Golf/NHL snapshot facts, competition-scoped LPGA presentation, unknown-state protection, one read and unchanged revision caching passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

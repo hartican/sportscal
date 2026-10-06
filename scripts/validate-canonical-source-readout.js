@@ -9,6 +9,10 @@ const gap = {tournamentId:'tournament:tennis:wta-beijing-2026', name:'China Open
 const hydration = {schemaVersion:'tournament-hydration-report.v1', checkedAt:quick.checkedAt, offline:false, tournaments:[gap]};
 const run = {databaseId:36777788726, status:'completed', conclusion:'success', createdAt:'2026-09-30T21:10:00Z', headSha:'a'.repeat(40), url:'https://github.com/hartican/sportscal/actions/runs/36777788726'};
 const report = summary({quick, hydration, now});
+const finalApi=require('./lib/known-final-results'),finalNow=new Date('2026-10-04T21:00:00Z'),knownFinals={schemaVersion:'known-final-results.v1',checkedAt:'2026-10-04T20:15:00Z',checks:[{fixtureId:finalApi.NRL_ID,sourceUrl:finalApi.NRL_URL,state:'primary-final',observedAt:'2026-10-04T20:15:20Z',changed:false}],failures:[],requests:1,maxRequests:2,aiCalls:0};
+assert.equal(summary({knownFinals,now:finalNow}).knownFinals.state,'observed');assert.equal(summary({knownFinals:{...knownFinals,checks:[],requests:0},now:finalNow}).knownFinals.state,'not-checked');
+for(const invalid of [{schemaVersion:'wrong'},{requests:3},{checks:[knownFinals.checks[0],knownFinals.checks[0]]},{checks:[{...knownFinals.checks[0],sourceUrl:'https://example.invalid'}]},{checks:[{...knownFinals.checks[0],observedAt:'2099-01-01T00:00:00Z'}]}])assert.equal(summary({knownFinals:{...knownFinals,...invalid},now:finalNow}).knownFinals.state,'unavailable');
+const blocked=summary({quick:{...quick,checkedAt:knownFinals.checkedAt,publicationState:'blocked-rolled-back',blockingError:'controlled completeness failure',finalResults:knownFinals},now:finalNow});const blockedText=markdown({state:'observed',run:{databaseId:1,url:'https://example.test',conclusion:'failure'},reports:blocked,limitations:[]});assert(blockedText.includes('blocked and rolled back')&&blockedText.includes('do not prove publication')&&blockedText.includes('unchanged facts keep their original dates'));
 assert.equal(report.quick.failureCount,1, 'successful workflow must not mask retained LPGA failure');
 assert.equal(report.hydration.partialCount,1);
 assert.equal(report.hydration.completeCount,0, 'calendar row cannot certify match coverage');

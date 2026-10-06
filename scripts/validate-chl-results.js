@@ -31,7 +31,7 @@ assert.throws(()=>facts.parseSchedule(sample.schedule,{...options,checkedAt:'202
 assert.throws(()=>facts.discover(page.replace('2026/27','2025/26')),/season/);rejected++;
 const later='2026-10-04T11:41:00.000Z';assert.strictEqual(facts.retainDates(rows[0],{...rows[0],asOf:later}),rows[0]);assert.throws(()=>facts.retainDates(rows[0],{...rows[0],wins:2}),/stale or conflicting/);rejected++;
 const finalGame=require('./fixtures/nhl-zero-final-20261004.json'),nhl=owner.nhlFixture(finalGame);assert(nhl.participantSlots.some(s=>s.score===0),'actual NHL zero is retained');
-const zeroSide=finalGame.homeTeam.score===0?'homeTeam':'awayTeam';for(const value of [null,'',undefined,-1,1.2]){const game=clone(finalGame);game[zeroSide].score=value;assert.throws(()=>owner.nhlFixture(game),/invalid paired final scores/);rejected++;}
+const zeroSide=finalGame.homeTeam.score===0?'homeTeam':'awayTeam';for(const value of [null,'',undefined,-1,1.2]){const game=clone(finalGame);game[zeroSide].score=value;assert.throws(()=>owner.nhlFixture(game),/invalid paired observed scores/);rejected++;}
 assert(owner.nhlFixture({...finalGame,gameState:'FUT'}).participantSlots.every(s=>s.score===null),'future scores cannot imply a result');
 module.exports=(async()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-chl-results-'));

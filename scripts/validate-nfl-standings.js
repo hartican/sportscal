@@ -15,7 +15,7 @@ assert(quick.projectionSteps(['NFL standings 32']).some(step=>step[0]==='scripts
 assert(!quick.projectionSteps(['NFL standings 32']).some(step=>/publish-feed|build-paged-feed|sync-canonical/.test(step[0])),'table update cannot republish fixture facts');
 (async()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-nfl-table-'));try{
-  const filePath=path.join(temp,'directory.json'),baseline={...directory,standings:[]};fs.writeFileSync(filePath,JSON.stringify(baseline,null,2)+'\n');let calls=0;
+  const filePath=path.join(temp,'directory.json'),baseline={...directory,fixtures:[],standings:[]};fs.writeFileSync(filePath,JSON.stringify(baseline,null,2)+'\n');let calls=0;
   const fetchJson=async url=>{assert.equal(url,api.SOURCE_URL);calls++;return captured;};
   const result=await quick.refreshNflStandings({filePath,fetchJson,clock:()=>new Date(checkedAt)});assert(result.changed);assert.equal(calls,1);
   const persisted=JSON.parse(fs.readFileSync(filePath));assert.deepEqual(persisted.standings,rows);assert.deepEqual({...persisted,standings:[]},baseline,'actual quick persistence preserves all fixture/roster/aggregate facts');
@@ -24,10 +24,12 @@ assert(!quick.projectionSteps(['NFL standings 32']).some(step=>/publish-feed|bui
   const corrected=structuredClone(captured),stats=corrected.children[0].standings.entries[0].stats;stats.find(s=>s.name==='pointsFor').value++;stats.find(s=>s.name==='pointDifferential').value++;
   const correction=await quick.refreshNflStandings({filePath,fetchJson:async()=>corrected,clock:()=>new Date(later)});assert(correction.changed);assert.equal(correction.retainedFactAt,later,'validated correction has its own genuine observation');
   const teams={sports:[{leagues:[{teams:directory.teams.map(t=>({team:{abbreviation:t.id.split(':').at(-1),displayName:t.displayName,shortDisplayName:t.shortName,logos:[],links:[]}}))}]}]};
-  const callsFull=[];const full=await buildNfl({fetchSource:async url=>{callsFull.push(url);return url===api.SOURCE_URL?captured:url.endsWith('/teams')?teams:url.includes('/scoreboard?')?{events:[]}: {athletes:[]};}});
+  const fixtureResources=require('./fixtures/nfl-current-season-20261005.json').resources,fixtureRoutes=require('./lib/nfl-results').resources();
+  const fullOptions={clock:()=>new Date('2026-10-04T18:46:00.000Z'),previous:{...directory,fixtures:[],standings:[]}};
+  const callsFull=[];const full=await buildNfl({...fullOptions,fetchSource:async url=>{callsFull.push(url);return url===api.SOURCE_URL?captured:url.endsWith('/teams')?teams:url.includes('/scoreboard?')?fixtureResources[fixtureRoutes.findIndex(r=>r.url===url)].payload: {athletes:[]};}});
   assert.equal(full.standings.length,32,'real full NFL builder reads the current conference tables');assert.equal(callsFull.filter(url=>url===api.SOURCE_URL).length,1,'full owner keeps one existing standings request');
-  assert.deepEqual(full.standings.map(({asOf,...r})=>r),rows.map(({asOf,...r})=>r));
-  if(directory.standings.length){const failed=await buildNfl({fetchSource:async url=>{if(url===api.SOURCE_URL)throw Error('HTTP 503');return url.endsWith('/teams')?teams:url.includes('/scoreboard?')?{events:[]}:{athletes:[]};}});assert.deepEqual(failed.standings,directory.standings,'full owner retains the published table on optional failure');}
+  assert.deepEqual(full.standings.map(({asOf,stale,staleNote,...r})=>r),rows.map(({asOf,...r})=>r));
+  if(directory.standings.length){const failed=await buildNfl({...fullOptions,previous:{...directory,fixtures:[]},fetchSource:async url=>{if(url===api.SOURCE_URL)throw Error('HTTP 503');return url.endsWith('/teams')?teams:url.includes('/scoreboard?')?fixtureResources[fixtureRoutes.findIndex(r=>r.url===url)].payload:{athletes:[]};}});assert.deepEqual(failed.standings.map(({stale,staleNote,...r})=>r),directory.standings.map(({stale,staleNote,...r})=>r),'full owner retains the published table on optional failure');}
   const published=require('../data/code-inspector/american-football.json');if(published.standings.length){assert.equal(published.standings.length,32);assert.equal(published.coverageStatus,'partial');for(const r of published.standings)assert.equal(r.rank,r.conferenceSeed,'projector retains the supplied conference seed');}
   console.log(`NFL standings: actual full/quick ingestion, 32 known clubs, 2 seed scopes, ${rejected+3} invalid controls, unchanged reruns, last-good failures, real correction and fixture-preserving persistence pass.`);
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
