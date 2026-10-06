@@ -97,6 +97,7 @@ jobs:
           node scripts/validate-server-feed.js
           node scripts/validate-follow-policy-parity.js
           node scripts/validate-f1-parent-feed.js
+          node scripts/validate-notification-dispatch-recovery.js
           node scripts/validate-odi-display.js
           node scripts/validate-nrl-grand-final.js --published
           node scripts/validate-nrl-finals-readiness.js

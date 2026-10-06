@@ -2,7 +2,7 @@
 
 const webpush = require("web-push");
 const {guardedSend,suppressed}=require("../lib/notification-send");
-const { publicError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
+const { publicError, SupabaseRequestError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
 
 function bearer(request){
   const header = String(request?.headers?.authorization || "");
@@ -42,6 +42,7 @@ function notificationPayload(reminder, startLabel){
 
 module.exports = async function notificationDispatchHandler(request, response){
   response.setHeader("Cache-Control", "no-store");
+  let stage="preflight";
   try{
     if ((request.method || "GET") !== "GET"){
       response.setHeader("Allow", "GET");
@@ -65,12 +66,20 @@ module.exports = async function notificationDispatchHandler(request, response){
     await serviceRequest("/rest/v1/rpc/nothingsports_activate_fixture_reminders",{method:"POST",body:{}});
     let sharedCatalogue;
     const loadCatalogue=()=>sharedCatalogue ||= require("../lib/reminder-fixtures").catalogue({request:serviceRequest,now});
-    const automaticChecks=await require('../lib/automatic-reminders').reconcile({now,request:serviceRequest,loadCatalogue}).catch(()=>{throw Object.assign(new Error('Account reminder reconciliation is unavailable.'),{status:503,payload:{code:'reminder_schedule_reconciliation_failed'}});});
-    const scheduleChecks=await require('../lib/reminder-schedules').reconcile({now,request:serviceRequest,loadCatalogue}).catch(()=>{throw Object.assign(new Error('Reminder schedule reconciliation is unavailable.'),{status:503,payload:{code:'reminder_schedule_reconciliation_failed'}});});
+    const reconciliationError=error=>{
+      const failure=new SupabaseRequestError('Reminder reconciliation is unavailable.',{status:503,payload:{code:'reminder_schedule_reconciliation_failed'}});
+      failure.upstreamCode=error?.payload?.code;
+      throw failure;
+    };
+    stage="account_reconciliation";
+    const automaticChecks=await require('../lib/automatic-reminders').reconcile({now,request:serviceRequest,loadCatalogue}).catch(reconciliationError);
+    stage="schedule_reconciliation";
+    const scheduleChecks=await require('../lib/reminder-schedules').reconcile({now,request:serviceRequest,loadCatalogue}).catch(reconciliationError);
+    stage="reminder_delivery";
     await serviceRequest('/rest/v1/rpc/nothingsports_inbox_maintenance',{method:'POST',body:{}});
     const publicKey = String(process.env.VAPID_PUBLIC_KEY || "");
     const privateKey = String(process.env.VAPID_PRIVATE_KEY || "");
-    if (!publicKey || !privateKey) throw Object.assign(new Error("Web Push is not configured."), { status:503, payload:{ code:"push_not_configured" } });
+    if (!publicKey || !privateKey) throw new SupabaseRequestError("Web Push is not configured.", { status:503, payload:{ code:"push_not_configured" } });
     webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), publicKey, privateKey);
 
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
@@ -131,11 +140,13 @@ module.exports = async function notificationDispatchHandler(request, response){
       checked_count:(reminders || []).length,
       claimed_count:claimed.length,
       sent_count:sent + (ownerPosts.sent || 0) + (liveRatings.sent || 0) + (socialRewards.sent || 0),
-      failed_count:failed + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0),
+      failed_count:failed + (contentRefresh.error?1:0) + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0),
       last_error:ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(liveRatings.error || socialRewards.error || ownerPosts.error ? 503 : 200).json({ automaticChecks, scheduleChecks, contentRefresh, ownerPosts, liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(contentRefresh.error || liveRatings.error || socialRewards.error || ownerPosts.error ? 503 : 200).json({ automaticChecks, scheduleChecks, contentRefresh, ownerPosts, liveRatings, socialRewards, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
+    const safeCode=code=>/^[a-zA-Z0-9_]{1,64}$/.test(code||"")?code:undefined;
+    console.error("Notification dispatch failed",{stage,code:safeCode(error?.payload?.code)||"notification_dispatch_failed",upstreamCode:safeCode(error?.upstreamCode)});
     await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:['push_not_configured','reminder_schedule_reconciliation_failed'].includes(error?.payload?.code) ? error.payload.code : 'notification_dispatch_failed' }).catch(() => null);
     const outgoing = publicError(error);
     response.status(outgoing.status).json(outgoing.body);

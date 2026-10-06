@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
+const { SupabaseRequestError } = require("../lib/supabase-server");
 
 const ROOT = require("node:path").resolve(__dirname, "..");
 const notificationsPath = require.resolve("../api/notifications.js");
@@ -70,7 +71,7 @@ async function notificationsHarness({ user = null, serviceRequest }){
 }
 
 async function dispatchHarness({ serviceRequest, sendNotification, scheduleError=false }){
-  const restoreServer = withMockedModule(serverPath, { publicError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:(path,options)=>path.endsWith("/nothingsports_activate_fixture_reminders")?Promise.resolve(null):path.endsWith('/nothingsports_reminder_schedule_candidates')?(scheduleError?Promise.reject(Error('Private database detail')):Promise.resolve([])):serviceRequest(path,options) });
+  const restoreServer = withMockedModule(serverPath, { publicError, SupabaseRequestError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:(path,options)=>path.endsWith("/nothingsports_activate_fixture_reminders")?Promise.resolve(null):path.endsWith('/nothingsports_reminder_schedule_candidates')?(scheduleError?Promise.reject(Error('Private database detail')):Promise.resolve([])):serviceRequest(path,options) });
   const restoreWebPush = withMockedModule(webPushPath, {
     setVapidDetails(){},
     sendNotification,
