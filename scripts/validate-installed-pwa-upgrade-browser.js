@@ -417,6 +417,8 @@ const server=http.createServer((req,res)=>{
     assert.equal(new URL(upgraded.url()).searchParams.get('installed-pwa-upgrade'),'1');
     const expectedStandings=JSON.parse(JSON.stringify(require('./build-app-shell-runtime').cardStandings().map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))));
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
+    const calendarUi=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*calendar-sync-ui\.js\?v=\d+)'\)/)[1];
+    assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),calendarUi),fs.readFileSync(path.join(root,'assets/js/calendar-sync-ui.js'),'utf8'),'Calendar UI is available from the exact upgraded offline cache');
     const stylesheet=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/href="(styles\/follow-feed-rework\.css\?v=\d+)"/)[1];
     assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),stylesheet),fs.readFileSync(path.join(root,'styles/follow-feed-rework.css'),'utf8'),'Upgraded cache must contain the exact versioned card stylesheet');
 

@@ -66,6 +66,10 @@ function build(){
 }
 const target = path.join(root,"assets/js/app-shell-runtime.js");
 if (require.main === module){
+  const optionalTarget=path.join(root,'assets/js/calendar-sync-ui.js');
+  const optionalOutput=require('terser').minify_sync(fs.readFileSync(path.join(root,'assets/js/calendar-sync-ui.source.js'),'utf8'),{compress:{passes:4},mangle:true}).code+'\n';
+  if(process.argv.includes('--check')){if(!fs.existsSync(optionalTarget)||fs.readFileSync(optionalTarget,'utf8')!==optionalOutput)throw Error('Calendar UI bundle is stale');}
+  else fs.writeFileSync(optionalTarget,optionalOutput);
   const output = build();
   if (process.argv.includes("--check")){
     if (!fs.existsSync(target) || fs.readFileSync(target,"utf8") !== output) throw new Error("App shell bundle is stale. Run node scripts/build-app-shell-runtime.js");

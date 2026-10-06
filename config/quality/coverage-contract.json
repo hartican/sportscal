@@ -3,36 +3,199 @@
   "evidenceUpdatedAt": "2026-10-04",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
-  "window": {"from":"2026-09-20","through":"2027-09-27","meaning":"Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."},
-  "requiredGates": ["fixtureTruth","timingResults","australianViewing","contextEditorial","presentationBehaviour","operationsRights"],
+  "window": {
+    "from": "2026-09-20",
+    "through": "2027-09-27",
+    "meaning": "Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."
+  },
+  "requiredGates": [
+    "fixtureTruth",
+    "timingResults",
+    "australianViewing",
+    "contextEditorial",
+    "presentationBehaviour",
+    "operationsRights"
+  ],
   "families": [
-    {"id":"australian-rules","codes":["afl","aflw"],"carried":true},
-    {"id":"rugby-league","codes":["nrl","nrlw"],"carried":true},
-    {"id":"motorsport","codes":["motorsport","supercars","wrc","f1","motogp","dakar","lemans"],"carried":true},
-    {"id":"extreme","codes":["extreme"],"carried":false},
-    {"id":"surfing","codes":["surf","wsl"],"carried":true,"note":"Reviewed WSL child belongs to the existing Surfing family; calendar coverage does not certify heats, results, viewing or rights."},
-    {"id":"rugby-union","codes":["rugby-union"],"carried":true},
-    {"id":"tennis","codes":["tennis"],"carried":true},
-    {"id":"football","codes":["football","champions-league"],"carried":true},
-    {"id":"cycling","codes":["cycling","tour-de-france","giro-ditalia","vuelta-a-espana"],"carried":true},
-    {"id":"cricket","codes":["cricket"],"carried":true},
-    {"id":"basketball","codes":["basketball","nbl","fiba-women"],"carried":true},
-    {"id":"golf","codes":["golf"],"carried":true},
-    {"id":"american-football","codes":["american-football"],"carried":true},
-    {"id":"ice-hockey","codes":["ice-hockey"],"carried":true},
-    {"id":"skiing","codes":["skiing"],"carried":true,"note":"Four selected reviewed calendar appointments now reach Inspector/Schedule in two FIS scopes; keep in denominator. Calendar integrity alone does not certify winter coverage, results, viewing, presentation or rights."},
-    {"id":"athletics","codes":["athletics"],"carried":false},
-    {"id":"swimming","codes":["swimming"],"carried":false},
-    {"id":"netball","codes":["netball"],"carried":false},
-    {"id":"boxing","codes":["boxing"],"carried":false},
-    {"id":"multi-sport","codes":["multi-sport"],"carried":true},
-    {"id":"sailing","codes":["sailgp"],"carried":true}
+    {
+      "id": "australian-rules",
+      "codes": [
+        "afl",
+        "aflw"
+      ],
+      "carried": true
+    },
+    {
+      "id": "rugby-league",
+      "codes": [
+        "nrl",
+        "nrlw"
+      ],
+      "carried": true
+    },
+    {
+      "id": "motorsport",
+      "codes": [
+        "motorsport",
+        "supercars",
+        "wrc",
+        "f1",
+        "motogp",
+        "dakar",
+        "lemans"
+      ],
+      "carried": true
+    },
+    {
+      "id": "extreme",
+      "codes": [
+        "extreme"
+      ],
+      "carried": false
+    },
+    {
+      "id": "surfing",
+      "codes": [
+        "surf",
+        "wsl"
+      ],
+      "carried": true,
+      "note": "Reviewed WSL child belongs to the existing Surfing family; calendar coverage does not certify heats, results, viewing or rights."
+    },
+    {
+      "id": "rugby-union",
+      "codes": [
+        "rugby-union"
+      ],
+      "carried": true
+    },
+    {
+      "id": "tennis",
+      "codes": [
+        "tennis"
+      ],
+      "carried": true
+    },
+    {
+      "id": "football",
+      "codes": [
+        "football",
+        "champions-league"
+      ],
+      "carried": true
+    },
+    {
+      "id": "cycling",
+      "codes": [
+        "cycling",
+        "tour-de-france",
+        "giro-ditalia",
+        "vuelta-a-espana"
+      ],
+      "carried": true
+    },
+    {
+      "id": "cricket",
+      "codes": [
+        "cricket"
+      ],
+      "carried": true
+    },
+    {
+      "id": "basketball",
+      "codes": [
+        "basketball",
+        "nbl",
+        "fiba-women"
+      ],
+      "carried": true
+    },
+    {
+      "id": "golf",
+      "codes": [
+        "golf"
+      ],
+      "carried": true
+    },
+    {
+      "id": "american-football",
+      "codes": [
+        "american-football"
+      ],
+      "carried": true
+    },
+    {
+      "id": "ice-hockey",
+      "codes": [
+        "ice-hockey"
+      ],
+      "carried": true
+    },
+    {
+      "id": "skiing",
+      "codes": [
+        "skiing"
+      ],
+      "carried": true,
+      "note": "Four selected reviewed calendar appointments now reach Inspector/Schedule in two FIS scopes; keep in denominator. Calendar integrity alone does not certify winter coverage, results, viewing, presentation or rights."
+    },
+    {
+      "id": "athletics",
+      "codes": [
+        "athletics"
+      ],
+      "carried": false
+    },
+    {
+      "id": "swimming",
+      "codes": [
+        "swimming"
+      ],
+      "carried": false
+    },
+    {
+      "id": "netball",
+      "codes": [
+        "netball"
+      ],
+      "carried": false
+    },
+    {
+      "id": "boxing",
+      "codes": [
+        "boxing"
+      ],
+      "carried": false
+    },
+    {
+      "id": "multi-sport",
+      "codes": [
+        "multi-sport"
+      ],
+      "carried": true
+    },
+    {
+      "id": "sailing",
+      "codes": [
+        "sailgp"
+      ],
+      "carried": true
+    },
+    {
+      "id": "baseball",
+      "codes": [
+        "baseball"
+      ],
+      "carried": true
+    }
   ],
   "reviewedCalendarContexts": [
     {
       "competitionId": "competition:uefa-champions-league",
       "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-      "evidence": ["docs/quality/ucl-stage-calendar-integrity-2026-10-03.md"],
+      "evidence": [
+        "docs/quality/ucl-stage-calendar-integrity-2026-10-03.md"
+      ],
       "recordIds": [
         "major-stage:uefa-champions-league-2026-27:knockout-play-offs",
         "major-stage:uefa-champions-league-2026-27:round-of-16",

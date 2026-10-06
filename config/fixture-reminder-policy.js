@@ -22,11 +22,18 @@
   if(!knockout(f))return false;
   const tennis=/^(?:tennis|wimbledon)/.test(String(f.key||f.sportKey||''));if(!tennis)return true;
   const category=[f.tournamentLevel,f.category,f.tourLevel,f.competitionCategory,f.tournamentCategory].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');
-  return !/qualif/.test([f.stage,f.round,f.roundLabel].join(' '))&&!/\b(?:250|500)\b|qualif|exhibition|warm.up/.test(category)&&/grand.?slam|major|1000|masters|team|davis|billie|bjk|finals/.test(category);
+  if(/qualif|exhibition|warm.up/.test(category)||/qualif/.test([f.stage,f.round,f.roundLabel].join(' ')))return false;
+  if(/\b(?:250|500)\b/.test(category)){
+   const stages=[f.stage,f.round,f.roundLabel].filter(Boolean).map(v=>String(v).trim().toLowerCase().replace(/_/g,' '));
+   const singles=!/doubles|mixed|team/.test([f.discipline,f.drawType,f.eventType,f.format].join(' ').toLowerCase())&&deps().feed.participantIds(f).length===2;
+   const tour=/\b(?:atp|wta)\b/.test([f.tour,f.tournamentLevel,f.competitionId].join(' ').toLowerCase());
+   return tour&&singles&&stages.some(v=>/^(?:singles )?(?:championship )?final$/.test(v))&&!stages.some(v=>/semi|quarter|qualif|round|group|exhibition/.test(v));
+  }
+  return /grand.?slam|major|1000|masters|team|davis|billie|bjk|finals/.test(category);
  }
  function automatic(f,prefs,collections={},now=Date.now()){
   const {follow,feed}=deps(),notifications=prefs?.followFirst?.notifications||{};
-  if(notifications.autoRemindersEnabled===false||feed.aggregateEvent(f)||f.tournamentParent||f.majorEventMarker||f.cardKind==='event'||f.published===false||f.participantsConfirmed===false||feed.explicitlyExcluded(f,prefs)||!knockout(f))return false;
+  if(notifications.enabled===false||notifications.sportingRemindersEnabled===false||notifications.autoRemindersEnabled===false||feed.aggregateEvent(f)||f.tournamentParent||f.majorEventMarker||f.cardKind==='event'||f.published===false||f.participantsConfirmed===false||feed.explicitlyExcluded(f,prefs)||!knockout(f))return false;
   if(!automaticEventScope({...f,key:feed.sportKey(f)}))return false;
   if(!timing(f,now))return false;
   return feed.participantIds(f).some(id=>follow.effectiveParticipantFollow(id,prefs,collections)?.followed===true);

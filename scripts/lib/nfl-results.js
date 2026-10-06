@@ -2,6 +2,9 @@
 const fs=require('node:fs');
 const SEASON=2026;
 const resources=()=>[SEASON,SEASON+1].map(year=>({year,url:`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${year}&limit=1000`}));
+const nflDay=value=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(value));
+// Carry the evening playing date through the overnight final update window.
+const recentResource=now=>{const day=nflDay(new Date(+new Date(now)-8*3600000));return {day,url:`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${day.replace(/-/g,'')}&limit=1000`};};
 const fail=message=>{throw Error('NFL fixtures: '+message);};
 function observation(value,now){
  if(typeof value!=='string'||!Number.isFinite(Date.parse(value))||new Date(value).toISOString()!==value||Date.parse(value)>+now||+now-Date.parse(value)>6*3600000)fail('invalid or stale observation');
@@ -54,6 +57,27 @@ function parse(responses,{teams,now=new Date()}={}){
  if(regular.length!==272||pre.length!==49||weeks.size!==18||counts.size!==32||[...counts.values()].some(n=>n!==17))fail('incomplete current preseason/regular season');
  return rows;
 }
+function applyRecent(rows,response,{teams,now=new Date(),previousFixtures=[]}={}){
+ observation(response.observedAt,now);
+ const day=recentResource(now).day,payload=response.payload;
+ if(response.day!==day||payload?.leagues?.length!==1||payload.leagues[0].id!=='28'||!Array.isArray(payload.events)||payload.events.length>16)fail('invalid recent-day response');
+ const byId=new Map(rows.map(f=>[f.id,f])),seen=new Set(),updates=new Map(),teamIds=new Set(teams.map(t=>t.id));
+ for(const event of payload.events){
+  const id='fixture:nfl:'+event.id,known=byId.get(id);
+  if(!known||seen.has(id)||nflDay(event.date)!==day)fail('unknown, duplicate or wrong-day recent fixture');seen.add(id);
+  const current=fixture(event,{teamIds,checkedAt:response.observedAt,now,roundLabel:known.roundLabel});
+  if(current.roundNumber!==known.roundNumber||current.seasonType!==known.seasonType)fail('recent edition or round conflict');
+  updates.set(id,current);
+ }
+ if(rows.some(f=>nflDay(f.startTimeUtc||f.estimatedStartTimeUtc)===day&&!seen.has(f.id)))fail('incomplete recent-day fixtures');
+ const retained=new Map(previousFixtures.map(f=>[f.id,f]));
+ return rows.map(f=>{
+  if(updates.has(f.id))return updates.get(f.id);
+  const old=retained.get(f.id);
+  if(old&&(['live','completed'].includes(old.status)&&f.status==='upcoming'||old.status==='live'&&f.status==='live'&&JSON.stringify(old.participantSlots.map(s=>s.score))===JSON.stringify(f.participantSlots.map(s=>s.score))))return old;
+  return f;
+ });
+}
 const DATE_KEYS=new Set(['sourceCheckedAt','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt']);
 const meaning=v=>JSON.stringify(v,(k,x)=>DATE_KEYS.has(k)?undefined:x);
 const scheduleMeaning=f=>JSON.stringify(['date','time','startTimeUtc','estimatedStartTimeUtc','venue','scheduleStatus','timePrecision','timeTbc','scheduleNote','sourceUrl'].map(k=>f?.[k]));
@@ -83,11 +107,12 @@ function merge(previous,fixtures){
 async function refreshFile({filePath,fetchJson,clock=()=>new Date()}={}){
  const previous=JSON.parse(fs.readFileSync(filePath,'utf8')),responses=[];
  for(const route of resources()){const payload=await fetchJson(route.url);responses.push({payload,observedAt:clock().toISOString()});}
- const fixtures=parse(responses,{teams:previous.teams,now:clock()}),next=merge(previous,fixtures);
+ const parsed=parse(responses,{teams:previous.teams,now:clock()}),route=recentResource(clock()),payload=await fetchJson(route.url),observedAt=clock().toISOString();
+ const fixtures=applyRecent(parsed,{...route,payload,observedAt},{teams:previous.teams,now:clock(),previousFixtures:previous.fixtures}),next=merge(previous,fixtures);
  next.standings=require('./nfl-standings').withResultCoverage(next.standings||[],next.fixtures);
  const changed=JSON.stringify(next)!==JSON.stringify(previous);
  if(changed)fs.writeFileSync(filePath,JSON.stringify(next,null,2)+'\n');
- return {changed,checkedAt:responses.at(-1).observedAt,sourceRequests:2,fixtures:fixtures.length,regularFixtures:272,preseasonFixtures:49,liveObservations:fixtures.filter(f=>f.status==='live').length,finals:fixtures.filter(f=>f.status==='completed').length,provisional:fixtures.filter(f=>f.scheduleStatus==='provisional').length};
+ return {changed,checkedAt:observedAt,sourceRequests:3,recentDay:route.day,fixtures:fixtures.length,regularFixtures:272,preseasonFixtures:49,liveObservations:fixtures.filter(f=>f.status==='live').length,finals:fixtures.filter(f=>f.status==='completed').length,provisional:fixtures.filter(f=>f.scheduleStatus==='provisional').length};
 }
 function projectionCurrent(directory,{inspector,schedule}){
  return [inspector,schedule].every(doc=>directory.fixtures.every(f=>{
@@ -95,4 +120,4 @@ function projectionCurrent(directory,{inspector,schedule}){
   return projected&&['status','sourceCheckedAt','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','timeTbc'].every(k=>(projected[k]??null)===(f[k]??null))&&(projected.startTimeUtc==null&&f.startTimeUtc==null||Date.parse(projected.startTimeUtc)===Date.parse(f.startTimeUtc))&&(!f.timePrecision||projected.timePrecision===f.timePrecision)&&JSON.stringify(projected.participantSlots?.map(s=>[s.participantId,s.score==null?null:Number(s.score)]))===JSON.stringify(f.participantSlots.map(s=>[s.participantId,s.score==null?null:Number(s.score)]));
  }));
 }
-module.exports={SEASON,resources,fixture,parse,merge,refreshFile,projectionCurrent,meaning};
+module.exports={SEASON,resources,recentResource,applyRecent,fixture,parse,merge,refreshFile,projectionCurrent,meaning};

@@ -51,6 +51,7 @@
   };
 
   const customBodies = {
+    "sport:baseball":'<circle cx="12" cy="12" r="9"/><path d="M6 5c6 4 6 10 0 14M18 5c-6 4-6 10 0 14M8 8l-2 1M9 12H7M8 16l-2-1M16 8l2 1M15 12h2M16 16l2-1"/>',
     "sport:sailing": '<path d="M12 3v13M12 4l7 10h-7M11 7 5 15h6"/><path d="M3 18c3 2 6 2 9 0s6-2 9 0M3 21c3 2 6 2 9 0s6-2 9 0"/>',
     "sport:ice-hockey": '<path d="m17 3-7 15H3v3h9L21 3"/><ellipse cx="19" cy="20" rx="3" ry="1.5"/>',
     "sport:cricket": '<path d="m7 3 4 4-5 5-4-4z"/><path d="m9 5 10 10-4 4L5 9M17 4v8M21 4v8M15 4h8M15 12h8"/>',

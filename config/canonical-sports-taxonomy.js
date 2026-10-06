@@ -6,6 +6,7 @@
   "use strict";
 
   const sportDomains = [
+    {id:"sport:baseball",slug:"baseball",name:"Baseball",kind:"sport",sortOrder:115,isActive:true,supportsLadders:false,supportsAllFixtures:false,supportsNarrative:false,supportsTeams:true,supportsCompetitors:false,defaultTemplateId:"template:like",metadata:{region:"global",neutralGlyph:"sport:baseball"}},
     {
       id: "sport:supercars", slug: "supercars", name: "V8 Supercars",
       kind: "sport", parentId: "sport:motorsport", sortOrder: 34,

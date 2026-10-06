@@ -877,6 +877,7 @@
         return {
           providerId,
           ...provider,
+          ...(explicitObject.channelBrand?{label:provider.label+" · "+explicitObject.channelBrand,channelBrand:explicitObject.channelBrand}:{}),
           webUrl,
           url:provider.universalUrl || webUrl,
           territory:explicitObject.territory || provider.territory || rights?.territory || "AU",

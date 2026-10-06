@@ -146,6 +146,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-athlete-profiles.js", "--check"],
   ["scripts/validate-athlete-profiles.js"],
   ["scripts/refresh-nfl-ice-hockey.js"],
+  ["scripts/refresh-mlb-postseason.js"],
+  ["scripts/validate-mlb-postseason.js"],
   ["scripts/refresh-nfl-ice-hockey.js", "--check"],
   ["scripts/validate-refresh-resilience.js"],
   ["scripts/refresh-official-follow-fixtures.js"],
@@ -492,7 +494,7 @@ async function runMain() {
   }
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
-    if(sources.length!==1||!['--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
+    if(sources.length!==1||!['--source=mlb','--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
     runStep(['scripts/quick-results.js',sources[0]]);
     return;
   }

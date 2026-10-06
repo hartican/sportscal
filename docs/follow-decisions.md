@@ -594,3 +594,12 @@ Regression: the existing reviewed-tennis/Athletes gate checks terminal retiremen
 ## Profile match return waits for Feed — 6 October 2026 Sydney
 
 Live production acceptance exposed a notification fallback request starting while a profile's target card was not yet mounted. Its eventual dialog could appear over the returned profile and intercept Back. A profile match route waits for its seeded Feed card rather than opening the notification fallback. Returning to the profile or choosing another tab clears that route's pending focus. Ordinary notification links retain their existing fallback. Source fixtures, filters, exclusions, dismissals, saved Follow and Remind OFF remain unchanged. The existing Athletes browser gate reproduces an unmounted target through the actual focus boundary, preserves ordinary notification fallback and verifies pending-focus cancellation on Back in both engines. Shell447 versions the existing deferred module and shell; no source or consent changes.
+
+
+## 6 October 2026 — owner-approved tennis finals and discovery repair
+
+This dated decision supersedes the earlier blanket manual-only ATP/WTA 250/500 rule. A verified ATP/WTA 250 or 500 singles championship final involving an effective user follow automatically enters Feed. Earlier rounds, semi-finals, quarter-finals, qualifying, doubles and exhibitions remain manual. Rank alone never establishes a follow or consent.
+
+The same championship-final scope is eligible for the existing 15-minute automatic reminder owner, using only that named match's official exact or not-before instant. Global alerts OFF, sporting reminders OFF, automatic reminders OFF, device OFF and per-fixture Remind OFF all remain authoritative. Parent/session clocks and play order cannot fill missing match times. Both players resolve to one canonical fixture/action identity.
+
+My athletes & teams contains only effective explicit or collection-derived user follows. Top-ranked suggestions belong in Browse: dated ATP top ten and WTA top ten. Golf background scope is the dated men's world top ten, women's top five, plus explicit follows; only the next sourced tee time and playing partners are forward-facing. Events defaults to followed current events, with All events separately available. The first release is a stability subpass; the rest of the approved programme remains in progress.

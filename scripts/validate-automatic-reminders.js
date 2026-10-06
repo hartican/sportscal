@@ -13,6 +13,12 @@ async function main(){
  assert.equal(policy.timing(require('./lib/tournament-horizon').structure({tournamentId:'qa',startTimeUtc:start},[{...f,startTimeUtc:null}]).publishedFixtures[0],+now),null,'A parent start cannot fill a missing child time');
  for(const stage of ['Round Robin','Group stage','Qualifying round 1','Exhibition','Final round'])assert.equal(policy.automatic({...f,roundLabel:stage},prefs,{},+now),false,stage);
  for(const level of ['ATP 250','WTA 500','Warm-up','Exhibition','Unknown'])assert.equal(policy.automatic({...f,tournamentLevel:level},prefs,{},+now),false,level);
+ for(const tournamentLevel of ['ATP 250','WTA 500']){
+  const final={...f,tournamentLevel,roundLabel:'Final'};assert.equal(policy.automatic(final,prefs,{},+now),true);
+  for(const roundLabel of ['Semi-final','Quarter-final','Qualifying Final'])assert.equal(policy.automatic({...final,roundLabel},prefs,{},+now),false);
+  assert.equal(policy.automatic({...final,drawType:'doubles'},prefs,{},+now),false);
+  for(const setting of ['enabled','sportingRemindersEnabled','autoRemindersEnabled'])assert.equal(policy.automatic(final,{...prefs,followFirst:{notifications:{[setting]:false}}},{},+now),false);
+ }
  assert.equal(policy.automatic({...f,roundLabel:'Group',name:'WTA Finals'},prefs,{},+now),false);
  assert.equal(policy.automatic({...f,roundLabel:'Final',tournamentLevel:'WTA Finals'},prefs,{},+now),true);
  for(const precision of ['follows','estimated','session','unknown'])assert.equal(policy.timing({...f,timePrecision:precision},+now),null,precision);

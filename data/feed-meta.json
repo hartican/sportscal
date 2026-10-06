@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261006025955005",
+  "version": "weekend-editorial-20261006025955005-20261006041237839-20261006041421979-20261006041800788",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-06T02:59:55.005Z",
+  "publishedAt": "2026-10-06T04:18:00.788Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -35,7 +35,8 @@
     "downhill-mtb",
     "big-wave",
     "ski",
-    "goodwood"
+    "goodwood",
+    "baseball"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -195,6 +196,11 @@
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
+      },
+      "baseball": {
+        "count": 29,
+        "firstEventDate": "2026-09-30",
+        "lastEventDate": "2026-10-11"
       }
     }
   }

@@ -6,6 +6,9 @@
   "use strict";
 
   const nodes = [
+    ["sport:baseball","Baseball","sport"],
+    ["discipline:baseball:professional","Professional baseball","discipline","sport:baseball"],
+    ["competition:mlb","Major League Baseball","competition","discipline:baseball:professional",["MLB"]],
     ["sport:australian-football", "Australian football", "sport", null, ["AFL", "Aussie rules"]],
     ["discipline:australian-football:elite", "Elite Australian football", "discipline", "sport:australian-football"],
     ["competition:afl-premiership", "AFL Premiership", "competition", "discipline:australian-football:elite"],
@@ -298,6 +301,7 @@
     football: "sport:football",
     basketball: "sport:basketball",
     golf: "sport:golf",
+    baseball:"sport:baseball",
     "american-football": "sport:american-football",
     "ice-hockey": "sport:ice-hockey",
     nhl: "competition:nhl",

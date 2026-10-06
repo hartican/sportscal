@@ -403,8 +403,13 @@
       ]
     },
     {
-      "fixtureIds": ["fixture:golf:lpga:2026068", "fixture:golf:lpga:2026070"],
-      "competitionIds": ["competition:lpga-tour"],
+      "fixtureIds": [
+        "fixture:golf:lpga:2026068",
+        "fixture:golf:lpga:2026070"
+      ],
+      "competitionIds": [
+        "competition:lpga-tour"
+      ],
       "notBefore": "2026-10-01",
       "notAfter": "2026-11-01",
       "rightsScope": "competition",
@@ -628,6 +633,62 @@
           "url": "https://www.foxtel.com.au/watch/cricket.html",
           "linkScope": "sport",
           "destinationBasis": "Official current Cricket page lists the October South Africa tour. Browser transport failed; authenticated playback and device access unverified."
+        }
+      ]
+    },
+    {
+      "fixtureIds": [
+        "fixture:nfl:401872979"
+      ],
+      "notBefore": "2026-10-06",
+      "notAfter": "2026-10-07",
+      "verifiedAt": "2026-10-06T04:00:00Z",
+      "sourceUrl": "https://kayosports.com.au/en-AU/home",
+      "providers": [
+        {
+          "id": "kayo",
+          "channelBrand": "ESPN",
+          "url": "https://kayosports.com.au/en-AU/home",
+          "linkScope": "sport",
+          "sourceUrl": "https://kayosports.com.au/en-AU/home"
+        },
+        {
+          "id": "foxtel",
+          "channelBrand": "ESPN",
+          "url": "https://www.foxtel.com.au/tv-guide",
+          "linkScope": "sport",
+          "sourceUrl": "https://www.foxtel.com.au/tv-guide/channel/ESPN2-HD/ES2/2026/09/09/1755"
+        },
+        {
+          "id": "dazn",
+          "url": "https://www.dazn.com/en-AU/welcome/nfl",
+          "linkScope": "sport",
+          "sourceUrl": "https://www.dazn.com/en-AU/welcome/nfl"
+        }
+      ]
+    },
+    {
+      "fixtureIds": [
+        "fixture:mlb:849839"
+      ],
+      "notBefore": "2026-10-06",
+      "notAfter": "2026-10-07",
+      "verifiedAt": "2026-10-06T04:00:00Z",
+      "sourceUrl": "https://kayosports.com.au/en-AU/home",
+      "providers": [
+        {
+          "id": "kayo",
+          "channelBrand": "ESPN2",
+          "url": "https://kayosports.com.au/en-AU/home",
+          "linkScope": "sport",
+          "sourceUrl": "https://kayosports.com.au/en-AU/home"
+        },
+        {
+          "id": "foxtel",
+          "channelBrand": "ESPN2",
+          "url": "https://www.foxtel.com.au/tv-guide",
+          "linkScope": "sport",
+          "sourceUrl": "https://www.foxtel.com.au/tv-guide/channel/ESPN2-HD/ES2/2026/09/09/1755"
         }
       ]
     }

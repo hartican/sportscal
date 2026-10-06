@@ -1,7 +1,19 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-06T02:59:55.005Z",
+  "generatedAt": "2026-10-06T04:18:00.788Z",
   "codes": [
+    {
+      "followSchedulePath": "data/follow-schedule/baseball.json",
+      "id": "sport:baseball",
+      "slug": "baseball",
+      "label": "Baseball",
+      "fixtureCount": 29,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-06T04:18:00.788Z",
+      "chunkPath": "data/code-inspector/baseball.json"
+    },
     {
       "followSchedulePath": "data/follow-schedule/supercars.json",
       "id": "sport:supercars",
@@ -239,7 +251,7 @@
       "coverageNote": "NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T02:59:55.005Z",
       "chunkPath": "data/code-inspector/american-football.json"
     },
     {

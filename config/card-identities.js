@@ -211,6 +211,7 @@
     "fiba-women": sportMark("fiba-women", "FIBA women's basketball", "sport:basketball"),
     masters: sportMark("masters", "Golf", "sport:golf"),
     golf: sportMark("golf", "Golf", "sport:golf"),
+    baseball:sportMark("baseball","Baseball","sport:baseball"),
     nfl: sportMark("nfl", "American football", "sport:american-football"),
     "american-football": sportMark("american-football", "American football", "sport:american-football"),
     cwg: sportMark("cwg", "Multi-sport games", "sport:multi-sport"),

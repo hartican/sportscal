@@ -32,7 +32,12 @@ function runProjectionSteps(steps,{editorialBaseline}={}){
  }
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
-function run(file,...args){const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
+function run(file,...args){
+ if(file==='scripts/publish-feed.js'){
+  const p='feeds/incoming/events.json',d=read(p),events=require('./lib/editorial-publication').reconcileFullPreviews(d.events,read('data/editorial-knowledge.v1.json'));
+  if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
+ }
+ const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
 async function refreshNflResults(options={}){
  const facts=require('./lib/nfl-results'),filePath=options.filePath||'data/canonical/american-football-directory.v1.json';
  const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
@@ -44,7 +49,7 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
@@ -58,6 +63,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
   if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
+ if(changes.some(change=>change.startsWith('MLB')))codes.add('baseball');
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
  if(changes.some(change=>/^(CHL|NHL)/.test(change)))codes.add('ice-hockey');
  if(changes.some(change=>change.startsWith('LPGA')))codes.add('golf');
@@ -129,6 +135,12 @@ function refreshNbl(changes,{published=false}={}){
 }
 async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
+  if(source==='mlb'&&!offline){
+   const mlb=await require('../lib/mlb-postseason').refresh({now});
+   for(const args of retainedFeedProjectionSteps(mlb.changed?['MLB postseason source check']:[]))run(...args);
+   run('scripts/validate-mlb-postseason.js');
+   return {mode:'quick',source,checkedAt:mlb.checkedAt,changed:mlb.changed?['MLB postseason source check']:[],failures:[],mlb,aiCalls:0};
+  }
   if(source==='known-finals'&&!offline){
    const owner=require('./lib/known-final-results'),finalResults=await owner.refresh({now});
    if(process.env.KNOWN_FINAL_RESULTS_REPORT){fs.mkdirSync(require('node:path').dirname(process.env.KNOWN_FINAL_RESULTS_REPORT),{recursive:true});write(process.env.KNOWN_FINAL_RESULTS_REPORT,finalResults);}
@@ -209,6 +221,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    refreshNbl(changes);
  }catch(error){failures.push(`NBL: ${error.message}`);}
  if(!offline)try{const result=await refreshNflResults();if(result.changed||result.projectionNeedsRepair)changes.push('NFL current-season source check');}catch(error){failures.push(`NFL: ${error.message}`);}
+ if(!offline)try{const mlb=await require('../lib/mlb-postseason').refresh({now});if(mlb.changed)changes.push('MLB postseason source check');}catch(error){failures.push(`MLB: ${error.message}`);}
  let nflStandings=null;
  if(!offline)try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
  let chl=null;

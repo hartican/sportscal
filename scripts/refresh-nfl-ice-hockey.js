@@ -80,7 +80,9 @@ async function buildNfl({fetchSource=fetchJson,clock=()=>new Date(),previous=fs.
     (async()=>{for(const route of facts.resources()){const payload=await fetchSource(route.url);responses.push({payload,observedAt:clock().toISOString()});}})(),
   ]);
   const sourceTeams = teamsPayload?.sports?.[0]?.leagues?.[0]?.teams?.map(entry => entry.team).filter(team => team?.isActive !== false) || [];
-  const fixtures=facts.parse(responses,{teams:sourceTeams.map(t=>({id:'team:nfl:'+String(t.abbreviation||'').toLowerCase(),displayName:t.displayName})),now:clock()});
+  const teams=sourceTeams.map(t=>({id:'team:nfl:'+String(t.abbreviation||'').toLowerCase(),displayName:t.displayName}));
+  const parsed=facts.parse(responses,{teams,now:clock()}),recent=facts.recentResource(clock()),payload=await fetchSource(recent.url);
+  const fixtures=facts.applyRecent(parsed,{...recent,payload,observedAt:clock().toISOString()},{teams,now:clock(),previousFixtures:previous?.fixtures||[]});
   const retained=facts.merge(previous||{fixtures:[]},fixtures);
   const teamResults = await mapLimit(sourceTeams, 6, async team => {
     const abbreviation = String(team.abbreviation || "").toLowerCase();

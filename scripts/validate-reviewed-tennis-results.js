@@ -14,7 +14,7 @@ for(const e of nexts){
  assert.equal(e.timePrecision,'not-before');
  assert.equal(new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(e.startTimeUtc)),e.tournamentName==='Japan Open'?'20:00':'22:00','Sydney daylight saving conversion');
  assert.equal(model.next(doc.events,e.homeParticipantId,instant)?.id,e.id);
- assert.equal(policy.automaticEventScope(e),false,'ATP500 final cannot become automatic ON');assert(policy.timing(e,instant),'manual timing remains available');
+ assert.equal(policy.automaticEventScope(e),true,'Reviewed ATP500 singles championship final enters the owner-approved automatic scope');assert(policy.timing(e,instant),'the named official timing remains available');
 }
 assert.equal(model.next(doc.events,'athlete:tennis:alex-de-minaur',instant)?.id,nexts.find(e=>e.id.includes('djokovic-de-minaur')).id,'both followed finalists share one canonical next fixture');
 const retirement=doc.events.find(e=>e.resultCode==='RET');assert(retirement);assert.equal(retirement.retiredParticipantId,retirement.awayParticipantId);assert.equal(model.next([retirement],retirement.homeParticipantId,instant),null,'a retirement is terminal, including an unfinished set');

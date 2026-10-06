@@ -105,6 +105,7 @@
     ["sport:fiba-women", "FIBA Women", "sport", null, ["fiba-women"], "competition:fiba-womens-world-cup", "sport:basketball", 122],
     ["sport:sailgp", "SailGP", "sport", null, ["sailgp"], "competition:sailgp", "sport:sailing", 122],
     ["sport:golf", "Golf", "sport", null, ["golf", "masters"], "sport:golf", "sport:golf", 130],
+    ["sport:baseball","Baseball","sport",null,["baseball"],"sport:baseball","sport:baseball",140.5],
     ["sport:american-football", "American Football", "sport", null, ["nfl", "american-football"], "sport:american-football", "sport:american-football", 140],
     ["sport:athletics", "Athletics", "sport", null, ["athletics"], "sport:athletics", "sport:athletics", 150],
     ["sport:swimming", "Swimming", "sport", null, ["swimming"], "sport:swimming", "sport:swimming", 160],
