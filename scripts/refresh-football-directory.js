@@ -162,7 +162,6 @@ function playerRecord(league, team, athlete){
       : emerging
         ? "Under 23 with an evidenced senior international and club debut."
         : "Listed in the current senior first-team squad as an established player.",
-    dateOfBirth: athlete.dateOfBirth ? String(athlete.dateOfBirth).slice(0, 10) : null,
     externalIds: { espn: String(athlete.id) },
     sourceRefs: isHerrington ? ["source:football:herrington:socceroos", bootstrapSourceId(league)] : [bootstrapSourceId(league)],
     active: true,

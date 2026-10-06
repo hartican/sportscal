@@ -1,0 +1,3 @@
+'use strict';
+const fs=require('fs'),path=require('path'),scope=require('../lib/shallow-player-background'),root=path.resolve(__dirname,'..');
+for(const code of ['football','afl','aflw']){const file=path.join(root,'data/canonical/'+code+'-directory.v1.json'),original=JSON.parse(fs.readFileSync(file,'utf8')),document=scope.directory(original);if(JSON.stringify(original)===JSON.stringify(document))continue;fs.writeFileSync(file,JSON.stringify(document,null,2)+'\n');fs.writeFileSync(file.replace(/\.json$/,'.js'),'globalThis.NOTHINGSPORTS_'+code.toUpperCase()+'_DIRECTORY_DATA = '+JSON.stringify(document)+';\n');}

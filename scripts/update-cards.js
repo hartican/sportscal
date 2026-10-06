@@ -277,6 +277,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-golf-source-observations.js"],
   ["scripts/validate-golf-tracked-scope.js"],
   ["scripts/validate-tennis-repair.js"],
+  ["scripts/validate-football-round-repair.js"],
+  ["scripts/validate-shallow-player-background.js"],
   ["scripts/validate-canonical-source-readout.js"],
   ["scripts/validate-worker-fallback.js"],
   ["scripts/validate-feed-filter-pagination.js"],
@@ -498,6 +500,14 @@ async function runMain() {
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
     if(sources.length!==1||!['--source=mlb','--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
     runStep(['scripts/quick-results.js',sources[0]]);
+    return;
+  }
+  if(process.argv.includes('--shallow-directories')){
+    runStep(['scripts/prune-retained-player-background.js']);
+    runStep(['scripts/build-follow-directories.js','--codes=football,afl,aflw']);
+    runStep(['scripts/validate-football-directory.js']);
+    runStep(['scripts/validate-team-player-directories.js']);
+    runStep(['scripts/validate-follow-directories.js']);
     return;
   }
   if(process.argv.includes('--code-projections')){

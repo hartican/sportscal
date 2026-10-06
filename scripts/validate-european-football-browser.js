@@ -6,7 +6,7 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],onboardingComplete:true,showSpoilers:false,preferenceGraph:{entityFollows:[{participantId:'team:football:epl:10',followLevel:'follow'}]}})));
  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
  await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
- await page.evaluate(()=>{activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
+ await page.evaluate(()=>{activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
  await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);
  const counts=await page.evaluate(()=>Object.fromEntries(['competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>[id,codeInspectorChunk.fixtures.filter(f=>f.competitionId===id&&f.sourceAttribution?.provider==='OpenLigaDB').length])));
  assert.deepEqual(Object.values(counts),[144,144]);
@@ -42,7 +42,7 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
   for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));}
  }
  await page.evaluate(()=>{userPreferences.showSpoilers=false;});
- const malformedContext=await page.evaluate(()=>{const f=qaEuropeanFixtures.find(f=>f.footballMatchContext);return [NOTHINGSPORTS_FOOTBALL_CONTEXT.context({...f,season:'wrong'},true),NOTHINGSPORTS_FOOTBALL_CONTEXT.context({...f,footballMatchContext:{...f.footballMatchContext,teams:[]}},true)].every(x=>x===null);});assert(malformedContext,'Mismatched season or missing identities must hide context');
+ const malformedContext=await page.evaluate(()=>{const f=qaEuropeanFixtures.find(f=>f.footballMatchContext);return [NOTHINGSPORTS_FOOTBALL_CONTEXT.context({...f,season:'wrong'},true),NOTHINGSPORTS_FOOTBALL_CONTEXT.context({...f,footballMatchContext:{...f.footballMatchContext,teams:[]}},true),NOTHINGSPORTS_FOOTBALL_CONTEXT.context({...f,footballMatchContext:{...f.footballMatchContext,checkedAt:'2999-01-01T00:00Z'}},true)].every(x=>x===null);});assert(malformedContext,'Mismatched season or missing identities must hide context');
  const unknownSource=await page.evaluate(()=>{const el=NOTHINGSPORTS_FOOTBALL_CONTEXT.attribution({sourceAttribution:{provider:'OpenLigaDB'},sourceCheckedAt:'invalid',stage:'League phase',roundNumber:99});return {time:el.querySelector('time')!==null,context:el.querySelector('.fixture-source-context')!==null};});
  assert.deepEqual(unknownSource,{time:false,context:false},'unknown source time or round cannot be fabricated');
  for(const mode of ['schedule','feed']){
@@ -110,7 +110,7 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],onboardingComplete:true,showSpoilers:false,preferenceGraph:{entityFollows:[]}})));
    await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
    await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
-   await page.evaluate(()=>{activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
+   await page.evaluate(()=>{activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
    await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);
  // Chunk readiness is earlier than the deferred Follow presentation. Exercise
  // the shipped schedule-link control against settled UI, not a loading frame.

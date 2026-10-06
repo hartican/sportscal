@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="452">
+<meta name="app-shell-version" content="453">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=452" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=453" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=424">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=452">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=453">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -6969,7 +6969,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above<br>Football data provided by the Football-Data.org API</div>
   <p class="asset-attribution steak-attribution"><a href="https://www.flaticon.com/free-icons/steak" title="steak icons" target="_blank" rel="noopener noreferrer">Steak icons created by meaicon - Flaticon</a></p>
-  <p class="asset-attribution venue-attribution">MotoGP artwork: <a href="https://www.flaticon.com/free-icon/motorbike_1768191" target="_blank" rel="noopener noreferrer">Magnific</a>, <a href="https://www.flaticon.com/free-icon/world_14063354" target="_blank" rel="noopener noreferrer">Roundicons Premium</a> and <a href="https://www.flaticon.com/packs/circuit-13796880" target="_blank" rel="noopener noreferrer">berkahicon</a> — <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">Flaticon</a>. </p>
+  <p class="asset-attribution venue-attribution">Current MotoGP circuit vectors: <a href="https://www.motogp.com/en/calendar" target="_blank" rel="noopener noreferrer">MotoGP official maps</a>; exact route paths, white presentation and cropped background. Original rights retained. Fallback and badge: <a href="https://www.flaticon.com/free-icon/motorbike_1768191" target="_blank" rel="noopener noreferrer">Magnific</a>, <a href="https://www.flaticon.com/free-icon/world_14063354" target="_blank" rel="noopener noreferrer">Roundicons Premium</a> — <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">Flaticon</a>. </p>
   <div class="footer-copyright" data-brand-copy="copyright">Copyright ©&nbsp;2026&nbsp;Nothing Sport. All Rights Reserved.</div>
   <div class="footer-socials" aria-label="Follow Nothing Sport">
     <a class="footer-social-link" href="https://www.instagram.com/_nothingsport/" target="_blank" rel="noopener noreferrer external" aria-label="Follow Nothing Sport on Instagram at @_nothingsport"><span data-vector-glyph="social:instagram"></span><span>@_nothingsport</span></a>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=452"></script>
+<script src="assets/js/app-shell-runtime.js?v=453"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -14358,7 +14358,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=439').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=453').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -16902,7 +16902,7 @@ function buildEuropeanDetail(ev,kind){
     if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
     if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
   }
-  loadDeferredScript('assets/js/football-card-context.js?v=344').then(()=>{const detail=NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();});
+  loadDeferredScript('assets/js/football-card-context.js?v=453').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
   return node;
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
@@ -16923,7 +16923,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=397';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=453';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -17090,6 +17090,7 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
   if (!isMinimised && state === "opened"){
     if(isSpoilerVisible(ev)&&ev.innings?.length&&!['completed','finished','past'].includes(ev.status)){const innings=buildCricketInnings(ev);if(innings)parent.append(innings);}
     const footballContext=buildFootballMatchContext(ev);if(footballContext)parent.append(footballContext);
+    if(['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].includes(ev.competitionId))parent.append(buildEuropeanDetail(ev,'standings'));
     const secondaryActions = document.createElement("div");
     secondaryActions.className = "event-card-secondary-actions";
     secondaryActions.dataset.cardArea="expanded-information";
@@ -19018,7 +19019,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=451';
+  const url='assets/js/follow-presentation-ui.js?v=453';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);

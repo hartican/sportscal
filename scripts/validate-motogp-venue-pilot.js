@@ -31,7 +31,7 @@ for(const document of calendars){
  if(document.weekends[0].sessions.some(s=>s.shortname==='Q2'))assert.throws(()=>ingestion.eventsFor(partial,[],now),/incomplete combined qualifying/);
 }
 const manifest=read('assets/identities/motogp/asset-manifest.json');
-assert.equal(manifest.assets.filter(a=>a.attachment).length,15);
+for(const a of manifest.assets.filter(a=>a.mappingStatus==='verified-venue')){assert(!a.attachment,'mapped current artwork uses native sourced vectors');assert(a.vectorExtraction&&a.sourceUrl.endsWith('.svg'));const crypto=require('node:crypto'),hash=s=>crypto.createHash('sha256').update(s).digest('hex'),source=fs.readFileSync(path.join(root,a.sourceFile),'utf8'),vector=fs.readFileSync(path.join(root,a.path),'utf8');assert.equal(hash(source),a.sourceSha256);const d=vector.match(/<path\b[^>]*\bd="([^"]+)"/)[1];assert.equal(hash(d),a.vectorExtraction.pathSha256);assert(source.includes('d="'+d+'"'),'official source path remains byte-exact');assert.equal(a.vectorExtraction.candidateCount,1,'one verified main race route');assert(vector.includes('matrix('+a.vectorExtraction.matrix.join(' ')+')'));}
 for(const asset of manifest.assets){
  const svg=fs.readFileSync(path.join(root,asset.path),'utf8');assert.match(svg,/<path\b/);assert.doesNotMatch(svg,/<image\b|data:image|<script\b/i);assert.match(svg,/viewBox=/);
  assert.match(asset.sourceUrl,/^https:\/\/(?:www.flaticon.com\/free-icon\/|photos.motogp.com\/|commons.wikimedia.org\/wiki\/)/);assert(asset.author&&asset.modifications&&asset.licenseUrl);

@@ -21,13 +21,13 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
   await page.waitForFunction(()=>startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
   await page.evaluate(()=>{
    userPreferences=FOLLOW_FIRST.migratePreferences({selectedSelectorEntityIds:['sport:football'],showSpoilers:false,onboardingComplete:true});
-   activeTab='follow';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();
+   activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();
   });
   await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);
   try{await page.locator('.code-inspector-group').first().waitFor({timeout:10000});}catch(e){console.log(await page.evaluate(()=>({tab:activeTab,code:activeInspectorCodeId,text:document.getElementById('listView').innerText,loading:startupCoordinator.isHydrating})));throw e;}
-  assert.match(await page.locator('.follow-schedule-panel').innerText(),/Premier League Matchweek/);
+  assert.equal(await page.locator('.code-inspector-group').count(),1);assert.equal(await page.locator('.code-inspector-group[data-current-round=true]').count(),1,'All Football selects the next source-backed round');
   const before=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([key])=>key!=='followBrowse'))));
-  await page.locator('.follow-section-tabs').getByRole('button',{name:'Standings',exact:true}).click();
+  if(await page.getByRole('button',{name:'Expand Follow navigation',exact:true}).count())await page.getByRole('button',{name:'Expand Follow navigation',exact:true}).click();await page.locator('.follow-section-tabs').getByRole('button',{name:'Standings',exact:true}).click();
   assert.match(await page.locator('.follow-schedule-panel').innerText(),/Standings hidden/);
   assert.equal(await page.locator('.code-inspector-standing-row').count(),0);
   await page.getByRole('button',{name:'Reveal standings',exact:true}).click();

@@ -1,3 +1,26 @@
+// The source calendar owns chronological round order; views never create follows.
+function footballRoundPlan(fixtures,today){
+ const key=f=>JSON.stringify([f.competitionId||f.competitionName,f.season||f.seasonLabel||String(f.date).slice(0,4),f.stageType||f.stage,f.roundLabel||f.round||f.stage||f.date]);
+ const groups=new Map();for(const f of fixtures){const k=key(f),g=groups.get(k)||{key:k,label:[f.competitionName,f.season||f.seasonLabel,f.stageType||f.stage,f.roundLabel||f.round||f.date].filter(Boolean).join(' · '),fixtures:[]};g.fixtures.push(f);groups.set(k,g);}
+ const ordered=[...groups.values()].sort((a,b)=>String(a.fixtures.map(f=>f.date||'9999').sort()[0]).localeCompare(String(b.fixtures.map(f=>f.date||'9999').sort()[0]))||a.label.localeCompare(b.label));
+ const eligible=fixtures.filter(f=>!['completed','finished','cancelled','canceled','abandoned'].includes(f.status)&&String(f.endDate||f.date||'')>=today).sort((a,b)=>String(a.startTimeUtc||a.date||'9999').localeCompare(String(b.startTimeUtc||b.date||'9999')));
+ const current=eligible[0];return {groups:ordered,key,currentKey:current?key(current):null,currentIndex:Math.max(0,current?ordered.findIndex(g=>g.key===key(current)):ordered.length-1)};
+}
+function appendFootballCalendarFilters(panel,code,available){
+ if(!/football|champions-league/.test(code.slug||''))return;
+ const host=document.createElement('div');host.className='football-calendar-filters';
+ const nav=globalThis.NOTHINGSPORTS_FOLLOW_NAV;if(!nav)return;const selected=nav.selected(code.id);
+ for(const [key,label]of [['competition','Competition'],['season','Season'],['stage','Stage']]){
+  const scoped=available.filter(f=>['competition','season','stage'].slice(0,['competition','season','stage'].indexOf(key)).every(k=>!selected[k]?.length||selected[k].includes(String(k==='competition'?(f.competitionId||f.competitionName):k==='season'?(f.season||f.seasonLabel||String(f.date).slice(0,4)):(f.stageType||f.stage)))));
+  const choices=new Map(scoped.map(f=>{const value=String(key==='competition'?(f.competitionId||f.competitionName):key==='season'?(f.season||f.seasonLabel||String(f.date).slice(0,4)):(f.stageType||f.stage)||'');return [value,key==='competition'?(f.competitionName||value):value];}).filter(([v])=>v&&v!=='undefined'));
+  if(!choices.size)continue;
+  const row=document.createElement('label');row.textContent=label;const input=document.createElement('select');input.setAttribute('aria-label',label);
+  input.add(new Option('All '+label.toLowerCase()+(key==='stage'?'s':key==='season'?'s':'s'),''));for(const [value,name]of [...choices].sort((a,b)=>a[1].localeCompare(b[1])))input.add(new Option(name,value));
+  if(selected[key]?.length===1)input.value=selected[key][0];else if(selected[key]?.length>1){input.add(new Option('Selected '+label.toLowerCase()+'s','__selected'));input.value='__selected';}
+  input.onchange=()=>{nav.setFilter(code.id,key,input.value?[input.value]:[]);renderCodeInspector();};row.append(input);host.append(row);
+ }
+ panel.append(host);
+}
 function codeInspectorCoverageCopy(code){
   if(code.coverageNote)return code.coverageNote;
   if(code.id==='sport:skiing'&&code.coverageStatus==='partial')return 'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.';
@@ -23,6 +46,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     return;
   }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
+  appendFootballCalendarFilters(panel,code,available);
   const fixtures=available.filter(f=>NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
   if(['sport:skiing','sport:surf'].includes(code.id)&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
@@ -37,13 +61,16 @@ globalThis.renderFollowSchedulePanel=function(container){
     return;
   }
   if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
+  const football=/football|champions-league/.test(code.slug||'');
+  const today=formatDateKey(nowAEST());
+  const footballPlan=football?footballRoundPlan(fixtures,today):null;
   const grouped = new Map();
   // Programme dates order the calendar; they never become match kickoffs.
   const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
   const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
   const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
-  const groupLabel=f=>{const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
+  const groupLabel=f=>{if(football)return footballPlan.key(f);const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
     const group = grouped.get(label) || [];
@@ -56,20 +83,21 @@ globalThis.renderFollowSchedulePanel=function(container){
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => (!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0]))) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
+  const groupLabels = [...grouped.keys()].sort((first, second) => (football||!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0]))) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
-  const today=formatDateKey(nowAEST());
   const current=fixtures.filter(f=>(f.endDate||f.date||f.schedulingWindow?.endsOn)>=today).sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b))))[0]||fixtures.at(-1);
-  const currentIndex=Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
+  const currentIndex=football?Math.max(0,footballPlan.currentKey?groupLabels.indexOf(footballPlan.currentKey):groupLabels.length-1):Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
   const windows=NOTHINGSPORTS_FOLLOW_NAV.windows;
   const fingerprint=JSON.stringify([codeInspectorTab,followBrowseState().scheduleScope,NOTHINGSPORTS_FOLLOW_NAV.selected(code.id)]);
-  let window=windows.get(code.id);if(!window||window.fingerprint!==fingerprint){window={start:currentIndex,end:Math.min(groupLabels.length,currentIndex+3),fingerprint};windows.set(code.id,window);}
+  let window=windows.get(code.id);if(!window||window.fingerprint!==fingerprint){window={start:currentIndex,end:Math.min(groupLabels.length,currentIndex+(football?1:3)),fingerprint};windows.set(code.id,window);}
   const action=(label,callback)=>{const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.onclick=callback;panel.append(b);};
-  action('Jump to current',()=>{window.start=currentIndex;window.end=Math.min(groupLabels.length,currentIndex+3);renderCodeInspector();requestAnimationFrame(()=>document.querySelector('.code-inspector-group')?.scrollIntoView({block:'start'}));});
-  if(window.start>0)action('Earlier rounds / events',()=>{window.start=Math.max(0,window.start-3);renderCodeInspector();});
+  action('Jump to current',()=>{window.start=currentIndex;window.end=Math.min(groupLabels.length,currentIndex+(football?1:3));renderCodeInspector();requestAnimationFrame(()=>document.querySelector('.code-inspector-group')?.scrollIntoView({block:'start'}));});
+  if(football){const row=document.createElement('label');row.className='football-round-picker';row.textContent='Matchday / round';const select=document.createElement('select');select.setAttribute('aria-label','Matchday / round');groupLabels.forEach((key,index)=>{const group=footballPlan.groups.find(g=>g.key===key);select.add(new Option((key===footballPlan.currentKey?'Current / next · ':'')+group.label,String(index)));});select.value=String(window.start);select.onchange=()=>{window.start=Number(select.value);window.end=window.start+1;renderCodeInspector();};row.append(select);panel.append(row);}
+  if(window.start>0)action('Earlier rounds / events',()=>{window.start=Math.max(0,window.start-(football?1:3));renderCodeInspector();});
   groupLabels.slice(window.start,window.end).forEach(label=>{
     const section=document.createElement('section');section.className='code-inspector-group';
-    const title=document.createElement('h3');title.textContent=label;
+    const title=document.createElement('h3');title.textContent=football?footballPlan.groups.find(g=>g.key===label).label:label;
+    if(football&&label===footballPlan.currentKey){section.dataset.currentRound='true';title.setAttribute('aria-current','date');const note=document.createElement('span');note.className='football-current-round';note.textContent='Current / next round';title.append(document.createTextNode(' '),note);}
     const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
     const rows=[...grouped.get(label)];
     if(code.id==='competition:dakar'&&codeInspectorTab!=='results')for(const note of codeInspectorChunk.scheduleNotes||[])if(rows.some(f=>f.season===note.season))rows.push({...note,restDayNote:true});
@@ -86,7 +114,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     });
     section.append(title,list);panel.append(section);
   });
-  if(window.end<groupLabels.length)action('Later rounds / events',()=>{window.end=Math.min(groupLabels.length,window.end+3);renderCodeInspector();});
+  if(window.end<groupLabels.length)action('Later rounds / events',()=>{window.end=Math.min(groupLabels.length,window.end+(football?1:3));renderCodeInspector();});
 
 }
 ;
@@ -135,8 +163,9 @@ function renderCodeInspectorStandings(panel, code){
     reveal.onclick=()=>confirmStandingsReveal(()=>renderCodeInspector());
     panel.append(message,reveal);return;
   }
+  appendFootballCalendarFilters(panel,code,codeInspectorChunk?.fixtures||[]);
   const publishedStandings = codeInspectorChunk?.code?.id === code.id && Array.isArray(codeInspectorChunk.standings)
-    ? codeInspectorChunk.standings.filter(row=>NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({...row,key:code.slug},followBrowseState().sportId))
+    ? codeInspectorChunk.standings.filter(row=>!globalThis.NOTHINGSPORTS_FOLLOW_NAV?.selected(code.id).competition?.length||globalThis.NOTHINGSPORTS_FOLLOW_NAV.selected(code.id).competition.includes(row.competitionId)).filter(row=>NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({...row,key:code.slug},followBrowseState().sportId))
     : [];
   if (publishedStandings.length){
     const byCompetition = new Map();
@@ -203,3 +232,5 @@ function followScheduleScopeMatches(f){
   if(scope.competitionId&&fixtures.some(x=>x.competitionId===scope.competitionId))return f.competitionId===scope.competitionId;
   return true;
 }
+
+if(typeof module==='object'&&module.exports)module.exports={footballRoundPlan};

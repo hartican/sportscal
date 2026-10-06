@@ -1,14 +1,16 @@
-const CACHE_NAME = "nothingsport-shell-v452";
-const SHELL_VERSION = "452";
+const CACHE_NAME = "nothingsport-shell-v453";
+const SHELL_VERSION = "453";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
+  "/assets/js/football-card-context.js?v=453",
+  "/assets/js/tennis-parent-ui.js?v=452",
   "/assets/js/calendar-sync-ui.js?v=449",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=451",
+  "/assets/js/follow-presentation-ui.js?v=453",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -16,8 +18,8 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=397",
-  "/assets/js/follow-navigation.js?v=399",
+  "/assets/js/settings-optional-ui.js?v=453",
+  "/assets/js/follow-navigation.js?v=453",
   "/assets/js/tournament-fixture-ui.js?v=451",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
@@ -58,8 +60,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=452",
-  "/assets/js/follow-schedule-panel.js?v=439",
+  "/assets/js/app-shell-runtime.js?v=453",
+  "/assets/js/follow-schedule-panel.js?v=453",
   "/config/cricket-innings.js?v=431",
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=452",
@@ -75,7 +77,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=452",
+  "/styles/follow-feed-rework.css?v=453",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",

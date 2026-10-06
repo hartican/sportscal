@@ -269,10 +269,6 @@ function buildAflDirectory(canonical, playerRows = AFL_PLAYERS, checkedAt = CHEC
       ? `https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/${isAflw ? "AFLW" : "AFL"}/${seasonImageKey}/${String(providerId).replace(/^CD_I/, "")}.png?im=Scale,width=0.6,height=0.6`
       : null,
     profileRef: `profile:${code}:${slug}`,
-    dateOfBirth: player.dateOfBirth || null,
-    heightInCm: Number(player.heightInCm || 0) || null,
-    recruitedFrom: player.recruitedFrom || null,
-    debutYear: player.debutYear || null,
     active: true,
   }));
   if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !/^https:\/\/www\.afl\.com\.au\/(?:aflw\/)?players\/\d+\//.test(player.sourceUrl))){

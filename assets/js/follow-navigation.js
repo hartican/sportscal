@@ -6,6 +6,8 @@
  const selected=code=>filters[code]||{};
  const rawValues=(f,key)=>{
   if(key==='format')return [NOTHINGSPORTS_CRICKET_COVERAGE.format(f)].filter(Boolean);
+  if(key==='season')return [f.season||f.seasonLabel||String(f.date||'').slice(0,4)].filter(Boolean);
+  if(key==='stage')return [f.stageType||f.stage].filter(Boolean);
   if(key==='round')return [f.roundLabel||f.round||f.stage].filter(Boolean);
   if(key==='competition')return [f.competitionId||f.competitionName].filter(Boolean);
   if(key==='tournament')return [f.tournamentId||f.eventFamilyId].filter(Boolean);
@@ -15,6 +17,7 @@
  };
  const values=(f,key)=>rawValues(f,key).map(String);
  const matches=(f,code)=>Object.entries(selected(code)).filter(([k])=>!code.includes('cricket')||['format','participant'].includes(k)).every(([k,v])=>!v.length||values(f,k).some(x=>v.includes(x)));
+ const setFilter=(code,key,value)=>{const next={...selected(code)};if(value.length)next[key]=value;else delete next[key];if(key==='competition'){delete next.season;delete next.stage;delete next.round;}if(key==='season'){delete next.stage;delete next.round;}if(key==='stage')delete next.round;filters[code]=next;persist();windows.delete(code);};
  function openFilters(code,fixtures){
   const dialog=document.createElement('dialog');dialog.className='follow-more-dialog follow-filter-dialog';dialog.setAttribute('aria-label','Filter schedule');
   const title=document.createElement('h2');title.textContent='Filter schedule';dialog.append(title);
@@ -58,5 +61,5 @@
   if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }
  addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
- globalThis.NOTHINGSPORTS_FOLLOW_NAV={mount,matches,selected,openFilters,windows};
+ globalThis.NOTHINGSPORTS_FOLLOW_NAV={mount,matches,selected,setFilter,openFilters,windows};
 })();
