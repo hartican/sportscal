@@ -35020,7 +35020,7 @@
       "time": "02:30",
       "startTimeUtc": "2026-10-06T15:30:00.000Z",
       "venue": "Logspeed CZ Aréna",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35029,13 +35029,15 @@
           "participantId": "team:chl:73caaf27776183ec10ea6ddc",
           "label": "Skellefteå AIK",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/37"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/37",
+          "score": 2
         },
         {
           "participantId": "team:chl:77148013ae31c768167a5d28",
           "label": "HC Pilsen",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/64"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/64",
+          "score": 4
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/1a7ccbdac3737e2e2123f998/hc-pilsen-vs-skelleftea-aik",
@@ -35052,8 +35054,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/1a7ccbdac3737e2e2123f998/hc-pilsen-vs-skelleftea-aik",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:chl:699e54a9eed83201d7cdeae4",
@@ -35064,7 +35069,7 @@
       "time": "03:00",
       "startTimeUtc": "2026-10-06T16:00:00.000Z",
       "venue": "Home Credit Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35073,13 +35078,15 @@
           "participantId": "team:chl:ba55abe823bed83d7c12e7b3",
           "label": "Frölunda Gothenburg",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/31"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/31",
+          "score": 2
         },
         {
           "participantId": "team:chl:865ec7e2959da256a2a97a8b",
           "label": "Bílí Tygři Liberec",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/3"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/3",
+          "score": 3
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/699e54a9eed83201d7cdeae4/bili-tygri-liberec-vs-frolunda-gothenburg",
@@ -35096,8 +35103,14 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/699e54a9eed83201d7cdeae4/bili-tygri-liberec-vs-frolunda-gothenburg",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z",
+      "resultLabels": [
+        "After overtime"
+      ]
     },
     {
       "id": "fixture:chl:377f3b9a9ec357ee3dc153b0",
@@ -35108,7 +35121,7 @@
       "time": "04:00",
       "startTimeUtc": "2026-10-06T17:00:00.000Z",
       "venue": "Catena Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35117,13 +35130,15 @@
           "participantId": "team:chl:fc04d1152903083968962750",
           "label": "HC Davos",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/47"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/47",
+          "score": 2
         },
         {
           "participantId": "team:chl:47cce95deef579332978edc7",
           "label": "Rögle Ängelholm",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/91"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/91",
+          "score": 3
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/377f3b9a9ec357ee3dc153b0/rogle-angelholm-vs-hc-davos",
@@ -35140,8 +35155,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/377f3b9a9ec357ee3dc153b0/rogle-angelholm-vs-hc-davos",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:chl:dbf6bf2cc4a956165eef7fc3",
@@ -35152,7 +35170,7 @@
       "time": "04:00",
       "startTimeUtc": "2026-10-06T17:00:00.000Z",
       "venue": "Vida Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35161,13 +35179,15 @@
           "participantId": "team:chl:e407e3c30bba319774cc4bea",
           "label": "Genève-Servette",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/22"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/22",
+          "score": 0
         },
         {
           "participantId": "team:chl:59b68db03ae141bf08f49775",
           "label": "Växjö Lakers",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/38"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/38",
+          "score": 4
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/dbf6bf2cc4a956165eef7fc3/vaxjo-lakers-vs-geneve-servette",
@@ -35184,8 +35204,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/dbf6bf2cc4a956165eef7fc3/vaxjo-lakers-vs-geneve-servette",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:chl:d7aa32e2ec7131a0a30e21a6",
@@ -35196,7 +35219,7 @@
       "time": "04:15",
       "startTimeUtc": "2026-10-06T17:15:00.000Z",
       "venue": "Heidi Horten-Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35205,13 +35228,15 @@
           "participantId": "team:chl:c9840a203093f97cae0a9495",
           "label": "KooKoo Kouvola",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/107"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/107",
+          "score": 5
         },
         {
           "participantId": "team:chl:954f0696fef5e714282a6d75",
           "label": "KAC Klagenfurt",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/51"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/51",
+          "score": 3
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/d7aa32e2ec7131a0a30e21a6/kac-klagenfurt-vs-koo-koo-kouvola",
@@ -35228,8 +35253,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/d7aa32e2ec7131a0a30e21a6/kac-klagenfurt-vs-koo-koo-kouvola",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:chl:bd2515ce172bf496428a0a58",
@@ -35240,7 +35268,7 @@
       "time": "04:45",
       "startTimeUtc": "2026-10-06T17:45:00.000Z",
       "venue": "BCF Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35249,13 +35277,15 @@
           "participantId": "team:chl:11df2073083f06cccbb5132e",
           "label": "HK Nitra",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/55"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/55",
+          "score": 1
         },
         {
           "participantId": "team:chl:81d5f7bf950746f44e2b92f3",
           "label": "Fribourg-Gottéron",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/18"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/18",
+          "score": 6
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/bd2515ce172bf496428a0a58/fribourg-gotteron-vs-hk-nitra",
@@ -35272,8 +35302,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/bd2515ce172bf496428a0a58/fribourg-gotteron-vs-hk-nitra",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:chl:3a6ab615c9faf2b08de2f7b1",
@@ -35284,7 +35317,7 @@
       "time": "05:20",
       "startTimeUtc": "2026-10-06T18:20:00.000Z",
       "venue": "Merkur Eisstadion",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "stage": "Regular Season",
       "roundLabel": "Game Day 5",
@@ -35293,13 +35326,15 @@
           "participantId": "team:chl:6aa374572836df3fb42eb000",
           "label": "SaiPa Lappeenranta",
           "homeAway": "away",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/30"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/30",
+          "score": 3
         },
         {
           "participantId": "team:chl:93b3b3514079478af9986663",
           "label": "Graz99ers",
           "homeAway": "home",
-          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/86"
+          "logoUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/86",
+          "score": 1
         }
       ],
       "sourceUrl": "https://www.chl.hockey/en/matches/3a6ab615c9faf2b08de2f7b1/graz-99-ers-vs-sai-pa-lappeenranta",
@@ -35316,8 +35351,11 @@
       ],
       "sourceName": "Champions Hockey League",
       "sourceType": "official-schedule",
-      "sourceCheckedAt": "2026-10-04T11:45:16.795Z",
-      "participantsConfirmed": true
+      "sourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "participantsConfirmed": true,
+      "resultSourceUrl": "https://www.chl.hockey/en/matches/3a6ab615c9faf2b08de2f7b1/graz-99-ers-vs-sai-pa-lappeenranta",
+      "resultSourceCheckedAt": "2026-10-06T20:46:58.212Z",
+      "scoreCheckedAt": "2026-10-06T20:46:58.212Z"
     },
     {
       "id": "fixture:nhl:2026020044",
@@ -78234,12 +78272,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 2,
-      "losses": 2,
-      "goalsFor": 9,
-      "goalsAgainst": 12,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "losses": 3,
+      "goalsFor": 10,
+      "goalsAgainst": 18,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78294,12 +78332,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 2,
+      "gamesPlayed": 5,
+      "wins": 3,
       "losses": 2,
-      "goalsFor": 9,
-      "goalsAgainst": 5,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsFor": 12,
+      "goalsAgainst": 7,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78334,12 +78372,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 2,
+      "gamesPlayed": 5,
+      "wins": 3,
       "losses": 2,
-      "goalsFor": 11,
+      "goalsFor": 15,
       "goalsAgainst": 9,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78379,11 +78417,13 @@
       "losses": 2,
       "goalsFor": 13,
       "goalsAgainst": 13,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
-      "tableNote": "Published club records; competition positions and qualification are unavailable."
+      "tableNote": "Published club records; competition positions and qualification are unavailable.",
+      "stale": true,
+      "staleNote": "Club records await source confirmation of final results."
     },
     {
       "participantId": "team:chl:73caaf27776183ec10ea6ddc",
@@ -78394,12 +78434,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 4,
-      "losses": 0,
-      "goalsFor": 18,
-      "goalsAgainst": 6,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "losses": 1,
+      "goalsFor": 20,
+      "goalsAgainst": 10,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78414,12 +78454,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 4,
+      "gamesPlayed": 5,
+      "wins": 5,
       "losses": 0,
-      "goalsFor": 20,
-      "goalsAgainst": 7,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsFor": 24,
+      "goalsAgainst": 9,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78434,12 +78474,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 2,
+      "gamesPlayed": 5,
+      "wins": 3,
       "losses": 2,
-      "goalsFor": 12,
-      "goalsAgainst": 11,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsFor": 18,
+      "goalsAgainst": 12,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78454,12 +78494,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 2,
+      "gamesPlayed": 5,
+      "wins": 3,
       "losses": 2,
-      "goalsFor": 11,
-      "goalsAgainst": 12,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsFor": 14,
+      "goalsAgainst": 14,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78479,11 +78519,13 @@
       "losses": 4,
       "goalsFor": 7,
       "goalsAgainst": 18,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
-      "tableNote": "Published club records; competition positions and qualification are unavailable."
+      "tableNote": "Published club records; competition positions and qualification are unavailable.",
+      "stale": true,
+      "staleNote": "Club records await source confirmation of final results."
     },
     {
       "participantId": "team:chl:954f0696fef5e714282a6d75",
@@ -78494,12 +78536,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 1,
-      "losses": 3,
-      "goalsFor": 5,
-      "goalsAgainst": 9,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "losses": 4,
+      "goalsFor": 8,
+      "goalsAgainst": 14,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78574,12 +78616,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 3,
-      "losses": 1,
-      "goalsFor": 15,
-      "goalsAgainst": 10,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "losses": 2,
+      "goalsFor": 17,
+      "goalsAgainst": 13,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78594,12 +78636,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
-      "wins": 1,
+      "gamesPlayed": 5,
+      "wins": 2,
       "losses": 3,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsFor": 15,
+      "goalsAgainst": 17,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78614,12 +78656,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "goalsFor": 12,
-      "goalsAgainst": 7,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "goalsAgainst": 11,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78674,12 +78716,12 @@
       "rank": null,
       "rankPending": true,
       "recordKind": "club-record",
-      "gamesPlayed": 4,
+      "gamesPlayed": 5,
       "wins": 3,
-      "losses": 1,
-      "goalsFor": 17,
-      "goalsAgainst": 12,
-      "asOf": "2026-10-04T11:45:16.795Z",
+      "losses": 2,
+      "goalsFor": 19,
+      "goalsAgainst": 15,
+      "asOf": "2026-10-06T20:46:58.212Z",
       "sourceName": "Champions Hockey League",
       "sourceType": "official-club-records",
       "sourceUrl": "https://www.chl.hockey/api/s3?q=teams-stats-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb.json",
@@ -78699,8 +78741,8 @@
       "scheduleFeedCount": 1,
       "playableFixtureCount": 72,
       "calendarEntryCount": 12,
-      "completedResultCount": 48,
-      "clubRecordsStatus": "published"
+      "completedResultCount": 55,
+      "clubRecordsStatus": "stale"
     }
   }
 }
