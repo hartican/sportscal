@@ -71,6 +71,8 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
   if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
     throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
   }
+  const liveScopes=argv.filter(arg=>arg.startsWith("--live-source="));
+  if(liveScopes.length&&(!argv.includes("--live")||liveScopes.length!==1||liveScopes[0]!=="--live-source=tennis"))throw Error("Scoped live refresh requires --live --live-source=tennis. No source steps ran.");
   if (argv.includes("--offline")) {
     const quickOfflineArgs = new Set(["--offline", "--quick", "--rebuild", "--local-only", "-p"]);
     if (!argv.includes("--quick") || argv.some(arg => !quickOfflineArgs.has(arg))) {
@@ -741,7 +743,8 @@ async function runMain() {
   if(process.argv.includes("--live")){
     const {refreshDueSources}=require("../lib/live-fixtures");
     const {liveSources}=require("../lib/live-source-adapters");
-    const result=await refreshDueSources({sources:liveSources()});
+    const scope=process.argv.includes("--live-source=tennis"),sources=liveSources().filter(source=>!scope||/^live-tennis-(?:atp|wta)$/.test(source.id));
+    const result=await refreshDueSources({sources});
     console.log(JSON.stringify({mode:"live",...result}));
     if(result.failed.length)process.exitCode=1;
     return;

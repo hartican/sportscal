@@ -239137,7 +239137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
     "sourceName": "ATP official China Open singles draw",
     "sourceCheckedAt": "2026-10-03T06:30:00.200Z",
-    "statusCheckedAt": "2026-10-03T06:30:00.200Z",
+    "statusCheckedAt": "2026-10-04T13:50:08.916Z",
     "timingVerified": true,
     "timingEvidence": {
       "matchRow": "Saturday 3 October 2026, first Capital Group Diamond row: ATP R16 [5] Alex DE MINAUR v Quentin HALYS",
@@ -239168,14 +239168,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture:tennis:espn:atp:183450"
     ],
     "consensusTags": [],
-    "score": "Alex de Minaur 3-6, 7-6(5), 7-5 Quentin Halys",
-    "outcomeText": "Alex de Minaur defeated Quentin Halys in three sets.",
-    "recapText": "De Minaur won the China Open Round of 16 match 3-6, 7-6(5), 7-5.",
+    "score": "Alex de Minaur 3-6 7-6(5) 7-5 Quentin Halys",
+    "outcomeText": "Alex De Minaur won. 3–6, 7–6, 7–5",
+    "recapText": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 3–6, 7–6, 7–5",
     "winnerParticipantId": "athlete:tennis:alex-de-minaur",
     "resultStatus": "official",
     "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
-    "resultSourceCheckedAt": "2026-10-03T06:30:00.200Z",
-    "scoreCheckedAt": "2026-10-03T06:30:00.200Z",
+    "resultSourceCheckedAt": "2026-10-04T13:50:08.916Z",
+    "scoreCheckedAt": "2026-10-04T13:50:08.916Z",
     "resultPublishedAt": "2026-10-03T06:30:00.200Z",
     "lastReviewedAt": "2026-10-03T06:30:00.200Z",
     "sourceType": "official",
@@ -239417,8 +239417,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "reviewMethod": "PDF bracket columns visually inspected against extracted text; winner-first published scores oriented to canonical home/away; no match day or finish inferred"
     },
-    "outcomeText": "Carlos Alcaraz defeated Matteo Arnaldi.",
-    "recapText": "The official draw records this completed Round of 16 match: Carlos Alcaraz 7-6(6) 6-1 Matteo Arnaldi.",
+    "outcomeText": "Carlos Alcaraz won. 7–6, 6–1",
+    "recapText": "ESPN reports Carlos Alcaraz as the winner of this round of 16 match. 7–6, 6–1",
     "sourceType": "official",
     "tennisProviderTour": "atp",
     "tennisProviderMatchId": "183501",
@@ -239572,8 +239572,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "reviewMethod": "PDF bracket columns visually inspected against extracted text; winner-first published scores oriented to canonical home/away; no match day or finish inferred"
     },
-    "outcomeText": "Nikola Bartunkova defeated Aryna Sabalenka.",
-    "recapText": "The official draw records this completed Round of 32 match: Aryna Sabalenka 4-6 3-6 Nikola Bartunkova.",
+    "outcomeText": "Nikola Bartunkova won. 6–4, 6–3",
+    "recapText": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3",
     "sourceType": "official",
     "tennisProviderTour": "wta",
     "tennisProviderMatchId": "184341",
@@ -239691,8 +239691,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
-      "fixture:tennis:espn:atp:183512",
-      "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar"
+      "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+      "fixture:tennis:espn:atp:183512"
     ],
     "consensusTags": [
       {
@@ -239734,8 +239734,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
     "resultSourceCheckedAt": "2026-10-06T02:10:02.846863+00:00",
     "resultAvailabilityEvidence": null,
-    "outcomeText": "Carlos Alcaraz defeated Jaume Munar.",
-    "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar.",
+    "outcomeText": "Carlos Alcaraz won. 5–7, 6–3, 6–1",
+    "recapText": "ESPN reports Carlos Alcaraz as the winner of this semifinal match. 5–7, 6–3, 6–1",
     "resultEvidence": {
       "kind": "official-draw-result",
       "fixtureId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
@@ -239862,8 +239862,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
-      "fixture:tennis:espn:atp:183466",
-      "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz"
+      "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+      "fixture:tennis:espn:atp:183466"
     ],
     "consensusTags": [
       {
@@ -239901,8 +239901,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
     "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
     "resultAvailabilityEvidence": null,
-    "outcomeText": "Alex de Minaur defeated Hubert Hurkacz by retirement.",
-    "recapText": "The official tournament draw publishes this result: Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz.",
+    "outcomeText": "Alex De Minaur won. 6–4, 3–2",
+    "recapText": "ESPN reports Alex De Minaur as the winner of this semifinal match. 6–4, 3–2",
     "resultCode": "RET",
     "retiredParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "resultEvidence": {
@@ -240034,8 +240034,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
-      "fixture:tennis:espn:atp:183465",
-      "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev"
+      "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
+      "fixture:tennis:espn:atp:183465"
     ],
     "consensusTags": [
       {
@@ -240077,8 +240077,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
     "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
     "resultAvailabilityEvidence": null,
-    "outcomeText": "Novak Djokovic defeated Alexander Zverev.",
-    "recapText": "The official tournament draw publishes this result: Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev.",
+    "outcomeText": "Novak Djokovic won. 6–4, 4–6, 4–6",
+    "recapText": "ESPN reports Novak Djokovic as the winner of this quarterfinal match. 6–4, 4–6, 4–6",
     "resultEvidence": {
       "kind": "official-draw-result",
       "fixtureId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
@@ -240226,8 +240226,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
-      "fixture:tennis:espn:atp:183514",
-      "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "fixture:tennis:espn:atp:183514"
     ],
     "consensusTags": [
       {
@@ -240316,8 +240316,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
     "resultSourceCheckedAt": "2026-10-06T11:33:48.000Z",
     "resultAvailabilityEvidence": null,
-    "outcomeText": "Carlos Alcaraz defeated Jiri Lehecka.",
-    "recapText": "The official draw records this completed final: Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka.",
+    "outcomeText": "Carlos Alcaraz won. 7–6, 6–4",
+    "recapText": "ESPN reports Carlos Alcaraz as the winner of this final match. 7–6, 6–4",
     "resultEvidence": {
       "kind": "official-draw-result",
       "fixtureId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
@@ -240356,7 +240356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "key": "tennis",
     "sport": "Tennis",
     "sportDomainId": "sport:tennis",
-    "name": "Novak Djokovic v Alex De Minaur",
+    "name": "Novak Djokovic v Alex de Minaur",
     "cardKind": "fixture",
     "contestUnit": "match",
     "competitionId": "competition:tennis:atp-beijing-2026",

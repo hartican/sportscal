@@ -28,7 +28,7 @@ loadMatchCentreStyles();
    for(const snapshot of data.fixtures||[])scores.set(snapshot.id,m().observation(scores.get(snapshot.id),snapshot));
    membership=[...new Map([...(append?membership:[]),...(data.events||[])].map(e=>[m().id(e),e])).values()];
    nextCursor=data.pagination?.nextCursor??null;if(nextCursor!==null&&(!Number.isSafeInteger(nextCursor)||nextCursor<=cursor))throw Error('Invalid membership continuation');
-   membershipOwner=owner();membershipKey=t.key;membershipCheckedAt=Date.now();notice='';
+   membershipOwner=owner();membershipKey=t.key;membershipCheckedAt=Date.now();notice=data.membershipStale?'Match list needs rechecking. Showing published fixtures.':'';
    viewCache.set(selectedView,{events:membership,key:membershipKey,checked:membershipCheckedAt,nextCursor});
   })();hydrating=operation;try{return await operation;}finally{if(hydrating===operation)hydrating=null;}
  }
@@ -65,7 +65,7 @@ loadMatchCentreStyles();
     if(snapshot.score.innings?.length)for(const inning of snapshot.score.innings)content.append(node('p',`${inning.team||inning.participantId||'Innings'} ${inning.runs??'—'}/${inning.wickets??'—'} (${inning.overs??'—'} overs)`));
     for(const rubber of snapshot.rubbers||[])content.append(node('p',`${rubber.name}: ${rubber.status==='not-required'?'Not required':rubber.status==='upcoming'||rubber.status==='unconfirmed'?'Awaiting official score':scoreText(rubber.score)}`));
    }
-   const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));if(snapshot.officialUrl){const official=node('a','Official fixture','btn ghost');official.href=snapshot.officialUrl;official.target='_blank';official.rel='noopener noreferrer';actions.append(official);}content.append(actions);details.append(content);card.append(details);panel.append(card);
+   const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));if(snapshot.officialUrl){const official=node('a',e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source','btn ghost');official.href=snapshot.officialUrl;official.target='_blank';official.rel='noopener noreferrer';actions.append(official);}content.append(actions);details.append(content);card.append(details);panel.append(card);
    details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(userPreferences.showSpoilers&&e.rubbers&&!snapshot.rubbers)void poll([e],true);}else expanded.delete(id);};
   }
   if(nextCursor!==null){const more=node('button','Load more live fixtures','btn ghost');more.onclick=async()=>{more.disabled=true;try{await hydrate(false,true);render();void poll();}catch{notice='More fixtures could not load. Retry when connected.';render();}};panel.append(more);}

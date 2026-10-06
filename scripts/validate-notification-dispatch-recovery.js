@@ -51,7 +51,7 @@ async function main(){
  const catalogue=await fixtures.catalogue({rows:[],now,request:async p=>{
   const count=(snapshotCalls.get(p)||0)+1;snapshotCalls.set(p,count);
   if(count===1)throw upstream;
-  return [];
+  return p.endsWith('nothingsports_read_current_fixture_bundle')?{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}:[];
  }});
  assert.equal(catalogue.fixtures.length,0);
  assert([...snapshotCalls.values()].every(n=>n===2),'Each transient snapshot read retries only once');

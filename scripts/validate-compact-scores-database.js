@@ -11,13 +11,14 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   await db.exec(fs.readFileSync('supabase/migrations/20260914061506_right_size_fixture_runtime.sql','utf8').split('-- One write replaces')[0]);
   await db.exec(fs.readFileSync('supabase/migrations/20260924104317_compact_live_scores.sql','utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql','utf8'));
+  await db.exec(fs.readFileSync('supabase/migrations/20261006182007_bound_current_fixture_snapshot.sql','utf8'));
   await db.exec('set role service_role');
   const token='11111111-1111-4111-8111-111111111111';
   const request=async(path,{body}={})=>{
    const name=path.split('/').at(-1);
-   const keys={nothingsports_publish_compact_scores:['p_source_id','p_token','p_fixtures','p_scores','p_hash','p_interval_ms','p_report'],nothingsports_read_current_fixtures:['p_fixture_ids'],nothingsports_read_match_scores:['p_fixture_ids'],nothingsports_read_fixture_source_health:[]}[name];
+   const keys={nothingsports_publish_compact_scores:['p_source_id','p_token','p_fixtures','p_scores','p_hash','p_interval_ms','p_report'],nothingsports_read_current_fixture_bundle:['p_fixture_ids'],nothingsports_read_current_fixtures:['p_fixture_ids'],nothingsports_read_match_scores:['p_fixture_ids'],nothingsports_read_fixture_source_health:[]}[name];
    assert(keys,'Unexpected RPC '+name);
-   return (await db.query(`select * from public.${name}(${keys.map((k,i)=>'$'+(i+1)).join(',')})`,keys.map(k=>['p_fixtures','p_scores','p_report'].includes(k)?body[k]===null?null:JSON.stringify(body[k]):body[k]))).rows;
+   const result=(await db.query(`select * from public.${name}(${keys.map((k,i)=>'$'+(i+1)).join(',')})`,keys.map(k=>['p_fixtures','p_scores','p_report'].includes(k)?body[k]===null?null:JSON.stringify(body[k]):body[k]))).rows;return name==='nothingsports_read_current_fixture_bundle'?result[0][name]:result;
   };
   const store=createSnapshotStore({request});
   const previousMode=process.env.MATCH_CENTRE_SCORE_WRITES;process.env.MATCH_CENTRE_SCORE_WRITES='true';
