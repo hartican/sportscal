@@ -7,7 +7,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
  for(const width of [390,1280]){
  const page=await browser.newPage({serviceWorkers:'block',viewport:{width,height:844},locale:'en-AU',timezoneId:'Australia/Sydney'});await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:24,onboardingComplete:true,selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis'],showSpoilers:true,fantasyDeadlines:{enabled:false}})));
- await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating());
+ await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating()&&startupFeedState.phase==='ready'&&!remoteFeedRefreshInFlight&&followedScheduleLoads.size===0);await page.locator('#startupLaunch').waitFor({state:'hidden'});
  const result=await page.evaluate(async()=>{
   await loadDeferredScript('config/match-centre.js?v=435');await loadDeferredScript('config/feed-live-scores.js?v=437');await ensureFeedScoreUi();activeTab='feed';userPreferences.showSpoilers=true;userPreferences.fantasyDeadlines.enabled=false;
   const savedQueue=queueLiveFixtureSnapshot;queueLiveFixtureSnapshot=()=>{};if(liveFixtureRefresh)await liveFixtureRefresh;
@@ -47,7 +47,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,status:'live',scoreCheckedAt:new Date(Date.now()+86400000).toISOString()},{resultsOn:true});const futureDateHidden=!scoreHost.querySelector('time')&&scoreHost.textContent.includes('Awaiting source update');
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,scoreCheckedAt:null},{resultsOn:true});const missingFinalDate=scoreHost.textContent.includes('Source date unavailable')&&!scoreHost.textContent.includes('Update needed');
   scoreHost.remove();feedCardSlots.delete(event.id);host.remove();queueLiveFixtureSnapshot=savedQueue;return {compact,hidden,expanded,localHide,localShow,strictHide,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded,settledFinals,settledPrivacy,pilotCompacts,crossYear,explicitFailure,futureDateHidden,missingFinalDate};
- });for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
+ });if(Object.values(result).some(value=>value!==true))console.log(JSON.stringify({engine,width,...result}));for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
  const reviewed=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.status==='completed');
  const realResults=await page.evaluate(fixtures=>{
   const saved=JSON.stringify(userPreferences),rows=[];

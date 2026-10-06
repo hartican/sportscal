@@ -6,13 +6,20 @@ const document=require('../feeds/provider-exports/tennis/participant-fixtures-re
 function validate(doc=document){
  assert.equal(doc.schemaVersion,'reviewed-participant-fixtures.v1');const seen=new Set();
  for(const e of doc.events){assert(!seen.has(e.id));seen.add(e.id);assert.equal(e.participantsConfirmed,true);assert.equal(e.contestUnit,'match');assert.equal(e.participantIds.length,2);assert(e.participantIds.every(id=>/^(athlete|competitor):tennis:/.test(id)));assert(/^https:\/\//.test(e.sourceUrl));assert(Number.isFinite(Date.parse(e.sourceCheckedAt))&&Date.parse(e.sourceCheckedAt)<=Date.now());assert(['exact','not-before','followed-by','unresolved'].includes(e.timePrecision));if(['exact','not-before'].includes(e.timePrecision))assert(Number.isFinite(Date.parse(e.startTimeUtc)));else assert(!e.startTimeUtc);assert(e.timingEvidence?.matchRow&&e.timingEvidence?.clockAssociation);}
+ for(const e of doc.events.filter(e=>e.status==='live'))assert(['reviewed-broadcaster-live','official-match-page-status'].includes(e.statusEvidence?.kind),'unknown live evidence cannot establish match play');
+ for(const e of doc.events.filter(e=>e.status==='live'&&e.statusEvidence?.kind==='reviewed-broadcaster-live')){
+  const proof=e.statusEvidence;
+  assert(proof?.kind==='reviewed-broadcaster-live'&&proof.fixtureId===e.id&&proof.sourceUrl===e.statusSourceUrl&&proof.checkedAt===e.statusCheckedAt&&Number.isFinite(Date.parse(proof.checkedAt))&&Date.parse(proof.checkedAt)<=Date.now(),'reviewed live requires a dated match-bound observation');
+  assert.deepEqual(proof.participantIds,e.participantIds,'live status must bind both canonical participants');
+  assert(/^https:\/\//.test(proof.fixtureUrl)&&/^https:\/\//.test(proof.corroboratingUrl)&&/\bLIVE\b/.test(proof.matchLabel)&&proof.officialMatchSourceUrl===e.timingEvidence.drawSourceUrl,'live status needs the named broadcaster listing and existing official fixture');
+ }
  for(const e of doc.events.filter(e=>e.resultStatus==='pending')){
   const proof=e.resultAvailabilityEvidence;
   assert(['scheduled','upcoming'].includes(e.status)&&!e.score,'unpublished results cannot establish completion or a score');
   assert(/^https:\/\//.test(e.resultSourceUrl)&&Number.isFinite(Date.parse(e.resultSourceCheckedAt))&&Date.parse(e.resultSourceCheckedAt)<=Date.now(),'pending results require a dated source observation');
   assert(proof&&proof.kind==='official-draw-result-unpublished'&&proof.fixtureId===e.id&&proof.sourceUrl===e.resultSourceUrl&&proof.checkedAt===e.resultSourceCheckedAt&&typeof proof.matchRow==='string'&&proof.matchRow.length>0&&proof.winnerCell==='unpublished'&&/^[a-f0-9]{64}$/.test(proof.sourceSha256),'pending result requires the reviewed match row and unpublished winner cell');
  }
- for(const e of doc.events.filter(e=>e.status==='live')){
+ for(const e of doc.events.filter(e=>e.status==='live'&&e.statusEvidence?.kind==='official-match-page-status')){
   const proof=e.statusEvidence;
   assert(proof&&proof.kind==='official-match-page-status'&&proof.fixtureId===e.id&&proof.sourceUrl===e.sourceUrl&&/^[a-f0-9]{64}$/.test(proof.sourceSha256),'live review requires the exact official match receipt');
   assert(proof.providerStatus==='P'&&proof.scoreState==='in-progress','score text and generic JSON-LD scheduled status cannot establish live or final status');
@@ -56,5 +63,10 @@ function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(cons
   // Reviewing a draw result updates result/status facts only. It cannot roll
   // back a newer fixture check or masquerade as a fresh scheduling observation.
   return settled(e)&&base?{...e,...Object.fromEntries(scheduleFields.filter(k=>base[k]!==undefined).map(k=>[k,base[k]]))}:e;
- });const reviewed=require('../config/fixture-identity').mergeOverlays(prior,updates);data.events=[...data.events.filter(e=>!ids.has(identity(e))),...reviewed];plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
+ });const reviewed=require('../config/fixture-identity').mergeOverlays(prior,updates).map(e=>{
+  if(!settled(e)||!e.resultEvidence||!e.storyline||e.storyline.arcStage==='recap')return e;
+  const rules=require('./lib/storyline-card-rules'),storyline=rules.storylineFor(e),safe=rules.spoilerSafeRootCopy(e,storyline);
+  const {editorialPreview,...retained}=e;
+  return {...retained,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};
+ });data.events=[...data.events.filter(e=>!ids.has(identity(e))),...reviewed];plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
 module.exports={apply,validate};if(require.main===module)console.log(JSON.stringify(apply()));

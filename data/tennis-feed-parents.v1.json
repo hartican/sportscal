@@ -15467,7 +15467,34 @@
         "competitor:tennis:atp:jaume-munar",
         "competitor:tennis:atp:jiri-lehecka"
       ],
-      "contestCount": 3
+      "contestCount": 3,
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "event",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://connect-au.beinsports.com/en",
+          "verifiedAt": "2026-10-06T10:08:38.000Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "tennis-tv",
+          "rightsScope": "event",
+          "linkScope": "event",
+          "webUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+          "sourceUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+          "verifiedAt": "2026-10-06T10:08:38.000Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "beIN SPORTS / Tennis TV",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:swiss-indoors-basel:2026:main",

@@ -73,9 +73,11 @@
     {
       "key": "tennis",
       "label": "Tennis",
-      "resolution": "tournament",
+      "resolution": "Tournament-specific reviewed options; no blanket ATP/WTA rights inference",
       "providerIds": [
-        "stan"
+        "stan",
+        "bein",
+        "tennis-tv"
       ]
     },
     {
@@ -378,6 +380,105 @@
     }
   },
   "reviewedWindows": [
+    {
+      "id": "china-open-atp-2026-singles-final-au",
+      "fixtureIds": [
+        "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur"
+      ],
+      "competitionIds": [
+        "competition:tennis:atp-beijing-2026"
+      ],
+      "participantIds": [
+        "athlete:tennis:novak-djokovic",
+        "athlete:tennis:alex-de-minaur"
+      ],
+      "roundLabel": "Final",
+      "notBefore": "2026-10-06",
+      "notAfter": "2026-10-07",
+      "verifiedAt": "2026-10-06T12:10:18.000Z",
+      "sourceUrl": "https://www.tennistv.com/live-schedule",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+          "sourceUrl": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+          "linkScope": "fixture",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "tennis-tv",
+          "url": "https://www.tennistv.com/live?id=4582948",
+          "sourceUrl": "https://www.tennistv.com/live-schedule",
+          "linkScope": "fixture",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "japan-open-2026-singles-final-au",
+      "fixtureIds": [
+        "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka"
+      ],
+      "competitionIds": [
+        "competition:tennis:atp-tokyo-2026"
+      ],
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:jiri-lehecka"
+      ],
+      "roundLabel": "Final",
+      "notBefore": "2026-10-06",
+      "notAfter": "2026-10-07",
+      "verifiedAt": "2026-10-06T10:08:38.000Z",
+      "sourceUrl": "https://www.tennistv.com/live-schedule",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final",
+          "sourceUrl": "https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final",
+          "linkScope": "fixture",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "tennis-tv",
+          "url": "https://www.tennistv.com/live?id=4582945",
+          "sourceUrl": "https://www.tennistv.com/live-schedule",
+          "linkScope": "fixture",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "japan-open-2026-au-viewing",
+      "fixtureIds": [
+        "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+        "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
+        "tennis-parent:japan-open-tennis-championships:2026:main",
+        "overview:tennis:tournament:tennis:atp-tokyo-2026:2026"
+      ],
+      "notBefore": "2026-09-30",
+      "notAfter": "2026-10-07",
+      "verifiedAt": "2026-10-06T10:08:38.000Z",
+      "sourceUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+      "rightsScope": "event",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://connect-au.beinsports.com/en",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "tennis-tv",
+          "url": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
     {
       "competitionIds": [
         "competition:nhl"

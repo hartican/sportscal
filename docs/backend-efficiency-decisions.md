@@ -756,3 +756,12 @@ Reuse retained Football Code fixtures/tables for chronological view selection an
 The existing canonical owner exposes `--shallow-directories` for retained roster projection without source refresh. Full source parsers stop persisting unused player background. The ordinary full/daily owners and budgets remain. Identities/current clubs/country/season numbers/headshots/source evidence and durable user state are preserved. Archives are gzip/SHA256 checked with byte-equal restores before pruning.
 
 Football match-context display retains the context's separate reviewed observation instead of requiring equality with the original unchanged fixture observation. Exact competition/season/kickoff and two-team identity still bind it; invalid or future context dates are rejected. Presentation labels its own date and cannot renew either source clock. No additional data fetch, refresh or scoring change. NBL retains its existing source-clock contract.
+
+
+## Japan Open Australian viewing — 6 October 2026
+
+The retained reviewed AU viewing window enriches Japan Open fixture, parent and Events projections through the existing canonical owner. A manually inspected named Tennis TV LIVE listing, corroborated by the beIN Australia Tokyo Final page, supplies a separately dated status observation. It cannot renew the official not-before schedule, fabricate a score or claim continuous live coverage. Existing thirty-minute live freshness applies. No new source adapter, source scheduler, polling, per-user organiser request, database write or subscription. Regression extends existing reviewed tennis and AU viewing contracts, plus actual Feed/Schedule/parent watch controls in Chromium and WebKit.
+
+## Reviewed final presentation preserves separate observations — 6 October 2026 Sydney
+
+The Beijing viewing repair uses the same bounded retained canonical publication path and reviewed AU resolver. Its named broadcaster live observation is independently dated and expires after the existing thirty-minute freshness bound. The writer accepts the existing official WTA match-page proof or this explicitly validated broadcaster proof; unknown kinds fail before writes. Tokyo completion uses a fresh official draw receipt with no invented finish clock or renewed schedule check. No additional polling, provider ingestion, database mutation, dispatcher or scheduler is added.

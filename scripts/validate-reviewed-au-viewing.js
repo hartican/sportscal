@@ -101,6 +101,33 @@ const nhlRule=audit.reviewedWindows.find(r=>r.competitionIds?.includes('competit
 const nhlRights=follow.COMPETITION_VIEWING_RIGHTS['competition:nhl:2026-27'];
 assert(nhlRule&&nhlRights);assert.equal(nhlRights.fixtureIdPattern,nhlRule.fixtureIdPattern);assert.equal(nhlRights.roundLabel,nhlRule.roundLabel);
 for(const rule of audit.reviewedWindows){assert(Number.isFinite(Date.parse(rule.verifiedAt)));assert(Date.parse(rule.notBefore)<Date.parse(rule.notAfter));assert(/^https:\/\//.test(rule.sourceUrl));assert(rule.fixtureIds?.length||rule.competitionIds?.length);}
+const beijingId='fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur';
+const beijing=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.find(f=>f.id===beijingId);assert(beijing);
+const beijingOptions=follow.viewingOptions(review({...beijing,broadcaster:'Stan Sport',viewingOptions:[{providerId:'stan',rightsScope:'fixture',sourceUrl:'https://example.test/old-incorrect-rights',verifiedAt:'2026-10-01T00:00:00Z'}]}));
+assert.deepEqual(beijingOptions.map(o=>o.providerId),['bein','tennis-tv'],'the exact Beijing ATP final replaces incorrect Stan rights');
+assert.equal(beijingOptions[0].webUrl,'https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final');
+assert.equal(beijingOptions[1].webUrl,'https://www.tennistv.com/live?id=4582948');
+assert(beijingOptions.every(o=>o.rightsScope==='fixture'&&o.linkScope==='fixture'&&o.territory==='AU'&&!o.replayVerified));
+assert.deepEqual(sporting(review(beijing)),sporting(beijing),'viewing leaves Beijing source clocks, live status and reminder identity unchanged');
+for(const mutation of [{competitionId:'competition:tennis:wta-beijing-2026'},{roundLabel:'Semifinal'},{participantIds:['athlete:tennis:novak-djokovic','unknown']},{date:'2027-10-06',startTimeUtc:'2027-10-06T11:00:00Z'}])assert.deepEqual(providers({...review(beijing),...mutation}),[],'Beijing final rights do not leak to WTA, another round, person or edition');
+if(process.argv.includes('--published'))for(const folder of ['code-inspector','follow-schedule']){const f=require(`../data/${folder}/tennis.json`).fixtures.find(f=>(f.canonicalEventId||f.id)===beijingId);assert(f);assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['bein','tennis-tv']);assert.equal(f.status,'live');}
+const japanId='fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka';
+const japan=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.find(f=>f.id===japanId);assert(japan);
+const japanOptions=follow.viewingOptions(review(japan));assert.deepEqual(japanOptions.map(o=>o.providerId),['bein','tennis-tv']);
+assert.equal(japanOptions[0].webUrl,'https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final');
+assert.equal(japanOptions[1].webUrl,'https://www.tennistv.com/live?id=4582945');
+assert(japanOptions.every(o=>o.rightsScope==='fixture'&&o.linkScope==='fixture'&&o.territory==='AU'&&o.accessType==='subscription'&&!o.replayVerified));
+assert.deepEqual(review(review(japan)),review(japan),'unchanged Japan review retains bytes and source dates');
+assert.deepEqual(sporting(review(japan)),sporting(japan),'viewing cannot renew timing or change live, score or action facts');
+for(const mutation of [{competitionId:'competition:tennis:atp-beijing-2026'},{participantIds:['competitor:tennis:atp:carlos-alcaraz','competitor:tennis:atp:novak-djokovic']},{roundLabel:'Semifinal'},{date:'2027-10-06',startTimeUtc:'2027-10-06T09:00:00Z'}])assert.deepEqual(providers({...review(japan),...mutation}),[],'Japan final viewing requires the exact edition, participants, round and date');
+assert(follow.viewingOptions(review({...japan,status:'completed'})).every(o=>!o.replayVerified),'live carriage is not proof of final replay playback');
+if(process.argv.includes('--published')){
+ for(const folder of ['code-inspector','follow-schedule']){
+  const f=require(`../data/${folder}/tennis.json`).fixtures.find(f=>(f.canonicalEventId||f.id)===japanId);assert(f);assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['bein','tennis-tv'],'Japan options reach both canonical fixture projections');
+ }
+ const parent=require('../data/tennis-feed-parents.v1.json').parents.find(f=>f.id==='tennis-parent:japan-open-tennis-championships:2026:main');assert.deepEqual(follow.viewingOptions(parent).map(o=>o.providerId),['bein','tennis-tv'],'Japan parent has honest edition/provider links');
+ const overview=require('../data/event-overviews.v1.json').events.find(f=>f.tournamentId==='tournament:tennis:atp-tokyo-2026');assert.deepEqual(follow.viewingOptions(overview).map(o=>o.providerId),['bein','tennis-tv'],'Events keeps the same reviewed edition options');
+}
 if(process.argv.includes('--published')){
  const strip=options=>options.map(({reviewId,...o})=>o);
  for(const folder of ['code-inspector','follow-schedule'])for(const code of ['rugby-union','cricket'])for(const f of require(`../data/${folder}/${code}.json`).fixtures){

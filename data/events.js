@@ -213919,8 +213919,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "reviewMethod": "PDF court columns and match rows visually checked against text"
     },
     "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "event",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://connect-au.beinsports.com/en",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "event",
+        "linkScope": "event",
+        "webUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+        "sourceUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "displayTitleCompact": "Carlos Alcaraz v Matteo Arnaldi",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -214193,8 +214216,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "drawSourceSha256": "ab2d4fcbebf684ed417094c0d8c25aa52e7863dd57fce8f0a7889df9e2d13e49"
     },
     "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "event",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://connect-au.beinsports.com/en",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "event",
+        "linkScope": "event",
+        "webUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+        "sourceUrl": "https://www.tennistv.com/tournaments/329_2026/tokyo",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "timingVerified": true,
     "scheduleStatus": "confirmed",
     "displayTitleCompact": "Carlos Alcaraz v Jaume Munar",
@@ -214609,7 +214655,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-06T09:00:00.000Z",
     "timePrecision": "not-before",
     "timeTbc": false,
-    "status": "scheduled",
+    "status": "completed",
     "participantsConfirmed": true,
     "participantIds": [
       "competitor:tennis:atp:carlos-alcaraz",
@@ -214638,7 +214684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
     "sourceName": "Official tournament publication",
     "sourceCheckedAt": "2026-10-06T02:10:03.364867+00:00",
-    "statusCheckedAt": "2026-10-06T02:10:03.364867+00:00",
+    "statusCheckedAt": "2026-10-06T11:33:48.000Z",
     "timingEvidence": {
       "matchRow": "6 October, Colosseum match 4: Carlos ALCARAZ v Jiri LEHECKA, SINGLES FINAL, Not Before 6:00 PM",
       "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
@@ -214650,8 +214696,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "drawSourceSha256": "aa429e8273b1b0e0d0db16c32ef8805d446b126525ac1af93f909a8c2a21a712"
     },
     "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "fixture",
+        "linkScope": "fixture",
+        "webUrl": "https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final",
+        "sourceUrl": "https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "fixture",
+        "linkScope": "fixture",
+        "webUrl": "https://www.tennistv.com/live?id=4582945",
+        "sourceUrl": "https://www.tennistv.com/live-schedule",
+        "verifiedAt": "2026-10-06T10:08:38.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "timingVerified": true,
     "scheduleStatus": "confirmed",
     "displayTitleCompact": "Carlos Alcaraz v Jiri Lehecka",
@@ -214682,8 +214751,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "selectedSentence": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
-    "fullSpiel": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+    "selectedSentence": "Carlos Alcaraz v Jiri Lehecka is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Carlos Alcaraz v Jiri Lehecka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
@@ -214719,31 +214788,65 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Carlos Alcaraz v Jiri Lehecka",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:history",
-        "narrative:schedule",
-        "narrative:consequence"
-      ],
-      "sourceName": "Carlos Alcaraz v Jiri Lehecka — official research 1",
-      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
-      "sourceCheckedAt": "2026-10-06T02:59:54.191Z",
-      "needsPreviewRefresh": false
-    },
     "lastReviewedAt": "2026-10-06T02:59:54.191Z",
     "storyline": {
       "researchDepth": 5,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
-      "hookSpoilerOn": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
-      "synopsisSpoilerOff": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
-      "synopsisSpoilerOn": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
-      "lastReviewedAt": "2026-10-06T02:59:54.191Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Carlos Alcaraz v Jiri Lehecka is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Carlos Alcaraz defeated Jiri Lehecka.",
+      "synopsisSpoilerOff": "Carlos Alcaraz v Jiri Lehecka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "The official draw records this completed final: Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka.",
+      "lastReviewedAt": "2026-10-06T02:59:54.191Z",
+      "stakes": 4,
+      "intensity": 4,
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "resultStatus": "official",
+    "score": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+    "scoreDisplay": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+    "result": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+    "sets": [
+      {
+        "home": 7,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "scoreCheckedAt": "2026-10-06T11:33:48.000Z",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-06T11:33:48.000Z",
+    "resultAvailabilityEvidence": null,
+    "outcomeText": "Carlos Alcaraz defeated Jiri Lehecka.",
+    "recapText": "The official draw records this completed final: Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka.",
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "checkedAt": "2026-10-06T11:33:48.000Z",
+      "sourceSha256": "643d7e38d98522cab892af008527a0ca9df4f3f758d0e4cad86847486ba033e8",
+      "sourcePublishedAtLocal": "2026-10-06T19:51:23+09:00",
+      "matchRow": "Singles final: C. Alcaraz [1] v J. Lehecka; champion cell C. Alcaraz [1], 76(4) 64",
+      "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:jiri-lehecka"
+      ],
+      "sets": [
+        {
+          "home": 7,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 4
+        }
+      ],
+      "reviewMethod": "Official PDF bracket pixels checked against the named finalist cells and champion score; winner-first score oriented to canonical home/away. No actual finish clock inferred."
     }
   },
   {
@@ -214770,7 +214873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-06T11:00:00.000Z",
     "timePrecision": "not-before",
     "timeTbc": false,
-    "status": "scheduled",
+    "status": "live",
     "participantsConfirmed": true,
     "participantIds": [
       "athlete:tennis:novak-djokovic",
@@ -214799,7 +214902,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
     "sourceName": "Official tournament publication",
     "sourceCheckedAt": "2026-10-06T02:10:05.381842+00:00",
-    "statusCheckedAt": "2026-10-06T02:10:05.381842+00:00",
+    "statusCheckedAt": "2026-10-06T12:10:18.000Z",
     "timingEvidence": {
       "matchRow": "6 October, Capital Group Diamond match 5: Novak DJOKOVIC v Alex DE MINAUR, ATP SINGLES FINAL, Not Before 7:00 PM",
       "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
@@ -214811,8 +214914,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "drawSourceSha256": "1b27f5c8ad84fbbb934d737ab834fd0a5cae18bca0648ebbaf0c339c5929f181"
     },
     "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "fixture",
+        "linkScope": "fixture",
+        "webUrl": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+        "sourceUrl": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+        "verifiedAt": "2026-10-06T12:10:18.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "fixture",
+        "linkScope": "fixture",
+        "webUrl": "https://www.tennistv.com/live?id=4582948",
+        "sourceUrl": "https://www.tennistv.com/live-schedule",
+        "verifiedAt": "2026-10-06T12:10:18.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "timingVerified": true,
     "scheduleStatus": "confirmed",
     "displayTitleCompact": "Novak Djokovic v Alex de Minaur",
@@ -214903,6 +215029,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
       "synopsisSpoilerOn": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
       "lastReviewedAt": "2026-10-06T02:59:54.194Z"
+    },
+    "statusSourceUrl": "https://www.tennistv.com/live-schedule",
+    "statusEvidence": {
+      "kind": "reviewed-broadcaster-live",
+      "fixtureId": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
+      "participantIds": [
+        "athlete:tennis:novak-djokovic",
+        "athlete:tennis:alex-de-minaur"
+      ],
+      "sourceUrl": "https://www.tennistv.com/live-schedule",
+      "checkedAt": "2026-10-06T12:10:18.000Z",
+      "fixtureUrl": "https://www.tennistv.com/live?id=4582948",
+      "matchLabel": "LIVE Join our commentary team live from the China Open where Novak Djokovic looks to win his seventh Beijing title as he faces World No. 9 Alex de Minaur.",
+      "corroboratingUrl": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+      "corroboratingLabel": "BEIJING FINAL, ATP 500, LIVE Started 70 mins ago",
+      "officialMatchSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf"
     }
   },
   {

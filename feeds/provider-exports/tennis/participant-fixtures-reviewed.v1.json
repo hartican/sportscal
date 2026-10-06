@@ -288,7 +288,7 @@
       "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
       "statusCheckedAt": "2026-10-04T13:50:08.412Z",
       "timingEvidence": {
-        "matchRow": "Bottom-half rows 121–128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
+        "matchRow": "Bottom-half rows 121\u2013128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
         "clockAssociation": "No individual day, court or clock in the draw; absent from checked 3 October order of play",
         "publishedAtLocal": "2026-10-02T21:16:00+08:00",
         "reviewMethod": "Bracket columns and completed prior-round cells visually checked"
@@ -328,7 +328,7 @@
         "checkedAt": "2026-10-04T13:50:08.412Z",
         "sourceSha256": "1dc306a8fa932ed976bf1af8a56bbd13dd779b506fb78ba8f85f624024db7d09",
         "sourcePublishedAtLocal": "2026-10-04T14:47:00+08:00",
-        "matchRow": "Bottom-half rows 121–128: Round of 32 N. Bartunkova v A. Sabalenka; Round of 16 cell N. Bartunkova, 64 63",
+        "matchRow": "Bottom-half rows 121\u2013128: Round of 32 N. Bartunkova v A. Sabalenka; Round of 16 cell N. Bartunkova, 64 63",
         "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
         "participantIds": [
           "competitor:tennis:wta:aryna-sabalenka",
@@ -434,16 +434,16 @@
           "away": 1
         }
       ],
-      "score": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
-      "scoreDisplay": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
-      "result": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
+      "score": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
+      "scoreDisplay": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
+      "result": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
       "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
       "scoreCheckedAt": "2026-10-06T02:10:02.846863+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:02.846863+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Carlos Alcaraz defeated Jaume Munar.",
-      "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar.",
+      "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar.",
       "resultEvidence": {
         "kind": "official-draw-result",
         "fixtureId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
@@ -554,16 +554,16 @@
           "away": 2
         }
       ],
-      "score": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
-      "scoreDisplay": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
-      "result": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
+      "score": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
+      "scoreDisplay": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
+      "result": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
       "winnerParticipantId": "athlete:tennis:alex-de-minaur",
       "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Alex de Minaur defeated Hubert Hurkacz by retirement.",
-      "recapText": "The official tournament draw publishes this result: Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz.",
+      "recapText": "The official tournament draw publishes this result: Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz.",
       "resultCode": "RET",
       "retiredParticipantId": "competitor:tennis:atp:hubert-hurkacz",
       "resultEvidence": {
@@ -683,16 +683,16 @@
           "away": 4
         }
       ],
-      "score": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
-      "scoreDisplay": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
-      "result": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
+      "score": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
+      "scoreDisplay": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
+      "result": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
       "winnerParticipantId": "athlete:tennis:novak-djokovic",
       "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Novak Djokovic defeated Alexander Zverev.",
-      "recapText": "The official tournament draw publishes this result: Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev.",
+      "recapText": "The official tournament draw publishes this result: Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev.",
       "resultEvidence": {
         "kind": "official-draw-result",
         "fixtureId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
@@ -747,7 +747,7 @@
       "startTimeUtc": "2026-10-06T09:00:00.000Z",
       "timePrecision": "not-before",
       "timeTbc": false,
-      "status": "scheduled",
+      "status": "completed",
       "participantsConfirmed": true,
       "participantIds": [
         "competitor:tennis:atp:carlos-alcaraz",
@@ -776,7 +776,7 @@
       "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
       "sourceName": "Official tournament publication",
       "sourceCheckedAt": "2026-10-06T02:10:03.364867+00:00",
-      "statusCheckedAt": "2026-10-06T02:10:03.364867+00:00",
+      "statusCheckedAt": "2026-10-06T11:33:48.000Z",
       "timingEvidence": {
         "matchRow": "6 October, Colosseum match 4: Carlos ALCARAZ v Jiri LEHECKA, SINGLES FINAL, Not Before 6:00 PM",
         "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
@@ -791,7 +791,53 @@
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": [],
       "timingVerified": true,
-      "scheduleStatus": "confirmed"
+      "scheduleStatus": "confirmed",
+      "resultStatus": "official",
+      "score": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+      "scoreDisplay": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+      "result": "Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka",
+      "sets": [
+        {
+          "home": 7,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 4
+        }
+      ],
+      "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "scoreCheckedAt": "2026-10-06T11:33:48.000Z",
+      "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "resultSourceCheckedAt": "2026-10-06T11:33:48.000Z",
+      "resultAvailabilityEvidence": null,
+      "outcomeText": "Carlos Alcaraz defeated Jiri Lehecka.",
+      "recapText": "The official draw records this completed final: Carlos Alcaraz 7-6(4) 6-4 Jiri Lehecka.",
+      "resultEvidence": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
+        "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+        "checkedAt": "2026-10-06T11:33:48.000Z",
+        "sourceSha256": "643d7e38d98522cab892af008527a0ca9df4f3f758d0e4cad86847486ba033e8",
+        "sourcePublishedAtLocal": "2026-10-06T19:51:23+09:00",
+        "matchRow": "Singles final: C. Alcaraz [1] v J. Lehecka; champion cell C. Alcaraz [1], 76(4) 64",
+        "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+        "participantIds": [
+          "competitor:tennis:atp:carlos-alcaraz",
+          "competitor:tennis:atp:jiri-lehecka"
+        ],
+        "sets": [
+          {
+            "home": 7,
+            "away": 6
+          },
+          {
+            "home": 6,
+            "away": 4
+          }
+        ],
+        "reviewMethod": "Official PDF bracket pixels checked against the named finalist cells and champion score; winner-first score oriented to canonical home/away. No actual finish clock inferred."
+      }
     },
     {
       "id": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
@@ -817,7 +863,7 @@
       "startTimeUtc": "2026-10-06T11:00:00.000Z",
       "timePrecision": "not-before",
       "timeTbc": false,
-      "status": "scheduled",
+      "status": "live",
       "participantsConfirmed": true,
       "participantIds": [
         "athlete:tennis:novak-djokovic",
@@ -846,7 +892,7 @@
       "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
       "sourceName": "Official tournament publication",
       "sourceCheckedAt": "2026-10-06T02:10:05.381842+00:00",
-      "statusCheckedAt": "2026-10-06T02:10:05.381842+00:00",
+      "statusCheckedAt": "2026-10-06T12:10:18.000Z",
       "timingEvidence": {
         "matchRow": "6 October, Capital Group Diamond match 5: Novak DJOKOVIC v Alex DE MINAUR, ATP SINGLES FINAL, Not Before 7:00 PM",
         "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
@@ -861,7 +907,23 @@
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": [],
       "timingVerified": true,
-      "scheduleStatus": "confirmed"
+      "scheduleStatus": "confirmed",
+      "statusSourceUrl": "https://www.tennistv.com/live-schedule",
+      "statusEvidence": {
+        "kind": "reviewed-broadcaster-live",
+        "fixtureId": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
+        "participantIds": [
+          "athlete:tennis:novak-djokovic",
+          "athlete:tennis:alex-de-minaur"
+        ],
+        "sourceUrl": "https://www.tennistv.com/live-schedule",
+        "checkedAt": "2026-10-06T12:10:18.000Z",
+        "fixtureUrl": "https://www.tennistv.com/live?id=4582948",
+        "matchLabel": "LIVE Join our commentary team live from the China Open where Novak Djokovic looks to win his seventh Beijing title as he faces World No. 9 Alex de Minaur.",
+        "corroboratingUrl": "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+        "corroboratingLabel": "BEIJING FINAL, ATP 500, LIVE Started 70 mins ago",
+        "officialMatchSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf"
+      }
     },
     {
       "id": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
@@ -922,7 +984,7 @@
       "canonicalSourceCheckedAt": "2026-10-06T10:03:54.489Z",
       "statusCheckedAt": "2026-10-06T09:57:18Z",
       "scoreCheckedAt": "2026-10-06T09:57:18Z",
-      "score": "7–5, 1–6, 6–6",
+      "score": "7\u20135, 1\u20136, 6\u20136",
       "sets": [
         {
           "home": 7,
@@ -955,25 +1017,25 @@
           "competitor:tennis:wta:karolina-muchova",
           "competitor:tennis:wta:naomi-osaka"
         ],
-        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · 6 October 2026",
+        "matchRow": "Karolina Muchova v Naomi Osaka \u00b7 Round of 16 \u00b7 6 October 2026",
         "score": "7-5,1-6,6-6",
         "scoreState": "in-progress"
       },
       "timingEvidence": {
-        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · Tue 06 Oct 2026",
+        "matchRow": "Karolina Muchova v Naomi Osaka \u00b7 Round of 16 \u00b7 Tue 06 Oct 2026",
         "clockAssociation": "Official named match page publishes the date only; no exact or not-before match clock verified."
       },
       "liveWindow": 3,
       "createdAt": "2026-10-06T09:50:51.444Z",
-      "scoreDisplay": "7–5, 1–6, 6–6",
-      "selectedSentence": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
-      "fullSpiel": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
+      "scoreDisplay": "7\u20135, 1\u20136, 6\u20136",
+      "selectedSentence": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
+      "fullSpiel": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
-        "synopsisSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status."
+        "hookSpoilerOff": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
+        "synopsisSpoilerOff": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status."
       },
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": []
@@ -984,7 +1046,7 @@
       "player": "Carlos Alcaraz",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:03.364867+00:00",
-      "summary": "Japan Open final v Jiri Lehecka · not before 20:00 Sydney, 6 October",
+      "summary": "Japan Open final v Jiri Lehecka \u00b7 not before 20:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"
@@ -993,7 +1055,7 @@
       "player": "Jannik Sinner",
       "outcome": "The organiser confirmed Sinner withdrew from Shanghai. No individual Shanghai fixture or start time exists in this review.",
       "checkedAt": "2026-10-03T14:29:18.837Z",
-      "summary": "Withdrawn from Shanghai Masters · organiser confirmed 3 October",
+      "summary": "Withdrawn from Shanghai Masters \u00b7 organiser confirmed 3 October",
       "sourceUrl": "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal",
       "sourceLabel": "Official participation update",
       "validUntil": "2026-10-18"
@@ -1002,7 +1064,7 @@
       "player": "Novak Djokovic",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-      "summary": "China Open final v Alex de Minaur · not before 22:00 Sydney, 6 October",
+      "summary": "China Open final v Alex de Minaur \u00b7 not before 22:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"
@@ -1011,7 +1073,7 @@
       "player": "Alex de Minaur",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-      "summary": "China Open final v Novak Djokovic · not before 22:00 Sydney, 6 October",
+      "summary": "China Open final v Novak Djokovic \u00b7 not before 22:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"

@@ -71,6 +71,7 @@
 
   const VIEWING_PROVIDERS = Object.freeze({
     bein:{ label:"beIN SPORTS", actionLabel:"beIN SPORTS", webUrl:"https://connect-au.beinsports.com/en", paid:true, territory:"AU", accessType:"subscription", aliases:["bein", "be-in"], logoPath:"assets/providers/bein-sports-connect.svg", logoBackground:"#ffffff" },
+    "tennis-tv":{label:"Tennis TV",actionLabel:"Tennis TV",webUrl:"https://www.tennistv.com/",paid:true,territory:"AU",accessType:"subscription",aliases:["tennis tv", "tennistv"]},
     kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-nrl.svg", logoBackground:"#111111" },
     foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel-nrl.svg", logoBackground:"#151820" },
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/watch/sport", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
