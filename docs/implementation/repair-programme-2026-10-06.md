@@ -5,7 +5,7 @@ Authority: owner-approved plan and interview in this chat, explicitly authorised
 ## Contract
 
 - Repository: hartican/sportscal; publish scoped commits to main and deploy the exact published SHA to the existing Sportscal Vercel project.
-- Current phase: 1. Evidence and generated deliverables: `/Users/jackhartican/Documents/AI/Codex/nothingsport-repair-programme-20261006`.
+- Current phase: 3. Evidence and generated deliverables: `/Users/jackhartican/Documents/AI/Codex/nothingsport-repair-programme-20261006`.
 - Preserve source observations, canonical/action IDs, exclusions, dismissals, ratings, retention, Results controls and every notification/reminder OFF choice.
 - Use the existing canonical `node scripts/update-cards.js` owner; no parallel scheduler, inferred match clocks, fabricated results or new paid providers.
 - Core: men's NRL, AFL, Cricket, Tennis, F1, Rugby; women's Tennis. Secondary sports retain useful shallow fixtures, timing/status/results, viewing, standings and explicit-follow appearances.
@@ -56,3 +56,12 @@ Replace MotoGP track artwork with high-quality sourced vectors for the correct c
 ## Release boundary
 
 Each pass: focused source/policy/regression checks, real Chromium/WebKit mobile/desktop light/dark interactions including network failures, appropriate broad gates and cache-upgrade checks. GitHub main, READY, aliases, releaseGitSha, inventory/served bytes and hosted behaviour require separate evidence. Physical iPhone/Home Screen and push receipt are only claimed when directly tested. Failed required shared gates block release; report card-local failures and continue independent valid work under current repository rules. Keep phase evidence and remaining work explicit.
+
+## Verified progress
+
+- Pass 1: `59bd9d2110dcc8ba57551228a565a3b02f756a4c`, main + production READY; deployed inventory, public bytes and Chromium/WebKit hosted checks verified. Feed filter cancellation/pagination, BJK taxonomy, F1 alphabetical followed tags and centred Grand Final presentation.
+- Pass 2: `a721ba0e3eae2e9863c71ef270812c8fde1a44ef`, main + production READY (`dpl_9pB2JusfGKxsJnCvktGGdFhcWD9J`); official named NFL/MLB results and dated Kayo channels, bounded MLB postseason owner, followed ATP/WTA 250/500 singles-final admission and reminder scope, actual Beijing qualified clock.
+- Pass 3 candidate: community refresh after rating, saved-vote retry, stale-summary protection; Men/Women sports navigation and neutral women sport marks; current followed Events/All/Now with shallow verified appearances; independent essential-only minimisation and More/Less; Follow-to-Events inspector and modal redraw races repaired. Local broad gates: 149 passed; actual Chromium/WebKit mobile/desktop cases, source outage/retry, stake submission/outage, and cache upgrades recorded under the evidence folder. Physical phone/push not inferred.
+- Match Centre audit: existing implementation passed 12 engine/width/theme combinations plus refresh/cooldown/outage/navigation-race checks. Everything/Followed and All sports preserved.
+- Efficiency: read-only audit retains historical scoring versions and formula. Account-specific conclusion awaits the owner’s leaderboard handle; no matching eligible peer vote was found on any currently missed/unscored prediction.
+- Remaining: dated ranked cohorts, golfer next tee times/partners and Baycurrent identity; tennis parent tabs/labels/history and Rally timing; UEFA current-round presentation/standings admission verification; sourced MotoGP outlines and verified recoverable deep-data pruning.

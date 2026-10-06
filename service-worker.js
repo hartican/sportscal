@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v449";
-const SHELL_VERSION = "449";
+const CACHE_NAME = "nothingsport-shell-v450";
+const SHELL_VERSION = "450";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -8,7 +8,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=421",
+  "/assets/js/follow-presentation-ui.js?v=450",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -58,7 +58,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=449",
+  "/assets/js/app-shell-runtime.js?v=450",
   "/assets/js/follow-schedule-panel.js?v=439",
   "/config/cricket-innings.js?v=431",
   "/config/tournament-schedule.js?v=318",
@@ -75,7 +75,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=448",
+  "/styles/follow-feed-rework.css?v=450",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -87,7 +87,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=293",
-  "/config/event-overviews-ui.js?v=397",
+  "/config/event-overviews-ui.js?v=450",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=401",
   "/config/match-centre.js?v=435",

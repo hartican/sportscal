@@ -605,10 +605,17 @@ function renderFollowViewLoaded(){
   container.className='follow-view';container.dataset.scrollList='follow';
   const state=followBrowseState();
   if(!userPreferences.followBrowse)saveFollowBrowse(state);
-  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
+  const female=entity=>/-women$/.test(entity.id)||['sport:aflw','sport:nrlw','sport:fiba-women','sport:netball'].includes(entity.id);
+  const gender=state.gender||(female({id:state.sportId})?'women':'men');
+  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>female(entity)===(gender==='women')));
+  const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
+  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';saveFollowBrowse({gender:value,sportId,categoryId:'',section:'schedule'});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
+  for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
+  container.insertBefore(genderTabs,retainedBar);
   const primarySports=rankedFollowGridSports(sports);
+  if(gender==='women'&&!primarySports.length){const tennis=sports.find(e=>e.id==='sport:tennis-women');if(tennis)primarySports.push(tennis);}
   const primaryIds=primarySports.map(entity=>entity.id);
-  const gridFingerprint=primaryIds.join('|');
+  const gridFingerprint=gender+'|'+primaryIds.join('|');
   if(retainedBar&&retainedBar.dataset.sportOrder!==gridFingerprint){retainedBar.remove();}
   const currentBar=container.querySelector(':scope > .follow-sport-bar');
   if(!currentBar){
@@ -644,7 +651,7 @@ function renderFollowViewLoaded(){
     currentBar.querySelector('.follow-more-trigger')?.classList.toggle('active',!primaryIds.includes(state.sportId));
   }
   const root=selectorEntityById(state.sportId) || sports[0];
-  const children=(root.childIds || []).map(selectorEntityById).filter(Boolean);
+  const children=(root.childIds || []).map(selectorEntityById).filter(Boolean).filter(e=>female(e)===(gender==='women'));
   if (children.length){
     const choices=document.createElement('nav');choices.className='follow-category-bar';choices.setAttribute('aria-label',`${root.label} categories`);
     const items=root.id==='sport:afl'?children:[{...root,label:`All ${root.label}`},...children];

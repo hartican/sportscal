@@ -1,0 +1,9 @@
+'use strict';
+const assert=require('node:assert/strict'),{build}=require('../lib/event-overviews');
+const fixtures=require('../data/code-inspector/tennis.json').fixtures.filter(f=>f.tournamentId==='tournament:tennis:atp-beijing-2026'),original=JSON.stringify(fixtures);
+const event=build(fixtures).find(e=>e.tournamentId==='tournament:tennis:atp-beijing-2026');
+assert(event);assert(event.participantIds.includes('athlete:tennis:alex-de-minaur'));assert(event.upcomingFixtures.some(f=>f.participantIds.includes('athlete:tennis:alex-de-minaur')&&f.startTimeUtc==='2026-10-06T11:00:00.000Z'&&f.timePrecision==='not-before'));
+assert(event.upcomingFixtures.every(f=>!['completed','final','cancelled','abandoned'].includes(f.status)));assert(event.upcomingFixtures.every(f=>!Object.hasOwn(f,'score')&&!Object.hasOwn(f,'storyline')),'overview carries only shallow future fixture context');assert.equal(JSON.stringify(fixtures),original,'projection preserves source facts and observations');
+const document=require('../data/event-overviews.v1.json');assert(document.events.every(e=>new Set(e.fixtureIds).size===e.fixtureIds.length));
+const preserved=build([{...fixtures.find(f=>f.date),key:'tennis',id:'overview-projection-controlled',sourceCheckedAt:'2026-10-03T00:00:00Z',status:'completed'}]).find(e=>e.fixtureIds.includes('overview-projection-controlled'));assert.equal(preserved.sourceCheckedAt,'2026-10-03T00:00:00Z');assert.equal(preserved.upcomingFixtures.length,0);
+console.log('Events: actual Beijing participant-only discovery, verified qualified clock, shallow future rows, identity deduplication and original observation retention passed.');

@@ -592,7 +592,9 @@
     if (competitionMark) return competitionMark;
     if (/\b(?:uefa )?champions league\b/i.test(eventSearchText(event))) return eventMarks["uefa-champions-league"];
     if (event?.key === "cricket") return cricketOrganisationMarkForEvent(event);
-    return eventMarks[event?.key] || sportMarks[event?.key] || null;
+    const neutral=String(event?.key||'').replace(/-women$/,'');
+    const base={skiing:'ski',surf:'wsl',rugby:'rugby',football:'football',hockey:'hockey','ice-hockey':'hockey'}[neutral]||neutral;
+    return eventMarks[event?.key] || sportMarks[event?.key] || sportMarks[base] || null;
   }
   function markForCompetitionId(competitionId){
     const id = String(competitionId || "");

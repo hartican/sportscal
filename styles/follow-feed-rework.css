@@ -419,3 +419,20 @@ header.top .vector-glyph{width:20px;height:20px;}
 .athletes-hub{display:grid;gap:14px;width:100%;max-width:760px;margin:auto;padding:16px 0;overflow-wrap:anywhere}
 .athletes-person{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}
 .athletes-name{display:block;min-height:44px;border:0;background:none;color:var(--text);font-size:1rem;font-weight:800;padding:4px 0;text-align:left;cursor:pointer}
+
+/* Minimal Feed rows keep essentials legible independently of full card composition. */
+#listView .event-card.is-minimal-fixture{display:block;padding:8px 44px;background:var(--bg-card);}
+#listView .is-minimal-fixture .compact-card-summary{width:100%;min-height:0;gap:5px;}
+#listView .is-minimal-fixture .compact-card-name{width:100%;font-size:.8rem;overflow:visible;white-space:normal;}
+#listView .is-minimal-fixture .major-event-matchup-sides{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;}
+#listView .is-minimal-fixture .major-event-matchup-side{min-width:0;}
+#listView .is-minimal-fixture .major-event-matchup-side:last-child{justify-content:flex-end;}
+#listView .is-minimal-fixture .compact-matchup-middle{min-width:16px;}
+#listView .is-minimal-fixture .event-quick-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;}
+#listView .is-minimal-fixture .fixture-competition-link{display:inline-flex;font-size:.65rem;margin-top:4px;}
+#listView .is-minimal-fixture .event-quick-action{min-height:32px;padding:4px 8px;}
+#listView .is-minimal-fixture .fixture-providers{max-width:100px;}
+#listView .is-minimal-fixture .viewing-tbc{font-size:.6rem;line-height:1.15;}
+#listView .is-minimal-fixture .event-quick-action{font-size:.65rem;}
+#listView .is-minimal-fixture .fixture-competition-link{margin:0;}
+#listView .is-minimal-fixture .major-event-matchup-player{white-space:normal;}
