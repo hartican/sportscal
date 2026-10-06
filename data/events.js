@@ -105791,136 +105791,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": []
   },
   {
-    "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
-    "eventId": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
-    "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
-    "key": "tennis",
-    "sport": "Tennis",
-    "sportDomainId": "sport:tennis",
-    "name": "Alex de Minaur v Quentin Halys",
-    "cardKind": "fixture",
-    "contestUnit": "match",
-    "competitionId": "competition:tennis:atp-beijing-2026",
-    "tournamentId": "tournament:tennis:atp-beijing-2026",
-    "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
-    "eventFamilyId": "china-open",
-    "tournamentName": "China Open",
-    "tournamentLevel": "500",
-    "tour": "ATP",
-    "round": "early",
-    "roundLabel": "Round of 16",
-    "date": "2026-10-03",
-    "time": "13:00",
-    "startTimeUtc": "2026-10-03T03:00:00.000Z",
-    "timePrecision": "exact",
-    "timeTbc": false,
-    "status": "completed",
-    "participantsConfirmed": true,
-    "participantIds": [
-      "athlete:tennis:alex-de-minaur",
-      "competitor:tennis:atp:quentin-halys"
-    ],
-    "homeParticipantId": "athlete:tennis:alex-de-minaur",
-    "awayParticipantId": "competitor:tennis:atp:quentin-halys",
-    "participants": [
-      {
-        "id": "athlete:tennis:alex-de-minaur",
-        "displayName": "Alex de Minaur",
-        "type": "athlete",
-        "countryCode": "AUS",
-        "name": "Alex de Minaur"
-      },
-      {
-        "id": "competitor:tennis:atp:quentin-halys",
-        "displayName": "Quentin Halys",
-        "type": "competitor",
-        "countryCode": "FRA",
-        "name": "Quentin Halys"
-      }
-    ],
-    "venue": "National Tennis Center, Beijing",
-    "court": "Capital Group Diamond",
-    "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
-    "sourceName": "ATP official China Open singles draw",
-    "sourceCheckedAt": "2026-10-03T06:30:00.200Z",
-    "statusCheckedAt": "2026-10-03T06:30:00.200Z",
-    "timingVerified": true,
-    "timingEvidence": {
-      "matchRow": "Saturday 3 October 2026, first Capital Group Diamond row: ATP R16 [5] Alex DE MINAUR v Quentin HALYS",
-      "clockAssociation": "11:00 AM heading directly above this first court row; Asia/Shanghai UTC+08:00",
-      "publishedAtLocal": "2026-10-02T20:53:00+08:00",
-      "reviewMethod": "PDF pixels and text checked together; other court columns and followed-by labels excluded"
-    },
-    "liveWindow": 3,
-    "sourceTrust": "verified",
-    "displayTitleCompact": "Alex de Minaur v Quentin Halys",
-    "broadcastOptions": [],
-    "narrativeType": "early",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "broadcaster": "Australian viewing unconfirmed",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcasterIds": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
-      "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
-    ],
-    "consensusTags": [],
-    "score": "Alex de Minaur 3-6, 7-6(5), 7-5 Quentin Halys",
-    "outcomeText": "Alex de Minaur defeated Quentin Halys in three sets.",
-    "recapText": "De Minaur won the China Open Round of 16 match 3-6, 7-6(5), 7-5.",
-    "winnerParticipantId": "athlete:tennis:alex-de-minaur",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
-    "resultSourceCheckedAt": "2026-10-03T06:30:00.200Z",
-    "scoreCheckedAt": "2026-10-03T06:30:00.200Z",
-    "resultPublishedAt": "2026-10-03T06:30:00.200Z",
-    "lastReviewedAt": "2026-10-03T06:30:00.200Z",
-    "sourceType": "official",
-    "sourceRefs": [
-      "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
-      "https://www.protennislive.com/posting/2026/747/mds.pdf"
-    ],
-    "stakesScore": 5,
-    "endTimeUtc": "2026-10-03T06:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "scheduleProvenance": {
-      "sourceName": "China Open official order of play",
-      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
-      "checkedAt": "2026-10-03T01:06:36.000Z",
-      "startTimeUtc": "2026-10-03T03:00:00.000Z",
-      "participantIds": [
-        "athlete:tennis:alex-de-minaur",
-        "competitor:tennis:atp:quentin-halys"
-      ]
-    },
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "arcStage": "recap",
-      "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "hookSpoilerOff": "Alex de Minaur v Quentin Halys is complete; the key moments are protected until you choose to reveal them.",
-      "synopsisSpoilerOff": "Alex de Minaur v Quentin Halys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Alex de Minaur defeated Quentin Halys in three sets.",
-      "synopsisSpoilerOn": "De Minaur won the China Open Round of 16 match 3-6, 7-6(5), 7-5."
-    },
-    "selectedSentence": "Alex de Minaur v Quentin Halys is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Alex de Minaur v Quentin Halys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "resultLabels": [
-      "Round of 16",
-      "Alex de Minaur 3-6, 7-6(5), 7-5 Quentin Halys",
-      "Official result"
-    ]
-  },
-  {
     "id": "event-aflw-cd_m20262640803",
     "eventId": "event-aflw-cd_m20262640803",
     "sport": "AFLW",
@@ -106086,105 +105956,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-04T05:48:34.000Z",
       "needsPreviewRefresh": false
     }
-  },
-  {
-    "id": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
-    "eventId": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
-    "canonicalEventId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
-    "key": "tennis",
-    "sport": "Tennis",
-    "sportDomainId": "sport:tennis",
-    "name": "Carlos Alcaraz v Matteo Arnaldi",
-    "cardKind": "fixture",
-    "contestUnit": "match",
-    "competitionId": "competition:tennis:atp-tokyo-2026",
-    "tournamentId": "tournament:tennis:atp-tokyo-2026",
-    "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
-    "eventFamilyId": "japan-open-tennis-championships",
-    "tournamentName": "Japan Open",
-    "tournamentLevel": "500",
-    "tour": "ATP",
-    "round": "early",
-    "roundLabel": "Round of 16",
-    "date": "2026-10-03",
-    "time": "13:30",
-    "startTimeUtc": "2026-10-03T03:30:00.000Z",
-    "timePrecision": "not-before",
-    "timeTbc": false,
-    "status": "scheduled",
-    "participantsConfirmed": true,
-    "participantIds": [
-      "competitor:tennis:atp:carlos-alcaraz",
-      "competitor:tennis:atp:matteo-arnaldi"
-    ],
-    "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
-    "awayParticipantId": "competitor:tennis:atp:matteo-arnaldi",
-    "participants": [
-      {
-        "id": "competitor:tennis:atp:carlos-alcaraz",
-        "name": "Carlos Alcaraz",
-        "displayName": "Carlos Alcaraz",
-        "type": "competitor",
-        "countryCode": "ESP"
-      },
-      {
-        "id": "competitor:tennis:atp:matteo-arnaldi",
-        "name": "Matteo Arnaldi",
-        "displayName": "Matteo Arnaldi",
-        "type": "competitor",
-        "countryCode": "ITA"
-      }
-    ],
-    "venue": "Ariake Colosseum, Tokyo",
-    "court": "Colosseum",
-    "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
-    "sourceName": "Official tournament publication",
-    "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
-    "statusCheckedAt": "2026-10-03T01:24:45.000Z",
-    "timingVerified": true,
-    "timingEvidence": {
-      "matchRow": "3 October, Colosseum second singles row: Carlos ALCARAZ v Matteo ARNALDI",
-      "clockAssociation": "Not Before 12:30 PM directly above this row, Japan UTC+09:00; not the show court 12:00 heading",
-      "publishedAtLocal": "2026-10-02T20:23:05+09:00",
-      "reviewMethod": "PDF court columns and match rows visually checked against text"
-    },
-    "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
-    "displayTitleCompact": "Carlos Alcaraz v Matteo Arnaldi",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [],
-    "broadcasts": [],
-    "sourceEventIds": [
-      "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
-      "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi"
-    ],
-    "consensusTags": [],
-    "sourceTrust": "unverified",
-    "narrativeType": "early",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "resultStatus": "pending",
-    "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
-    "resultSourceCheckedAt": "2026-10-03T06:30:54.629Z",
-    "resultAvailabilityEvidence": {
-      "kind": "official-draw-result-unpublished",
-      "fixtureId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
-      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
-      "checkedAt": "2026-10-03T06:30:54.629Z",
-      "sourceSha256": "3708c48a839d83d58ff943873469ec1545b7a70c3051ae8df7b0e7e4d4c751d7",
-      "sourcePublishedAtLocal": "2026-10-03T13:56:14+09:00",
-      "matchRow": "Round of 16: C. Alcaraz [1] v M. Arnaldi",
-      "winnerCell": "unpublished"
-    },
-    "selectedSentence": "",
-    "fullSpiel": ""
   },
   {
     "id": "evt_f1_2026_bahrain_practice_3",
@@ -209725,97 +209496,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": []
   },
   {
-    "id": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
-    "eventId": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
-    "canonicalEventId": "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
-    "key": "tennis",
-    "sport": "Tennis",
-    "sportDomainId": "sport:tennis",
-    "name": "Aryna Sabalenka v Nikola Bartunkova",
-    "cardKind": "fixture",
-    "contestUnit": "match",
-    "competitionId": "competition:tennis:wta-beijing-2026",
-    "tournamentId": "tournament:tennis:wta-beijing-2026",
-    "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
-    "eventFamilyId": "china-open",
-    "tournamentName": "China Open",
-    "tournamentLevel": "1000",
-    "tour": "WTA",
-    "round": "early",
-    "roundLabel": "Round of 32",
-    "date": "",
-    "time": null,
-    "startTimeUtc": null,
-    "timePrecision": "unresolved",
-    "timeTbc": true,
-    "status": "scheduled",
-    "participantsConfirmed": true,
-    "participantIds": [
-      "competitor:tennis:wta:aryna-sabalenka",
-      "competitor:tennis:wta:nikola-bartunkova"
-    ],
-    "homeParticipantId": "competitor:tennis:wta:aryna-sabalenka",
-    "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
-    "participants": [
-      {
-        "id": "competitor:tennis:wta:aryna-sabalenka",
-        "name": "Aryna Sabalenka",
-        "displayName": "Aryna Sabalenka",
-        "type": "competitor",
-        "countryCode": "BLR"
-      },
-      {
-        "id": "competitor:tennis:wta:nikola-bartunkova",
-        "name": "Nikola Bartunkova",
-        "displayName": "Nikola Bartunkova",
-        "type": "competitor",
-        "countryCode": "CZE"
-      }
-    ],
-    "venue": "National Tennis Center, Beijing",
-    "court": null,
-    "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
-    "sourceName": "Official tournament publication",
-    "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
-    "statusCheckedAt": "2026-10-03T01:24:45.000Z",
-    "timingEvidence": {
-      "matchRow": "Bottom-half rows 121–128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
-      "clockAssociation": "No individual day, court or clock in the draw; absent from checked 3 October order of play",
-      "publishedAtLocal": "2026-10-02T21:16:00+08:00",
-      "reviewMethod": "Bracket columns and completed prior-round cells visually checked"
-    },
-    "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
-    "schedulingWindow": {
-      "startsOn": "2026-09-28",
-      "endsOn": "2026-10-11",
-      "label": "Tournament context only; match day and time unpublished",
-      "basis": "tournament-context-only"
-    },
-    "displayTitleCompact": "Aryna Sabalenka v Nikola Bartunkova",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [],
-    "broadcasts": [],
-    "sourceEventIds": [
-      "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
-      "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova"
-    ],
-    "consensusTags": [],
-    "sourceTrust": "unverified",
-    "narrativeType": "early",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "selectedSentence": "",
-    "fullSpiel": ""
-  },
-  {
     "id": "evt_nrlw_2026_grand_final",
     "eventId": "evt_nrlw_2026_grand_final",
     "canonicalEventId": "event:nrlw:2026:grand-final",
@@ -210552,5 +210232,1229 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "endTimeUtc": "2026-09-27T06:05:00.000Z",
     "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+    "eventId": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+    "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Alex de Minaur v Quentin Halys",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-beijing-2026",
+    "tournamentId": "tournament:tennis:atp-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+    "eventFamilyId": "china-open",
+    "tournamentName": "China Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "early",
+    "roundLabel": "Round of 16",
+    "date": "2026-10-03",
+    "time": "13:00",
+    "startTimeUtc": "2026-10-03T03:00:00.000Z",
+    "timePrecision": "exact",
+    "timeTbc": false,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "athlete:tennis:alex-de-minaur",
+      "competitor:tennis:atp:quentin-halys"
+    ],
+    "homeParticipantId": "athlete:tennis:alex-de-minaur",
+    "awayParticipantId": "competitor:tennis:atp:quentin-halys",
+    "participants": [
+      {
+        "id": "athlete:tennis:alex-de-minaur",
+        "displayName": "Alex de Minaur",
+        "type": "athlete",
+        "countryCode": "AUS",
+        "name": "Alex de Minaur"
+      },
+      {
+        "id": "competitor:tennis:atp:quentin-halys",
+        "displayName": "Quentin Halys",
+        "type": "competitor",
+        "countryCode": "FRA",
+        "name": "Quentin Halys"
+      }
+    ],
+    "venue": "National Tennis Center, Beijing",
+    "court": "Capital Group Diamond",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+    "sourceName": "ATP official China Open singles draw",
+    "sourceCheckedAt": "2026-10-03T06:30:00.200Z",
+    "statusCheckedAt": "2026-10-04T13:50:08.916Z",
+    "timingVerified": true,
+    "timingEvidence": {
+      "matchRow": "Saturday 3 October 2026, first Capital Group Diamond row: ATP R16 [5] Alex DE MINAUR v Quentin HALYS",
+      "clockAssociation": "11:00 AM heading directly above this first court row; Asia/Shanghai UTC+08:00",
+      "publishedAtLocal": "2026-10-02T20:53:00+08:00",
+      "reviewMethod": "PDF pixels and text checked together; other court columns and followed-by labels excluded"
+    },
+    "liveWindow": 3,
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Alex de Minaur v Quentin Halys",
+    "broadcastOptions": [],
+    "narrativeType": "early",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "broadcaster": "Australian viewing unconfirmed",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys"
+    ],
+    "consensusTags": [],
+    "score": "Alex de Minaur 3-6 7-6(5) 7-5 Quentin Halys",
+    "outcomeText": "Alex de Minaur defeated Quentin Halys.",
+    "recapText": "The official draw records this completed Round of 16 match: Alex de Minaur 3-6 7-6(5) 7-5 Quentin Halys.",
+    "winnerParticipantId": "athlete:tennis:alex-de-minaur",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-04T13:50:08.916Z",
+    "scoreCheckedAt": "2026-10-04T13:50:08.916Z",
+    "resultPublishedAt": "2026-10-03T06:30:00.200Z",
+    "lastReviewedAt": "2026-10-03T06:30:00.200Z",
+    "sourceType": "official",
+    "sourceRefs": [
+      "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+      "https://www.protennislive.com/posting/2026/747/mds.pdf"
+    ],
+    "stakesScore": 5,
+    "endTimeUtc": "2026-10-03T06:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "scheduleProvenance": {
+      "sourceName": "China Open official order of play",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+      "checkedAt": "2026-10-03T01:06:36.000Z",
+      "startTimeUtc": "2026-10-03T03:00:00.000Z",
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:quentin-halys"
+      ]
+    },
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alex de Minaur v Quentin Halys is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alex de Minaur v Quentin Halys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alex de Minaur defeated Quentin Halys in three sets.",
+      "synopsisSpoilerOn": "De Minaur won the China Open Round of 16 match 3-6, 7-6(5), 7-5."
+    },
+    "selectedSentence": "Alex de Minaur v Quentin Halys is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alex de Minaur v Quentin Halys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "resultLabels": [
+      "Round of 16",
+      "Alex de Minaur 3-6, 7-6(5), 7-5 Quentin Halys",
+      "Official result"
+    ],
+    "scoreDisplay": "Alex de Minaur 3-6 7-6(5) 7-5 Quentin Halys",
+    "result": "Alex de Minaur 3-6 7-6(5) 7-5 Quentin Halys",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 5
+      }
+    ],
+    "resultAvailabilityEvidence": null,
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "checkedAt": "2026-10-04T13:50:08.916Z",
+      "sourceSha256": "46c1f3b13f26d01c56d0e9dfdbdc88c8d65008a4f373050d7785878c017e4c24",
+      "sourcePublishedAtLocal": "2026-10-04T18:21:20+08:00",
+      "matchRow": "Round of 16: A. de Minaur v Q. Halys; next-round cell A. de Minaur, 36 76(5) 75",
+      "winnerParticipantId": "athlete:tennis:alex-de-minaur",
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:quentin-halys"
+      ],
+      "sets": [
+        {
+          "home": 3,
+          "away": 6
+        },
+        {
+          "home": 7,
+          "away": 6
+        },
+        {
+          "home": 7,
+          "away": 5
+        }
+      ],
+      "reviewMethod": "PDF bracket columns visually inspected against extracted text; winner-first published scores oriented to canonical home/away; no match day or finish inferred"
+    }
+  },
+  {
+    "id": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+    "eventId": "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+    "canonicalEventId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Carlos Alcaraz v Matteo Arnaldi",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-tokyo-2026",
+    "tournamentId": "tournament:tennis:atp-tokyo-2026",
+    "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
+    "eventFamilyId": "japan-open-tennis-championships",
+    "tournamentName": "Japan Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "early",
+    "roundLabel": "Round of 16",
+    "date": "2026-10-03",
+    "time": "13:30",
+    "startTimeUtc": "2026-10-03T03:30:00.000Z",
+    "timePrecision": "not-before",
+    "timeTbc": false,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:carlos-alcaraz",
+      "competitor:tennis:atp:matteo-arnaldi"
+    ],
+    "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "awayParticipantId": "competitor:tennis:atp:matteo-arnaldi",
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:carlos-alcaraz",
+        "name": "Carlos Alcaraz",
+        "displayName": "Carlos Alcaraz",
+        "type": "competitor",
+        "countryCode": "ESP"
+      },
+      {
+        "id": "competitor:tennis:atp:matteo-arnaldi",
+        "name": "Matteo Arnaldi",
+        "displayName": "Matteo Arnaldi",
+        "type": "competitor",
+        "countryCode": "ITA"
+      }
+    ],
+    "venue": "Ariake Colosseum, Tokyo",
+    "court": "Colosseum",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
+    "sourceName": "Official tournament publication",
+    "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
+    "statusCheckedAt": "2026-10-04T13:50:08.677Z",
+    "timingVerified": true,
+    "timingEvidence": {
+      "matchRow": "3 October, Colosseum second singles row: Carlos ALCARAZ v Matteo ARNALDI",
+      "clockAssociation": "Not Before 12:30 PM directly above this row, Japan UTC+09:00; not the show court 12:00 heading",
+      "publishedAtLocal": "2026-10-02T20:23:05+09:00",
+      "reviewMethod": "PDF court columns and match rows visually checked against text"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "displayTitleCompact": "Carlos Alcaraz v Matteo Arnaldi",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+      "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi"
+    ],
+    "consensusTags": [],
+    "sourceTrust": "unverified",
+    "narrativeType": "early",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-04T13:50:08.677Z",
+    "resultAvailabilityEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "score": "Carlos Alcaraz 7-6(6) 6-1 Matteo Arnaldi",
+    "scoreDisplay": "Carlos Alcaraz 7-6(6) 6-1 Matteo Arnaldi",
+    "result": "Carlos Alcaraz 7-6(6) 6-1 Matteo Arnaldi",
+    "sets": [
+      {
+        "home": 7,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "scoreCheckedAt": "2026-10-04T13:50:08.677Z",
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-tokyo-2026:r16:alcaraz-arnaldi",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "checkedAt": "2026-10-04T13:50:08.677Z",
+      "sourceSha256": "ab2d4fcbebf684ed417094c0d8c25aa52e7863dd57fce8f0a7889df9e2d13e49",
+      "sourcePublishedAtLocal": "2026-10-04T19:51:15+09:00",
+      "matchRow": "Round of 16: C. Alcaraz v M. Arnaldi; next-round cell C. Alcaraz, 76(6) 61",
+      "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:matteo-arnaldi"
+      ],
+      "sets": [
+        {
+          "home": 7,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 1
+        }
+      ],
+      "reviewMethod": "PDF bracket columns visually inspected against extracted text; winner-first published scores oriented to canonical home/away; no match day or finish inferred"
+    },
+    "outcomeText": "Carlos Alcaraz defeated Matteo Arnaldi.",
+    "recapText": "The official draw records this completed Round of 16 match: Carlos Alcaraz 7-6(6) 6-1 Matteo Arnaldi.",
+    "sourceType": "official"
+  },
+  {
+    "id": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
+    "eventId": "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova",
+    "canonicalEventId": "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Aryna Sabalenka v Nikola Bartunkova",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:wta-beijing-2026",
+    "tournamentId": "tournament:tennis:wta-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+    "eventFamilyId": "china-open",
+    "tournamentName": "China Open",
+    "tournamentLevel": "1000",
+    "tour": "WTA",
+    "round": "early",
+    "roundLabel": "Round of 32",
+    "date": "",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "unresolved",
+    "timeTbc": true,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:aryna-sabalenka",
+      "competitor:tennis:wta:nikola-bartunkova"
+    ],
+    "homeParticipantId": "competitor:tennis:wta:aryna-sabalenka",
+    "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:aryna-sabalenka",
+        "name": "Aryna Sabalenka",
+        "displayName": "Aryna Sabalenka",
+        "type": "competitor",
+        "countryCode": "BLR"
+      },
+      {
+        "id": "competitor:tennis:wta:nikola-bartunkova",
+        "name": "Nikola Bartunkova",
+        "displayName": "Nikola Bartunkova",
+        "type": "competitor",
+        "countryCode": "CZE"
+      }
+    ],
+    "venue": "National Tennis Center, Beijing",
+    "court": null,
+    "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+    "sourceName": "Official tournament publication",
+    "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
+    "statusCheckedAt": "2026-10-04T13:50:08.412Z",
+    "timingEvidence": {
+      "matchRow": "Bottom-half rows 121–128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
+      "clockAssociation": "No individual day, court or clock in the draw; absent from checked 3 October order of play",
+      "publishedAtLocal": "2026-10-02T21:16:00+08:00",
+      "reviewMethod": "Bracket columns and completed prior-round cells visually checked"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "schedulingWindow": {
+      "startsOn": "2026-09-28",
+      "endsOn": "2026-10-11",
+      "label": "Tournament context only; match day and time unpublished",
+      "basis": "tournament-context-only"
+    },
+    "displayTitleCompact": "Aryna Sabalenka v Nikola Bartunkova",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
+      "fixture-tennis-wta-beijing-2026-r32-sabalenka-bartunkova"
+    ],
+    "consensusTags": [],
+    "sourceTrust": "unverified",
+    "narrativeType": "early",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "resultStatus": "official",
+    "score": "Aryna Sabalenka 4-6 3-6 Nikola Bartunkova",
+    "scoreDisplay": "Aryna Sabalenka 4-6 3-6 Nikola Bartunkova",
+    "result": "Aryna Sabalenka 4-6 3-6 Nikola Bartunkova",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "scoreCheckedAt": "2026-10-04T13:50:08.412Z",
+    "resultSourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+    "resultSourceCheckedAt": "2026-10-04T13:50:08.412Z",
+    "resultAvailabilityEvidence": null,
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:wta-beijing-2026:r32:sabalenka-bartunkova",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+      "checkedAt": "2026-10-04T13:50:08.412Z",
+      "sourceSha256": "1dc306a8fa932ed976bf1af8a56bbd13dd779b506fb78ba8f85f624024db7d09",
+      "sourcePublishedAtLocal": "2026-10-04T14:47:00+08:00",
+      "matchRow": "Bottom-half rows 121–128: Round of 32 N. Bartunkova v A. Sabalenka; Round of 16 cell N. Bartunkova, 64 63",
+      "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+      "participantIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:nikola-bartunkova"
+      ],
+      "sets": [
+        {
+          "home": 4,
+          "away": 6
+        },
+        {
+          "home": 3,
+          "away": 6
+        }
+      ],
+      "reviewMethod": "PDF bracket columns visually inspected against extracted text; winner-first published scores oriented to canonical home/away; no match day or finish inferred"
+    },
+    "outcomeText": "Nikola Bartunkova defeated Aryna Sabalenka.",
+    "recapText": "The official draw records this completed Round of 32 match: Aryna Sabalenka 4-6 3-6 Nikola Bartunkova.",
+    "sourceType": "official"
+  },
+  {
+    "id": "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+    "eventId": "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+    "canonicalEventId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Carlos Alcaraz v Jaume Munar",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-tokyo-2026",
+    "tournamentId": "tournament:tennis:atp-tokyo-2026",
+    "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
+    "eventFamilyId": "japan-open-tennis-championships",
+    "tournamentName": "Japan Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "semifinal",
+    "roundLabel": "Semifinal",
+    "date": "2026-10-05",
+    "time": "18:00",
+    "startTimeUtc": "2026-10-05T07:00:00.000Z",
+    "timePrecision": "not-before",
+    "timeTbc": false,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:carlos-alcaraz",
+      "competitor:tennis:atp:jaume-munar"
+    ],
+    "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "awayParticipantId": "competitor:tennis:atp:jaume-munar",
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:carlos-alcaraz",
+        "name": "Carlos Alcaraz",
+        "displayName": "Carlos Alcaraz",
+        "type": "competitor",
+        "countryCode": "ESP"
+      },
+      {
+        "id": "competitor:tennis:atp:jaume-munar",
+        "name": "Jaume Munar",
+        "displayName": "Jaume Munar",
+        "type": "competitor",
+        "countryCode": "ESP"
+      }
+    ],
+    "venue": "Ariake Colosseum, Tokyo",
+    "court": "Colosseum",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
+    "sourceName": "Official tournament publication",
+    "sourceCheckedAt": "2026-10-04T13:55:02.284Z",
+    "statusCheckedAt": "2026-10-06T02:10:02.846863+00:00",
+    "timingEvidence": {
+      "matchRow": "5 October, Colosseum match 2: Carlos ALCARAZ v Jaume MUNAR (semifinal)",
+      "clockAssociation": "Not Before 4:00 PM directly attached to this match, Japan UTC+09:00; the 2:00 PM doubles heading is not this clock",
+      "publishedAtLocal": "2026-10-04T19:51:20+09:00",
+      "reviewMethod": "Official draw and court-column order of play visually checked together; conditional pairing resolved only against later published draw",
+      "sourceSha256": "fd83d5c65ac136058505bccc22b0e2108b8000d23721e6a357751a59efbd9f8e",
+      "drawSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "drawCheckedAt": "2026-10-04T13:50:08.677Z",
+      "drawSourceSha256": "ab2d4fcbebf684ed417094c0d8c25aa52e7863dd57fce8f0a7889df9e2d13e49"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "timingVerified": true,
+    "scheduleStatus": "confirmed",
+    "displayTitleCompact": "Carlos Alcaraz v Jaume Munar",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
+      "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/329/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "unverified",
+    "narrativeType": "semifinal",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "resultStatus": "official",
+    "sets": [
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "score": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
+    "scoreDisplay": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
+    "result": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
+    "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "scoreCheckedAt": "2026-10-06T02:10:02.846863+00:00",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-06T02:10:02.846863+00:00",
+    "resultAvailabilityEvidence": null,
+    "outcomeText": "Carlos Alcaraz defeated Jaume Munar.",
+    "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar.",
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "checkedAt": "2026-10-06T02:10:02.846863+00:00",
+      "sourceSha256": "aa429e8273b1b0e0d0db16c32ef8805d446b126525ac1af93f909a8c2a21a712",
+      "sourcePublishedAtLocal": "2026-10-05T20:29:19+09:00",
+      "matchRow": "Tokyo semifinals: C. Alcaraz advances over J. Munar, winner score 57 63 61",
+      "participantIds": [
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:jaume-munar"
+      ],
+      "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "sets": [
+        {
+          "home": 5,
+          "away": 7
+        },
+        {
+          "home": 6,
+          "away": 3
+        },
+        {
+          "home": 6,
+          "away": 1
+        }
+      ],
+      "reviewMethod": "Official PDF draw visually checked: named bracket, round, winner cell and winner-oriented scores; no match finish or playing date inferred"
+    }
+  },
+  {
+    "id": "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+    "eventId": "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+    "canonicalEventId": "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Alex de Minaur v Hubert Hurkacz",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-beijing-2026",
+    "tournamentId": "tournament:tennis:atp-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+    "eventFamilyId": "china-open",
+    "tournamentName": "China Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "semifinal",
+    "roundLabel": "Semifinal",
+    "date": "2026-10-05",
+    "time": "18:00",
+    "startTimeUtc": "2026-10-05T07:00:00.000Z",
+    "timePrecision": "not-before",
+    "timeTbc": false,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "athlete:tennis:alex-de-minaur",
+      "competitor:tennis:atp:hubert-hurkacz"
+    ],
+    "homeParticipantId": "athlete:tennis:alex-de-minaur",
+    "awayParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "participants": [
+      {
+        "id": "athlete:tennis:alex-de-minaur",
+        "displayName": "Alex de Minaur",
+        "type": "athlete",
+        "countryCode": "AUS",
+        "name": "Alex de Minaur"
+      },
+      {
+        "id": "competitor:tennis:atp:hubert-hurkacz",
+        "name": "Hubert Hurkacz",
+        "displayName": "Hubert Hurkacz",
+        "type": "competitor",
+        "countryCode": "POL"
+      }
+    ],
+    "venue": "National Tennis Center, Beijing",
+    "court": "Capital Group Diamond",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
+    "sourceName": "China Open official order of play",
+    "sourceCheckedAt": "2026-10-04T13:55:03.400Z",
+    "statusCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "timingEvidence": {
+      "matchRow": "5 October, Capital Group Diamond match 3: Alex DE MINAUR or Andrey RUBLEV v Hubert HURKACZ; later 18:21:20 draw confirms A. de Minaur in this semifinal",
+      "clockAssociation": "Not Before 3:00 PM directly attached to this match, China UTC+08:00; resolved entrant confirmed by the later draw",
+      "publishedAtLocal": "2026-10-04T16:07:46+08:00",
+      "reviewMethod": "Official draw and court-column order of play visually checked together; conditional pairing resolved only against later published draw",
+      "sourceSha256": "77aa8cdb98a4841a39b403d337ec492b017f7a4d349b45c26904e673ffb3c93f",
+      "drawSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "drawCheckedAt": "2026-10-04T13:50:08.916Z",
+      "drawSourceSha256": "46c1f3b13f26d01c56d0e9dfdbdc88c8d65008a4f373050d7785878c017e4c24"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "timingVerified": true,
+    "scheduleStatus": "confirmed",
+    "displayTitleCompact": "Alex de Minaur v Hubert Hurkacz",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
+      "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/747/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "unverified",
+    "narrativeType": "semifinal",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "resultStatus": "official",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 3,
+        "away": 2
+      }
+    ],
+    "score": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
+    "scoreDisplay": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
+    "result": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
+    "winnerParticipantId": "athlete:tennis:alex-de-minaur",
+    "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "resultAvailabilityEvidence": null,
+    "outcomeText": "Alex de Minaur defeated Hubert Hurkacz by retirement.",
+    "recapText": "The official tournament draw publishes this result: Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz.",
+    "resultCode": "RET",
+    "retiredParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "checkedAt": "2026-10-06T02:10:03.842627+00:00",
+      "sourceSha256": "1b27f5c8ad84fbbb934d737ab834fd0a5cae18bca0648ebbaf0c339c5929f181",
+      "sourcePublishedAtLocal": "2026-10-05T22:00:08+08:00",
+      "matchRow": "Beijing semifinals: A. de Minaur advances over H. Hurkacz, winner score 64 32 RET",
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:hubert-hurkacz"
+      ],
+      "winnerParticipantId": "athlete:tennis:alex-de-minaur",
+      "sets": [
+        {
+          "home": 6,
+          "away": 4
+        },
+        {
+          "home": 3,
+          "away": 2
+        }
+      ],
+      "reviewMethod": "Official PDF draw visually checked: named bracket, round, winner cell and winner-oriented scores; no match finish or playing date inferred",
+      "resultCode": "RET",
+      "retiredParticipantId": "competitor:tennis:atp:hubert-hurkacz"
+    }
+  },
+  {
+    "id": "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
+    "eventId": "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
+    "canonicalEventId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Novak Djokovic v Alexander Zverev",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-beijing-2026",
+    "tournamentId": "tournament:tennis:atp-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+    "eventFamilyId": "china-open",
+    "tournamentName": "China Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "quarterfinal",
+    "roundLabel": "Quarterfinal",
+    "date": "",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "unresolved",
+    "timeTbc": true,
+    "status": "completed",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "athlete:tennis:novak-djokovic",
+      "competitor:tennis:atp:alexander-zverev"
+    ],
+    "homeParticipantId": "athlete:tennis:novak-djokovic",
+    "awayParticipantId": "competitor:tennis:atp:alexander-zverev",
+    "participants": [
+      {
+        "id": "athlete:tennis:novak-djokovic",
+        "name": "Novak Djokovic",
+        "displayName": "Novak Djokovic",
+        "type": "athlete",
+        "countryCode": "SRB"
+      },
+      {
+        "id": "competitor:tennis:atp:alexander-zverev",
+        "name": "Alexander Zverev",
+        "displayName": "Alexander Zverev",
+        "type": "competitor",
+        "countryCode": "GER"
+      }
+    ],
+    "venue": "National Tennis Center, Beijing",
+    "court": null,
+    "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+    "sourceName": "China Open official order of play",
+    "sourceCheckedAt": "2026-10-04T13:50:08.916Z",
+    "statusCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "timingEvidence": {
+      "matchRow": "Quarterfinal: N. Djokovic v A. Zverev; semifinal winner cell is unpublished",
+      "clockAssociation": "Draw confirms this pairing but gives no individual match date or clock. The order-of-play 19:00 Zverev OR Djokovic semifinal row cannot time this quarterfinal",
+      "publishedAtLocal": "2026-10-04T18:21:20+08:00",
+      "reviewMethod": "Official draw and court-column order of play visually checked together; conditional pairing resolved only against later published draw",
+      "sourceSha256": "46c1f3b13f26d01c56d0e9dfdbdc88c8d65008a4f373050d7785878c017e4c24",
+      "drawSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "drawCheckedAt": "2026-10-04T13:50:08.916Z",
+      "drawSourceSha256": "46c1f3b13f26d01c56d0e9dfdbdc88c8d65008a4f373050d7785878c017e4c24"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "schedulingWindow": {
+      "startsOn": "2026-09-28",
+      "endsOn": "2026-10-06",
+      "label": "Tournament context only; match day and time unpublished",
+      "basis": "tournament-context-only"
+    },
+    "scheduleStatus": "provisional",
+    "displayTitleCompact": "Novak Djokovic v Alexander Zverev",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
+      "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev"
+    ],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/747/mds.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "unverified",
+    "narrativeType": "quarterfinal",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "resultStatus": "official",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
+    "scoreDisplay": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
+    "result": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
+    "winnerParticipantId": "athlete:tennis:novak-djokovic",
+    "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+    "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+    "resultAvailabilityEvidence": null,
+    "outcomeText": "Novak Djokovic defeated Alexander Zverev.",
+    "recapText": "The official tournament draw publishes this result: Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev.",
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "checkedAt": "2026-10-06T02:10:03.842627+00:00",
+      "sourceSha256": "1b27f5c8ad84fbbb934d737ab834fd0a5cae18bca0648ebbaf0c339c5929f181",
+      "sourcePublishedAtLocal": "2026-10-05T22:00:08+08:00",
+      "matchRow": "Beijing quarterfinals: N. Djokovic advances over A. Zverev, winner score 46 64 64",
+      "participantIds": [
+        "athlete:tennis:novak-djokovic",
+        "competitor:tennis:atp:alexander-zverev"
+      ],
+      "winnerParticipantId": "athlete:tennis:novak-djokovic",
+      "sets": [
+        {
+          "home": 4,
+          "away": 6
+        },
+        {
+          "home": 6,
+          "away": 4
+        },
+        {
+          "home": 6,
+          "away": 4
+        }
+      ],
+      "reviewMethod": "Official PDF draw visually checked: named bracket, round, winner cell and winner-oriented scores; no match finish or playing date inferred"
+    }
+  },
+  {
+    "id": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+    "eventId": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+    "canonicalEventId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Carlos Alcaraz v Jiri Lehecka",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-tokyo-2026",
+    "tournamentId": "tournament:tennis:atp-tokyo-2026",
+    "tennisTournamentId": "tournament:tennis:atp-tokyo-2026",
+    "eventFamilyId": "japan-open-tennis-championships",
+    "tournamentName": "Japan Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "final",
+    "roundLabel": "Final",
+    "date": "2026-10-06",
+    "time": "20:00",
+    "startTimeUtc": "2026-10-06T09:00:00.000Z",
+    "timePrecision": "not-before",
+    "timeTbc": false,
+    "status": "scheduled",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:carlos-alcaraz",
+      "competitor:tennis:atp:jiri-lehecka"
+    ],
+    "homeParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "awayParticipantId": "competitor:tennis:atp:jiri-lehecka",
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:carlos-alcaraz",
+        "name": "Carlos Alcaraz",
+        "displayName": "Carlos Alcaraz",
+        "type": "competitor",
+        "countryCode": "ESP"
+      },
+      {
+        "id": "competitor:tennis:atp:jiri-lehecka",
+        "name": "Jiri Lehecka",
+        "displayName": "Jiri Lehecka",
+        "type": "competitor",
+        "countryCode": "CZE"
+      }
+    ],
+    "venue": "Ariake Colosseum, Tokyo",
+    "court": "Colosseum",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
+    "sourceName": "Official tournament publication",
+    "sourceCheckedAt": "2026-10-06T02:10:03.364867+00:00",
+    "statusCheckedAt": "2026-10-06T02:10:03.364867+00:00",
+    "timingEvidence": {
+      "matchRow": "6 October, Colosseum match 4: Carlos ALCARAZ v Jiri LEHECKA, SINGLES FINAL, Not Before 6:00 PM",
+      "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
+      "publishedAtLocal": "2026-10-05T20:29:21+09:00",
+      "reviewMethod": "Official draw and court-column order of play visually checked together",
+      "sourceSha256": "b0b941a4287aa0eeaaa94c226e466aeedfb714df29f37906c5d270b5a1647324",
+      "drawSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "drawCheckedAt": "2026-10-06T02:10:02.846863+00:00",
+      "drawSourceSha256": "aa429e8273b1b0e0d0db16c32ef8805d446b126525ac1af93f909a8c2a21a712"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "timingVerified": true,
+    "scheduleStatus": "confirmed",
+    "displayTitleCompact": "Carlos Alcaraz v Jiri Lehecka",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
+      "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+    ],
+    "consensusTags": [
+      {
+        "label": "Final",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/329/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "unverified",
+    "narrativeType": "final",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "selectedSentence": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+    "fullSpiel": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "researchTier": "marquee",
+      "hook": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "synopsis": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "formCopy": "Alcaraz needed a three-set recovery against Jaume Munar in the semi-final; Lehecka's meeting with Valentin Vacherot lasted two sets. The contrast matters without making the Czech's route easy: Alcaraz has already had to recover his rhythm under pressure, while Lehecka carries a more direct finish into the decider. The question is whether the top seed can control the opening exchanges rather than needing another reset.",
+      "closingCopy": "A title defence asks Alcaraz to turn last year's achievement into a standard he can sustain. For Lehecka, an unseeded run puts him opposite the tournament's highest seed with the chance to make this week his own. That is the emotional imbalance: expectation sits with the champion, opportunity with the challenger. Neither reputation nor the smoother semi-final settles how they handle the last match.",
+      "threadIds": [
+        "thread:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:3",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2"
+      ],
+      "dimensions": [
+        "form",
+        "path",
+        "history",
+        "schedule",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-06T02:59:54.191Z",
+      "refreshAfter": "2026-10-06T09:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Carlos Alcaraz v Jiri Lehecka",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path",
+        "narrative:history",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceName": "Carlos Alcaraz v Jiri Lehecka — official research 1",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "sourceCheckedAt": "2026-10-06T02:59:54.191Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-10-06T02:59:54.191Z",
+    "storyline": {
+      "researchDepth": 5,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "hookSpoilerOn": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "synopsisSpoilerOff": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "synopsisSpoilerOn": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "lastReviewedAt": "2026-10-06T02:59:54.191Z"
+    }
+  },
+  {
+    "id": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+    "eventId": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+    "canonicalEventId": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "name": "Novak Djokovic v Alex de Minaur",
+    "cardKind": "fixture",
+    "contestUnit": "match",
+    "competitionId": "competition:tennis:atp-beijing-2026",
+    "tournamentId": "tournament:tennis:atp-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:atp-beijing-2026",
+    "eventFamilyId": "china-open",
+    "tournamentName": "China Open",
+    "tournamentLevel": "500",
+    "tour": "ATP",
+    "round": "final",
+    "roundLabel": "Final",
+    "date": "2026-10-06",
+    "time": "22:00",
+    "startTimeUtc": "2026-10-06T11:00:00.000Z",
+    "timePrecision": "not-before",
+    "timeTbc": false,
+    "status": "scheduled",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "athlete:tennis:novak-djokovic",
+      "athlete:tennis:alex-de-minaur"
+    ],
+    "homeParticipantId": "athlete:tennis:novak-djokovic",
+    "awayParticipantId": "athlete:tennis:alex-de-minaur",
+    "participants": [
+      {
+        "id": "athlete:tennis:novak-djokovic",
+        "name": "Novak Djokovic",
+        "displayName": "Novak Djokovic",
+        "type": "athlete",
+        "countryCode": "SRB"
+      },
+      {
+        "id": "athlete:tennis:alex-de-minaur",
+        "displayName": "Alex de Minaur",
+        "type": "athlete",
+        "countryCode": "AUS",
+        "name": "Alex de Minaur"
+      }
+    ],
+    "venue": "National Tennis Center, Beijing",
+    "court": "Capital Group Diamond",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
+    "sourceName": "Official tournament publication",
+    "sourceCheckedAt": "2026-10-06T02:10:05.381842+00:00",
+    "statusCheckedAt": "2026-10-06T02:10:05.381842+00:00",
+    "timingEvidence": {
+      "matchRow": "6 October, Capital Group Diamond match 5: Novak DJOKOVIC v Alex DE MINAUR, ATP SINGLES FINAL, Not Before 7:00 PM",
+      "clockAssociation": "Not Before attached directly to this named singles final; earlier doubles/session/ceremony clocks are not this match start",
+      "publishedAtLocal": "2026-10-05T23:14:12+08:00",
+      "reviewMethod": "Official draw and court-column order of play visually checked together",
+      "sourceSha256": "6100be1f0938a37a6ba310531015840c3a82c36ecb254484111d6b94f653c90c",
+      "drawSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "drawCheckedAt": "2026-10-06T02:10:03.842627+00:00",
+      "drawSourceSha256": "1b27f5c8ad84fbbb934d737ab834fd0a5cae18bca0648ebbaf0c339c5929f181"
+    },
+    "liveWindow": 3,
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "timingVerified": true,
+    "scheduleStatus": "confirmed",
+    "displayTitleCompact": "Novak Djokovic v Alex de Minaur",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
+      "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+    ],
+    "consensusTags": [
+      {
+        "label": "Final",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/747/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "unverified",
+    "narrativeType": "final",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "selectedSentence": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+    "fullSpiel": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "researchTier": "marquee",
+      "hook": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "synopsis": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "formCopy": "Djokovic's route includes a three-set quarter-final against top seed Alexander Zverev and a semi-final cut short by Daniil Medvedev's default. De Minaur's semi-final ended when Hubert Hurkacz retired, after the Australian took the opening set. Neither interruption predicts the final. The useful contrast is Djokovic's recent experience of recovering a set deficit against elite opposition and de Minaur's opportunity to make this decider a contest decided entirely by their tennis.",
+      "closingCopy": "Djokovic returned after eleven years to a tournament where each of his six previous appearances ended with the title. That history makes Beijing more than another stop on the calendar for him. For de Minaur and Australian supporters, the appeal is the chance to challenge that local authority on the biggest match of this week, not simply to share a court with it. History can add pressure and belief; it cannot play the points for either man.",
+      "threadIds": [
+        "thread:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:3",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2"
+      ],
+      "dimensions": [
+        "form",
+        "history",
+        "schedule",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-06T02:59:54.194Z",
+      "refreshAfter": "2026-10-06T11:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Novak Djokovic v Alex de Minaur",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceName": "Novak Djokovic v Alex de Minaur — official research 1",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "sourceCheckedAt": "2026-10-06T02:59:54.194Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-10-06T02:59:54.194Z",
+    "storyline": {
+      "researchDepth": 5,
+      "arcStage": "preview",
+      "hookSpoilerOff": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "hookSpoilerOn": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "synopsisSpoilerOff": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "synopsisSpoilerOn": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "lastReviewedAt": "2026-10-06T02:59:54.194Z"
+    }
   }
 ];

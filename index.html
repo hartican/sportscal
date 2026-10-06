@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="446">
+<meta name="app-shell-version" content="447">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=446" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=447" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=446"></script>
+<script src="assets/js/app-shell-runtime.js?v=447"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8762,7 +8762,7 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=401').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=444')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=401').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=447')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
@@ -8770,7 +8770,7 @@ async function openAthleteProfile(id,label,sportKey,trigger){
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
   await loadDeferredScript('config/athletes.js?v=401');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=444');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=447');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -14087,8 +14087,7 @@ function openMatchCentreFeedFixture(event,{temporary=false}={}){
   const action=getEventAction(event);
   if(action.archived||action.dismissed){showToast('This fixture has been removed from your Feed.');return;}
   const id=String(event.eventId||event.id);
-  // Match Centre already resolved this fixture from the complete eligible Feed.
-  // Seed only that record, not all pages or a new saved-follow/pin decision.
+  // Seed this verified fixture while its Feed page loads.
   activeEvents=mergeCanonicalEventPages(activeEvents,[event]);
   if(!matchesFeedViewFilters(event)){
     feedViewFilters={sport:'all',minimum:0};if(!temporary){localStorage.removeItem('ns-feed-view-filter-v1');showToast('Feed filters cleared to show this fixture.');}
@@ -14100,8 +14099,7 @@ function openMatchCentreFeedFixture(event,{temporary=false}={}){
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     if(activeTab!=='feed')return;
     if(pendingNotificationEventId===id)focusPendingNotificationEvent();
-    // Run after Feed's scheduled Now/virtual-slot layout work, which otherwise
-    // can overwrite the earlier focus scroll during the same render.
+    // Two frames let Feed layout finish before restoring focus.
     const target=document.querySelector(`.event-card[data-event-id="${CSS.escape(id)}"]`);
     if(target){target.tabIndex=-1;window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-stickyFeedChromeHeight()-12),behavior:'auto'});target.focus({preventScroll:true});}
   }));
@@ -14117,7 +14115,7 @@ function focusPendingNotificationEvent(){
   if (item && !item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
   const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"]`);
   if (!target){
-    if(!notificationFixtureLoading){notificationFixtureLoading=true;const id=pendingNotificationEventId;
+    if(!notificationFixtureLoading&&!history.state?.athleteMatchReturn){notificationFixtureLoading=true;const id=pendingNotificationEventId;
       void openFriendFixture(id).then(()=>{pendingNotificationEventId='';const url=new URL(location.href);url.searchParams.delete('event');url.searchParams.delete('liveRatings');history.replaceState(history.state,'',url);}).catch(e=>showToast(e.message)).finally(()=>{notificationFixtureLoading=false;});
     }return false;
   }

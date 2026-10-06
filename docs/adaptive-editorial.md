@@ -1,5 +1,11 @@
 # Adaptive 5/5 editorial - owner decisions, 2 October 2026
 
+## Automatic missing-copy repair - 6 October 2026
+
+The Owner authorises repairing required public display copy without another prompt. The normal canonical adaptive inventory now also includes existing published 4+/5 fixtures whose required Hook or Match Context is missing in either Results mode, even without a qualifying real rating. `repairReason: missing-required-display-copy` distinguishes this exception from rating-selected narrative maintenance. It uses the same 14-day pre-kickoff window, alias identity, private control snapshot/CAS, holds, locks and protected NRL exclusion; it changes no ratings, preferences or Feed admission. Research these repair cards once with the same complete, sourced four-section schema and publish with the independently valid due cards. The shared spoiler gate and inventory use the same display-copy resolver. A successful check cannot hide an unrepaired public gap.
+
+Before publication, follow [autonomous release recovery](update-sportscal-cards.md). After main advances, rebuild the merged sources and rerun the canonical inventory with a fresh matching private snapshot to discover newly added missing-copy cards. No extra sports ingestion or new scheduler. A confirmed result is not fabricated to repair copy after kickoff; held, protected, unavailable or out-of-window blockers retain data and an actionable exception.
+
 One existing editorial heartbeat runs daily at 09:00 Australia/Sydney. Keep Friday's existing 4/5 Friday-Monday maintenance. Do not create another scheduler or repeat canonical ingestion. Use a clean current origin/main worktree and the canonical entrypoint:
 
 ```sh

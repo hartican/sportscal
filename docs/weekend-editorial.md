@@ -30,6 +30,8 @@ Owner-approved active fixture locks in `config/editorial-locks.js` are excluded 
 
 ## Independent-card progress - 2 October 2026
 
+The 6 October Owner authorisation also covers automatic required-display-copy repairs through the existing adaptive inventory, including newly merged fixtures outside the normal rating selection. Run that inventory before release and again after main integration, coordinate research with weekend cards, and follow `docs/update-sportscal-cards.md` for bounded recovery. No repeat approval is needed for source-backed missing-copy repair or known mechanical integration/build recovery. All holds, kickoff boundaries and shared release gates remain mandatory.
+
 Never let an isolated card failure stop independent valid cards. Put unresolved
 cards in the research JSON's `deferred` array with `id`, `reason`, `sources`
 (evidence URLs), and `nextAction`. Optional entry `dependsOn` IDs explicitly

@@ -15194,7 +15194,9 @@
       "excludedParticipantIds": [],
       "participantIds": [
         "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:matteo-arnaldi"
+        "competitor:tennis:atp:matteo-arnaldi",
+        "competitor:tennis:atp:jaume-munar",
+        "competitor:tennis:atp:jiri-lehecka"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -15207,14 +15209,26 @@
           "participantId": "competitor:tennis:atp:matteo-arnaldi",
           "draw": "singles",
           "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jaume-munar",
+          "draw": "singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jiri-lehecka",
+          "draw": "singles",
+          "active": true
         }
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
         "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:matteo-arnaldi"
+        "competitor:tennis:atp:matteo-arnaldi",
+        "competitor:tennis:atp:jaume-munar",
+        "competitor:tennis:atp:jiri-lehecka"
       ],
-      "contestCount": 1
+      "contestCount": 3
     },
     {
       "id": "tennis-parent:swiss-indoors-basel:2026:main",

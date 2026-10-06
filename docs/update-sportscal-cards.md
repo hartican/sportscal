@@ -1,5 +1,13 @@
 # Update Sportscal cards
 
+## Autonomous release recovery - 6 October 2026
+
+The Owner authorises diagnosing and repairing known recoverable deployment blockers without another prompt. Before publication, and after integrating advancing main, rebuild the existing editorial maintenance sources and run canonical `node scripts/update-cards.js --adaptive-editorial --list` with a fresh private check report and matching authorised control snapshot. It now identifies missing required display copy on existing 4+/5 public fixtures independently of rating selection. Research and apply original, participant-focused, spoiler-safe full copy through canonical `--adaptive-editorial --research`; preserve all sporting fields and unrelated copy. Never insert generic filler just to silence QA. Retain prior staged valid work and record any individual research failures with evidence and next action.
+
+Classify other failures before recovery: use the documented bounded main merge; regenerate conflicted/stale outputs with their existing builders; repair invalid version slugs and known relative-date regression fixtures without weakening assertions. Re-run the intact failing gate and all downstream release checks against the combined snapshot. Maximum three integration/recovery cycles per run; no duplicate provider ingestion, new scheduler, arbitrary source rewrites, force push, credential workaround or increased backend budget. Check whether an external deployment started before any retry; never blindly repeat an uncertain production action.
+
+Private revision/hold conflicts, protected copy, missing authoritative facts, unresolved integrity/spoiler failures and authorization outages are not auto-approved exceptions. Preserve work and report their exact failed stage when safe bounded recovery cannot pass. Do not ask for routine deployment confirmation or claim a release until GitHub main, READY exact-SHA production, served bytes and relevant live browser proof agree. A source-backed repair resolves a gate; it never bypasses it.
+
 Use `node scripts/update-cards.js` and its existing scoped modes. An update includes scoped GitHub main publication and exact-commit production deployment unless explicitly local-only. Keep the existing refresh owner, source budgets, editorial holds, spoiler controls and release gates; never access preferences to refresh sporting facts.
 
 ## Non-expiring editorial regression dates - 5 October 2026

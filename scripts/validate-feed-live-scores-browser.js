@@ -48,6 +48,18 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,scoreCheckedAt:null},{resultsOn:true});const missingFinalDate=scoreHost.textContent.includes('Source date unavailable')&&!scoreHost.textContent.includes('Update needed');
   scoreHost.remove();feedCardSlots.delete(event.id);host.remove();queueLiveFixtureSnapshot=savedQueue;return {compact,hidden,expanded,localHide,localShow,strictHide,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded,settledFinals,settledPrivacy,pilotCompacts,crossYear,explicitFailure,futureDateHidden,missingFinalDate};
  });for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
+ const reviewed=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.status==='completed');
+ const realResults=await page.evaluate(fixtures=>{
+  const saved=JSON.stringify(userPreferences),rows=[];
+  try{for(const fixture of fixtures){
+   userPreferences.showSpoilers=true;setCardState(fixture,'compact');const visible=buildEventCard(fixture);
+   userPreferences.showSpoilers=false;const hidden=buildEventCard(fixture),schedule=buildCodeInspectorFixture(fixture);
+   rows.push({id:fixture.id,visible:visible.textContent,hidden:hidden.textContent,schedule:schedule.textContent,score:fixture.score,sets:fixture.sets.map(s=>`${s.home}–${s.away}`).join('  '),outcome:fixture.outcomeText,resultNodes:hidden.querySelectorAll('.card-result-line,.feed-live-score,.spoiler-facts').length});
+  }}finally{userPreferences=JSON.parse(saved);}return rows;
+ },reviewed);
+ for(const row of realResults){assert(row.visible.includes(row.sets),'actual reviewed oriented sets are available with Results ON: '+JSON.stringify(row));assert(![row.hidden,row.schedule].some(text=>[row.score,row.sets,row.outcome].some(value=>text.includes(value)))&&row.resultNodes===0,'actual reviewed Feed/Schedule final stays hidden with Results OFF');}
+ console.log(JSON.stringify({engine,width,reviewedFinalsSpoilerSafe:realResults.length}));
+
  await page.close();}
  }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

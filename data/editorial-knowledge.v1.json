@@ -1026,6 +1026,16 @@
       "id": "subject:rolling:nbl:2026-27",
       "kind": "competition",
       "name": "2026–27 NBL season"
+    },
+    {
+      "id": "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "kind": "event",
+      "name": "Carlos Alcaraz v Jiri Lehecka"
+    },
+    {
+      "id": "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "kind": "event",
+      "name": "Novak Djokovic v Alex de Minaur"
     }
   ],
   "sources": [
@@ -5207,6 +5217,48 @@
       "url": "https://www.supercars.com/news/supercars-news-2026-five-burning-bathurst-questions-chevrolet-general-motors-drivers-engine-parity",
       "sourceType": "official",
       "checkedAt": "2026-10-04T22:29:59.987Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+      "name": "Carlos Alcaraz v Jiri Lehecka — official research 1",
+      "url": "https://www.protennislive.com/posting/2026/329/mds.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+      "name": "Carlos Alcaraz v Jiri Lehecka — official research 2",
+      "url": "https://www.protennislive.com/posting/2026/329/op.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2",
+      "name": "Carlos Alcaraz v Jiri Lehecka — official research 3",
+      "url": "https://www.atptour.com/en/news/alcaraz-tokyo-2026-entry",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+      "name": "Novak Djokovic v Alex de Minaur — official research 1",
+      "url": "https://www.protennislive.com/posting/2026/747/mds.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.194Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+      "name": "Novak Djokovic v Alex de Minaur — official research 2",
+      "url": "https://www.protennislive.com/posting/2026/747/op.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.194Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2",
+      "name": "Novak Djokovic v Alex de Minaur — official research 3",
+      "url": "https://novakdjokovic.com/en/news/tennis/novak-is-returning-to-beijing-after-11-years/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-06T02:59:54.194Z"
     }
   ],
   "narrativeFacts": [
@@ -29134,6 +29186,136 @@
       ],
       "expiresAt": null,
       "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "statement": "Alcaraz's semi-final against Munar required three sets; Lehecka's semi-final against Vacherot ended in two sets.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.191Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "statement": "Alcaraz is the top seed and Lehecka is unseeded in the official singles draw.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.191Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "statement": "Alcaraz returns as the defending Tokyo champion after his 2025 title.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2"
+      ],
+      "observedAt": "2026-10-06T02:59:54.191Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "statement": "The named singles final is on Colosseum on 6 October, not before 18:00 JST, equivalent to 20:00 AEDT, after doubles and a ceremony.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1"
+      ],
+      "observedAt": "2026-10-06T02:59:54.191Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "statement": "The official singles draw awards 500 ranking points to the champion and 330 to the runner-up.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.191Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "statement": "Djokovic's quarter-final against Zverev required three sets; his Medvedev semi-final ended with a default.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "statement": "De Minaur's semi-final against Hurkacz ended with a retirement after de Minaur took the first set.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "statement": "Djokovic returns after eleven years; each of his six previous China Open appearances ended in a title.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2"
+      ],
+      "observedAt": "2026-10-06T02:59:54.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "statement": "The official named singles final is on Capital Group Diamond on 6 October, not before 19:00 CST, equivalent to 22:00 AEDT.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1"
+      ],
+      "observedAt": "2026-10-06T02:59:54.194Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "statement": "The champion receives 500 ranking points and the runner-up 330 according to the official draw.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0"
+      ],
+      "observedAt": "2026-10-06T02:59:54.194Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -32013,6 +32195,40 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-04T05:50:24.161Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "title": "Carlos Alcaraz v Jiri Lehecka",
+      "summary": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:3",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "title": "Novak Djokovic v Alex de Minaur",
+      "summary": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:3",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-06T02:59:54.194Z"
     }
   ],
   "audienceMemories": [],
@@ -47706,6 +47922,76 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-06T02:47:49.275Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "researchDepth": 5,
+      "hook": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "synopsis": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "formCopy": "Alcaraz needed a three-set recovery against Jaume Munar in the semi-final; Lehecka's meeting with Valentin Vacherot lasted two sets. The contrast matters without making the Czech's route easy: Alcaraz has already had to recover his rhythm under pressure, while Lehecka carries a more direct finish into the decider. The question is whether the top seed can control the opening exchanges rather than needing another reset.",
+      "closingCopy": "A title defence asks Alcaraz to turn last year's achievement into a standard he can sustain. For Lehecka, an unseeded run puts him opposite the tournament's highest seed with the chance to make this week his own. That is the emotional imbalance: expectation sits with the champion, opportunity with the challenger. Neither reputation nor the smoother semi-final settles how they handle the last match.",
+      "threadIds": [
+        "thread:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:3",
+        "fact:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:0",
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:1",
+        "source:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka:2"
+      ],
+      "researchedAt": "2026-10-06T02:59:54.191Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-06T09:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-06T02:59:54.191Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "researchDepth": 5,
+      "hook": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "synopsis": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "formCopy": "Djokovic's route includes a three-set quarter-final against top seed Alexander Zverev and a semi-final cut short by Daniil Medvedev's default. De Minaur's semi-final ended when Hubert Hurkacz retired, after the Australian took the opening set. Neither interruption predicts the final. The useful contrast is Djokovic's recent experience of recovering a set deficit against elite opposition and de Minaur's opportunity to make this decider a contest decided entirely by their tennis.",
+      "closingCopy": "Djokovic returned after eleven years to a tournament where each of his six previous appearances ended with the title. That history makes Beijing more than another stop on the calendar for him. For de Minaur and Australian supporters, the appeal is the chance to challenge that local authority on the biggest match of this week, not simply to share a court with it. History can add pressure and belief; it cannot play the points for either man.",
+      "threadIds": [
+        "thread:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:3",
+        "fact:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:0",
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:1",
+        "source:fixture-research:fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur:2"
+      ],
+      "researchedAt": "2026-10-06T02:59:54.194Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-06T11:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-06T02:59:54.194Z"
       }
     }
   ]

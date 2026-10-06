@@ -2536,6 +2536,112 @@
         }
       ],
       "researchedAt": "2026-10-06T02:47:49.275Z"
+    },
+    {
+      "id": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "title": "Carlos Alcaraz v Jiri Lehecka",
+      "hook": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "formCopy": "Alcaraz needed a three-set recovery against Jaume Munar in the semi-final; Lehecka's meeting with Valentin Vacherot lasted two sets. The contrast matters without making the Czech's route easy: Alcaraz has already had to recover his rhythm under pressure, while Lehecka carries a more direct finish into the decider. The question is whether the top seed can control the opening exchanges rather than needing another reset.",
+      "closingCopy": "A title defence asks Alcaraz to turn last year's achievement into a standard he can sustain. For Lehecka, an unseeded run puts him opposite the tournament's highest seed with the chance to make this week his own. That is the emotional imbalance: expectation sits with the champion, opportunity with the challenger. Neither reputation nor the smoother semi-final settles how they handle the last match.",
+      "synopsis": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "sources": [
+        "https://www.protennislive.com/posting/2026/329/mds.pdf",
+        "https://www.protennislive.com/posting/2026/329/op.pdf",
+        "https://www.atptour.com/en/news/alcaraz-tokyo-2026-entry"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Alcaraz's semi-final against Munar required three sets; Lehecka's semi-final against Vacherot ended in two sets.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Alcaraz is the top seed and Lehecka is unseeded in the official singles draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Alcaraz returns as the defending Tokyo champion after his 2025 title.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The named singles final is on Colosseum on 6 October, not before 18:00 JST, equivalent to 20:00 AEDT, after doubles and a ceremony.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The official singles draw awards 500 ranking points to the champion and 330 to the runner-up.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Restore missing required public display copy with complete sourced participant-specific preview; preserve all sporting fields.",
+      "researchedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "title": "Novak Djokovic v Alex de Minaur",
+      "hook": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "formCopy": "Djokovic's route includes a three-set quarter-final against top seed Alexander Zverev and a semi-final cut short by Daniil Medvedev's default. De Minaur's semi-final ended when Hubert Hurkacz retired, after the Australian took the opening set. Neither interruption predicts the final. The useful contrast is Djokovic's recent experience of recovering a set deficit against elite opposition and de Minaur's opportunity to make this decider a contest decided entirely by their tennis.",
+      "closingCopy": "Djokovic returned after eleven years to a tournament where each of his six previous appearances ended with the title. That history makes Beijing more than another stop on the calendar for him. For de Minaur and Australian supporters, the appeal is the chance to challenge that local authority on the biggest match of this week, not simply to share a court with it. History can add pressure and belief; it cannot play the points for either man.",
+      "synopsis": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "sources": [
+        "https://www.protennislive.com/posting/2026/747/mds.pdf",
+        "https://www.protennislive.com/posting/2026/747/op.pdf",
+        "https://novakdjokovic.com/en/news/tennis/novak-is-returning-to-beijing-after-11-years/"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Djokovic's quarter-final against Zverev required three sets; his Medvedev semi-final ended with a default.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "De Minaur's semi-final against Hurkacz ended with a retirement after de Minaur took the first set.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Djokovic returns after eleven years; each of his six previous China Open appearances ended in a title.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The official named singles final is on Capital Group Diamond on 6 October, not before 19:00 CST, equivalent to 22:00 AEDT.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The champion receives 500 ranking points and the runner-up 330 according to the official draw.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Restore missing required public display copy with complete sourced participant-specific preview; preserve all sporting fields.",
+      "researchedAt": "2026-10-06T02:59:54.194Z"
     }
   ]
 }

@@ -675,6 +675,12 @@ The 3 October dated organiser article confirms Sinner has withdrawn and explicit
 ## Skiing calendar integrity — 4 October 2026
 
 The four-record dated FIS calendar review runs through the existing cards owner, full and ordinary quick projection paths. It performs zero new provider/AI calls, adds no scheduler or migration, preflights both surfaces, preserves later sporting observations and unchanged review timestamps, and cannot derive notification clocks from venue dates. Existing budgets and one-owner scheduling remain. Regression: validate-skiing-calendar-review.js and normal production gates.
+
+## Retained reviewed tennis results — 5 October 2026 Sydney
+
+The existing participant-schedules route of `node scripts/update-cards.js` publishes three reviewed next pairings and independently dated result evidence for three retained matches. Completed-result admission requires a source receipt, canonical ordered participants, associated winner and oriented set scores. Both retained publication surfaces are parsed and validated before writes; retries retain observation dates and canonical actions, and stale upcoming reviews cannot reopen terminal fixtures. A draw result cannot renew the independently checked scheduling facts or invent a finish instant.
+
+The review is bounded manual source evidence; no automated ATP/WTA harvesting or new source adapter is enabled. Profiles, Feed, Events, Match Centre and reminder catalogue reuse the shared publication. Existing live-source owner, bounded refresh, permissions, account/erasure guards, and sole five-minute dispatcher remain. No new scheduler, database mutation/schema, per-user organiser request, paid feed, trial or supplier contact. Shanghai/Wuhan complete fresh permitted inputs and real app-closed phone proof remain open.
 # Cricket innings projection — 4 October 2026
 
 The existing retained-data `update-cards.js --code-projections --codes=cricket` owner preserves supplied innings alongside the already-owned score observation. Presentation cannot renew source dates, manufacture missing batting identities or replace absent scores with zero. Source calls, persistence ownership, cadence, retries, API/database budgets and deployed credentials remain unchanged. A small shared innings module uses the existing deferred-script owner and is cached for offline use. It loads when Cricket results are presented, adding no critical startup request, API call or owner routine. The unused legacy spoiler renderer is removed after a repository/reference scan found no callers; the unchanged critical-byte budget remains enforced. Required Code QA executes the actual-source regression, and normal shell/cache/release proof remains mandatory.
@@ -711,3 +717,13 @@ No source provider, scheduler, browser polling, retry, API/schema migration, sub
 ## F1 result and schedule evidence boundaries — 5 October 2026
 
 The existing full/quick F1 result owner supplies an independent result observation. Unchanged validated full session tables retain their own original observation; legacy dates that predate the session are repaired only from the same retained table's valid observation. A calendar/venue annotation keeps its reference without replacing a completed F1 session's result source or check dates. Explicit reviewed-result updates remain available. Actual newly available official race rows are accepted through the existing known-fixture writer; no source calls, polling, retry policy, scheduler, credentials or owner routine are added. Regression: the existing F1 session gate exercises parser, pending recovery, unchanged/changed tables and real schedule/result merging. Broader source quality, championships, physical-device and whole-family certification remain separate.
+
+
+## Reviewed tennis final checkpoint — 6 October 2026 Sydney
+
+Reuse the retained individual-fact register and existing participant-schedules route of update-cards.js. Explicit retirement evidence records the retiring opponent and source marker; an unfinished set does not fabricate completion without that proof. Results/status checks remain independent of original schedule checks, terminal records cannot reopen, both persistent surfaces preflight before writes and unchanged replay retains bytes. The two Beijing finalists share one canonical fixture across profiles and surfaces. No source adapter, provider budget, scheduler, polling, API/schema, database mutation, migration, trial or purchase is added. Complete permitted Shanghai/Wuhan inputs, observed full-event reconciliation and actual installed-phone receipts remain unproven.
+
+
+## Profile match navigation owns pending focus — 6 October 2026 Sydney
+
+The existing pending-fixture focus boundary distinguishes the active profile-to-Feed history route. Its incomplete mount cannot start a fallback network request/dialog; the existing Feed redraw completes focus. Back/tab navigation cancels pending focus in the existing deferred profile route. Notification fallback remains unchanged for ordinary notification destinations. Reuse history, account/route guards and current redraw ownership: no new observer, interval, timer, API, source request, retry, database operation or scheduler. Normal fixed startup/precache budgets and browser upgrade gates remain required.
