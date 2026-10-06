@@ -431,9 +431,10 @@
     const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);
     const category=policy?.sportKey(event);
     if(category?.endsWith('-women')&&sportById.has('sport:'+category))return 'sport:'+category;
+    const canonicalNode=sportIdByCanonicalKey.get(category)||(sportById.has('sport:'+category)?'sport:'+category:null);
     for (const field of ["discoverySportId", "catalogueSportId", "sportCatalogueNodeId"]){
       const explicit = String(event?.[field] || "").trim();
-      if (sportById.has(explicit)) return explicit;
+      if (sportById.has(explicit)&&(!canonicalNode||topLevelSportId(explicit)===topLevelSportId(canonicalNode))) return explicit;
     }
     const commonwealthKey = String(event?.key || event?.sportKey || event?.sportId || "").trim().toLowerCase();
     const eventTagIds = uniqueStrings([

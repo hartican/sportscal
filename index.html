@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="447">
+<meta name="app-shell-version" content="448">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=447" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=448" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=424">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=424">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=448">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=447"></script>
+<script src="assets/js/app-shell-runtime.js?v=448"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8016,10 +8016,10 @@ function buildMatchupIdentity(ev, displayTitle){
 
 function appendFollowedFixtureParticipants(container,ev){
   if(!['f1','motogp','wrc','motorsport','cycling'].includes(ev.key))return;
-  const ids=FOLLOW_FEED_POLICY.participantIds(ev).filter(id=>cachedParticipantFollow(id).followed);
+  const ids=[...new Set(FOLLOW_FEED_POLICY.participantIds(ev))].filter(id=>cachedParticipantFollow(id).followed);
   if(!ids.length)return;
   const row=document.createElement('div');row.className='fixture-participant-links';
-  const entries=ids.map(id=>{const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);return label&&label!==id?{id,label}:null;}).filter(Boolean);
+  const entries=ids.map(id=>{const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);return label&&label!==id?{id,label}:null;}).filter(Boolean).sort((a,b)=>a.label.localeCompare(b.label,'en',{sensitivity:'base'})||a.id.localeCompare(b.id));
   row.addEventListener('focusin',e=>e.target.scrollIntoView({block:'nearest',inline:'nearest'}));
   row.tabIndex=0;row.setAttribute('role','region');row.setAttribute('aria-label','Followed drivers and teams');
   for(const {id,label} of entries)row.appendChild(participantProfileLink(id,label,ev.key==='motorsport'&&id.includes(':f1:')?'f1':ev.key));
@@ -11649,8 +11649,7 @@ function warmNextFeedPageDuringIdle(){
   warmedPublicFeedPages.add(path);
   const warm = () => {
     publicFeedWarmHandle = null;
-    // Drain the body, not only the headers: an unread prefetched response can
-    // keep Chromium's active worker busy and block a waiting shell upgrade.
+    // Drain prefetched bodies so a shell upgrade cannot be blocked.
     fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) }).then(async response => {
       if (!response.ok){
         await response.body?.cancel();
@@ -11669,7 +11668,6 @@ function warmNextFeedPageDuringIdle(){
 }
 
 async function loadNextFeedPage({limit=FEED_PAGE_SIZE}={}){
-  // Scrolling and Filter may request the same next page at once.
   if (feedPageRequest) return feedPageRequest;
   feedPageRequest = loadFeedPageOnce({limit}).finally(() => { feedPageRequest = null; });
   return feedPageRequest;
@@ -11690,6 +11688,7 @@ async function loadFeedPageOnce({limit}){
       applyServerFeed(payload);
     } else {
       const payload = await fetchJson(publicPage.path, { cache: "default" });
+      if(generation!==feedViewGeneration||serverPersistence.user||publicFeedManifest?.pages?.[publicFeedNextPageIndex]!==publicPage)return false;
       const events = coerceEventList(payload);
       if (!events.length) throw new Error("Published feed page contained no usable events");
       publicFeedNextPageIndex += 1;
@@ -13345,14 +13344,6 @@ function feedFilterMatchesEvent(filterValue, event){
   return selectorEntity ? selectorEntityMatchesEvent(filterValue, event) : event.key === filterValue;
 }
 
-function renderFeedFilterDock(){
-  // Inspector is opened explicitly; its manifest must not join feed startup.
-}
-
-function setFeedFilterVisible(nextVisible){
-  void nextVisible;
-}
-
 function renderFilters(){
   const availableKeys = rankingSportKeysForStandings();
   if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set();
@@ -14636,8 +14627,7 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = tennisFeedParentCandidates(activeEvents);
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
 
-  // Follows are additive. Retired enthusiasm/round/discovery filters must not
-  // veto a fixture promised by the common Follow policy.
+  // Apply the shared additive Follow policy.
   const followContext=buildFollowEligibilityContext();
   list = list.filter(event=>eventFollowReason(event,followContext));
   if (activeTab === "feed" && activeFilter !== "all") list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
@@ -14645,16 +14635,13 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 }
 
 let feedViewFilters=(()=>{try{return {...{sport:'all',minimum:0},...JSON.parse(localStorage.getItem('ns-feed-view-filter-v1')||'{}')};}catch{return {sport:'all',minimum:0};}})();
-let feedFilterHydration=null,feedFilterHydratedKey='';
-async function loadAllFeedPages(){while(serverPersistence.user?serverFeedNextCursor!==null:Boolean(publicFeedManifest?.pages?.[publicFeedNextPageIndex])){if(!await loadNextFeedPage({limit:50}))throw new Error('Couldn’t load all Feed cards. Try again.');}}
-async function hydrateFeedFilter(){
+let feedFilterHydration=null,feedFilterHydratedKey='',feedFilterError='';
+const feedFilterKey=()=>`${serverSyncClient?.sessionSubject()||'public'}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
+async function loadAllFeedPages(current=()=>true){const seen=new Set();while(current()&&(serverPersistence.user?serverFeedNextCursor!==null:Boolean(publicFeedManifest?.pages?.[publicFeedNextPageIndex]))){const cursor=serverPersistence.user?serverFeedNextCursor:publicFeedNextPageIndex;if(seen.has(cursor)||seen.size>=250)throw new Error('Feed paging did not advance.');seen.add(cursor);if(!await loadNextFeedPage({limit:50}))throw new Error('Couldn’t load all Feed cards. Try again.');await new Promise(resolve=>setTimeout(resolve,0));}}
+function hydrateFeedFilter(){
  if(feedFilterHydration)return feedFilterHydration;
- const owner=serverSyncClient?.sessionSubject()||'public';
- feedFilterHydration=(async()=>{
-  await loadAllFeedPages();
-  if(feedViewFilters.minimum){const context=buildFollowEligibilityContext(),ids=activeEvents.filter(e=>eventFollowReason(e,context)).map(nothingscoreEventId);for(let i=0;i<ids.length;i+=50){if(owner!==(serverSyncClient?.sessionSubject()||'public'))return;await loadNothingscoreBatch(ids.slice(i,i+50),{rerender:false});}}
-  feedFilterHydratedKey=`${owner}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
- })().finally(()=>{feedFilterHydration=null;});return feedFilterHydration;
+ const key=feedFilterKey(),generation=feedViewGeneration,filter={...feedViewFilters};feedFilterError='';feedFilterHydratedKey=key;
+ feedFilterHydration=loadDeferredScript('assets/js/feed-filter-ui.js?v=448').then(()=>globalThis.hydrateFeedViewFilter({key,generation,filter})).catch(()=>{if(key===feedFilterKey())feedFilterError='Some cards or ratings couldn’t load. Showing available matches.';}).finally(()=>{feedFilterHydration=null;if(activeTab==='feed')renderAll({preserveViewport:true});});return feedFilterHydration;
 }
 function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev.id));}
 function getFilteredEvents(){
@@ -18088,8 +18075,7 @@ function appendFeedPageToCurrentList(incomingEvents){
 
 function renderListView(){
   if(activeTab==='feed'&&(feedViewFilters.sport!=='all'||feedViewFilters.minimum)&&!startupCoordinator.isHydrating()){
-    const key=`${serverSyncClient?.sessionSubject()||'public'}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
-    if(!feedFilterHydration&&feedFilterHydratedKey!==key){feedFilterHydratedKey=key;void hydrateFeedFilter().then(()=>{if(activeTab==='feed')renderAll({preserveViewport:true});}).catch(()=>showToast('Some ratings couldn’t load. Open Filter to try again.'));}
+    if(!feedFilterHydration&&feedFilterHydratedKey!==feedFilterKey())void hydrateFeedFilter();
   }
   resetFeedCardWindow();
   const container = document.getElementById("listView");
@@ -18098,6 +18084,7 @@ function renderListView(){
   container.dataset.scrollList = "feed";
   if(calendarChoice.active)renderCalendarSelectionToolbar(container);
   else renderFeedViewActions(container);
+  globalThis.renderFeedFilterStatus?.(container);
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
   let baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
@@ -20326,7 +20313,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
-document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=293').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
+document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=448').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -20433,7 +20420,6 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
   renderFilters();
-  renderFeedFilterDock();
   syncFeedFilterDockOffset();
   renderTabCounts();
   const calControls = document.getElementById("calendarControls");

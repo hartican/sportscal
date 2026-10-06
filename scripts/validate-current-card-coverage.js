@@ -43,7 +43,9 @@ for(const expected of evidence.resultOverrides){
     const names = expected.outcomeText.match(/(?:Alexander Zverev|Ben Shelton|Elena Rybakina|Aryna Sabalenka)/g) || [];
     assert(names.length >= 2 && names.every(name => String(record.score).includes(name.split(" ").at(-1))), `${expected.id} must retain both finalists in its official score`);
   }else{
-    assert.equal(record.score, expected.score, `${expected.id} result drifted`);
+    // Reviewed tennis sets may use commas; compare the same named score facts.
+    const scoreText=value=>record.key==='tennis'?String(value).replace(/,\s*(?=\d)/g,' '):value;
+    assert.equal(scoreText(record.score), scoreText(expected.score), `${expected.id} result drifted`);
   }
   if(record.startTimeUtc) assert(Number.isFinite(Date.parse(record.endTimeUtc)), `${expected.id} completion boundary is missing`);
 }
