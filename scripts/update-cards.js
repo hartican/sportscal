@@ -275,6 +275,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-feed-follow-repairs.js"],
   ["scripts/validate-experience-reliability.js"],
   ["scripts/validate-golf-source-observations.js"],
+  ["scripts/validate-golf-tracked-scope.js"],
   ["scripts/validate-canonical-source-readout.js"],
   ["scripts/validate-worker-fallback.js"],
   ["scripts/validate-feed-filter-pagination.js"],
@@ -540,8 +541,10 @@ async function runMain() {
     return;
   }
   if(process.argv.includes('--golf-quality')){
+    const review=require('./lib/golf-retained-review').apply();
     for(const step of [
-      ['scripts/build-code-inspector.js','--codes=golf'],
+      ...(review.feedChanged?[['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js']]:[]),
+      ['scripts/build-code-inspector.js','--codes=golf'],['scripts/build-follow-directories.js','--codes=golf,golf-women,tennis,tennis-women'],['scripts/build-tournament-horizon.js'],
       ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-reviewed-au-viewing.js','--published'],
       ['scripts/validate-tournament-hydration.js'],['scripts/validate-canonical-source-readout.js'],

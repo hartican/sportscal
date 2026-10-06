@@ -234,11 +234,11 @@
       "id": "sport:golf",
       "slug": "golf",
       "label": "Golf",
-      "fixtureCount": 127,
+      "fixtureCount": 133,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-06T04:18:00.788Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {

@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="450">
+<meta name="app-shell-version" content="451">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=450" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=451" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=424">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=450">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=451">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7191,7 +7191,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=450"></script>
+<script src="assets/js/app-shell-runtime.js?v=451"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7205,7 +7205,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=450")
+  : loadDeferredScript("config/card-identities.js?v=451")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -8762,15 +8762,15 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=401').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=447')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= loadDeferredScript('config/athletes.js?v=451').then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=451')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
-  await loadDeferredScript('config/athletes.js?v=401');
-  await loadDeferredScript('assets/js/athletes-ui.js?v=447');
+  await loadDeferredScript('config/athletes.js?v=451');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=451');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -15149,8 +15149,9 @@ function buildFixtureTimingBadge(ev){
   const badge = document.createElement('span');
   badge.className = 'fixture-timing-badge';
   const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
-  const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.time||'TIME TBC';
-  badge.append(day,clock);
+  const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.time;
+  badge.append(day);if(timing.time)badge.append(clock);
+  if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
   if(timing.status){const status=document.createElement('small');status.textContent=timing.status;badge.append(status);}
   badge.dataset.timingStatus = timing.status;
   badge.setAttribute('aria-label', timing.ariaLabel);
@@ -16106,7 +16107,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=366').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=451').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
@@ -16545,7 +16546,7 @@ function buildInlineCrowdRating(ev,snapshot){
     }
   }
   paint(chosen);root.append(group,prompt);
-  if(phase==='heat'&&!exactTiming){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
+  if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
   root.appendChild(status);return root;
 }
 
@@ -19066,7 +19067,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=450';
+  const url='assets/js/follow-presentation-ui.js?v=451';
   return loadDeferredScript(url).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);

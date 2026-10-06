@@ -230,7 +230,7 @@
       "key": "golf-women",
       "label": "Golf Women",
       "status": "available",
-      "recordCount": 13,
+      "recordCount": 14,
       "jsonUrl": "data/follow-directory/golf-women.v1.json",
       "scriptUrl": "data/follow-directory/golf-women.v1.js"
     },
@@ -310,7 +310,7 @@
       "key": "golf",
       "label": "Golf",
       "status": "available",
-      "recordCount": 10,
+      "recordCount": 17,
       "jsonUrl": "data/follow-directory/golf.v1.json",
       "scriptUrl": "data/follow-directory/golf.v1.js"
     },

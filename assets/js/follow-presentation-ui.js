@@ -307,6 +307,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const records = allRecords
     .filter(record=>!sportKey.startsWith('cricket')||NOTHINGSPORTS_CRICKET_COVERAGE.policy.bblTeams.some(n=>record.id==='team:cricket:'+n)===(filters.cricketFormat==='BBL'))
     .filter(record => !curatedIds.length || filters.query || filters.genderCategory === "female" || curatedOrder.has(record.id))
+    .filter(record => !['tennis','golf'].includes(sportKey.replace(/-women$/,''))||filters.query||filters.collectionId||record.entityType!=='athlete'||record.current&&Number.isFinite(record.rank)&&record.rank>=1&&record.rank<=(sportKey.replace(/-women$/,'')==='golf'&&record.genderCategory==='female'?5:10))
     .filter(record => !separatedEntityDirectory || record.entityType === filters.entityType)
     .filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
@@ -455,7 +456,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (flag) name.insertAdjacentHTML("afterbegin", `${flag} `);
     }
     const detail = document.createElement("span");
-    const rankLabel = record.rank !== null ? ` · Rank ${record.rank}` : sportKey === "tennis" && record.watchPoolMember ? " · Watch list · Unranked" : "";
+    const rankLabel = record.rank !== null ? ` · ${record.rankingBasis||'Rank'} ${record.rank}${record.rankingEffectiveOn?' · '+record.rankingEffectiveOn:record.rankingCheckedOn?' · checked '+record.rankingCheckedOn:''}` : sportKey === "tennis" && record.watchPoolMember ? " · Watch list · Unranked" : "";
     const competitionNumber = Number(record.competitionNumber || 0);
     const numberLabel = athlete && !isWrcRecord && record.competitionNumberKind ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
     const wrcRole = ({ driver:"Driver", "co-driver":"Co-driver", manufacturer:"Manufacturer" })[record.position];

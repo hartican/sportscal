@@ -584,6 +584,7 @@
     return sportMarks.cricket;
   }
   function markForEvent(event){
+    if(event?.tournamentId==='R2026527'||/\bbaycurrent classic\b/i.test(eventSearchText(event)))return officialMark('brand:baycurrent-classic','Baycurrent Classic','assets/identities/golf/baycurrent-classic-2026.png','https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times');
     if(event?.identityRef==="event:le-mans" || /\b24 hours of le mans\b/i.test(eventSearchText(event)))return eventMarks["le-mans"];
     if(event?.golfMajorCalendar&&golfMajorMarks[event.majorSlug])return golfMajorMarks[event.majorSlug];
     const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event)));

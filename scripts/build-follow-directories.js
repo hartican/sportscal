@@ -108,6 +108,8 @@ function normalizeRecord(record, additions = {}){
     ...(metadata.standingsOnly ? {standingsOnly:true} : {}),
     eventRanks:Array.isArray(record.eventRanks) ? record.eventRanks : [],
     rankingBasis:record.rankingBasis || null,
+    ...(record.rankingEffectiveOn||record.rankingSnapshotDate?{rankingEffectiveOn:record.rankingEffectiveOn||record.rankingSnapshotDate}:{}),
+    ...(record.rankingCheckedOn?{rankingCheckedOn:record.rankingCheckedOn}:{}),
     sourceRefs:Array.from(new Set([record.sourceUrl,...(record.sourceRefs || []), ...(additions.sourceRefs || [])].filter(Boolean))),
     watchPoolMember:Boolean(additions.watchPoolMember ?? record.watchPoolMember),
     statusCategory:additions.statusCategory || record.statusCategory || null,
@@ -256,6 +258,10 @@ function main(){
     }));
   });
 
+  for(const [id,player] of chunks.get('golf'))chunks.get('golf').set(id,{...player,ranking:null,rankingBasis:null});
+  const golfCohort=require('../data/canonical/golf-tracked-cohort.v1.json');
+  for(const player of [...golfCohort.ranked,...golfCohort.explicitRetentions])chunks.get('golf').set(player.id,normalizeRecord({...player,type:'competitor',current:true}));
+
   const tennisChunk = chunks.get("tennis");
   for(const team of readJson('data/canonical/tennis-team-contests.v1.json').participants)tennisChunk.set(team.id,normalizeRecord(team,{genderCategory:team.genderCategory||'men',sourceRefs:team.sourceRefs}));
   const tennisByName = new Map([...tennisChunk.values()].map(record => [normalizedNameKey(record.displayName), record]));
@@ -286,6 +292,8 @@ function main(){
     tennisChunk.set(player.id, merged);
     tennisByName.set(nameKey, merged);
   });
+
+  for(const player of readJson('data/canonical/tennis-catalogue-2026.json').athletes){const existing=tennisByName.get(normalizedNameKey(player.displayName));if(existing){Object.assign(existing,{ranking:player.rankingSingles,rankingBasis:player.tour+' singles',rankingEffectiveOn:player.rankingSnapshotDate,rankingCheckedOn:player.rankingPublicationCheckedAt?.slice(0,10)});}}
 
   const tennisContext = contexts.find(context => (context.participants || []).some(participant => String(participant.sportDomainId || "").startsWith("sport:tennis:")));
   const tennisCollections = (tennisWatchPool.collections || []).map(collection => {

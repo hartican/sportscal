@@ -257,7 +257,8 @@ assert(appSource.includes('code?.slug === "wrc" ? [["results", "Results / Replay
 assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes("codeInspectorTab==='results'"));
 assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes('buildFixtureResultAvailability'));
 require('./validate-result-availability-presentation');
-assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only'}).time,'TIME TBC', 'date-only rallies explicitly disclose an unknown clock');
+assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only',status:'completed'}).time,'','a sourced final has no pending stage-clock banner');
+assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only'}).time,'RALLY DATES', 'date-only rallies show their calendar window without claiming a stage start');
 assert(appSource.includes('SPORT_CONTEXT.mergeCanonicalBundles(...contextBundles)'));
 assert(appSource.includes('participant?.metadata?.preferenceDomainId === domainId'));
 assert(serverFeedSource.includes('require("../data/canonical/wrc-context-2026.json")'), "the authenticated feed must merge the WRC participant scope");

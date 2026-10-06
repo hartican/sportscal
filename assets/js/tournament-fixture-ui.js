@@ -16,7 +16,14 @@ function renderTournamentSlots(container,event){
   const participant=p=>p.displayName||p.name||p.label;
   const row=(host,title,info,fixture)=>{const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=title;p.append(strong,document.createTextNode(info?' · '+info:''));if(fixture){const action=getEventAction(fixture),timing=eventReminderTiming(fixture);if(timing||action.reminderRequested){const button=document.createElement('button');button.type='button';button.className='event-quick-action';button.dataset.reminderActionKey=eventActionKey(fixture);button.dataset.reminderAliases=EVENT_ACTION_IDENTITY.aliasesForEvent(fixture).join('|');renderQuickReminderButton(button,action.reminderRequested);button.disabled=!action.reminderRequested&&!reminderCanBeScheduled(timing);button.addEventListener('click',()=>void toggleQuickReminder(fixture,button));p.append(button);}}host.append(p);};
   details.addEventListener('toggle',()=>{if(!details.open||mounted)return;mounted=true;
-   if(appearances.length){
+   if(appearances.length&&event.key==='golf'&&event.eventFamilyId!=='presidents-cup'&&!event.contestUnit){
+    const now=Date.now(),followed=p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel);
+    const future=appearances.filter(a=>a.timePrecision==='exact'&&Date.parse(a.startTimeUtc)>=now).sort((a,b)=>Date.parse(a.startTimeUtc)-Date.parse(b.startTimeUtc));
+    const personal=future.filter(a=>a.participants?.some(followed)),pool=personal.length?personal:future,seen=new Set();
+    for(const a of pool){const relevant=(a.participants||[]).filter(p=>personal.length?followed(p):(event.participantIds||[]).includes(p.id));if(!relevant.some(p=>!seen.has(p.id)))continue;relevant.forEach(p=>seen.add(p.id));const lead=relevant.map(participant).join(' / '),partners=(a.participants||[]).filter(p=>!relevant.includes(p)).map(participant);row(details,lead||a.label,[a.label,stamp(a),a.tee?'Tee '+a.tee:null,partners.length?'with '+partners.join(' and '):null].filter(Boolean).join(' · '),{...a,key:'golf',cardType:'golf_appearance',name:(a.participants||[]).map(participant).join(' / '),tournamentId:event.tournamentId,competitionId:event.competitionId});if(details.querySelectorAll(':scope > p').length>=3)break;}
+    if(!future.length)row(details,'Next tee time','The organiser has not published a verified next group.');
+    if(event.sourceUrl){const link=document.createElement('a');link.href=event.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Official tee times';details.append(link);}
+   }else if(appearances.length){
     const followed=p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel);
     const aus=(userPreferences.followFirst?.australiansOnlySportIds||[]).includes('sport:golf');
     const relevant=appearances.filter(a=>(a.participants||a.sides?.flatMap(s=>s.participants)||[]).some(p=>followed(p)||aus&&p.countryCode==='AU'));
@@ -29,11 +36,11 @@ function renderTournamentSlots(container,event){
     const relevant=entries.filter(p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel)||(userPreferences.followFirst?.australiansOnlySportIds||[]).includes('sport:golf')&&p.countryCode==='AU');
     const initial=relevant.length?relevant:entries.slice(0,6);
     row(details,'Confirmed entrants',initial.map(participant).join(', '));
-    const rest=entries.filter(p=>!initial.includes(p));if(rest.length){const extra=document.createElement('details'),more=document.createElement('summary');more.textContent=`All ${entries.length} confirmed entrants`;extra.append(more);row(extra,'Also entered',rest.map(participant).join(', '));details.append(extra);}
+    if(event.sourceUrl){const link=document.createElement('a');link.href=event.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Official tournament information';details.append(link);}
    }
    let published=0,pending=false;
    for(const f of fixtures.filter(f=>f.id!==event.id&&f.cardType!=='golf_session'&&f.contestUnit!=='rubber')){
-    if(f.appearances?.length)continue;if(f.contestUnit==='tie'&&!f.participantIds?.length){pending=true;continue;}published++;
+    if(f.appearances?.length||f.cardType==='golf_appearance')continue;if(f.contestUnit==='tie'&&!f.participantIds?.length){pending=true;continue;}published++;
     row(details,!userPreferences.showSpoilers&&f.spoilerSafeTitle?f.spoilerSafeTitle:f.name,stamp(f),{...f,key:f.key||event.key,tournamentLevel:f.tournamentLevel||tournament?.level});
     for(const r of f.rubbers||[]){if(!(r.participantIds?.length||r.sides?.some(s=>s.names?.length))){pending ||= r.status!=='not-required';continue;}
      row(details,r.name,[r.matchType,userPreferences.showSpoilers?r.score:null,r.status==='not-required'?'Not required':null].filter(Boolean).join(' · '),{...r,key:r.key||f.key||event.key,tournamentLevel:r.tournamentLevel||f.tournamentLevel||tournament?.level,roundLabel:r.roundLabel||f.roundLabel,competitionId:r.competitionId||f.competitionId});}

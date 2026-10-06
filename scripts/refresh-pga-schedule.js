@@ -101,6 +101,7 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
  const results=await require('../lib/lpga-results').refresh(document,{fetchImpl,now,clock,onCheck:observer.record});document=results.document;observer.resultsPass(results);for(const failure of results.failures)console.warn('LPGA results retained:',failure.id,failure.code);
  // The snapshot contains sporting facts only, never page-context/session data.
  if(previous&&JSON.stringify(previous.tournaments)===JSON.stringify(seasons))document.checkedAt=previous.checkedAt;
+ if(outputPath===OUTPUT){const ranking=await require('../lib/golf-ranked-cohort').refresh({now,fetchImpl});if(ranking.error)console.warn('Golf rankings retained:',ranking.error);const scope=require('../lib/golf-tracked-scope');document=scope.projectDocument(document,{ids:scope.trackedIds(scope.privateFollowIds()),now});}
  fs.writeFileSync(outputPath,JSON.stringify(document,null,2)+'\n');console.log(`PGA TOUR: ${seasons.length} published tournaments, ${seasons.filter(t=>t.major).length} majors, ${seasons.filter(t=>t.winners.length).length} confirmed results`);return document;
 }
 if(require.main===module)refresh().catch(e=>{console.error(e.message);process.exitCode=1;});

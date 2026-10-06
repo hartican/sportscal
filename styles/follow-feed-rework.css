@@ -436,3 +436,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .is-minimal-fixture .event-quick-action{font-size:.65rem;}
 #listView .is-minimal-fixture .fixture-competition-link{margin:0;}
 #listView .is-minimal-fixture .major-event-matchup-player{white-space:normal;}
+
+/* Preserve the original official square asset while giving its wordmark room. */
+.event-hero-mark[data-card-identity="brand:baycurrent-classic"]{position:relative;width:180px;height:76px;margin:4px auto;overflow:hidden;background:white;border-radius:8px;}
+.event-hero-mark[data-card-identity="brand:baycurrent-classic"] .event-brand-logo{position:absolute;width:180px;height:180px;top:50%;left:0;transform:translateY(-50%) scale(1.55);}

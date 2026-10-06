@@ -44,7 +44,9 @@
     const range = end && key && dayKey(end) !== key;
     if (range){ day = `${dated(date)} – ${dated(end)}`; fullDate += ` – ${dated(end)}`; }
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
-    const time = precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`;
+    const overview=(event.dateOnly||precision==='date-only')&&(event.key==='wrc'||event.cardType==='golf_tournament');
+    const settled=/^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status||'');
+    const time = overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`;
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
