@@ -722,3 +722,8 @@ The existing full/quick F1 result owner supplies an independent result observati
 ## Reviewed tennis final checkpoint — 6 October 2026 Sydney
 
 Reuse the retained individual-fact register and existing participant-schedules route of update-cards.js. Explicit retirement evidence records the retiring opponent and source marker; an unfinished set does not fabricate completion without that proof. Results/status checks remain independent of original schedule checks, terminal records cannot reopen, both persistent surfaces preflight before writes and unchanged replay retains bytes. The two Beijing finalists share one canonical fixture across profiles and surfaces. No source adapter, provider budget, scheduler, polling, API/schema, database mutation, migration, trial or purchase is added. Complete permitted Shanghai/Wuhan inputs, observed full-event reconciliation and actual installed-phone receipts remain unproven.
+
+
+## Profile match navigation owns pending focus — 6 October 2026 Sydney
+
+The existing pending-fixture focus boundary distinguishes the active profile-to-Feed history route. Its incomplete mount cannot start a fallback network request/dialog; the existing Feed redraw completes focus. Back/tab navigation cancels pending focus in the existing deferred profile route. Notification fallback remains unchanged for ordinary notification destinations. Reuse history, account/route guards and current redraw ownership: no new observer, interval, timer, API, source request, retry, database operation or scheduler. Normal fixed startup/precache budgets and browser upgrade gates remain required.
