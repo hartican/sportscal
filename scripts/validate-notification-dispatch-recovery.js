@@ -24,6 +24,16 @@ async function main(){
  assert.equal(result.updated,prepared.candidates.length);
  assert.equal(new Set(batches.flatMap(c=>c.o.body.items.map(i=>i.id))).size,prepared.candidates.length,'Each candidate is synced once');
  assert(calls.some(c=>c.o.body?.last_error===null),'Successful refresh clears its lease and error');
+ const unchangedCalls=[];
+ const unchanged=await refresh.reconcile({now:+now,request:async(p,o={})=>{
+  unchangedCalls.push({p,o});
+  if(p.endsWith('nothingsports_comms_claim_refresh'))return 'lease';
+  if(p.includes('nothingsports_marquee_campaigns?'))return prepared.candidates.map(c=>({campaign_id:c.campaignId,event_id:c.eventId,content_hash:c.contentHash,candidate:c,draft_copy:{hook:'Owner edit'},campaign_revision:9}));
+  if(p.endsWith('nothingsports_comms_sync_batch'))throw Error('Unchanged content must not be retransmitted');
+  return [];
+ }});
+ assert.equal(unchanged.updated,0);
+ assert(!unchangedCalls.some(c=>c.p.endsWith('nothingsports_comms_sync_batch')),'The six-hour refresh avoids sending unchanged campaign payloads');
  let batchNumber=0;
  const conflictCalls=[];
  await assert.rejects(refresh.reconcile({now:+now,request:async(p,o={})=>{
