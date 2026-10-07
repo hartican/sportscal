@@ -257,6 +257,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-app-shell-runtime.js", "--check"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-ui-reliability.js"],
+  ["scripts/validate-startup-late-recovery.js"],
   ["scripts/validate-submission-state.js"],
   ["scripts/validate-nsc-client-flow.js"],
   ["scripts/validate-peer-results.js"],
